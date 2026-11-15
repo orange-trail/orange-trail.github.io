@@ -223,7 +223,7 @@ function layoutCrowd(){
   if (!mblocks || !W) return;
   const z = [mblocks[0] ? mblocks[0].nTx : 0, mblocks[1] ? mblocks[1].nTx : 0, mblocks.slice(2).reduce((a, b) => a + b.nTx, 0)];
   perFig = Math.max(25, Math.ceil(z[0]/34/25)*25);
-  crowd = z.map((n, zi) => Array.from({length: Math.min(zi === 2 ? 60 : 40, Math.ceil(n/perFig))}, (_, i) => ({i, ph: Math.random()*TAU, hue: zi})));
+  crowd = z.map((n, zi) => Array.from({length: Math.min(zi === 2 && innerWidth >= 600 ? 60 : 40, Math.ceil(n/perFig))}, (_, i) => ({i, ph: Math.random()*TAU, hue: zi})));
 }
 function zoneRect(zi){
   const pl = W < 560 ? 4 : W*.34, w = (W - pl - 12)/3;   // Handy: Bahnsteig über die ganze Breite
@@ -331,11 +331,11 @@ function draw(){
   ctx.strokeStyle = "rgba(124,196,255,.12)"; ctx.lineWidth = 3;
   for (let i = 0; i < 6; i++){ const cx = (i + .5)*W/5.5; ctx.beginPath(); ctx.arc(cx, H*.62, W/5.5*.75, Math.PI*1.08, Math.PI*1.92); ctx.stroke(); }
   // Uhr: Minuten seit dem letzten Block
-  const ago = tip.ts ? Math.max(0, Date.now()/1000 - tip.ts) : 0, cx = W - 46*k, cy = 46*k, r = 28*k;
+  const ago = tip.ts ? Math.max(0, Date.now()/1000 - tip.ts) : 0, cx = W - 62*k, cy = 46*k, r = 28*k;
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.fillStyle = "#eef0ff"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.stroke();
   const am = (ago/60 % 60)/60*TAU - Math.PI/2; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(am)*r*.75, cy + Math.sin(am)*r*.75); ctx.lineWidth = 2.5; ctx.stroke();
   ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(cx, cy, 2.5, 0, TAU); ctx.fill();
-  ctx.fillStyle = "#9aa2d6"; ctx.font = `600 ${Math.round(10*k + 2)}px ui-monospace,monospace`; ctx.textAlign = "center"; ctx.fillText(`${Math.floor(ago/60)} Min`, cx, cy + r + 14*k);
+  ctx.fillStyle = "#9aa2d6"; ctx.font = `600 ${Math.round(10*k + 2)}px ui-monospace,monospace`; ctx.textAlign = "center"; ctx.fillText(`vor ${Math.floor(ago/60)} Min`, cx, cy + r + 14*k); ctx.fillText("letzter Zug", cx, cy + r + 27*k);   // Uhr = Zeit seit dem letzten Block
   // Abfahrtstafel: die nächsten Züge (= vorausberechnete Blöcke)
   if (mblocks && !narrow){
     const bx = 14*k, by = 16*k, bw = Math.min(W*.3, 300*k), rows = Math.min(4, mblocks.length), lh = 17*k;
@@ -373,8 +373,9 @@ function draw(){
   train(tx, trY, k*1.2, nextH ? "BLOCK " + fmt(nextH) : "");
   // Abschnitte mit Schild und Fahrgästen
   if (mblocks){
-    const labels = narrow ? [`Zug 1 · ab ${fmtFee(mblocks[0].feeRange[0])}`, mblocks[1] ? `Zug 2 · ab ${fmtFee(mblocks[1].feeRange[0])}` : "Zug 2", "Später"]
-                          : [`Zug 1 · ab ${fmtFee(mblocks[0].feeRange[0])} sat/vB`, mblocks[1] ? `Zug 2 · ab ${fmtFee(mblocks[1].feeRange[0])}` : "Zug 2", "Weitere Züge"];
+    // gleiche Namen wie am Regler: Zug 1, Zug 2, Zug 3 (+ alle danach)
+    const ab = i => mblocks[i] ? ` · ab ${fmtFee(mblocks[i].feeRange[0])}` : "";
+    const labels = narrow ? [`Zug 1${ab(0)}`, `Zug 2${ab(1)}`, `Zug 3+${ab(2)}`] : [`Zug 1${ab(0)} sat/vB`, `Zug 2${ab(1)}`, `Zug 3 und später`];
     for (let zi = 0; zi < 3; zi++){
       const zr = zoneRect(zi), list = crowd[zi] || [];
       ctx.fillStyle = "rgba(255,255,255,.05)"; rr(zr.x, plY - 118*k, zr.w, 118*k, 10); ctx.fill();
