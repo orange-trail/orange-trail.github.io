@@ -26,11 +26,11 @@
 .res strong{display:block;font-size:18px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
 @media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
-.scale{position:relative;height:210px;margin-top:12px}
-.beam{position:absolute;left:10%;right:10%;top:118px;height:8px;border-radius:4px;background:#ffc94d;border:3px solid #0d1230;transform-origin:50% 50%;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
-.pan{position:absolute;top:8px;width:42%;text-align:center;font:800 13px var(--f-display)} .pan .ic{width:58px;height:58px;margin:0 auto}
+.scale{position:relative;height:244px;margin-top:12px}   /* oben 34px Luft: die Schalen steigen beim Kippen bis zu 31px */
+.beam{position:absolute;left:10%;right:10%;top:152px;height:8px;border-radius:4px;background:#ffc94d;border:3px solid #0d1230;transform-origin:50% 50%;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.pan{position:absolute;top:42px;width:42%;text-align:center;font:800 13px var(--f-display)} .pan .ic{width:58px;height:58px;margin:0 auto}
 .pan.l{left:0} .pan.r{right:0}
-.post{position:absolute;left:50%;top:122px;width:10px;height:80px;margin-left:-5px;background:#c0c0cc;border:3px solid #0d1230;border-top:0}
+.post{position:absolute;left:50%;top:156px;width:10px;height:80px;margin-left:-5px;background:#c0c0cc;border:3px solid #0d1230;border-top:0}
 .ctl{margin-top:8px} .ctl label{display:block;font-size:13px;color:var(--muted)} .ctl .row{display:flex;align-items:center;gap:10px} .ctl .row input{flex:1} .ctl .row b{font:800 16px var(--f-num);min-width:8ch;text-align:right}
 .why3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
 .why3 div{border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.45;color:var(--muted)} .why3 b{display:block;color:var(--ink);margin-bottom:2px}
@@ -108,7 +108,7 @@ function calc(){
   $("panL").style.transform = `translateY(${tilt*2.2}px)`; $("panR").style.transform = `translateY(${-tilt*2.2}px)`;
   const R = $("res"), up = p > base*1.05, down = p < base*.95;
   R.className = "res " + (up ? "ok" : down ? "bad" : "warn");
-  R.innerHTML = `<strong>${up ? "📈 Der Preis steigt" : down ? "📉 Der Preis fällt" : "⚖️ Gleichgewicht"}: ca. ${Math.round(p).toLocaleString("de-DE")} $</strong>`
+  R.innerHTML = `<strong>${up ? "📈 Der Preis steigt" : down ? "📉 Der Preis fällt" : "⚖️ Gleichgewicht"}: <span style="white-space:nowrap">ca. ${Math.round(p).toLocaleString("de-DE")} $</span></strong>`
     + (up ? "Mehr Geld will rein, als neue Bitcoin entstehen. Die Käufer überbieten sich gegenseitig." : down ? "Weniger Nachfrage, aber die neuen Bitcoin müssen trotzdem verkauft werden. Die Verkäufer gehen mit dem Preis runter." : `So ungefähr ist es beim Kurs vom ${Lern.DSTAND}: Nachfrage und neues Angebot halten sich die Waage.`)
     + ` <span class="muted">Stark vereinfacht: Auch bestehende Besitzer kaufen und verkaufen.</span>`;
 }
