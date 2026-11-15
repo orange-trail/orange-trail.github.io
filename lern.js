@@ -14,12 +14,14 @@ const Lern = (() => {
     "v1/prices": {time: 1794700800, USD: 64800, EUR: 58800}, "global": {data: {active_cryptocurrencies: 15000, market_cap_percentage: {btc: 58.8}}}};
   // Blockhöhe ohne Live-Daten: hochgerechnet ab einem echten Ankerblock (974.930 am 7.11.2026), im Schnitt 596,5 s pro Block (Mittel seit dem Halving 2024)
   const height = () => 974930 + Math.floor((Date.now()/1000 - 1794052800)/596.5);
-  const api = p => DATA ? DATA + p : p === "blocks/tip/height" ? "data:text/plain," + height() : SNAP[p] ? "data:application/json," + encodeURIComponent(JSON.stringify(SNAP[p])) : "satsland-offline:" + p;
+  // Kurs bleibt fester Monatswert, auch mit eigener Node (Live-Kurs nur mit Lizenz, dann LIVE_KURS = true)
+  const LIVE_KURS = false; let usedLive = false;   // usedLive: hat diese Seite echte Node-Daten geholt?
+  const api = p => SNAP[p] && !(DATA && LIVE_KURS) ? "data:application/json," + encodeURIComponent(JSON.stringify(SNAP[p])) : DATA ? (usedLive = true, DATA + p) : p === "blocks/tip/height" ? "data:text/plain," + height() : SNAP[p] ? "data:application/json," + encodeURIComponent(JSON.stringify(SNAP[p])) : "satsland-offline:" + p;
   // Abgeschaltete Abrufe leise ablehnen (die Seiten zeigen dann Schätzung bzw. Beispielwerte), ohne Fehlermeldungen in der Konsole
   if (!DATA){ const f0 = window.fetch.bind(window); window.fetch = (u, o) => typeof u === "string" && u.startsWith("satsland-offline:") ? Promise.reject(new TypeError("Festwert-Modus")) : f0(u, o); }
   // Festwerte ehrlich kennzeichnen: „Live“ wird zu „Stand …“
-  if (!DATA) document.addEventListener("DOMContentLoaded", () => new MutationObserver(ms => ms.forEach(m => { const e = m.target.nodeType === 1 ? m.target : m.target.parentElement;
-    if (e && e.classList && e.classList.contains("mode") && e.textContent === "Live"){ e.textContent = "Stand " + DSTAND; e.classList.remove("live"); e.classList.add("stand"); } }))
+  document.addEventListener("DOMContentLoaded", () => new MutationObserver(ms => ms.forEach(m => { const e = m.target.nodeType === 1 ? m.target : m.target.parentElement;
+    if (e && e.classList && e.classList.contains("mode") && e.textContent === "Live" && !usedLive){ e.textContent = "Stand " + DSTAND; e.classList.remove("live"); e.classList.add("stand"); } }))
     .observe(document.body, {subtree: true, childList: true, characterData: true}));
   // Empfohlene Reihenfolge für Einsteiger: [id, Titel, Pfad]
   // Kapitel für Einsteiger: [Symbol, Titel, Kurzbeschreibung, Welten in Reihenfolge]
