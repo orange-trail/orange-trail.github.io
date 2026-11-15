@@ -162,11 +162,11 @@ function view(){
       const next = () => { const m = MIN[k], in_ = fee[1] >= m, d = document.createElement("div");
         d.className = "bk" + (in_ ? " hit" : ""); d.innerHTML = `<b>Block ${k + 1}</b><div>${in_ ? '<i class="me"></i>' + "<i></i>".repeat(CAP - 1) : "<i></i>".repeat(CAP)}</div><small>ab ${m} sat/vB</small>`;
         $("bks").prepend(d); k++; Lern.sfx && Lern.sfx(in_ ? "lvl" : "hit");
-        if (!in_){ wait(Q - CAP); setTimeout(() => wait(Q, CAP), 450); $("sN").innerHTML = `⛏️ Block ${k} gefunden: Die ${CAP} Zahlungen mit der höchsten Gebühr (ab ${m} sat/vB) sind eingestiegen, ${CAP} neue kommen nach. Deine ${fee[1]} sat/vB reichen noch nicht …`; setTimeout(next, 1100); return; }
+        if (!in_){ wait(Q - CAP); setTimeout(() => wait(Q, CAP), 450); $("sN").innerHTML = `⛏️ Block ${k} gefunden: Die ${CAP} Zahlungen mit der höchsten Gebühr (ab ${m} sat/vB) sind eingestiegen, ${CAP} neue kommen nach. Deine ${fee[1]} sat/vB reichen noch nicht …`; setTimeout(next, 2200); return; }
         wait(Q - CAP + 1); $("mq").firstChild.remove();
         $("sN").innerHTML = `<b>✅ In Block ${k}, also nach ca. ${k * 10} Min. angekommen!</b> ${amt < .01 ? "Der Test hat geklappt. Jetzt kannst du den Rest beruhigt schicken." : "Geschafft."} ${mist ? `(${mist} Fehler unterwegs, beim nächsten Mal genauer hinschauen.)` : "Alles richtig gemacht!"} <button class="btn ghost" type="button" id="again" style="margin-top:8px">↺ Nochmal üben</button>`;
         $("again").onclick = () => { s = 0; mist = 0; view(); }; };
-      setTimeout(next, 1300); };
+      setTimeout(next, 1600); };
   }
 }
 view();

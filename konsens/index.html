@@ -63,6 +63,7 @@
     <div class="chart camp nogl" id="camp"></div>
     <div class="seg2"><button class="btn" type="button" id="gA">📨 Ohne Bitcoin abstimmen</button><button class="btn" type="button" id="gB">⛏️ Mit Proof of Work</button></div>
     <p class="note" id="gN"></p>
+    <div class="acts" id="gS" hidden><button class="btn ghost" type="button" id="gP">◀ Zurück</button><button class="btn" type="button" id="gW">Weiter ▶</button></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
@@ -126,7 +127,7 @@
 const $ = id => document.getElementById(id);
 // 1) Generäle
 const POS = [[200, 50], [345, 150], [290, 300], [110, 300], [55, 150]];
-let traitor = 0, gT = 0;
+let traitor = 0;
 // Ablauf in Schritten, damit man sieht, WAS passiert
 // Burg im Comic-Stil (statt Emoji): zwei Türme, Zinnen, Tor und Fahne; jubelt mit Fahne, wenn die Stadt gewinnt
 const castle = (x, y, win) => { const K = 'stroke="#0d1230" stroke-width="3" stroke-linejoin="round"';
@@ -162,10 +163,16 @@ function frame(mode, st){
 }
 const STEPS = {1: ["Ohne gemeinsames Kassenbuch: Die Generäle schicken sich Boten.", "Der Verräter 😈 schickt Boten los und erzählt <b>jedem etwas anderes</b>.", "Jetzt glauben manche an <b>Angriff</b>, andere an <b>Rückzug</b>. Keiner kann prüfen, wer lügt.", "<b>Chaos: Nur ein Teil greift an, die Stadt gewinnt.</b> Genau so könnte bei digitalem Geld jemand dem einen „bezahlt“ und dem anderen „nicht bezahlt“ erzählen."],
   2: ["Neue Regel: Ein Befehl zählt nur, wenn er in einem <b>Block</b> steht. Jeder Block kostet viel <b>Rechenarbeit</b> ⛏️. Alle hängen an <b>eine gemeinsame Kette</b> an.", "Ein ehrlicher General findet den ersten Block: <b>„Angriff“</b>. Alle sehen dieselbe Kette.", "Der Verräter rechnet <b>allein</b> an einer Fälschung „Rückzug“. Die Ehrlichen rechnen <b>zusammen</b>, ihre Kette wächst viel schneller.", "Alle folgen der Kette mit der <b>meisten Arbeit</b>. Die Fälschung ist kürzer und wird ignoriert. <b>Gemeinsamer Angriff, Sieg!</b> Der Verräter bleibt allein."]};
-function camp(mode){ clearTimeout(gT); let st = 0;
-  const go = () => { $("camp").innerHTML = frame(mode, st); $("gN").innerHTML = mode ? `<small class="stp">Schritt ${st + 1} von 4</small>${STEPS[mode][st]}` : "Wähle oben, wie die Generäle sich abstimmen. Dann läuft es Schritt für Schritt ab.";
-    if (mode && st < 3){ st++; gT = setTimeout(go, 2600); } };
-  go(); }
+// Schritte selbst weiterklicken (oder aufs Bild tippen), damit man in Ruhe lesen kann
+let gMode = 0, gSt = 0;
+function camp(mode){ gMode = mode; gSt = 0; go(); }
+function go(){ const mode = gMode, st = gSt;
+  $("camp").innerHTML = frame(mode, st); $("gS").hidden = !mode;
+  $("gN").innerHTML = mode ? `<small class="stp">Schritt ${st + 1} von 4</small>${STEPS[mode][st]}` : "Wähle oben, wie die Generäle sich abstimmen. Dann klickst du dich Schritt für Schritt durch.";
+  $("gP").disabled = st === 0; $("gW").textContent = st < 3 ? "Weiter ▶" : "🔄 Nochmal"; }
+$("gW").onclick = () => { gSt = gSt < 3 ? gSt + 1 : 0; go(); };
+$("gP").onclick = () => { if (gSt > 0){ gSt--; go(); } };
+$("camp").onclick = () => { if (gMode && gSt < 3){ gSt++; go(); } };
 $("gA").onclick = () => { traitor = Bit0(); camp(1); }; $("gB").onclick = () => { traitor = Bit0(); camp(2); };
 const Bit0 = () => Math.floor(Math.random() * 5);
 camp(0);
