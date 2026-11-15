@@ -74,8 +74,8 @@
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Eine echte Zahlung von gerade eben <span class="mode" id="mode2">Verbinde …</span></h2>
-    <p class="muted" style="margin:0">So sieht eine Transaktion aus, die gerade im Bitcoin-Netz unterwegs ist. Genau dasselbe Prinzip: Bitcoin rein, neue Beträge raus, der Rest ist Gebühr.</p>
+    <h2 id="h2s">So sieht eine echte Zahlung aus <span class="mode" id="mode2">Verbinde …</span></h2>
+    <p class="muted" style="margin:0">So ist eine typische Bitcoin-Transaktion aufgebaut. Genau dasselbe Prinzip: Bitcoin rein, neue Beträge raus, der Rest ist Gebühr.</p>
     <div class="real" id="real"><p class="muted">Lade …</p></div>
     <div class="acts"><button class="btn ghost" id="again" type="button">🔄 Andere Zahlung</button></div>
   </section>
@@ -96,7 +96,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=58"></script>
+<script src="../lern.js?v=59"></script>
 <script>
 /* =====================================================================
    WECHSELGELD-KASSE – Lernwelt von Satsland
@@ -163,17 +163,21 @@ fetch(MP + "v1/fees/recommended").then(r => r.json()).then(j => { if (j.halfHour
 
 // Live: eine echte Transaktion von gerade eben
 async function real(){
+  const li = a => a.slice(0, 6).map(v => `<li>🪙 ${btc(v)}</li>`).join("") + (a.length > 6 ? `<li class="muted">… und ${a.length - 6} weitere</li>` : "");
+  const show = (ins, outs, fee, link) => { $("real").innerHTML = `<div class="col"><b>Rein: ${ins.length} Betr${ins.length > 1 ? "äge" : "ag"}</b><ul>${li(ins)}</ul></div><span class="arr" aria-hidden="true">→</span><div class="col"><b>Raus: ${outs.length} Betr${outs.length > 1 ? "äge" : "ag"}</b><ul>${li(outs)}</ul></div>
+      <p class="note" style="grid-column:1/-1">Gebühr: <b>${fee.toLocaleString("de-DE")} sats</b> = alles, was rein ging, minus alles, was raus geht.${link ? ` <a href="https://mempool.space/tx/${link}" rel="noopener">Auf mempool.space ansehen</a>` : ""}</p>`; };
   try {
     const rec = await (await fetch(MP + "mempool/recent")).json();
     const pick = rec.filter(x => x.vsize < 1000)[Math.floor(Math.random()*Math.min(10, rec.length))] || rec[0];
     const tx = await (await fetch(MP + "tx/" + pick.txid)).json();
-    const ins = tx.vin.map(v => v.prevout ? v.prevout.value : 0), outs = tx.vout.map(v => v.value);
-    const li = a => a.slice(0, 6).map(v => `<li>🪙 ${btc(v)}</li>`).join("") + (a.length > 6 ? `<li class="muted">… und ${a.length - 6} weitere</li>` : "");
-    $("real").innerHTML = `<div class="col"><b>Rein: ${ins.length} Betr${ins.length > 1 ? "äge" : "ag"}</b><ul>${li(ins)}</ul></div><span class="arr" aria-hidden="true">→</span><div class="col"><b>Raus: ${outs.length} Betr${outs.length > 1 ? "äge" : "ag"}</b><ul>${li(outs)}</ul></div>
-      <p class="note" style="grid-column:1/-1">Gebühr: <b>${tx.fee.toLocaleString("de-DE")} sats</b> = alles, was rein ging, minus alles, was raus geht. <a href="https://mempool.space/tx/${tx.txid}" rel="noopener">Auf mempool.space ansehen</a></p>`;
+    show(tx.vin.map(v => v.prevout ? v.prevout.value : 0), tx.vout.map(v => v.value), tx.fee, tx.txid);
     $("mode2").className = "mode live"; $("mode2").textContent = "Live";
-  } catch(e){ $("real").innerHTML = `<p class="muted">Gerade keine Verbindung zu mempool.space.</p>`; $("mode2").className = "mode demo"; $("mode2").textContent = "Beispielwerte"; }
+  } catch(e){   // ohne Live-Daten: typisches Beispiel (2 Beträge rein, Zahlung + Wechselgeld raus)
+    show([1250000, 310000], [1000000, 558200], 1800, "");
+    $("mode2").className = "mode demo"; $("mode2").textContent = "Beispiel";
+  }
 }
+
 $("again").onclick = real; real();
 reset();
 

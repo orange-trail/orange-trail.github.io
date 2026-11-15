@@ -80,7 +80,7 @@
   </section>
 
   <section class="card" aria-labelledby="h4s">
-    <h2 id="h4s">Echter Fingerabdruck: der neueste Block <span class="mode" id="mode">Verbinde …</span></h2>
+    <h2 id="h4s">Echter Fingerabdruck eines Blocks <span class="mode" id="mode">Verbinde …</span></h2>
     <p class="muted" style="margin:0">Jeder Bitcoin-Block hat einen Hash. Die vielen <b>Nullen am Anfang</b> sind kein Zufall: Miner haben so lange probiert, bis ein Hash mit genug Nullen herauskam.</p>
     <div class="blk" id="blk">–</div>
   </section>
@@ -102,7 +102,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=58"></script>
+<script src="../lern.js?v=59"></script>
 <script>
 /* =====================================================================
    FINGERABDRUCK-MASCHINE – Lernwelt von Satsland
@@ -155,7 +155,11 @@ fetch(Lern.api("blocks/tip/hash")).then(r => r.text()).then(h => {
   const z = h.match(/^0*/)[0].length;
   $("blk").innerHTML = `<em>${h.slice(0, z)}</em>${h.slice(z)}<br><span class="muted" style="font-weight:400">${z} Nullen am Anfang</span>`;
   $("mode").className = "mode live"; $("mode").textContent = "Live";
-}).catch(() => { $("mode").className = "mode demo"; $("mode").textContent = "Beispielwerte"; });
+}).catch(() => {   // ohne Live-Daten: der allererste Bitcoin-Block (2009), echt und unveränderlich
+  const h = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f", z = 10;
+  $("blk").innerHTML = `<em>${h.slice(0, z)}</em>${h.slice(z)}<br><span class="muted" style="font-weight:400">Block 0 vom 3. Januar 2009: ${z} Nullen am Anfang. Heutige Blöcke haben rund 19.</span>`;
+  $("mode").className = "mode"; $("mode").textContent = "Block 0";
+});
 
 const QUIZ = [
   ["Du änderst in einem Text ein einziges Komma. Was passiert mit dem Hash?", ["Ein Zeichen ändert sich", "Er sieht komplett anders aus", "Er bleibt gleich"], 1, "Das ist der Lawinen-Effekt: Schon eine winzige Änderung ergibt einen völlig anderen Hash."],

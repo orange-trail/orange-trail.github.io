@@ -100,7 +100,7 @@ table.pts{width:100%;border-collapse:separate;border-spacing:0 4px;margin-top:6p
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=58"></script>
+<script src="../lern.js?v=59"></script>
 <script>
 /* =====================================================================
    GELD-DUELL – Lernwelt von Satsland
@@ -113,7 +113,7 @@ const M = [["🐚", "Muscheln"], ["🥇", "Gold"], ["💶", "Euro"], ["₿", "Bi
 // [Eigenschaft, Was heißt das?, Frage (lo = wenigste, hi = meiste Punkte), [[Punkte 0–3, Grund] je Geld], Link, Welt]
 const R = [
   ["Knappheit", "Kann jemand einfach mehr davon herstellen?", "lo", [[1, "Am Strand sammelbar"], [2, "Wird langsam mehr geschürft"], [0, "Zentralbank kann unbegrenzt schaffen"], [3, "Nie mehr als 21 Millionen"]], "halving/", "Knappheit & Halving"],
-  ["Teilbarkeit", () => "Kann man es in winzige Stücke teilen?" + (eurPrice ? ` (1 Cent sind gerade ${Math.round(0.01/eurPrice*1e8).toLocaleString("de-DE")} Sats.)` : ""), "hi", [[1, "Eine Muschel ist eine Muschel"], [1, "Teilen braucht Werkzeug und Waage"], [2, "Bis zum Cent"], [3, "Bis zum Satoshi, 100 Millionen pro Bitcoin"]], "utxo/", "Wechselgeld-Kasse"],
+  ["Teilbarkeit", () => "Kann man es in winzige Stücke teilen?" + (eurPrice ? ` (1 Cent sind beim Kurs vom ${Lern.DSTAND} etwa ${Math.round(0.01/eurPrice*1e8).toLocaleString("de-DE")} Sats.)` : ""), "hi", [[1, "Eine Muschel ist eine Muschel"], [1, "Teilen braucht Werkzeug und Waage"], [2, "Bis zum Cent"], [3, "Bis zum Satoshi, 100 Millionen pro Bitcoin"]], "utxo/", "Wechselgeld-Kasse"],
   ["Transportierbarkeit", "Kann man 1 Million schnell ans andere Ende der Welt bringen?", "lo", [[0, "Ein ganzer LKW voll Muscheln"], [1, "Rund 10 kg Gold, Zoll, Versicherung"], [2, "Überweisung, aber Tage und Gebühren"], [3, "In Minuten, rund um die Uhr"]], "lightning/", "Lightning"],
   ["Haltbarkeit", "Bleibt es über Jahrhunderte erhalten?", "hi", [[2, "Kann zerbrechen"], [3, "Rostet nie, hält ewig"], [1, "Scheine verschleißen nach wenigen Jahren"], [3, "Nutzt sich nie ab: Die Blockchain vergisst nichts, solange das Netz läuft"]], "seed/", "Seed-Trainer"],
   ["Fälschungssicherheit", "Wie schwer ist es, Falschgeld herzustellen?", "lo", [[1, "Glas- und Porzellan-Kopien gab es oft"], [2, "Vergoldetes Metall fällt nicht immer auf"], [2, "Gut geschützt, Falschgeld gibt es trotzdem"], [3, "Unmöglich ohne Schlüssel, jede Node prüft"]], "schluessel/", "Schlüssel-Labor"],

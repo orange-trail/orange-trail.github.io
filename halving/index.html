@@ -89,7 +89,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
         <div><small>Voraussichtlich</small><b class="num g" id="eta">–</b></div>
         <div><small>Belohnung jetzt</small><b class="num" id="rNow">–</b></div>
         <div><small>Danach</small><b class="num" id="rNext">–</b></div>
-        <div><small>Aktueller Block</small><b class="num" id="tip">–</b></div>
+        <div><small>Aktueller Block (ca.)</small><b class="num" id="tip">–</b></div>
         <div><small>Diese Epoche geschafft</small><b class="num" id="pct">–</b></div>
       </div>
     </div>
@@ -120,10 +120,10 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
   <!-- 4 · Merksätze -->
 <section class="card" aria-labelledby="hSs">
     <h2 id="hSs">Wer bezahlt die Miner danach? <span class="mode" id="sMode">Verbinde …</span></h2>
-    <p class="muted" style="margin:0">Miner bekommen pro Block <b style="color:#f7931a">neue Bitcoin</b> plus die <b style="color:#2ecc71">Gebühren</b> aller Zahlungen darin. Der erste Teil halbiert sich immer weiter. Schieb das Jahr und sieh, wie sich der Lohn verschiebt (gleiche Gebühren wie heute angenommen):</p>
+    <p class="muted" style="margin:0">Miner bekommen pro Block <b style="color:#f7931a">neue Bitcoin</b> plus die <b style="color:#2ecc71">Gebühren</b> aller Zahlungen darin. Der erste Teil halbiert sich immer weiter. Schieb das Jahr und sieh, wie sich der Lohn verschiebt (gleiche Gebühren wie im Beispiel angenommen):</p>
     <div class="syr"><input type="range" id="sYear" min="2024" max="2140" value="2026" aria-label="Jahr für den Miner-Lohn"><b id="sYv">2026</b></div>
     <div class="ssplit" id="sSplit"><div class="sa"></div><div class="sb"></div></div>
-    <div class="sleg"><span><i style="background:#f7931a"></i>Neue Bitcoin</span><span><i style="background:#2ecc71"></i>Gebühren (Schnitt heute)</span></div>
+    <div class="sleg"><span><i style="background:#f7931a"></i>Neue Bitcoin</span><span><i style="background:#2ecc71"></i>Gebühren (typischer Wert)</span></div>
     <table class="stab" id="sTab"></table>
     <p class="note">Ohne neue Bitcoin müssen langfristig <b>Gebühren</b> die Miner bezahlen. Ob das reicht, ist eine <b>offene Frage</b>: Befürworter setzen auf mehr Nutzung und einen höheren Kurs, Kritiker warnen, dass ein Angriff sonst billiger würde.</p>
   </section>
@@ -144,7 +144,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=58"></script>
+<script src="../lern.js?v=59"></script>
 <script>
 /* =====================================================================
    KNAPPHEIT & HALVING – Lernwelt von Satsland

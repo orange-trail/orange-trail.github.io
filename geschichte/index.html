@@ -70,11 +70,11 @@
   </section>
 
     <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Daten aus dem Bitcoin-Whitepaper, der Blockchain selbst (Genesis-Block, erste Transaktion) und bekannten Presseberichten. Kurse gerundet. Aktueller Kurs live von Coinbase, Blockhöhe live von mempool.space.</p></details>
+  <details class="foot"><summary>Quellen</summary><p>Daten aus dem Bitcoin-Whitepaper, der Blockchain selbst (Genesis-Block, erste Transaktion) und bekannten Presseberichten. Kurse gerundet. Aktueller Kurs Stand 15.11.2026 (gerundet), Blockhöhe nach den Bitcoin-Regeln geschätzt.</p></details>
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=58"></script>
+<script src="../lern.js?v=59"></script>
 <script>
 /* =====================================================================
    ZEITREISE – Lernwelt von Satsland
@@ -160,7 +160,7 @@ function pizza(){
 
 Promise.allSettled([
   fetch(Lern.api("price/BTC-USD")).then(r => r.json()).then(j => { now = +j.data.amount || 0; }),
-  fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t || 0; }),
+  fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t || 0; }).catch(() => { height = 840000 + Math.floor((Date.now()/1000 - 1713571767)/600); }),   // sonst nach den Regeln geschätzt
 ]).then(() => { $("mode").className = "mode " + (now ? "live" : "demo"); $("mode").textContent = now ? "Live" : "Schätzung"; draw(); pizza(); });
 draw();
 

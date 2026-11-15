@@ -67,7 +67,7 @@ table.t{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
 
   <section class="card" aria-labelledby="h2s">
     <h2 id="h2s">Wie viel Bewegung verträgt welcher Hebel?</h2>
-    <p class="muted" style="margin:0" id="swing">Bitcoin schwankt stark. Zeilen in Rot wären bei der echten Schwankung der letzten 24 Stunden <b>liquidiert</b> worden.</p>
+    <p class="muted" style="margin:0" id="swing">Bitcoin schwankt stark. Zeilen in Rot wären schon bei der Schwankung eines ganz normalen Tages <b>liquidiert</b> worden.</p>
     <table class="t" id="tab"></table>
   </section>
 
@@ -97,7 +97,7 @@ table.t{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung. Hebel-Handel kann zum Totalverlust führen.</p>
 </div>
 
-<script src="../lern.js?v=58"></script>
+<script src="../lern.js?v=59"></script>
 <script>
 /* =====================================================================
    HEBEL-FALLE – Lernwelt von Satsland
@@ -143,10 +143,10 @@ $("go").onclick = () => {
   }, 2400/C.length);
 };
 
-// Tabelle: Wie weit darf der Kurs laufen? Rot, wenn die echte 24-h-Schwankung gereicht hätte
+// Tabelle: Wie weit darf der Kurs laufen? Rot, wenn die Schwankung eines Tages gereicht hätte
 function table(){
   const d = C.slice(-25), hi = Math.max(...d.map(c => c[1])), lo = Math.min(...d.map(c => c[0])), sw = (hi - lo)/lo*100;
-  $("swing").innerHTML = `In den letzten 24 Stunden lag Bitcoin zwischen ${usd(lo)} und ${usd(hi)}, also <b>${pct(sw)}</b> Schwankung. Hebel in Rot hätte das schon <b>liquidiert</b> haben können.`;
+  $("swing").innerHTML = `${live ? "In den letzten 24 Stunden lag Bitcoin" : "An einem typischen Tag (Beispiel) liegt Bitcoin"} zwischen ${usd(lo)} und ${usd(hi)}, also <b>${pct(sw)}</b> Schwankung. Die roten Hebel ${live ? "wären dabei schon" : "würden dabei schon"} <b>liquidiert</b>${live ? " worden" : ""}.`;
   $("tab").innerHTML = `<tr><th>Hebel</th><th>Aus 100 $ werden</th><th>Alles weg bei</th></tr>` + [1, 2, 5, 10, 25, 50, 100].map(l =>
     `<tr class="${l > 1 && 100/l <= sw ? "x" : ""}"><td><b>${l}×</b></td><td>${usd(100*l)} Wette</td><td>${l === 1 ? "nie" : pct(100/l) + " Bewegung"}</td></tr>`).join("");
 }
@@ -158,7 +158,9 @@ async function load(){
     if (!Array.isArray(j) || j.length < 30) throw 0;
     C = j.slice(0, 73).reverse().map(c => [c[1], c[2], c[4]]); live = true;
   } catch(e){
-    let p = 100000; C = []; for (let k = 0; k < 73; k++){ const c = p*(1 + Math.sin(k/6)*.006 + (Math.random() - .5)*.012); C.push([Math.min(p, c)*.996, Math.max(p, c)*1.004, c]); p = c; }
+    let sd = 7, p = 1; const rnd = () => (sd = (sd*16807) % 2147483647)/2147483647; C = [];   // fester Zufall: jedes Mal derselbe Verlauf
+    for (let k = 0; k < 73; k++){ const c = p*(1 + Math.sin(k/7)*.0025 + (rnd() - .5)*.006); C.push([Math.min(p, c)*(1 - rnd()*.0015), Math.max(p, c)*(1 + rnd()*.0015), c]); p = c; }
+    const f = Lern.PRICE.USD/p; C = C.map(c => c.map(v => v*f));
   }
   $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte";
   facts(); chart(0, C[0][2], 0); table();

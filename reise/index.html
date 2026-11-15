@@ -69,7 +69,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=58"></script>
+<script src="../lern.js?v=59"></script>
 <script>
 /* =====================================================================
    REISE EINER ZAHLUNG – Lernwelt von Satsland
@@ -90,11 +90,11 @@ const S = () => [
   ["night", "Ab ins Netz", sa("phone", 14, 60, 54) + sf("letter", 14, 60, 40, 40, 30, .3) + sf("letter", 14, 60, 66, 70, 30, .6) + sf("letter", 14, 60, 88, 40, 30, .9) + sa("server", 40, 62, 44) + sa("server", 66, 40, 44) + sa("server", 88, 66, 44) + sl("✓ geprüft", 66, 86, 1.6),
     "Die Zahlung geht an ein paar <b>Nodes</b>, die sie an ihre Nachbarn weitergeben. In Sekunden kennt sie fast das ganze Netz. Jede Node prüft: Ist die Unterschrift echt? Gehören die Bitcoin wirklich dir und sind sie <b>noch nicht ausgegeben</b>?", "", "doppelt/", "Kopier-Problem"],
   ["night", "Warten in der Mempool", sa("train", 50, 64, 90) + sl("Warteraum", 50, 18, .3),
-    "Jetzt wartet die Zahlung im <b>Warteraum (Mempool)</b>. Miner suchen sich die Zahlungen mit der höchsten Gebühr pro Byte aus. Wer mehr zahlt, ist früher dran.", `🚉 Gerade warten <b>${n(L.mem)}</b> Zahlungen. Für den nächsten Block reichen etwa <b>${L.fee}</b> sat/vB.`, "bahnhof/", "Mempool-Bahnhof"],
+    "Jetzt wartet die Zahlung im <b>Warteraum (Mempool)</b>. Miner suchen sich die Zahlungen mit der höchsten Gebühr pro Byte aus. Wer mehr zahlt, ist früher dran.", `🚉 Typischerweise warten <b>${n(L.mem)}</b> Zahlungen. Für den nächsten Block reichen etwa <b>${L.fee}</b> sat/vB.`, "bahnhof/", "Mempool-Bahnhof"],
   ["dusk", "Ein Miner findet den Block", sa("pick", 30, 58, 70, "swing .5s ease-in-out 4") + sa("block", 70, 60, 64, "grow .5s both", 2) + sl("Hash mit genug Nullen!", 50, 18, 2.2),
     "Miner packen Zahlungen in einen <b>Block</b> und raten Milliarden Zahlen, bis der Block-Hash genug Nullen hat (<b>Proof of Work</b>). Wer zuerst trifft, bekommt neue Bitcoin plus alle Gebühren. Im Schnitt dauert das etwa 10 Minuten.", `⛏ Die letzten Blöcke kamen im Schnitt alle <b>${L.time.toLocaleString("de-DE", {maximumFractionDigits: 1})} Minuten</b>.`, "mining/", "Mining-Werkstatt"],
   ["night", "Alle prüfen den Block", sa("block", 22, 60, 56) + sa("chain", 44, 62, 40) + sa("server", 64, 60, 44, "grow .4s both", .4) + sa("server", 84, 60, 44, "grow .4s both", .7) + sl("✓ ✓ angehängt", 74, 22, 1.2),
-    "Der Miner verschickt seinen Block. Jede Node prüft ihn komplett nach den Regeln und hängt ihn an <b>ihre Kopie der Blockchain</b>. Deine Zahlung steht jetzt fest im Kassenbuch: <b>1 Bestätigung</b>.", `🧱 Der neueste Block hat die Nummer <b>${n(L.h)}</b>.`, "blockchain/", "Blockchain"],
+    "Der Miner verschickt seinen Block. Jede Node prüft ihn komplett nach den Regeln und hängt ihn an <b>ihre Kopie der Blockchain</b>. Deine Zahlung steht jetzt fest im Kassenbuch: <b>1 Bestätigung</b>.", `🧱 Die Kette ist inzwischen bei Block <b>${n(L.h)}</b> (ca.).`, "blockchain/", "Blockchain"],
   ["gold", "Bestätigungen sammeln", sa("trophy", 50, 54, 76, "grow .6s cubic-bezier(.3,1.6,.5,1) both") + sl("Anna hat ihr Geld!", 50, 88, .6),
     "Jeder neue Block obendrauf ist eine weitere <b>Bestätigung</b>. Je mehr Blöcke darüber liegen, desto unmöglicher wird es, die Zahlung rückgängig zu machen. Kleine Beträge gelten oft schon nach 1 Bestätigung als sicher, große nach etwa <b>6</b> (ungefähr eine Stunde).", "", "nodes/", "Node-Wache"],
 ];
