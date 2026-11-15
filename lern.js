@@ -77,7 +77,7 @@ const Lern = (() => {
         : `<span class="muted">🔬 Profi-Pfad</span><b>Alle Vertiefungen dieser Welt geschafft!</b><a href="${root}#pro${pk + 1}">Zur Übersicht →</a>`; return; }
     const it = nextStep(id), n = it && it.w ? PATH.find(p => p[0] === it.w) : null;
     el.innerHTML = n ? `<span class="muted">Empfohlen als Nächstes</span><b>${n[1]}</b><a href="${root}${n[2]}">Los geht's →</a>`
-      : it ? `<span class="muted">Welt ${it.b + 1} geschafft! Jetzt wartet</span><b>👹 ${BOSSES[it.b][1]}</b><a href="${root}#boss${it.b + 1}">Zum Boss-Kampf →</a>`
+      : it ? `<span class="muted">Welt ${it.b + 1} geschafft! Jetzt wartet</span><b>⚔️ ${BOSSES[it.b][1]}</b><a href="${root}#boss${it.b + 1}">Zum Boss-Kampf →</a>`
       : `<b>🏆 Alles geschafft, alle Bosse besiegt!</b><a href="${root}">Zur Übersicht →</a>`;
   }
 
@@ -565,7 +565,7 @@ const Lern = (() => {
     ["🍕", "Pizza-Kenner", "Die Zeitreise geschafft", (s) => done(s, "geschichte")],
     ["🔥", "Funkenschlag", "3 Tage Tages-Challenge in Folge", (s, d) => (d.best || 0) >= 3],
     ["☄️", "Dauerbrenner", "7 Tage Tages-Challenge in Folge", (s, d) => (d.best || 0) >= 7],
-    ["👹", "Bossjäger", "Den ersten Boss besiegt", (s, d, b) => BOSSES.some((x, k) => b[k])],
+    ["⚔️", "Bossjäger", "Den ersten Boss besiegt", (s, d, b) => BOSSES.some((x, k) => b[k])],
     ["✨", "Glanzsammler", "3 Glanz-Bosskarten", (s, d, b) => BOSSES.filter((x, k) => b[k] === "perfect").length >= 3],
     ["🏆", "Bezwinger", "Alle Welt-Bosse besiegt", (s, d, b) => BOSSES.every((x, k) => b[k])],
     ["👑", "Satoshis Erbe", "Den Endboss besiegt", (s, d, b) => !!b.f],

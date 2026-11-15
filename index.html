@@ -220,7 +220,7 @@ details.fold[open] > summary{margin-bottom:12px}
   <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Satoshi zurückholen</a> · <a href="#" id="introOn" style="color:inherit">Einführung ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Satsland</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=54"></script>
+<script src="lern.js?v=55"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -250,7 +250,7 @@ details.fold[open] > summary{margin-bottom:12px}
   // Kapitel-Boss am Ende jedes Kapitels
   const won = Lern.bossWon();
   document.querySelectorAll("details.kap").forEach(d => { const k = +d.dataset.k - 1, c = Lern.CHAPTERS[k], ready = c[3].every(id => Lern.done(s, id)), [img, name] = Lern.BOSSES[k];
-    d.insertAdjacentHTML("beforeend", `<button class="bossbtn ${won[k] ? "won" : ""}" type="button" data-b="${k}" ${ready ? "" : "disabled"}><span class="bi">${Lern.art(img)}</span><span>${won[k] ? "🏆 " + name + " besiegt" : "👹 Boss: " + name}<small>${won[k] ? "Nochmal kämpfen?" : ready ? "5 Fragen auf Zeit. Bereit?" : "🔒 Schaffe erst alle Level dieser Welt"}</small></span></button>`); });
+    d.insertAdjacentHTML("beforeend", `<button class="bossbtn ${won[k] ? "won" : ""}" type="button" data-b="${k}" ${ready ? "" : "disabled"}><span class="bi">${Lern.art(img)}</span><span>${won[k] ? "🏆 " + name + " besiegt" : "⚔️ Boss: " + name}<small>${won[k] ? "Nochmal kämpfen?" : ready ? "5 Fragen auf Zeit. Bereit?" : "🔒 Schaffe erst alle Level dieser Welt"}</small></span></button>`); });
   document.querySelectorAll(".bossbtn").forEach(b => b.onclick = () => Lern.boss(+b.dataset.b));
   // Profi-Pfade: nach dem Boss freigeschaltet (vorher sichtbar, aber gedimmt)
   const PD = {whitepaper: "Satoshis 9 Seiten Abschnitt für Abschnitt: Originalsätze einfach erklärt.", entropie: "Wie sicher ist ein Seed? Würfle dir einen und teste deinen Zufall.", ableitung: "Von 12 Wörtern bis zur Adresse: jede Station echt gerechnet.", sha256: "Die Hash-Maschine aufgeschraubt: 64 Runden Schritt für Schritt.",
@@ -373,7 +373,7 @@ details.fold[open] > summary{margin-bottom:12px}
       // Schild immer neben den Knoten: erst zur freien Seite, sonst andere Seite, sonst zweizeilig, nur notfalls darunter
       const wOf = t => Math.max(...t.split("\n").map(l => l.length)) * fs * .56 + 18, fits = (t, sd) => sd > 0 ? cx + r + 8 + wOf(t) <= W - 4 : cx - r - 8 - wOf(t) >= 4;
       const brk = t => { let b = -1; for (let k = 0; k < t.length; k++) if ((t[k] === " " || t[k] === "-") && k > 3 && (b < 0 || Math.abs(k - t.length / 2) < Math.abs(b - t.length / 2))) b = k; return b < 0 ? t : t[b] === "-" ? t.slice(0, b + 1) + "\n" + t.slice(b + 1) : t.slice(0, b) + "\n" + t.slice(b + 1); };
-      let lab = (boss ? (ok ? "🏆 " : "👹 ") : "") + name, side = cx > W / 2 ? -1 : 1;
+      let lab = (boss && ok ? "🏆 " : "") + name, side = cx > W / 2 ? -1 : 1;
       if (!fits(lab, side)){ if (fits(lab, -side)) side = -side; else { const l2 = brk(lab); if (fits(l2, side)) lab = l2; else if (fits(l2, -side)){ lab = l2; side = -side; } else side = 0; } }
       g += boss ? `<g data-b="${n.k}" role="button" tabindex="0" aria-label="Boss: ${name}">` : `<a href="${L.TITLES[n.id][1]}" aria-label="${name}">`;
       if (now) g += `<circle cx="${cx}" cy="${cy}" r="${r + 34}" fill="url(#mglow)"/><circle class="spin" cx="${cx}" cy="${cy}" r="${r + 10}" fill="none" stroke="#ffc94d" stroke-width="4" stroke-dasharray="7 7"/>`;
