@@ -352,3 +352,6 @@ html.boot .wrap{opacity:0;animation:bootfb 0s 1.5s forwards} @keyframes bootfb{t
 details.fold::details-content,details.foot::details-content{block-size:0;overflow:hidden;transition:block-size .3s cubic-bezier(.2,.8,.2,1),content-visibility .3s allow-discrete}
 details.fold[open]::details-content,details.foot[open]::details-content{block-size:auto}
 html.calm details::details-content{transition:none}
+
+/* Kästchen im Text: lange Erklärungen in kurze Häppchen teilen */
+.learn.bx{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:12px 0} .learn.bx div{padding:10px 12px} .learn.bx span{font-size:14px;line-height:1.45} .bxh{margin:14px 0 0;font-size:14px;color:var(--ink)}

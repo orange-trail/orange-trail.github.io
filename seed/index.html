@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=55">
+<link rel="stylesheet" href="../lern.css?v=56">
 <style>
 /* Lernwelt "Seed-Trainer": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .warn{border-color:rgba(255,92,115,.45);background:rgba(255,92,115,.07)}
@@ -71,10 +71,10 @@
   <!-- 1 · Merken und prüfen -->
   <section class="card" aria-labelledby="h1s">
     <h2 id="h1s">1 · Aufschreiben und prüfen</h2>
-    <p class="muted" style="margin:0">So läuft es bei einer echten Wallet: Du bekommst die Wörter einmal angezeigt und schreibst <b>alle</b> ab, in der richtigen Reihenfolge und mit Nummer. Danach fragt die Wallet <b>alle Wörter</b> nacheinander ab, um sicherzugehen, dass dein Backup stimmt.</p>
+    <p class="bxh">So läuft es bei einer echten Wallet:</p><div class="learn bx"><div><b>1 · Anzeigen</b><span>Die Wallet zeigt dir die Wörter einmal.</span></div><div><b>2 · Abschreiben</b><span><b>Alle</b> Wörter, in richtiger Reihenfolge, mit Nummer.</span></div><div><b>3 · Prüfen</b><span>Die Wallet fragt <b>alle Wörter</b> ab, damit dein Backup sicher stimmt.</span></div></div>
     <div class="words" id="words" aria-live="polite"></div>
     <div class="row"><button class="btn" id="done" type="button">Hab ich aufgeschrieben</button><button class="btn ghost" id="newW" type="button">Neue Wörter</button></div>
-    <p class="cheer">💪 <b>Ja, das ist ein bisschen Arbeit.</b> 12 Wörter abschreiben und prüfen dauert ein paar Minuten. Aber du machst es <b>nur einmal</b>, und es schützt dein Erspartes für Jahrzehnte. Das sind die am besten investierten Minuten deiner Bitcoin-Reise. Hier kannst du es in Ruhe einmal üben.</p>
+    <p class="cheer">💪 <b>Ja, das ist ein bisschen Arbeit.</b> 12 Wörter abschreiben und prüfen dauert ein paar Minuten. Aber du machst es <b>nur einmal</b>, und es schützt dein Erspartes für Jahrzehnte. Hier übst du es in Ruhe.</p>
     <div id="check" hidden>
       <div class="ask" id="ask"></div>
       <div class="row"><button class="btn" id="test" type="button">Prüfen</button><button class="btn ghost" id="peek" type="button">Wörter nochmal zeigen</button></div>
@@ -89,7 +89,7 @@
     <div class="sort" id="sort"></div>
     <p class="score" id="score"></p>
   
-    <p class="note"><b>Nicht verwechseln:</b> Die <b>Seed-Wörter</b> (je nach Wallet 12 oder 24) stellen deine Wallet wieder her. Das <b>App-Passwort oder die PIN</b> sperrt nur die App auf deinem Gerät. Eine optionale <b>Passphrase</b> (oft „25. Wort“ genannt, kann aber auch ein ganzer Satz sein) erzeugt eine ganz andere Wallet: Vergisst du sie, helfen auch die richtigen Wörter nicht.</p>
+    <p class="bxh"><b>Nicht verwechseln:</b></p><div class="learn bx"><div><b>Seed-Wörter</b><span>12 oder 24 Wörter. Stellen deine Wallet <b>wieder her</b>.</span></div><div><b>App-Passwort / PIN</b><span>Sperrt nur die App auf deinem Gerät.</span></div><div><b>Passphrase (optional)</b><span>Oft „25. Wort“ genannt. Ergibt eine <b>ganz andere Wallet</b>. Vergessen? Dann helfen auch die richtigen Wörter nicht.</span></div></div>
   </section>
 
   <!-- 3 · Merksätze und Quiz -->
@@ -123,7 +123,7 @@
 </div>
 
 <details class="foot"><summary>Quellen</summary><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP 39: Seed-Wörter (12, 15, 18, 21 oder 24 Wörter, optionale Passphrase)</a>; <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP 32: Ableitung der Schlüssel</a>. Alle Wörter auf dieser Seite sind Übungsdaten.</p></details>
-<script src="../lern.js?v=65"></script>
+<script src="../lern.js?v=66"></script>
 <script>
 /* =====================================================================
    SEED-TRAINER – Lernwelt von Satsland

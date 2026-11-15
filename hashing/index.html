@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=55">
+<link rel="stylesheet" href="../lern.css?v=56">
 <style>
 /* Lernwelt "Hashing": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -68,7 +68,7 @@
       <div class="prop"><b>2. Immer 64 Zeichen</b>Ein Wort oder ein ganzes Buch: Der Fingerabdruck ist <b style="display:inline">immer gleich lang</b>.<button class="btn ghost" type="button" id="p2">📚 Ganzes Buch hashen</button><div class="o" id="o2"></div></div>
       <div class="prop"><b>3. Nicht umkehrbar</b>Aus dem Hash kommst du <b style="display:inline">nie</b> zurück zum Text. Du kannst nur raten und vergleichen.<button class="btn ghost" type="button" onclick="document.getElementById('h3s').scrollIntoView({behavior:'smooth'})">Selbst probieren ↓</button></div>
     </div>
-      <p class="note"><b>Ganz genau genommen:</b> Es gibt unendlich viele mögliche Texte, aber „nur“ 2<sup>256</sup> Hashes. Zwei verschiedene Texte <i>könnten</i> also denselben Hash haben (eine <b>Kollision</b>). Bei SHA-256 hat aber noch nie jemand eine gefunden, und gezielt eine zu erzeugen gilt als praktisch unmöglich.</p>
+      <p class="note"><b>Ganz genau genommen:</b> Es gibt unendlich viele Texte, aber „nur“ 2<sup>256</sup> Hashes. Zwei Texte <i>könnten</i> also denselben Hash haben (<b>Kollision</b>). Bei SHA-256 hat noch nie jemand eine gefunden.</p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
@@ -102,7 +102,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=65"></script>
+<script src="../lern.js?v=66"></script>
 <script>
 /* =====================================================================
    FINGERABDRUCK-MASCHINE – Lernwelt von Satsland

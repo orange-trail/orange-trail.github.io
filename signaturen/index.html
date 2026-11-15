@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=55">
+<link rel="stylesheet" href="../lern.css?v=56">
 <style>
 /* Lernwelt "Signatur-Duell": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -76,7 +76,7 @@
 
   <section class="card" aria-labelledby="h3s">
     <h2 id="h3s">3 · Der Schnorr-Trick: Schlüssel zusammenrechnen</h2>
-    <p class="muted" style="margin:0">Weil Schnorr „linear“ ist, kann man öffentliche Schlüssel einfach <b>addieren</b>. Drei Personen bekommen so einen gemeinsamen Schlüssel. Unterschreiben geht nur, wenn <b>alle drei</b> mitmachen. Nach außen sieht das aus wie eine ganz normale Einzel-Unterschrift: <b>günstiger und privater</b>.</p>
+    <div class="learn bx"><div><b>Addieren</b><span>Schnorr ist „linear“: Öffentliche Schlüssel kann man einfach <b>addieren</b>.</span></div><div><b>Gemeinsam</b><span>Drei Personen, ein Schlüssel. Unterschreiben geht nur, wenn <b>alle drei</b> mitmachen.</span></div><div><b>Nach außen</b><span>Sieht aus wie eine normale Einzel-Unterschrift: <b>günstiger und privater</b>.</span></div></div>
     <div class="keys nogl" id="keys"></div>
     <div class="formula" id="form"></div>
     <p class="note">In echt nutzt man dafür das Verfahren <b>MuSig2</b>. Es rechnet noch Schutzfaktoren ein, damit niemand die anderen austricksen kann. Das Prinzip bleibt: viele Schlüssel, eine Unterschrift.</p>
@@ -99,7 +99,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=65"></script>
+<script src="../lern.js?v=66"></script>
 <script>
 /* =====================================================================
    SIGNATUR-DUELL – Lernwelt von Satsland

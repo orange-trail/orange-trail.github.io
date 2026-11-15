@@ -13,7 +13,7 @@
 <meta property="og:description" content="So kommt deine Bitcoin-Überweisung in einen Block. Der Mempool als Bahnhof zum Ausprobieren.">
 <meta property="og:image" content="https://satsland.github.io/og/bahnhof.jpg">
 <meta property="og:url" content="https://satsland.github.io/bahnhof/">
-<link rel="stylesheet" href="../lern.css?v=55">
+<link rel="stylesheet" href="../lern.css?v=56">
 <style>
 /* Lernwelt "Mempool-Bahnhof": gleiche Farben und Schriften wie das Spiel. Nur Systemschriften, keine Cookies, kein Tracking. */
 .card > .mode{margin-bottom:8px}
@@ -118,7 +118,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)} @media (max-widt
 </div>
 
 <details class="foot"><summary>Quellen</summary><p>Warteraum, Gebühren und Blöcke als realistische Beispielwerte (echte Werte z. B. auf <a href="https://mempool.space">mempool.space</a>); <a href="https://en.bitcoin.it/wiki/Transaction_fees">Bitcoin Wiki: Transaction fees</a>. Das Spiel ist eine Simulation mit vereinfachten Zahlen.</p></details>
-<script src="../lern.js?v=65"></script>
+<script src="../lern.js?v=66"></script>
 <script>
 /* =====================================================================
    MEMPOOL-BAHNHOF – Lernwelt von Satsland
@@ -177,7 +177,7 @@ let demoIn = 25;
 function startDemo(){
   mode = "demo"; tip = {h: LV.tip.h || Lern.height(), ts: Date.now()/1000 - rnd(4, 15)}; waiting = 42000; if (!eur) eur = Lern.PRICE.EUR;
   demoBlocks(true);
-  say("<b>Spiel-Bahnhof:</b> Schick direkt darunter einen Übungs-Fahrgast los und schau zu, wie er Zug für Zug aufrückt. Im Spiel läuft die Zeit 20-mal schneller: Im Schnitt fährt alle 30 Sekunden ein Zug, mal nach wenigen Sekunden, mal erst nach über einer Minute, wie in echt. Oder du tippst auf „Block gefunden“.");
+  say("<b>Spiel-Bahnhof:</b> Schick unten einen Übungs-Fahrgast los und schau zu, wie er aufrückt. Die Zeit läuft 20-mal schneller: Im Schnitt fährt alle 30 Sekunden ein Zug. Oder tippe auf „Block gefunden“.");
 }
 function demoBlocks(hi){
   const base = hi ? rnd(18, 30) : rnd(2, 8); mblocks = [];

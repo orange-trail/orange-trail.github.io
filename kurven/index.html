@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=55">
+<link rel="stylesheet" href="../lern.css?v=56">
 <style>
 /* Lernwelt "Kurven-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -60,7 +60,7 @@
 
   <section class="card" aria-labelledby="h2s">
     <h2 id="h2s">2 · „Mal G“: die Einbahnstraße</h2>
-    <p class="muted" style="margin:0">Bitcoin rechnet nicht mit Kommazahlen, sondern mit ganzen Zahlen „modulo“ einer Primzahl. Dann wird aus der Kurve eine <b>Punktwolke</b>. Hier eine Mini-Version mit nur <b>79 Punkten</b>. Starte bei <b>G</b> und addiere immer wieder G dazu: 2G, 3G, 4G …</p>
+    <div class="learn bx"><div><b>Ganze Zahlen</b><span>Bitcoin rechnet nicht mit Kommazahlen, sondern „modulo“ einer Primzahl.</span></div><div><b>Punktwolke</b><span>So wird aus der Kurve eine <b>Punktwolke</b>. Hier eine Mini-Version mit <b>79 Punkten</b>.</span></div><div><b>Probier’s</b><span>Starte bei <b>G</b> und addiere immer wieder G: 2G, 3G, 4G …</span></div></div>
     <div class="plot nogl" id="toy"></div>
     <p class="note" style="margin:8px 0 0"><b style="color:#34d982">G</b> = Startpunkt, für alle gleich · <b>k</b> = wie oft du springst, geheim (privater Schlüssel) · <b style="color:#ffc94d">k × G</b> = wo du landest, öffentlich (öffentlicher Schlüssel)</p>
     <div class="ctl"><label class="lbl2" for="kk">k (dein „privater Schlüssel“)</label><div class="row"><input id="kk" type="range" min="1" max="78" value="7"><b id="kV" class="num">7</b></div></div>
@@ -96,7 +96,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=65"></script>
+<script src="../lern.js?v=66"></script>
 <script>
 /* =====================================================================
    KURVEN-LABOR – Lernwelt von Satsland
