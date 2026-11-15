@@ -318,11 +318,11 @@ const Lern = (() => {
     let off = false; try { off = localStorage.getItem(GK) === "1"; } catch(e){}
     if (off || !(here in TIPS) && here) return;
     const g = document.createElement("div"); g.className = "guide";
-    g.innerHTML = `<div class="gb"><span></span><button type="button" class="gx" aria-label="Satoshi ausblenden">×</button></div><button type="button" class="gs" aria-label="Satoshi fragen">${art("satoshi")}</button>`;
+    g.innerHTML = `<div class="gb"><span></span><button type="button" class="gx" aria-label="Sprechblase schließen">×</button></div><button type="button" class="gs" aria-label="Satoshi fragen">${art("satoshi")}</button>`;
     document.body.appendChild(g);
     const tip = () => !here && !count(load()) ? "Willkommen! Tipp oben auf den gelben Knopf, dann geht's mit Level 1 los." : TIPS[here] || TIPS[""];
     g.querySelector(".gs").onclick = () => say(tip());
-    g.querySelector(".gx").onclick = () => { g.remove(); try { localStorage.setItem(GK, "1"); } catch(e){} toast("Satoshi ist weg. Zurückholen: unten auf der Startseite."); };
+    g.querySelector(".gx").onclick = () => { clearTimeout(gTimer); g.classList.remove("talk"); };   // × schließt nur die Blase, Satoshi bleibt
     g.querySelector(".gb span").onclick = () => g.classList.remove("talk");   // Antippen schließt die Blase
     // Jeder Tipp kommt nur beim ersten Besuch der Seite von selbst, danach nur auf Antippen
     let seen = []; try { seen = JSON.parse(localStorage.getItem("satsland-tipseen")) || []; } catch(e){}
