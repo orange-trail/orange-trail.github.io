@@ -174,9 +174,9 @@ async function loadPrice(){ try { const j = await (await fetch(Lern.api("v1/pric
 // ---------- Spiel-Bahnhof: Beispiel mit Andrang, damit jeder Platz erreichbar ist ----------
 let demoIn = 25;
 function startDemo(){
-  mode = "demo"; tip = {h: LV.tip.h || Lern.height(), ts: Date.now()/1000 - 300}; waiting = 42000; if (!eur) eur = Lern.PRICE.EUR;
+  mode = "demo"; tip = {h: LV.tip.h || Lern.height(), ts: Date.now()/1000 - rnd(4, 15)}; waiting = 42000; if (!eur) eur = Lern.PRICE.EUR;
   demoBlocks(true);
-  say("<b>Spiel-Bahnhof:</b> Schick direkt darunter einen Übungs-Fahrgast los und schau zu, wie er Zug für Zug aufrückt. Etwa alle 30 Sekunden fährt ein Zug, oder du tippst auf „Block gefunden“.");
+  say("<b>Spiel-Bahnhof:</b> Schick direkt darunter einen Übungs-Fahrgast los und schau zu, wie er Zug für Zug aufrückt. Im Spiel läuft die Zeit 20-mal schneller: Im Schnitt fährt alle 30 Sekunden ein Zug, mal nach wenigen Sekunden, mal erst nach über einer Minute, wie in echt. Oder du tippst auf „Block gefunden“.");
 }
 function demoBlocks(hi){
   const base = hi ? rnd(18, 30) : rnd(2, 8); mblocks = [];
@@ -186,7 +186,7 @@ function demoBlocks(hi){
 }
 function demoStep(dt){
   if (mode !== "demo") return;
-  if ((demoIn -= dt) <= 0){ demoIn = rnd(26, 34); newBlock({height: tip.h + 1, timestamp: Date.now()/1000, tx_count: mblocks[0].nTx, extras: {feeRange: mblocks[0].feeRange, pool: {name: ["Foundry USA", "AntPool", "ViaBTC", "F2Pool"][Math.floor(Math.random()*4)]}}});  }
+  if ((demoIn -= dt) <= 0){ demoIn = Math.min(120, Math.max(3, -30*Math.log(1 - Math.random()))); newBlock({height: tip.h + 1, timestamp: Date.now()/1000, tx_count: mblocks[0].nTx, extras: {feeRange: mblocks[0].feeRange, pool: {name: ["Foundry USA", "AntPool", "ViaBTC", "F2Pool"][Math.floor(Math.random()*4)]}}});  }
 }
 
 // ---------- Neuer Block = Zug fährt ab ----------
@@ -207,7 +207,7 @@ function newBlock(b){
 }
 
 // Vorschau: Block sofort "finden", damit man nicht 10 Minuten warten muss (ändert keine echten Daten)
-$("simB").onclick = () => { if (!mblocks || (anim && t - anim.t0 < 5.2)) return; demoIn = rnd(26, 34);
+$("simB").onclick = () => { if (!mblocks || (anim && t - anim.t0 < 5.2)) return; demoIn = Math.min(120, Math.max(3, -30*Math.log(1 - Math.random())));
   newBlock({height: tip.h + 1, timestamp: Date.now()/1000, tx_count: mblocks[0].nTx, extras: {feeRange: mblocks[0].feeRange, pool: {name: "einem Miner"}}}); };
 
 // Nach der Abfahrt rücken alle einen Abschnitt nach vorne
@@ -331,7 +331,7 @@ function draw(){
   ctx.strokeStyle = "rgba(124,196,255,.12)"; ctx.lineWidth = 3;
   for (let i = 0; i < 6; i++){ const cx = (i + .5)*W/5.5; ctx.beginPath(); ctx.arc(cx, H*.62, W/5.5*.75, Math.PI*1.08, Math.PI*1.92); ctx.stroke(); }
   // Uhr: Minuten seit dem letzten Block
-  const ago = tip.ts ? Math.max(0, Date.now()/1000 - tip.ts) : 0, cx = W - 62*k, cy = 46*k, r = 28*k;
+  const ago = tip.ts ? Math.max(0, Date.now()/1000 - tip.ts)*(mode === "demo" ? 20 : 1) : 0, cx = W - 62*k, cy = 46*k, r = 28*k;
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.fillStyle = "#eef0ff"; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.stroke();
   const am = (ago/60 % 60)/60*TAU - Math.PI/2; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(am)*r*.75, cy + Math.sin(am)*r*.75); ctx.lineWidth = 2.5; ctx.stroke();
   ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(cx, cy, 2.5, 0, TAU); ctx.fill();
@@ -415,6 +415,11 @@ const easeOut = x => 1 - Math.pow(1 - clamp(x, 0, 1), 3);
 
 // ---------- Werte oben ----------
 function renderStats(){
+  if (!Lern.DATA){   // ohne eigene Node: typische Werte (Stand Nov. 2026) statt Live-Zahlen
+    $("sWait").textContent = "ca. 30–60 Tsd."; $("sMin").innerHTML = `1–5 <small style="font-size:.55em;color:var(--muted)">sat/vB</small>`;
+    $("sAgo").textContent = "10 Min"; $("sNext").textContent = "ca. " + fmt(Lern.height() + 1);
+    $("mode").className = "mode demo"; $("mode").textContent = "Typische Werte";
+    $("sMin").previousElementSibling.textContent = "Mitgenommen wird meist ab"; $("sAgo").previousElementSibling.textContent = "Ein Zug fährt im Schnitt alle"; return; }
   const no = !LV.ok && t > 6 ? "offline" : "–";   // echtes Netz nicht erreichbar: ehrlich sagen statt ewig Striche
   $("sWait").textContent = LV.waiting ? fmt(LV.waiting) : no;
   $("sMin").innerHTML = LV.min ? `${fmtFee(LV.min)} <small style="font-size:.55em;color:var(--muted)">sat/vB</small>` : no;

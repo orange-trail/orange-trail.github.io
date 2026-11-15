@@ -1,6 +1,6 @@
 // Satsland: Offline-Betrieb und Installierbarkeit.
 // Seiten: zuerst das Netz (frisch), bei langsamem oder fehlendem Netz die zuletzt gespeicherte Version.
-const CACHE = "satsland-v143";
+const CACHE = "satsland-v144";
 const PAGES = ["./ableitung/", "./adressen/", "./bahnhof/", "./besitzer/", "./betrug/", "./blockchain/", "./cantillon/", "./datenschutz/", "./doppelt/", "./eigenschaften/", "./entropie/", "./fomo/", "./geld/", "./geldgeschichte/", "./geldschoepfung/", "./geschichte/", "./halving/", "./hashing/", "./hebel/", "./inflation/", "./kaufen/", "./knappheit/", "./konsens/", "./kritik/", "./krypto/", "./kurven/", "./lexikon/", "./lightning/", "./merkle/", "./mining/", "./mythen/", "./nodes/", "./privatsphaere/", "./quanten/", "./reise/", "./risiken/", "./schluessel/", "./script/", "./seed/", "./senden/", "./sha256/", "./signaturen/", "./sparplan/", "./start/", "./ueber/", "./utxo/", "./wallets/", "./wert/", "./whitepaper/", "./zyklen/"];   // alle Level-Seiten: nach dem ersten Besuch im Hintergrund gespeichert
 const CORE = ["./", "./index.html", "./404.html", "./lern.js?v=64", "./lern.css?v=54", "./bitlib.js?v=24", "./icon-192.png", "./icon-512.png", "./icon.svg", "./manifest.webmanifest"];
 self.addEventListener("install", e => {
