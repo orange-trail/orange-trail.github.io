@@ -142,7 +142,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=60"></script>
+<script src="../lern.js?v=61"></script>
 <script>
 /* =====================================================================
    NODE-WACHE – Lernwelt von Satsland
@@ -162,10 +162,10 @@ async function compare(){
   // Mit eigener Satsland-Node: unsere Node gegen die erwartete Höhe nach Uhrzeit; sonst zwei öffentliche Explorer
   if (Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Satsland-Node"; sm[1].previousElementSibling.textContent = "Erwartet nach Uhrzeit"; }
   // Ohne eigene Quelle: Beispiel mit der geschätzten aktuellen Blockhöhe (kein fremder Dienst)
-  const est = 840000 + Math.floor((Date.now()/1000 - 1713571767)/600), ex = {h: est, x: "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054"};
+  const est = Lern.height(), ex = {h: est, x: "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054"};
   if (!Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Node A (Beispiel)"; sm[1].previousElementSibling.textContent = "Node B (Beispiel)"; }
   const [a, b] = Lern.DATA ? [await tip(Lern.api("")).catch(() => null), null] : [ex, ex];
-  if (Lern.DATA){ const e = 840000 + Math.floor((Date.now()/1000 - 1713571767)/600); $("bH").textContent = "ca. Block " + e.toLocaleString("de-DE"); $("bX").textContent = "10 Min. je Block"; }
+  if (Lern.DATA){ const e = Lern.height(); $("bH").textContent = "ca. Block " + e.toLocaleString("de-DE"); $("bX").textContent = "10 Min. je Block"; }
   const put = (r, H, X) => { if (r){ $(H).textContent = "Block " + r.h.toLocaleString("de-DE"); $(X).textContent = "Hash …" + r.x.slice(-12); } };
   put(a, "aH", "aX"); put(b, "bH", "bX"); if (!a){ $("aH").textContent = "nicht erreichbar"; $("aX").textContent = ""; } if (!b && !Lern.DATA){ $("bH").textContent = "nicht erreichbar"; $("bX").textContent = ""; }
   const ok = Lern.DATA && (a || b); $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : "Beispielwerte";
@@ -252,7 +252,7 @@ run();
   $("fUp").addEventListener("input", run); run();
   const EV = [["2017", 478558, "Bitcoin Cash spaltet sich ab", "Hard Fork"], ["2017", 481824, "SegWit wird aktiv", "Soft Fork"], ["2021", 709632, "Taproot wird aktiv", "Soft Fork"]];
   const tl = h => { $("fTl").innerHTML = EV.map(([y, blk, t, k]) => `<li><b>${y}: ${t}</b> (${k}), Block ${blk.toLocaleString("de-DE")}${h ? `, <em>vor ${(h - blk).toLocaleString("de-DE")} Blöcken</em>` : ""}</li>`).join(""); };
-  tl(0); fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { if (+t > 709632) tl(+t); }).catch(() => tl(840000 + Math.floor((Date.now()/1000 - 1713571767)/600)));
+  tl(0); fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { if (+t > 709632) tl(+t); }).catch(() => tl(Lern.height()));
 }
 
 const QUIZ = [

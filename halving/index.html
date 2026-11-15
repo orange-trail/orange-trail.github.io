@@ -144,7 +144,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=60"></script>
+<script src="../lern.js?v=61"></script>
 <script>
 /* =====================================================================
    KNAPPHEIT & HALVING – Lernwelt von Satsland
@@ -241,7 +241,7 @@ async function load(){
       $("feeNote").innerHTML = `Dazu kommen die Gebühren: In den letzten ${withFees.length} Blöcken im Schnitt <b>${btc(fees/1e8)}</b> pro Block. Das sind erst <b>${(fees/rew*100).toLocaleString("de-DE", {maximumFractionDigits: 1})} %</b> der Einnahmen eines Miners, der Rest ist noch die Belohnung.`;
     }
   } catch(e){}
-  if (!live){ tip = heightAt(Date.now()); $("mode").className = "mode demo"; $("mode").textContent = "Schätzung"; }
+  if (!live){ tip = Lern.height(); $("mode").className = "mode demo"; $("mode").textContent = "Schätzung"; }
   else { $("mode").className = "mode live"; $("mode").textContent = "Live"; }
   renderClock(); renderYear();
 }

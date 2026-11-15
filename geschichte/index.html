@@ -74,7 +74,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=60"></script>
+<script src="../lern.js?v=61"></script>
 <script>
 /* =====================================================================
    ZEITREISE – Lernwelt von Satsland
@@ -136,7 +136,7 @@ function draw(){
   $("dots").children[k].scrollIntoView({block: "nearest", inline: "center"});
   const x100 = p && now ? now/p : 0;
   $("ev").innerHTML = `<div class="ev"><div class="scn ${SC[k][0]}" aria-hidden="true">${SC[k][1]}</div><div class="d">${k + 1} von ${E.length} · ${d}</div><h3>${t}</h3><p>${x}</p>
-    <div class="kv"><div>1 Bitcoin kostete damals<b class="num">${p ? usd(p) : "noch nichts"}</b></div><div>${x100 ? "100 $ von damals wären heute" : k < 2 ? "Blöcke seit dem ersten" : "Kurs heute"}<b class="num g">${x100 ? usd(100*x100) : k < 2 ? (height ? height.toLocaleString("de-DE") : "–") : now ? usd(now) : "–"}</b></div></div></div>`;
+    <div class="kv"><div>1 Bitcoin kostete damals<b class="num">${p ? usd(p) : "noch nichts"}</b></div><div>${x100 ? "100 $ von damals wären heute" : k < 2 ? "Blöcke bis heute (ca.)" : "Kurs heute"}<b class="num g">${x100 ? usd(100*x100) : k < 2 ? (height ? height.toLocaleString("de-DE") : "–") : now ? usd(now) : "–"}</b></div></div></div>`;
   counters($("ev"));
   $("prev").disabled = k === 0; $("nextE").textContent = k === E.length - 1 ? "Von vorn ↺" : "Weiter →";
 }
@@ -160,7 +160,7 @@ function pizza(){
 
 Promise.allSettled([
   fetch(Lern.api("price/BTC-USD")).then(r => r.json()).then(j => { now = +j.data.amount || 0; }),
-  fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t || 0; }).catch(() => { height = 840000 + Math.floor((Date.now()/1000 - 1713571767)/600); }),   // sonst nach den Regeln geschätzt
+  fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t || 0; }).catch(() => { height = Lern.height(); }),   // sonst nach den Regeln geschätzt
 ]).then(() => { $("mode").className = "mode " + (now ? "live" : "demo"); $("mode").textContent = now ? "Live" : "Schätzung"; draw(); pizza(); });
 draw();
 

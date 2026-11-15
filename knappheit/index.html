@@ -79,7 +79,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=60"></script>
+<script src="../lern.js?v=61"></script>
 <script>
 /* =====================================================================
    KNAPPHEITS-MESSER – Lernwelt von Satsland
@@ -104,7 +104,7 @@ function draw(){
 }
 $("yr").addEventListener("input", draw);
 fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t || 0; live = height > 0; }).catch(() => {})
-  .finally(() => { $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Schätzung"; draw(); });
+  .finally(() => { const lv = live && Lern.DATA; $("mode").className = "mode " + (lv ? "live" : "demo"); $("mode").textContent = lv ? "Live" : "Schätzung"; draw(); });
 draw();
 
 const QUIZ = [["Was misst Stock-to-Flow?", ["Bestand geteilt durch die neue Menge pro Jahr", "Den Preis pro Gramm", "Die Zahl der Nutzer"], 0, "Je höher die Zahl, desto schwerer ist das Gut zu verwässern."], ["Was passiert mit der Knappheit von Bitcoin bei jedem Halving?", ["Sie verdoppelt sich ungefähr", "Sie halbiert sich", "Sie bleibt gleich"], 0, "Die neue Menge pro Jahr halbiert sich, der Bestand bleibt fast gleich."], ["Hat das Stock-to-Flow-Modell den Preis zuverlässig vorhergesagt?", ["Nein, bekannte Prognosen trafen nicht ein", "Ja, auf den Dollar genau", "Ja, aber nur bei Gold"], 0, "Knappheit allein macht keinen Preis, es braucht Nachfrage."]];
