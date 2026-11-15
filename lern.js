@@ -754,5 +754,5 @@ document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(() => 
 // Sofortige Seitenwechsel: Seiten im Hintergrund vorladen, sobald man einen Link berührt (Chrome, Edge), das nächste Level gleich vorab
 document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElement.supports && HTMLScriptElement.supports("speculationrules")){ const nx = document.querySelector("#next a, .next a");
   const sr = document.createElement("script"); sr.type = "speculationrules";
-  sr.textContent = JSON.stringify({prefetch: [{where: {and: [{href_matches: "/*"}, {not: {selector_matches: "[data-arena], [href^='#']"}}]}, eagerness: "moderate"}].concat(nx ? [{urls: [nx.href], eagerness: "eager"}] : [])});
+  sr.textContent = JSON.stringify({prefetch: [{where: {and: [{href_matches: "/*"}, {not: {selector_matches: "[href^='#']"}}]}, eagerness: "moderate"}].concat(nx ? [{urls: [nx.href], eagerness: "eager"}] : [])});
   document.head.appendChild(sr); } } catch(e){} });
