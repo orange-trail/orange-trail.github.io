@@ -181,7 +181,6 @@ details.fold[open] > summary{margin-bottom:12px}
         <a class="w" href="zyklen/"><span class="ic" aria-hidden="true"></span><b>Kurszyklen & Crashs</b><span>Alle großen Abstürze, wie lange die Erholung dauerte, und: Hältst du durch?</span><span class="go">Kurs-Achterbahn →</span></a>
         <a class="w" href="fomo/"><span class="ic" aria-hidden="true">🎢</span><b>FOMO &amp; FUD</b><span>8 echte Momente: Kannst du deinen Gefühlen widerstehen?</span><span class="go">Gefühls-Achterbahn →</span></a>
         <a class="w" href="hebel/"><span class="ic" aria-hidden="true">💥</span><b>Hebel &amp; Liquidationen</b><span>Teste eine gehebelte Wette mit echten Kursen der letzten Tage.</span><span class="go">Hebel-Falle →</span></a>
-        <a class="w" href="spiel/" data-arena><span class="ic" aria-hidden="true">⚔️</span><b>Kurs-Arena</b><span>Der echte Bitcoin-Kurs als Comic-Schlacht: Käufer gegen Verkäufer, live. Frei nach dem Boss von Welt 4.</span><span class="go">Kurs-Arena →</span></a>
       </div>
     </details>
     <details class="kap fold" data-k="5"><summary><span class="cn">5</span><span class="ct"><b>💸 Bezahlen & Senden</b><small>Wie eine Zahlung wirklich abläuft, schnell und günstig.</small></span><span class="cp" data-cnt="5"><i><u></u></i><em></em></span></summary>
@@ -385,11 +384,6 @@ details.fold[open] > summary{margin-bottom:12px}
       if (now){ const nx = P[i + 1] ? P[i + 1][0] : cx, bx = Math.max(36, Math.min(W - 36, cx + (nx > cx ? -22 : 22))), by = cy - r - 14;
         bubble = `<g class="bob"><path d="M${cx - 6} ${by - 3}l${(cx - bx) * .2 + 6} 12 6-12z" fill="#fff" stroke="#0a0d26" stroke-width="3" stroke-linejoin="round"/><rect x="${bx - 32}" y="${by - 30}" width="64" height="30" rx="15" fill="#fff" stroke="#0a0d26" stroke-width="3"/><rect x="${cx - 7}" y="${by - 4}" width="14" height="4" fill="#fff"/><text x="${bx}" y="${by - 10}" font-size="14" font-weight="900" text-anchor="middle" font-family="system-ui" fill="#0a0d26">${boss ? "KAMPF!" : "START"}</text></g>`; }
       g += boss ? "</g>" : "</a>";
-      // Bonus: Kurs-Arena als Portal neben dem Boss von Welt 4
-      if (boss && n.k === 3){ const ps = side || (cx > W / 2 ? -1 : 1); const open = !!won[3], px = Math.max(26, Math.min(W - 26, cx + ps * (nar ? 112 : 150))), py = cy + 46;
-        g += `<a href="spiel/" data-arena aria-label="Bonus: Kurs-Arena"><path d="M${cx + ps * r * .8} ${cy + r * .5} Q${(cx + px) / 2} ${py + 12} ${px - ps * 20} ${py}" fill="none" stroke="${open ? "#ff5c73" : "#4a3a5a"}" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round"/>
-          <circle cx="${px}" cy="${py + 5}" r="22" fill="#4a1020"/><circle cx="${px}" cy="${py}" r="22" fill="${open ? "#e0405a" : "#4a2a3a"}" stroke="#0a0d26" stroke-width="3"/><text x="${px}" y="${py + 7}" font-size="20" text-anchor="middle" opacity="${open ? 1 : .5}">⚔️</text>
-          ${open ? "" : `<text x="${px + 15}" y="${py - 10}" font-size="13" text-anchor="middle">🔒</text>`}${chip(px + ps * 28, py, "🎮 Arena", ps, open ? "#ffb3c2" : "#9aa2c8", "rgba(58,20,40,.92)", 12)}</a>`; }
       // Profi-Abzweigung: kleines Portal neben dem Boss
       if (boss && L.PRO[n.k].length){ const ps = side || (cx > W / 2 ? -1 : 1); const open = !!won[n.k], pd = L.PRO[n.k].filter(id => Lern.done(s, id)).length, tot = L.PRO[n.k].length, px = Math.max(26, Math.min(W - 26, cx + ps * (nar ? 112 : 150))), py = cy + 46;
         g += `<a href="#pro${n.k + 1}" data-pro="${n.k + 1}" aria-label="Profi-Pfad Welt ${n.k + 1}"><title>🔬 Profi-Pfad: ${pd}/${tot} Vertiefungen</title><path d="M${cx + ps * r * .8} ${cy + r * .5} Q${(cx + px) / 2} ${py + 12} ${px - ps * 20} ${py}" fill="none" stroke="#b26bff" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round" opacity="${open ? 1 : .55}"/>
@@ -412,7 +406,6 @@ details.fold[open] > summary{margin-bottom:12px}
   const mpop = document.getElementById("mpop"), mback = document.getElementById("mback");
   const closePop = () => { mpop.hidden = mback.hidden = true; };
   mback.onclick = closePop; addEventListener("keydown", e => { if (e.key === "Escape") closePop(); });
-  document.addEventListener("click", e => { const a = e.target.closest("[data-arena]"); if (!a || Lern.bossWon()[3]) return; e.preventDefault(); e.stopPropagation(); Lern.toast("🔒 Die Kurs-Arena öffnet sich, wenn du den Boss von Welt 4 besiegt hast."); }, true);
   mapw.addEventListener("click", e => { const a = e.target.closest("[data-pro]"); if (!a) return; e.preventDefault(); e.stopPropagation(); openPro(+a.dataset.pro - 1); }, true);
   function openPro(k){ const open = !!won[k], L = Lern.PRO[k];
     mpop.innerHTML = `<div class="mph"><b id="mpT">🔬 Profi-Pfad · ${Lern.CHAPTERS[k][0]} ${Lern.CHAPTERS[k][1]}</b><button type="button" id="mpx" aria-label="Schließen">✕</button></div>
@@ -451,6 +444,7 @@ details.fold[open] > summary{margin-bottom:12px}
     <b style="display:block;margin-bottom:6px">Entwickler-Modus</b>
     <button type="button" data-d="all" style="width:100%;margin-bottom:6px">🔓 Alles freischalten</button>
     <button type="button" data-d="reset" style="width:100%;margin-bottom:8px">↺ Mein Fortschritt zurück</button>
+    <a href="spiel/" style="display:block;text-align:center;margin-bottom:8px;padding:6px;border-radius:8px;background:#e0405a;color:#fff;font-weight:800;text-decoration:none">🎮 Kurs-Arena (Spiel)</a>
     <small style="display:block;margin-bottom:4px;color:#aab2d8">Boss direkt testen:</small>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px"><button type="button" data-b="0">1</button><button type="button" data-b="1">2</button><button type="button" data-b="2">3</button><button type="button" data-b="3">4</button><button type="button" data-b="4">5</button><button type="button" data-b="5">6</button><button type="button" data-b="f" style="grid-column:span 2">👑 End</button></div>
   </div>
