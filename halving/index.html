@@ -13,7 +13,7 @@
 <meta property="og:description" content="Live-Countdown zum nächsten Bitcoin-Halving und warum es nur 21 Millionen gibt.">
 <meta property="og:image" content="https://satsland.github.io/og/halving.jpg">
 <meta property="og:url" content="https://satsland.github.io/halving/">
-<link rel="stylesheet" href="../lern.css?v=52">
+<link rel="stylesheet" href="../lern.css?v=53">
 <style>
 /* Lernwelt "Knappheit & Halving": gleiche Farben und Schriften wie das Spiel. Nur Systemschriften, keine Cookies, kein Tracking. */
 
@@ -144,7 +144,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=53"></script>
+<script src="../lern.js?v=54"></script>
 <script>
 /* =====================================================================
    KNAPPHEIT & HALVING – Lernwelt von Satsland
@@ -215,10 +215,12 @@ function renderYear(){
   const y = +$("year").value; $("yearVal").textContent = y;
   const h = y === new Date().getFullYear() && tip ? tip : heightAt(Date.UTC(y, 6, 1));
   const m = minedSat(h)/1e8, e = Math.floor(h/EPOCH);
-  $("tmMined").textContent = (m/TOTAL*1e8*100).toLocaleString("de-DE", {maximumFractionDigits: m/TOTAL*1e8 > .999 ? 3 : 1}) + " %";
+  // abrunden statt runden: solange noch etwas fehlt, nie „100 %“ anzeigen
+  const pct = m/TOTAL*1e8*100, left = TOTAL/1e8 - m, dg = pct < 99 ? 1 : pct < 99.99 ? 3 : 6, pf = Math.floor(pct*10**dg)/10**dg;
+  $("tmMined").textContent = left <= 1e-8 ? "100 %" : pf >= 100 ? "fast 100 %" : pf.toLocaleString("de-DE", {maximumFractionDigits: dg}) + " %";
   $("tmReward").textContent = rewardSat(e) ? btc(rewardSat(e)/1e8) : "0 BTC";
   const rest = TOTAL/1e8 - m;
-  $("tmLeft").textContent = rest >= 1000 ? fmt(rest) + " BTC" : rest.toLocaleString("de-DE", {maximumFractionDigits: 2}) + " BTC";
+  $("tmLeft").textContent = rest >= 1000 ? fmt(rest) + " BTC" : rest >= 1 ? rest.toLocaleString("de-DE", {maximumFractionDigits: 2}) + " BTC" : rest > 1e-8 ? rest.toLocaleString("de-DE", {maximumSignificantDigits: 2}) + " BTC" : "0 BTC";
   renderCurve(); if (window.minerSplit) minerSplit(y);
 }
 $("year").addEventListener("input", renderYear);

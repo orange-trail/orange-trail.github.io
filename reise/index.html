@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=52">
+<link rel="stylesheet" href="../lern.css?v=53">
 <style>
 /* Lernwelt "Reise einer Zahlung": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -69,7 +69,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=53"></script>
+<script src="../lern.js?v=54"></script>
 <script>
 /* =====================================================================
    REISE EINER ZAHLUNG – Lernwelt von Satsland
@@ -77,7 +77,7 @@
 (() => {
 const $ = id => document.getElementById(id);
 let L = {fee: 0, mem: 0, h: 0, time: 10, live: false}, i = 0;
-const sa = (n, x, y, z, an = "", d = 0, st = "") => `<span class="a" style="left:${x}%;top:${y}%;width:${z}px;height:${z}px;${an ? `animation:${an};animation-delay:${d}s;` : ""}${st}">${Lern.art(n)}</span>`;
+const sa = (n, x, y, z, an = "", d = 0, st = "") => `<span class="a" style="left:${x}%;top:${y}%;width:${z}px;height:${z}px;${an ? `animation:${an};${d ? `animation-delay:${d}s;` : ""}` : ""}${st}">${Lern.art(n)}</span>`;
 const sl = (t, x, y, d = 0) => `<span class="lbl" style="left:${x}%;top:${y}%;animation-delay:${d}s">${t}</span>`;
 const sf = (n, fx, fy, x, y, z, d) => sa(n, x, y, z, "fly 1.3s cubic-bezier(.3,.7,.3,1) both", d, `--fx:${fx}%;--fy:${fy}%`);
 const n = v => Math.round(v).toLocaleString("de-DE");

@@ -318,7 +318,7 @@ const Lern = (() => {
 
 
   // ---------- Comic-Intro je Welt: kurzes animiertes Panel unter der Überschrift ----------
-  const sa = (n, x, y, z, an = "", d = 0, st = "") => `<span class="a" style="left:${x}%;top:${y}%;width:${z}px;height:${z}px;${an ? `animation:${an};animation-delay:${d}s;` : ""}${st}">${art(n)}</span>`;
+  const sa = (n, x, y, z, an = "", d = 0, st = "") => `<span class="a" style="left:${x}%;top:${y}%;width:${z}px;height:${z}px;${an ? `animation:${an};${d ? `animation-delay:${d}s;` : ""}` : ""}${st}">${art(n)}</span>`;
   const sl = (t, x, y, d = 0) => `<span class="lbl" style="left:${x}%;top:${Math.min(y, 82)}%;animation-delay:${d}s">${t}</span>`;
   const sf = (n, fx, fy, x, y, z, d) => sa(n, x, y, z, "fly 1.3s cubic-bezier(.3,.7,.3,1) both", d, `--fx:${fx}%;--fy:${fy}%`);
   const INTRO = {
@@ -335,7 +335,7 @@ const Lern = (() => {
     wallets: ["day", "Hol dir deine Schlüssel!", sa("bank2", 22, 60, 76) + sf("key", 22, 60, 76, 58, 52, .6) + sa("phone", 80, 62, 60) + sl("Nicht deine Schlüssel …", 50, 88, 1.6)],
     seed: ["dusk", "12 Wörter = alles", sa("letter", 32, 60, 72, "grow .5s both", .2) + sa("key", 70, 58, 64, "bobA 1.6s ease-in-out infinite", .8) + sl("Offline aufschreiben!", 50, 88, 1)],
     senden: ["day", "Zahlung unterwegs!", sa("phone", 30, 60, 70, "bobA 1.6s ease-in-out infinite") + sa("coin", 68, 58, 56, "bobA 1.4s ease-in-out infinite", .5) + sl("Adresse prüfen!", 50, 88, 1)],
-    betrug: ["night", "Psst … gratis Bitcoin?", sa("mask", 30, 60, 76, "shake .5s ease .6s 3") + sa("phone", 74, 62, 56) + sl("Achtung, Falle!", 50, 88, 1.4)],
+    betrug: ["night", "Psst … gratis Bitcoin?", sa("mask", 30, 60, 76, "sshake .5s ease .6s 3") + sa("phone", 74, 62, 56) + sl("Achtung, Falle!", 50, 88, 1.4)],
     krypto: ["day", "1000x garantiert!!!", sa("rocket", 30, 62, 66, "rocket 3s ease-in-out .3s both") + sa("coin", 72, 60, 66, "grow .5s both", .4) + sl("Lieber erst prüfen", 50, 88, 1.6)],
     sparplan: ["dawn", "Jeden Monat ein bisschen", sa("pig", 64, 62, 80) + sf("coin", 64, -20, 64, 40, 34, .3) + sf("coin", 64, -20, 64, 40, 34, 1.3) + sf("coin", 64, -20, 64, 40, 34, 2.3) + sl("Klein, aber regelmäßig", 30, 88, 1)],
     fomo: ["dusk", "Kaufen? Verkaufen? AAAH!", `<svg class="line" viewBox="0 0 400 170"><path d="M10 140 C120 135 200 120 250 30 C270 15 280 25 300 120 L390 140" stroke="#f7931a"/></svg>` + sa("fomo", 18, 62, 60, "bobA 1s ease-in-out infinite") + sl("Ruhig bleiben!", 76, 86, 2.4)],

@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=52">
+<link rel="stylesheet" href="../lern.css?v=53">
 <style>
 /* Lernwelt "Knappheits-Messer": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -26,12 +26,12 @@
 .res strong{display:block;font-size:18px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
 @media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
-.sf{margin-top:12px} .sf div{display:grid;grid-template-columns:7.5em 1fr 4.5em;align-items:center;gap:8px;margin-top:8px;font-size:14px}
+.sf{margin-top:12px} .sf .cap{display:block;font-size:13px;color:var(--muted);margin:0 0 2px} .sf .vd{display:block;margin-top:10px;font-size:15px;color:var(--ink)} .sf .vd b{font-family:inherit;color:var(--gold)} .sf div{display:grid;grid-template-columns:7.2em 1fr 6.8em;align-items:center;gap:8px;margin-top:8px;font-size:14px}
 .sf i{display:block;height:18px;border-radius:9px;background:rgba(255,255,255,.07);overflow:hidden} .sf u{display:block;height:100%;transition:width .6s;border-radius:9px}
-.sf b{font:900 15px var(--f-num);text-align:right}
+.sf div > b{font:900 14px var(--f-num);text-align:right;white-space:nowrap}
 .ctl{margin-top:14px} .ctl label{display:block;font-size:13px;color:var(--muted)} .ctl .row{display:flex;align-items:center;gap:10px} .ctl .row input{flex:1} .ctl .row b{font:900 18px var(--f-num);min-width:4ch;text-align:right}
 .formula{margin-top:12px;padding:10px 12px;border-radius:12px;background:#0b0f2a;border:1px solid var(--line);font:700 15px var(--f-num);text-align:center}
-.crit{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .crit div{border:2px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.5} .crit .p{border-color:rgba(52,217,130,.5)} .crit .c{border-color:rgba(255,92,115,.5)} .crit > b:first-child{display:block;font-family:var(--f-display)}
+.crit{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .crit div{border:2px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.5} .crit .p{border-color:rgba(52,217,130,.5)} .crit .c{border-color:rgba(255,92,115,.5)} .crit div > b:first-child{display:block;margin-bottom:4px;font-family:var(--f-display)}
 @media (max-width:620px){ .crit{grid-template-columns:1fr} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
@@ -57,7 +57,7 @@
     <h2 id="h2s">Kann man damit den Preis vorhersagen?</h2>
     <p class="muted" style="margin:0">2019 wurde ein bekanntes <b>Stock-to-Flow-Modell</b> veröffentlicht <span class="mk mk2">umstritten</span>. Es behauptete: Steigt die Knappheit nach jedem Halving, steigt der Preis nach einer festen Formel mit. Es wurde sehr populär, und dann ziemlich falsch.</p>
     <div class="crit">
-      <div class="p"><b>👍 Was stimmt</b>Bitcoin wird mit jedem Halving messbar knapper. Ab etwa 2028 ist er nach dieser Rechnung knapper als Gold. Knappheit ist eine Voraussetzung für Wert.</div>
+      <div class="p"><b>👍 Was stimmt</b>Bitcoin wird mit jedem Halving messbar knapper. Seit dem Halving 2024 ist er nach dieser Rechnung knapper als Gold. Knappheit ist eine Voraussetzung für Wert.</div>
       <div class="c"><b>👎 Was nicht stimmt</b>Knappheit allein macht keinen Preis, es braucht auch <b>Nachfrage</b>. Bekannte Prognosen des Modells, etwa 100.000 $ bis Ende 2021, trafen nicht ein. Ein Zusammenhang in der Vergangenheit ist keine Garantie.</div>
     </div>
     <p class="note">Merke: Modelle sind Werkzeuge zum Nachdenken, keine Kristallkugel. Mehr zum Preis in der Welt <a href="../wert/">Warum hat Bitcoin Wert?</a></p>
@@ -68,7 +68,7 @@
     <div class="learn">
       <div><b>Stock-to-Flow</b><span><b>Bestand ÷ neue Menge pro Jahr</b>. Je höher, desto schwerer lässt sich das Gut verwässern.</span></div>
       <div><b>Halving verdoppelt</b><span>Jedes Halving <b>verdoppelt</b> die Knappheit von Bitcoin ungefähr.</span></div>
-      <div><b>Knapper als Gold</b><span>Ab etwa <b>2028</b> wird Bitcoin nach dieser Rechnung knapper als Gold sein.</span></div>
+      <div><b>Knapper als Gold</b><span>Seit dem Halving <b>2024</b> ist Bitcoin nach dieser Rechnung knapper als Gold.</span></div>
       <div><b>Kein Preisorakel</b><span>Knappheit ohne Nachfrage macht keinen Preis. Das Modell lag mit Prognosen <b>daneben</b>.</span></div>
     </div>
     <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
@@ -79,7 +79,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=53"></script>
+<script src="../lern.js?v=54"></script>
 <script>
 /* =====================================================================
    KNAPPHEITS-MESSER – Lernwelt von Satsland
@@ -96,9 +96,11 @@ const GOLD = {stock: 216000, flow: 3600};   // Tonnen, gerundet
 function draw(){
   const y = +$("yr").value, h = hAt(y), st = supplyAt(h), fl = supplyAt(h + 52560) - st, sfB = st/fl, sfG = GOLD.stock/GOLD.flow;
   $("yrV").textContent = y;
-  const max = Math.max(sfB, sfG, 130);
-  $("sf").innerHTML = [["🥇 Gold", sfG, "#ffc94d"], ["₿ Bitcoin " + y, sfB, "#f7931a"]].map(([n, v, c]) => `<div><span>${n}</span><i><u style="width:${Math.min(100, v/max*100)}%;background:${c}"></u></i><b>${Math.round(v).toLocaleString("de-DE")}</b></div>`).join("");
-  $("kv").innerHTML = `<div>Bitcoin-Bestand ${y}<b class="num">${(st/1e6).toLocaleString("de-DE", {maximumFractionDigits: 2})} Mio.</b></div><div>Neu pro Jahr<b class="num">${Math.round(fl).toLocaleString("de-DE")} BTC</b></div><div>Knapper als Gold?<b class="num ${sfB > sfG ? "g" : ""}">${sfB > sfG ? "Ja ✓" : "Noch nicht"}</b></div>`;
+  // Skala: der längere Balken füllt fast alles, so sieht man das Verhältnis direkt
+  const max = Math.max(sfB, sfG)*1.05, r = sfB/sfG, rt = r.toLocaleString("de-DE", {maximumFractionDigits: r < 10 ? 1 : 0});
+  $("sf").innerHTML = `<span class="cap">Wie viele Jahre Produktion stecken schon im Bestand? Länger = knapper.</span>` + [["🥇 Gold", sfG, "#ffc94d"], ["₿ Bitcoin " + y, sfB, "#f7931a"]].map(([n, v, c]) => `<div><span>${n}</span><i><u style="width:${Math.min(100, v/max*100)}%;background:${c}"></u></i><b>${Math.round(v).toLocaleString("de-DE")} Jahre</b></div>`).join("")
+    + `<span class="vd">${r >= 1.05 ? `Bitcoin ist ${y} etwa <b>${rt}× so knapp</b> wie Gold.` : r > .95 ? `Bitcoin ist ${y} etwa <b>gleich knapp</b> wie Gold.` : `Gold ist ${y} noch etwa <b>${(1/r).toLocaleString("de-DE", {maximumFractionDigits: 1})}× so knapp</b> wie Bitcoin.`}</span>`;
+  $("kv").innerHTML = `<div>Bitcoin-Bestand ${y}<b class="num">${(st/1e6).toLocaleString("de-DE", {maximumFractionDigits: 2})} Mio.</b></div><div>Neu pro Jahr<b class="num">${Math.round(fl).toLocaleString("de-DE")} BTC</b></div><div>Knapper als Gold?<b class="num ${sfB > sfG ? "g" : ""}">${sfB > sfG ? "Ja ✓" : "Noch nicht"}</b></div><div>Gold neu pro Jahr<b class="num">ca. 3.600 t</b></div>`;
 }
 $("yr").addEventListener("input", draw);
 fetch("https://mempool.space/api/blocks/tip/height").then(r => r.text()).then(t => { height = +t || 0; live = height > 0; }).catch(() => {})

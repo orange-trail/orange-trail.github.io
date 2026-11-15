@@ -172,7 +172,7 @@ h1 span.btc{background:linear-gradient(90deg,#ffb347,#f7931a 40%,#ffd36b 60%,#f7
 @keyframes grow{from{transform:translate(-50%,-50%) scale(0)}}
 @keyframes bobA{50%{transform:translate(-50%,-62%)}}
 @keyframes fade{to{opacity:0;transform:translate(-50%,-80%) scale(.7)}}
-@keyframes shake{20%,60%{transform:translate(-54%,-50%) rotate(-3deg)}40%,80%{transform:translate(-46%,-50%) rotate(3deg)}}
+@keyframes sshake{20%,60%{transform:translate(-54%,-50%) rotate(-3deg)}40%,80%{transform:translate(-46%,-50%) rotate(3deg)}}
 @keyframes fall{to{transform:translate(-50%,320%) rotate(220deg);opacity:0}}
 @keyframes rocket{0%{transform:translate(-50%,40%)}60%{transform:translate(-50%,-240%)}100%{transform:translate(120%,140%) rotate(150deg)}}
 @keyframes spinA{to{transform:translate(-50%,-50%) rotate(360deg)}}
