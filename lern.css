@@ -36,6 +36,7 @@ h2{margin:0 0 8px;font:900 19px var(--f-display)}
 .mode.live{color:var(--bull);border-color:rgba(52,217,130,.45)}
 .mode.live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--bull);margin-right:6px;vertical-align:1px;animation:blink 1.2s infinite}
 .mode.demo{color:var(--gold);border-color:rgba(255,201,77,.45)}
+.mode.stand{color:#c9cdf0;border-color:rgba(201,205,240,.35)}
 @keyframes blink{50%{opacity:.2}}
 input[type=range]{flex:1;accent-color:var(--gold);height:28px}
 .btn{font:800 15px var(--f-body);height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--btc);color:#2a1400;cursor:pointer}

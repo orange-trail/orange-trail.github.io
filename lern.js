@@ -6,10 +6,19 @@ const Lern = (() => {
   const KEY = "bvb-lernen";
   // ---------- Live-Daten: eine eigene Quelle für alles (Satsland-Node + Kurs), Pfade wie bei mempool.space ----------
   // DATA leer = Entwicklungsmodus mit öffentlichen Quellen. Vor dem Start die eigene Adresse eintragen (siehe node/ANLEITUNG.md).
-  const DATA = "";
-  const FALLBACK = {"price/BTC-USD": "https://api.coinbase.com/v2/prices/BTC-USD/spot", "price/BTC-EUR": "https://api.coinbase.com/v2/prices/BTC-EUR/spot",
-    "candles/BTC-USD/3600": "https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=3600", "global": "https://api.coingecko.com/api/v3/global"};
-  const api = p => DATA ? DATA + p : FALLBACK[p] || "https://mempool.space/api/" + p;
+  // Ohne eigene Quelle (DATA leer): feste Werte mit Stand-Datum, kein einziger fremder Dienst wird abgefragt.
+  // Netzwerk-Werte (Blöcke, Gebühren …) laufen dann als Schätzung bzw. Simulation der jeweiligen Seite.
+  // Monatlich aktualisieren: STAND und SNAP anpassen.
+  const DATA = "", DSTAND = "15.11.2026";
+  const SNAP = {"price/BTC-USD": {data: {amount: "64800", currency: "USD"}}, "price/BTC-EUR": {data: {amount: "58800", currency: "EUR"}},
+    "v1/prices": {time: 1794700800, USD: 64800, EUR: 58800}, "global": {data: {active_cryptocurrencies: 15000, market_cap_percentage: {btc: 58.8}}}};
+  const api = p => DATA ? DATA + p : SNAP[p] ? "data:application/json," + encodeURIComponent(JSON.stringify(SNAP[p])) : "satsland-offline:" + p;
+  // Abgeschaltete Abrufe leise ablehnen (die Seiten zeigen dann Schätzung bzw. Beispielwerte), ohne Fehlermeldungen in der Konsole
+  if (!DATA){ const f0 = window.fetch.bind(window); window.fetch = (u, o) => typeof u === "string" && u.startsWith("satsland-offline:") ? Promise.reject(new TypeError("Festwert-Modus")) : f0(u, o); }
+  // Festwerte ehrlich kennzeichnen: „Live“ wird zu „Stand …“
+  if (!DATA) document.addEventListener("DOMContentLoaded", () => new MutationObserver(ms => ms.forEach(m => { const e = m.target.nodeType === 1 ? m.target : m.target.parentElement;
+    if (e && e.classList && e.classList.contains("mode") && e.textContent === "Live"){ e.textContent = "Stand " + DSTAND; e.classList.remove("live"); e.classList.add("stand"); } }))
+    .observe(document.body, {subtree: true, childList: true, characterData: true}));
   // Empfohlene Reihenfolge für Einsteiger: [id, Titel, Pfad]
   // Kapitel für Einsteiger: [Symbol, Titel, Kurzbeschreibung, Welten in Reihenfolge]
   const CHAPTERS = [
@@ -753,7 +762,7 @@ const Lern = (() => {
   }
 
   init();
-  return {DATA, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
+  return {DATA, DSTAND, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
 })();
 // Seitenstart: sobald alle Skripte gelaufen sind, Inhalt in einem Zug einblenden
 document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(() => document.documentElement.classList.remove("boot")));

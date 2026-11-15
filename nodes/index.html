@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=53">
+<link rel="stylesheet" href="../lern.css?v=54">
 <style>
 /* Lernwelt "Nodes": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .dev{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
@@ -138,11 +138,11 @@
 
   
   <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Neuester Block live von <a href="https://mempool.space">mempool.space</a> und <a href="https://blockstream.info">blockstream.info</a>. Die Abstimmung ist eine vereinfachte Simulation: Echte Nodes prüfen Hunderte Regeln, etwa Belohnung, Signaturen, Blockgröße und doppelte Ausgaben.</p></details>
+  <details class="foot"><summary>Quellen</summary><p>Blockhöhe nach den Bitcoin-Regeln geschätzt; echte Nodes zeigen z. B. <a href="https://mempool.space">mempool.space</a> und <a href="https://blockstream.info">blockstream.info</a>. Die Abstimmung ist eine vereinfachte Simulation: Echte Nodes prüfen Hunderte Regeln, etwa Belohnung, Signaturen, Blockgröße und doppelte Ausgaben.</p></details>
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=57"></script>
+<script src="../lern.js?v=58"></script>
 <script>
 /* =====================================================================
    NODE-WACHE – Lernwelt von Satsland
@@ -161,11 +161,14 @@ async function tip(base){
 async function compare(){
   // Mit eigener Satsland-Node: unsere Node gegen die erwartete Höhe nach Uhrzeit; sonst zwei öffentliche Explorer
   if (Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Satsland-Node"; sm[1].previousElementSibling.textContent = "Erwartet nach Uhrzeit"; }
-  const [a, b] = Lern.DATA ? [await tip(Lern.api("")).catch(() => null), null] : await Promise.all([tip("https://mempool.space/api/").catch(() => null), tip("https://blockstream.info/api/").catch(() => null)]);
+  // Ohne eigene Quelle: Beispiel mit der geschätzten aktuellen Blockhöhe (kein fremder Dienst)
+  const est = 840000 + Math.floor((Date.now()/1000 - 1713571767)/600), ex = {h: est, x: "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054"};
+  if (!Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Node A (Beispiel)"; sm[1].previousElementSibling.textContent = "Node B (Beispiel)"; }
+  const [a, b] = Lern.DATA ? [await tip(Lern.api("")).catch(() => null), null] : [ex, ex];
   if (Lern.DATA){ const e = 840000 + Math.floor((Date.now()/1000 - 1713571767)/600); $("bH").textContent = "ca. Block " + e.toLocaleString("de-DE"); $("bX").textContent = "10 Min. je Block"; }
   const put = (r, H, X) => { if (r){ $(H).textContent = "Block " + r.h.toLocaleString("de-DE"); $(X).textContent = "Hash …" + r.x.slice(-12); } };
   put(a, "aH", "aX"); put(b, "bH", "bX"); if (!a){ $("aH").textContent = "nicht erreichbar"; $("aX").textContent = ""; } if (!b && !Lern.DATA){ $("bH").textContent = "nicht erreichbar"; $("bX").textContent = ""; }
-  const ok = a || b; $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : "Beispielwerte";
+  const ok = Lern.DATA && (a || b); $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : "Beispielwerte";
   const vd = $("vd");
   if (a && b && a.x === b.x){ vd.className = "verdict ok"; vd.textContent = "✓ Beide sehen exakt denselben Block, ohne sich abzusprechen."; }
   else if (a && b){ vd.className = "verdict"; vd.textContent = `Gerade unterschiedlich (${Math.abs(a.h - b.h)} Block Abstand): Ein neuer Block verbreitet sich noch. In Sekunden sind sich wieder alle einig.`; }
@@ -249,7 +252,7 @@ run();
   $("fUp").addEventListener("input", run); run();
   const EV = [["2017", 478558, "Bitcoin Cash spaltet sich ab", "Hard Fork"], ["2017", 481824, "SegWit wird aktiv", "Soft Fork"], ["2021", 709632, "Taproot wird aktiv", "Soft Fork"]];
   const tl = h => { $("fTl").innerHTML = EV.map(([y, blk, t, k]) => `<li><b>${y}: ${t}</b> (${k}), Block ${blk.toLocaleString("de-DE")}${h ? `, <em>vor ${(h - blk).toLocaleString("de-DE")} Blöcken</em>` : ""}</li>`).join(""); };
-  tl(0); fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { if (+t > 709632) tl(+t); }).catch(() => {});
+  tl(0); fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { if (+t > 709632) tl(+t); }).catch(() => tl(840000 + Math.floor((Date.now()/1000 - 1713571767)/600)));
 }
 
 const QUIZ = [
