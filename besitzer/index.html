@@ -91,7 +91,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    WEM GEHÖRT BITCOIN? – Lernwelt von Satsland
@@ -100,7 +100,7 @@
 const $ = id => document.getElementById(id);
 let height = 924500, live = false;
 const supply = h => { let s = 0, r = 50, b = h + 1; while (b > 0 && r > 1e-8){ const n = Math.min(b, 210000); s += n * r; b -= n; r /= 2; } return s / 1e6; };
-async function load(){ try { const h = +(await (await fetch("https://mempool.space/api/blocks/tip/height")).text()); if (h > 900000){ height = h; live = true; } } catch(e){}
+async function load(){ try { const h = +(await (await fetch(Lern.api("blocks/tip/height"))).text()); if (h > 900000){ height = h; live = true; } } catch(e){}
   $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Stand Nov. 2026"; bars(); }
 function bars(){
   const mined = supply(height), big = [["🕵️ Satoshi", 1.1, "#ffc94d"], ["💀 Verloren (Schätzung)", 3.5, "#9aa2b8"], ["🏢 Firmen", 1.3, "#7cc4ff"], ["📈 US-ETFs", 1.2, "#b26bff"], ["🏛️ Staaten", 0.6, "#ff9a6a"]];

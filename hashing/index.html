@@ -102,7 +102,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    FINGERABDRUCK-MASCHINE – Lernwelt von Satsland
@@ -150,7 +150,7 @@ function game(){
 game();
 
 // Live: Hash des neuesten Blocks
-fetch("https://mempool.space/api/blocks/tip/hash").then(r => r.text()).then(h => {
+fetch(Lern.api("blocks/tip/hash")).then(r => r.text()).then(h => {
   h = h.trim(); if (!/^[0-9a-f]{64}$/.test(h)) throw 0;
   const z = h.match(/^0*/)[0].length;
   $("blk").innerHTML = `<em>${h.slice(0, z)}</em>${h.slice(z)}<br><span class="muted" style="font-weight:400">${z} Nullen am Anfang</span>`;

@@ -79,7 +79,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    KNAPPHEITS-MESSER – Lernwelt von Satsland
@@ -103,7 +103,7 @@ function draw(){
   $("kv").innerHTML = `<div>Bitcoin-Bestand ${y}<b class="num">${(st/1e6).toLocaleString("de-DE", {maximumFractionDigits: 2})} Mio.</b></div><div>Neu pro Jahr<b class="num">${Math.round(fl).toLocaleString("de-DE")} BTC</b></div><div>Knapper als Gold?<b class="num ${sfB > sfG ? "g" : ""}">${sfB > sfG ? "Ja ✓" : "Noch nicht"}</b></div><div>Gold neu pro Jahr<b class="num">ca. 3.600 t</b></div>`;
 }
 $("yr").addEventListener("input", draw);
-fetch("https://mempool.space/api/blocks/tip/height").then(r => r.text()).then(t => { height = +t || 0; live = height > 0; }).catch(() => {})
+fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t || 0; live = height > 0; }).catch(() => {})
   .finally(() => { $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Schätzung"; draw(); });
 draw();
 

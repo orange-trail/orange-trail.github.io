@@ -145,7 +145,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    GELD & INFLATION – Lernwelt von Satsland
@@ -190,7 +190,7 @@ function showMined(h, live){
   $("minedBar").style.height = pct.toFixed(2) + "%";
 }
 showMined(975000, false);
-fetch("https://mempool.space/api/blocks/tip/height").then(r => r.text()).then(t => { const h = parseInt(t, 10); if (h > 0) showMined(h, true); }).catch(() => {});
+fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { const h = parseInt(t, 10); if (h > 0) showMined(h, true); }).catch(() => {});
 
 // Mini-Quiz
 const QUIZ = [

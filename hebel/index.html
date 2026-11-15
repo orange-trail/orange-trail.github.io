@@ -97,7 +97,7 @@ table.t{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung. Hebel-Handel kann zum Totalverlust führen.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    HEBEL-FALLE – Lernwelt von Satsland
@@ -154,7 +154,7 @@ function table(){
 // Echte Stundenkurse von Coinbase, sonst ein Beispielverlauf
 async function load(){
   try {
-    const j = await (await fetch("https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=3600")).json();
+    const j = await (await fetch(Lern.api("candles/BTC-USD/3600"))).json();
     if (!Array.isArray(j) || j.length < 30) throw 0;
     C = j.slice(0, 73).reverse().map(c => [c[1], c[2], c[4]]); live = true;
   } catch(e){

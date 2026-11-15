@@ -4,6 +4,12 @@
    ===================================================================== */
 const Lern = (() => {
   const KEY = "bvb-lernen";
+  // ---------- Live-Daten: eine eigene Quelle für alles (Satsland-Node + Kurs), Pfade wie bei mempool.space ----------
+  // DATA leer = Entwicklungsmodus mit öffentlichen Quellen. Vor dem Start die eigene Adresse eintragen (siehe node/ANLEITUNG.md).
+  const DATA = "";
+  const FALLBACK = {"price/BTC-USD": "https://api.coinbase.com/v2/prices/BTC-USD/spot", "price/BTC-EUR": "https://api.coinbase.com/v2/prices/BTC-EUR/spot",
+    "candles/BTC-USD/3600": "https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=3600", "global": "https://api.coingecko.com/api/v3/global"};
+  const api = p => DATA ? DATA + p : FALLBACK[p] || "https://mempool.space/api/" + p;
   // Empfohlene Reihenfolge für Einsteiger: [id, Titel, Pfad]
   // Kapitel für Einsteiger: [Symbol, Titel, Kurzbeschreibung, Welten in Reihenfolge]
   const CHAPTERS = [
@@ -747,7 +753,7 @@ const Lern = (() => {
   }
 
   init();
-  return {sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
+  return {DATA, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
 })();
 // Seitenstart: sobald alle Skripte gelaufen sind, Inhalt in einem Zug einblenden
 document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(() => document.documentElement.classList.remove("boot")));

@@ -88,7 +88,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    KOPIER-PROBLEM – Lernwelt von Satsland
@@ -120,7 +120,7 @@ $("go").onclick = () => {
   }, mode ? 1700 : 1100);
 };
 reset();
-Promise.all([fetch("https://mempool.space/api/v1/blocks").then(r => r.json()), fetch("https://mempool.space/api/blocks/tip/height").then(r => r.text())]).then(([bl, h]) => {
+Promise.all([fetch(Lern.api("v1/blocks")).then(r => r.json()), fetch(Lern.api("blocks/tip/height")).then(r => r.text())]).then(([bl, h]) => {
   $("kTx").textContent = (bl[0].tx_count || 0).toLocaleString("de-DE") + " Zahlungen"; $("kH").textContent = (+h).toLocaleString("de-DE");
   $("lmode").className = "mode live"; $("lmode").textContent = "Live";
 }).catch(() => { $("kTx").textContent = "Tausende"; $("kH").textContent = "über 900.000"; $("lmode").className = "mode demo"; $("lmode").textContent = "Beispielwerte"; });

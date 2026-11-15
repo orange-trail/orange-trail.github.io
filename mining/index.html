@@ -116,7 +116,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    MINING-WERKSTATT – Lernwelt von Satsland
@@ -124,7 +124,7 @@
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
-const MP = "https://mempool.space/api/v1/";
+const MP = Lern.api("v1/");
 const fmt = n => Math.round(n).toLocaleString("de-DE");
 const dur = s => s < 1 ? "< 1 Sek." : s < 90 ? Math.round(s) + " Sek." : s < 5400 ? Math.round(s/60) + " Min." : s < 172800 ? Math.round(s/3600) + " Std." : s < 3.2e7*2 ? Math.round(s/86400) + " Tage" : big(s/3.156e7) + " Jahre";
 function big(v){ if (v < 1e6) return fmt(v); const u = [["Mio.", 1e6], ["Mrd.", 1e9], ["Bio.", 1e12], ["Brd.", 1e15], ["Trio.", 1e18]]; let k = u[0]; for (const x of u) if (v >= x[1]) k = x; return (v/k[1]).toLocaleString("de-DE", {maximumFractionDigits: 1}) + " " + k[0]; }

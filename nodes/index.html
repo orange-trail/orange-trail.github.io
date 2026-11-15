@@ -142,7 +142,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    NODE-WACHE – Lernwelt von Satsland
@@ -159,13 +159,17 @@ async function tip(base){
   return h > 0 ? {h, x} : null;
 }
 async function compare(){
-  const [a, b] = await Promise.all([tip("https://mempool.space/api/").catch(() => null), tip("https://blockstream.info/api/").catch(() => null)]);
+  // Mit eigener Satsland-Node: unsere Node gegen die erwartete Höhe nach Uhrzeit; sonst zwei öffentliche Explorer
+  if (Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Satsland-Node"; sm[1].previousElementSibling.textContent = "Erwartet nach Uhrzeit"; }
+  const [a, b] = Lern.DATA ? [await tip(Lern.api("")).catch(() => null), null] : await Promise.all([tip("https://mempool.space/api/").catch(() => null), tip("https://blockstream.info/api/").catch(() => null)]);
+  if (Lern.DATA){ const e = 840000 + Math.floor((Date.now()/1000 - 1713571767)/600); $("bH").textContent = "ca. Block " + e.toLocaleString("de-DE"); $("bX").textContent = "10 Min. je Block"; }
   const put = (r, H, X) => { if (r){ $(H).textContent = "Block " + r.h.toLocaleString("de-DE"); $(X).textContent = "Hash …" + r.x.slice(-12); } };
-  put(a, "aH", "aX"); put(b, "bH", "bX"); if (!a){ $("aH").textContent = "nicht erreichbar"; $("aX").textContent = ""; } if (!b){ $("bH").textContent = "nicht erreichbar"; $("bX").textContent = ""; }
+  put(a, "aH", "aX"); put(b, "bH", "bX"); if (!a){ $("aH").textContent = "nicht erreichbar"; $("aX").textContent = ""; } if (!b && !Lern.DATA){ $("bH").textContent = "nicht erreichbar"; $("bX").textContent = ""; }
   const ok = a || b; $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : "Beispielwerte";
   const vd = $("vd");
   if (a && b && a.x === b.x){ vd.className = "verdict ok"; vd.textContent = "✓ Beide sehen exakt denselben Block, ohne sich abzusprechen."; }
   else if (a && b){ vd.className = "verdict"; vd.textContent = `Gerade unterschiedlich (${Math.abs(a.h - b.h)} Block Abstand): Ein neuer Block verbreitet sich noch. In Sekunden sind sich wieder alle einig.`; }
+  else if (Lern.DATA && a){ vd.className = "verdict ok"; vd.textContent = "✓ Unsere eigene Node hat diesen Block selbst geprüft, ohne irgendwem zu vertrauen."; }
   else vd.textContent = ok ? "Nur eine Quelle erreichbar." : "";
 }
 compare(); setInterval(compare, 60000);
@@ -245,7 +249,7 @@ run();
   $("fUp").addEventListener("input", run); run();
   const EV = [["2017", 478558, "Bitcoin Cash spaltet sich ab", "Hard Fork"], ["2017", 481824, "SegWit wird aktiv", "Soft Fork"], ["2021", 709632, "Taproot wird aktiv", "Soft Fork"]];
   const tl = h => { $("fTl").innerHTML = EV.map(([y, blk, t, k]) => `<li><b>${y}: ${t}</b> (${k}), Block ${blk.toLocaleString("de-DE")}${h ? `, <em>vor ${(h - blk).toLocaleString("de-DE")} Blöcken</em>` : ""}</li>`).join(""); };
-  tl(0); fetch("https://mempool.space/api/blocks/tip/height").then(r => r.text()).then(t => { if (+t > 709632) tl(+t); }).catch(() => {});
+  tl(0); fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { if (+t > 709632) tl(+t); }).catch(() => {});
 }
 
 const QUIZ = [

@@ -144,7 +144,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    KNAPPHEIT & HALVING – Lernwelt von Satsland
@@ -153,7 +153,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
-const MP = "https://mempool.space/api/";
+const MP = Lern.api("");
 const EPOCH = 210000;
 const fmt = n => Math.round(n).toLocaleString("de-DE");
 const btc = v => (v >= 1 ? v.toLocaleString("de-DE", {maximumFractionDigits: 4}) : v.toLocaleString("de-DE", {maximumSignificantDigits: 4})) + " BTC";
@@ -261,7 +261,7 @@ async function load(){
       const s = sub(y), p = (s + fee)/t*100; return `<tr><td>${i ? y : "heute"}</td><td>${btc(s)}</td><td>${btc(fee)}</td><td class="${p < 50 ? "lo" : ""}">${p >= 99.5 ? "100" : p < 1 ? "< 1" : Math.round(p)} %</td></tr>`; }).join("");
     $("sMode").className = "mode " + (live ? "live" : "demo"); $("sMode").textContent = live ? "Live" : "Beispielwerte";
   };
-  fetch("https://mempool.space/api/v1/blocks").then(r => r.json()).then(bl => {
+  fetch(Lern.api("v1/blocks")).then(r => r.json()).then(bl => {
     const f = bl.map(x => x.extras && x.extras.totalFees).filter(v => v >= 0); if (!f.length) throw 0;
     show(f.reduce((a, v) => a + v, 0)/f.length/1e8, true);
   }).catch(() => show(0.03, false));

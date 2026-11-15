@@ -117,7 +117,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)}
 </div>
 
 <details class="foot"><summary>Quellen</summary><p><a href="https://mempool.space">mempool.space</a>: Warteraum, Gebühren und Blöcke live; <a href="https://en.bitcoin.it/wiki/Transaction_fees">Bitcoin Wiki: Transaction fees</a>. Das Spiel ist eine Simulation mit vereinfachten Zahlen.</p></details>
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    MEMPOOL-BAHNHOF – Lernwelt von Satsland
@@ -159,6 +159,7 @@ addEventListener("resize", resize);
 // ---------- Live-Daten: nur für die Info-Karte oben (das Spiel unten läuft als flüssige Simulation) ----------
 const LV = {waiting: 0, tip: {h: 0, ts: 0}, min: 0, ok: false};
 function connect(){
+  if (Lern.DATA) return poll();   // eigene Satsland-Node: einmal pro Minute abfragen statt WebSocket
   let ws;
   try { ws = new WebSocket("wss://mempool.space/api/v1/ws"); } catch(e){ return; }
   ws.onopen = () => ws.send(JSON.stringify({action: "want", data: ["blocks", "stats", "mempool-blocks"]}));
@@ -172,7 +173,17 @@ function connect(){
   };
   ws.onclose = () => setTimeout(connect, 5000);
 }
-async function loadPrice(){ try { const j = await (await fetch("https://mempool.space/api/v1/prices")).json(); if (j.EUR > 0) eur = j.EUR; } catch(e){} }
+async function poll(){
+  const g = p => fetch(Lern.api(p)).then(r => r.json());
+  try { const [mp, bl, mb] = await Promise.all([g("mempool"), g("v1/blocks"), g("v1/fees/mempool-blocks")]);
+    if (mp.count) LV.waiting = mp.count;
+    if (bl[0]) LV.tip = {h: bl[0].height, ts: bl[0].timestamp};
+    if (mb[0]){ LV.min = mb[0].feeRange[0]; if (!LV.ok){ LV.ok = true; $("mode").className = "mode live"; $("mode").textContent = "Live"; } }
+    if (LV.tip.h && tip.h < LV.tip.h - 1) tip = {h: LV.tip.h, ts: tip.ts};
+  } catch(e){}
+  setTimeout(poll, 60000);
+}
+async function loadPrice(){ try { const j = await (await fetch(Lern.api("v1/prices"))).json(); if (j.EUR > 0) eur = j.EUR; } catch(e){} }
 
 // ---------- Spiel-Bahnhof: Beispiel mit Andrang, damit jeder Platz erreichbar ist ----------
 let demoIn = 25;

@@ -1,5 +1,5 @@
 // Satsland: macht die Seite installierbar. Immer zuerst das Netz (frisch, am HTTP-Cache vorbei), offline die letzte Version.
-const CACHE = "satsland-v125";
+const CACHE = "satsland-v126";
 self.addEventListener("install", e => {
   self.skipWaiting();
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(["./", "./index.html", "./icon-192.png", "./icon-512.png"])).catch(() => {}));

@@ -98,7 +98,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=56"></script>
+<script src="../lern.js?v=57"></script>
 <script>
 /* =====================================================================
    ERSTER KAUF – Lernwelt von Satsland
@@ -106,7 +106,7 @@
 (() => {
 const $ = id => document.getElementById(id);
 let eur = 0, live = false;
-async function price(){ try { const j = await (await fetch("https://mempool.space/api/v1/prices")).json(); if (j.EUR > 0){ eur = j.EUR; live = true; } } catch(e){}
+async function price(){ try { const j = await (await fetch(Lern.api("v1/prices"))).json(); if (j.EUR > 0){ eur = j.EUR; live = true; } } catch(e){}
   $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte"; if (!eur) eur = 80000; fees(); }
 const R = [["Bitcoin-only-App", 1.0, 0, "#34d982"], ["Krypto-Börse", 0.3, 0.2, "#7cc4ff"], ["Broker mit Spread", 1.0, 1.5, "#ffc94d"], ["Teurer Anbieter", 2.0, 2.5, "#ff5c73"]];
 function fees(){
