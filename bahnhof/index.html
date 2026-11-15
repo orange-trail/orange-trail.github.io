@@ -158,21 +158,7 @@ addEventListener("resize", resize);
 
 // ---------- Live-Daten: nur für die Info-Karte oben (das Spiel unten läuft als flüssige Simulation) ----------
 const LV = {waiting: 0, tip: {h: 0, ts: 0}, min: 0, ok: false};
-function connect(){
-  if (Lern.DATA) return poll();   // eigene Satsland-Node: einmal pro Minute abfragen statt WebSocket
-  let ws;
-  try { ws = new WebSocket("wss://mempool.space/api/v1/ws"); } catch(e){ return; }
-  ws.onopen = () => ws.send(JSON.stringify({action: "want", data: ["blocks", "stats", "mempool-blocks"]}));
-  ws.onmessage = ev => {
-    let m; try { m = JSON.parse(ev.data); } catch(e){ return; }
-    if (m.mempoolInfo && m.mempoolInfo.size) LV.waiting = m.mempoolInfo.size;
-    if (m.blocks && m.blocks.length){ const b = m.blocks.reduce((a, c) => c.height > a.height ? c : a); LV.tip = {h: b.height, ts: b.timestamp}; }
-    if (m.block) LV.tip = {h: m.block.height, ts: m.block.timestamp};
-    if (m["mempool-blocks"] && m["mempool-blocks"][0]){ LV.min = m["mempool-blocks"][0].feeRange[0]; if (!LV.ok){ LV.ok = true; $("mode").className = "mode live"; $("mode").textContent = "Live"; } }
-    if (LV.tip.h && tip.h < LV.tip.h - 1) tip = {h: LV.tip.h, ts: tip.ts};   // Spiel nutzt echte Blocknummern
-  };
-  ws.onclose = () => setTimeout(connect, 5000);
-}
+function connect(){ if (Lern.DATA) poll(); }   // nur mit eigener Datenquelle, sonst läuft der Bahnhof als Simulation
 async function poll(){
   const g = p => fetch(Lern.api(p)).then(r => r.json());
   try { const [mp, bl, mb] = await Promise.all([g("mempool"), g("v1/blocks"), g("v1/fees/mempool-blocks")]);
