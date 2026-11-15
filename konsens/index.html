@@ -128,25 +128,35 @@ const $ = id => document.getElementById(id);
 const POS = [[200, 50], [345, 150], [290, 300], [110, 300], [55, 150]];
 let traitor = 0, gT = 0;
 // Ablauf in Schritten, damit man sieht, WAS passiert
+// Burg im Comic-Stil (statt Emoji): zwei Türme, Zinnen, Tor und Fahne; jubelt mit Fahne, wenn die Stadt gewinnt
+const castle = (x, y, win) => { const K = 'stroke="#0d1230" stroke-width="3" stroke-linejoin="round"';
+  return `<g transform="translate(${x - 50} ${y - 46})"><rect x="6" y="88" width="88" height="6" rx="3" fill="#0d1230" opacity=".35"/>
+  <path d="M18 40h64v50H18z" fill="#c9cdea" ${K}/><path d="M18 40v-8h9v8h9v-8h10v8h8v-8h10v8h9v-8h9v8" fill="#c9cdea" ${K}/>
+  <path d="M4 30h20v60H4zM76 30h20v60H76z" fill="#e3e6fb" ${K}/><path d="M0 32L14 8 28 32zM72 32L86 8 100 32z" fill="#ff5c73" ${K}/>
+  <path d="M38 90V68a12 12 0 0 1 24 0v22z" fill="#6b3a1f" ${K}/><path d="M44 72v18M50 70v20M56 72v18" stroke="#3a1d0c" stroke-width="2"/>
+  <rect x="9" y="46" width="10" height="13" rx="5" fill="#2a2f6e"/><rect x="81" y="46" width="10" height="13" rx="5" fill="#2a2f6e"/><rect x="45" y="48" width="10" height="10" rx="5" fill="#2a2f6e"/>
+  <path d="M50 40V14" stroke="#0d1230" stroke-width="3"/><path d="M50 14h20l-6 7 6 7H50z" fill="${win ? "#ffc94d" : "#7cc4ff"}" ${K}>${win ? '<animateTransform attributeName="transform" type="rotate" values="0 50 21;-8 50 21;0 50 21" dur=".8s" repeatCount="indefinite"/>' : ""}</path></g>`; };
 function frame(mode, st){
   const tr = POS[traitor], C = [200, 178];
+  // Schritt 1: Die Botschaft des Verräters erscheint als Zettel genau dort, wo später die Meinung steht (nichts überlappt)
+  const pill = i => { if (mode !== 1 || st !== 1 || i === traitor) return ""; const [x, y] = POS[i], m = i % 2 ? "Angriff!" : "Rückzug!";
+    return `<g class="pop"><rect x="${x - 46}" y="${y + 38}" width="92" height="26" rx="13" fill="#fff" stroke="#0d1230" stroke-width="2.5"/><text x="${x}" y="${y + 56}" font-size="14" font-weight="900" text-anchor="middle" fill="${i % 2 ? "#d0304a" : "#2a6fd0"}">📨 ${m}</text></g>`; };
   const T = POS.map((p, i) => { let txt = "?", col = "#3a4070";
     if (i === traitor && mode) { txt = mode === 2 && st >= 3 ? "😈 allein" : "😈"; col = "#b26bff"; }
     else if (mode === 1 && st >= 2){ txt = i % 2 ? "Angriff" : "Rückzug"; col = i % 2 ? "#ff5c73" : "#7cc4ff"; }
     else if (mode === 2){ txt = st >= 1 ? "Angriff" : "⛏️ rechnet"; col = st >= 1 ? "#34d982" : "#3a4070"; }
-    return `<g><circle cx="${p[0]}" cy="${p[1]}" r="34" fill="${col}" stroke="#0d1230" stroke-width="4" style="transition:fill .4s"/><text x="${p[0]}" y="${p[1] - 2}" font-size="26" text-anchor="middle">⛺</text><text x="${p[0]}" y="${p[1] + 54}" fill="#eef0ff" font-size="17" font-weight="800" text-anchor="middle">${txt}</text></g>`; }).join("");
-  let mid = "";
+    return `<g><circle cx="${p[0]}" cy="${p[1]}" r="34" fill="${col}" stroke="#0d1230" stroke-width="4" style="transition:fill .4s"/><text x="${p[0]}" y="${p[1] - 2}" font-size="26" text-anchor="middle">⛺</text>${pill(i) || `<text x="${p[0]}" y="${p[1] + 54}" fill="#eef0ff" font-size="17" font-weight="800" text-anchor="middle">${txt}</text>`}</g>`; }).join("");
+  let mid = mode ? "" : castle(C[0], C[1], false);
   if (mode === 1){
-    mid = `<text x="${C[0]}" y="${C[1] + 16}" font-size="44" text-anchor="middle">🏰</text>`;
-    if (st >= 1) mid = POS.map((p, i) => { if (i === traitor) return ""; const mx = tr[0] + (p[0] - tr[0]) * .66, my = tr[1] + (p[1] - tr[1]) * .66, m = i % 2 ? "Angriff!" : "Rückzug!";
-      return `<line class="msg" x1="${tr[0]}" y1="${tr[1]}" x2="${p[0]}" y2="${p[1]}" stroke="#b26bff" stroke-width="3" stroke-dasharray="6 6"/><g class="pop"><rect x="${mx - 40}" y="${my - 14}" width="80" height="26" rx="13" fill="#fff" stroke="#0d1230" stroke-width="2.5"/><text x="${mx}" y="${my + 4}" font-size="14" font-weight="900" text-anchor="middle" fill="${i % 2 ? "#d0304a" : "#2a6fd0"}">${m}</text></g>`; }).join("") + mid;
-    if (st >= 3) mid += `<text x="${C[0]}" y="${C[1] - 34}" font-size="18" font-weight="900" text-anchor="middle" fill="#ff5c73">Stadt gewinnt!</text>`;
+    mid = castle(C[0], C[1], st >= 3);
+    if (st >= 1) mid = POS.map((p, i) => i === traitor ? "" : `<line class="msg" x1="${tr[0]}" y1="${tr[1]}" x2="${p[0]}" y2="${p[1]}" stroke="#b26bff" stroke-width="3" stroke-dasharray="6 6" opacity="${st >= 3 ? .35 : 1}"/>`).join("") + mid;
+    if (st >= 3) mid += `<g class="pop"><rect x="${C[0] - 62}" y="${C[1] + 44}" width="124" height="28" rx="14" fill="#ff5c73" stroke="#0d1230" stroke-width="3"/><text x="${C[0]}" y="${C[1] + 63}" font-size="15" font-weight="900" text-anchor="middle" fill="#fff">Stadt gewinnt!</text></g>`;
   } else if (mode === 2){
     const n = st === 0 ? 0 : st === 1 ? 1 : 3, w = 30, gap = 6, x0 = C[0] - (n * (w + gap) - gap) / 2;
     if (st >= 1) mid += POS.map((p, i) => i === traitor ? "" : `<line x1="${C[0]}" y1="${C[1]}" x2="${p[0]}" y2="${p[1]}" stroke="#34d982" stroke-width="2.5" opacity=".55"/>`).join("");
     mid += `<rect x="${C[0] - 70}" y="${C[1] - 24}" width="140" height="48" rx="12" fill="#0d1230" opacity=".85"/>` + Array.from({length: n}, (_, k) => `<g class="pop" style="animation-delay:${k * .25}s"><rect x="${x0 + k * (w + gap)}" y="${C[1] - 12}" width="${w}" height="24" rx="5" fill="#ffc94d" stroke="#0d1230" stroke-width="3"/><text x="${x0 + k * (w + gap) + w / 2}" y="${C[1] + 5}" font-size="13" text-anchor="middle">⛏️</text></g>`).join("") + (n ? "" : `<text x="${C[0]}" y="${C[1] + 5}" fill="#9aa2d6" font-size="13" text-anchor="middle">gemeinsame Kette</text>`);
-    if (st >= 2){ const fx = tr[0] + (C[0] - tr[0]) * .5 - 15, fy = tr[1] + (C[1] - tr[1]) * .5 - 12;
-      mid += `<g class="pop"><rect x="${fx}" y="${fy}" width="30" height="24" rx="5" fill="#ff5c73" stroke="#0d1230" stroke-width="3"/><rect x="${fx - 30}" y="${fy - 25}" width="90" height="20" rx="10" fill="#0d1230"/><text x="${fx + 15}" y="${fy - 10}" fill="#ff9aa8" font-size="13" font-weight="800" text-anchor="middle">Fälschung</text>${st >= 3 ? `<text x="${fx + 15}" y="${fy + 20}" font-size="22" font-weight="900" text-anchor="middle" fill="#fff">✗</text>` : ""}</g>`; }
+    if (st >= 2){ const k = Math.abs(tr[0] - C[0]) > 100 ? .4 : .62, fx = tr[0] + (C[0] - tr[0]) * k - 15, fy = tr[1] + (C[1] - tr[1]) * k - 12;   // gefälschter Block (😈), ohne Extra-Schild: nichts überlappt
+      mid += `<g class="pop"><rect x="${fx}" y="${fy}" width="30" height="24" rx="5" fill="#ff5c73" stroke="#0d1230" stroke-width="3"/>${st >= 3 ? `<text x="${fx + 15}" y="${fy + 19}" font-size="20" font-weight="900" text-anchor="middle" fill="#fff">✗</text>` : `<text x="${fx + 15}" y="${fy + 17}" font-size="13" text-anchor="middle">😈</text>`}</g>`; }
   }
   return `<svg viewBox="0 0 400 390" role="img" aria-label="Fünf Generäle um eine Stadt">${mid}${T}</svg>`;
 }
