@@ -62,7 +62,7 @@
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Du gegen das echte Netz <span class="mode" id="mode">Verbinde …</span></h2>
+    <h2 id="h2s">Du gegen das ganze Netz <span class="mode" id="mode">Verbinde …</span></h2>
     <div class="kv">
       <div><small>Alle Miner zusammen: Versuche pro Sekunde</small><b class="num" id="net">–</b></div>
       <div><small>So viele deiner Geräte</small><b class="num" id="dev">–</b></div>
@@ -86,7 +86,7 @@
 
 <section class="card" aria-labelledby="hEs">
     <h2 id="hEs">Wie viel Strom braucht das?</h2>
-    <p class="muted" style="margin:0">Niemand misst den Strom aller Miner direkt. Er wird aus der <b>echten Rechenleistung</b> von oben geschätzt und davon, wie sparsam die Geräte sind. Darum zeigen wir eine <b>Spanne</b>.</p>
+    <p class="muted" style="margin:0">Niemand misst den Strom aller Miner direkt. Er wird aus der <b>Rechenleistung</b> von oben geschätzt und davon, wie sparsam die Geräte sind. Darum zeigen wir eine <b>Spanne</b>.</p>
     <div class="ekv">
       <div><small>Strom pro Jahr (Schätzung)</small><b class="num g" id="eY">–</b></div>
       <div><small>So viel wie deutsche Haushalte</small><b class="num" id="eHh">–</b></div>
@@ -116,7 +116,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    MINING-WERKSTATT – Lernwelt von Satsland
@@ -169,8 +169,8 @@ async function load(){
       $("chg").textContent = p(d.difficultyChange); $("prev").textContent = p(d.previousRetarget);
     }
   } catch(e){}
-  if (!netHash){ netHash = 1e21; diff = 1.4e14; $("realz").textContent = "ca. 19"; }   // Beispielwerte, falls die Live-Quelle nicht erreichbar ist
-  if (!ok){ $("avg").textContent = "ca. 10 Min."; $("rem").textContent = "1.008 Blöcken"; $("chg").textContent = "+1,2 %"; $("prev").textContent = "+2,5 %"; }
+  if (!netHash){ netHash = 1.07e21; diff = 1.48e14; $("realz").textContent = "ca. 19"; }   // Beispielwerte, falls die Live-Quelle nicht erreichbar ist
+  if (!ok){ $("avg").textContent = "ca. 10 Min."; $("rem").textContent = "1.008 Blöcken"; $("chg").textContent = "+1,5 %"; $("prev").textContent = "+5,5 %"; }
   $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : "Beispielwerte";
   compare();
 }

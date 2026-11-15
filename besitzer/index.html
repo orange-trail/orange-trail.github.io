@@ -91,14 +91,14 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    WEM GEHÖRT BITCOIN? – Lernwelt von Satsland
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
-let height = 924500, live = false;
+let height = Lern.height(), live = false;
 const supply = h => { let s = 0, r = 50, b = h + 1; while (b > 0 && r > 1e-8){ const n = Math.min(b, 210000); s += n * r; b -= n; r /= 2; } return s / 1e6; };
 async function load(){ try { const h = +(await (await fetch(Lern.api("blocks/tip/height"))).text()); if (h > 900000){ height = h; live = true; } } catch(e){}
   const lv = live && Lern.DATA; $("mode").className = "mode " + (lv ? "live" : "demo"); $("mode").textContent = lv ? "Live" : "Schätzung"; bars(); }
@@ -124,7 +124,7 @@ $("vs").onclick = e => { const b = e.target.closest("[data-i]"); if (!b || $("vs
   $("vN").onclick = () => { v = (v + 1) % VS.length; vs(); }; };
 vs();
 
-const QUIZ = [["Wie viele Bitcoin wird es höchstens geben?", ["21 Millionen", "100 Millionen", "Unbegrenzt", "1 Milliarde"], 0, "Die Obergrenze liegt bei 21 Millionen. Fast 20 Millionen sind schon geschürft."], ["Wie viele Bitcoin gelten als verloren?", ["Keine", "Etwa 3 bis 4 Millionen", "Genau 1.000", "Die Hälfte"], 1, "Schätzungen gehen von 3 bis 4 Millionen verlorenen Bitcoin aus, etwa durch verlorene Seeds oder alte Festplatten."], ["Wer hat mehr Bitcoin: Satoshi oder alle Staaten zusammen?", ["Alle Staaten", "Satoshi", "Gleich viel", "Keiner hat welche"], 1, "Satoshi hat geschätzt 1,1 Millionen Bitcoin, alle Staaten zusammen gut 600.000."]];
+const QUIZ = [["Wie viele Bitcoin wird es höchstens geben?", ["21 Millionen", "100 Millionen", "Unbegrenzt", "1 Milliarde"], 0, "Die Obergrenze liegt bei 21 Millionen. Über 20 Millionen sind schon geschürft."], ["Wie viele Bitcoin gelten als verloren?", ["Keine", "Etwa 3 bis 4 Millionen", "Genau 1.000", "Die Hälfte"], 1, "Schätzungen gehen von 3 bis 4 Millionen verlorenen Bitcoin aus, etwa durch verlorene Seeds oder alte Festplatten."], ["Wer hat mehr Bitcoin: Satoshi oder alle Staaten zusammen?", ["Alle Staaten", "Satoshi", "Gleich viel", "Keiner hat welche"], 1, "Satoshi hat geschätzt 1,1 Millionen Bitcoin, alle Staaten zusammen gut 600.000."]];
 Lern.quiz($("quiz"), "besitzer", QUIZ, "../"); Lern.visit("besitzer"); Lern.renderNext("besitzer", "../");
 })();
 </script>

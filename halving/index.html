@@ -21,6 +21,8 @@
 .clock{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center}
 .ring{position:relative;width:min(240px,52vw);aspect-ratio:1}
 .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.cd{grid-column:1/-1;margin:14px 0 0;text-align:center} .cd span{display:block;font-size:13px;color:var(--muted)} .cd b{font:800 clamp(20px,6.4vw,28px) var(--f-num);letter-spacing:.02em;color:var(--gold)} .cd b i{font-style:normal;font-size:.55em;color:var(--muted);margin:0 .35em 0 .1em}
+.pop{animation:hpop .7s cubic-bezier(.3,1.6,.5,1)} @keyframes hpop{0%{transform:scale(1.35);color:#ffc94d}100%{transform:none}}
 .ring .in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .ring .in b{font:600 clamp(26px,6vw,36px) var(--f-num);line-height:1}
 .ring .in small{color:var(--muted);font-size:12px;margin-top:4px}
@@ -73,7 +75,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
   <div class="top"><a class="back" href="../">← Satsland</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
     <h1>Knappheit &amp; <span class="btc">Halving</span></h1>
-    <p class="lead">Es wird nie mehr als 21 Millionen Bitcoin geben. Alle 210.000 Blöcke halbiert sich die Belohnung der Miner. Hier siehst du live, wann es wieder so weit ist.</p>
+    <p class="lead">Es wird nie mehr als 21 Millionen Bitcoin geben. Alle 210.000 Blöcke halbiert sich die Belohnung der Miner. Hier siehst du, wann es wieder so weit ist.</p>
   </div>
 
   <!-- 1 · Halving-Uhr -->
@@ -92,6 +94,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
         <div><small>Aktueller Block (ca.)</small><b class="num" id="tip">–</b></div>
         <div><small>Diese Epoche geschafft</small><b class="num" id="pct">–</b></div>
       </div>
+      <p class="cd" aria-live="off"><span>Noch etwa</span><b id="cd">–</b></p>
     </div>
   </section>
 
@@ -144,7 +147,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    KNAPPHEIT & HALVING – Lernwelt von Satsland
@@ -170,7 +173,7 @@ function heightAt(ms){
   return EPOCH*40;
 }
 
-let tip = 0, avgMs = 600e3, live = false;
+let tip = 0, avgMs = 600e3, live = false, loadedAt = Date.now();
 
 // ---------- Halving-Uhr ----------
 function renderClock(){
@@ -230,7 +233,7 @@ $("sYear").addEventListener("input", () => { $("year").value = $("sYear").value;
 async function load(){
   try {
     const h = parseInt(await (await fetch(MP + "blocks/tip/height")).text(), 10);
-    if (h > 0){ tip = h; live = true; }
+    if (h > 0){ tip = h; live = !!Lern.DATA; loadedAt = Date.now(); }
   } catch(e){}
   try { const d = await (await fetch(MP + "v1/difficulty-adjustment")).json(); if (d.timeAvg > 60e3) avgMs = d.timeAvg; } catch(e){}
   try {
@@ -245,6 +248,15 @@ async function load(){
   else { $("mode").className = "mode live"; $("mode").textContent = "Live"; }
   renderClock(); renderYear();
 }
+
+// ---------- Sekunden-Countdown und neue Blöcke (Schätzung: im Schnitt 596,5 s pro Block) ----------
+setInterval(() => {
+  if (!tip) return;
+  const hf = live ? tip + (Date.now() - loadedAt)/avgMs : Lern.heightF(), next = (Math.floor(hf/EPOCH) + 1)*EPOCH, sec = Math.max(0, (next - hf)*(live ? avgMs/1000 : 596.5));
+  const d = Math.floor(sec/86400), h = Math.floor(sec/3600) % 24, m = Math.floor(sec/60) % 60, z = n => String(n).padStart(2, "0");
+  $("cd").innerHTML = `${d.toLocaleString("de-DE")}<i>Tage</i>${z(h)}<i>Std</i>${z(m)}<i>Min</i>${z(Math.floor(sec % 60))}<i>Sek</i>`;
+  if (!live && Math.floor(hf) > tip){ tip = Math.floor(hf); renderClock(); ["tip", "left"].forEach(id => { const e = $(id); e.classList.remove("pop"); void e.offsetWidth; e.classList.add("pop"); }); Lern.toast("⛏️ Ein neuer Block ist fällig (geschätzt)"); }
+}, 1000);
 
 // ---------- Quiz ----------
 // Sicherheitsbudget (früher eigene Welt "Miner-Lohn"): Anteil Gebühren heute und bei gleichen Gebühren in Zukunft

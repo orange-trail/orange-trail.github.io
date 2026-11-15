@@ -90,7 +90,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    WERT-WAAGE – Lernwelt von Satsland
@@ -102,7 +102,7 @@ $("icL").innerHTML = Lern.art("bag"); $("icR").innerHTML = Lern.art("coin");
 for (let i = 0; i < 18; i++) $("net").insertAdjacentHTML("beforeend", `<span style="opacity:${.25 + i/24}">${Lern.art(i % 3 ? "phone" : "hal")}</span>`);
 const usd = v => v >= 1e9 ? (v/1e9).toLocaleString("de-DE", {maximumFractionDigits: 1}) + " Mrd. $" : (v/1e6).toLocaleString("de-DE", {maximumFractionDigits: 0}) + " Mio. $";
 function calc(){
-  const base = price || 100000, today = 450*base, v = +$("dem").value, dem = today*Math.pow(4, (v - 50)/50);   // Regler: ein Viertel bis Vierfaches von heute
+  const base = price || Lern.PRICE.USD, today = 450*base, v = +$("dem").value, dem = today*Math.pow(4, (v - 50)/50);   // Regler: ein Viertel bis Vierfaches von heute
   const p = dem/450, tilt = Math.max(-14, Math.min(14, Math.log(dem/today)/Math.log(4)*14));
   $("beam").style.transform = `rotate(${-tilt}deg)`; $("demV").textContent = usd(dem); $("vL").textContent = usd(dem) + "/Tag";
   $("panL").style.transform = `translateY(${tilt*2.2}px)`; $("panR").style.transform = `translateY(${-tilt*2.2}px)`;

@@ -79,7 +79,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    KNAPPHEITS-MESSER – Lernwelt von Satsland
@@ -91,7 +91,7 @@ let height = 0, live = false;
 const reward = e => 50/Math.pow(2, e);
 function supplyAt(h){ let s = 0; for (let e = 0; e < 34; e++){ const lo = e*210000, hi = (e + 1)*210000; if (h <= lo) break; s += (Math.min(h, hi) - lo)*reward(e); } return s; }
 // Ungefähre Blockhöhe zu Jahresbeginn (2009: 0, danach ca. 52.560 Blöcke/Jahr); heute aus Live-Höhe
-const hAt = y => { const now = new Date().getFullYear() + new Date().getMonth()/12; return height && Math.abs(y - now) < .5 ? height : Math.max(0, Math.round((height || 925000) + (y - now)*52560)); };
+const hAt = y => { const now = new Date().getFullYear() + new Date().getMonth()/12; return height && Math.abs(y - now) < .5 ? height : Math.max(0, Math.round((height || Lern.height()) + (y - now)*52560)); };
 const GOLD = {stock: 216000, flow: 3600};   // Tonnen, gerundet
 function draw(){
   const y = +$("yr").value, h = hAt(y), st = supplyAt(h), fl = supplyAt(h + 52560) - st, sfB = st/fl, sfG = GOLD.stock/GOLD.flow;

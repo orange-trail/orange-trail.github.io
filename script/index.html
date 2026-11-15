@@ -85,7 +85,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    SCRIPT-LABOR – Lernwelt von Satsland
@@ -94,7 +94,7 @@
 const $ = id => document.getElementById(id);
 const hx = u => Bit.hex(u), short = s => s.length > 20 ? s.slice(0, 10) + "…" + s.slice(-6) : s;
 const keys = [1, 2, 3].map(() => Bit.mod(Bit.big(Bit.rand(32)), Bit.N)), pubs = keys.map(k => Bit.pubC(Bit.mul(k))), PKH = hx(Bit.hash160(pubs[0]));
-const HEIGHT = 925000, LOCK = 924000;
+const HEIGHT = Math.round(Lern.height()/1000)*1000, LOCK = HEIGHT - 1000;   // Beispielhöhen passend zur heutigen Blockhöhe
 let kind = "p2pkh", wrong = false, prog = [], pc = 0, stack = [], fail = "";
 const D = {
   p2pkh: "Das Standard-Schloss: „Zeig einen öffentlichen Schlüssel, dessen Fingerabdruck passt, und eine gültige Unterschrift dazu.“",
@@ -105,7 +105,7 @@ function build(){
   const sig = n => ["sig", wrong && n === 0 ? "falsch" : "ok", n];
   if (kind === "p2pkh") prog = [[sig(0), "u", "Unterschrift", "<Unterschrift A>"], [["push", hx(pubs[wrong ? 1 : 0])], "u", "Öffentlicher Schlüssel", "<PubKey>"], [["DUP"], "k", "verdoppelt das oberste Element", "OP_DUP"], [["HASH160"], "k", "SHA-256, dann RIPEMD-160", "OP_HASH160"], [["push", PKH], "k", "Fingerabdruck aus dem Schloss", "<" + short(PKH) + ">"], [["EQUALVERIFY"], "k", "beide gleich? sonst Abbruch", "OP_EQUALVERIFY"], [["CHECKSIG"], "k", "Unterschrift zum Schlüssel gültig?", "OP_CHECKSIG"]];
   if (kind === "multi") prog = [[["push", "0"], "u", "Platzhalter (historischer Bug)", "OP_0"], [sig(0), "u", "Unterschrift A", "<Unterschrift A>"], [["sig", "ok", 2], "u", "Unterschrift C", "<Unterschrift C>"], [["push", "2"], "k", "so viele müssen unterschreiben", "OP_2"], ...pubs.map((p, i) => [["push", hx(p)], "k", "Schlüssel " + "ABC"[i], "<PubKey " + "ABC"[i] + ">"]), [["push", "3"], "k", "so viele Schlüssel gibt es", "OP_3"], [["CHECKMULTISIG"], "k", "2 gültige Unterschriften von den 3?", "OP_CHECKMULTISIG"]];
-  if (kind === "time") prog = [[sig(0), "u", "Unterschrift", "<Unterschrift A>"], [["push", String(wrong ? 926000 : LOCK)], "k", "frühester Block", "<" + (wrong ? 926000 : LOCK) + ">"], [["CLTV"], "k", "ist dieser Block schon erreicht?", "OP_CHECKLOCKTIMEVERIFY"], [["DROP"], "k", "Zahl wieder wegwerfen", "OP_DROP"], [["push", hx(pubs[0])], "k", "Schlüssel des Besitzers", "<PubKey A>"], [["CHECKSIG"], "k", "Unterschrift gültig?", "OP_CHECKSIG"]];
+  if (kind === "time") prog = [[sig(0), "u", "Unterschrift", "<Unterschrift A>"], [["push", String(wrong ? HEIGHT + 1000 : LOCK)], "k", "frühester Block", "<" + (wrong ? HEIGHT + 1000 : LOCK) + ">"], [["CLTV"], "k", "ist dieser Block schon erreicht?", "OP_CHECKLOCKTIMEVERIFY"], [["DROP"], "k", "Zahl wieder wegwerfen", "OP_DROP"], [["push", hx(pubs[0])], "k", "Schlüssel des Besitzers", "<PubKey A>"], [["CHECKSIG"], "k", "Unterschrift gültig?", "OP_CHECKSIG"]];
   pc = 0; stack = []; fail = ""; $("desc").innerHTML = D[kind] + (wrong ? " <b style='color:var(--bear)'>😈 Jetzt mit falschem Schlüssel!</b>" : ""); draw();
 }
 const label = v => v.t === "sig" ? (v.ok ? "✍️ Unterschrift " + "ABC"[v.n] : "✍️ falsche Unterschrift") : v.t === "bool" ? (v.v ? "WAHR" : "FALSCH") : short(v.v);

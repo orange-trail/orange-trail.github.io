@@ -74,7 +74,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    ZEITREISE – Lernwelt von Satsland
@@ -151,7 +151,7 @@ $("play").onclick = () => {
 
 // Pizza-Rätsel
 function pizza(){
-  const val = 10000*(now || 100000), opts = [val/1000, val, val*0.1].sort(() => Math.random() - .5);
+  const val = 10000*(now || Lern.PRICE.USD), opts = [val/1000, val, val*0.1].sort(() => Math.random() - .5);
   $("pz").innerHTML = opts.map(v => `<button class="btn ghost" type="button" data-v="${v}">${usd(v)}</button>`).join("");
   $("pz").onclick = e => { const b = e.target.closest("button"); if (!b) return; const ok = +b.dataset.v === val;
     [...$("pz").children].forEach(x => { x.disabled = true; x.className = "btn ghost " + (+x.dataset.v === val ? "y" : "n"); });

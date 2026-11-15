@@ -69,7 +69,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    REISE EINER ZAHLUNG – Lernwelt von Satsland
@@ -116,7 +116,7 @@ Promise.allSettled([
   fetch(MP + "blocks/tip/height").then(r => r.text()).then(t => { L.h = +t; }),
   fetch(MP + "v1/difficulty-adjustment").then(r => r.json()).then(j => { L.time = j.timeAvg/60000; }),
 ]).then(rs => { L.live = rs.some(r => r.status === "fulfilled");
-  if (!L.fee){ L.fee = 3; } if (!L.mem){ L.mem = 20000; } if (!L.h){ L.h = 925000; }
+  if (!L.fee){ L.fee = 3; } if (!L.mem){ L.mem = 20000; } if (!L.h){ L.h = Lern.height(); }
   $("mode").className = "mode " + (L.live ? "live" : "demo"); $("mode").textContent = L.live ? "Live" : "Beispielwerte"; draw(); });
 draw();
 

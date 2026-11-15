@@ -98,7 +98,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    BLOCKCHAIN – Lernwelt von Satsland
@@ -133,7 +133,7 @@ async function loadChain(){
   try { bl = (await (await fetch(Lern.api("v1/blocks"))).json()).slice(0, 6).reverse(); if (!bl.length) throw 0; }
   catch(e){ live = false;   // Beispiel-Kette, damit man das Prinzip trotzdem sieht
     const H = h => "00000000000000000002" + sha256("blk" + h).slice(0, 44); let t = Date.now()/1000 - 3600;
-    bl = Array.from({length: 6}, (_, i) => { const h = 925500 + i; t += 600; return {height: h, id: H(h), previousblockhash: H(h - 1), timestamp: t, tx_count: 2800 + (i * 937) % 1900, weight: 3.6e6 + (i * 71e3) % 4e5}; }); }
+    bl = Array.from({length: 6}, (_, i) => { const h = Lern.height() - 5 + i; t += 600; return {height: h, id: H(h), previousblockhash: H(h - 1), timestamp: t, tx_count: 2800 + (i * 937) % 1900, weight: 3.6e6 + (i * 71e3) % 4e5}; }); }
   $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte";
   $("chain").innerHTML = chainHTML(bl, live);
   const c = $("chain"); c.scrollLeft = c.scrollWidth;

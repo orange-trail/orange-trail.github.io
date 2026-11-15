@@ -103,7 +103,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=62"></script>
+<script src="../lern.js?v=63"></script>
 <script>
 /* =====================================================================
    LIGHTNING-RENNEN – Lernwelt von Satsland
@@ -114,7 +114,7 @@ const $ = id => document.getElementById(id);
 const MP = Lern.api("v1/");
 const fmt = n => Math.round(n).toLocaleString("de-DE");
 const eur2 = v => v.toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: v < .1 ? 3 : 2}) + " €";
-let fee = 2, eur = 64000, live = false;
+let fee = 2, eur = Lern.PRICE.EUR, live = false;
 const LN_SATS = 2;   // typische Lightning-Gebühr für 5 €
 
 function costs(){
@@ -124,7 +124,7 @@ function costs(){
 }
 async function load(){
   try { const f = await (await fetch(MP + "fees/recommended")).json(); if (f.fastestFee > 0){ fee = f.fastestFee; live = true; } } catch(e){}
-  try { const p = await (await fetch(MP + "prices")).json(); if (p.EUR > 0) eur = p.EUR; } catch(e){}
+  try { const p = await (await fetch(Lern.api("v1/prices"))).json(); if (p.EUR > 0) eur = p.EUR; } catch(e){}
   try {
     const j = await (await fetch(MP + "lightning/statistics/latest")).json(), l = j.latest || j;
     if (l.total_capacity > 0){ $("cap").textContent = fmt(l.total_capacity/1e8) + " BTC"; $("chs").textContent = fmt(l.channel_count); $("nds").textContent = fmt(l.node_count); $("netCard").hidden = false; live = true; }

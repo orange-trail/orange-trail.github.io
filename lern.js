@@ -13,7 +13,7 @@ const Lern = (() => {
   const SNAP = {"price/BTC-USD": {data: {amount: "64800", currency: "USD"}}, "price/BTC-EUR": {data: {amount: "58800", currency: "EUR"}},
     "v1/prices": {time: 1794700800, USD: 64800, EUR: 58800}, "global": {data: {active_cryptocurrencies: 15000, market_cap_percentage: {btc: 58.8}}}};
   // Blockhöhe ohne Live-Daten: hochgerechnet ab einem echten Ankerblock (974.930 am 7.11.2026), im Schnitt 596,5 s pro Block (Mittel seit dem Halving 2024)
-  const height = () => 974930 + Math.floor((Date.now()/1000 - 1794052800)/596.5);
+  const heightF = () => 974930 + (Date.now()/1000 - 1794052800)/596.5, height = () => Math.floor(heightF());   // heightF: mit Nachkommastellen (Fortschritt zum nächsten Block)
   // Kurs bleibt fester Monatswert, auch mit eigener Node (Live-Kurs nur mit Lizenz, dann LIVE_KURS = true)
   const LIVE_KURS = false; let usedLive = false;   // usedLive: hat diese Seite echte Node-Daten geholt?
   const api = p => SNAP[p] && !(DATA && LIVE_KURS) ? "data:application/json," + encodeURIComponent(JSON.stringify(SNAP[p])) : DATA ? (usedLive = true, DATA + p) : p === "blocks/tip/height" ? "data:text/plain," + height() : SNAP[p] ? "data:application/json," + encodeURIComponent(JSON.stringify(SNAP[p])) : "satsland-offline:" + p;
@@ -766,7 +766,7 @@ const Lern = (() => {
   }
 
   init();
-  return {DATA, DSTAND, height, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
+  return {DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
 })();
 // Seitenstart: sobald alle Skripte gelaufen sind, Inhalt in einem Zug einblenden
 document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(() => document.documentElement.classList.remove("boot")));
