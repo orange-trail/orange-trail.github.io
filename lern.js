@@ -768,6 +768,9 @@ const Lern = (() => {
   init();
   return {DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
 })();
+// Offline-Betrieb und „Zum Startbildschirm hinzufügen“: Service Worker der ganzen Seite anmelden
+try { const me = document.currentScript && document.currentScript.src; if (me && "serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href))
+  addEventListener("load", () => navigator.serviceWorker.register(new URL("sw.js", me).href).catch(() => {})); } catch(e){}
 // Seitenstart: sobald alle Skripte gelaufen sind, Inhalt in einem Zug einblenden
 document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(() => document.documentElement.classList.remove("boot")));
 // Sofortige Seitenwechsel: Seiten im Hintergrund vorladen, sobald man einen Link berührt (Chrome, Edge), das nächste Level gleich vorab
