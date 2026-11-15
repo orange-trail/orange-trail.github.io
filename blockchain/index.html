@@ -13,13 +13,13 @@
 <meta property="og:description" content="Fälsch einen Block und sieh, wie die Kette bricht.">
 <meta property="og:image" content="https://satsland.github.io/og/blockchain.jpg">
 <meta property="og:url" content="https://satsland.github.io/blockchain/">
-<link rel="stylesheet" href="../lern.css?v=54">
+<link rel="stylesheet" href="../lern.css?v=55">
 <style>
 /* Lernwelt "Blockchain": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 /* 1 · Echte Kette */
 .chain{display:flex;gap:0;overflow-x:auto;padding:6px 2px 10px;scrollbar-width:thin}
 .blk{flex:none;width:200px;background:linear-gradient(160deg,#2a3184,#171d52);border:3px solid #0d1230;border-radius:16px;padding:0 12px 10px;font-size:13px;box-shadow:5px 5px 0 #0d1230;overflow:hidden;margin:4px 0 6px}
-.blk.new{border-color:#f7931a;box-shadow:5px 5px 0 #0d1230,0 0 18px rgba(247,147,26,.45);animation:pop .5s both}
+.blk.new{border-color:#f7931a;box-shadow:5px 5px 0 #0d1230,0 0 18px rgba(247,147,26,.45);animation:p-pop .5s both}
 .bt{display:flex;align-items:center;gap:6px;white-space:nowrap;margin:0 -12px 8px;padding:8px 12px;background:linear-gradient(90deg,#f7931a,#ffb04a);color:#2a1400;border-bottom:3px solid #0d1230} .bt span{font:800 12px var(--f-body)} .bt b{font:900 16px var(--f-display)} .bt em{margin-left:auto;font:900 11px var(--f-body);font-style:normal;background:#0d1230;color:#ffc94d;padding:2px 6px;border-radius:6px}
 .fill{position:relative;height:16px;border-radius:8px;background:#0d1230;margin-top:8px;overflow:hidden} .fill i{position:absolute;inset:0 auto 0 0;background:repeating-linear-gradient(45deg,#34d982 0 6px,#2bb56c 6px 12px)} .fill span{position:relative;display:block;text-align:center;font:800 11px/16px var(--f-body);color:#fff;text-shadow:0 1px 2px #000}
 .blk h3{margin:0 0 4px;font:900 15px var(--f-display);color:var(--btc)}
@@ -52,7 +52,7 @@
 .hash .out{font:600 13px var(--f-num);word-break:break-all;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--gold)}
 @media (max-width:860px){ .toy{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:560px){ .toy{grid-template-columns:1fr} .hash{grid-template-columns:1fr} .blk{width:190px} .bt b{font-size:15px} }
-@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
+@keyframes p-pop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -98,7 +98,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=64"></script>
+<script src="../lern.js?v=65"></script>
 <script>
 /* =====================================================================
    BLOCKCHAIN – Lernwelt von Satsland

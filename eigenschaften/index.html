@@ -15,14 +15,14 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=54">
+<link rel="stylesheet" href="../lern.css?v=55">
 <style>
 /* Lernwelt "Eigenschaften": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
 .score{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
 .score div{border:1px solid var(--line);border-radius:14px;padding:8px 10px;text-align:center;font-size:13px;color:var(--muted)}
 .score b{display:block;font:900 22px var(--f-num);color:var(--ink)} .score .me b{color:var(--gold)}
-.round{margin-top:12px;padding:16px;border-radius:18px;border:2px solid var(--gold);background:rgba(247,147,26,.06);animation:rin .35s}
+.round{margin-top:12px;padding:16px;border-radius:18px;border:2px solid var(--gold);background:rgba(247,147,26,.06);animation:p-rin .35s}
 .round .k{font-size:13px;color:var(--muted)} .round h3{margin:2px 0 4px;font:900 22px var(--f-display)} .round .what{margin:0;font-size:15px;color:var(--muted);line-height:1.5}
 .ask{margin:12px 0 8px;font-size:17px;font-weight:800} .ask em{font-style:normal;padding:1px 8px;border-radius:8px} .ask em.lo{background:rgba(255,92,115,.2);color:#ff9aa8} .ask em.hi{background:rgba(52,217,130,.2);color:#7ff0b2}
 .four{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
@@ -40,12 +40,12 @@ table.pts{width:100%;border-collapse:separate;border-spacing:0 4px;margin-top:6p
 .pts th{font-size:20px;font-weight:400;padding:4px 2px} .pts th:first-child{text-align:left;font-size:12px;color:var(--muted);font-weight:600}
 .pts td{text-align:center;padding:6px 2px;background:rgba(255,255,255,.03)} .pts td:first-child{text-align:left;padding-left:10px;border-radius:10px 0 0 10px;font-weight:700} .pts td:last-child{border-radius:0 10px 10px 0}
 .pts td i{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 1px;background:rgba(255,255,255,.12)} .pts td i.on{background:var(--gold)}
-.pts tr.q td{color:rgba(255,255,255,.25)} .pts tr.cur td{background:rgba(255,201,77,.1)} .pts tr.new td{animation:rin .5s}
+.pts tr.q td{color:rgba(255,255,255,.25)} .pts tr.cur td{background:rgba(255,201,77,.1)} .pts tr.new td{animation:p-rin .5s}
 .pts tr.tot td{background:rgba(255,201,77,.12);font:900 18px var(--f-num);color:var(--gold)}
 .race{display:grid;gap:6px;margin-top:10px} .race div{display:grid;grid-template-columns:2em 1fr 3.2em;align-items:center;gap:8px;font-size:18px}
 .race i{display:block;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--gold),var(--btc));transition:width .6s cubic-bezier(.2,.8,.2,1)} .race b{font:800 14px var(--f-num);text-align:right}
 @media (max-width:520px){ .m .ic{font-size:24px} .m b{font-size:11px} .pts td i{width:6px;height:6px} .pts{font-size:12px} }
-@keyframes rin{from{opacity:0;transform:translateY(8px)}}
+@keyframes p-rin{from{opacity:0;transform:translateY(8px)}}
 @media (max-width:520px){ .m{padding:10px 6px} .m .ic{font-size:26px} .m b{font-size:13px} }
 .dg3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
 .dg3 > div{border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);padding:12px} .dg3 > div.me{border-color:rgba(247,147,26,.6)} .dg3 > div > b{display:block;font:900 16px var(--f-display);margin-bottom:6px}
@@ -100,7 +100,7 @@ table.pts{width:100%;border-collapse:separate;border-spacing:0 4px;margin-top:6p
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=64"></script>
+<script src="../lern.js?v=65"></script>
 <script>
 /* =====================================================================
    GELD-DUELL – Lernwelt von Satsland

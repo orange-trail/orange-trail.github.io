@@ -15,13 +15,13 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=54">
+<link rel="stylesheet" href="../lern.css?v=55">
 <style>
 /* Lernwelt "Geschichte": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .dots{display:flex;gap:4px;margin-top:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
 .dots button{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);border-radius:999px;padding:5px 9px;font:700 12px var(--f-num);cursor:pointer}
 .dots button[aria-current="true"]{background:var(--gold);color:#2a1600;border-color:var(--gold)} .dots button.seen{color:var(--ink)}
-.ev{margin-top:12px;padding:16px;border-radius:18px;border:2px solid var(--gold);background:rgba(247,147,26,.06);animation:pop .3s}
+.ev{margin-top:12px;padding:16px;border-radius:18px;border:2px solid var(--gold);background:rgba(247,147,26,.06);animation:p-pop .3s}
 .ev .d{font-size:13px;color:var(--muted);margin-top:6px} .ev h3{margin:2px 0 8px;font-size:21px}
 .ev p{margin:0;font-size:15px;line-height:1.55}
 .kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
@@ -31,7 +31,7 @@
 .pres{margin-top:10px;font-size:15px;line-height:1.5;min-height:1.4em}
 .play{margin-left:auto}
 
-@keyframes pop{from{opacity:0;transform:translateY(6px)}}
+@keyframes p-pop{from{opacity:0;transform:translateY(6px)}}
 @media (max-width:620px){ .pz{grid-template-columns:1fr} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
@@ -74,7 +74,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=64"></script>
+<script src="../lern.js?v=65"></script>
 <script>
 /* =====================================================================
    ZEITREISE – Lernwelt von Satsland
@@ -112,16 +112,16 @@ const fly = (e, fx, fy, x, y, sz, d) => a(e, x, y, sz, "fly 1.4s cubic-bezier(.3
 const SC = [
   ["night", a("laptop", 18, 72, 60) + `<div class="paper"><span class="type">Bitcoin: A Peer-to-Peer Electronic Cash System</span><small>Satoshi Nakamoto · 9 Seiten · 31.10.2008</small></div>` + a("letter", 82, 74, 42, "bobA 2s ease-in-out infinite")],
   ["night", a("news", 26, 50, 70, "grow .6s both") + L("„Chancellor on brink of second bailout for banks“", 50, 16, .4, "white-space:normal;width:70%;text-align:center") + a("block", 72, 140, 64, "drop .9s cubic-bezier(.3,1.4,.5,1) .9s both", 0, "top:58%") + L("Block 0", 72, 84, 1.6)],
-  ["night", a("satoshi", 15, 60, 54) + L("Satoshi", 15, 86) + a("hal", 85, 60, 54) + L("Hal Finney", 85, 86) + fly("coin", 15, 55, 85, 40, 34, .4) + L("10 BTC", 50, 30, 1.2) + L("„Running bitcoin“", 70, 16, 1.8)],
+  ["night", a("satoshi", 20, 58, 54) + L("Satoshi", 20, 86) + a("hal", 78, 58, 54) + L("Hal Finney", 76, 86) + fly("coin", 20, 55, 78, 36, 34, .4) + L("10 BTC", 50, 40, 1.2) + L("„Running bitcoin“", 50, 14, 1.8)],
   ["dusk", a("pizza", 70, 52, 58, "grow .5s both", .2) + a("pizza", 84, 58, 50, "grow .5s both", .5) + fly("coin", 10, 60, 30, 46, 28, .6) + fly("coin", 10, 60, 22, 58, 28, .8) + fly("coin", 10, 60, 36, 62, 28, 1) + L('<span data-count="10000">0</span> BTC', 28, 82, .6) + L("≈ 41 $", 76, 84, 1.4)],
-  ["night", a("satoshi", 40, 58, 60, "fade 2.2s ease 1s both") + a("ghost", 40, 50, 54, "grow .6s both, bobA 2s ease-in-out 3s infinite", 2.4) + a("bag", 74, 62, 54) + L("≈ 1 Mio. BTC unberührt", 64, 86, 1.2)],
+  ["night", a("satoshi", 40, 58, 60, "fade 2.2s ease 1s both") + a("ghost", 40, 50, 54, "grow .6s both, bobA 2s ease-in-out 3s infinite", 2.4) + a("bag", 74, 62, 54) + L("≈ 1 Mio. BTC unberührt", 50, 86, 1.2)],
   ["day", a("scale", 50, 52, 96, "tilt 1.6s cubic-bezier(.3,1.6,.5,1) both", .2, "transform:translate(-50%,-50%) rotate(-14deg)") + a("coin", 30, 36, 40, "grow .5s both", .6) + a("dollar", 70, 38, 40, "grow .5s both", .9) + L("1 : 1", 50, 86, 1.6)],
-  ["dawn", L("50 BTC", 24, 50, 0, "font-size:22px") + a("scissors", 50, 50, 46, "cut .6s ease 3", .4) + L("25 BTC", 76, 50, 1.6, "font-size:22px;background:#f7931a;color:#2a1600") + a("pick", 50, 82, 30)],
+  ["dawn", L("50 BTC", 22, 46, 0, "font-size:clamp(15px,5.4vw,22px)") + a("scissors", 50, 46, 34, "cut .6s ease 3", .4) + L("25 BTC", 78, 46, 1.6, "font-size:clamp(15px,5.4vw,22px);background:#f7931a;color:#2a1600") + a("pick", 50, 82, 30)],
   ["dusk", a("bank", 50, 50, 96, "sshake .5s ease .5s 4") + L("MT. GOX", 50, 18) + [30, 44, 56, 70].map((x, i) => a("coin", x, 62, 26, "fall 1.6s ease-in both", 2.3 + i*.15)).join("") + L("850.000 BTC fehlen", 50, 86, 2.6)],
   ["day", `<svg class="line" viewBox="0 0 400 210"><path d="M20 105 H180 L380 50" stroke="#f7931a"/><path d="M180 105 L380 160" stroke="#9aa2d6" style="animation-delay:1.2s"/></svg>` + L("Bitcoin", 80, 18, 2) + L("Bitcoin Cash", 76, 86, 2.4) + a("split", 45, 50, 34, "grow .5s both", 1)],
   ["dusk", `<svg class="line" viewBox="0 0 400 210"><path d="M10 180 C120 175 200 150 250 40 C270 20 280 30 300 150 L390 175" stroke="#f7931a"/></svg>` + a("rocket", 62, 70, 40, "rocket 3s ease-in-out .3s both") + L("fast 20.000 $", 62, 12, 1.2) + L("−80 %", 82, 70, 2.6, "background:#c0483a")],
   ["day", a("volcano", 22, 60, 76) + a("flag", 50, 30, 50, "grow .5s both", .3) + a("phone", 74, 62, 44, "bobA 1.6s ease-in-out infinite") + fly("bolt", 74, 62, 50, 64, 30, .8) + L("Gesetzliches Zahlungsmittel", 50, 88, 1.2)],
-  ["dawn", a("sprout", 50, 66, 30, "grow 1.6s cubic-bezier(.3,1.4,.5,1) both", .2, "width:110px;height:110px") + L("Schnorr", 22, 30, 1.2) + L("Privatsphäre", 78, 30, 1.6) + L("über 90 % dafür", 50, 88, 2)],
+  ["dawn", a("sprout", 50, 66, 30, "grow 1.6s cubic-bezier(.3,1.4,.5,1) both", .2, "width:110px;height:110px") + L("Schnorr", 26, 30, 1.2) + L("Privatsphäre", 72, 30, 1.6) + L("über 90 % dafür", 50, 88, 2)],
   ["dusk", a("tower", 50, 54, 90, "sshake .4s ease .3s 3, fall 1.2s ease-in 1.6s both") + a("boom", 50, 50, 70, "grow .4s both", 1.6) + L("FTX", 50, 16) + L("Kundengeld weg", 50, 86, 2.2)],
   ["day", a("bank2", 26, 56, 84) + a("bull", 74, 60, 70, "bobA 1.4s ease-in-out infinite") + L("ETF ✓", 26, 18, .6, "background:#1f8a4c") + L("₿ ▲", 74, 20, 1, "color:#7ff0b2")],
   ["gold", a("trophy", 50, 46, 76, "grow .6s cubic-bezier(.3,1.6,.5,1) both") + L('<span data-count="100000">0</span> $', 50, 84, .3, "font-size:20px;background:#f7931a;color:#2a1600")],

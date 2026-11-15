@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=54">
+<link rel="stylesheet" href="../lern.css?v=55">
 <style>
 /* Lernwelt "SHA-256 von innen": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -38,13 +38,13 @@
 .bitrows{margin-top:12px;display:grid;gap:6px}
 .bitrows div{display:grid;grid-template-columns:6.5em repeat(8,minmax(0,1fr)) 3.5em;gap:4px;align-items:center;font-size:13px;color:var(--muted)}
 .bitrows b{display:grid;place-items:center;height:30px;border-radius:7px;font:900 15px var(--f-num);background:rgba(255,255,255,.06);color:var(--muted);transition:background .3s,transform .3s}
-.bitrows b.one{background:rgba(247,147,26,.25);color:var(--ink)} .bitrows .res b.one{background:var(--bull);color:#04240f} .bitrows .res b{animation:pop .35s}
+.bitrows b.one{background:rgba(247,147,26,.25);color:var(--ink)} .bitrows .res b.one{background:var(--bull);color:#04240f} .bitrows .res b{animation:p-pop .35s}
 .bitrows em{font:700 13px var(--f-num);font-style:normal;text-align:right;color:var(--ink)}
-@keyframes pop{from{transform:scale(.6)}to{transform:none}}
+@keyframes p-pop{from{transform:scale(.6)}to{transform:none}}
 .regs{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin-top:12px}
 .regs div{border:2px solid var(--line);border-radius:10px;padding:6px 2px;text-align:center;transition:border-color .3s,background .3s}
 .regs div small{display:block;font:900 14px var(--f-display);color:var(--gold)} .regs div span{display:block;font:600 11px var(--f-num);word-break:break-all}
-.regs div.new{border-color:var(--bull);background:rgba(52,217,130,.12);animation:pop .35s}
+.regs div.new{border-color:var(--bull);background:rgba(52,217,130,.12);animation:p-pop .35s}
 .regs div.mv span{animation:slide .35s} @keyframes slide{from{transform:translateX(-40%);opacity:.3}to{transform:none;opacity:1}}
 .ctl .row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px} .ctl .row input{flex:1 1 100%;order:-1}
 .rnd{font:900 16px var(--f-num);text-align:center;margin-top:8px}
@@ -140,7 +140,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=64"></script>
+<script src="../lern.js?v=65"></script>
 <script>
 /* =====================================================================
    SHA-256 VON INNEN – Lernwelt von Satsland

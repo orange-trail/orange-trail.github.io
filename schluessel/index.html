@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=54">
+<link rel="stylesheet" href="../lern.css?v=55">
 <style>
 /* Lernwelt "Schlüssel": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .keys{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
@@ -40,7 +40,7 @@
 .ex{margin:4px 0 0;font-size:14px;line-height:1.55;color:var(--muted)} .ex b{color:var(--ink)}
 .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .calc{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
-.calc li{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);animation:pop .3s}
+.calc li{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);animation:p-pop .3s}
 .calc .who{grid-row:span 2;font-size:22px} .calc b{font-size:14px} .calc span{font-size:14px;color:var(--muted);line-height:1.5}
 .calc code{font:700 15px var(--f-num);color:var(--ink)} .calc .sec{color:#ff9b8f} .calc .pub{color:#8ff0b5}
 .cmp2{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin-top:10px;padding:12px;border-radius:14px;border:2px solid var(--line)}
@@ -52,7 +52,7 @@
 .der td:nth-child(3){font:12px var(--f-num);color:var(--muted)} .der td:nth-child(4){color:var(--gold);font-size:12px} .der .pub{color:#8ff0b5}
 @media (max-width:520px){ .der td:nth-child(3){display:none} }
 .tip{margin-top:10px;padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:14px;line-height:1.55}
-@keyframes pop{from{opacity:0;transform:translateY(6px)}}
+@keyframes p-pop{from{opacity:0;transform:translateY(6px)}}
 .how{margin-top:12px;font-size:14px;color:var(--muted)} .how summary{cursor:pointer;color:var(--gold);font-weight:700} .how p{margin:8px 0 0;line-height:1.55} .how b{color:var(--ink)}
 @media (max-width:620px){ .eq{grid-template-columns:1fr;gap:2px} .eq .op{justify-self:center;line-height:1} .sign{flex-direction:column} }
 .big{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
@@ -148,7 +148,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung. Niemals echte Schlüssel oder Seed-Wörter auf Webseiten eingeben.</p>
 </div>
 
-<script src="../lern.js?v=64"></script>
+<script src="../lern.js?v=65"></script>
 <script>
 /* =====================================================================
    SCHLÜSSEL-LABOR – Lernwelt von Satsland

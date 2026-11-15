@@ -165,11 +165,11 @@ h1 span.btc{background:linear-gradient(90deg,#ffb347,#f7931a 40%,#ffd36b 60%,#f7
 .paper small{display:block;font:400 11px Georgia,serif;color:#555;margin-top:4px}
 .type{display:block;font-size:13px;animation:fin2 1.2s ease .5s both}
 @keyframes fin2{from{opacity:0;letter-spacing:.3em}}
-@keyframes type{from{width:0}} @keyframes blink{50%{border-color:transparent}}
+
 @keyframes drop{from{transform:translate(-50%,-260%) rotate(-8deg);opacity:0}}
 @keyframes fin{from{opacity:0;transform:translate(-50%,-10%) scale(.6)}}
 @keyframes fly{from{left:var(--fx);top:var(--fy);opacity:0}15%{opacity:1}}
-@keyframes rise{from{transform:translate(-50%,120%);opacity:0}}
+
 @keyframes grow{from{transform:translate(-50%,-50%) scale(0)}}
 @keyframes bobA{50%{transform:translate(-50%,-62%)}}
 @keyframes fade{to{opacity:0;transform:translate(-50%,-80%) scale(.7)}}
@@ -182,13 +182,13 @@ h1 span.btc{background:linear-gradient(90deg,#ffb347,#f7931a 40%,#ffd36b 60%,#f7
 svg.line{position:absolute;inset:0;width:100%;height:100%;z-index:1}
 svg.line path{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.4s ease .3s forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
-.scn.intro{height:170px;margin:0;cursor:pointer}
-.scn.intro .say{position:absolute;left:12px;top:12px;z-index:3;max-width:62%;font:900 14px/1.25 var(--f-display);color:#0d1230;background:#fff;border:3px solid #0d1230;box-shadow:3px 3px 0 #0d1230;padding:6px 10px;border-radius:12px;animation:fin .5s both .2s}
+.scn.intro{height:170px;margin:0;cursor:pointer} @media(max-width:360px){.scn.intro .say{font-size:13px;padding:5px 9px}}
+.scn.intro .say{position:absolute;left:12px;top:12px;z-index:3;max-width:calc(100% - 24px);font:900 14px/1.25 var(--f-display);color:#0d1230;background:#fff;border:3px solid #0d1230;box-shadow:3px 3px 0 #0d1230;padding:6px 10px;border-radius:12px;animation:fin .5s both .2s}
 @keyframes rin{from{opacity:0;transform:translateY(8px)}}
-@keyframes drive{from{left:-20%}to{left:120%}}
+@keyframes drive{from{left:-20%}to{left:120%}} @keyframes halt{0%{left:-30%}30%,72%{left:50%}100%{left:130%}}   /* einfahren, halten, abfahren */
 @keyframes shrink{to{transform:translate(-50%,-50%) scale(.45)}}
 @keyframes swing{0%,100%{transform:translate(-50%,-50%) rotate(-30deg)}50%{transform:translate(-50%,-50%) rotate(20deg)}}
-@keyframes zap{0%,100%{opacity:0}40%,60%{opacity:1}}
+@keyframes szap{0%,100%{opacity:0}40%,60%{opacity:1}}
 /* Kapitel-Boss: Kampf-Fenster im Comic-Stil */
 .bossbg{position:fixed;inset:0;z-index:60;background:rgba(5,8,25,.82);display:grid;place-items:center;padding:16px;animation:rin .3s}
 .boss{width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;border-radius:20px;border:4px solid #0d1230;box-shadow:6px 6px 0 #0d1230;background:linear-gradient(#2a1450,#141a48);padding:16px;color:var(--ink)}

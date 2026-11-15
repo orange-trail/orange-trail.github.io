@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=54">
+<link rel="stylesheet" href="../lern.css?v=55">
 <style>
 /* Lernwelt "Script-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -37,9 +37,9 @@
 .code div.k{color:#7cc4ff} .code div.u{color:var(--gold)} .code div.cur{border-color:var(--gold);background:rgba(247,147,26,.15);transform:translateX(4px)} .code div.done{opacity:.35}
 .code small{display:block;font:600 11px var(--f-body);color:var(--muted)}
 .stack{display:flex;flex-direction:column-reverse;justify-content:flex-start;gap:5px;min-height:220px;padding:10px;border-radius:14px;border:2px dashed var(--line);background:#0b0f2a}
-.stack div{padding:7px 9px;border-radius:9px;background:#232a62;border:2px solid #3a4070;font:700 12px var(--f-num);word-break:break-all;animation:drop .3s}
+.stack div{padding:7px 9px;border-radius:9px;background:#232a62;border:2px solid #3a4070;font:700 12px var(--f-num);word-break:break-all;animation:p-drop .3s}
 .stack div.t{background:rgba(52,217,130,.2);border-color:var(--bull)} .stack div.f{background:rgba(255,92,115,.2);border-color:var(--bear)}
-@keyframes drop{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
+@keyframes p-drop{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
 .stack .lb{order:99;text-align:center;font:900 12px var(--f-display);color:var(--muted);background:none;border:0;animation:none}
 .ctlr{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 @media (max-width:620px){ .lab{grid-template-columns:1fr} .stack{min-height:120px} }
@@ -85,7 +85,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=64"></script>
+<script src="../lern.js?v=65"></script>
 <script>
 /* =====================================================================
    SCRIPT-LABOR – Lernwelt von Satsland

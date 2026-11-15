@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=54">
+<link rel="stylesheet" href="../lern.css?v=55">
 <style>
 /* Lernwelt "Einigungs-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -34,14 +34,14 @@
 #diff svg{width:100%;height:auto;max-height:300px;display:block}
 .dst{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px} .dst div{border-radius:14px;border:2px solid var(--line);background:rgba(255,255,255,.03);padding:8px;text-align:center;transition:all .3s}
 .dst span{font-size:24px;display:block} .dst small{display:block;font-size:12px;color:var(--muted)} .dst b{font:900 17px var(--f-num)} .dst .hi{border-color:var(--gold);background:rgba(255,201,77,.12);transform:translateY(-3px)} .dst .ok b{color:var(--bull)} .dst .bad b{color:#ff9aa8}
-#diff .pop{animation:pop .4s both;transform-box:fill-box;transform-origin:bottom} .camp .pop{animation:pop .4s both;transform-box:fill-box;transform-origin:center} .camp .msg{animation:dash 1s linear infinite} @keyframes dash{to{stroke-dashoffset:-24}} .stp{display:block;font:800 12px var(--f-body);color:var(--gold);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+#diff .pop{animation:p-pop .4s both;transform-box:fill-box;transform-origin:bottom} .camp .pop{animation:p-pop .4s both;transform-box:fill-box;transform-origin:center} .camp .msg{animation:dash 1s linear infinite} @keyframes dash{to{stroke-dashoffset:-24}} .stp{display:block;font:800 12px var(--f-body);color:var(--gold);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
 .seg2{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .race{display:grid;gap:10px;margin-top:12px}
 .lane{display:flex;align-items:center;gap:6px;min-height:46px;padding:6px;border-radius:12px;background:rgba(255,255,255,.03);overflow-x:auto}
 .lane .lb{flex:none;width:5.2em;font:800 12px var(--f-body);color:var(--muted)}
-.blk{flex:none;width:44px;height:34px;border-radius:8px;display:grid;place-items:center;font:900 12px var(--f-num);border:3px solid #0d1230;background:#ffc94d;color:#241500;animation:pop .35s}
+.blk{flex:none;width:44px;height:34px;border-radius:8px;display:grid;place-items:center;font:900 12px var(--f-num);border:3px solid #0d1230;background:#ffc94d;color:#241500;animation:p-pop .35s}
 .blk.b{background:#7cc4ff} .blk.dead{background:#3a4070;color:#8890b8;opacity:.6} .blk.atk{background:#ff5c73;color:#fff}
-@keyframes pop{from{transform:scale(.4)}to{transform:none}}
+@keyframes p-pop{from{transform:scale(.4)}to{transform:none}}
 .tbl{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px} .tbl th,.tbl td{padding:6px;border-bottom:1px solid var(--line);text-align:right} .tbl th:first-child,.tbl td:first-child{text-align:left} .tbl th{color:var(--muted);font-size:12px}
 .pay{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .pay div{border:2px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.5} .pay .h{border-color:rgba(52,217,130,.55)} .pay .pa{border-color:rgba(255,92,115,.55)} .pay div > b:first-child{display:block;font-family:var(--f-display);font-size:16px}
@@ -117,7 +117,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=64"></script>
+<script src="../lern.js?v=65"></script>
 <script>
 /* =====================================================================
    EINIGUNGS-LABOR – Lernwelt von Satsland

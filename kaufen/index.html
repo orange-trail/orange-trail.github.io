@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=54">
+<link rel="stylesheet" href="../lern.css?v=55">
 <style>
 /* Lernwelt "Erster Kauf": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -40,9 +40,9 @@
 .fees em{font:700 13px var(--f-num);font-style:normal;text-align:right}
 .order{display:grid;gap:8px;margin-top:12px}
 .order button{text-align:left;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font:600 15px var(--f-body);cursor:pointer;transition:border-color .2s,background .2s}
-.order button:hover{border-color:var(--gold)} .order button.ok{border-color:var(--bull);background:rgba(52,217,130,.12);cursor:default} .order button.no{animation:shake .35s;border-color:var(--bear)}
+.order button:hover{border-color:var(--gold)} .order button.ok{border-color:var(--bull);background:rgba(52,217,130,.12);cursor:default} .order button.no{animation:p-shake .35s;border-color:var(--bear)}
 .order button i{font-style:normal;display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:50%;background:var(--bull);color:#04240f;font:900 13px var(--f-num);margin-right:8px}
-@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes p-shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 @media (max-width:620px){ .route{grid-template-columns:1fr 1fr} .fees div{grid-template-columns:6.5em 1fr 6em} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
@@ -98,7 +98,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=64"></script>
+<script src="../lern.js?v=65"></script>
 <script>
 /* =====================================================================
    ERSTER KAUF – Lernwelt von Satsland
