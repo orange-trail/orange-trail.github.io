@@ -32,7 +32,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)}
 .cfBlocks{display:flex;gap:6px;margin-top:8px;align-items:flex-end;min-height:44px} .cfBlocks span{width:36px;height:36px;border-radius:8px;border:2px solid #0d1230;display:grid;place-items:center;font:900 12px var(--f-num);background:#f7931a;color:#2a1600;animation:pop .25s}
 .cfBlocks span.me{background:#34d982;color:#04240f}
 .cfT{margin:8px 0 0;font-size:15px;line-height:1.5}
-.feeRow{display:flex;align-items:center;gap:12px}
+.feeRow{display:flex;align-items:flex-start;gap:12px} .zsel{flex:1;min-width:0} .zsel input{width:100%} .zt{display:flex;justify-content:space-between;margin-top:4px;font:800 13px var(--f-display);color:var(--ink)} .zt span{text-align:center;width:4.6em} .zt span:first-child{text-align:left} .zt span:last-child{text-align:right} .zt small{display:block;font:500 11px var(--f-body);color:var(--muted)}
 .feeVal{font:600 20px var(--f-num);min-width:7.5ch;text-align:right}
 .feeVal small{font-size:12px;color:var(--muted)}
 .out{font-size:14px;line-height:1.45}
@@ -82,7 +82,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)}
       <p>Gebühr wählen, Fahrgast losschicken. Es wird <b>kein echtes Bitcoin</b> bewegt.</p>
     </div>
     <div class="ctrl">
-      <div class="feeRow"><input id="fee" type="range" min="0" max="100" value="30" aria-label="Gebühr in sat pro vByte"><span class="feeVal" id="feeVal">–</span></div>
+      <div class="feeRow"><div class="zsel"><input id="fee" type="range" min="1" max="3" step="1" value="1" aria-label="Welchen Zug willst du nehmen?" aria-valuetext="Zug 1"><div class="zt" aria-hidden="true"><span>Zug 1<small>~10 Min.</small></span><span>Zug 2<small>~20 Min.</small></span><span>Zug 3<small>~30 Min.</small></span></div></div><span class="feeVal" id="feeVal">–</span></div>
       <div class="out" id="out">–</div>
       <div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" id="send" type="button">Fahrgast losschicken</button><button class="btn ghost" type="button" id="simB">⛏️ Block gefunden</button></div>
       <div class="conf" id="conf" hidden aria-label="Bestätigungen"><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -232,7 +232,13 @@ function zoneRect(zi){
 
 // ---------- Übungs-Überweisung ----------
 // Regler logarithmisch von 0,1 bis 200 sat/vB (seit 2025 sind auch Gebühren unter 1 sat/vB üblich)
-const feeFromSlider = v => { const f = Math.exp(Math.log(.1) + (Math.log(200) - Math.log(.1))*v/100); return f < 10 ? Math.round(f*10)/10 : Math.round(f); };
+// Regler wählt den Zug (1–3)
+const feeFromSlider = v => { const k = v - 1, r = f => f < 10 ? Math.round(f*10)/10 : Math.round(f);
+  if (!mblocks || !mblocks[k]) return [5, 3, 1.5][k];
+  // günstigste Gebühr, die sicher in genau diesen Zug passt (knapp über dessen Mindestgebühr)
+  const lo = mblocks[k].feeRange[0], up = k ? mblocks[k - 1].feeRange[0] : Infinity;
+  for (const f of [r(lo*1.1), r(lo) + .1, r(lo), r((lo + up)/2)]) if (f > 0 && zoneFor(f) === k) return f;
+  return r(Math.max(.1, lo)); };
 // Wie viel Prozent der Fahrgäste in einem Zug zahlen weniger als du? (feeRange = Perzentile: min, 10, 25, 50, 75, 90, max)
 function pctBelow(fee, mb){
   const r = mb.feeRange, P = r.length === 7 ? [0, 10, 25, 50, 75, 90, 100] : r.map((_, i) => i/(r.length - 1)*100);
@@ -274,7 +280,7 @@ function renderYou(){
   [...$("conf").children].forEach((c, i) => c.classList.toggle("on", !!mine && mine.state === "in" && i < mine.conf));
   $("send").textContent = mine ? "Neuen Fahrgast losschicken" : "Fahrgast losschicken";
 }
-$("fee").addEventListener("input", renderYou);
+$("fee").addEventListener("input", () => { $("fee").setAttribute("aria-valuetext", "Zug " + $("fee").value); renderYou(); });
 $("send").addEventListener("click", () => {
   const fee = feeFromSlider(+$("fee").value);
   mine = {fee, state: "wait", h: 0, conf: 0, t0: t};
