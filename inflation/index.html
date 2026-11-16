@@ -25,7 +25,7 @@
 .big div{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
 .big small{display:block;font-size:12px;color:var(--muted)}
 .big b{font:600 clamp(20px,3.6vw,28px) var(--f-num)}
-.big .bad{color:var(--bear)}
+.big .bad{color:var(--bear)} .big .good{color:var(--bull)}
 .say{margin:12px 0 0;font-size:15px}
 .cartBox{position:relative;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;padding:18px 16px 14px}
 .cart{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:12px 12px 16px;border:4px solid #8a93c9;border-top:0;border-radius:0 0 22px 22px;background:rgba(124,196,255,.05);min-height:180px;align-content:end}
@@ -128,6 +128,26 @@
     <p class="muted" style="margin:12px 0 0;font-size:14px"><b style="color:var(--ink)">Aber ehrlich:</b> Feste Menge heißt nicht, dass der Kurs nur steigt. Bitcoin hat schon −70 % und mehr in einem Jahr verloren, siehe Kurs-Achterbahn <span class="later">(Welt 6)</span>.</p>
   </section>
 
+  <!-- 3b · Deflation -->
+  <section class="card" aria-labelledby="h5s">
+    <h2 id="h5s">Und das Gegenteil? Deflation</h2>
+    <p class="muted" style="margin:0">Bei <b style="color:var(--ink)">Deflation</b> sinken die Preise im Durchschnitt, dein Geld kauft mit der Zeit <b style="color:var(--ink)">mehr</b>. Stell eine Rate ein und sieh, was nach 10 Jahren passiert:</p>
+    <div class="yearRow"><input id="dRate" type="range" min="-3" max="6" step="0.5" value="2" aria-label="Preisänderung pro Jahr"><b id="dVal" class="num">+2 %</b></div>
+    <div class="big">
+      <div><small>100 € kaufen nach 10 Jahren so viel wie heute</small><b class="num" id="dPow">–</b></div>
+      <div><small>Ein Brot für 3 € kostet dann</small><b class="num" id="dBread">–</b></div>
+    </div>
+    <p class="say" id="dSay">–</p>
+    <p class="bxh">Warum fürchten Notenbanken Deflation?</p>
+    <div class="learn bx">
+      <div><b>⏳ Abwarten</b><span>Wer glaubt, dass morgen alles billiger ist, kauft später. Firmen verkaufen weniger und sparen, auch bei Jobs.</span></div>
+      <div><b>🏋️ Schulden wiegen schwerer</b><span>Die Schuld bleibt gleich, aber Löhne und Preise sinken. Abzahlen wird <b>härter</b>.</span></div>
+      <div><b>📉 Echte Beispiele</b><span>USA ab 1929: Preise fielen um rund ein Viertel, mitten in der Weltwirtschaftskrise. Japan: viele Jahre leicht fallende Preise und schwaches Wachstum.</span></div>
+      <div><b>📺 Gute Deflation?</b><span>Fernseher und Handys werden seit Jahren billiger, weil Technik besser wird, und trotzdem kauft man sie. Fallende Preise sind nicht automatisch schlecht.</span></div>
+    </div>
+    <p class="muted" style="margin:12px 0 0;font-size:14px"><b style="color:var(--ink)">Und Bitcoin?</b> Weil die Menge fest ist, könnten Preise in Bitcoin langfristig sinken. Ob das gut oder schlecht wäre, ist <b style="color:var(--ink)">umstritten</b>. Beide Seiten findest du im Kritik-Check <span class="later">(Welt 6)</span>.</p>
+  </section>
+
   <!-- 4 · Merksätze und Quiz -->
   <section class="card" aria-labelledby="h4s">
     <h2 id="h4s">Das solltest du dir merken</h2>
@@ -137,7 +157,7 @@
       <div><b>Sparen &amp; Zinsen</b><span>Zählt nur, was nach der Inflation übrig bleibt: 1 % Zinsen bei 2,8 % Inflation sind <b>−1,8 %</b> pro Jahr (Realzins).</span></div>
       <div><b>Bitcoin</b><span>Feste Menge, niemand kann mehr drucken. Dafür <b>starke Kursschwankungen</b>. Deshalb setzen viele auf kleine, regelmäßige Beträge statt auf einen großen Kauf.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary>Teste dich: 4 Fragen</summary><div id="quiz"></div></details>
   </section>
 
   <section class="card next" id="next" aria-label="Weiter"></section>
@@ -145,7 +165,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=70"></script>
+<script src="../lern.js?v=71"></script>
 <script>
 /* =====================================================================
    GELD & INFLATION – Lernwelt von Orange Trail
@@ -192,11 +212,26 @@ function showMined(h, live){
 showMined(975000, false);
 fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { const h = parseInt(t, 10); if (h > 0) showMined(h, true); }).catch(() => {});
 
+// Deflation-Regler: 10 Jahre mit fester Preisänderung
+function defl(){
+  const r = +$("dRate").value, f = Math.pow(1 + r/100, 10), sg = v => (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v).toLocaleString("de-DE") + " %";
+  $("dVal").textContent = sg(r);
+  $("dPow").textContent = eur(100/f); $("dPow").className = "num " + (r > 0 ? "bad" : r < 0 ? "good" : "");
+  $("dBread").textContent = eur(3*f);
+  $("dSay").innerHTML = r < 0 ? `<b>Deflation:</b> Preise sinken, dein Geld wird mehr wert. Klingt gut, aber wenn alle aufs Billigerwerden warten, kann die Wirtschaft ins Stocken geraten.`
+    : r === 0 ? `<b>Stabile Preise:</b> 100 € kaufen in 10 Jahren genau so viel wie heute.`
+    : r <= 2 ? `<b>Leichte Inflation:</b> So will es die EZB. Dein Erspartes verliert langsam, aber stetig an Kaufkraft.`
+    : r <= 3.5 ? `<b>Über dem Ziel:</b> Mehr als die 2 % der EZB. Nach 10 Jahren fehlt schon ein spürbarer Teil der Kaufkraft.`
+    : `<b>Hohe Inflation:</b> Dein Erspartes schmilzt spürbar, so wie 2022 mit fast 7 %.`;
+}
+$("dRate").addEventListener("input", defl); defl();
+
 // Mini-Quiz
 const QUIZ = [
   ["Inflation liegt bei 2 % pro Jahr. Was passiert mit 1.000 € unter dem Kopfkissen nach 10 Jahren?", ["Sie kaufen genauso viel", "Sie kaufen etwa 18 % weniger", "Sie werden mehr wert"], 1, "Jedes Jahr 2 % weniger Kaufkraft summiert sich: 1,02 hoch 10 ergibt 1,22, deine 1.000 € kaufen nur noch so viel wie heute 820 €."],
   ["Du bekommst 1 % Zinsen, die Inflation liegt bei 2,8 %. Wie viel gewinnst du wirklich?", ["+1 %", "+3,8 %", "−1,8 %"], 2, "Real zählt Zins minus Inflation. 1 % − 2,8 % = −1,8 %: Dein Geld verliert trotz Zinsen an Kaufkraft."],
   ["Wer kann neue Bitcoin einfach herstellen, wenn mehr gebraucht werden?", ["Niemand, die Menge ist auf 21 Mio. begrenzt", "Die Zentralbank", "Die Börsen"], 0, "Neue Bitcoin entstehen nur nach festen Regeln beim Mining, und bei 21 Millionen ist Schluss. Das kann keine Bank und keine Regierung ändern."],
+  ["Was bedeutet Deflation?", ["Die Preise sinken im Durchschnitt, Geld kauft mehr", "Die Preise steigen besonders schnell", "Die Bank druckt neue Geldscheine"], 0, "Deflation ist das Gegenteil von Inflation. Klingt gut, kann aber gefährlich werden, wenn alle Käufe aufschieben und Schulden schwerer wiegen."],
 ];
 Lern.quiz($("quiz"), "inflation", QUIZ, "../"); Lern.visit("inflation"); Lern.renderNext("inflation", "../");
 
