@@ -147,7 +147,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=67"></script>
+<script src="../lern.js?v=68"></script>
 <script>
 /* =====================================================================
    KNAPPHEIT & HALVING – Lernwelt von Orange Trail
@@ -249,10 +249,10 @@ async function load(){
   renderClock(); renderYear();
 }
 
-// ---------- Sekunden-Countdown und neue Blöcke (Schätzung: im Schnitt 596,5 s pro Block) ----------
+// ---------- Sekunden-Countdown und neue Blöcke (Schätzung: im Schnitt 597 s pro Block) ----------
 setInterval(() => {
   if (!tip) return;
-  const hf = live ? tip + (Date.now() - loadedAt)/avgMs : Lern.heightF(), next = (Math.floor(hf/EPOCH) + 1)*EPOCH, sec = Math.max(0, (next - hf)*(live ? avgMs/1000 : 596.5));
+  const hf = live ? tip + (Date.now() - loadedAt)/avgMs : Lern.heightF(), next = (Math.floor(hf/EPOCH) + 1)*EPOCH, sec = Math.max(0, (next - hf)*(live ? avgMs/1000 : 597));
   const d = Math.floor(sec/86400), h = Math.floor(sec/3600) % 24, m = Math.floor(sec/60) % 60, z = n => String(n).padStart(2, "0");
   $("cd").innerHTML = `${d.toLocaleString("de-DE")}<i>Tage</i>${z(h)}<i>Std</i>${z(m)}<i>Min</i>${z(Math.floor(sec % 60))}<i>Sek</i>`;
   if (!live && Math.floor(hf) > tip){ tip = Math.floor(hf); renderClock(); ["tip", "left"].forEach(id => { const e = $(id); e.classList.remove("pop"); void e.offsetWidth; e.classList.add("pop"); }); Lern.toast("⛏️ Ein neuer Block ist fällig (geschätzt)"); }
