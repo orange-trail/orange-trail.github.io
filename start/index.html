@@ -43,6 +43,7 @@
 .match button.sel{border-color:var(--gold);background:rgba(247,147,26,.15)} .match button.ok{border-color:var(--bull);background:rgba(52,217,130,.12);cursor:default} .match button.no{animation:p-shake .35s;border-color:var(--bear)}
 @keyframes p-shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 @media (max-width:560px){ .story{grid-template-columns:1fr;text-align:center;min-height:0} .story .pic{margin:0 auto;width:96px;height:96px} .match{grid-template-columns:1fr} }
+.col.nudge{animation:shake .4s}
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -117,7 +118,7 @@ function match(){ solved = 0; err = 0; pick = -1; $("mRes").innerHTML = "";
   $("mS").innerHTML = mix(PR).map(([, i, x]) => `<button type="button" data-s="${i}">✅ ${x[1]}</button>`).join(""); }
 $("match").onclick = e => { const b = e.target.closest("button"); if (!b || b.classList.contains("ok")) return;
   if (b.dataset.p != null){ $("mP").querySelectorAll("button").forEach(x => x.classList.remove("sel")); b.classList.add("sel"); pick = +b.dataset.p; return; }
-  if (pick < 0){ Lern.say && Lern.say("Tipp erst links ein Problem an!", 2500); return; }
+  if (pick < 0){ Lern.toast("Tipp erst ein Problem (❓) an, dann die Lösung."); $("mP").classList.remove("nudge"); void $("mP").offsetWidth; $("mP").classList.add("nudge"); return; }
   if (+b.dataset.s === pick){ b.classList.add("ok"); $("mP").querySelector(`[data-p="${pick}"]`).className = "ok"; pick = -1; solved++;
     if (solved === PR.length){ $("mRes").innerHTML = `<div class="res ${err ? "warn" : "ok"}"><strong>${err ? "Geschafft!" : "Perfekt, du hast Bitcoin verstanden!"}</strong>Genau diese vier Bausteine machen Bitcoin aus. Jetzt geht es in die Details. <button class="btn" type="button" id="mA" style="margin-top:8px">↺ Nochmal</button></div>`; $("mA").onclick = match; Lern.confetti && Lern.confetti(); } }
   else { err++; b.classList.remove("no"); void b.offsetWidth; b.classList.add("no"); } };
