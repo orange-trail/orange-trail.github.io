@@ -1,5 +1,5 @@
 /* =====================================================================
-   bitlib.js – echte Bitcoin-Kryptografie für die Profi-Welten von Satsland
+   bitlib.js – echte Bitcoin-Kryptografie für die Profi-Welten von Orange Trail
    SHA-256 (mit Runden-Protokoll), RIPEMD-160, secp256k1, ECDSA, Schnorr (BIP340),
    BIP39, BIP32, Base58Check, Bech32/Bech32m. Alles läuft nur im Browser.
    ===================================================================== */

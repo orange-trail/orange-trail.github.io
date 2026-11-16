@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Satsland · Bitcoin spielerisch verstehen</title>
+<title>Orange Trail · Bitcoin spielerisch verstehen</title>
 <meta name="description" content="Bitcoin spielerisch verstehen: Lernwelten im Comic-Stil.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:title" content="Satsland · Bitcoin spielerisch verstehen">
+<meta property="og:title" content="Orange Trail · Bitcoin spielerisch verstehen">
 <meta property="og:description" content="Bitcoin spielerisch verstehen, Level für Level.">
 <meta property="og:image" content="https://satsland.github.io/og.png">
 <meta property="og:url" content="https://satsland.github.io/">
-<link rel="stylesheet" href="lern.css?v=56">
+<link rel="stylesheet" href="lern.css?v=57">
 <style>
 /* Übersicht der Lernwelten: gleiche Farben und Schriften wie das Spiel. */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -89,7 +89,7 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .mapw .spin{animation:mspin 8s linear infinite;transform-box:fill-box;transform-origin:center} @keyframes mspin{to{transform:rotate(360deg)}}
 .mapw .gold{animation:mdraw 1.6s ease-out both} @keyframes mdraw{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
 /* Aufgeräumter Kopf: kleiner Titel, Status-Kacheln, ein klarer Weiter-Knopf */
-.hero2{display:flex;align-items:center;gap:14px;margin:6px 0 14px} .hero2 .wico{width:56px;height:56px;margin:0;flex:none} .hero2 h1{margin:0;font-size:30px;line-height:1} .hero2 p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.hero2{display:flex;align-items:center;gap:14px;margin:6px 0 14px} .hero2 .wico{width:56px;height:56px;margin:0;flex:none} .hero2 h1{margin:0;font-size:30px;line-height:1} .hero2 h1 span{color:#f7931a} .hero2 p{margin:4px 0 0;color:var(--muted);font-size:14px}
 .stats{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px}
 .stats > *{display:flex;flex-direction:column;justify-content:center;gap:3px;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--ink);text-decoration:none;min-width:0}
 .stats small{font:700 11px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.06em} .stats b{font:900 17px var(--f-display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -125,13 +125,14 @@ details.fold[open] > summary{margin-bottom:12px}
 .ichips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 0 16px} .ichips span{font:700 12.5px var(--f-body);color:var(--muted);background:rgba(0,0,0,.2);border-radius:99px;padding:5px 10px}
 .iwel .ign{width:100%;justify-content:center;font-size:17px} .ilook{display:block;width:100%;margin:8px 0 6px;background:none;border:0;color:var(--muted);font:700 14px var(--f-body);padding:10px;cursor:pointer;text-decoration:underline;text-underline-offset:3px} .iwel small{display:block;color:var(--muted);font-size:12px;opacity:.8}
 .calm .iev span,.calm .iev i{animation:none}
+ @media(max-width:360px){.stats{grid-template-columns:1fr 1fr} .stats > :first-child{grid-column:1/-1}}
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
 <body>
 <div class="wrap">
   <div class="top"><a class="back" href="lexikon/">📖 Lexikon</a></div>
-  <header class="hero2"><img class="wico" id="heroIc" src="icon.svg" alt="" style="border-radius:22%"><div><h1>Sats<span>land</span></h1><p>Bitcoin spielerisch verstehen</p></div></header>
+  <header class="hero2"><img class="wico" id="heroIc" src="icon.svg" alt="" style="border-radius:22%"><div><h1><span>Orange</span> Trail</h1><p>Bitcoin spielerisch verstehen</p></div></header>
   <div class="stats" id="stats"></div>
   <a class="resume" id="resume" hidden></a>
   <p class="alt" id="alt" hidden></p>
@@ -215,11 +216,11 @@ details.fold[open] > summary{margin-bottom:12px}
     <div class="acts"><button class="btn ghost" id="syI" type="button">📥 Code übernehmen</button></div>
     <p class="msg2" id="syM"></p>
   </details>
-  <div class="card" id="inst" hidden><h2 style="margin:0 0 4px">📱 Satsland als App</h2><p class="muted" id="instT" style="margin:0 0 8px;font-size:14px">Mit einem Symbol auf dem Startbildschirm bist du mit einem Tipp wieder da. Ohne App-Store, nichts wird hochgeladen.</p><div class="acts"><button class="btn" id="instB" type="button">📲 Installieren</button></div></div>
-  <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Satoshi ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Einführung ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Satsland</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
+  <div class="card" id="inst" hidden><h2 style="margin:0 0 4px">📱 Orange Trail als App</h2><p class="muted" id="instT" style="margin:0 0 8px;font-size:14px">Mit einem Symbol auf dem Startbildschirm bist du mit einem Tipp wieder da. Ohne App-Store, nichts wird hochgeladen.</p><div class="acts"><button class="btn" id="instB" type="button">📲 Installieren</button></div></div>
+  <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Satoshi ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Einführung ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Orange Trail</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=66"></script>
+<script src="lern.js?v=67"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -240,7 +241,7 @@ details.fold[open] > summary{margin-bottom:12px}
   { const T = document.getElementById("syT"), M = document.getElementById("syM"), link = () => location.origin + location.pathname + "#sync=" + Lern.syncExport();
     const take = code => { if (Lern.syncImport(code)){ M.textContent = "✓ Übernommen! Die Seite lädt neu …"; setTimeout(() => location.replace(location.pathname), 900); } else M.textContent = "✗ Der Code passt nicht. Bitte komplett kopieren."; };
     document.getElementById("syE").onclick = () => { T.value = Lern.syncExport(); T.select(); M.textContent = "Code markiert, jetzt kopieren."; if (navigator.clipboard) navigator.clipboard.writeText(T.value).then(() => { M.textContent = "✓ Code kopiert. Auf dem anderen Gerät einfügen."; }).catch(() => {}); document.getElementById("syS").hidden = !navigator.share; };
-    document.getElementById("syS").onclick = () => navigator.share({title: "Mein Satsland-Fortschritt", url: link()}).catch(() => {});
+    document.getElementById("syS").onclick = () => navigator.share({title: "Mein Orange-Trail-Fortschritt", url: link()}).catch(() => {});
     document.getElementById("syI").onclick = () => T.value.trim() && take(T.value);
     const m = location.hash.match(/^#sync=(.+)$/); if (m){ history.replaceState(null, "", location.pathname); take(m[1]); }
   }
@@ -271,12 +272,12 @@ details.fold[open] > summary{margin-bottom:12px}
   { const box = document.getElementById("inst"), B = document.getElementById("instB"), app = matchMedia("(display-mode: standalone)").matches || navigator.standalone; let ev = null;
     if (!app){ addEventListener("beforeinstallprompt", e => { e.preventDefault(); ev = e; box.hidden = false; });
       if (/iphone|ipad|ipod/i.test(navigator.userAgent)){ box.hidden = false; B.hidden = true; document.getElementById("instT").innerHTML += " <b>So geht's auf dem iPhone:</b> unten auf <b>Teilen</b> (□↑) tippen, dann <b>„Zum Home-Bildschirm“</b>."; }
-      B.onclick = async () => { if (!ev) return; ev.prompt(); const r = await ev.userChoice; if (r.outcome === "accepted"){ box.hidden = true; Lern.toast("📱 Satsland ist jetzt auf deinem Startbildschirm!"); } ev = null; }; } }
+      B.onclick = async () => { if (!ev) return; ev.prompt(); const r = await ev.userChoice; if (r.outcome === "accepted"){ box.hidden = true; Lern.toast("📱 Orange Trail ist jetzt auf deinem Startbildschirm!"); } ev = null; }; } }
   Lern.daily(document.getElementById("daily"));
   Lern.review(document.getElementById("rep"), n => { document.getElementById("rpS").textContent = n ? n + " fällig" : ""; });
   // Einführung beim allerersten Besuch (3 kurze Karten)
   function intro(){   // Startbildschirm für neue Besucher: Versprechen, Ablauf, ein klarer Start
-    const o = document.createElement("div"); o.className = "intro"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Willkommen in Satsland"); document.body.appendChild(o);
+    const o = document.createElement("div"); o.className = "intro"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Willkommen bei Orange Trail"); document.body.appendChild(o);
     const first = Lern.TITLES[Lern.PATH[0][0] || Lern.PATH[0]], ev = ["plankton", "fish", "dolphin", "whale"];
     const end = go => { try { localStorage.setItem("satsland-intro", "1"); } catch(e){} o.remove(); if (go){ const pc = document.querySelector(".card.path"); if (pc){ pc.scrollIntoView({behavior: "smooth", block: "start"}); pc.classList.add("hl"); setTimeout(() => pc.classList.remove("hl"), 2600); } } };
     o.innerHTML = `<div class="ibox iwel"><button type="button" class="isk">Später</button>
@@ -298,7 +299,7 @@ details.fold[open] > summary{margin-bottom:12px}
   { const box = document.getElementById("rstBox");   // Fortschritt zurücksetzen: Box zeigen, bestätigen, löschen
     document.getElementById("rstOn").onclick = e => { e.preventDefault(); box.hidden = false; box.scrollIntoView({behavior: "smooth", block: "center"}); };
     document.getElementById("rstNo").onclick = () => { box.hidden = true; };
-    document.getElementById("rstYes").onclick = () => {   // wie beim allerersten Besuch: alles von Satsland löschen (nur die DEV-Sicherung bleibt)
+    document.getElementById("rstYes").onclick = () => {   // wie beim allerersten Besuch: alles von Orange Trail löschen (nur die DEV-Sicherung bleibt)
       try { Object.keys(localStorage).filter(k => /^(bvb|satsland)-/.test(k) && k !== "satsland-dev-backup").forEach(k => localStorage.removeItem(k)); sessionStorage.clear(); } catch(e){}
       scrollTo(0, 0); location.replace(location.pathname); }; }
   { const gl = document.getElementById("guideOn"); let off = false; try { off = localStorage.getItem(Lern.GK) === "1"; } catch(x){}   // Satoshi aus- und wieder einblenden

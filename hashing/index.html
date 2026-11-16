@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fingerabdruck-Maschine · Satsland</title>
+<title>Fingerabdruck-Maschine · Orange Trail</title>
 <meta name="description" content="Lernwelt: Hashing, der digitale Fingerabdruck. Tippe Text ein und sieh, wie sich der SHA-256-Hash verändert.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Fingerabdruck-Maschine · Satsland">
+<meta property="og:title" content="Fingerabdruck-Maschine · Orange Trail">
 <meta property="og:description" content="Lernwelt: Hashing, der digitale Fingerabdruck. Tippe Text ein und sieh, wie sich der SHA-256-Hash verändert.">
 <meta property="og:image" content="https://satsland.github.io/og/hashing.jpg">
 <meta property="og:url" content="https://satsland.github.io/hashing/">
@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=56">
+<link rel="stylesheet" href="../lern.css?v=57">
 <style>
 /* Lernwelt "Hashing": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -41,7 +41,7 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Satsland</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
     <h1><span class="btc">Fingerabdruck</span>-Maschine</h1>
     <p class="lead">Ein <b>Hash</b> ist der digitale Fingerabdruck von Daten. Bitcoin benutzt ihn überall: für Blöcke, Mining, Adressen und Signaturen.</p>
@@ -50,7 +50,7 @@
   <section class="card" aria-labelledby="h1s">
     <h2 id="h1s">Probier die Maschine aus</h2>
     <div class="idea">Tippe irgendetwas ein. Die Maschine (sie heißt <b>SHA-256</b>) macht daraus sofort eine Zeichenkette aus 64 Zeichen. Ändere nur <b>ein</b> Zeichen und schau, was passiert.</div>
-    <input class="hin" id="txt" value="Satsland" aria-label="Text für den Hash" autocomplete="off">
+    <input class="hin" id="txt" value="Orange Trail" aria-label="Text für den Hash" autocomplete="off">
     <p class="arrow">⬇ SHA-256 ⬇</p>
     <div class="hash" id="hash"></div>
     <div class="pix" id="pix" aria-hidden="true"></div>
@@ -102,10 +102,10 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=66"></script>
+<script src="../lern.js?v=67"></script>
 <script>
 /* =====================================================================
-   FINGERABDRUCK-MASCHINE – Lernwelt von Satsland
+   FINGERABDRUCK-MASCHINE – Lernwelt von Orange Trail
    Live-SHA-256 (aus lern.js), Lawinen-Effekt, Eigenschaften, Rate-Spiel, echter Block-Hash.
    ===================================================================== */
 (() => {

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mining-Werkstatt · Satsland</title>
+<title>Mining-Werkstatt · Orange Trail</title>
 <meta name="description" content="Lernwelt: Was Miner tun, warum Bitcoin Strom braucht und warum im Schnitt alle 10 Minuten ein Block kommt. Selbst minen im Browser.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mining-Werkstatt · Satsland">
+<meta property="og:title" content="Mining-Werkstatt · Orange Trail">
 <meta property="og:description" content="Lernwelt: Was Miner tun, warum Bitcoin Strom braucht und warum im Schnitt alle 10 Minuten ein Block kommt. Selbst minen im Browser.">
 <meta property="og:image" content="https://satsland.github.io/og/mining.jpg">
 <meta property="og:url" content="https://satsland.github.io/mining/">
@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=56">
+<link rel="stylesheet" href="../lern.css?v=57">
 <style>
 /* Lernwelt "Mining": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .diff{display:flex;align-items:center;gap:12px;margin:8px 0 12px}
@@ -42,7 +42,7 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Satsland</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
     <h1><span class="btc">Mining</span>-Werkstatt</h1>
     <p class="lead">Miner raten um die Wette: Wer zuerst einen Hash mit genug Nullen findet, darf den nächsten Block anhängen und bekommt die Belohnung. Probier es mit deinem Gerät aus.</p>
@@ -116,10 +116,10 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=66"></script>
+<script src="../lern.js?v=67"></script>
 <script>
 /* =====================================================================
-   MINING-WERKSTATT – Lernwelt von Satsland
+   MINING-WERKSTATT – Lernwelt von Orange Trail
    Selbst minen (SHA-256 aus lern.js), Vergleich mit der echten Hashrate, Difficulty-Anpassung live.
    ===================================================================== */
 (() => {
@@ -136,7 +136,7 @@ $("z").dispatchEvent(new Event("input"));
 
 $("go").addEventListener("click", () => {
   if (busy) return; busy = true; $("go").disabled = true;
-  const z = +$("z").value, pre = "0".repeat(z), data = "Satsland-Block " + Date.now();
+  const z = +$("z").value, pre = "0".repeat(z), data = "Orange-Trail-Block " + Date.now();
   let n = 0; const t0 = performance.now(); $("hx").className = "hx"; $("time").textContent = "…";
   const step = () => {
     const end = performance.now() + 30;   // je Bild ca. 30 ms rechnen, damit die Seite flüssig bleibt
