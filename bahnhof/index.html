@@ -419,14 +419,14 @@ const easeOut = x => 1 - Math.pow(1 - clamp(x, 0, 1), 3);
 function renderStats(){
   if (!Lern.DATA){   // ohne eigene Node: typische Werte (Stand Nov. 2026) statt Live-Zahlen
     $("sWait").innerHTML = "30–60<small>Tsd.</small>"; $("sMin").innerHTML = "1–5<small>sat/vB</small>";
-    $("sAgo").innerHTML = "~10<small>Min.</small>"; $("sNext").textContent = "~" + fmt(Lern.height() + 1);
+    $("sAgo").innerHTML = "~10<small>Min.</small>"; $("sNext").textContent = "~" + fmt(Math.round(Lern.height()/100)*100); $("sNext").previousElementSibling.textContent = "Blockhöhe";   // geschätzt: auf 100 gerundet
     $("mode").className = "mode demo"; $("mode").textContent = "Typischer Tag"; return; }
   $("lAgo").textContent = "Letzter Block vor";
   const no = !LV.ok && t > 6 ? "offline" : "–";   // echtes Netz nicht erreichbar: ehrlich sagen statt ewig Striche
   $("sWait").textContent = LV.waiting ? fmt(LV.waiting) : no;
   $("sMin").innerHTML = LV.min ? `${fmtFee(LV.min)}<small>sat/vB</small>` : no;
   $("sAgo").innerHTML = LV.tip.ts ? `${Math.floor(Math.max(0, Date.now()/1000 - LV.tip.ts)/60)}<small>Min.</small>` : no;
-  $("sNext").textContent = LV.tip.h ? fmt(LV.tip.h + 1) : no;
+  $("sNext").textContent = LV.tip.h ? fmt(LV.tip.h + 1) : no; $("sNext").previousElementSibling.textContent = "Nächster Block";
   if (!LV.ok && t > 6 && $("mode").textContent.startsWith("Verbinde")){ $("mode").className = "mode demo"; $("mode").textContent = "Beispielwerte"; }
 }
 

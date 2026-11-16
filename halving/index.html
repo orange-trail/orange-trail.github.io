@@ -94,7 +94,7 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
         <div><small>Aktueller Block (ca.)</small><b class="num" id="tip">–</b></div>
         <div><small>Diese Epoche geschafft</small><b class="num" id="pct">–</b></div>
       </div>
-      <p class="cd" aria-live="off"><span>Noch etwa</span><b id="cd">–</b><small>Rechnerischer Wert: Blöcke kommen zufällig, das echte Datum kann um 1 bis 2 Wochen abweichen.</small></p>
+      <p class="cd" aria-live="off"><span>Noch etwa</span><b id="cd">–</b><small id="cdN">Geschätzt: Blöcke kommen zufällig, das echte Datum kann um 1 bis 2 Wochen abweichen.</small></p>
     </div>
   </section>
 
@@ -179,9 +179,10 @@ let tip = 0, avgMs = 600e3, live = false, loadedAt = Date.now();
 function renderClock(){
   if (!tip) return;
   const e = Math.floor(tip/EPOCH), next = (e + 1)*EPOCH, left = next - tip, done = (tip - e*EPOCH)/EPOCH;
-  $("left").textContent = fmt(left);
+  const r100 = v => live ? v : Math.round(v/100)*100;   // ohne Live-Daten: auf 100 Blöcke gerundet, damit keine Scheingenauigkeit entsteht
+  $("left").textContent = (live ? "" : "~") + fmt(r100(left));
   $("nextH").textContent = fmt(next);
-  $("tip").textContent = fmt(tip);
+  $("tip").textContent = fmt(r100(tip));
   $("pct").textContent = (done*100).toLocaleString("de-DE", {maximumFractionDigits: 1}) + " %";
   $("rNow").textContent = btc(rewardSat(e)/1e8);
   $("rNext").textContent = btc(rewardSat(e + 1)/1e8);
@@ -249,13 +250,14 @@ async function load(){
   renderClock(); renderYear();
 }
 
-// ---------- Sekunden-Countdown und neue Blöcke (Schätzung: im Schnitt 597 s pro Block) ----------
+// ---------- Countdown (live sekundengenau, sonst in ganzen Tagen; Schätzung: im Schnitt 597 s pro Block) ----------
 setInterval(() => {
   if (!tip) return;
   const hf = live ? tip + (Date.now() - loadedAt)/avgMs : Lern.heightF(), next = (Math.floor(hf/EPOCH) + 1)*EPOCH, sec = Math.max(0, (next - hf)*(live ? avgMs/1000 : 597));
   const d = Math.floor(sec/86400), h = Math.floor(sec/3600) % 24, m = Math.floor(sec/60) % 60, z = n => String(n).padStart(2, "0");
-  $("cd").innerHTML = `${d.toLocaleString("de-DE")}<i>Tage</i>${z(h)}<i>Std</i>${z(m)}<i>Min</i>${z(Math.floor(sec % 60))}<i>Sek</i>`;
-  if (!live && Math.floor(hf) > tip){ tip = Math.floor(hf); renderClock(); ["tip", "left"].forEach(id => { const e = $(id); e.classList.remove("pop"); void e.offsetWidth; e.classList.add("pop"); }); Lern.toast("⛏️ Ein neuer Block ist fällig (geschätzt)"); }
+  // Live: sekundengenau. Ohne Live-Daten: nur ganze Tage, denn die Schätzung kann um Stunden abweichen
+  $("cd").innerHTML = live ? `${d.toLocaleString("de-DE")}<i>Tage</i>${z(h)}<i>Std</i>${z(m)}<i>Min</i>${z(Math.floor(sec % 60))}<i>Sek</i>` : `${d.toLocaleString("de-DE")}<i>Tage</i>`;
+  if (!live && Math.floor(hf) > tip){ tip = Math.floor(hf); renderClock(); }
 }, 1000);
 
 // ---------- Quiz ----------

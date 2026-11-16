@@ -162,7 +162,7 @@ async function compare(){
   // Mit eigener Orange-Trail-Node: unsere Node gegen die erwartete Höhe nach Uhrzeit; sonst zwei öffentliche Explorer
   if (Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Orange-Trail-Node"; sm[1].previousElementSibling.textContent = "Erwartet nach Uhrzeit"; }
   // Ohne eigene Quelle: Beispiel mit der geschätzten aktuellen Blockhöhe (kein fremder Dienst)
-  const est = Lern.height(), ex = {h: est, x: "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054"};
+  const est = Math.round(Lern.height()/1000)*1000, ex = {h: est, x: "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054"};
   if (!Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Node A (Beispiel)"; sm[1].previousElementSibling.textContent = "Node B (Beispiel)"; }
   const [a, b] = Lern.DATA ? [await tip(Lern.api("")).catch(() => null), null] : [ex, ex];
   if (Lern.DATA){ const e = Lern.height(); $("bH").textContent = "ca. Block " + e.toLocaleString("de-DE"); $("bX").textContent = "10 Min. je Block"; }

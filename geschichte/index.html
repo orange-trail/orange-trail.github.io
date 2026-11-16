@@ -136,7 +136,7 @@ function draw(){
   $("dots").children[k].scrollIntoView({block: "nearest", inline: "center"});
   const x100 = p && now ? now/p : 0;
   $("ev").innerHTML = `<div class="ev"><div class="scn ${SC[k][0]}" aria-hidden="true">${SC[k][1]}</div><div class="d">${k + 1} von ${E.length} · ${d}</div><h3>${t}</h3><p>${x}</p>
-    <div class="kv"><div>1 Bitcoin kostete damals<b class="num">${p ? usd(p) : "noch nichts"}</b></div><div>${x100 ? "100 $ von damals wären heute" : k < 2 ? "Blöcke bis heute (ca.)" : "Kurs heute"}<b class="num g">${x100 ? usd(100*x100) : k < 2 ? (height ? height.toLocaleString("de-DE") : "–") : now ? usd(now) : "–"}</b></div></div></div>`;
+    <div class="kv"><div>1 Bitcoin kostete damals<b class="num">${p ? usd(p) : "noch nichts"}</b></div><div>${x100 ? "100 $ von damals wären heute" : k < 2 ? "Blöcke bis heute (ca.)" : "Kurs heute"}<b class="num g">${x100 ? usd(100*x100) : k < 2 ? (height ? (Lern.DATA ? height : Math.round(height/100)*100).toLocaleString("de-DE") : "–") : now ? usd(now) : "–"}</b></div></div></div>`;
   counters($("ev"));
   $("prev").disabled = k === 0; $("nextE").textContent = k === E.length - 1 ? "Von vorn ↺" : "Weiter →";
 }
