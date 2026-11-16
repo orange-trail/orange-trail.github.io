@@ -23,7 +23,7 @@
 .words{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}
 .words div{background:#0b0f2a;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:700 15px var(--f-body)}
 .words div i{font:600 12px var(--f-num);font-style:normal;color:var(--muted);margin-right:6px}
-.words.hide div span{filter:blur(6px)}
+.words.hide div span{filter:blur(6px)} .words{cursor:pointer} .words.hide{position:relative} .words.hide::after{content:"👁 Tippen zum Anzeigen · niemand schaut zu?";position:absolute;inset:0;display:grid;place-items:center;font:800 14px var(--f-display);color:var(--ink);text-shadow:0 1px 6px #000}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .ask{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}
 .cheer{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid rgba(52,217,130,.5);background:rgba(52,217,130,.08);font-size:14.5px;line-height:1.5}
@@ -73,7 +73,7 @@
     <h2 id="h1s">1 · Aufschreiben und prüfen</h2>
     <p class="bxh">So läuft es bei einer echten Wallet:</p><div class="learn bx"><div><b>1 · Anzeigen</b><span>Die Wallet zeigt dir die Wörter einmal.</span></div><div><b>2 · Abschreiben</b><span><b>Alle</b> Wörter, in richtiger Reihenfolge, mit Nummer.</span></div><div><b>3 · Prüfen</b><span>Die Wallet fragt <b>alle Wörter</b> ab, damit dein Backup sicher stimmt.</span></div></div>
     <div class="words" id="words" aria-live="polite"></div>
-    <div class="row"><button class="btn" id="done" type="button">Hab ich aufgeschrieben</button><button class="btn ghost" id="newW" type="button">Neue Wörter</button></div>
+    <div class="row"><button class="btn ghost" id="eye" type="button">👁 Wörter anzeigen</button><button class="btn" id="done" type="button">Hab ich aufgeschrieben</button><button class="btn ghost" id="newW" type="button">Neue Wörter</button></div>
     <p class="cheer">💪 <b>Ja, das ist ein bisschen Arbeit.</b> 12 Wörter abschreiben und prüfen dauert ein paar Minuten. Aber du machst es <b>nur einmal</b>, und es schützt dein Erspartes für Jahrzehnte. Hier übst du es in Ruhe.</p>
     <div id="check" hidden>
       <div class="ask" id="ask"></div>
@@ -123,7 +123,7 @@
 </div>
 
 <details class="foot"><summary>Quellen</summary><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP 39: Seed-Wörter (12, 15, 18, 21 oder 24 Wörter, optionale Passphrase)</a>; <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP 32: Ableitung der Schlüssel</a>. Alle Wörter auf dieser Seite sind Übungsdaten.</p></details>
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    SEED-TRAINER – Lernwelt von Orange Trail
@@ -136,18 +136,22 @@ let words = [], askIdx = [];
 const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--){ const j = crypto.getRandomValues(new Uint32Array(1))[0] % (i + 1); [b[i], b[j]] = [b[j], b[i]]; } return b; };
 function newWords(){
   words = shuffle(POOL).slice(0, 12);
-  $("words").classList.remove("hide");
+  $("words").classList.add("hide"); eyeTxt();   // wie in echten Wallets: erst verdeckt, damit niemand mitliest
   $("words").innerHTML = words.map((w, i) => `<div><i>${i + 1}</i><span>${w}</span></div>`).join("");
-  $("check").hidden = true; $("done").hidden = false; $("msg").textContent = "";
+  $("check").hidden = true; $("done").hidden = false; $("eye").hidden = false; $("msg").textContent = "";
 }
+// Wörter ein-/ausblenden (Knopf oder Tippen auf die Wörter)
+function eyeTxt(){ const h = $("words").classList.contains("hide"); $("eye").textContent = h ? "👁 Wörter anzeigen" : "🙈 Verbergen"; $("peek").textContent = h ? "Wörter nochmal zeigen" : "Wörter verbergen"; }
+const eye = () => { $("words").classList.toggle("hide"); eyeTxt(); };
+$("eye").addEventListener("click", eye); $("words").addEventListener("click", eye);
 $("newW").addEventListener("click", newWords);
 $("done").addEventListener("click", () => {
-  $("words").classList.add("hide"); $("done").hidden = true; $("check").hidden = false;
+  $("words").classList.add("hide"); eyeTxt(); $("done").hidden = true; $("eye").hidden = true; $("check").hidden = false;
   askIdx = [...Array(12).keys()];   // echte Wallets fragen meist alle Wörter ab
   $("ask").innerHTML = askIdx.map(i => `<div><label for="a${i}">Wort Nr. ${i + 1}</label><input id="a${i}" autocomplete="off" autocapitalize="off" spellcheck="false"></div>`).join("");
   $("msg").textContent = ""; $("msg").className = "msg";
 });
-$("peek").addEventListener("click", () => $("words").classList.toggle("hide"));
+$("peek").addEventListener("click", eye);
 $("test").addEventListener("click", () => {
   let right = 0;
   askIdx.forEach(i => { const el = $("a" + i), ok = el.value.trim().toLowerCase() === words[i].toLowerCase(); el.className = ok ? "ok" : "no"; if (ok) right++; });

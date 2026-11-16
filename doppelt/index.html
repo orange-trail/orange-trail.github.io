@@ -63,13 +63,13 @@
 
   <section class="card" aria-labelledby="h2s">
     <h2 id="h2s">Die Lösung in einem Satz <span class="mode" id="lmode">Verbinde …</span></h2>
-    <div class="learn bx"><div><b>Kassenbuch</b><span>Statt einer Bank führen <b>Tausende Computer dasselbe Kassenbuch</b> und prüfen jede Zahlung.</span></div><div><b>Reihenfolge</b><span>Miner packen Zahlungen in <b>Blöcke</b>. Was zuerst drinsteht, gilt.</span></div><div><b>Doppelt?</b><span>Die zweite Ausgabe derselben Münze lehnt jeder ab.</span></div></div>
+    <div class="learn bx"><div><b>Kassenbuch</b><span>Statt einer Bank führen <b>Tausende Computer dasselbe Kassenbuch</b> und prüfen jede Zahlung.</span></div><div><b>Reihenfolge</b><span>Miner legen fest, welche Zahlung <b>zuerst</b> kam, indem sie Zahlungen in <b>Blöcke</b> packen. Die frühere gilt.</span></div><div><b>Doppelt?</b><span>Die zweite Ausgabe derselben Münze lehnt jeder ab.</span></div></div>
     <div class="kv">
       <div>In einem Block geprüft<b class="num g" id="kTx">–</b></div>
       <div>Blöcke seit 2009<b class="num" id="kH">–</b></div>
       <div>Kassenbuch-Kopien weltweit<b class="num">ca. 20.000+</b></div>
     </div>
-    <p class="note">Deshalb gibt es die Blockchain (das gemeinsame Kassenbuch), Mining (die Reihenfolge) und Nodes (die Prüfer). Wie das genau funktioniert, lernst du in <span class="later">Welt 6</span>. Alles andere baut darauf auf.</p>
+    <p class="note">Deshalb gibt es die Blockchain (das gemeinsame Kassenbuch), Mining (legt fest, welche Zahlung zuerst kam) und Nodes (die Prüfer). Wie das genau funktioniert, lernst du gleich in <span class="later">Welt 3</span>. Alles andere baut darauf auf.</p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
@@ -88,7 +88,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    KOPIER-PROBLEM – Lernwelt von Orange Trail
@@ -123,7 +123,7 @@ reset();
 Promise.all([fetch(Lern.api("v1/blocks")).then(r => r.json()), fetch(Lern.api("blocks/tip/height")).then(r => r.text())]).then(([bl, h]) => {
   $("kTx").textContent = (bl[0].tx_count || 0).toLocaleString("de-DE") + " Zahlungen"; $("kH").textContent = (+h).toLocaleString("de-DE");
   $("lmode").className = "mode live"; $("lmode").textContent = "Live";
-}).catch(() => { $("kTx").textContent = "Tausende"; $("kH").textContent = "über 900.000"; $("lmode").className = "mode demo"; $("lmode").textContent = "Beispielwerte"; });
+}).catch(() => { $("kTx").textContent = "rund 3.000 Zahlungen"; $("kH").textContent = "~" + (Math.round(Lern.height()/100)*100).toLocaleString("de-DE"); $("lmode").className = "mode demo"; $("lmode").textContent = "Schätzung"; });
 
 const QUIZ = [["Warum ist digitales Geld schwer zu bauen?", ["Weil man Dateien beliebig kopieren kann", "Weil Computer zu langsam sind", "Weil es zu teuer ist"], 0, "Ohne Aufpasser könnte man dieselbe Münze mehrmals ausgeben."], ["Wer verhindert bei Bitcoin, dass eine Münze zweimal ausgegeben wird?", ["Tausende Nodes mit demselben Kassenbuch", "Eine Bitcoin-Bank", "Der Erfinder Satoshi"], 0, "Jede Node prüft jede Zahlung. Die zweite Ausgabe ist ungültig."], ["Was ist der Nachteil, wenn eine Bank aufpasst?", ["Man muss ihr vertrauen, sie kann sperren oder Fehler machen", "Es funktioniert gar nicht", "Es ist zu schnell"], 0, "Bitcoin ersetzt dieses Vertrauen durch Regeln, die alle prüfen."]];
 Lern.quiz($("quiz"), "doppelt", QUIZ, "../"); Lern.visit("doppelt"); Lern.renderNext("doppelt", "../");

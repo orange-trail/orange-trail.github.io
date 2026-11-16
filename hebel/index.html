@@ -93,11 +93,11 @@ table.t{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
   </section>
 
   <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://www.esma.europa.eu/press-news/esma-news/esma-agrees-prohibit-binary-options-and-restrict-cfds-protect-retail-investors">ESMA: Beschränkung von CFDs (Pflicht-Warnhinweis mit Verlustquote)</a>; Der Kursverlauf ist ein typisches Beispiel mit realistischen Stunden-Schwankungen. Vereinfachte Rechnung: Liquidation, wenn der Verlust den Einsatz erreicht, ohne Gebühren, Funding und Sicherheitspuffer der Börsen. In echt wird oft noch früher liquidiert.</p></details>
+  <details class="foot"><summary>Quellen</summary><p><a href="https://www.esma.europa.eu/press-news/esma-news/esma-agrees-prohibit-binary-options-and-restrict-cfds-protect-retail-investors">ESMA: Beschränkung von CFDs (Pflicht-Warnhinweis mit Verlustquote)</a>; Der Kursverlauf ist ein Beispiel über 3 Tage mit einem Rutsch nach unten und einem nach oben, wie er bei Bitcoin immer wieder vorkommt. Vereinfachte Rechnung: Liquidation, wenn der Verlust den Einsatz erreicht, ohne Gebühren, Funding und Sicherheitspuffer der Börsen. In echt wird oft noch früher liquidiert.</p></details>
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung. Hebel-Handel kann zum Totalverlust führen.</p>
 </div>
 
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    HEBEL-FALLE – Lernwelt von Orange Trail
@@ -145,7 +145,8 @@ $("go").onclick = () => {
 
 // Tabelle: Wie weit darf der Kurs laufen? Rot, wenn die Schwankung eines Tages gereicht hätte
 function table(){
-  const d = C.slice(-25), hi = Math.max(...d.map(c => c[1])), lo = Math.min(...d.map(c => c[0])), sw = (hi - lo)/lo*100;
+  // Live: echte letzte 24 Stunden. Beispiel: ein typischer ruhiger Tag (rund 3,5 % Spanne), nicht die Achterbahn oben
+  const d = C.slice(-25), P = C[C.length - 1][2], hi = live ? Math.max(...d.map(c => c[1])) : P*1.015, lo = live ? Math.min(...d.map(c => c[0])) : P*.98, sw = (hi - lo)/lo*100;
   $("swing").innerHTML = `${live ? "In den letzten 24 Stunden lag Bitcoin" : "An einem typischen Tag (Beispiel) liegt Bitcoin"} zwischen ${usd(lo)} und ${usd(hi)}, also <b>${pct(sw)}</b> Schwankung. Die roten Hebel ${live ? "wären dabei schon" : "würden dabei schon"} <b>liquidiert</b>${live ? " worden" : ""}.`;
   $("tab").innerHTML = `<tr><th>Hebel</th><th>Aus 100 $ werden</th><th>Alles weg bei</th></tr>` + [1, 2, 5, 10, 25, 50, 100].map(l =>
     `<tr class="${l > 1 && 100/l <= sw ? "x" : ""}"><td><b>${l}×</b></td><td>${usd(100*l)} Wette</td><td>${l === 1 ? "nie" : pct(100/l) + " Bewegung"}</td></tr>`).join("");
@@ -158,8 +159,13 @@ async function load(){
     if (!Array.isArray(j) || j.length < 30) throw 0;
     C = j.slice(0, 73).reverse().map(c => [c[1], c[2], c[4]]); live = true;
   } catch(e){
-    let sd = 7, p = 1; const rnd = () => (sd = (sd*16807) % 2147483647)/2147483647; C = [];   // fester Zufall: jedes Mal derselbe Verlauf
-    for (let k = 0; k < 73; k++){ const c = p*(1 + Math.sin(k/7)*.0025 + (rnd() - .5)*.006); C.push([Math.min(p, c)*(1 - rnd()*.0015), Math.max(p, c)*(1 + rnd()*.0015), c]); p = c; }
+    // Beispiel „Achterbahn“ über 3 Tage: erst −11,5 %, dann +11,5 %, am Ende fast wieder am Start.
+    // So wird ein 10×-Hebel in JEDER Richtung liquidiert, während man ohne Hebel kaum etwas verliert.
+    let sd = 7; const rnd = () => (sd = (sd*16807) % 2147483647)/2147483647; C = [];   // fester Zufall: jedes Mal derselbe Verlauf
+    const K = [[0, 1], [10, .99], [24, .885], [34, .95], [46, 1.02], [56, 1.115], [64, 1.045], [72, 1.005]];
+    const at = k => { let i = 0; while (K[i + 1][0] < k) i++; const [x0, y0] = K[i], [x1, y1] = K[i + 1], t = (k - x0)/(x1 - x0); return y0 + (y1 - y0)*t*t*(3 - 2*t); };
+    let p = 1;
+    for (let k = 0; k < 73; k++){ const c = k ? at(k)*(1 + (rnd() - .5)*.004) : 1; C.push([Math.min(p, c)*(1 - rnd()*.002), Math.max(p, c)*(1 + rnd()*.002), c]); p = c; }
     const f = Lern.PRICE.USD/p; C = C.map(c => c.map(v => v*f));
   }
   $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte";

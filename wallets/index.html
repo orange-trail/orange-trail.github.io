@@ -111,7 +111,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    WALLET-CHECK – Lernwelt von Orange Trail
@@ -145,8 +145,8 @@ const AMT = ["bis 100 €", "bis 2.000 €", "bis 20.000 €", "mehr"], USE = ["
 let a = 1, u = 1;
 function rec(){
   let r, why;
-  if (u === 0 && a <= 1){ r = 1; why = "Für kleine Beträge zum Bezahlen ist eine Handy-Wallet ideal, gerne mit Lightning. Seed-Wörter trotzdem notieren."; }
-  else if (u === 0){ r = 1; why = "Zum Bezahlen eine Handy-Wallet, aber nur mit dem, was du bald ausgibst. Den Rest besser auf eine Hardware-Wallet."; }
+  if (u === 0 && a === 0){ r = 1; why = "Für kleine Beträge zum Bezahlen ist eine Handy-Wallet ideal, gerne mit Lightning. Seed-Wörter trotzdem notieren."; }
+  else if (u === 0){ r = 1; why = "Zum Bezahlen eine Handy-Wallet, aber nur mit dem, was du bald ausgibst. Faustregel: Aufs Handy nur so viel wie ins Portemonnaie. Alles darüber besser auf eine Hardware-Wallet."; }
   else if (a === 0){ r = 1; why = "Für den Anfang reicht eine Handy-Wallet. Wichtig: Seed-Wörter auf Papier notieren und sicher aufbewahren."; }
   else if (a <= 2){ r = 2; why = "Fürs Sparen ist eine Hardware-Wallet der Standard. Sie kostet etwa 60 bis 200 € und hält den Schlüssel offline. Trotzdem: jede Zahlung auf dem Gerät prüfen, nur beim Hersteller kaufen und die Wörter sicher aufbewahren."; }
   else { r = 3; why = "Bei großen Beträgen lohnt sich Multisig oder eine Hardware-Wallet mit Passphrase. So gibt es keinen einzelnen Schwachpunkt. Lass dir beim Einrichten Zeit."; }

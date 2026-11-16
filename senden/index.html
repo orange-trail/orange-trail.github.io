@@ -28,7 +28,7 @@
 @media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
 .phone{max-width:300px;margin:12px auto 0;border-radius:28px;border:4px solid #0d1230;background:linear-gradient(#232a6a,#141a48);box-shadow:5px 5px 0 #0d1230;padding:14px;text-align:center}
 .phone small{display:block;color:var(--muted);font-size:12px}
-.qr{width:150px;height:150px;margin:8px auto;border-radius:12px;background:#fff;padding:8px} .qr svg{width:100%;height:100%;display:block}
+.qr{position:relative;width:150px;height:150px;margin:8px auto;border-radius:12px;background:#fff;padding:8px} .qr::after{content:"ÜBUNG";position:absolute;left:-6px;right:-6px;top:50%;transform:translateY(-50%) rotate(-16deg);background:#ff5c73;color:#fff;border:3px solid #0d1230;border-radius:8px;font:900 18px var(--f-display);letter-spacing:.12em;text-align:center;padding:4px 0}   /* nicht benutzbar: Stempel + ungültige Adresse */ .qr svg{width:100%;height:100%;display:block}
 .adr{font:700 13px/1.4 var(--f-num);word-break:break-all;background:rgba(0,0,0,.3);border-radius:10px;padding:8px;margin-top:6px}
 .adr u{text-decoration:none;color:var(--gold);font-weight:900}
 .st{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:12px} .st span{font:800 12px var(--f-body);padding:5px 10px;border-radius:999px;background:#2a316e;color:var(--muted)} .st span.on{background:var(--gold);color:#0d1230}
@@ -66,9 +66,9 @@
 
   <section class="card" aria-labelledby="h1s">
     <h2 id="h1s">1 · Empfangen</h2>
-    <p class="muted" style="margin:0">Um Bitcoin zu bekommen, zeigst du in deiner Wallet auf <b>„Empfangen“</b>. Dort steht deine Adresse, auch als QR-Code. Die schickst du dem Absender. Warum es jedes Mal eine neue Adresse gibt, steht im Level Privatsphäre <span class="later">(Welt 5)</span>.</p>
-    <div class="phone"><small>Deine Wallet · Empfangen</small><div class="qr" id="qr"></div><div class="adr" id="myAdr"></div></div>
-    <p class="muted" style="margin:14px 0 0">Kommt eine Zahlung rein, zeigt die Wallet sie sofort an, erst als <b>unbestätigt</b>. Sobald sie in einem Block steht, ist sie da. Wie das genau abläuft, siehst du im Mempool-Bahnhof <span class="later">(Welt 5)</span>.</p>
+    <p class="muted" style="margin:0">Um Bitcoin zu bekommen, zeigst du in deiner Wallet auf <b>„Empfangen“</b>. Dort steht deine Adresse, auch als QR-Code. Die schickst du dem Absender. Warum es jedes Mal eine neue Adresse gibt, steht im Level Privatsphäre <span class="later">(gleich in dieser Welt)</span>.</p>
+    <div class="phone"><small>Deine Wallet · Empfangen (Übung)</small><div class="qr" id="qr"></div><div class="adr" id="myAdr"></div></div>
+    <p class="muted" style="margin:14px 0 0">Kommt eine Zahlung rein, zeigt die Wallet sie sofort an, erst als <b>unbestätigt</b>. Sobald sie in einem Block steht, ist sie da. Wie das genau abläuft, siehst du im Mempool-Bahnhof <span class="later">(nächstes Level)</span>.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
@@ -83,7 +83,7 @@
     <div class="fall">
       <div><b class="ft">🦠 Vertauschte Adresse</b>Schadsoftware kann kopierte Adressen heimlich austauschen. Darum vor dem Senden immer <b>Anfang und Ende</b> vergleichen.</div>
       <div><b class="ft">🔀 Falsches Netzwerk</b>Börsen bieten manchmal mehrere Netzwerke an. Für echte Bitcoin brauchst du das <b>Bitcoin-Netzwerk</b> (oder Lightning, wenn beide Seiten es können). Im falschen Netzwerk kann das Geld verloren sein.</div>
-      <div><b class="ft">🐌 Gebühr zu niedrig</b>Dann wartet die Zahlung lange im Warteraum. Viele Wallets können die Gebühr nachträglich erhöhen. Mehr dazu im Mempool-Bahnhof <span class="later">(Welt 5)</span>.</div>
+      <div><b class="ft">🐌 Gebühr zu niedrig</b>Dann wartet die Zahlung lange im Warteraum. Viele Wallets können die Gebühr nachträglich erhöhen. Mehr dazu im Mempool-Bahnhof <span class="later">(nächstes Level)</span>.</div>
       <div><b class="ft">⌨️ Tippfehler</b>Bitcoin-Adressen haben eine eingebaute <b>Prüfsumme</b>. Ein einzelner Tippfehler fällt fast immer auf, die Wallet lehnt die Adresse dann ab. Trotzdem: kopieren statt abtippen.</div>
     </div>
   </section>
@@ -104,15 +104,15 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    SENDEN & EMPFANGEN – Lernwelt von Orange Trail
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
-// Übungs-Adressen (gültig aussehend, aber nur für dieses Training)
-const MY = "bc1q8c6fshw2dlwun7ekn9qwf37cu2rn755upcp6el", ANNA = "bc1qxy2kgdyg2rqq5lu7wq6fe3rmsr9x0h4sk9tzp8";
+// Übungs-Adressen: sehen echt aus, haben aber absichtlich eine FALSCHE Prüfsumme. Jede Wallet lehnt sie ab, so kann niemand versehentlich echtes Geld hinschicken
+const MY = "bc1q8c6fshw2dlwun7ekn9qwf37cu2rn755upcp6ex", ANNA = "bc1qxy2kgdyg2rqq5lu7wq6fe3rmsr9x0h4sk9tzp8";
 const SWAP = "bc1qxy2kgdyg2rqq5lu7wq6fe3rmsr9x7m2fq4dla3";   // Schadsoftware ersetzt das Ende
 const hl = a => `<u>${a.slice(0, 7)}</u>${a.slice(7, -6)}<u>${a.slice(-6)}</u>`;
 $("myAdr").innerHTML = hl(MY);

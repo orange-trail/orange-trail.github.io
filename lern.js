@@ -27,14 +27,14 @@ const Lern = (() => {
   // Kapitel für Einsteiger: [Symbol, Titel, Kurzbeschreibung, Welten in Reihenfolge]
   const CHAPTERS = [
     ["🏦", "Geld verstehen", "Was Geld ist, woher es kommt und warum es an Wert verliert.", ["geld", "geldgeschichte", "geldschoepfung", "cantillon", "inflation"]],
-    ["🌱", "Warum Bitcoin?", "Das Kopier-Problem, gutes Geld, Knappheit und wie alles anfing.", ["start", "doppelt", "eigenschaften", "wert", "halving", "knappheit", "geschichte", "besitzer", "mythen", "kritik"]],
-    ["🛡️", "Sicher starten", "Bevor du Bitcoin kaufst: Wallet, Seed, Betrug und echte Risiken.", ["wallets", "seed", "senden", "betrug", "krypto", "risiken"]],
-    ["🧠", "Klug investieren", "Richtig kaufen, Sparplan statt Bauchgefühl, und Finger weg vom Hebel.", ["kaufen", "sparplan", "zyklen", "fomo", "hebel"]],
-    ["💸", "Bezahlen & Senden", "Wie eine Zahlung wirklich abläuft, schnell und günstig.", ["utxo", "bahnhof", "lightning", "privatsphaere"]],
-    ["⚙️", "Unter der Haube", "Die Technik hinter Bitcoin, am Ende als großes Gesamtbild.", ["hashing", "schluessel", "blockchain", "mining", "nodes", "konsens", "reise"]]
+    ["🌱", "Warum Bitcoin?", "Das Kopier-Problem, gutes Geld, Knappheit und wie alles anfing.", ["start", "doppelt", "eigenschaften", "knappheit", "wert", "geschichte"]],
+    ["⚙️", "So funktioniert Bitcoin", "Das große Ganze: Blöcke, Mining, Halving und wer alles prüft.", ["hashing", "blockchain", "mining", "halving", "nodes", "konsens"]],
+    ["🛡️", "Sicher starten", "Bevor du Bitcoin kaufst: Schlüssel, Wallet, Seed, Betrug und echte Risiken.", ["schluessel", "wallets", "seed", "betrug", "krypto", "risiken"]],
+    ["💸", "Bezahlen & Senden", "Wie eine Zahlung wirklich abläuft, schnell und günstig.", ["utxo", "senden", "bahnhof", "lightning", "privatsphaere", "reise"]],
+    ["🧠", "Klug handeln", "Richtig kaufen, Sparplan statt Bauchgefühl, Finger weg vom Hebel und Mythen durchschauen.", ["kaufen", "sparplan", "zyklen", "fomo", "hebel", "besitzer", "mythen", "kritik"]]
   ];
   // Profi-Pfade: Vertiefungen je Kapitel (Index wie CHAPTERS), freigeschaltet nach dem Kapitel-Boss. Zählen nicht für Level.
-  const PRO = [[], [], ["entropie", "ableitung"], [], [], ["whitepaper", "sha256", "kurven", "signaturen", "adressen", "merkle", "script", "quanten"]];
+  const PRO = [[], [], ["whitepaper", "sha256", "kurven", "signaturen", "adressen", "merkle", "script", "quanten"], ["entropie", "ableitung"], [], []];
   const proOf = id => PRO.findIndex(c => c.includes(id));
   // Lernpfad = alle Welten in Kapitel-Reihenfolge: [id, Titel, Pfad]
   const TITLES = {geld: ["Tausch-Insel", "geld/"], geldgeschichte: ["Geld-Zeitreise", "geldgeschichte/"], geldschoepfung: ["Geld-Maschine", "geldschoepfung/"], cantillon: ["Geldfluss", "cantillon/"], knappheit: ["Knappheits-Messer", "knappheit/"], doppelt: ["Kopier-Problem", "doppelt/"], wert: ["Wert-Waage", "wert/"], risiken: ["Risiko-Radar", "risiken/"], reise: ["Reise einer Zahlung", "reise/"], eigenschaften: ["Geld-Duell", "eigenschaften/"], inflation: ["Geld & Inflation", "inflation/"], halving: ["Knappheit & Halving", "halving/"], geschichte: ["Zeitreise", "geschichte/"], wallets: ["Wallet-Check", "wallets/"], seed: ["Seed-Trainer", "seed/"], senden: ["Senden & Empfangen", "senden/"], betrug: ["Betrug erkennen", "betrug/"], krypto: ["Coin-Check", "krypto/"], sparplan: ["Sparplan", "sparplan/"], fomo: ["Gefühls-Achterbahn", "fomo/"], hebel: ["Hebel-Falle", "hebel/"], utxo: ["Wechselgeld-Kasse", "utxo/"], bahnhof: ["Mempool-Bahnhof", "bahnhof/"], lightning: ["Lightning", "lightning/"], hashing: ["Fingerabdruck-Maschine", "hashing/"], schluessel: ["Schlüssel-Labor", "schluessel/"], blockchain: ["Blockchain", "blockchain/"], mining: ["Mining-Werkstatt", "mining/"], nodes: ["Node-Wache", "nodes/"], entropie: ["Würfel-Seed", "entropie/"], ableitung: ["Seed-Fabrik", "ableitung/"], sha256: ["SHA-256 von innen", "sha256/"], kurven: ["Kurven-Labor", "kurven/"], signaturen: ["Signatur-Duell", "signaturen/"], adressen: ["Adress-Zoo", "adressen/"], merkle: ["Merkle-Baum", "merkle/"], quanten: ["Quanten-Check", "quanten/"], kaufen: ["Erster Kauf", "kaufen/"], mythen: ["Mythen-Check", "mythen/"], kritik: ["Kritik-Check", "kritik/"], privatsphaere: ["Spuren-Detektiv", "privatsphaere/"], script: ["Script-Labor", "script/"], zyklen: ["Kurs-Achterbahn", "zyklen/"], besitzer: ["Wem gehört Bitcoin?", "besitzer/"], start: ["Bitcoin in 5 Minuten", "start/"], konsens: ["Einigungs-Labor", "konsens/"], whitepaper: ["Whitepaper-Tour", "whitepaper/"]};
@@ -382,37 +382,53 @@ const Lern = (() => {
       ["Du sparst für die Zukunft. Welche Aufgabe von Geld ist das?", ["Wertspeicher", "Recheneinheit", "Tauschmittel"], "Gutes Geld behält seinen Wert."],
       ["Was endete am 15. August 1971?", ["Der Umtausch von Dollar in Gold", "Die D-Mark", "Der Tauschhandel"], "Seitdem ist Geld nur noch durch Vertrauen gedeckt."],
       ["Wie entsteht der größte Teil unseres Geldes?", ["Wenn Banken Kredite vergeben", "Durch Gelddruckmaschinen", "Durch Mining"], "Ein Kredit schreibt neues Guthaben auf ein Konto."],
-      ["Wer verliert beim Cantillon-Effekt meist?", ["Wer das neue Geld zuletzt bekommt", "Wer es zuerst bekommt", "Niemand"], "Er zahlt schon die höheren Preise."], ["Was unterscheidet den digitalen Euro von Bitcoin?", ["Er wird von der Zentralbank herausgegeben und ist vermehrbar", "Er ist auf 21 Millionen begrenzt", "Ihn gibt es schon seit 2009"], "Der digitale Euro bleibt ein Euro."], ["Wer kann Stablecoin-Guthaben einfrieren?", ["Der Herausgeber, eine Firma", "Niemand", "Die Miner"], "Darum sind Stablecoins nicht zensurresistent."]]],
+      ["Wer verliert beim Cantillon-Effekt meist?", ["Wer das neue Geld zuletzt bekommt", "Wer es zuerst bekommt", "Niemand"], "Er zahlt schon die höheren Preise."],
+      ["Was unterscheidet den digitalen Euro von Bitcoin?", ["Er wird von der Zentralbank herausgegeben und ist vermehrbar", "Er ist auf 21 Millionen begrenzt", "Ihn gibt es schon seit 2009"], "Der digitale Euro bleibt ein Euro."],
+      ["Wer kann Stablecoin-Guthaben einfrieren?", ["Der Herausgeber, eine Firma", "Niemand", "Die Miner"], "Darum sind Stablecoins nicht zensurresistent."]]],
     ["ghost", "Der Doppel-Geist", "Ich gebe jede Münze zweimal aus. Mindestens!", [
       ["Wie verhindert Bitcoin, dass derselbe Betrag zweimal ausgegeben wird?", ["Alle Nodes prüfen dasselbe Kassenbuch, die zweite Ausgabe ist ungültig", "Eine Bank passt auf", "Gar nicht"], "Was zuerst im Block steht, gilt."],
       ["Wie viele Bitcoin gibt es höchstens?", ["21 Millionen", "21 Milliarden", "Unbegrenzt"], "Die Grenze steht fest im Code."],
-      ["Was halbiert sich beim Halving?", ["Die neuen Bitcoin pro Block", "Der Bitcoin-Preis", "Die Zahl der Nodes"], "Etwa alle 4 Jahre."],
       ["Was misst Stock-to-Flow?", ["Bestand geteilt durch neue Menge pro Jahr", "Den Preis pro Gramm", "Die Zahl der Wallets"], "Je höher, desto knapper."],
-      ["Wo hat Gold einen Vorteil gegenüber Bitcoin?", ["Es ist seit Jahrtausenden bewährt", "Es ist leichter zu verschicken", "Es ist besser teilbar"], "Bitcoin gibt es erst seit 2009."], ["Wie viele Bitcoin gelten als verloren?", ["Etwa 3 bis 4 Millionen", "Keine", "Genau 21"], "Verlorene Seeds machen Bitcoin noch knapper."], ["Wer hat mehr Bitcoin: Satoshi oder alle Staaten zusammen?", ["Satoshi", "Alle Staaten", "Gleich viel"], "Satoshi hat geschätzt 1,1 Millionen."], ["Wird Bitcoin vor allem für Kriminalität genutzt?", ["Nein, der illegale Anteil liegt unter 1 %", "Ja, zu 90 %", "Ja, ausschließlich"], "Weil alles öffentlich ist, werden viele Täter gefasst."], ["Wer prüft jede Bitcoin-Zahlung?", ["Tausende Nodes auf der ganzen Welt", "Eine Bank", "Satoshi persönlich"], "Jeder kann eine Node betreiben."]]],
+      ["Wo hat Gold einen Vorteil gegenüber Bitcoin?", ["Es ist seit Jahrtausenden bewährt", "Es ist leichter zu verschicken", "Es ist besser teilbar"], "Bitcoin gibt es erst seit 2009."],
+      ["Warum hat Bitcoin überhaupt einen Preis?", ["Weil Menschen ihn wollen und die Menge fest ist", "Weil eine Bank ihn festlegt", "Weil er an Gold gekoppelt ist"], "Angebot und Nachfrage: Das Angebot ist fest, also bewegt die Nachfrage den Preis."],
+      ["Wann wurde der erste Bitcoin-Block erzeugt?", ["Im Januar 2009", "Im Jahr 2017", "Im Jahr 1999"], "Am 3. Januar 2009 startete Satoshi Nakamoto das Netz mit dem Genesis-Block."]]],
+    ["golem", "Der 51-%-Golem", "Ich habe die meiste Rechenleistung. Ich ändere die Regeln!", [
+      ["Was ist ein Hash?", ["Ein digitaler Fingerabdruck von Daten", "Ein Passwort", "Eine Adresse"], "Ein Zeichen anders, und der Hash ist ein völlig anderer."],
+      ["Jemand ändert einen alten Block. Was passiert?", ["Sein Hash ändert sich, die Kette passt nicht mehr", "Niemand merkt es", "Der Block wird gelöscht"], "Jeder Block enthält den Hash des vorherigen."],
+      ["Kann eine Miner-Mehrheit mehr als 21 Mio. Bitcoin erzeugen?", ["Nein, die Nodes lehnen solche Blöcke ab", "Ja, ab 51 %", "Ja, ab 90 %"], "Nodes stimmen nicht ab, sie prüfen die Regeln."],
+      ["Warum braucht Bitcoin-Mining Strom?", ["Weil Miner raten müssen, bis ein Hash passt", "Für die Kühlung von Börsen", "Für das Drucken von Coins"], "Proof of Work: echter Aufwand schützt das Netz."],
+      ["Welche Kette gilt bei zwei Versionen?", ["Die mit der meisten Rechenarbeit", "Die ältere", "Die mit den meisten Zahlungen"], "Der andere Block verwaist."],
+      ["Warum bleiben Miner ehrlich?", ["Weil Betrug teurer ist und den eigenen Gewinn zerstört", "Weil es eine Polizei gibt", "Weil Satoshi zuschaut"], "Spieltheorie: Eigennutz führt zu Ehrlichkeit."],
+      ["Wie oft wird die Schwierigkeit angepasst?", ["Alle 2.016 Blöcke", "Jeden Block", "Nie"], "Damit ein Block im Schnitt 10 Minuten dauert."],
+      ["Was halbiert sich beim Halving?", ["Die neuen Bitcoin pro Block", "Der Bitcoin-Preis", "Die Zahl der Nodes"], "Etwa alle 4 Jahre."],
+      ["Wer prüft jede Bitcoin-Zahlung?", ["Tausende Nodes auf der ganzen Welt", "Eine Bank", "Satoshi persönlich"], "Jeder kann eine Node betreiben."]]],
     ["phisher", "Phishing-Phil", "Gib mir mal kurz deine Seed-Wörter …", [
       ["Der „Support“ fragt im Chat nach deinen Seed-Wörtern. Was tust du?", ["Niemals herausgeben, das ist Betrug", "Herausgeben, er will helfen", "Nur die Hälfte schicken"], "Echter Support fragt nie nach dem Seed."],
       ["Wo bewahrst du Seed-Wörter am besten auf?", ["Offline auf Papier oder Metall", "Als Foto in der Cloud", "In einer E-Mail an dich selbst"], "Alles Digitale kann gehackt werden."],
       ["Deine Börse geht pleite. Wer ist sicher?", ["Wer seine Bitcoin in der eigenen Wallet hat", "Wer sie auf der Börse lässt", "Niemand"], "Nicht deine Schlüssel, nicht deine Bitcoin."],
       ["Ein Coin verspricht „1000x garantiert“. Das ist …", ["Ein großes Warnsignal", "Eine sichere Sache", "Normal"], "Garantierte Gewinne gibt es nicht."],
-      ["Was speichert eine Hardware-Wallet?", ["Deine privaten Schlüssel", "Deine Bitcoin selbst", "Dein Bankkonto"], "Die Bitcoin liegen in der Blockchain, das Gerät schützt die Schlüssel."]]],
-    ["fomo", "Das FOMO-Monster", "Alle werden reich, nur du nicht! KAUF JETZT!", [
-      ["Rekordhoch, alle reden von Bitcoin. Was lehrt die Geschichte?", ["Dann ist es oft schon teuer, ruhig bleiben", "Sofort alles kaufen", "Kredit aufnehmen"], "In der Euphorie kaufen viele zu teuer."],
-      ["Was ist ein Sparplan?", ["Regelmäßig den gleichen Betrag kaufen", "Einmal alles kaufen", "Mit Hebel kaufen"], "So musst du keinen perfekten Zeitpunkt treffen."],
-      ["10× Hebel, der Kurs fällt um 10 %. Was passiert?", ["Der Einsatz ist komplett weg", "Du verlierst 1 %", "Nichts"], "100 % geteilt durch 10 = 10 %."],
-      ["Minus 70 %, überall Panik. Was war in der Vergangenheit oft ein Fehler?", ["In Panik alles verkaufen", "Ruhig bleiben", "Einen Plan haben"], "Wer panisch verkauft, macht den Verlust endgültig."],
-      ["Wer kann nie liquidiert werden?", ["Wer ohne Hebel kauft", "Wer mit 2× Hebel handelt", "Wer nur nachts handelt"], "Ohne geliehenes Geld gibt es nichts zu liquidieren."], ["Was ist ein Spread?", ["Ein versteckter Aufschlag auf den Kurs", "Eine Wallet-Art", "Ein Bitcoin-Upgrade"], "Achte auf die Gesamtkosten, nicht nur die Gebühr."], ["Was machst du vor der ersten großen Auszahlung?", ["Eine kleine Test-Auszahlung", "Den Seed fotografieren", "Nichts"], "So prüfst du Adresse und Wallet."], ["Wie stark fiel Bitcoin in früheren Crashs?", ["Mehrmals um 75 bis 90 %", "Nie mehr als 10 %", "Er fiel noch nie"], "Crashs gehören zu Bitcoin dazu."]]],
+      ["Was speichert eine Hardware-Wallet?", ["Deine privaten Schlüssel", "Deine Bitcoin selbst", "Dein Bankkonto"], "Die Bitcoin liegen in der Blockchain, das Gerät schützt die Schlüssel."],
+      ["Womit wird eine Bitcoin-Zahlung unterschrieben?", ["Mit dem privaten Schlüssel", "Mit dem öffentlichen Schlüssel", "Mit dem Börsen-Passwort"], "Geprüft wird mit dem öffentlichen Schlüssel."]]],
     ["troll", "Der Gebühren-Kobold", "Hier kommt keiner durch ohne Gebühr!", [
       ["Wovon hängt die Bitcoin-Gebühr vor allem ab?", ["Von der Größe der Transaktion in vByte", "Vom Betrag", "Von der Uhrzeit"], "Miner werden pro vByte bezahlt."],
       ["Du hast eine 0,05-BTC-Münze und zahlst 0,01 BTC. Was passiert?", ["Sie wird ganz ausgegeben, der Rest kommt als Wechselgeld zurück", "Sie wird geteilt", "Das geht nicht"], "Wie beim Bargeld."],
       ["Was ist die Mempool?", ["Der Warteraum für unbestätigte Transaktionen", "Ein Mining-Pool", "Eine Börse"], "Miner nehmen zuerst die Transaktionen mit hoher Gebühr."],
       ["Warum ist Lightning so günstig?", ["Zahlungen laufen über Kanäle außerhalb der Blockchain", "Weil es ein anderer Coin ist", "Weil Miner verzichten"], "Nur Öffnen und Schließen eines Kanals kosten Platz in der Blockchain."],
-      ["Wer bekommt die Gebühr?", ["Der Miner, der den Block findet", "Eine Bitcoin-Firma", "Der Staat"], "Gebühren sind Teil des Miner-Lohns."], ["Warum für jede Zahlung eine neue Adresse?", ["Damit Fremde deine Zahlungen nicht verknüpfen können", "Weil Adressen ablaufen", "Es spart Gebühren"], "Gute Wallets machen das automatisch."], ["Woran erkennen Analysten oft das Wechselgeld?", ["Am krummen Betrag", "Am Namen", "An der Uhrzeit"], "Zahlungen sind oft runde Beträge."]]],
-    ["golem", "Der 51-%-Golem", "Ich habe die meiste Rechenleistung. Ich ändere die Regeln!", [
-      ["Was ist ein Hash?", ["Ein digitaler Fingerabdruck von Daten", "Ein Passwort", "Eine Adresse"], "Ein Zeichen anders, und der Hash ist ein völlig anderer."],
-      ["Womit wird eine Bitcoin-Zahlung unterschrieben?", ["Mit dem privaten Schlüssel", "Mit dem öffentlichen Schlüssel", "Mit dem Börsen-Passwort"], "Geprüft wird mit dem öffentlichen Schlüssel."],
-      ["Jemand ändert einen alten Block. Was passiert?", ["Sein Hash ändert sich, die Kette passt nicht mehr", "Niemand merkt es", "Der Block wird gelöscht"], "Jeder Block enthält den Hash des vorherigen."],
-      ["Kann eine Miner-Mehrheit mehr als 21 Mio. Bitcoin erzeugen?", ["Nein, die Nodes lehnen solche Blöcke ab", "Ja, ab 51 %", "Ja, ab 90 %"], "Nodes stimmen nicht ab, sie prüfen die Regeln."],
-      ["Warum braucht Bitcoin-Mining Strom?", ["Weil Miner raten müssen, bis ein Hash passt", "Für die Kühlung von Börsen", "Für das Drucken von Coins"], "Proof of Work: echter Aufwand schützt das Netz."], ["Welche Kette gilt bei zwei Versionen?", ["Die mit der meisten Rechenarbeit", "Die ältere", "Die mit den meisten Zahlungen"], "Der andere Block verwaist."], ["Warum bleiben Miner ehrlich?", ["Weil Betrug teurer ist und den eigenen Gewinn zerstört", "Weil es eine Polizei gibt", "Weil Satoshi zuschaut"], "Spieltheorie: Eigennutz führt zu Ehrlichkeit."], ["Wie oft wird die Schwierigkeit angepasst?", ["Alle 2.016 Blöcke", "Jeden Block", "Nie"], "Damit ein Block im Schnitt 10 Minuten dauert."]]],
+      ["Wer bekommt die Gebühr?", ["Der Miner, der den Block findet", "Eine Bitcoin-Firma", "Der Staat"], "Gebühren sind Teil des Miner-Lohns."],
+      ["Warum für jede Zahlung eine neue Adresse?", ["Damit Fremde deine Zahlungen nicht verknüpfen können", "Weil Adressen ablaufen", "Es spart Gebühren"], "Gute Wallets machen das automatisch."],
+      ["Woran erkennen Analysten oft das Wechselgeld?", ["Am krummen Betrag", "Am Namen", "An der Uhrzeit"], "Zahlungen sind oft runde Beträge."]]],
+    ["fomo", "Das FOMO-Monster", "Alle werden reich, nur du nicht! KAUF JETZT!", [
+      ["Rekordhoch, alle reden von Bitcoin. Was lehrt die Geschichte?", ["Dann ist es oft schon teuer, ruhig bleiben", "Sofort alles kaufen", "Kredit aufnehmen"], "In der Euphorie kaufen viele zu teuer."],
+      ["Was ist ein Sparplan?", ["Regelmäßig den gleichen Betrag kaufen", "Einmal alles kaufen", "Mit Hebel kaufen"], "So musst du keinen perfekten Zeitpunkt treffen."],
+      ["10× Hebel, der Kurs fällt um 10 %. Was passiert?", ["Der Einsatz ist komplett weg", "Du verlierst 1 %", "Nichts"], "100 % geteilt durch 10 = 10 %."],
+      ["Minus 70 %, überall Panik. Was war in der Vergangenheit oft ein Fehler?", ["In Panik alles verkaufen", "Ruhig bleiben", "Einen Plan haben"], "Wer panisch verkauft, macht den Verlust endgültig."],
+      ["Wer kann nie liquidiert werden?", ["Wer ohne Hebel kauft", "Wer mit 2× Hebel handelt", "Wer nur nachts handelt"], "Ohne geliehenes Geld gibt es nichts zu liquidieren."],
+      ["Was ist ein Spread?", ["Ein versteckter Aufschlag auf den Kurs", "Eine Wallet-Art", "Ein Bitcoin-Upgrade"], "Achte auf die Gesamtkosten, nicht nur die Gebühr."],
+      ["Was machst du vor der ersten großen Auszahlung?", ["Eine kleine Test-Auszahlung", "Den Seed fotografieren", "Nichts"], "So prüfst du Adresse und Wallet."],
+      ["Wie stark fiel Bitcoin in früheren Crashs?", ["Mehrmals um 75 bis 90 %", "Nie mehr als 10 %", "Er fiel noch nie"], "Crashs gehören zu Bitcoin dazu."],
+      ["Wie viele Bitcoin gelten als verloren?", ["Etwa 3 bis 4 Millionen", "Keine", "Genau 21"], "Verlorene Seeds machen Bitcoin noch knapper."],
+      ["Wer hat mehr Bitcoin: Satoshi oder alle Staaten zusammen?", ["Satoshi", "Alle Staaten", "Gleich viel"], "Satoshi hat geschätzt 1,1 Millionen."],
+      ["Wird Bitcoin vor allem für Kriminalität genutzt?", ["Nein, der illegale Anteil liegt unter 1 %", "Ja, zu 90 %", "Ja, ausschließlich"], "Weil alles öffentlich ist, werden viele Täter gefasst."]]]
   ];
   const FINAL = ["hood", "Dein altes Ich", "Wer ich bin? Komm näher …", []];
   // Endboss-Sprüche je Welt: [Spruch, [richtige Antwort, falsch, falsch], Erklärung] · 2 pro Welt + Finale
@@ -439,16 +455,18 @@ const Lern = (() => {
   const BK = "satsland-boss";
   function bossWon(){ let o = {}; try { o = JSON.parse(localStorage.getItem(BK)) || {}; } catch(e){}
     if (!o.v2){ const n = {v2: 1}; Object.entries(o).forEach(([k, v]) => { if (k === "5") n.f = v; else if (/^\d$/.test(k)) n[+k + 1] = v; }); o = n; try { localStorage.setItem(BK, JSON.stringify(o)); } catch(e){} }
+    // v3 (Nov. 2026): Welten neu sortiert, Bosse ziehen mit ihrem Thema um (alt → neu)
+    if (!o.v3){ const M = {0: 0, 1: 1, 2: 3, 3: 5, 4: 4, 5: 2}, n = {v2: 1, v3: 1}; Object.entries(o).forEach(([k, v]) => { if (k in M) n[M[k]] = v; else if (k === "f") n.f = v; }); o = n; try { localStorage.setItem(BK, JSON.stringify(o)); } catch(e){} }
     return o; }
   // Arena-Farben und Sprüche je Boss (0–5, f = Endboss)
-  const BTH = {0: ["#1f6b4a", "#0b2420"], 1: ["#4a2a8a", "#120c30"], 2: ["#0f5a8a", "#061a33"], 3: ["#8a2232", "#2a0a14"], 4: ["#6a4520", "#1d1208"], 5: ["#4a5070", "#12141f"], f: ["#8a6510", "#2a1a05"]};
+  const BTH = {0: ["#1f6b4a", "#0b2420"], 1: ["#4a2a8a", "#120c30"], 3: ["#0f5a8a", "#061a33"], 5: ["#8a2232", "#2a0a14"], 4: ["#6a4520", "#1d1208"], 2: ["#4a5070", "#12141f"], f: ["#8a6510", "#2a1a05"]};
   const BLINES = {
     0: [["Halt! Nicht so viel Wahrheit!", "Meine Druckerpresse klemmt!", "Die Inflation … sinkt?!"], ["Ich druck mir einfach neue Punkte!", "Kaufkraft? Weg! Hahaha!", "Noch ’ne Milliarde!"]],
     1: [["Die Blockchain sieht mich!", "Buuuh … autsch!", "Nicht doppelt treffen!"], ["Doppelt hält besser!", "Buuuh! Daneben!", "Ich bin überall gleichzeitig!"]],
-    2: [["Du erkennst meine Tricks?!", "Mein Köder zieht nicht!", "Nicht mein bester Phish …"], ["Klick doch auf den Link!", "Nur kurz deine 12 Wörter …", "Hab dich am Haken!"]],
-    3: [["Du bleibst ruhig?! Unmöglich!", "Kein Panikkauf?!", "Grrr, so geduldig …"], ["Zu spät! Alle anderen sind reich!", "KAUF! VERKAUF! PANIK!", "Der Kurs rennt dir davon!"]],
+    3: [["Du erkennst meine Tricks?!", "Mein Köder zieht nicht!", "Nicht mein bester Phish …"], ["Klick doch auf den Link!", "Nur kurz deine 12 Wörter …", "Hab dich am Haken!"]],
+    5: [["Du bleibst ruhig?! Unmöglich!", "Kein Panikkauf?!", "Grrr, so geduldig …"], ["Zu spät! Alle anderen sind reich!", "KAUF! VERKAUF! PANIK!", "Der Kurs rennt dir davon!"]],
     4: [["Hey, das kostet extra!", "Du nimmst die Abkürzung?!", "Meine Brücke wackelt!"], ["Das macht 500 sat Strafe!", "Zurück in die Warteschlange!", "Höhere Gebühr, bitte!"]],
-    5: [["Die Nodes lehnen mich ab?!", "Meine Rechenleistung bröckelt!", "Regeln sind Regeln?!"], ["Ich schreibe die Geschichte um!", "Meine Kette ist länger!", "51 % … Hahaha!"]],
+    2: [["Die Nodes lehnen mich ab?!", "Meine Rechenleistung bröckelt!", "Regeln sind Regeln?!"], ["Ich schreibe die Geschichte um!", "Meine Kette ist länger!", "51 % … Hahaha!"]],
     f: [["Hm … stimmt eigentlich.", "Okay, das wusste ich nicht.", "Du hast echt was gelernt."], ["Siehst du? Ich hatte recht!", "Ha, ich werd wieder stärker!", "Bleib doch, wie du warst."]]};
   function boss(k){
     // k = 0–5: Welt-Boss (5 Fragen, 4 Treffer nötig, du 2 Leben, 15 s) · k = "f": Endboss „Dein altes Ich“ (12 Sprüche + Finale, immer alle, 13 Zweifel-Balken, richtig −1, falsch +1, Finale −5, 15 s)

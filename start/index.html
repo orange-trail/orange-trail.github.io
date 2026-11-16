@@ -72,7 +72,7 @@
     <div class="learn">
       <div><b>Gemeinsames Kassenbuch</b><span>Alle Zahlungen stehen in der <b>Blockchain</b>, von der tausende <b>Nodes</b> eine Kopie haben und alles prüfen.</span></div>
       <div><b>Miner schreiben</b><span>Etwa alle <b>10 Minuten</b> gewinnt ein Miner das Rechen-Wettrennen und darf den nächsten Block anhängen.</span></div>
-      <div><b>Schlüssel = Besitz</b><span>Wer den <b>privaten Schlüssel</b> hat, kann ausgeben. Deine 12 Wörter sind das Backup davon.</span></div>
+      <div><b>Schlüssel = Besitz</b><span>Wer den <b>privaten Schlüssel</b> hat, kann ausgeben. Deine 12 oder 24 Seed-Wörter sind das Backup davon.</span></div>
       <div><b>Feste Regeln</b><span>Höchstens <b>21 Millionen</b>, keiner kann mehr drucken. Die Nodes setzen die Regeln durch.</span></div>
     </div>
     <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
@@ -83,7 +83,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    BITCOIN IN 5 MINUTEN – Lernwelt von Orange Trail
@@ -94,9 +94,9 @@ const SC = [
   ["coin", "Das Problem", "Online-Geld braucht immer einen Chef", "Willst du heute jemandem im Internet Geld schicken, brauchst du eine Bank oder PayPal. Die können sperren, mitlesen und Gebühren verlangen. Ohne Chef ging es nicht, denn digitale Dateien kann man <b>kopieren</b>.", "doppelt", "Das Kopier-Problem"],
   ["news", "Die Idee", "Ein Kassenbuch, das allen gehört", "Satoshi Nakamoto hatte 2008 die Idee: Alle Zahlungen kommen in <b>ein öffentliches Kassenbuch</b>. Tausende Computer (<b>Nodes</b>) auf der ganzen Welt haben eine Kopie und prüfen jede Zahlung. Wer etwas doppelt ausgibt, fliegt auf.", "blockchain", "Blockchain"],
   ["pick", "Wer darf schreiben?", "Ein Rechen-Wettrennen alle 10 Minuten", "Neue Zahlungen werden in <b>Blöcken</b> gebündelt. Wer den nächsten Block anhängen darf, entscheidet ein Wettrennen: <b>Miner</b> raten Zahlen, bis einer einen passenden Fingerabdruck findet. Der Gewinner bekommt neue Bitcoin als Belohnung.", "mining", "Mining-Werkstatt"],
-  ["key", "Wem gehört was?", "Schlüssel statt Konto", "Es gibt keine Konten mit Namen. Bitcoin gehören dem, der den <b>privaten Schlüssel</b> hat und damit unterschreiben kann. Deine <b>Wallet</b> verwaltet die Schlüssel, deine <b>12 Wörter</b> sind das Backup.", "schluessel", "Schlüssel-Labor"],
+  ["key", "Wem gehört was?", "Schlüssel statt Konto", "Es gibt keine Konten mit Namen. Bitcoin gehören dem, der den <b>privaten Schlüssel</b> hat und damit unterschreiben kann. Deine <b>Wallet</b> verwaltet die Schlüssel, deine <b>12 oder 24 Seed-Wörter</b> sind das Backup.", "schluessel", "Schlüssel-Labor"],
   ["scissors", "Wie viel gibt es?", "21 Millionen, keine mehr", "Die Regeln legen fest: Es gibt höchstens <b>21 Millionen</b> Bitcoin. Alle vier Jahre halbiert sich die Belohnung für Miner (<b>Halving</b>). Niemand kann zusätzliche Bitcoin drucken, auch kein Staat.", "halving", "Knappheit & Halving"],
-  ["trophy", "Das Ergebnis", "Geld ohne Chef", "Zusammen ergibt das <b>Geld, das niemandem gehört</b>: rund um die Uhr, weltweit, ohne Erlaubnis. Nicht perfekt, der Kurs schwankt stark. Aber zum ersten Mal kann digitales Geld ohne Bank funktionieren.", "eigenschaften", "Geld-Duell"]];
+  ["trophy", "Das Ergebnis", "Geld ohne Chef", "Zusammen ergibt das <b>Geld, das niemandem gehört</b>: rund um die Uhr, weltweit, ohne Erlaubnis. Nicht perfekt: Der Kurs schwankt stark. Viele erwarten, dass er ruhiger wird, je mehr Menschen Bitcoin nutzen, garantiert ist das aber nicht. Trotzdem kann zum ersten Mal digitales Geld ohne Bank funktionieren.", "eigenschaften", "Geld-Duell"]];
 let sc = 0;
 function story(){
   const [art, k, h, p, link, ln] = SC[sc];

@@ -48,7 +48,7 @@
     <h2 id="h1s">Der Knappheits-Messer <span class="mode" id="mode">Verbinde …</span></h2>
     <div class="formula">Stock-to-Flow = <span style="color:var(--gold)">Bestand</span> ÷ <span style="color:var(--bull)">neue Menge pro Jahr</span></div>
     <p class="note">Bedeutung: So viele <b>Jahre</b> müsste man produzieren, um den heutigen Bestand noch einmal zu erzeugen. Je höher, desto knapper.</p>
-    <div class="ctl"><label for="yr">Jahr für Bitcoin</label><div class="row"><input id="yr" type="range" min="2010" max="2040" value="2026"><b id="yrV" class="num">2026</b></div></div>
+    <div class="ctl"><label for="yr">Jahr</label><div class="row"><input id="yr" type="range" min="2010" max="2040" value="2026"><b id="yrV" class="num">2026</b></div></div>
     <div class="sf" id="sf"></div>
     <div class="kv" id="kv"></div>
   </section>
@@ -75,11 +75,11 @@
   </section>
 
   <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Bitcoin-Bestand aus den Bitcoin-Regeln berechnet (Blockhöhe geschätzt mit 1 Block alle 10 Minuten), zukünftige Jahre geschätzt mit rund 52.560 Blöcken pro Jahr. Gold gerundet: Bestand rund 216.000 t, Förderung rund 3.600 t pro Jahr (World Gold Council). Stock-to-Flow-Modell: PlanB, 2019.</p></details>
+  <details class="foot"><summary>Quellen</summary><p>Bitcoin-Bestand aus den Bitcoin-Regeln berechnet (Blockhöhe geschätzt mit 1 Block alle 10 Minuten), zukünftige Jahre geschätzt mit rund 52.560 Blöcken pro Jahr. Gold gerundet: Bestand rund 216.000 t (Ende 2024), Förderung rund 3.600 t pro Jahr (World Gold Council); andere Jahre mit gleichbleibender Förderung hochgerechnet. Stock-to-Flow-Modell: PlanB, 2019.</p></details>
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    KNAPPHEITS-MESSER – Lernwelt von Orange Trail
@@ -92,9 +92,9 @@ const reward = e => 50/Math.pow(2, e);
 function supplyAt(h){ let s = 0; for (let e = 0; e < 34; e++){ const lo = e*210000, hi = (e + 1)*210000; if (h <= lo) break; s += (Math.min(h, hi) - lo)*reward(e); } return s; }
 // Ungefähre Blockhöhe zu Jahresbeginn (2009: 0, danach ca. 52.560 Blöcke/Jahr); heute aus Live-Höhe
 const hAt = y => { const now = new Date().getFullYear() + new Date().getMonth()/12; return height && Math.abs(y - now) < .5 ? height : Math.max(0, Math.round((height || Lern.height()) + (y - now)*52560)); };
-const GOLD = {stock: 216000, flow: 3600};   // Tonnen, gerundet
+const GOLD = {stock: 216000, flow: 3600, y0: 2024};   // Tonnen, gerundet (Ende 2024). Der Bestand wächst jedes Jahr um die Förderung, also wird auch Gold langsam knapper
 function draw(){
-  const y = +$("yr").value, h = hAt(y), st = supplyAt(h), fl = supplyAt(h + 52560) - st, sfB = st/fl, sfG = GOLD.stock/GOLD.flow;
+  const y = +$("yr").value, h = hAt(y), st = supplyAt(h), fl = supplyAt(h + 52560) - st, sfB = st/fl, sfG = (GOLD.stock + GOLD.flow*(y - GOLD.y0))/GOLD.flow;
   $("yrV").textContent = y;
   // Skala: der längere Balken füllt fast alles, so sieht man das Verhältnis direkt
   const max = Math.max(sfB, sfG)*1.05, r = sfB/sfG, rt = r.toLocaleString("de-DE", {maximumFractionDigits: r < 10 ? 1 : 0});

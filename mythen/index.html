@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mythen-Check · Orange Trail</title>
-<meta name="description" content="Lernwelt: Die häufigsten Bitcoin-Mythen im Faktencheck. Kriminalität, Strom, Schneeballsystem, Anonymität und mehr, mit Quellen.">
+<meta name="description" content="Lernwelt: Die häufigsten Bitcoin-Mythen im Faktencheck. Kriminalität, Schneeballsystem, Anonymität, Quantencomputer und mehr, mit Quellen.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mythen-Check · Orange Trail">
-<meta property="og:description" content="Lernwelt: Die häufigsten Bitcoin-Mythen im Faktencheck. Kriminalität, Strom, Schneeballsystem, Anonymität und mehr, mit Quellen.">
+<meta property="og:description" content="Lernwelt: Die häufigsten Bitcoin-Mythen im Faktencheck. Kriminalität, Schneeballsystem, Anonymität, Quantencomputer und mehr, mit Quellen.">
 <meta property="og:image" content="https://satsland.github.io/og/mythen.jpg">
 <meta property="og:url" content="https://satsland.github.io/mythen/">
 <meta name="twitter:card" content="summary_large_image">
@@ -61,7 +61,7 @@
     <h2 id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
       <div><b>Kriminalität</b><span>Laut Chainalysis lag der illegale Anteil aller Krypto-Zahlungen 2025 <b>unter 1 %</b>.</span></div>
-      <div><b>Strom</b><span>Bitcoin braucht <b>viel</b> Strom, laut Cambridge-Studie aber zu gut der <b>Hälfte</b> aus nachhaltigen Quellen.</span></div>
+      <div><b>Kein Chef</b><span>Nicht einmal der Erfinder kann die Regeln ändern. Jede <b>Node</b> prüft sie selbst.</span></div>
       <div><b>Kein Schneeball</b><span>Niemand verspricht Renditen, es gibt keinen Betreiber. Aber der <b>Preis schwankt stark</b>.</span></div>
       <div><b>Pseudonym</b><span>Bitcoin ist <b>nicht anonym</b>: Alle Zahlungen sind öffentlich, nur ohne Namen.</span></div>
     </div>
@@ -70,11 +70,11 @@
 
   
   <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://www.unodc.org/unodc/en/money-laundering/overview.html">UNODC: Money Laundering (Schätzung 2–5 % des globalen BIP)</a>; <a href="https://www.theblock.co/post/384753/crypto-crime-150-billion-usd-2025-state-actors-scale-onchain-chainalysis">The Block zu Chainalysis 2026</a> · <a href="https://www.jbs.cam.ac.uk/2025/cambridge-study-sustainable-energy-rising-in-bitcoin-mining/">Cambridge Judge Business School (2025)</a></p></details>
+  <details class="foot"><summary>Quellen</summary><p><a href="https://www.unodc.org/unodc/en/money-laundering/overview.html">UNODC: Money Laundering (Schätzung 2–5 % des globalen BIP)</a>; <a href="https://www.theblock.co/post/384753/crypto-crime-150-billion-usd-2025-state-actors-scale-onchain-chainalysis">The Block zu Chainalysis 2026</a></p></details>
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    MYTHEN-CHECK – Lernwelt von Orange Trail
@@ -83,14 +83,14 @@
 const $ = id => document.getElementById(id);
 const M = [
   ["Bitcoin wird vor allem für Kriminalität benutzt.", "m", "Laut dem Krypto-Kriminalitätsbericht 2026 von Chainalysis lag der Anteil illegaler Zahlungen 2025 bei <b>unter 1 %</b> aller Krypto-Zahlungen, und der größte Teil davon lief über Stablecoins, nicht über Bitcoin. <b>Zum Vergleich:</b> Bei Euro, Dollar und Co. schätzen die Vereinten Nationen (UNODC), dass jedes Jahr Geld im Wert von <b>2 bis 5 %</b> der gesamten Weltwirtschaft gewaschen wird, oft in bar. Und weil bei Bitcoin alles öffentlich ist, wurden schon viele Täter gefasst."],
-  ["Bitcoin verbraucht sehr viel Strom.", "t", "Stimmt: Mining braucht viel Strom, etwa so viel wie ein mittelgroßes Land. Aber laut einer Cambridge-Studie (2025) stammen gut <b>52 %</b> aus nachhaltigen Quellen (eine <b>Umfrage</b> unter 49 Mining-Firmen, die etwa die Hälfte des weltweiten Minings abdecken), oft Strom, der sonst ungenutzt verfallen würde. Ob sich das lohnt, ist eine Wertungsfrage."],
+  ["Quantencomputer knacken Bitcoin bald.", "t", "Große Quantencomputer könnten in Zukunft bestimmte Signaturen knacken. Heutige Chips sind dafür aber <b>viel zu klein und zu fehleranfällig</b>. Fachleute arbeiten schon an quantensicheren Verfahren, die Bitcoin per Update übernehmen kann."],
   ["Bitcoin ist ein Schneeballsystem.", "m", "Ein Schneeballsystem hat einen Betreiber, der Renditen verspricht und mit neuem Geld alte Anleger bezahlt. Bei Bitcoin gibt es <b>keinen Betreiber und keine versprochene Rendite</b>. Wohl aber starke Kursschwankungen: Wer teuer kauft, kann verlieren."],
   ["Man muss einen ganzen Bitcoin kaufen.", "m", "Ein Bitcoin hat <b>100 Millionen Satoshis</b>. Man kann schon für wenige Euro einsteigen."],
   ["Bitcoin ist anonym.", "m", "Bitcoin ist <b>pseudonym</b>: Jede Zahlung ist für immer öffentlich, nur stehen keine Namen dabei. Über Börsen mit Ausweis-Pflicht lassen sich Adressen oft Personen zuordnen."],
   ["Bitcoin selbst wurde schon gehackt.", "m", "Das Bitcoin-Netzwerk läuft seit 2009 und wurde <b>nie erfolgreich gehackt</b>. Gehackt wurden Börsen und schlecht gesicherte Wallets. Darum: eigene Wallet, Seed offline."],
-  ["Ein Staat kann Bitcoin abschalten.", "t", "Ein Staat kann Börsen regulieren oder Bitcoin verbieten, wie China 2021. Das <b>Netzwerk selbst</b> läuft aber auf zehntausenden Nodes weltweit weiter. Abschalten könnte es nur, wer das ganze Internet überall abschaltet."],
+  ["Satoshi, der Erfinder, kann Bitcoin kontrollieren.", "m", "Satoshi Nakamoto ist seit 2011 verschwunden. Die Regeln prüft <b>jede Node selbst</b>. Auch der Erfinder könnte sie nicht allein ändern."],
   ["Es wird nie mehr als 21 Millionen Bitcoin geben.", "w", "Die Grenze ist in den Regeln festgeschrieben, die jede Node prüft. Ändern ließe sie sich nur, wenn fast alle Nutzer freiwillig mitmachen, und das will praktisch niemand."],
-  ["Bitcoin ist zu langsam für den Alltag.", "t", "Auf der Haupt-Blockchain dauert eine Bestätigung im Schnitt <b>10 Minuten</b> und ist nicht für Kaffee gedacht. Mit <b>Lightning</b> geht es in Sekunden und für Bruchteile von Cent."],
+  ["Bitcoin ist dasselbe wie jede andere Kryptowährung.", "m", "Es gibt tausende Coins, viele mit Firma oder Gründern, die sich vorab Coins gesichert haben. Bitcoin hat <b>keinen Chef und keine Vorab-Verteilung</b> und das älteste, größte Netzwerk. Mehr im Krypto-Check."],
   ["Wer Bitcoin kopiert, hat ein gleich gutes Geld.", "m", "Den Code kann jeder kopieren, und tausende haben es getan. Nicht kopieren kann man das <b>Netzwerk</b>: die Nodes, Miner, Nutzer und die 17 Jahre Vertrauen."]
 ];
 const L = {m: "Mythos", t: "Teils richtig", w: "Stimmt"};

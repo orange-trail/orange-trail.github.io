@@ -45,7 +45,7 @@
 .real ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:3px;font:13px var(--f-num)}
 .real .arr{align-self:center;font-size:22px;color:var(--muted)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)}
-@keyframes p-pop{from{transform:scale(.3);opacity:0}} @keyframes p-swap{from{opacity:0;transform:translateY(6px)}}
+@keyframes p-pop{from{transform:scale(.3);opacity:0}} .otag{display:block;margin:1px 0 0 26px;font:600 12px var(--f-body);color:var(--muted)} @keyframes p-swap{from{opacity:0;transform:translateY(6px)}}
 @media (max-width:620px){ .tx,.real{grid-template-columns:1fr} .tx .arr,.real .arr{justify-self:center;transform:rotate(90deg)} .coin{width:80px;height:80px;font-size:13px} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
@@ -60,7 +60,8 @@
 
   <section class="card" aria-labelledby="h1s">
     <h2 id="h1s">Bezahl mit deinen Bitcoin <span class="mode" id="mode">Verbinde …</span></h2>
-    <div class="idea">Jeden Bitcoin-Betrag, den du bekommen hast, kannst du <b>nicht teilen</b>. Du gibst ihn <b>ganz</b> aus. Was zu viel ist, kommt als <b>Wechselgeld</b> zu dir zurück, als neuer Betrag. Ein kleiner Rest geht als <b>Gebühr</b> an die Miner. Fachwort für so einen Betrag: <b>UTXO</b> (unausgegebener Betrag).</div>
+    <div class="idea">Wie an der Kasse: Du zahlst 15 € mit einem <b>20-€-Schein</b>. Zerreißen kannst du ihn nicht, also gibst du ihn <b>ganz</b> hin und bekommst <b>5 € zurück</b>. Bei Bitcoin ist es genauso.</div>
+    <div class="learn bx"><div><b>💵 Rein</b><span>Ganze Beträge aus deiner Wallet, wie Scheine. Fachwort: <b>UTXO</b>.</span></div><div><b>👤 Raus</b><span>Die Zahlung an den Empfänger, plus dein <b>Wechselgeld</b> als neuer Betrag an dich.</span></div><div><b>⛏ Rest</b><span>Was übrig bleibt, ist die <b>Gebühr</b> für die Miner.</span></div></div>
     <p class="task" id="task"></p>
     <p class="hint">Tippe auf deine Bitcoin, bis es reicht. Dann auf „Senden“.</p>
     <div class="wlt"><div class="wlh"><span class="wi">👛</span><span><b>Deine Wallet</b><small>Guthaben = alle Beträge zusammen</small></span><em id="bal">–</em></div><div class="coins" id="coins"></div></div>
@@ -74,8 +75,8 @@
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">So sieht eine echte Zahlung aus <span class="mode" id="mode2">Verbinde …</span></h2>
-    <p class="muted" style="margin:0">So ist eine typische Bitcoin-Transaktion aufgebaut. Genau dasselbe Prinzip: Bitcoin rein, neue Beträge raus, der Rest ist Gebühr.</p>
+    <h2 id="h2s">So ist eine Zahlung aufgebaut <span class="mode" id="mode2">Verbinde …</span></h2>
+    <p class="muted" style="margin:0">Genau wie oben: ganze Beträge rein, Zahlung und Wechselgeld raus, der Rest ist Gebühr.</p>
     <div class="real" id="real"><p class="muted">Lade …</p></div>
     <div class="acts"><button class="btn ghost" id="again" type="button">🔄 Andere Zahlung</button></div>
   </section>
@@ -96,7 +97,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=68"></script>
+<script src="../lern.js?v=69"></script>
 <script>
 /* =====================================================================
    WECHSELGELD-KASSE – Lernwelt von Orange Trail
@@ -164,8 +165,8 @@ fetch(MP + "v1/fees/recommended").then(r => r.json()).then(j => { if (j.halfHour
 // Live: eine echte Transaktion von gerade eben
 const re = el => { el.style.animation = "none"; void el.offsetWidth; el.style.animation = "p-swap .35s"; };
 async function real(){
-  const li = a => a.slice(0, 6).map(v => `<li>🪙 ${btc(v)}</li>`).join("") + (a.length > 6 ? `<li class="muted">… und ${a.length - 6} weitere</li>` : "");
-  const show = (ins, outs, fee, link) => { $("real").innerHTML = `<div class="col"><b>Rein: ${ins.length} Betr${ins.length > 1 ? "äge" : "ag"}</b><ul>${li(ins)}</ul></div><span class="arr" aria-hidden="true">→</span><div class="col"><b>Raus: ${outs.length} Betr${outs.length > 1 ? "äge" : "ag"}</b><ul>${li(outs)}</ul></div>
+  const li = (a, t) => a.slice(0, 6).map((v, i) => `<li>🪙 ${btc(v)}${t && t[i] ? `<small class="otag">${t[i]}</small>` : ""}</li>`).join("") + (a.length > 6 ? `<li class="muted">… und ${a.length - 6} weitere</li>` : "");
+  const show = (ins, outs, fee, link, tags) => { $("real").innerHTML = `<div class="col"><b>Rein: ${ins.length} Betr${ins.length > 1 ? "äge" : "ag"} aus der Wallet</b><ul>${li(ins)}</ul></div><span class="arr" aria-hidden="true">→</span><div class="col"><b>Raus: ${outs.length} Betr${outs.length > 1 ? "äge" : "ag"}</b><ul>${li(outs, tags)}</ul></div>
       <p class="note" style="grid-column:1/-1">Gebühr: <b>${fee.toLocaleString("de-DE")} sats</b> = alles, was rein ging, minus alles, was raus geht.${link ? ` <a href="https://mempool.space/tx/${link}" rel="noopener">Auf mempool.space ansehen</a>` : ""}</p>`; };
   try {
     const rec = await (await fetch(MP + "mempool/recent")).json();
@@ -178,7 +179,7 @@ async function real(){
     const ins = Array.from({length: n}, () => r(5, 400) * 10000 + r(0, 9) * 1000), sum = ins.reduce((x, y) => x + y, 0);
     const fee = r(3, 30) * 100, pay = Math.max(10000, Math.round(sum * r(30, 85) / 100 / 50000) * 50000);
     const outs = pay + fee < sum ? [pay, sum - pay - fee] : [sum - fee];
-    show(ins, outs, fee, ""); re($("real"));
+    show(ins, outs, fee, "", ["→ an den Empfänger", "↩ Wechselgeld an dich"]); re($("real"));
     $("mode2").className = "mode demo"; $("mode2").textContent = "Beispiel";
   }
 }
