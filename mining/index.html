@@ -73,17 +73,6 @@
     <p class="note">Deshalb rechnen Miner mit Spezialchips in großen Hallen und schließen sich zu <b>Pools</b> zusammen, die sich die Belohnung teilen.</p>
   </section>
 
-  <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Warum immer etwa 10 Minuten?</h2>
-    <p class="muted" style="margin:0">Alle <b>2016 Blöcke</b>, also ungefähr alle 2 Wochen, passt sich die Schwierigkeit an: Waren die Blöcke zu schnell, wird es schwerer, waren sie zu langsam, leichter.</p>
-    <div class="kv">
-      <div><small>Blockzeit zuletzt</small><b class="num" id="avg">–</b></div>
-      <div><small>Nächste Anpassung in</small><b class="num" id="rem">–</b></div>
-      <div><small>Voraussichtlich</small><b class="num g" id="chg">–</b></div>
-      <div><small>Letzte Anpassung</small><b class="num" id="prev">–</b></div>
-    </div>
-  </section>
-
 <section class="card" aria-labelledby="hEs">
     <h2 id="hEs">Wie viel Strom braucht das?</h2>
     <p class="muted" style="margin:0">Niemand misst den Strom aller Miner direkt. Er wird aus der <b>Rechenleistung</b> von oben geschätzt und davon, wie sparsam die Geräte sind. Darum zeigen wir eine <b>Spanne</b>.</p>
@@ -104,7 +93,7 @@
     <div class="learn">
       <div><b>Raten statt Rechnen</b><span>Einen gültigen Hash kann man nicht ausrechnen, nur <b>durch Ausprobieren finden</b>. Das ist Proof of Work.</span></div>
       <div><b>Strom = Sicherheit</b><span>Wer die Kette fälschen will, müsste <b>mehr Rechenleistung</b> aufbringen als alle anderen Miner zusammen.</span></div>
-      <div><b>Selbstregulierung</b><span>Die Schwierigkeit passt sich <b>automatisch</b> an. Mehr Miner machen Bitcoin nicht schneller, nur sicherer.</span></div>
+      <div><b>Selbstregulierung</b><span>Die Schwierigkeit passt sich <b>automatisch</b> an. Mehr Miner machen Bitcoin nicht schneller, nur sicherer. Wie genau, siehst du gleich bei <a href="../konsens/">Einigung</a>.</span></div>
       <div><b>Belohnung</b><span>Der Gewinner bekommt neue Bitcoin plus die <b>Gebühren</b> aller Transaktionen im Block.</span></div>
     </div>
     <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
@@ -116,11 +105,11 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=73"></script>
+<script src="../lern.js?v=74"></script>
 <script>
 /* =====================================================================
    MINING-WERKSTATT – Lernwelt von Orange Trail
-   Selbst minen (SHA-256 aus lern.js), Vergleich mit der echten Hashrate, Difficulty-Anpassung live.
+   Selbst minen (SHA-256 aus lern.js), Vergleich mit der echten Hashrate.
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
@@ -160,17 +149,7 @@ async function load(){
   let ok = false;
   try { const j = await (await fetch(MP + "mining/hashrate/3d")).json(); if (j.currentHashrate > 0){ netHash = j.currentHashrate; diff = j.currentDifficulty; ok = true;
     $("realz").textContent = "ca. " + Math.floor(Math.log(diff*4294967296)/Math.log(16)); } } catch(e){}
-  try {
-    const d = await (await fetch(MP + "difficulty-adjustment")).json();
-    if (isFinite(d.difficultyChange)){ ok = true;
-      const p = v => (v > 0 ? "+" : "") + v.toLocaleString("de-DE", {maximumFractionDigits: 1}) + " %";
-      $("avg").textContent = (d.timeAvg/60000).toLocaleString("de-DE", {maximumFractionDigits: 1}) + " Min.";
-      $("rem").textContent = fmt(d.remainingBlocks) + " Blöcken";
-      $("chg").textContent = p(d.difficultyChange); $("prev").textContent = p(d.previousRetarget);
-    }
-  } catch(e){}
   if (!netHash){ netHash = 1.07e21; diff = 1.48e14; $("realz").textContent = "ca. 19"; }   // Beispielwerte, falls die Live-Quelle nicht erreichbar ist
-  if (!ok){ $("avg").textContent = "ca. 10 Min."; $("rem").textContent = "1.008 Blöcken"; $("chg").textContent = "+1,5 %"; $("prev").textContent = "+5,5 %"; }
   $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : "Beispielwerte";
   compare();
 }

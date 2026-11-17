@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Seed-Trainer · Orange Trail</title>
-<meta name="description" content="Lernwelt: Bitcoin sicher selbst verwahren. 12 Wörter merken, prüfen und richtig aufbewahren, nur mit Übungswörtern.">
+<meta name="description" content="Lernwelt: Bitcoin sicher selbst verwahren. 12 oder 24 Wörter aufschreiben, prüfen, Backup-Plan und Brief für die Erben, nur mit Übungswörtern.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Seed-Trainer · Orange Trail">
-<meta property="og:description" content="Lernwelt: Bitcoin sicher selbst verwahren. 12 Wörter merken, prüfen und richtig aufbewahren, nur mit Übungswörtern.">
+<meta property="og:description" content="Lernwelt: Bitcoin sicher selbst verwahren. 12 oder 24 Wörter aufschreiben, prüfen, Backup-Plan und Brief für die Erben, nur mit Übungswörtern.">
 <meta property="og:image" content="https://satsland.github.io/og/seed.jpg">
 <meta property="og:url" content="https://satsland.github.io/seed/">
 <meta name="twitter:card" content="summary_large_image">
@@ -38,21 +38,25 @@
 .sxb small{display:block;font:800 12px var(--f-body);color:var(--gold);letter-spacing:.5px;text-transform:uppercase} .sxb b.t{display:block;font:900 19px var(--f-display);margin:2px 0 6px}
 .sxb p{margin:0 0 10px;font-size:15px;line-height:1.5} .sxb .eg{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.25);font-size:14px} .sxb .eg span{font-size:26px}
 .sxb code{display:block;margin-top:8px;font:12px var(--f-code);color:var(--muted);word-break:break-all}
+.idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
+.opts2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;padding:10px 12px;border-radius:14px;border:2px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
+.opt .ic{font-size:20px;line-height:1} .opt small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.opt[aria-pressed="true"]{border-color:var(--gold);background:rgba(247,147,26,.14)} .opt[aria-pressed="true"]::after{content:"✓";margin-left:auto;color:var(--gold);font-weight:800}
+.score{display:flex;align-items:center;gap:12px;margin-top:16px} .score b{font:800 30px var(--f-num)}
+.score .bar{flex:1;height:12px;border-radius:6px;background:rgba(255,255,255,.07);overflow:hidden} .score .bar i{display:block;height:100%;width:0;background:var(--bull);transition:width .4s}
+.sc{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.sc li{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:14px;border:2px solid var(--line);font-size:14px;line-height:1.45}
+.sc li .r{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:800}
+.sc li.y{border-color:var(--bull)} .sc li.y .r{background:rgba(46,204,113,.25);color:var(--bull)} .sc li.n{border-color:var(--bear)} .sc li.n .r{background:rgba(231,76,60,.25);color:var(--bear)}
+.sc li b{display:block} .sc li span{color:var(--muted)}
+.letter{display:grid;gap:6px;margin-top:10px;font-size:14px} .letter div{padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.letter .no{border-color:var(--bear);color:#ffb3aa}
+@media (max-width:620px){ .opts2{grid-template-columns:1fr} }
 .addrs{margin:10px 0 0;padding-left:22px;display:grid;gap:4px;font:13px var(--f-code)} .addrs li{animation:pop .3s}
 .addrs b{color:var(--gold)}
 .msg{margin:8px 0 0;font-weight:700;min-height:1.5em}
 .msg.ok{color:var(--bull)} .msg.no{color:var(--bear)}
-.sort{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
-.it{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
-.it b{display:block;margin-bottom:6px}
-.it .row button{font:700 13px var(--f-body);padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer}
-.it{transition:background .3s,border-color .3s}
-.it .row button[data-v="1"].pick{background:#34d982;border-color:#0d1230;color:#04240f}
-.it .row button[data-v="0"].pick{background:#ff5c73;border-color:#0d1230;color:#2a0610}
-.it .row button.pick{transform:scale(1.06);box-shadow:2px 2px 0 #0d1230} .it[data-done] .row button:not(.pick){opacity:.4}
-.it.ok{border-color:rgba(52,217,130,.7);background:rgba(52,217,130,.1)} .it.ok p{color:#9ff0c4} .it.ok p::before{content:"✓ ";font-weight:900}
-.it.no{background:rgba(255,92,115,.1)} .it.no p{color:#ffb0bc} .it.no p::before{content:"✗ ";font-weight:900} .it.no{border-color:rgba(255,92,115,.6)}
-.it p{margin:6px 0 0;font-size:13px;color:var(--muted)}
 .score{margin:10px 0 0;font-weight:800;color:var(--gold)}
 @media (max-width:640px){ .words{grid-template-columns:repeat(3,minmax(0,1fr))} .ask{grid-template-columns:1fr 1fr} .sort{grid-template-columns:1fr} }
 </style>
@@ -84,11 +88,22 @@
 
   <!-- 2 · Sicher oder unsicher? -->
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Wo bewahrst du die Wörter auf?</h2>
-    <p class="muted" style="margin:0">Sicher oder unsicher? Tippe deine Einschätzung an. Kleiner Tipp vorab: Am sichersten ist der Seed <b>in Metall gestanzt</b>, an zwei getrennten Orten.</p>
-    <div class="sort" id="sort"></div>
-    <p class="score" id="score"></p>
-  
+    <h2 id="h2s">2 · Dein Backup-Plan: Was, wenn etwas passiert?</h2>
+    <div class="idea">Tippe an, was du machen würdest. Darunter siehst du sofort, ob dein Plan <b>fünf Notfälle</b> übersteht.</div>
+    <div class="opts2" id="opts"></div>
+    <div class="score"><b class="num" id="pts">0/5</b><div class="bar"><i id="bar"></i></div></div>
+    <ul class="sc" id="sc"></ul>
+    <p class="bxh">Der Brief an deine Erben</p>
+    <p class="muted" style="margin:4px 0 0">Deine Familie muss wissen, <b>dass</b> es Bitcoin gibt und <b>wie</b> sie herankommt. Ein Brief, sicher verwahrt, sollte enthalten:</p>
+    <div class="letter">
+      <div>✅ Dass du Bitcoin besitzt und ungefähr wie viel</div>
+      <div>✅ Welche Wallet du nutzt und wo das Gerät liegt</div>
+      <div>✅ Wo die Seed-Wörter liegen (der Ort, nicht die Wörter selbst)</div>
+      <div>✅ Eine Vertrauensperson, die sich mit Bitcoin auskennt</div>
+      <div>✅ Eine Warnung: Seed niemals in ein Handy tippen oder jemandem online geben</div>
+      <div class="no">❌ Nicht ins Testament schreiben: Das Nachlassgericht eröffnet es, und alle Beteiligten können es lesen</div>
+    </div>
+
     <p class="bxh"><b>Nicht verwechseln:</b></p><div class="learn bx"><div><b>Seed-Wörter</b><span>12 oder 24 Wörter. Stellen deine Wallet <b>wieder her</b>.</span></div><div><b>App-Passwort / PIN</b><span>Sperrt nur die App auf deinem Gerät.</span></div><div><b>Passphrase (optional)</b><span>Oft „25. Wort“ genannt. Ergibt eine <b>ganz andere Wallet</b>. Vergessen? Dann helfen auch die richtigen Wörter nicht.</span></div></div>
   </section>
 
@@ -123,7 +138,7 @@
 </div>
 
 <details class="foot"><summary>Quellen</summary><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP 39: Seed-Wörter (12, 15, 18, 21 oder 24 Wörter, optionale Passphrase)</a>; <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP 32: Ableitung der Schlüssel</a>. Alle Wörter auf dieser Seite sind Übungsdaten.</p></details>
-<script src="../lern.js?v=73"></script>
+<script src="../lern.js?v=74"></script>
 <script>
 /* =====================================================================
    SEED-TRAINER – Lernwelt von Orange Trail
@@ -160,24 +175,36 @@ $("test").addEventListener("click", () => {
   else { m.className = "msg no"; m.textContent = `${right} von ${askIdx.length} richtig. Bei echten Wörtern wäre das gefährlich: Ein falsches Wort, und die Wiederherstellung scheitert. Schau nochmal nach und verbessere die roten Felder.`; }
 });
 
-// Sicher oder unsicher?
-const ITEMS = [
-  ["Auf Papier, im Tresor zu Hause", 1, "Offline und geschützt. Gut, am besten zusätzlich ein zweites Backup an einem anderen Ort."],
-  ["Screenshot in der Handy-Galerie", 0, "Galerien landen oft automatisch in der Cloud, und Apps können darauf zugreifen."],
-  ["In eine Metallplatte gestanzt", 1, "Übersteht Feuer und Wasser. Gilt als eine der sichersten Varianten."],
-  ["Als Notiz in Google Drive oder iCloud", 0, "Alles, was online liegt, kann gehackt oder ausgespäht werden."],
-  ["Per WhatsApp an dich selbst geschickt", 0, "Nachrichten liegen auf Servern und anderen Geräten. Nie digital verschicken."],
-  ["Einem „Support-Mitarbeiter“ diktiert, der dir helfen will", 0, "Das ist immer Betrug. Kein echter Support fragt jemals nach deinem Seed."],
+{ // Backup-Plan
+// Bausteine: [Schlüssel, Symbol, Titel, Hinweis]
+const O = [
+  ["paper", "📝", "Seed auf Papier", "zu Hause aufbewahrt"],
+  ["metal", "🔩", "Seed in Metall", "übersteht Feuer und Wasser"],
+  ["second", "🏠", "Zweite Kopie woanders", "z. B. bei Familie oder im Schließfach"],
+  ["pass", "🔑", "Zusätzliche Passphrase", "ein 25. Wort, getrennt vom Seed"],
+  ["letter", "✉️", "Brief für die Erben", "wo was liegt und wie es geht"],
+  ["cloud", "☁️", "Foto vom Seed in der Cloud", "praktisch, oder?"],
 ];
-let pts = 0, answered = 0;
-$("sort").innerHTML = ITEMS.map(([t], i) => `<div class="it" id="it${i}"><b>${t}</b><div class="row"><button type="button" data-i="${i}" data-v="1">✓ Sicher</button><button type="button" data-i="${i}" data-v="0">✗ Unsicher</button></div><p hidden></p></div>`).join("");
-$("sort").querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
-  const i = +b.dataset.i, el = $("it" + i); if (el.dataset.done) return;
-  const ok = +b.dataset.v === ITEMS[i][1]; el.dataset.done = 1; b.classList.add("pick"); el.classList.add(ok ? "ok" : "no");
-  const p = el.querySelector("p"); p.hidden = false; p.textContent = (ok ? "Richtig. " : "Leider falsch. ") + ITEMS[i][2];
-  answered++; if (ok) pts++;
-  if (answered === ITEMS.length) $("score").textContent = `${pts} von ${ITEMS.length} richtig eingeschätzt.`;
-}));
+let on = new Set(["paper"]);
+// Notfälle: Titel und Prüfung -> [überstanden?, Grund]
+const S = [
+  ["📵 Wallet geht kaputt", p => (p.paper || p.metal || p.second || p.cloud) ? [1, "Mit den Seed-Wörtern stellst du alles auf einem neuen Gerät wieder her."] : [0, "Ohne aufgeschriebene Seed-Wörter sind die Bitcoin für immer weg."]],
+  ["🔥 Feuer zu Hause", p => p.metal ? [1, "Das Metall übersteht den Brand."] : p.second ? [1, "Die zweite Kopie an einem anderen Ort rettet dich."] : p.cloud ? [1, "Das Cloud-Foto überlebt. Aber es ist ein großes Risiko, siehe unten."] : [0, (p.paper ? "Der Papier-Zettel verbrennt mit dem Gerät." : "Es gibt kein Backup.") + " Alles weg."]],
+  ["🦹 Einbrecher findet den Seed", p => !(p.paper || p.metal) ? [1, "Zu Hause liegt kein Seed, also nichts zu finden."] : p.pass ? [1, "Ohne die Passphrase nützen ihm die Wörter nichts."] : [0, "Mit den Wörtern räumt er deine Wallet in Minuten leer."]],
+  ["☁️ Dein Cloud-Konto wird gehackt", p => !p.cloud ? [1, "Kein Seed online, also nichts zu holen."] : p.pass ? [0, "Die Passphrase bremst den Hacker noch, aber er hat schon die Hälfte. Seed gehört nie online."] : [0, "Hacker suchen gezielt nach Seed-Fotos. Alles weg."]],
+  ["🕯 Dir passiert etwas", p => !p.letter ? [0, "Deine Familie weiß nicht, dass es Bitcoin gibt oder was die Wörter bedeuten."] : !(p.paper || p.metal || p.second || p.cloud) ? [0, "Der Brief nützt nichts, es gibt keine Seed-Wörter zu finden."] : [1, "Dein Brief erklärt, wo alles liegt" + (p.pass ? " und wo die Passphrase steht." : ".")]],
+];
+function draw(){
+  $("opts").innerHTML = O.map(([k, ic, t, h]) => `<button class="opt" type="button" data-k="${k}" aria-pressed="${on.has(k)}"><span class="ic">${ic}</span><span>${t}<small>${h}</small></span></button>`).join("");
+  const p = Object.fromEntries(O.map(o => [o[0], on.has(o[0])])), res = S.map(([t, f]) => [t, ...f(p)]), n = res.filter(r => r[1]).length;
+  $("pts").textContent = n + "/5"; $("bar").style.width = n*20 + "%"; $("bar").style.background = n === 5 ? "var(--bull)" : n >= 3 ? "var(--gold)" : "var(--bear)";
+  $("sc").innerHTML = res.map(([t, ok, why]) => `<li class="${ok ? "y" : "n"}"><span class="r">${ok ? "✓" : "✗"}</span><div><b>${t}</b><span>${why}</span></div></li>`).join("")
+    + (n === 5 ? `<li class="y"><span class="r">★</span><div><b>Starker Plan!</b><span>Dein Plan übersteht alle fünf Notfälle.</span></div></li>` : "");
+}
+$("opts").onclick = e => { const b = e.target.closest(".opt"); if (!b) return; const k = b.dataset.k; on.has(k) ? on.delete(k) : on.add(k); draw(); };
+draw();
+
+}
 
 // Vom Seed zur Adresse (vereinfacht mit SHA-256 aus lern.js, Prinzip wie BIP32); nutzt die Übungswörter von oben
 {
