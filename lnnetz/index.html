@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lightning unter der Haube · Orange Trail</title>
+<meta name="description" content="Profi-Vertiefung: Finde selbst eine Route durchs Lightning-Netz, erlebe, warum Kanäle leerlaufen, und warum unterwegs niemand dein Geld klauen kann.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lightning unter der Haube · Orange Trail">
+<meta property="og:description" content="Profi-Vertiefung: Finde selbst eine Route durchs Lightning-Netz, erlebe, warum Kanäle leerlaufen, und warum unterwegs niemand dein Geld klauen kann.">
+<meta property="og:image" content="https://satsland.github.io/og/lnnetz.jpg">
+<meta property="og:url" content="https://satsland.github.io/lnnetz/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=59">
+<style>
+/* Lernwelt "Lightning unter der Haube": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.rt2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:4px}
+.rt2 button{font:800 13px var(--f-body);padding:8px 4px;border-radius:12px;border:2px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);cursor:pointer;line-height:1.25}
+.rt2 button small{display:block;font-weight:600;font-size:11px} .rt2 button[aria-pressed="true"]{border-color:var(--gold);color:var(--ink);background:rgba(247,147,26,.14)} .rt2 button.won{color:var(--bull)} .rt2 button.won::after{content:" ✓"}
+.task{margin-top:12px;padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
+.map{position:relative;margin-top:12px;border-radius:16px;border:2px solid var(--line);background:radial-gradient(circle at 50% 40%,#1d2460,#11163a)}
+.map svg{display:block;width:100%;height:auto}
+.map line{stroke:#3a4170;stroke-width:4;stroke-linecap:round;transition:stroke .3s}
+.map line.on{stroke:var(--gold);stroke-width:6} .map line.bad{stroke:#ff5c73;stroke-width:6;stroke-dasharray:8 6} .map line.ok{stroke:#34d982;stroke-width:6}
+.map g.n{cursor:pointer} .map g.n circle{fill:#232a6a;stroke:#0d1230;stroke-width:3;transition:fill .2s}
+.map g.n.on circle{fill:#f7931a} .map g.n.next circle{stroke:var(--gold);stroke-dasharray:4 3} .map g.n.end circle{fill:#2b5a4a}
+.map g.n text{font:800 11px var(--f-body);fill:#eef0ff;text-anchor:middle;pointer-events:none} .map g.n text.e{font-size:18px}
+.map .bolt{font-size:16px;transition:transform .45s ease-in-out}
+.hops{display:grid;gap:6px;margin-top:10px}
+.hop{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:14px}
+.hop b{font:800 13px var(--f-num);white-space:nowrap} .hop.bad{border-color:var(--bear);background:rgba(255,92,115,.1)} .hop.good{border-color:var(--bull)}
+.hop small{display:block;color:var(--muted);font-size:12px}
+.sum{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:14px;color:var(--muted)} .sum b{color:var(--ink);font-family:var(--f-num)}
+.acts2{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
+.res strong{display:block;font-size:17px;margin-bottom:2px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
+.res .acts2{margin-top:10px}
+.lock{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-top:12px;padding:12px 8px;border-radius:14px;background:rgba(0,0,0,.2);font-size:13px;text-align:center}
+.lock div{flex:1} .lock span{display:block;font-size:26px} .lock i{font-style:normal;color:var(--gold);font-size:16px}
+.lstep{margin:10px 0 0;font-size:15px;line-height:1.55;min-height:4.6em}
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Lightning unter der <span class="btc">Haube</span></h1>
+    <p class="lead">Du hast nicht mit jedem einen Kanal. Trotzdem kannst du jeden bezahlen: Die Zahlung <b>springt über andere</b>, bis sie ankommt. Aber nur, wenn unterwegs in jedem Kanal genug Geld auf der richtigen Seite liegt. Finde selbst den Weg.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h1s">
+    <h2 id="h1s">1 · Finde die Route</h2>
+    <div class="rt2" id="rt" role="tablist" aria-label="Aufgaben"></div>
+    <div class="task" id="task"></div>
+    <div class="map" id="map"></div>
+    <div class="hops" id="hops"></div>
+    <div class="sum"><span>Gebühren unterwegs</span><b id="fee">0 sat</b></div>
+    <div class="acts2"><button class="btn" type="button" id="send" disabled>⚡ Senden</button><button class="btn ghost" type="button" id="undo" disabled>↩ Schritt zurück</button></div>
+    <div class="res" id="res" hidden aria-live="polite"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h2s">
+    <h2 id="h2s">2 · Warum unterwegs keiner klauen kann</h2>
+    <p class="muted" style="margin:0">Alex und der Hub leiten dein Geld weiter. Was hindert sie daran, es einfach zu behalten? Ein <b style="color:var(--ink)">Schloss mit Geheimnis</b>. Tipp dich durch.</p>
+    <div class="lock" id="lk"></div>
+    <p class="lstep" id="ls" aria-live="polite"></p>
+    <div class="acts2"><button class="btn" type="button" id="lw">Weiter ▶</button></div>
+  </section>
+
+  <section class="card" aria-labelledby="h3s">
+    <h2 id="h3s">3 · Gut zu wissen</h2>
+    <div class="learn bx">
+      <div><b>🧅 Zwiebel-Prinzip</b><span>Jede Station kennt nur ihren <b>Vorgänger und Nachfolger</b>. Wer wen bezahlt, sieht unterwegs niemand.</span></div>
+      <div><b>📥 Empfangen braucht Platz</b><span>Um Geld zu bekommen, muss im Kanal Platz auf <b>deiner</b> Seite sein. Neue Wallets regeln das meist automatisch.</span></div>
+      <div><b>👀 Wachen gegen Schummler</b><span>Versucht jemand, einen alten Kanal-Stand einzureichen, kann die Gegenseite ihn bestrafen. Dafür muss sie aber wachsam sein, oder ein Wachdienst (Watchtower) schaut für sie zu.</span></div>
+      <div><b>💸 Auf und zu kostet</b><span>Kanal öffnen und schließen sind normale Blockchain-Zahlungen mit normalen Gebühren. Dazwischen ist alles fast gratis.</span></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="hMs">
+    <h2 id="hMs">Das solltest du dir merken</h2>
+    <div class="learn">
+      <div><b>Zahlungen springen</b><span>Lightning findet eine <b>Route über andere Kanäle</b>. Jede Station verdient ein paar sats Gebühr.</span></div>
+      <div><b>Geld muss auf der richtigen Seite liegen</b><span>Ein Kanal kann nur so viel weiterleiten, wie auf der <b>sendenden Seite</b> liegt.</span></div>
+      <div><b>Alles oder nichts</b><span>Dank Schloss und Geheimnis kommt die Zahlung entweder <b>ganz an</b> oder gar nicht. Unterwegs kann niemand sie behalten.</span></div>
+      <div><b>Die Wallet sucht für dich</b><span>Im Alltag macht deine Wallet das alles automatisch, in Sekundenbruchteilen.</span></div>
+    </div>
+    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+  </section>
+
+  <section class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary>Quellen</summary><p>Vereinfachtes Modell mit festen Gebühren pro Station, echte Knoten rechnen zusätzlich einen kleinen Prozentsatz. <a href="https://lightning.network/lightning-network-paper.pdf">Lightning-Network-Paper (Poon &amp; Dryja)</a> · <a href="https://bitcoinops.org/en/topics/htlc/">Bitcoin Optech: HTLC</a> · <a href="https://bitcoinops.org/en/topics/watchtowers/">Bitcoin Optech: Watchtowers</a></p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=79"></script>
+<script>
+/* =====================================================================
+   LIGHTNING UNTER DER HAUBE – Lernwelt von Orange Trail
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id), nf = n => n.toLocaleString("de-DE");
+// Knoten: id → [Name, Emoji, x, y, Gebühr fürs Weiterleiten]
+const N = {du: ["Du", "🙂", 46, 130, 0], alex: ["Alex", "🧑", 140, 52, 4], berta: ["Berta", "👩", 140, 210, 2], hub: ["Hub", "🏢", 214, 130, 3], carl: ["Carl", "🧔", 300, 52, 1], cafe: ["Café", "☕", 312, 210, 0]};
+// Kanäle: [a, b, Guthaben bei a, Guthaben bei b]
+const CH = [["du", "alex", 50000, 50000], ["du", "berta", 80000, 20000], ["alex", "carl", 10000, 90000], ["alex", "hub", 60000, 40000], ["berta", "hub", 70000, 30000], ["hub", "cafe", 50000, 50000], ["carl", "cafe", 60000, 40000], ["hub", "carl", 45000, 55000]];
+const TASKS = [
+  {t: "Kaffee-Rechnung", amt: 30000, txt: "Bezahl dem <b>Café 30.000 sats</b>. Tipp nacheinander die Stationen an, von dir bis zum Café. Tipp: Der kürzeste Weg ist nicht immer offen.", goal: "any"},
+  {t: "Am günstigsten", amt: 20000, txt: "Jetzt <b>20.000 sats</b> ans Café, aber so <b>günstig</b> wie möglich. Jede Station verlangt eine kleine Gebühr. Finde die billigste Route.", goal: "cheap"},
+  {t: "Zu groß?", amt: 90000, txt: "Und jetzt <b>90.000 sats</b> ans Café. Probier es. Schaffst du das?", goal: "none"}];
+let T = 0, path = ["du"], won = new Set(), bal;
+const reset = () => { bal = {}; CH.forEach(([a, b, x, y]) => { bal[a + ">" + b] = x; bal[b + ">" + a] = y; }); };
+const has = (a, b) => (a + ">" + b) in bal;
+// Betrag, der über jeden Schritt fließt: Zahlung plus Gebühren aller späteren Stationen
+function flows(p, amt){ const out = []; for (let i = 0; i < p.length - 1; i++){ let f = amt; for (let j = i + 1; j < p.length - 1; j++) f += N[p[j]][4]; out.push(f); } return out; }
+const feeOf = p => p.slice(1, -1).reduce((a, n) => a + N[n][4], 0);
+// Alle möglichen Wege zum Café, um die günstigste und ob überhaupt eine Route existiert zu finden
+function routes(){ const all = []; const go = p => { const l = p[p.length - 1]; if (l === "cafe") return all.push(p.slice()); Object.keys(N).forEach(n => { if (!p.includes(n) && has(l, n)) { p.push(n); go(p); p.pop(); } }); }; go(["du"]); return all; }
+const works = (p, amt) => flows(p, amt).every((f, i) => bal[p[i] + ">" + p[i + 1]] >= f);
+
+function draw(badHop){
+  $("rt").innerHTML = TASKS.map((x, i) => `<button type="button" role="tab" data-t="${i}" aria-pressed="${i === T}" class="${won.has(i) ? "won" : ""}">${i + 1}<small>${x.t}</small></button>`).join("");
+  $("task").innerHTML = TASKS[T].txt;
+  const last = path[path.length - 1], done = last === "cafe";
+  const onEdge = (a, b) => path.some((n, i) => i && ((path[i - 1] === a && n === b) || (path[i - 1] === b && n === a)));
+  let s = `<svg viewBox="0 0 360 260" role="img" aria-label="Lightning-Netz mit sechs Stationen">`;
+  CH.forEach(([a, b]) => { const A = N[a], B = N[b], i = path.findIndex((n, k) => k && ((path[k - 1] === a && n === b) || (path[k - 1] === b && n === a)));
+    const cls = onEdge(a, b) ? (badHop !== undefined ? (i - 1 === badHop ? "bad" : i - 1 < badHop ? "ok" : "on") : "on") : "";
+    s += `<line x1="${A[2]}" y1="${A[3]}" x2="${B[2]}" y2="${B[3]}" class="${cls}"/>`; });
+  Object.entries(N).forEach(([k, [nm, e, x, y]]) => { const nxt = !done && !path.includes(k) && has(last, k);
+    s += `<g class="n${path.includes(k) ? " on" : ""}${nxt ? " next" : ""}${k === "cafe" ? " end" : ""}" data-n="${k}" tabindex="0" role="button" aria-label="${nm}"><circle cx="${x}" cy="${y}" r="24"/><text class="e" x="${x}" y="${y + 6}">${e}</text><text x="${x}" y="${y < 100 ? y - 32 : y + 40}">${nm}${N[k][4] ? " · " + N[k][4] + " sat" : ""}</text></g>`; });
+  $("map").innerHTML = s + "</svg>";
+  const amt = TASKS[T].amt, fl = flows(path, amt);
+  $("hops").innerHTML = path.length < 2 ? `<div class="hop"><span>Start bei <b style="font-family:var(--f-body)">Du</b>. Tipp eine gestrichelte Station an.</span></div>` :
+    fl.map((f, i) => { const a = path[i], b = path[i + 1], av = bal[a + ">" + b], ok = av >= f;
+      return `<div class="hop${badHop === i ? " bad" : badHop !== undefined && i < badHop ? " good" : ""}"><span>${N[a][0]} → ${N[b][0]}<small>muss ${nf(f)} sats weiterleiten</small></span><b>${nf(av)} sats ${a === "du" ? "bei dir" : "bei " + N[a][0]}</b></div>`; }).join("");
+  $("fee").textContent = nf(feeOf(path.length > 2 ? path : ["du"])) + " sat";
+  $("send").disabled = !done; $("undo").disabled = path.length < 2;
+}
+function res(cls, html){ const r = $("res"); r.hidden = false; r.className = "res " + cls; r.innerHTML = html; }
+$("map").addEventListener("click", e => { const g = e.target.closest("g.n"); if (!g) return; const k = g.dataset.n, last = path[path.length - 1];
+  if (last === "cafe" || path.includes(k)) return; if (!has(last, k)){ res("warn", `<strong>Kein Kanal</strong>${N[last][0]} hat keinen Kanal zu ${N[k][0]}. Nimm eine gestrichelte Station.`); return; }
+  $("res").hidden = true; path.push(k); draw(); });
+$("map").addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); e.target.closest("g.n") && e.target.closest("g.n").dispatchEvent(new MouseEvent("click", {bubbles: true})); } });
+$("undo").onclick = () => { path.pop(); $("res").hidden = true; draw(); };
+$("rt").addEventListener("click", e => { const b = e.target.closest("[data-t]"); if (!b) return; T = +b.dataset.t; path = ["du"]; $("res").hidden = true; reset(); draw(); });
+$("send").onclick = () => {
+  const amt = TASKS[T].amt, fl = flows(path, amt), bad = fl.findIndex((f, i) => bal[path[i] + ">" + path[i + 1]] < f), fee = feeOf(path);
+  if (bad >= 0){ draw(bad); const a = path[bad], b = path[bad + 1];
+    const any = routes().some(p => works(p, amt));
+    res("bad", `<strong>❌ Zahlung gescheitert, aber nichts verloren</strong>Im Kanal ${N[a][0]} → ${N[b][0]} liegen nur <b>${nf(bal[a + ">" + b])} sats</b> auf ${a === "du" ? "deiner Seite" : "der Seite von " + N[a][0]}, gebraucht werden ${nf(fl[bad])}. Dank Schloss und Geheimnis (siehe unten) kommt das Geld komplett zurück.${any ? " Versuch einen anderen Weg!" : ""}`
+      + (T === 2 && !any ? `<div class="acts2"><button class="btn" type="button" data-a="split">💡 Lösung zeigen</button></div>` : `<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ Neuer Versuch</button></div>`));
+    return; }
+  draw(-1);
+  const best = routes().filter(p => works(p, amt)).reduce((m, p) => Math.min(m, feeOf(p)), 1e9);
+  if (TASKS[T].goal === "cheap" && fee > best){ res("warn", `<strong>⚡ Angekommen, aber nicht am günstigsten</strong>Du hast <b>${fee} sat</b> Gebühr gezahlt. Es geht auch mit <b>${best} sat</b>. Die Gebühren stehen unter jeder Station.<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ Neuer Versuch</button></div>`); return; }
+  won.add(T); try { Lern.sfx && Lern.sfx("win"); } catch(e){}
+  res("ok", `<strong>⚡ Bezahlt in Sekundenbruchteilen!</strong>${nf(amt)} sats sind beim Café, unterwegs hast du <b>${fee} sat</b> Gebühr gezahlt.${T === 0 ? " Über Alex direkt zu Carl ging es nicht: Alex hatte in diesem Kanal nur 10.000 sats auf seiner Seite." : " Das ist die günstigste Route. Deine Wallet sucht so etwas im Alltag automatisch."}<div class="acts2">${T < 2 ? `<button class="btn" type="button" data-a="next">Weiter zu Aufgabe ${T + 2} →</button>` : ""}</div>`);
+  draw(); tabsWon();
+};
+function tabsWon(){ $("rt").querySelectorAll("[data-t]").forEach(b => b.classList.toggle("won", won.has(+b.dataset.t))); }
+$("res").addEventListener("click", e => { const a = (e.target.closest("[data-a]") || {}).dataset?.a; if (!a) return;
+  if (a === "again"){ path = ["du"]; $("res").hidden = true; draw(); }
+  if (a === "next"){ T++; path = ["du"]; $("res").hidden = true; reset(); draw(); }
+  if (a === "split"){ won.add(2); tabsWon(); res("ok", `<strong>💡 Der Trick: aufteilen</strong>Kein einzelner Weg schafft 90.000 sats. Moderne Wallets <b>teilen</b> große Zahlungen deshalb auf mehrere Wege auf, zum Beispiel 50.000 über Berta und den Hub und 40.000 über Alex, den Hub und Carl. Beim Café setzen sich die Teile wieder zusammen. Und wenn das auch nicht reicht, bezahlt man direkt in der Blockchain.`); } });
+reset(); draw();
+
+// Schloss mit Geheimnis (HTLC), Schritt für Schritt
+const L = [
+  [["🔐", "Du"], ["", "Alex"], ["", "Hub"], ["🔑", "Café"]], "Das Café denkt sich ein <b>Geheimnis</b> aus und schickt dir in der Rechnung nur ein dazu passendes <b>Schloss</b> (einen Hash).",
+  [["🔐", "Du"], ["🔐", "Alex"], ["🔐", "Hub"], ["🔑", "Café"]], "Jede Station bekommt ihr Geld nur mit diesem Schloss: <b>„Zahlbar, sobald du das Geheimnis zeigst.“</b> Bis dahin ist es nur reserviert.",
+  [["🔐", "Du"], ["🔐", "Alex"], ["🔓", "Hub"], ["✅", "Café"]], "Das Café nennt dem Hub das Geheimnis und bekommt sein Geld. Jetzt <b>kennt</b> der Hub das Geheimnis …",
+  [["✅", "Du"], ["✅", "Alex"], ["✅", "Hub"], ["✅", "Café"]], "… und holt sich damit sein Geld bei Alex, Alex bei dir. <b>Alle oder keiner</b>: Wer das Geld behalten will, bekommt selbst nichts. Kommt das Geheimnis nie, läuft die Reservierung ab und alles fließt zurück."];
+let lk = 0;
+function lock(){ const st = L[lk*2], tx = L[lk*2 + 1];
+  $("lk").innerHTML = st.map(([e, n], i) => `<div><span>${e || "·"}</span>${n}</div>` + (i < 3 ? `<i>⚡</i>` : "")).join("");
+  $("ls").innerHTML = `<b>${lk + 1}/4</b> · ${tx}`; $("lw").textContent = lk < 3 ? "Weiter ▶" : "🔄 Nochmal"; }
+$("lw").onclick = () => { lk = (lk + 1) % 4; lock(); };
+lock();
+
+const QUIZ = [["Warum scheitert eine Lightning-Zahlung manchmal?", ["Weil das Internet zu langsam ist", "Weil in einem Kanal unterwegs nicht genug Geld auf der sendenden Seite liegt", "Weil die Blockchain voll ist"], 1, "Dann sucht die Wallet einen anderen Weg. Verloren geht dabei nichts."],
+  ["Was verhindert, dass eine Station unterwegs dein Geld behält?", ["Ein Schloss, das sich nur mit dem Geheimnis des Empfängers öffnet", "Eine Bank, die aufpasst", "Nichts, man muss den Stationen vertrauen"], 0, "Wer weiterleitet, bekommt sein Geld nur, wenn er das Geheimnis weitergibt. Alle oder keiner."],
+  ["Was machen moderne Wallets mit sehr großen Zahlungen?", ["Sie lehnen sie immer ab", "Sie teilen sie auf mehrere Wege auf", "Sie schicken sie per E-Mail"], 1, "Mehrere Teilzahlungen setzen sich beim Empfänger wieder zusammen."]];
+Lern.quiz($("quiz"), "lnnetz", QUIZ, "../"); Lern.visit("lnnetz"); Lern.renderNext("lnnetz", "../");
+})();
+</script>
+</body>
+</html>
