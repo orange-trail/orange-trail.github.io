@@ -26,6 +26,7 @@
 .big small{display:block;font-size:12px;color:var(--muted)}
 .big b{font:600 clamp(20px,3.6vw,28px) var(--f-num)}
 .big .bad{color:var(--bear)} .big .good{color:var(--bull)}
+.stk{display:grid} .stk > span{grid-area:1/1;visibility:hidden} .stk > span.on{visibility:visible}
 .say{margin:12px 0 0;font-size:15px}
 .cartBox{position:relative;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;padding:18px 16px 14px}
 .cart{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:12px 12px 16px;border:4px solid #8a93c9;border-top:0;border-radius:0 0 22px 22px;background:rgba(124,196,255,.05);min-height:180px;align-content:end}
@@ -137,7 +138,7 @@
       <div><small>100 € kaufen nach 10 Jahren so viel wie heute</small><b class="num" id="dPow">–</b></div>
       <div><small>Ein Brot für 3 € kostet dann</small><b class="num" id="dBread">–</b></div>
     </div>
-    <p class="say" id="dSay">–</p>
+    <p class="say stk" id="dSay"><span><b>Deflation:</b> Preise sinken, dein Geld wird mehr wert. Klingt gut, aber wenn alle aufs Billigerwerden warten, kann die Wirtschaft ins Stocken geraten.</span><span><b>Stabile Preise:</b> 100 € kaufen in 10 Jahren genau so viel wie heute.</span><span><b>Leichte Inflation:</b> So will es die EZB. Dein Erspartes verliert langsam, aber stetig an Kaufkraft.</span><span><b>Über dem Ziel:</b> Mehr als die 2 % der EZB. Nach 10 Jahren fehlt schon ein spürbarer Teil der Kaufkraft.</span><span><b>Hohe Inflation:</b> Dein Erspartes schmilzt spürbar, so wie 2022 mit fast 7 %.</span></p>
     <p class="bxh">Warum fürchten Notenbanken Deflation?</p>
     <div class="learn bx">
       <div><b>⏳ Abwarten</b><span>Wer glaubt, dass morgen alles billiger ist, kauft später. Firmen verkaufen weniger und sparen, auch bei Jobs.</span></div>
@@ -165,7 +166,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=71"></script>
+<script src="../lern.js?v=72"></script>
 <script>
 /* =====================================================================
    GELD & INFLATION – Lernwelt von Orange Trail
@@ -218,12 +219,8 @@ function defl(){
   $("dVal").textContent = sg(r);
   $("dPow").textContent = eur(100/f); $("dPow").className = "num " + (r > 0 ? "bad" : r < 0 ? "good" : "");
   $("dBread").textContent = eur(3*f);
-  $("dSay").innerHTML = r < 0 ? `<b>Deflation:</b> Preise sinken, dein Geld wird mehr wert. Klingt gut, aber wenn alle aufs Billigerwerden warten, kann die Wirtschaft ins Stocken geraten.`
-    : r === 0 ? `<b>Stabile Preise:</b> 100 € kaufen in 10 Jahren genau so viel wie heute.`
-    : r <= 2 ? `<b>Leichte Inflation:</b> So will es die EZB. Dein Erspartes verliert langsam, aber stetig an Kaufkraft.`
-    : r <= 3.5 ? `<b>Über dem Ziel:</b> Mehr als die 2 % der EZB. Nach 10 Jahren fehlt schon ein spürbarer Teil der Kaufkraft.`
-    : `<b>Hohe Inflation:</b> Dein Erspartes schmilzt spürbar, so wie 2022 mit fast 7 %.`;
-}
+  const k = r < 0 ? 0 : r === 0 ? 1 : r <= 2 ? 2 : r <= 3.5 ? 3 : 4;
+  [...$("dSay").children].forEach((x, i) => x.classList.toggle("on", i === k));}
 $("dRate").addEventListener("input", defl); defl();
 
 // Mini-Quiz

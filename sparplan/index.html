@@ -25,7 +25,7 @@
 .kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}
 .kpi div{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
 .kpi small{display:block;font-size:12px;color:var(--muted)}
-.kpi b{font:600 clamp(17px,3vw,22px) var(--f-num)}
+.kpi b{font:600 clamp(17px,3vw,22px) var(--f-num);white-space:nowrap} @media(max-width:360px){.kpi b{font-size:15px}}
 .kpi .up{color:var(--bull)} .kpi .dn{color:var(--bear)}
 svg.ch{width:100%;height:220px;display:block}
 .leg{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:6px}
@@ -33,7 +33,7 @@ svg.ch{width:100%;height:220px;display:block}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .cmp div{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;color:var(--muted)}
 .cmp b{color:var(--ink)}
-@media (max-width:700px){ .ctl,.cmp{grid-template-columns:1fr} .kpi{grid-template-columns:1fr 1fr} }
+@media (max-width:700px){ .ctl,.cmp{grid-template-columns:1fr} .kpi{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
@@ -55,12 +55,12 @@ svg.ch{width:100%;height:220px;display:block}
     <div class="kpi">
       <div><small>Eingezahlt</small><b class="num" id="kIn">–</b></div>
       <div><small>Heute wert (ca.)</small><b class="num" id="kNow">–</b></div>
-      <div><small>Gesammelt</small><b class="num" id="kBtc">–</b></div>
-      <div><small>Tiefster Punkt</small><b class="num dn" id="kLow">–</b></div>
+      <div><small>Gesammelt</small><b class="num" data-hold id="kBtc">–</b></div>
+      <div><small>Tiefster Punkt</small><b class="num dn" id="kLow" data-hold>–</b></div>
     </div>
     <svg class="ch" id="ch" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true"></svg>
     <div class="leg"><span><i style="background:#f7931a"></i>Wert des Sparplans</span><span><i style="background:#9aa2d6"></i>Eingezahlt</span></div>
-    <div class="cmp" id="cmp"></div>
+    <div class="cmp" data-hold id="cmp"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
@@ -79,7 +79,7 @@ svg.ch{width:100%;height:220px;display:block}
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung. Vergangene Entwicklungen sind kein Hinweis auf die Zukunft.</p>
 </div>
 
-<script src="../lern.js?v=71"></script>
+<script src="../lern.js?v=72"></script>
 <script>
 /* =====================================================================
    SPARPLAN – Lernwelt von Orange Trail

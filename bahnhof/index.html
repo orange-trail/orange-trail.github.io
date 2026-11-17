@@ -84,7 +84,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)} @media (max-widt
     </div>
     <div class="ctrl">
       <div class="feeRow"><div class="zsel"><input id="fee" type="range" min="1" max="3" step="1" value="1" aria-label="Welchen Zug willst du nehmen?" aria-valuetext="Zug 1"><div class="zt" aria-hidden="true"><span>Zug 1<small>~10 Min.</small></span><span>Zug 2<small>~20 Min.</small></span><span>Zug 3<small>~30 Min.</small></span></div></div><span class="feeVal" id="feeVal">–</span></div>
-      <div class="out" id="out">–</div>
+      <div class="out" data-hold id="out">–</div>
       <div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" id="send" type="button">Fahrgast losschicken</button><button class="btn ghost" type="button" id="simB">⛏️ Block gefunden</button></div>
       <div class="conf" id="conf" hidden aria-label="Bestätigungen"><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
@@ -107,7 +107,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)} @media (max-widt
     <p class="muted" style="margin:0;font-size:14px">Ist deine Zahlung in einem Block, hat sie <b>1 Bestätigung</b>. Jeder weitere Block obendrauf ist eine weitere. Schieb den Regler und sieh, wie sicher sie wird.</p>
     <div class="cfRow"><input id="cf" type="range" min="0" max="6" value="0" aria-label="Bestätigungen"><b id="cfV" class="num">0</b></div>
     <div class="cfBlocks" id="cfB"></div>
-    <p class="cfT" id="cfT"></p>
+    <p class="cfT" data-hold id="cfT"></p>
   </section>
 
   <section class="card next" id="next" aria-label="Weiter"></section>
@@ -118,7 +118,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)} @media (max-widt
 </div>
 
 <details class="foot"><summary>Quellen</summary><p>Warteraum, Gebühren und Blöcke als realistische Beispielwerte (echte Werte z. B. auf <a href="https://mempool.space">mempool.space</a>); <a href="https://en.bitcoin.it/wiki/Transaction_fees">Bitcoin Wiki: Transaction fees</a>. Das Spiel ist eine Simulation mit vereinfachten Zahlen.</p></details>
-<script src="../lern.js?v=71"></script>
+<script src="../lern.js?v=72"></script>
 <script>
 /* =====================================================================
    MEMPOOL-BAHNHOF – Lernwelt von Orange Trail

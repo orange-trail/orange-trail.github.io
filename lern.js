@@ -797,3 +797,18 @@ document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElemen
   const sr = document.createElement("script"); sr.type = "speculationrules";
   sr.textContent = JSON.stringify({prefetch: [{where: {and: [{href_matches: "/*"}, {not: {selector_matches: "[href^='#']"}}]}, eagerness: "moderate"}].concat(nx ? [{urls: [nx.href], eagerness: "eager"}] : [])});
   document.head.appendChild(sr); } } catch(e){} });
+// Ruhige Regler: Felder mit data-hold behalten ihre größte Höhe, damit beim Schieben nichts darunter springt
+(() => {
+  let w0 = 0;
+  function hold(){
+    const hs = [...new Set([...document.querySelectorAll("[data-hold]")].map(h => getComputedStyle(h).display === "inline" ? h.parentElement : h))]; if (!hs.length || innerWidth === w0) return; w0 = innerWidth;
+    hs.forEach(h => h.style.minHeight = ""); const mx = hs.map(h => h.offsetHeight);
+    const rs = [...document.querySelectorAll('input[type="range"]')];
+    const fire = r => r.dispatchEvent(new Event("input", {bubbles: true})), see = () => hs.forEach((h, i) => mx[i] = Math.max(mx[i], h.offsetHeight));
+    rs.forEach(r => { const v = r.value, st = +r.step || 1, n = Math.min(60, Math.round((r.max - r.min)/st));
+      for (let k = 0; k <= n; k++){ r.value = +r.min + (r.max - r.min)*k/n; fire(r); see(); } r.value = v; fire(r); });
+    hs.forEach((h, i) => h.style.minHeight = mx[i] + "px");
+  }
+  addEventListener("load", () => setTimeout(hold, 60));
+  let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(hold, 250); });
+})();
