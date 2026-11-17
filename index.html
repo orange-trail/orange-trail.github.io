@@ -79,7 +79,8 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .mapw .shoot{opacity:0;animation:shoot 7s ease-in infinite} @keyframes shoot{0%,86%{opacity:0;transform:translate(0,0)}88%{opacity:1}100%{opacity:0;transform:translate(160px,70px)}}
 .mapw .s2{animation-delay:3.5s;animation-duration:9s}
 .mapw .fly2{opacity:0;animation:fly2 6s ease-in-out infinite} @keyframes fly2{0%{opacity:0;transform:translate(0,0)}30%{opacity:.9}100%{opacity:0;transform:translate(14px,-60px)}}
-@media (prefers-reduced-motion:reduce){ .mapw .twk,.mapw .shoot,.mapw .fly2{animation:none} .mapw .shoot,.mapw .fly2{display:none} }
+.mapw .deco text{animation:drift 7s ease-in-out infinite;transform-box:fill-box;transform-origin:center} @keyframes drift{50%{transform:translateY(-7px) rotate(4deg)}}
+@media (prefers-reduced-motion:reduce){ .mapw .twk,.mapw .shoot,.mapw .fly2,.mapw .deco text{animation:none} .mapw .shoot,.mapw .fly2{display:none} }
 .mapw .bob{animation:mbob 1.4s ease-in-out infinite} @keyframes mbob{50%{transform:translateY(-5px)}}
 .mapw .flag{transform-box:fill-box;transform-origin:0 50%;animation:mflag 1.8s ease-in-out infinite} @keyframes mflag{50%{transform:scaleX(.82) skewY(4deg)}}
 .mapw{margin-top:10px;height:72vh;max-height:72vh;overflow-y:auto;overscroll-behavior:contain;border-radius:18px;border:3px solid #0d1230;box-shadow:4px 4px 0 #0d1230;background:#0b0f2a;scroll-behavior:smooth}
@@ -353,6 +354,16 @@ details.fold[open] > summary{margin-bottom:12px}
     g += `<circle cx="56" cy="${peakY - 70}" r="20" fill="#fff6d8" opacity=".9"/><circle cx="65" cy="${peakY - 76}" r="18" fill="#0a0e30"/>`;
     // Pyramide als ruhige Silhouette im Hintergrund
     g += `<path d="M${W / 2},${peakY - 70} L${W + 40},${H} L-40,${H}Z" fill="url(#mtn)" opacity=".75"/><path d="M${W / 2},${peakY - 70} L${W + 40},${H} L${W / 2 + 26},${H}Z" fill="#000" opacity=".16"/><path d="M${W / 2},${peakY - 70} l-34 62 15-6 19 20 20-24 14 8z" fill="#eef0ff" opacity=".9"/>`;
+    // Welt-Stimmung: zarte Farbe je Welt und leise Motive am Rand, zwischen den Stationen (nie auf Weg, Schildern oder Portalen)
+    const MOT = [["🪙", "💶", "🐚", "🏦", "💵", "🪙"], ["🌱", "₿", "🍕", "📜", "💎", "🌱"], ["⛓️", "⚙️", "⛏️", "🧱", "#️⃣", "⚙️"], ["🛡️", "🔑", "🔒", "🗝️", "🛡️", "🔑"], ["⚡", "✉️", "🚆", "📡", "⚡", "🧾"], ["📈", "🧠", "🎢", "🧭", "🐂", "🐻"]];
+    g += `<linearGradient id="wfg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".2" stop-color="#fff"/><stop offset=".8" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="wfm" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#wfg)"/></mask>`;
+    { let st2 = 0, deco = ""; L.CHAPTERS.forEach((c, k) => { const a0 = st2, a1 = st2 + c[3].length; st2 = a1 + 1;
+      const top = y(a1) - R - 30, bot = a0 ? y(a0) + R + 30 : y(a0) + R + 30;
+      deco += `<rect x="0" y="${top}" width="${W}" height="${bot - top}" fill="url(#wt${k})" mask="url(#wfm)"/>`;
+      g += `<linearGradient id="wt${k}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${CH[k]}" stop-opacity=".09"/><stop offset=".5" stop-color="${CH[k]}" stop-opacity="0"/><stop offset="1" stop-color="${CH[k]}" stop-opacity=".09"/></linearGradient>`;
+      for (let i = a0; i < a1 - 1; i++){ const xm = (P[i][0] + P[i + 1][0]) / 2, ym = (P[i][1] + P[i + 1][1]) / 2, far = xm > W / 2 ? W * .12 : W * .88, j = i - a0;
+        deco += `<g transform="rotate(${(j % 2 ? 8 : -8)} ${far.toFixed(0)} ${ym.toFixed(0)})"><text x="${far.toFixed(0)}" y="${ym.toFixed(0)}" font-size="${nar ? 30 : 36}" text-anchor="middle" dominant-baseline="middle" opacity=".16" style="animation-delay:${(i * .7) % 7}s">${MOT[k][j % 6]}</text></g>`; } });
+      g += `<g class="deco" aria-hidden="true" pointer-events="none">${deco}</g>`; }
     g += `<g class="shoot"><line x1="${W * .12}" y1="${peakY - 30}" x2="${W * .12 + 70}" y2="${peakY}" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g><g class="shoot s2"><line x1="${W * .55}" y1="${H * .45}" x2="${W * .55 + 60}" y2="${H * .45 + 26}" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>`;
     for (let i = 0; i < 12; i++){ const n = (i * 7) % (N - 1); g += `<circle class="fly2" style="animation-delay:${(i * .53) % 6}s" cx="${(P[n][0] + ((i * 53) % 120 - 60)).toFixed(0)}" cy="${P[n][1].toFixed(0)}" r="2.2" fill="#ffe08a"/>`; }
     // Weg: dunkle Spur, goldener erledigter Teil mit Glühen
