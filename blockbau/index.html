@@ -117,8 +117,8 @@ const ROUNDS = [
    tx: [["Anna → Ben", 140, 2800], ["Cem → Dana", 220, 3300], ["Börse → 40 Kunden", 600, 7200], ["Finn → Gil", 110, 3850], ["Hana → Ida", 250, 2500], ["Jan → Kai", 180, 5400], ["Lea → Max", 140, 700], ["Nia → Ole", 300, 7500], ["Pia → Quinn", 160, 4000], ["Rio → Sam", 200, 1000]]},
   {t: "Eltern & Kind", cap: 1000, intro: "<b>Runde 2:</b> Tom hat zu wenig Gebühr gezahlt, seine Zahlung hängt seit Tagen fest. Uwe will das Geld sofort weiterschicken und zahlt dafür <b>extra viel</b>. Seine Zahlung gilt aber nur, wenn Toms Zahlung auch im Block ist.",
    tx: [["Tom → Uwe", 200, 400, {stuck: 1}], ["Uwe → Vera", 150, 8350, {p: 0}], ["Ali → Bea", 200, 3000], ["Carl → Doro", 150, 3000], ["Emil → Fay", 300, 6000], ["Gina → Hugo", 120, 1800], ["Ivo → Jule", 250, 5000], ["Karl → Lina", 100, 1200]]},
-  {t: "Schummel-Check", cap: 1000, intro: "<b>Runde 3:</b> Vorsicht, im Warteraum lauern Betrüger, und sie zahlen verdächtig gut. Jede Zahlung nennt die Münze (Coin), die sie ausgibt. Mit „🔍 Wie eine Node prüfen“ siehst du, was jede Node prüft.",
-   tx: [["Lea → Shop", 200, 6000, {coin: "#7"}], ["Mia → Nils", 180, 3600, {coin: "#2"}], ["??? → Rio", 150, 12000, {coin: "#9", sig: 0}], ["Otto → Pam", 220, 4400, {coin: "#4"}], ["Lea → Max", 200, 9000, {coin: "#7"}], ["Quirin → Ria", 150, 2250, {coin: "#5"}], ["Sven → Tara", 250, 5000, {coin: "#1"}], ["Udo → Vio", 120, 3000, {coin: "#8"}], ["Wim → Xena", 200, 2000, {coin: "#3"}]]},
+  {t: "Schummel-Check", cap: 1000, intro: "<b>Runde 3:</b> Normalerweise fischen Nodes Betrug schon im Warteraum heraus. Aber zwei Zahlungen hat dir jemand <b>direkt geschickt, an den Nodes vorbei</b>, mit verdächtig hohen Gebühren. Jede Zahlung nennt die Münze (Coin), die sie ausgibt. Mit „🔍 Wie eine Node prüfen“ siehst du, was jede Node prüft.",
+   tx: [["Lea → Shop", 200, 6000, {coin: "#7"}], ["Mia → Nils", 180, 3600, {coin: "#2"}], ["??? → Rio", 150, 12000, {coin: "#9", sig: 0, dm: 1}], ["Otto → Pam", 220, 4400, {coin: "#4"}], ["Lea → eigene Wallet", 200, 9000, {coin: "#7", dm: 1}], ["Quirin → Ria", 150, 2250, {coin: "#5"}], ["Sven → Tara", 250, 5000, {coin: "#1"}], ["Udo → Vio", 120, 3000, {coin: "#8"}], ["Wim → Xena", 200, 2000, {coin: "#3"}]]},
   {t: "Dein Lohn"}
 ];
 let R = 0, sort = 0, checked = false, won = new Set();
@@ -131,10 +131,10 @@ const fees = (s, r = R) => [...s].reduce((a, i) => a + ROUNDS[r].tx[i][2], 0);
 function best(r){
   const T = ROUNDS[r].tx, cap = ROUNDS[r].cap/10, groups = [], seen = new Set();
   T.forEach((t, i) => { if (seen.has(i)) return; const e = t[3] || {};
-    if (e.sig === 0){ seen.add(i); return; }
+    if (e.sig === 0 || e.dm){ seen.add(i); return; }   // Betrug und Zahlungen an den Nodes vorbei zählen nicht zur fairen Bestlösung
     const kids = T.map((u, j) => (u[3] || {}).p === i ? j : -1).filter(j => j >= 0);
     if (kids.length){ groups.push([[i], [i, ...kids]]); seen.add(i); kids.forEach(k => seen.add(k)); return; }
-    if (e.coin){ const tw = T.map((u, j) => (u[3] || {}).coin === e.coin && (u[3] || {}).sig !== 0 ? j : -1).filter(j => j >= 0); groups.push(tw.map(j => [j])); tw.forEach(j => seen.add(j)); return; }
+    if (e.coin){ const tw = T.map((u, j) => (u[3] || {}).coin === e.coin && (u[3] || {}).sig !== 0 && !(u[3] || {}).dm ? j : -1).filter(j => j >= 0); groups.push(tw.map(j => [j])); tw.forEach(j => seen.add(j)); return; }
     groups.push([[i]]); seen.add(i); });
   let dp = Array(cap + 1).fill(null).map(() => ({f: 0, ids: []}));
   groups.forEach(g => { const nx = dp.map(x => ({...x}));
@@ -159,7 +159,7 @@ function draw(bestIds){
   $("mp").innerHTML = order.map(i => { const t = Q.tx[i], e = t[3] || {}, r = rate(t); let x = "";
     if (e.stuck) x = `<span class="x w">⏳ hängt seit Tagen fest</span>`;
     if (e.p !== undefined) x = `<span class="x w">🔗 braucht „${Q.tx[e.p][0]}“ · zusammen ${nf(Math.round((t[2] + Q.tx[e.p][2])/(t[1] + Q.tx[e.p][1])))} sat/vB</span>`;
-    if (e.coin) x = `<span class="x">🪙 zahlt mit Coin ${e.coin}</span>` + (checked ? (e.sig === 0 ? `<span class="x bad">✍️ Unterschrift falsch ✗</span>` : coins[e.coin] > 1 ? `<span class="x bad">⚠ Coin ${e.coin} steckt in 2 Zahlungen, nur eine darf in den Block</span>` : `<span class="x ok">✓ Unterschrift und Coin ok</span>`) : "");
+    if (e.coin) x = (e.dm ? `<span class="x w">📨 direkt an dich geschickt</span>` : "") + `<span class="x">🪙 zahlt mit Coin ${e.coin}</span>` + (checked ? (e.sig === 0 ? `<span class="x bad">✍️ Unterschrift falsch ✗</span>` : coins[e.coin] > 1 ? `<span class="x bad">⚠ Coin ${e.coin} steckt in 2 Zahlungen, nur eine darf in den Block</span>` : `<span class="x ok">✓ Unterschrift und Coin ok</span>`) : "");
     return `<button type="button" class="mtx${S.has(i) ? " in" : ""}${bestIds && bestIds.includes(i) ? " best" : ""}" data-i="${i}" aria-pressed="${S.has(i)}"><b>${t[0]}</b><span class="m"><span>${nf(t[1])} vB</span><span>${nf(t[2])} sat</span></span><span class="r" style="background:${rateCol(r)}">${nf(Math.round(r))} sat/vB</span>${x}</button>`; }).join("");
   $("rt").querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", +b.dataset.r === R));
 }
@@ -180,7 +180,8 @@ function finish(){
   if (R === 2){ const T = Q.tx, c = {}; let why = "";
     [...S].forEach(i => { const e = T[i][3] || {}; if (e.sig === 0) why = `„${T[i][0]}“ hat eine <b>gefälschte Unterschrift</b>. Wer den Schlüssel nicht hat, kann keine gültige erzeugen.`; c[e.coin] = (c[e.coin] || 0) + 1; });
     const dbl = Object.keys(c).find(k => c[k] > 1); if (!why && dbl) why = `Coin ${dbl} wird <b>zweimal ausgegeben</b>. Das ist genau der Betrug, den Bitcoin verhindern soll.`;
-    if (why){ el.className = "res bad"; el.innerHTML = `<strong>❌ Block abgelehnt! Lohn: 0</strong>${why} Jede Node prüft <b>jede</b> Zahlung. Ein einziger Fehler, und der ganze Block mit Strom und Arbeit ist wertlos.<div class="acts"><button class="btn ghost" type="button" data-a="chk">🔍 Wie eine Node prüfen</button></div>`; return; } }
+    if (why){ el.className = "res bad"; el.innerHTML = `<strong>❌ Block abgelehnt! Lohn: 0</strong>${why} Jede Node prüft jede Zahlung <b>zweimal</b>: wenn sie im Warteraum ankommt und nochmal im fertigen Block. Ein einziger Fehler, und der ganze Block mit Strom und Arbeit ist wertlos.<div class="acts"><button class="btn ghost" type="button" data-a="chk">🔍 Wie eine Node prüfen</button></div>`; return; } }
+  if (R === 2 && [...S].some(i => (Q.tx[i][3] || {}).dm)){ el.className = "res warn"; el.innerHTML = `<strong>⚠️ Gültig, aber du hast beim Betrug geholfen</strong>Lea hat den Shop schon bezahlt und schickt dieselbe Münze jetzt heimlich an sich selbst zurück. Packst du das ein, ist der Block zwar gültig, aber der Shop geht leer aus. Genau deshalb warten Händler bei großen Beträgen ein paar <b>Bestätigungen</b> ab.<div class="acts"><button class="btn ghost" type="button" data-a="best">💡 Faire Bestlösung zeigen</button></div>`; return; }
   const p = Math.round(f/B.f*100), top = f >= B.f;
   if (top){ won.add(R); try { Lern.sfx && Lern.sfx("win"); } catch(e){} if (won.size === 3) try { Lern.confetti && Lern.confetti(); } catch(e){} }
   const tip = R === 0 ? "Sortier mal nach <b>sat/vB</b>: Die 600-vB-Sammelzahlung hat die höchste Gebühr, frisst aber über die Hälfte des Platzes."
@@ -188,7 +189,7 @@ function finish(){
     : "Gültige Zahlungen mit gutem sat/vB, keine doppelte Münze, keine falsche Unterschrift.";
   const lesson = R === 0 ? "Miner sortieren nach <b>Gebühr pro vB</b>, nicht nach der Gesamtgebühr. So holen sie aus dem knappen Platz am meisten heraus."
     : R === 1 ? "So rettet man eine festhängende Zahlung: Der Empfänger (oder du über dein Wechselgeld) schickt eine Folgezahlung mit hoher Gebühr. Fachbegriff: <b>CPFP</b>, Child Pays For Parent."
-    : "Du hast Betrug erkannt. Genau so prüft jede Node jeden Block. Deshalb lohnt sich Ehrlichkeit für Miner.";
+    : "Du hast Betrug erkannt. Nodes prüfen zweimal: jede Zahlung, wenn sie ankommt, und jeden Block, bevor sie ihn annehmen. Deshalb lohnt sich Ehrlichkeit für Miner.";
   el.className = "res " + (top ? "ok" : p >= 80 ? "warn" : "bad");
   el.innerHTML = `<strong>${top ? "🏆 Bestmögliche Ausbeute!" : `${p} % der besten Lösung`}</strong>Du: <b>${nf(f)} sat</b> · Bestmöglich: <b>${nf(B.f)} sat</b><br>${top ? lesson : tip}<div class="acts">${top ? (R < 3 ? `<button class="btn" type="button" data-a="next">Weiter zu Runde ${R + 2} →</button>` : "") : `<button class="btn ghost" type="button" data-a="best">💡 Beste Lösung zeigen</button>`}</div>`;
   tabs();
