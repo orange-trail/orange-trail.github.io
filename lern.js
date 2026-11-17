@@ -284,7 +284,7 @@ const Lern = (() => {
     hyperinflation: "Ein Brot für 201 Milliarden Mark? Das ist wirklich passiert!",
     goldstandard: "Gold war mal Geld. Bis die Regeln geändert wurden …",
     vorlaeufer: "Bitcoin hatte Vorfahren. Bau es aus ihren Teilen zusammen!",
-    krimis: "Fünf Akten, fünf echte Fälle. Kannst du sie lösen?",
+    krimis: "Sechs Akten, sechs echte Fälle. Kannst du sie lösen?",
     quanten: "Quantencomputer: Panik oder Popcorn? Schauen wir nüchtern hin.",
     geld: "Hi, ich bin Satoshi! Bevor es um Bitcoin geht: Was ist eigentlich Geld?",
     geldgeschichte: "5.000 Jahre Geld in 9 Stationen. Achte darauf, was immer wieder schiefging.",
