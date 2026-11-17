@@ -39,9 +39,14 @@
 .res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
 .res strong{display:block;font-size:17px;margin-bottom:2px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .res .acts2{margin-top:10px}
-.lock{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-top:12px;padding:12px 8px;border-radius:14px;background:rgba(0,0,0,.2);font-size:13px;text-align:center}
-.lock div{flex:1} .lock span{display:block;font-size:26px} .lock i{font-style:normal;color:var(--gold);font-size:16px}
-.lstep{margin:10px 0 0;font-size:15px;line-height:1.55;min-height:4.6em}
+.lx{margin-top:12px;padding:12px;border-radius:14px;background:rgba(0,0,0,.2)}
+.lx-n{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:12px;transition:background .3s} .lx-n.hl{background:rgba(247,147,26,.14)}
+.lx-n .e{font-size:24px;width:34px;text-align:center} .lx-n b{flex:1;font-size:15px} .lx-n .earn{font:800 12px var(--f-num);color:var(--bull)}
+.lx-n .key{font-size:20px;min-width:28px;text-align:right}
+.lx-c{margin-left:24px;border-left:3px dashed #3a4170;padding:7px 0 7px 18px;font:700 13px/1.35 var(--f-num);color:var(--muted);min-height:20px;transition:color .3s,border-color .3s}
+.lx-c.lxr{border-left:3px dashed var(--gold);color:var(--gold)} .lx-c.paid{border-left:3px solid var(--bull);color:#7ff0b4} .lx-c.back{border-left-color:#7fc8ff;color:#9ad4ff} .lx-c.now{animation:pop .35s}
+.lstep{margin:10px 0 0;font-size:15px;line-height:1.55;min-height:6.2em}
+.cheat{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--bear);background:rgba(255,92,115,.08);font-size:14px;line-height:1.55}
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -66,10 +71,11 @@
 
   <section class="card" aria-labelledby="h2s">
     <h2 id="h2s">2 · Warum unterwegs keiner klauen kann</h2>
-    <p class="muted" style="margin:0">Alex und der Hub leiten dein Geld weiter. Was hindert sie daran, es einfach zu behalten? Ein <b style="color:var(--ink)">Schloss mit Geheimnis</b>. Tipp dich durch.</p>
-    <div class="lock" id="lk"></div>
+    <p class="muted" style="margin:0" id="lI"></p>
+    <div class="lx" id="lk"></div>
     <p class="lstep" id="ls" aria-live="polite"></p>
-    <div class="acts2"><button class="btn" type="button" id="lw">Weiter ▶</button></div>
+    <div class="acts2"><button class="btn ghost" type="button" id="lb">◀ Zurück</button><button class="btn" type="button" id="lw">Weiter ▶</button><button class="btn ghost" type="button" id="lc" hidden>😈 Schummel-Test</button></div>
+    <div class="cheat" id="lch" hidden></div>
   </section>
 
   <section class="card" aria-labelledby="h3s">
@@ -113,7 +119,7 @@ const TASKS = [
   {t: "Kaffee-Rechnung", amt: 30000, txt: "Bezahl dem <b>Café 30.000 sats</b>. Tipp nacheinander die Stationen an, von dir bis zum Café. Tipp: Der kürzeste Weg ist nicht immer offen.", goal: "any"},
   {t: "Am günstigsten", amt: 20000, txt: "Jetzt <b>20.000 sats</b> ans Café, aber so <b>günstig</b> wie möglich. Jede Station verlangt eine kleine Gebühr. Finde die billigste Route.", goal: "cheap"},
   {t: "Zu groß?", amt: 90000, txt: "Und jetzt <b>90.000 sats</b> ans Café. Probier es. Schaffst du das?", goal: "none"}];
-let T = 0, path = ["du"], won = new Set(), bal;
+let T = 0, path = ["du"], won = new Set(), bal, last = {p: ["du", "alex", "hub", "cafe"], amt: 30000}, lk = 0;
 const reset = () => { bal = {}; CH.forEach(([a, b, x, y]) => { bal[a + ">" + b] = x; bal[b + ">" + a] = y; }); };
 const has = (a, b) => (a + ">" + b) in bal;
 // Betrag, der über jeden Schritt fließt: Zahlung plus Gebühren aller späteren Stationen
@@ -159,8 +165,8 @@ $("send").onclick = () => {
   draw(-1);
   const best = routes().filter(p => works(p, amt)).reduce((m, p) => Math.min(m, feeOf(p)), 1e9);
   if (TASKS[T].goal === "cheap" && fee > best){ res("warn", `<strong>⚡ Angekommen, aber nicht am günstigsten</strong>Du hast <b>${fee} sat</b> Gebühr gezahlt. Es geht auch mit <b>${best} sat</b>. Die Gebühren stehen unter jeder Station.<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ Neuer Versuch</button></div>`); return; }
-  won.add(T); try { Lern.sfx && Lern.sfx("win"); } catch(e){}
-  res("ok", `<strong>⚡ Bezahlt in Sekundenbruchteilen!</strong>${nf(amt)} sats sind beim Café, unterwegs hast du <b>${fee} sat</b> Gebühr gezahlt.${T === 0 ? " Über Alex direkt zu Carl ging es nicht: Alex hatte in diesem Kanal nur 10.000 sats auf seiner Seite." : " Das ist die günstigste Route. Deine Wallet sucht so etwas im Alltag automatisch."}<div class="acts2">${T < 2 ? `<button class="btn" type="button" data-a="next">Weiter zu Aufgabe ${T + 2} →</button>` : ""}</div>`);
+  won.add(T); last = {p: path.slice(), amt}; lk = 0; lock(); try { Lern.sfx && Lern.sfx("win"); } catch(e){}
+  res("ok", `<strong>⚡ Bezahlt in Sekundenbruchteilen!</strong>${nf(amt)} sats sind beim Café, unterwegs hast du <b>${fee} sat</b> Gebühr gezahlt.${T === 0 ? (path.join() === "du,alex,carl,cafe" ? "" : " Übrigens: Der kürzere Weg über Alex direkt zu Carl wäre gescheitert. Alex hat in diesem Kanal nur 10.000 sats auf seiner Seite.") + " Unten in Teil 2 siehst du, was dabei mit deiner Route passiert ist." : " Das ist die günstigste Route. Deine Wallet sucht so etwas im Alltag automatisch."}<div class="acts2">${T < 2 ? `<button class="btn" type="button" data-a="next">Weiter zu Aufgabe ${T + 2} →</button>` : ""}</div>`);
   draw(); tabsWon();
 };
 function tabsWon(){ $("rt").querySelectorAll("[data-t]").forEach(b => b.classList.toggle("won", won.has(+b.dataset.t))); }
@@ -170,17 +176,41 @@ $("res").addEventListener("click", e => { const a = (e.target.closest("[data-a]"
   if (a === "split"){ won.add(2); tabsWon(); res("ok", `<strong>💡 Der Trick: aufteilen</strong>Kein einzelner Weg schafft 90.000 sats. Moderne Wallets <b>teilen</b> große Zahlungen deshalb auf mehrere Wege auf, zum Beispiel 50.000 über Berta und den Hub und 40.000 über Alex, den Hub und Carl. Beim Café setzen sich die Teile wieder zusammen. Und wenn das auch nicht reicht, bezahlt man direkt in der Blockchain.`); } });
 reset(); draw();
 
-// Schloss mit Geheimnis (HTLC), Schritt für Schritt
-const L = [
-  [["🔐", "Du"], ["", "Alex"], ["", "Hub"], ["🔑", "Café"]], "Das Café denkt sich ein <b>Geheimnis</b> aus und schickt dir in der Rechnung nur ein dazu passendes <b>Schloss</b> (einen Hash).",
-  [["🔐", "Du"], ["🔐", "Alex"], ["🔐", "Hub"], ["🔑", "Café"]], "Jede Station bekommt ihr Geld nur mit diesem Schloss: <b>„Zahlbar, sobald du das Geheimnis zeigst.“</b> Bis dahin ist es nur reserviert.",
-  [["🔐", "Du"], ["🔐", "Alex"], ["🔓", "Hub"], ["✅", "Café"]], "Das Café nennt dem Hub das Geheimnis und bekommt sein Geld. Jetzt <b>kennt</b> der Hub das Geheimnis …",
-  [["✅", "Du"], ["✅", "Alex"], ["✅", "Hub"], ["✅", "Café"]], "… und holt sich damit sein Geld bei Alex, Alex bei dir. <b>Alle oder keiner</b>: Wer das Geld behalten will, bekommt selbst nichts. Kommt das Geheimnis nie, läuft die Reservierung ab und alles fließt zurück."];
-let lk = 0;
-function lock(){ const st = L[lk*2], tx = L[lk*2 + 1];
-  $("lk").innerHTML = st.map(([e, n], i) => `<div><span>${e || "·"}</span>${n}</div>` + (i < 3 ? `<i>⚡</i>` : "")).join("");
-  $("ls").innerHTML = `<b>${lk + 1}/4</b> · ${tx}`; $("lw").textContent = lk < 3 ? "Weiter ▶" : "🔄 Nochmal"; }
-$("lw").onclick = () => { lk = (lk + 1) % 4; lock(); };
+// Schloss mit Geheimnis (HTLC), Schritt für Schritt, mit deiner zuletzt geschickten Route
+const who = k => k === "du" ? "dir" : k === "hub" ? "dem Hub" : k === "cafe" ? "dem Café" : N[k][0];
+const whoA = k => k === "du" ? "dich" : k === "hub" ? "den Hub" : k === "cafe" ? "das Café" : N[k][0];
+const bei = k => k === "du" ? "bei dir" : k === "hub" ? "beim Hub" : "bei " + N[k][0];
+const Who = k => k === "du" ? "Du" : k === "hub" ? "Der Hub" : k === "cafe" ? "Das Café" : N[k][0];
+function lock(){
+  const P = last.p, h = P.length - 1, fl = flows(P, last.amt), max = 2*h; lk = Math.min(lk, max);
+  const mids = P.slice(1, -1).map(k => N[k][0]);
+  $("lI").innerHTML = `Deine Route: ${P.map(k => N[k][0]).join(" → ")}. ${mids.length > 1 ? mids.slice(0, -1).join(", ") + " und " + mids[mids.length - 1] + " leiten" : mids[0] + " leitet"} dein Geld weiter. Was hindert sie daran, es einfach zu behalten? Ein <b style="color:var(--ink)">Schloss mit Geheimnis</b>.`;
+  // Zustand jedes Kanals: 0 leer, 1 reserviert, 2 bezahlt
+  const ch = fl.map((f, i) => lk === 0 ? 0 : lk <= h ? (i < lk ? 1 : 0) : (i >= h - (lk - h) ? 2 : 1));
+  const keyAt = k => { const i = P.indexOf(k); if (i === h) return "🔑"; if (lk > h && i >= h - (lk - h)) return i === 0 ? "🧾" : "🔑"; return ""; };
+  const act = lk === 0 ? h : lk <= h ? lk - 1 : h - (lk - h);
+  let s = "";
+  P.forEach((k, i) => { const fee = N[k][4], got = i > 0 && i < h && lk > h && i >= h - (lk - h) + 1;
+    s += `<div class="lx-n${i === act || (lk <= h && lk && i === lk) ? " hl" : ""}"><span class="e" aria-hidden="true">${N[k][1]}</span><b>${N[k][0]}</b>${got && fee ? `<span class="earn">+${fee} sat</span>` : ""}<span class="key">${keyAt(k)}</span></div>`;
+    if (i < h) s += `<div class="lx-c${ch[i] === 1 ? " lxr" : ch[i] === 2 ? " paid" : ""}${(lk <= h && i === lk - 1) || (lk > h && i === h - (lk - h)) ? " now" : ""}">${ch[i] === 0 ? "·" : ch[i] === 1 ? `🔒 ${nf(fl[i])} sats reserviert` : `✅ ${nf(fl[i])} sats bezahlt`}</div>`; });
+  $("lk").innerHTML = s;
+  let t;
+  if (lk === 0) t = `Das Café denkt sich ein <b>Geheimnis</b> 🔑 aus. In die Rechnung an dich packt es nur ein passendes <b>Schloss</b> 🔒 (einen Hash). Aus dem Schloss lässt sich das Geheimnis nicht erraten.`;
+  else if (lk <= h){ const a = P[lk - 1], b = P[lk];
+    t = lk === 1 ? `${Who(a)} reservierst ${nf(fl[0])} sats für ${whoA(b)}, mit dem Schloss: <b>„Gehört dir, sobald du das Geheimnis zeigst.“</b> Ohne Geheimnis kommt ${N[b][0] === "Hub" ? "der Hub" : N[b][0]} nicht an das Geld.`
+      : `${Who(a)} reserviert ${nf(fl[lk - 1])} sats für ${whoA(b)}, mit <b>demselben Schloss</b>. ${N[a][4] ? `Die Differenz von ${N[a][4]} sat ist ${a === "hub" ? "seine" : "ihre"} Gebühr.` : ""}`; }
+  else { const j = h - (lk - h), a = P[j], b = P[j + 1];
+    t = b === "cafe" ? `Das Café zeigt ${who(a)} das Geheimnis 🔑 und bekommt dafür die ${nf(fl[j])} sats. Jetzt <b>kennt ${a === "hub" ? "der Hub" : N[a][0]}</b> das Geheimnis …`
+      : a === "du" ? `… und ${N[b][0] === "Hub" ? "der Hub" : N[b][0]} holt sich damit die ${nf(fl[j])} sats bei <b>dir</b>${N[b][4] ? ` (Gewinn: ${N[b][4]} sat)` : ""}. Fertig! Für dich ist das Geheimnis jetzt die <b>Quittung</b> 🧾: Das Café wurde bezahlt. Alle oder keiner, in Sekundenbruchteilen.`
+      : `… und holt sich damit die ${nf(fl[j])} sats ${bei(a)}. Gewinn: ${N[b][4]} sat. Jetzt kennt auch ${a === "hub" ? "der Hub" : N[a][0]} das Geheimnis …`; }
+  $("ls").innerHTML = `<b>${lk + 1}/${max + 1}</b> · ${t}`;
+  $("lb").disabled = lk === 0; $("lw").textContent = lk < max ? "Weiter ▶" : "🔄 Nochmal"; $("lc").hidden = lk < max; if (lk < max) $("lch").hidden = true;
+}
+$("lw").onclick = () => { const max = 2*(last.p.length - 1); lk = lk < max ? lk + 1 : 0; lock(); };
+$("lb").onclick = () => { if (lk) lk--; lock(); };
+$("lc").onclick = () => { const P = last.p, m = P[P.length - 2], pre = P[P.length - 3], M = m === "hub" ? "der Hub" : N[m][0];
+  const C = $("lch"); C.hidden = false;
+  C.innerHTML = `<b>😈 Was, wenn ${M} schummeln will?</b><br>• <b>Geld behalten, Café nicht bezahlen:</b> Geht nicht. Das Geld ${pre === "du" ? "von dir" : "von " + (pre === "hub" ? "dem Hub" : N[pre][0])} bekommt ${M} nur mit dem Geheimnis, und das gibt es erst, wenn das Café bezahlt ist.<br>• <b>Café bezahlen, dann Geheimnis verschweigen:</b> Schadet nur ${m === "hub" ? "ihm" : "ihr"} selbst. ${M[0].toUpperCase() + M.slice(1)} hat bezahlt, holt sich aber nichts zurück.<br>• <b>Einfach nicht weiterleiten:</b> Dann läuft die Reservierung nach einer Frist ab und das Geld fließt zurück zu dir. Deine Wallet probiert einen anderen Weg.`; };
 lock();
 
 const QUIZ = [["Warum scheitert eine Lightning-Zahlung manchmal?", ["Weil das Internet zu langsam ist", "Weil in einem Kanal unterwegs nicht genug Geld auf der sendenden Seite liegt", "Weil die Blockchain voll ist"], 1, "Dann sucht die Wallet einen anderen Weg. Verloren geht dabei nichts."],
