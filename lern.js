@@ -313,7 +313,7 @@ const Lern = (() => {
   };
   const GK = "satsland-guide-off";
   let gTimer = 0;
-  function say(text, ms = 7000){
+  function say(text, ms = 7000){ if (window.__sweep) return;
     const g = document.querySelector(".guide"); if (!g) return;
     const b = g.querySelector(".gb"); b.querySelector("span").textContent = text; g.classList.add("talk");
     clearTimeout(gTimer); gTimer = setTimeout(() => g.classList.remove("talk"), ms);
@@ -677,7 +677,7 @@ const Lern = (() => {
   const CK = "satsland-calm", calm = (() => { try { return localStorage.getItem(CK) === "1"; } catch(e){ return false; } })();
   if (calm) document.documentElement.classList.add("calm");
   function calmToggle(){ try { localStorage.setItem(CK, calm ? "0" : "1"); } catch(e){} location.reload(); }
-  function confetti(){
+  function confetti(){ if (window.__sweep) return;
     if (calm) return;
     const c = document.createElement("canvas"); c.className = "confetti"; document.body.appendChild(c);
     const x = c.getContext("2d"), W = c.width = innerWidth, H = c.height = innerHeight, C = ["#f7931a", "#ffc94d", "#34d982", "#7cc4ff", "#ff5c73"];
@@ -688,7 +688,7 @@ const Lern = (() => {
         if (p.b){ x.font = `bold ${p.r*3}px sans-serif`; x.fillText("₿", 0, 0); } else x.fillRect(-p.r/2, -p.r/3, p.r, p.r*.6); x.restore(); });
       if (++t < 160) requestAnimationFrame(f); else c.remove(); })();
   }
-  function toast(html){ const t = document.createElement("div"); t.className = "toast"; t.innerHTML = html; document.body.appendChild(t); setTimeout(() => t.classList.add("out"), 3400); setTimeout(() => t.remove(), 3900); }
+  function toast(html){ if (window.__sweep) return; const t = document.createElement("div"); t.className = "toast"; t.innerHTML = html; document.body.appendChild(t); setTimeout(() => t.classList.add("out"), 3400); setTimeout(() => t.remove(), 3900); }
   // ---------- Ton & Vibration (ohne Audio-Dateien, per Web Audio erzeugt; abschaltbar) ----------
   const SND = "satsland-sound"; let AC = null;
   const sndOn = () => { try { return localStorage.getItem(SND) !== "0"; } catch(e){ return true; } };
@@ -707,7 +707,7 @@ const Lern = (() => {
     lose: () => [392, 330, 262, 196].forEach((f, i) => tone(f, .28, "triangle", .1, i*.15)),
     lvl: () => [523, 659, 784, 1047].forEach((f, i) => tone(f, .2, "triangle", .1, i*.08)),
     star: () => tone(1100 + Math.random()*300, .18, "sine", .1)};
-  function sfx(k){
+  function sfx(k){ if (window.__sweep) return;
     if (!sndOn()) return;
     try { if (navigator.vibrate && VIB[k]) navigator.vibrate(VIB[k]); } catch(e){}
     try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.state === "suspended") AC.resume(); (SFX[k] || (() => {}))(); } catch(e){}
@@ -797,17 +797,27 @@ document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElemen
   const sr = document.createElement("script"); sr.type = "speculationrules";
   sr.textContent = JSON.stringify({prefetch: [{where: {and: [{href_matches: "/*"}, {not: {selector_matches: "[href^='#']"}}]}, eagerness: "moderate"}].concat(nx ? [{urls: [nx.href], eagerness: "eager"}] : [])});
   document.head.appendChild(sr); } } catch(e){} });
-// Ruhige Regler: Felder mit data-hold behalten ihre größte Höhe, damit beim Schieben nichts darunter springt
+// Ruhige Regler: Wert-Anzeigen neben Reglern bekommen ihre größte Breite (sonst springt die Skala),
+// Felder mit data-hold ihre größte Höhe (sonst springt der Inhalt darunter). Einmal still alle Werte durchspielen.
 (() => {
   let w0 = 0;
   function hold(){
-    const hs = [...new Set([...document.querySelectorAll("[data-hold]")].map(h => getComputedStyle(h).display === "inline" ? h.parentElement : h))]; if (!hs.length || innerWidth === w0) return; w0 = innerWidth;
-    hs.forEach(h => h.style.minHeight = ""); const mx = hs.map(h => h.offsetHeight);
-    const rs = [...document.querySelectorAll('input[type="range"]')];
-    const fire = r => r.dispatchEvent(new Event("input", {bubbles: true})), see = () => hs.forEach((h, i) => mx[i] = Math.max(mx[i], h.offsetHeight));
-    rs.forEach(r => { const v = r.value, st = +r.step || 1, n = Math.min(60, Math.round((r.max - r.min)/st));
-      for (let k = 0; k <= n; k++){ r.value = +r.min + (r.max - r.min)*k/n; fire(r); see(); } r.value = v; fire(r); });
-    hs.forEach((h, i) => h.style.minHeight = mx[i] + "px");
+    const rs = [...document.querySelectorAll('input[type="range"]:not([data-nosweep])')]; if (!rs.length || innerWidth === w0) return; w0 = innerWidth;
+    const hs = [...new Set([...document.querySelectorAll("[data-hold]")].map(h => getComputedStyle(h).display === "inline" ? h.parentElement : h))];
+    const vs = rs.flatMap(r => [...r.parentElement.children].filter(x => x !== r && x.id && /^(B|OUTPUT|SPAN|STRONG|EM)$/.test(x.tagName) && x.offsetParent));
+    hs.forEach(h => h.style.minHeight = ""); vs.forEach(v => { v.style.minWidth = ""; if (getComputedStyle(v).display === "inline") v.style.display = "inline-block"; v.style.textAlign = "right"; });
+    const mh = hs.map(h => h.offsetHeight), mw = vs.map(v => v.getBoundingClientRect().width);
+    const fire = r => r.dispatchEvent(new Event("input", {bubbles: true})), see = () => { hs.forEach((h, i) => mh[i] = Math.max(mh[i], h.offsetHeight)); vs.forEach((v, i) => mw[i] = Math.max(mw[i], v.getBoundingClientRect().width)); };
+    window.__sweep = 1;
+    const v0 = rs.map(r => r.value), set = (r, v) => { r.value = v; fire(r); };
+    try { for (const ctx of [null, "min", "max"]){   // jeder Regler einzeln, die anderen auf Start, ganz links und ganz rechts
+      if (ctx && rs.length < 2) break;
+      rs.forEach((r, j) => { rs.forEach((o, i) => i !== j && set(o, ctx ? o[ctx] : v0[i]));
+        const st = +r.step || 1, n = Math.max(1, Math.min(60, Math.round((r.max - r.min)/st)));
+        for (let k = 0; k <= n; k++){ set(r, +r.min + (r.max - r.min)*k/n); see(); } set(r, v0[j]); }); }
+      rs.forEach((r, i) => set(r, v0[i])); } catch(e){}
+    window.__sweep = 0;
+    hs.forEach((h, i) => h.style.minHeight = mh[i] + "px"); vs.forEach((v, i) => v.style.minWidth = Math.ceil(mw[i]) + "px");
   }
   addEventListener("load", () => setTimeout(hold, 60));
   let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(hold, 250); });

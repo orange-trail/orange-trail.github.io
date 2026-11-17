@@ -100,7 +100,7 @@
     <p class="muted" style="margin:0">Acht Kästen <b>a bis h</b> starten mit festen Werten. In jeder Runde bekommen nur <b>a</b> und <b>e</b> neue Werte, alle anderen <b>rutschen einen Kasten weiter</b>. Nach 64 Runden ist von deinem Text nichts mehr wiederzuerkennen.</p>
     <div class="regs nogl" id="regs"></div>
     <div class="rnd" id="rnd"></div>
-    <div class="ctl"><div class="row"><button class="btn" id="rPrev" type="button" aria-label="Runde zurück">◀</button><input type="range" id="rS" min="0" max="64" value="0" aria-label="Runde"><button class="btn" id="rNext" type="button" aria-label="Nächste Runde">▶</button><button class="btn" id="rPlay" type="button">▶▶ Abspielen</button></div></div>
+    <div class="ctl"><div class="row"><button class="btn" id="rPrev" type="button" aria-label="Runde zurück">◀</button><input type="range" id="rS" data-nosweep min="0" max="64" value="0" aria-label="Runde"><button class="btn" id="rNext" type="button" aria-label="Nächste Runde">▶</button><button class="btn" id="rPlay" type="button">▶▶ Abspielen</button></div></div>
     <div class="calc nogl" id="calc"></div>
     <div class="final" id="fin"></div>
   </section>
@@ -140,7 +140,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=72"></script>
+<script src="../lern.js?v=73"></script>
 <script>
 /* =====================================================================
    SHA-256 VON INNEN – Lernwelt von Orange Trail
