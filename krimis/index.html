@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bitcoin-Krimis · Orange Trail</title>
+<meta name="description" content="Profi-Vertiefung: Fünf echte Fälle von Mt. Gox bis FTX. Was passiert ist, was die Opfer geschützt hätte und wie Ermittler Diebe über die Blockchain fanden.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bitcoin-Krimis · Orange Trail">
+<meta property="og:description" content="Profi-Vertiefung: Fünf echte Fälle von Mt. Gox bis FTX. Was passiert ist, was die Opfer geschützt hätte und wie Ermittler Diebe über die Blockchain fanden.">
+<meta property="og:image" content="https://satsland.github.io/og/krimis.jpg">
+<meta property="og:url" content="https://satsland.github.io/krimis/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=59">
+<style>
+/* Lernwelt "Bitcoin-Krimis": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.akten{display:grid;gap:12px;margin-top:10px}
+.akte{position:relative;border-radius:16px;border:2px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));padding:14px}
+.akte::before{content:attr(data-nr);position:absolute;top:-10px;left:14px;font:800 11px var(--f-body);letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:#2a2f5e;color:var(--gold)}
+.akte h3{margin:2px 0 2px;font-size:18px} .akte .meta{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.akte .meta span{font:700 12px var(--f-body);padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.06);color:var(--muted)} .akte .meta span.dmg{background:rgba(255,92,115,.15);color:#ffb0bc}
+.akte p{margin:0;font-size:15px;line-height:1.55}
+.akte .q{margin:12px 0 6px;font-weight:800;font-size:15px}
+.opts{display:grid;gap:6px}
+.opts button{text-align:left;font:600 14px/1.4 var(--f-body);padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);cursor:pointer;transition:transform .12s}
+.opts button:active{transform:scale(.98)}
+.opts button.rt{border-color:var(--bull);background:rgba(52,217,130,.14);color:var(--ink)} .opts button.wr{border-color:var(--bear);background:rgba(255,92,115,.12);animation:shake .4s}
+.akte.done .opts button:not(.rt):not(.wr){opacity:.45}
+.sol{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.22);font-size:14px;line-height:1.5}
+.sol a{color:var(--gold);font-weight:700}
+.akte.done .sol{display:block} .akte.done{border-color:rgba(247,147,26,.5)}
+.akte.solved::after{content:"✔ GELÖST";position:absolute;top:12px;right:12px;font:900 11px var(--f-body);letter-spacing:.8px;color:var(--bull);border:2px solid var(--bull);border-radius:6px;padding:2px 6px;transform:rotate(6deg)}
+.rank{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--gold);background:rgba(247,147,26,.1);font-size:15px;line-height:1.5} .rank strong{display:block;font-size:18px}
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Bitcoin-<span class="btc">Krimis</span></h1>
+    <p class="lead">Fünf echte Fälle, fünf Akten. Bitcoin selbst wurde nie gehackt. Das Geld verschwand fast immer <b>drumherum</b>: bei Börsen, durch Betrug oder Unachtsamkeit. Lies die Akte und finde heraus, was geschützt hätte.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h1s">
+    <h2 id="h1s">Die Fallakten</h2>
+    <div class="akten" id="akten"></div>
+    <div class="rank" id="rank" hidden aria-live="polite"></div>
+  </section>
+
+  <section class="card" aria-labelledby="hMs">
+    <h2 id="hMs">Das solltest du dir merken</h2>
+    <div class="learn">
+      <div><b>Börse ist kein Tresor</b><span>Mt. Gox, QuadrigaCX, FTX: Wer seine Bitcoin auf der Börse ließ, hatte nur ein <b>Versprechen</b>.</span></div>
+      <div><b>Ein Backup reicht nicht immer</b><span>Ein einziger Speicherort kann im Müll landen. Seed <b>an zwei Orten</b> sichern.</span></div>
+      <div><b>Promis sind kein Beweis</b><span>FTX warb mit Sportstars und Stadionnamen. Seriosität erkennt man daran nicht.</span></div>
+      <div><b>Die Spur bleibt</b><span>Alle Zahlungen sind öffentlich. Ermittler können gestohlene Bitcoin <b>jahrelang verfolgen</b>.</span></div>
+    </div>
+    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+  </section>
+
+  <section class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary>Quellen</summary><p>Gerundete Zahlen nach öffentlichen Berichten: <a href="https://en.wikipedia.org/wiki/Mt._Gox">Mt. Gox</a> · <a href="https://osc.ca/quadrigacxreport/index.html">QuadrigaCX: Bericht der Börsenaufsicht Ontario (2020)</a> · <a href="https://cointelegraph.com/news/james-howells-pivots-digging-tokenizing-recover-lost-bitcoin">Festplatte: Cointelegraph</a> · <a href="https://www.justice.gov/opa/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes">FTX: US-Justizministerium (2024)</a> · <a href="https://www.justice.gov/opa/pr/two-arrested-alleged-conspiracy-launder-45-billion-stolen-cryptocurrency">Bitfinex: US-Justizministerium (2022)</a></p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=76"></script>
+<script>
+/* =====================================================================
+   BITCOIN-KRIMIS – Lernwelt von Orange Trail
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id);
+// [Titel, Jahr, Schaden, Akte, Frage, [Antworten], richtig, Auflösung, Link, Linktext]
+const K = [
+ ["Mt. Gox: Die Börse mit dem Loch", "2014", "rund 850.000 BTC",
+  "Mt. Gox in Tokio war zeitweise die <b>größte Bitcoin-Börse der Welt</b>. Im Februar 2014 stoppt sie alle Auszahlungen. Über Jahre hatten Diebe unbemerkt Bitcoin abgezogen. Rund 200.000 BTC tauchen später wieder auf. Die Kunden warten <b>zehn Jahre</b>, erst ab 2024 gibt es Rückzahlungen.",
+  "Was hätte die Kunden geschützt?", ["Ein besonders starkes Passwort", "Bitcoin nach dem Kauf auf die eigene Wallet abheben", "Noch mehr Bitcoin kaufen"], 1,
+  "Wer seine Schlüssel selbst hatte, war nicht betroffen. Auf der Börse hatten die Kunden nur ein Versprechen. Das Passwort schützte ihr Konto, aber nicht die Bitcoin in der Börse.", "../wallets/", "Wallets: Wer schützt wovor?"],
+ ["QuadrigaCX: Das Geheimnis des Gründers", "2018/19", "über 169 Mio. kanadische Dollar",
+  "Der Gründer der größten Börse Kanadas stirbt im Dezember 2018 auf einer Reise. Angeblich hatte <b>nur er</b> die Passwörter zu den Offline-Wallets. Dann die Wende: Die Aufsicht findet heraus, dass diese Wallets längst <b>leer</b> waren. Er hatte Kundengeld verzockt und veruntreut. Rund 76.000 Kunden verlieren Geld.",
+  "Was ist die wichtigste Lehre?", ["Eine Börse, bei der einer allein alles kontrolliert, ist ein Risiko. Eigene Schlüssel sind sicherer", "Man sollte sich öfter einloggen", "Nur Börsen mit hübscher App nutzen"], 0,
+  "Niemand konnte prüfen, ob die Bitcoin noch da sind. Mit eigenen Schlüsseln musst du keinem Gründer vertrauen. Und für deine eigenen Bitcoin gilt: Plan für den Notfall, damit deine Familie herankommt.", "../seed/", "Seed: Backup-Plan und Brief für die Erben"],
+ ["Die Festplatte auf der Müllkippe", "2013", "rund 8.000 BTC",
+  "Ein Mann aus Wales hat 2009 Bitcoin geschürft, als sie fast nichts wert waren. 2013 räumt er auf, und eine alte Festplatte landet im Müll. Darauf: der einzige Schlüssel zu rund 8.000 BTC. Die Stadt verbietet die Suche auf der Deponie, eine Klage scheitert 2025. Später gibt er auf.",
+  "Was hätte ihm geholfen?", ["Die Festplatte zusätzlich verschlüsseln", "Ein Backup der Schlüssel an einem zweiten, sicheren Ort", "Eine größere Festplatte kaufen"], 1,
+  "Verschlüsselung schützt vor Dieben, aber nicht vor Verlust. Heute hast du dafür die <b>Seed-Wörter</b>: offline aufschreiben, am besten an zwei Orten.", "../seed/", "Seed-Trainer"],
+ ["FTX: Der Absturz des Wunderkinds", "2022", "rund 8 Mrd. US-Dollar Kundengeld",
+  "FTX war eine der größten Börsen, mit Werbung durch Sportstars und einem eigenen Stadionnamen. Im November 2022 wollen viele Kunden gleichzeitig ihr Geld, aber es ist nicht da. Der Gründer hatte <b>Kundengeld heimlich</b> an seine eigene Trading-Firma weitergegeben. 2024 wird er zu <b>25 Jahren Haft</b> verurteilt.",
+  "Was hätte die Kunden geschützt?", ["Auf die Werbung mit Promis vertrauen", "Bitcoin abheben: Nicht deine Schlüssel, nicht deine Bitcoin", "Auf hohe Zinsen achten"], 1,
+  "Promis und hohe Zinsen sind kein Zeichen für Sicherheit, eher ein Warnsignal. Wer abgehoben hatte, war nicht betroffen.", "../betrug/", "Betrug erkennen"],
+ ["Bitfinex: Die Spur in der Blockchain", "2016 bis 2022", "rund 120.000 BTC gestohlen",
+  "2016 erbeuten Hacker bei der Börse Bitfinex rund 120.000 BTC. Jahrelang schieben die Täter die Beute über viele Adressen, um die Spur zu verwischen. 2022 nehmen Ermittler in New York ein Paar fest und stellen über <b>94.000 BTC</b> sicher. <b>Fall gelöst.</b>",
+  "Wie kamen die Ermittler den Tätern auf die Spur?", ["Bitcoin hat eine geheime Namensliste", "Sie verfolgten die öffentlichen Zahlungen in der Blockchain, bis Geld bei Konten mit echten Namen ankam", "Satoshi hat geholfen"], 1,
+  "Bitcoin ist nicht anonym. Jede Zahlung bleibt für immer sichtbar. Sobald Geld bei einer Börse mit Ausweispflicht landet, hat die Spur einen Namen.", "../privatsphaere/", "Privatsphäre"]];
+let pts = 0, n = 0;
+$("akten").innerHTML = K.map(([t, y, d, a, q, o], i) => `<article class="akte" id="a${i}" data-nr="Akte ${i + 1} von ${K.length}"><h3>${t}</h3><div class="meta"><span>📅 ${y}</span><span class="dmg">💸 ${d}</span></div><p>${a}</p><p class="q">🔍 ${q}</p><div class="opts">${o.map((x, j) => `<button type="button" data-i="${i}" data-j="${j}">${x}</button>`).join("")}</div><div class="sol" aria-live="polite"></div></article>`).join("");
+$("akten").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const i = +b.dataset.i, A = $("a" + i), k = K[i]; if (A.classList.contains("done")) return;
+  const ok = +b.dataset.j === k[6]; A.classList.add("done"); if (ok) A.classList.add("solved"); b.classList.add(ok ? "rt" : "wr");
+  if (!ok) A.querySelector(`[data-j="${k[6]}"]`).classList.add("rt");
+  A.querySelector(".sol").innerHTML = `${ok ? "✅ <b>Richtig.</b> " : "❌ <b>Nicht ganz.</b> "}${k[7]} <a href="${k[8]}">→ ${k[9]}</a>`;
+  n++; if (ok) pts++;
+  if (n === K.length){ const R = $("rank"); R.hidden = false;
+    R.innerHTML = `<strong>${pts === 5 ? "🕵️ Meisterdetektiv!" : pts >= 3 ? "🔎 Kommissar" : "📋 Anwärter"}: ${pts} von 5 Akten gelöst</strong>Fast alle Verluste passierten bei Börsen oder durch fehlende Backups, nicht weil Bitcoin selbst gehackt wurde.`;
+    if (pts === 5) try { Lern.confetti && Lern.confetti(); } catch(e){} } });
+
+const QUIZ = [["Was haben Mt. Gox, QuadrigaCX und FTX gemeinsam?", ["Bitcoin selbst wurde gehackt", "Die Kunden ließen ihre Bitcoin bei einer Börse, die sie verlor", "Es waren alles kleine, unbekannte Börsen"], 1, "In allen drei Fällen hatten die Kunden ihre Schlüssel nicht selbst."],
+  ["Wie schützt man sich am besten vor dem Fall „Festplatte im Müll“?", ["Seed-Wörter offline an zwei sicheren Orten aufbewahren", "Nie wieder aufräumen", "Alles in der Cloud speichern"], 0, "Die Cloud kann gehackt werden. Zwei Offline-Kopien schützen vor Verlust und Dieben."],
+  ["Warum konnten die Bitfinex-Diebe überführt werden?", ["Bitcoin-Zahlungen sind öffentlich und lassen sich verfolgen", "Die Börse hatte ihre Namen", "Durch einen Zufall im Supermarkt"], 0, "Bitcoin ist pseudonym, nicht anonym. Die Spur bleibt für immer in der Blockchain."]];
+Lern.quiz($("quiz"), "krimis", QUIZ, "../"); Lern.visit("krimis"); Lern.renderNext("krimis", "../");
+})();
+</script>
+</body>
+</html>

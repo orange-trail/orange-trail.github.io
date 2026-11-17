@@ -247,7 +247,7 @@ svg.line path{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:900
 @keyframes rise{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 .res{animation:resin .35s cubic-bezier(.2,.8,.2,1)} @keyframes resin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 h2{scroll-margin-top:12px}
-.xref{border-style:dashed}
+.xref{border-style:dashed} .xref .note{flex-wrap:wrap;column-gap:6px}
 @media (hover:none){ .btn:not(.ghost)::after{display:none} }
 
 /* ===== Boss-Arena v2 ===== */
@@ -314,7 +314,7 @@ svg a:focus:not(:focus-visible),svg [role=button]:focus:not(:focus-visible){outl
 svg a:focus-visible,svg [role=button]:focus-visible{outline:3px solid #ffc94d;outline-offset:2px}
 
 /* Hinweis auf ein Thema, das später im Pfad kommt (bewusst kein Link) */
-.later{display:inline-block;font-size:.8em;font-weight:800;color:#9aa2d6;background:rgba(255,255,255,.07);border-radius:999px;padding:0 7px;white-space:nowrap}
+.later{display:inline-block;font-size:.8em;font-weight:800;color:#9aa2d6;background:rgba(255,255,255,.07);border-radius:999px;padding:0 7px;white-space:nowrap;max-width:100%} .later.wrap,.story .later{white-space:normal;border-radius:10px}
 
 /* Schalter „Weniger Bewegung“: Animationen und Übergänge praktisch aus */
 html.calm *,html.calm *::before,html.calm *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}

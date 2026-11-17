@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Die Vorläufer · Orange Trail</title>
+<meta name="description" content="Profi-Vertiefung: DigiCash, Hashcash, b-money, Bit Gold und RPOW. Woran digitales Geld vor Bitcoin scheiterte und welches Puzzleteil Satoshi ergänzt hat.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Die Vorläufer · Orange Trail">
+<meta property="og:description" content="Profi-Vertiefung: DigiCash, Hashcash, b-money, Bit Gold und RPOW. Woran digitales Geld vor Bitcoin scheiterte und welches Puzzleteil Satoshi ergänzt hat.">
+<meta property="og:image" content="https://satsland.github.io/og/vorlaeufer.jpg">
+<meta property="og:url" content="https://satsland.github.io/vorlaeufer/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=59">
+<style>
+/* Lernwelt "Die Vorläufer": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.pre{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-top:10px}
+.pc{text-align:left;font:14px/1.45 var(--f-body);color:var(--ink);padding:12px;border-radius:14px;border:2px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer}
+.pc .y{font:800 12px var(--f-num);color:var(--gold)} .pc b{display:block;font-size:16px;margin:2px 0} .pc small{display:block;color:var(--muted);font-size:12px}
+.pc .d{display:none;margin-top:8px} .pc .d span{display:block;margin-top:4px;color:var(--muted)} .pc .d strong{color:var(--ink)}
+.pc .h{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
+.pc[aria-expanded="true"]{border-color:var(--gold);background:rgba(247,147,26,.1)} .pc[aria-expanded="true"] .d{display:block} .pc[aria-expanded="true"] .h{display:none}
+.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:12px}
+.slot{min-height:64px;border-radius:12px;border:2px dashed var(--line);display:grid;place-items:center;text-align:center;padding:6px;font-size:12px;color:var(--muted);line-height:1.3}
+.slot.on{border-style:solid;border-color:var(--bull);background:rgba(52,217,130,.1);color:var(--ink);animation:pop .35s} .slot.on b{display:block;font-size:13px} .slot.on small{color:var(--muted)}
+.slot.sat{border-color:var(--gold);background:rgba(247,147,26,.15)}
+.pieces{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pz{font:700 14px var(--f-body);padding:9px 13px;border-radius:12px;border:2px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer}
+.pz.used{opacity:.35;pointer-events:none} .pz.no{border-color:var(--bear);animation:shake .4s}
+.fb{margin:10px 0 0;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.45;background:rgba(255,255,255,.04);border:1px solid var(--line)} .fb.ok{border-color:var(--bull)} .fb.no{border-color:var(--bear)} .fb.gold{border-color:var(--gold);background:rgba(247,147,26,.1)}
+.note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
+@media (max-width:420px){ .slots{grid-template-columns:1fr 1fr} }
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Die <span class="btc">Vorläufer</span></h1>
+    <p class="lead">Bitcoin kam 2008 nicht aus dem Nichts. Seit den 80ern versuchten Forscher, digitales Geld zu bauen. Jeder Versuch löste ein Teil des Problems, und jeder scheiterte an etwas anderem. Satoshi hat die Teile <b>zusammengesetzt</b> und das letzte fehlende ergänzt.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h1s">
+    <h2 id="h1s">1 · Die Versuche vor Bitcoin</h2>
+    <p class="muted" style="margin:0">Tipp eine Karte an: Was brachte die Idee, und woran hakte es?</p>
+    <div class="pre" id="pre"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h2s">
+    <h2 id="h2s">2 · Puzzle: Bau Bitcoin zusammen</h2>
+    <p class="muted" style="margin:0">Bitcoin braucht <b>sechs Bausteine</b>. Fünf gab es schon. Tipp die richtigen an, aber Vorsicht: Zwei Teile hätten Bitcoin kaputtgemacht.</p>
+    <div class="slots" id="slots"></div>
+    <div class="pieces" id="pieces"></div>
+    <p class="fb" id="fb" aria-live="polite" hidden></p>
+  </section>
+
+  <section class="card" aria-labelledby="hMs">
+    <h2 id="hMs">Das solltest du dir merken</h2>
+    <div class="learn">
+      <div><b>Jahrzehnte Vorarbeit</b><span>Unterschriften, Arbeitsnachweis, Zeitstempel-Ketten: Die Bausteine gab es <b>vor</b> Bitcoin.</span></div>
+      <div><b>Das Chef-Problem</b><span>Frühe Versuche brauchten eine <b>Firma oder einen Server</b>. Fiel der weg, war das Geld weg.</span></div>
+      <div><b>Satoshis Beitrag</b><span>Die <b>Kette mit der meisten Arbeit</b> gilt. So einigen sich alle ohne Chef, wer zuerst bezahlt hat.</span></div>
+      <div><b>Im Whitepaper zitiert</b><span>b-money, Hashcash und die Zeitstempel-Kette stehen in Satoshis <b>Quellenliste</b>.</span></div>
+    </div>
+    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+  </section>
+
+  <section class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary>Quellen</summary><p><a href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Quellenliste</a> · <a href="http://www.hashcash.org/papers/hashcash.pdf">Adam Back: Hashcash</a> · <a href="http://www.weidai.com/bmoney.txt">Wei Dai: b-money</a> · <a href="https://unenumerated.blogspot.com/2005/12/bit-gold.html">Nick Szabo: Bit Gold</a> · <a href="https://nakamotoinstitute.org/finney/rpow/">Hal Finney: RPOW</a></p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=76"></script>
+<script>
+/* =====================================================================
+   DIE VORLÄUFER – Lernwelt von Orange Trail
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id);
+// [Jahr, Name, Person, Idee, Problem]
+const P = [["1982", "eCash / DigiCash", "David Chaum",
+  "Digitales Bargeld mit <strong>cleverer Kryptografie</strong>: Die Bank kann Zahlungen bestätigen, ohne zu sehen, wer was bezahlt.", "Ohne die Firma DigiCash ging nichts. Sie fand zu wenig Partner und ging <strong>1998 pleite</strong>, und mit ihr das System."],
+ ["1991", "Zeitstempel-Kette", "Stuart Haber &amp; Scott Stornetta",
+  "Dokumente bekommen einen Zeitstempel, und jeder Stempel enthält den <strong>Hash des vorherigen</strong>. Nachträglich ändern fällt sofort auf.", "Kein Geld, sondern ein digitaler Notar für Dokumente."],
+ ["1997", "Hashcash", "Adam Back",
+  "Ein <strong>Arbeitsnachweis</strong> gegen Spam: Jede E-Mail kostet ein bisschen Rechenarbeit. Für einen Brief egal, für Millionen Spam-Mails teuer.", "Eine Briefmarke, kein Geld: Man konnte die Arbeit nicht weitergeben oder sparen."],
+ ["1998", "b-money", "Wei Dai",
+  "Alle Teilnehmer führen <strong>gemeinsam ein Kassenbuch</strong>. Neues Geld entsteht durch Rechenarbeit.", "Blieb eine Idee auf dem Papier. Wie sich alle ohne Chef auf <strong>einen</strong> Stand einigen, war nicht gelöst."],
+ ["1998", "Bit Gold", "Nick Szabo",
+  "Digitales Gold: Wertvoll, weil es <strong>Rechenarbeit kostet</strong>, so wie Gold Arbeit in der Mine kostet.", "Auch nie gebaut. Wem welches Stück gehört, sollte ein gemeinsames Register festhalten. Wie sich alle darauf einigen, ohne dass Betrüger mit vielen falschen Stimmen gewinnen, blieb offen."],
+ ["2004", "RPOW", "Hal Finney",
+  "Arbeitsnachweise, die man <strong>weitergeben</strong> kann wie Münzen. Finney baute es wirklich.", "Ein Server prüfte alles. Er lief auf spezieller Hardware, die man prüfen konnte. Wer ihn abschaltet, beendet das System."]];
+$("pre").innerHTML = P.map(([y, n, w, i, p], k) => `<button type="button" class="pc" aria-expanded="false" data-i="${k}"><span class="y">${y}</span><b>${n}</b><small>${w}</small><span class="h">antippen</span><span class="d"><span>💡 ${i}</span><span>⚠️ ${p}</span></span></button>`).join("");
+$("pre").addEventListener("click", e => { const b = e.target.closest(".pc"); if (b) b.setAttribute("aria-expanded", b.getAttribute("aria-expanded") !== "true"); });
+
+// Puzzle: [Text, Herkunft oder null = falsch, Erklärung]
+const Z = [["✍️ Digitale Unterschriften", "Kryptografie, u. a. Chaum", "Nur wer den Schlüssel hat, kann ausgeben."],
+  ["⛏ Arbeitsnachweis", "Hashcash, 1997", "Neue Blöcke kosten echte Rechenarbeit."],
+  ["⛓ Kette aus Zeitstempeln", "Haber &amp; Stornetta, 1991", "Jeder Block enthält den Hash des vorherigen."],
+  ["🏦 Eine Firma, die alles prüft", null, "Genau daran ist DigiCash gescheitert. Mit Chef wäre Bitcoin abschaltbar."],
+  ["📒 Kassenbuch bei allen", "b-money, 1998", "Jeder hat eine Kopie, niemand allein bestimmt."],
+  ["🖥 Ein vertrauenswürdiger Server", null, "So arbeitete RPOW. Wer den Server kontrolliert, kontrolliert das Geld."],
+  ["💎 Knappheit durch Arbeit", "Bit Gold, 1998", "Neue Coins gibt es nur gegen Rechenarbeit, nach fester Regel."]];
+const SAT = ["🧩 Die Kette mit der meisten Arbeit gilt", "Satoshi, 2008", "Das fehlende Teil: So einigen sich alle ohne Chef auf eine Reihenfolge, und Doppelausgaben fallen auf."];
+let got = [];
+function draw(){
+  const all = got.map(i => Z[i]).concat(got.length === 5 ? [SAT] : []);
+  $("slots").innerHTML = Array.from({length: 6}, (_, k) => all[k] ? `<div class="slot on${k === 5 ? " sat" : ""}"><span><b>${all[k][0]}</b><small>${all[k][1]}</small></span></div>` : `<div class="slot">${k === 5 ? "❓ Das letzte Teil" : "Baustein " + (k + 1)}</div>`).join("");
+  $("pieces").innerHTML = Z.map(([t, o], i) => `<button type="button" class="pz${got.includes(i) ? " used" : ""}" data-i="${i}">${t}</button>`).join("")
+    + (got.length === 5 ? "" : "") + (got.length >= 5 ? `<button type="button" class="pz" id="again">↺ Nochmal</button>` : "");
+}
+function fb(c, h){ const F = $("fb"); F.hidden = false; F.className = "fb " + c; F.innerHTML = h; }
+$("pieces").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return;
+  if (b.id === "again"){ got = []; $("fb").hidden = true; return draw(); }
+  const i = +b.dataset.i, z = Z[i];
+  if (!z[1]){ fb("no", `❌ <b>${z[0]}</b>: ${z[2]}`); draw(); const nb = $("pieces").querySelector(`[data-i="${i}"]`); nb && nb.classList.add("no"); return; }
+  got.push(i); draw();
+  if (got.length < 5) fb("ok", `✅ <b>${z[0]}</b> (${z[1]}): ${z[2]}`);
+  else { fb("gold", `🎉 Alle fünf Vorläufer-Teile sitzen. Das sechste brachte <b>Satoshi</b>: <b>${SAT[0].slice(3)}</b>. ${SAT[2]} Daraus wurde 2008 Bitcoin.`); try { Lern.confetti && Lern.confetti(); } catch(e){} }
+});
+draw();
+
+const QUIZ = [["Woran scheiterte DigiCash?", ["Die Technik funktionierte nicht", "Es hing an einer Firma, und die ging 1998 pleite", "Es war zu schnell"], 1, "Ohne die Firma ging nichts. Genau dieses Risiko vermeidet Bitcoin."],
+  ["Wofür war Hashcash ursprünglich gedacht?", ["Gegen Spam-Mails", "Als Ersatz für den Euro", "Für Online-Spiele"], 0, "Jede Mail kostet etwas Rechenarbeit. Bitcoin nutzt die Idee als Arbeitsnachweis."],
+  ["Welches Teil hat Satoshi neu hinzugefügt?", ["Digitale Unterschriften", "Die Regel: Die Kette mit der meisten Arbeit gilt", "Das Internet"], 1, "Damit einigen sich alle ohne Chef auf eine Reihenfolge der Zahlungen."]];
+Lern.quiz($("quiz"), "vorlaeufer", QUIZ, "../"); Lern.visit("vorlaeufer"); Lern.renderNext("vorlaeufer", "../");
+})();
+</script>
+</body>
+</html>

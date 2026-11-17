@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hyperinflation-Akte · Orange Trail</title>
+<meta name="description" content="Profi-Vertiefung: Deutschland 1923, Simbabwe, Venezuela. Wie Geld innerhalb von Monaten wertlos wird, wer verliert, wer gewinnt und was danach kommt.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hyperinflation-Akte · Orange Trail">
+<meta property="og:description" content="Profi-Vertiefung: Deutschland 1923, Simbabwe, Venezuela. Wie Geld innerhalb von Monaten wertlos wird, wer verliert, wer gewinnt und was danach kommt.">
+<meta property="og:image" content="https://satsland.github.io/og/hyperinflation.jpg">
+<meta property="og:url" content="https://satsland.github.io/hyperinflation/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=59">
+<style>
+/* Lernwelt "Hyperinflation-Akte": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.tl{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 8px;margin-top:10px;scrollbar-width:thin}
+.tl button{flex:none;font:800 13px var(--f-body);padding:8px 11px;border-radius:999px;border:2px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);cursor:pointer}
+.tl button[aria-pressed="true"]{border-color:var(--gold);color:var(--ink);background:rgba(247,147,26,.16)}
+.bread{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;margin-top:10px;padding:14px;border-radius:16px;border:2px solid var(--line);background:rgba(255,255,255,.03)}
+.bread .ic{font-size:46px;line-height:1}
+.bread small{display:block;color:var(--muted);font-size:13px}
+.bread b{display:block;font:900 clamp(22px,6vw,34px)/1.15 var(--f-num);color:var(--gold);word-break:break-word}
+.bread em{display:block;font-style:normal;color:var(--muted);font-size:13px;margin-top:2px}
+.zeros{display:flex;flex-wrap:wrap;gap:3px;margin-top:10px;min-height:16px} .zeros i{width:12px;height:12px;border-radius:50%;background:#ff8a9a;animation:pop .3s both}
+.story{margin:10px 0 0;font-size:15px;line-height:1.55}
+.save{margin-top:10px;padding:10px 12px;border-radius:12px;border:1px dashed var(--line);font-size:14px;color:var(--muted)} .save b{color:var(--ink)}
+.acts2{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sort{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+.it{border:2px solid var(--line);border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);transition:border-color .3s,background .3s}
+.it b{display:block;margin-bottom:6px;font-size:15px}
+.it .row{display:flex;flex-wrap:wrap;gap:6px}
+.it .row button{font:700 13px var(--f-body);padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer}
+.it .row button.pick{border-color:var(--gold);background:rgba(247,147,26,.2)}
+.it p{margin:8px 0 0;font-size:14px;line-height:1.45}
+.it.ok{border-color:rgba(52,217,130,.7);background:rgba(52,217,130,.08)} .it.no{border-color:rgba(255,92,115,.6);background:rgba(255,92,115,.08)}
+.it.ok p::before{content:"✓ ";font-weight:900;color:var(--bull)} .it.no p::before{content:"✗ ";font-weight:900;color:var(--bear)}
+.score{margin:10px 0 0;font-weight:800}
+.note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
+@media (max-width:420px){ .sort{grid-template-columns:1fr} }
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Wenn Geld <span class="btc">verdampft</span></h1>
+    <p class="lead">2 % Inflation im Jahr merkt man kaum. Bei einer <b>Hyperinflation</b> steigen die Preise um mehr als <b>50 % im Monat</b>. Ersparnisse sind dann in wenigen Monaten weg. Drei echte Fälle aus der Akte.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h1s">
+    <h2 id="h1s">1 · Deutschland 1923: der Brot-Zeitraffer</h2>
+    <p class="muted" style="margin:0">Tipp dich durch die Monate oder starte den Zeitraffer. So viel kostete ein Brot:</p>
+    <div class="tl" id="tl" role="tablist" aria-label="Zeitpunkte"></div>
+    <div class="bread"><span class="ic" aria-hidden="true">🍞</span><div><small id="bD">–</small><b id="bP">–</b><em id="bW"></em></div></div>
+    <div class="zeros" id="zeros" aria-hidden="true"></div>
+    <p class="story" id="bS"></p>
+    <p class="save" id="bSv"></p>
+    <div class="acts2"><button class="btn" type="button" id="play">▶ Zeitraffer</button><button class="btn ghost" type="button" id="end">⏭ Wie ging es aus?</button></div>
+    <div class="learn bx" id="fin" hidden style="margin-top:12px">
+      <div><b>🔄 Der Neustart</b><span>Ab 15. November 1923 gibt es die <b>Rentenmark</b>: 1 Rentenmark = 1 Billion Papiermark. Zwölf Nullen weg.</span></div>
+      <div><b>🤝 Vertrauen zurück</b><span>Die neue Menge ist streng begrenzt. Schon im Dezember füllen sich die Läden wieder, die Bauern liefern.</span></div>
+      <div><b>💸 Der Preis</b><span>Ersparnisse sind vernichtet. Der Staat entlässt rund 400.000 Beschäftigte, Löhne sinken. Das Misstrauen bleibt über Generationen.</span></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h2s">
+    <h2 id="h2s">2 · Wer verliert, wer gewinnt?</h2>
+    <p class="muted" style="margin:0">Hyperinflation trifft nicht alle gleich. Tipp deine Einschätzung an.</p>
+    <div class="sort" id="sort"></div>
+    <p class="score" id="score" aria-live="polite"></p>
+  </section>
+
+  <section class="card" aria-labelledby="h3s">
+    <h2 id="h3s">3 · Nicht nur Geschichte</h2>
+    <div class="learn bx">
+      <div><b>🇿🇼 Simbabwe 2008</b><span>Im November 2008 verdoppelten sich die Preise etwa <b>alle 25 Stunden</b>. 2009 kam ein Schein über 100 Billionen Dollar. Danach zahlte man mit US-Dollar.</span></div>
+      <div><b>🇻🇪 Venezuela 2018</b><span>Laut Zentralbank stiegen die Preise 2018 um rund <b>130.000 %</b>. Zweimal wurden Nullen gestrichen (2018 und 2021). Viele flohen in Dollar, manche in Bitcoin.</span></div>
+      <div><b>🔁 Immer das Muster</b><span>Der Staat bezahlt Ausgaben mit <b>neu gedrucktem Geld</b>. Die Menschen verlieren das Vertrauen und tauschen ihr Geld so schnell wie möglich in Waren. Das treibt die Preise noch mehr.</span></div>
+      <div><b>₿ Und Bitcoin?</b><span>Niemand kann zusätzliche Bitcoin drucken. Aber Bitcoin <b>schwankt stark</b>. In Krisenländern nutzen viele deshalb lieber Dollar oder Dollar-Stablecoins.</span></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="hMs">
+    <h2 id="hMs">Das solltest du dir merken</h2>
+    <div class="learn">
+      <div><b>Ab 50 % im Monat</b><span>So definieren Ökonomen Hyperinflation. Dann <b>verdoppeln</b> sich die Preise in weniger als zwei Monaten.</span></div>
+      <div><b>Drucken + Misstrauen</b><span>Erst druckt der Staat zu viel, dann will niemand mehr das Geld halten. Beides zusammen lässt die Preise explodieren.</span></div>
+      <div><b>Sparer verlieren</b><span>Wer Geld gespart hatte, verliert alles. Wer <b>Schulden oder Sachwerte</b> hatte, kommt besser weg.</span></div>
+      <div><b>Neustart braucht Vertrauen</b><span>Neue Scheine allein helfen nicht. Es braucht eine <b>glaubwürdige Grenze</b> für die Geldmenge.</span></div>
+    </div>
+    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+  </section>
+
+  <section class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary>Quellen</summary><p>Brotpreise, Dollarkurse und Rentenmark: <a href="https://www.bundestag.de/parlament/geschichte/100-jahre-weimar/hyperinflation-970722">Deutscher Bundestag: Hyperinflation 1923</a> (Dezember 1922 nach gängigen Darstellungen, gerundet) · Definition und Simbabwe: <a href="https://www.cato.org/working-paper/world-hyperinflations">Hanke &amp; Krus: World Hyperinflations (Cato Institute)</a> · Venezuela: <a href="https://www.centralbanking.com/central-banks/economics/4230871/venezuelas-central-bank-finally-admits-economic-collapse">Central Banking: Venezuelas Zentralbank</a></p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=76"></script>
+<script>
+/* =====================================================================
+   HYPERINFLATION-AKTE – Lernwelt von Orange Trail
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id), nf = n => n.toLocaleString("de-DE");
+// [Zeitpunkt, Brotpreis in Mark, Geschichte]
+const T = [
+  ["Dez. 1919", 0.8, "Der Krieg ist vorbei, aber der Staat hat riesige Schulden. Er bezahlt vieles mit <b>neu gedrucktem Geld</b>."],
+  ["Dez. 1922", 160, "Die Preise ziehen spürbar an. Wer kann, kauft lieber <b>Dinge</b>, statt zu sparen."],
+  ["Jan. 1923", 250, "Frankreich und Belgien besetzen das Ruhrgebiet. Der Staat bezahlt die streikenden Arbeiter mit <b>frisch gedruckten Scheinen</b>."],
+  ["Aug. 1923", 69000, "Löhne werden täglich ausgezahlt, bald schon mittags. Mit Säcken voller Scheine rennt man <b>sofort</b> in den Laden."],
+  ["Sep. 1923", 1.5e6, "Bis zum Nachmittag verliert das Geld etwa die <b>Hälfte</b> seines Werts. Scheine werden nur noch einseitig bedruckt."],
+  ["Okt. 1923", 1.74e8, "Bauern und Händler halten ihre Waren zurück. Es gibt Streiks, Unruhen und Plünderungen."],
+  ["Nov. 1923", 2.01e11, "Ein Brot kostet <b>201 Milliarden Mark</b>, ein Dollar 4,2 Billionen Mark. Das Geld ist praktisch wertlos."]];
+const word = v => v >= 1e12 ? nf(+(v/1e12).toFixed(1)) + " Billionen" : v >= 1e9 ? nf(Math.round(v/1e9)) + " Milliarden" : v >= 1e6 ? nf(+(v/1e6).toFixed(1)) + " Millionen" : "";
+let k = 0, timer = 0;
+function show(i){
+  k = i; const [d, p, s] = T[i];
+  $("tl").innerHTML = T.map((t, j) => `<button type="button" role="tab" data-i="${j}" aria-pressed="${j === i}">${t[0]}</button>`).join("");
+  $("bD").textContent = "Ein Brot, " + d;
+  $("bP").textContent = (p < 1 ? p.toLocaleString("de-DE", {minimumFractionDigits: 2}) : nf(p)) + " Mark";
+  $("bW").textContent = word(p) ? "in Worten: " + word(p) + " Mark" : "";
+  const z = p < 1 ? 0 : Math.floor(Math.log10(p)); $("zeros").innerHTML = Array(z).fill("<i></i>").join("");
+  $("zeros").setAttribute("title", z + " Stellen");
+  $("bS").innerHTML = s;
+  const br = 1000/p;
+  $("bSv").innerHTML = i === 0 ? "💰 Stell dir vor, du hast <b>1.000 Mark</b> gespart. Das reicht jetzt für <b>1.250 Brote</b>." :
+    `💰 Deine 1.000 gesparten Mark reichen jetzt für <b>${br >= 1 ? nf(Math.floor(br)) + (Math.floor(br) === 1 ? " Brot" : " Brote") : br >= 0.04 ? "eine Scheibe Brot" : br >= 0.005 ? "einen Bissen" : "nicht mal einen Krümel"}</b>.`;
+  const b = $("tl").children[i]; if (b && b.scrollIntoView) b.scrollIntoView({block: "nearest", inline: "center"});
+}
+function stop(){ clearInterval(timer); timer = 0; $("play").textContent = "▶ Zeitraffer"; }
+$("tl").addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b){ stop(); show(+b.dataset.i); } });
+$("play").onclick = () => { if (timer) return stop(); $("play").textContent = "⏸ Anhalten"; if (k === T.length - 1) show(0);
+  timer = setInterval(() => { if (k >= T.length - 1){ stop(); $("fin").hidden = false; return; } show(k + 1); }, 1600); };
+$("end").onclick = () => { stop(); show(T.length - 1); $("fin").hidden = false; $("fin").scrollIntoView({behavior: "smooth", block: "nearest"}); };
+show(0);
+
+// Gewinner oder Verlierer? [Gruppe, 1 = gewinnt, Erklärung]
+const G = [
+  ["👵 Sparerin mit 10.000 Mark auf der Bank", 0, "Ihr Erspartes war im Herbst 1923 nicht einmal mehr ein Brot wert."],
+  ["🏭 Unternehmer mit großem Kredit", 1, "Seine Schulden in Mark lösten sich praktisch auf. Manche, wie Hugo Stinnes, bauten so riesige Firmen auf."],
+  ["👷 Arbeiter mit Wochenlohn", 0, "Die Löhne stiegen immer zu spät. Bis zum Einkauf war ein großer Teil schon weg, trotz täglicher Auszahlung."],
+  ["🏛 Der Staat", 1, "Er hatte hohe Schulden bei den eigenen Bürgern. Die waren auf einmal fast nichts mehr wert."],
+  ["🌾 Bauer mit Kartoffeln und Vieh", 1, "Echte Waren behielten ihren Wert. Viele tauschten lieber Ware gegen Ware als gegen Scheine."],
+  ["🧓 Rentner mit fester Rente", 0, "Die Rente war in Mark festgelegt und schrumpfte zur Bedeutungslosigkeit."]];
+let pts = 0, n = 0;
+$("sort").innerHTML = G.map(([t], i) => `<div class="it" id="g${i}"><b>${t}</b><div class="row"><button type="button" data-i="${i}" data-v="1">📈 Gewinnt</button><button type="button" data-i="${i}" data-v="0">📉 Verliert</button></div><p hidden></p></div>`).join("");
+$("sort").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const i = +b.dataset.i, el = $("g" + i); if (el.dataset.done) return;
+  const ok = +b.dataset.v === G[i][1]; el.dataset.done = 1; b.classList.add("pick"); el.classList.add(ok ? "ok" : "no");
+  const p = el.querySelector("p"); p.hidden = false; p.textContent = (G[i][1] ? "Eher Gewinner. " : "Verlierer. ") + G[i][2];
+  n++; if (ok) pts++; if (n === G.length) $("score").textContent = `${pts} von ${G.length} richtig. Faustregel: Wer Geld hatte, verlor. Wer Schulden oder echte Dinge hatte, kam besser weg.`; });
+
+const QUIZ = [["Ab wann spricht man von Hyperinflation?", ["Ab 10 % Inflation im Jahr", "Ab etwa 50 % Preissteigerung pro Monat", "Wenn die Zentralbank den Zins erhöht"], 1, "Bei 50 % im Monat verdoppeln sich die Preise in weniger als zwei Monaten."],
+  ["Wer kam in Deutschland 1923 am besten weg?", ["Wer viel Geld gespart hatte", "Wer Schulden oder Sachwerte hatte", "Wer eine feste Rente bekam"], 1, "Schulden in Mark wurden praktisch wertlos, echte Dinge behielten ihren Wert."],
+  ["Was beendete die Hyperinflation 1923?", ["Größere Geldscheine", "Eine neue Währung mit streng begrenzter Menge: die Rentenmark", "Das Verbot, Brot zu kaufen"], 1, "1 Rentenmark ersetzte 1 Billion Papiermark. Entscheidend war das Vertrauen in die neue Grenze."]];
+Lern.quiz($("quiz"), "hyperinflation", QUIZ, "../"); Lern.visit("hyperinflation"); Lern.renderNext("hyperinflation", "../");
+})();
+</script>
+</body>
+</html>

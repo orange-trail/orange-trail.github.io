@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=58">
+<link rel="stylesheet" href="../lern.css?v=59">
 <style>
 /* Lernwelt "Eigenschaften": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -25,7 +25,7 @@
 .round{margin-top:12px;padding:16px;border-radius:18px;border:2px solid var(--gold);background:rgba(247,147,26,.06);animation:p-rin .35s}
 .round .k{font-size:13px;color:var(--muted)} .round h3{margin:2px 0 4px;font:900 22px var(--f-display)} .round .what{margin:0;font-size:15px;color:var(--muted);line-height:1.5}
 .ask{margin:12px 0 8px;font-size:17px;font-weight:800} .ask em{font-style:normal;padding:1px 8px;border-radius:8px} .ask em.lo{background:rgba(255,92,115,.2);color:#ff9aa8} .ask em.hi{background:rgba(52,217,130,.2);color:#7ff0b2}
-.four{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .m{border:2px solid var(--line);border-radius:16px;padding:10px 6px;background:rgba(255,255,255,.03);color:var(--ink);font:inherit;text-align:center;cursor:pointer;transition:transform .12s,border-color .2s}
 .m:hover:not(:disabled){transform:translateY(-3px);border-color:rgba(255,201,77,.5)} .m:disabled{cursor:default}
 .m .ic{display:block;font-size:28px;line-height:1.1} .m b{display:block;font:900 13px var(--f-display);margin-top:4px}
@@ -51,6 +51,7 @@ table.pts{width:100%;border-collapse:separate;border-spacing:0 4px;margin-top:6p
 .dg3 > div{border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);padding:12px} .dg3 > div.me{border-color:rgba(247,147,26,.6)} .dg3 > div > b{display:block;font:900 16px var(--f-display);margin-bottom:6px}
 .dg3 dl{margin:0;font-size:13.5px} .dg3 dt{color:var(--muted);font-size:12px;margin-top:6px} .dg3 dd{margin:0}
 @media (max-width:620px){ .dg3{grid-template-columns:1fr} }
+@media (max-width:360px){ .four{grid-template-columns:repeat(2,minmax(0,1fr))} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -100,7 +101,7 @@ table.pts{width:100%;border-collapse:separate;border-spacing:0 4px;margin-top:6p
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=75"></script>
+<script src="../lern.js?v=76"></script>
 <script>
 /* =====================================================================
    GELD-DUELL – Lernwelt von Orange Trail
