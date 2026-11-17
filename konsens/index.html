@@ -15,17 +15,17 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=59">
+<link rel="stylesheet" href="../lern.css?v=60">
 <style>
 /* Lernwelt "Einigungs-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
 .kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
 .kv div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .kv b{display:block;font:700 18px var(--f-num);color:var(--ink)} .kv .g{color:var(--gold)}
-.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid var(--gold);background:rgba(247,147,26,.15)}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid #ffe3a6;outline-offset:2px}
 .res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
 .res strong{display:block;font-size:18px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
-@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
+@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} .kv > :nth-child(odd):last-child:not(:first-child){grid-column:1/-1} }
 .lbl2{display:block;font-size:13px;color:var(--muted);margin-top:12px}
 .ctl .row{display:flex;align-items:center;gap:10px;margin-top:8px} .ctl .row input{flex:1} .ctl .row b{font:900 18px var(--f-num);min-width:5ch;text-align:right}
 .chart{margin-top:12px;border-radius:14px;background:#0b0f2a;border:1px solid var(--line);overflow:hidden} .chart svg{width:100%;height:auto;display:block}
@@ -94,7 +94,7 @@
   <section class="card" aria-labelledby="h5s">
     <h2 id="h5s">5 · Immer 10 Minuten: die Difficulty-Anpassung <span class="mode" id="mode">Verbinde …</span></h2>
     <p class="muted" style="margin:0">Kommen mehr Miner dazu, würden Blöcke schneller gefunden. Darum passt Bitcoin alle <b>2.016 Blöcke</b> (etwa 2 Wochen) die Schwierigkeit an. Probier es aus:</p>
-    <div class="seg2"><button class="btn" type="button" data-h="2">🚀 Doppelt so viele Miner</button><button class="btn" type="button" data-h="0.5">📉 Hälfte der Miner fällt aus</button><button class="btn" type="button" data-h="0">↺ Neu</button></div>
+    <div class="seg2"><button class="btn" type="button" data-h="2">🚀 Doppelt so viele Miner</button><button class="btn" type="button" data-h="0.5">📉 Hälfte der Miner fällt aus</button><button class="btn ghost" type="button" data-h="0">↺ Neu</button></div>
     <div class="dst" id="dst"></div>
     <p class="note" id="dcap" aria-live="polite"></p>
     <div class="chart nogl" id="diff"></div>
@@ -118,7 +118,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=82"></script>
+<script src="../lern.js?v=83"></script>
 <script>
 /* =====================================================================
    EINIGUNGS-LABOR – Lernwelt von Orange Trail
@@ -203,7 +203,7 @@ function diffSim(cap, hi){
     .map(([e, l, v, h, c]) => `<div class="${h ? "hi" : ""} ${c || ""}"><span>${e}</span><small>${l}</small><b>${v}</b></div>`).join("");
   $("dcap").innerHTML = cap || "Tippe oben, was passieren soll. Dann siehst du Schritt für Schritt, wie Bitcoin reagiert.";
   $("diff").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Blockzeit pro Periode"><line x1="30" x2="${W - 20}" y1="${y(10)}" y2="${y(10)}" stroke="#34d982" stroke-dasharray="6 6"/><text x="${W - 22}" y="${y(10) - 8}" fill="#34d982" font-size="22" font-weight="800" text-anchor="end">Ziel: 10 Min.</text>
-    ${bars.map(([m, l], i) => `<g class="pop"><rect x="${x(i) - 30}" y="${y(m)}" width="60" height="${H - 50 - y(m)}" rx="8" fill="${Math.abs(m - 10) < 0.5 ? "#34d982" : m < 10 ? "#ffc94d" : "#ff5c73"}"/><text x="${x(i)}" y="${y(m) - 8}" fill="#eef0ff" font-size="24" font-weight="900" text-anchor="middle">${m.toLocaleString("de-DE", {maximumFractionDigits: 1})}</text></g><text x="${x(i)}" y="${H - 22}" fill="#aab2d8" font-size="17" font-weight="700" text-anchor="middle">${l}</text><text x="${x(i)}" y="${H - 3}" fill="#6a72a8" font-size="15" text-anchor="middle">2 Wochen</text>`).join("")}</svg>`;
+    ${bars.map(([m, l], i) => `<g class="pop"><rect x="${x(i) - 30}" y="${y(m)}" width="60" height="${H - 50 - y(m)}" rx="8" fill="${Math.abs(m - 10) < 0.5 ? "#34d982" : m < 10 ? "#ffc94d" : "#ff5c73"}"/><text x="${x(i)}" y="${y(m) - 8}" fill="#eef0ff" font-size="24" font-weight="900" text-anchor="middle">${m.toLocaleString("de-DE", {maximumFractionDigits: 1})}</text></g><text x="${x(i)}" y="${H - 22}" fill="#aab2d8" font-size="20" font-weight="700" text-anchor="middle">${l}</text><text x="${x(i)}" y="${H - 3}" fill="#8890b8" font-size="19" text-anchor="middle">2 Wochen</text>`).join("")}</svg>`;
 }
 document.querySelectorAll("[data-h]").forEach(b => b.onclick = () => { const f = +b.dataset.h; clearTimeout(dT);
   if (!f){ hM = dM = 1; bars = [[10, "Start"]]; diffSim(); return; }

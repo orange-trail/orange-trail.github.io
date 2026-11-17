@@ -48,7 +48,7 @@ input[type=range]{flex:1;accent-color:var(--gold);height:28px}
 .learn{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .learn div{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:12px}
 .learn div > b{display:block;font:900 14px var(--f-display);color:var(--gold);margin-bottom:4px}
-.learn span{font-size:14px;color:var(--muted)}
+.learn span{font-size:14px;color:var(--muted)} .learn > div > span{display:block;line-height:1.5}
 .learn span b{color:var(--ink)}
 
 /* Quiz (aufklappbar) */
@@ -72,7 +72,7 @@ input[type=range]{flex:1;accent-color:var(--gold);height:28px}
 .next b{font:900 16px var(--f-display)}
 .next a{font-weight:800;color:var(--gold);text-decoration:none}
 
-@media (max-width:760px){ .learn{grid-template-columns:repeat(2,minmax(0,1fr))} .learn span{font-size:13px} }
+@media (max-width:760px){ .learn{grid-template-columns:repeat(2,minmax(0,1fr))} .learn span{font-size:13px} .learn > div:nth-child(odd):last-child:not(:first-child){grid-column:1/-1} }
 @media (max-width:340px){ .learn{grid-template-columns:1fr} }
 
 /* =====================================================================
@@ -224,7 +224,7 @@ svg.line path{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:900
 .sync textarea{width:100%;box-sizing:border-box;min-height:70px;padding:10px;border-radius:12px;border:2px solid var(--line);background:#0b0f2a;color:var(--ink);font:12px var(--f-code);word-break:break-all}
 .sync .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px} .sync .msg2{margin:8px 0 0;font-size:14px}
 /* Lexikon: antippbare Begriffe und Erklär-Blase */
-.gl{all:unset;cursor:help;color:inherit;font-weight:inherit;border-bottom:2px dotted rgba(255,201,77,.75);transition:background .15s}
+.glw{white-space:nowrap} .gl{all:unset;cursor:help;color:inherit;font-weight:inherit;border-bottom:2px dotted rgba(255,201,77,.75);transition:background .15s}
 .gl:hover,.gl:focus-visible{background:rgba(255,201,77,.15);border-radius:3px}
 .glpop{position:absolute;z-index:70;width:min(300px,calc(100vw - 16px));padding:12px 14px;border-radius:14px;background:#fff;color:#0d1230;border:3px solid #0d1230;box-shadow:4px 4px 0 #0d1230;font:15px/1.45 var(--f-body);animation:rin .2s}
 .glpop b{display:block;font:900 16px var(--f-display);margin-bottom:4px} .glpop span{display:block}
@@ -356,3 +356,16 @@ html.calm details::details-content{transition:none}
 
 /* Kästchen im Text: lange Erklärungen in kurze Häppchen teilen */
 .learn.bx{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:12px 0} .learn.bx div{padding:10px 12px} .learn.bx span{font-size:14px;line-height:1.45} .bxh{margin:14px 0 0;font-size:14px;color:var(--ink)}
+/* Umbruch: keine einsamen Wörter/Zeichen am Zeilenende, Hashes gleichmäßig auf Zeilen verteilt */
+body{text-wrap:pretty} h1,h2,h3,.bq,.why b{text-wrap:balance}
+.hx,.hash,.adr,.addrs,.chars,.abc,.code div,.blk .h,.target,.zz code,.keys code,.src code,.sxb code,.stack div,.rolls,.prop{text-wrap:balance}
+/* Lebendige Zahlen, weiche Erklärungen, Seitenkopf schwebt herein */
+.tick{animation:tick .7s ease-out} @keyframes tick{0%{color:#ffd36b;text-shadow:0 0 14px rgba(255,201,77,.75)}}
+.why:not([hidden]){animation:whyIn .35s cubic-bezier(.2,.8,.2,1)} @keyframes whyIn{from{opacity:0;transform:translateY(-4px)}}
+p.res:not([hidden]){animation:rise .5s cubic-bezier(.2,.8,.2,1) both}
+html:not(.boot) .wrap > .top + div > *{animation:heroIn .6s cubic-bezier(.2,.8,.2,1) both} .wrap > .top + div > :nth-child(2){animation-delay:.06s} .wrap > .top + div > :nth-child(3){animation-delay:.12s} .wrap > .top + div > :nth-child(4){animation-delay:.18s} .wrap > .top + div > :nth-child(n+5){animation-delay:.24s}
+html:not(.boot) .wrap > .top + div > .wico{animation:heroIn .6s cubic-bezier(.2,.8,.2,1) both,bob 3.2s ease-in-out .6s infinite}
+@keyframes heroIn{from{opacity:0;transform:translateY(10px)}}
+@media (prefers-reduced-motion:reduce){ .tick,.why,p.res,.wrap > .top + div > *{animation:none!important} }
+/* Umschalter: gewählt = orange, die anderen ruhig (vorher dunkle Schrift auf dunklem Grund) */
+.seg:has([aria-pressed]) .btn:not([aria-pressed="true"]){background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line);box-shadow:none}

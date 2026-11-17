@@ -59,7 +59,7 @@ const Lern = (() => {
   function nextAfter(id){ const it = nextStep(id); return it && it.w ? PATH.find(p => p[0] === it.w) : null; }
   // Quiz bauen: QUIZ = [[Frage, [Antworten], Index richtig, Erklärung], ...]
   function quiz(box, id, QUIZ, root){
-    const answered = {};
+    const answered = {}; let finished = false;
     QUIZ.forEach(([q, opts, ok, why], qi) => {
       // Antworten in zufälliger Reihenfolge, damit die richtige nicht immer an derselben Stelle steht
       const d = document.createElement("div"); d.className = "q";
@@ -71,7 +71,7 @@ const Lern = (() => {
         const w = d.querySelector(".why"); w.hidden = false; w.textContent = (i === ok ? "Richtig! " : "Nicht ganz. ") + why;
         sfx(i === ok ? "ok" : "no");
         if (!(qi in answered)){ answered[qi] = i === ok; say(i === ok ? pickOne(PRAISE) : pickOne(OOPS), 3500); repAdd(id, qi, QUIZ[qi], i === ok); }
-        if (Object.keys(answered).length === QUIZ.length) finish();
+        if (Object.keys(answered).length === QUIZ.length && !finished){ finished = true; finish(); }
       }));
       box.appendChild(d);
     });
@@ -503,7 +503,7 @@ const Lern = (() => {
     const fin = k === "f", [img, name, taunt, Q] = fin ? FINAL : BOSSES[k], HP = fin ? 13 : 4, LIVES = fin ? 0 : 2, TIME = 15;
     const [c1, c2] = BTH[k] || BTH.f, [HIT, MISS] = BLINES[k] || BLINES.f;
     const bg = document.createElement("div"); bg.className = "bossbg";
-    let i = 0, hp = HP, lives = LIVES, t = 0, timer = 0, lock = false, combo = 0, miss = 0;
+    let i = 0, hp = HP, lives = LIVES, t = 0, timer = 0, lock = false, combo = 0, miss = 0, gone = false;
     const mixQ = a => [...a].sort(() => Math.random() - .5), order = fin ? [...mixQ(MYTHS.flatMap(w => mixQ(w).slice(0, 2))), FINALM] : mixQ(Q).slice(0, 5);
     bg.innerHTML = `<div class="boss" role="dialog" aria-label="Boss-Kampf gegen ${name}" style="--c1:${c1};--c2:${c2}">
       <div class="bt"><span class="bnum">${fin ? "ENDBOSS" : "BOSS " + (k + 1)}</span><b>${name}</b><button class="bx" type="button" aria-label="Schließen">×</button></div>
@@ -515,7 +515,8 @@ const Lern = (() => {
       </div><div id="bq"></div></div>`;
     document.body.appendChild(bg);
     const B = bg.querySelector(".boss"), A = bg.querySelector(".arena"), im = bg.querySelector(".bimg"), bub = bg.querySelector(".bubble"), box = bg.querySelector("#bq"), fx = bg.querySelector(".fx");
-    const close = () => { clearInterval(timer); bg.remove(); };
+    const close = () => { gone = true; clearInterval(timer); bg.remove(); document.removeEventListener("keydown", esc); };
+    const esc = e => { if (e.key === "Escape") close(); }; document.addEventListener("keydown", esc);
     bg.querySelector(".bx").onclick = close;
     const re = (el, c) => { el.classList.remove(c); void el.offsetWidth; el.classList.add(c); };
     const say2 = txt => { bub.textContent = txt; re(bub, "pop"); };
@@ -524,6 +525,7 @@ const Lern = (() => {
       if (fin) return; bg.querySelector(".lives").innerHTML = Array.from({length: LIVES}, (_, n) => `<i class="${n < lives ? "" : "lost"}">${n < lives ? "❤️" : "🖤"}</i>`).join("");
       bg.querySelector(".combo").textContent = combo >= 2 ? `🔥 ${combo}er-Combo` : ""; };
     function ask(){
+      if (gone) return;
       if (hp <= 0 || (!fin && lives <= 0) || i >= order.length) return end();
       const [q, opts] = order[i], mix = opts.map((o, n) => [Math.random(), n, o]).sort((a, b) => a[0] - b[0]);
       if (fin) say2(`„${q}“`);
@@ -534,7 +536,7 @@ const Lern = (() => {
       box.querySelector(".opts").onclick = e => { const b = e.target.closest("button"); if (b) answer(+b.dataset.n); };
     }
     function answer(n){
-      if (lock) return; lock = true; clearInterval(timer);
+      if (lock || gone) return; lock = true; clearInterval(timer);
       const ok = n === 0, [, , why] = order[i], fast = ok && t > TIME*.7;
       box.querySelectorAll(".opts button").forEach(b => { b.disabled = true; if (+b.dataset.n === 0) b.classList.add("ok"); else if (+b.dataset.n === n) b.classList.add("no"); });
       const w = box.querySelector(".why"); w.hidden = false; w.innerHTML = `<b>${n < 0 ? "⏰ Zeit um!" : ok ? "✅ Treffer!" : "💥 Autsch."}</b> ${why}`;
@@ -560,7 +562,7 @@ const Lern = (() => {
         close(); if (a.dataset.a === "again") boss(k); else if (win) location.reload(); };
     }
     hud();
-    if (fin){ setTimeout(() => { im.innerHTML = art("oldme"); re(im, "rise"); sfx("hit"); say2("Ich bin du. Von früher. Ich glaub das alles nicht."); }, 1600); setTimeout(ask, 4200); }
+    if (fin){ setTimeout(() => { if (gone) return; im.innerHTML = art("oldme"); re(im, "rise"); sfx("hit"); say2("Ich bin du. Von früher. Ich glaub das alles nicht."); }, 1600); setTimeout(ask, 4200); }
     else setTimeout(ask, 1200);
   }
   // Teilen-Karte nach Bosssieg bzw. Urkunde nach dem Endboss (Bild, nur auf dem Gerät erzeugt)
@@ -591,6 +593,19 @@ const Lern = (() => {
   const GLOSSAR = [["51-%-Angriff", "51[ -]?%-?Angriff", "Wenn jemand mehr als die Hälfte der Rechenleistung hätte, könnte er eigene, frische Zahlungen rückgängig machen oder Zahlungen blockieren. Regeln ändern oder fremde Coins nehmen kann er trotzdem nicht.", "nodes"], ["Adresse", "Adressen?", "Wie eine Kontonummer, an die man Bitcoin schicken kann. Sie wird aus deinem öffentlichen Schlüssel berechnet und beginnt heute meist mit „bc1“. Für jede Zahlung kann man eine neue nutzen.", "utxo"], ["Bestätigung", "Bestätigungen|Bestätigung", "Steht deine Zahlung in einem Block, hat sie 1 Bestätigung. Jeder weitere Block darauf ist eine weitere. Ab etwa 6 gilt eine Zahlung nach verbreiteter Faustregel als sicher.", "bahnhof"], ["BIP", "BIPs?", "Bitcoin Improvement Proposal: ein schriftlicher Vorschlag, wie Bitcoin verbessert werden könnte. Wird öffentlich diskutiert, oft jahrelang.", "nodes"], ["Bitcoin Core", "Bitcoin Core", "Die meistgenutzte Bitcoin-Software für Nodes. Open Source, entwickelt von Freiwilligen und gesponserten Entwicklern weltweit.", "nodes"], ["Block", "Blöcken|Blöcke|Blocks|Block", "Ein Paket aus vielen Zahlungen, das ein Miner etwa alle 10 Minuten an die Blockchain anhängt. Jeder Block enthält den Fingerabdruck (Hash) des vorherigen.", "blockchain"], ["Blockchain", "Blockchain", "Das gemeinsame Kassenbuch von Bitcoin: eine Kette aus Blöcken, in der alle Zahlungen seit 2009 stehen. Jede Node hat eine eigene Kopie.", "blockchain"], ["Börse", "Börsen|Börse", "Ein Unternehmen, bei dem man Bitcoin gegen Euro kaufen und verkaufen kann. Solange deine Bitcoin dort liegen, hat die Börse die Schlüssel, nicht du.", "wallets"], ["DCA / Sparplan", "Sparplans?|DCA", "Dollar-Cost-Averaging: regelmäßig den gleichen Betrag kaufen, egal wie der Kurs steht. So muss man keinen perfekten Zeitpunkt treffen.", "sparplan"], ["Deflation", "Deflation", "Das Gegenteil von Inflation: Die Preise sinken im Durchschnitt, Geld kauft mit der Zeit mehr. Notenbanken fürchten sie, weil Menschen Käufe aufschieben und Schulden schwerer wiegen.", "inflation"], ["Dezentral", "dezentral(e[nmrs]?)?|Dezentralität", "Es gibt keine zentrale Stelle, die bestimmt. Tausende unabhängige Computer (Nodes) setzen gemeinsam die Regeln durch.", "nodes"], ["Doppelausgabe", "Doppelausgaben?", "Das Problem, dieselbe digitale Münze zweimal auszugeben. Bitcoin verhindert es, weil alle Nodes dasselbe Kassenbuch prüfen.", "doppelt"], ["ETF", "ETFs?", "Ein börsengehandelter Fonds. Bitcoin-ETFs halten Bitcoin für ihre Anleger, man kauft Anteile über die Bank statt echte Bitcoin.", "geschichte"], ["FOMO", "FOMO", "Fear Of Missing Out: die Angst, etwas zu verpassen. Verleitet dazu, zu kaufen, wenn alle jubeln und der Kurs schon hoch ist.", "fomo"], ["Fork", "Soft Fork|Hard Fork|Forks?", "Eine Regeländerung. Soft Fork: Regeln werden strenger, alte Nodes bleiben kompatibel. Hard Fork: Regeln werden lockerer, die Kette kann sich spalten.", "nodes"], ["FUD", "FUD", "Fear, Uncertainty and Doubt: Angst, Unsicherheit und Zweifel, oft gezielt verbreitet, damit andere in Panik verkaufen.", "fomo"], ["Gebühr", "Gebühren|Gebühr", "Was du für eine Zahlung bezahlst. In der Blockchain bekommt sie der Miner, damit er deine Zahlung in einen Block packt. Sie richtet sich nach der Größe in vByte, nicht nach dem Betrag. Bei Lightning bekommen sie die Stationen, die deine Zahlung weiterleiten, meist nur wenige sats.", "bahnhof"], ["Genesis-Block", "Genesis-Block", "Der allererste Bitcoin-Block vom 3. Januar 2009, von Satoshi Nakamoto erzeugt.", "geschichte"], ["Halving", "Halvings?", "Etwa alle 4 Jahre (alle 210.000 Blöcke) halbiert sich die Zahl neuer Bitcoin pro Block. Seit 2024 sind es 3,125 BTC.", "halving"], ["Hardware-Wallet", "Hardware-Wallets?", "Ein kleines Gerät, das deine privaten Schlüssel offline aufbewahrt. Zahlungen bestätigst du am Gerät selbst, Viren auf dem Computer kommen nicht an den Schlüssel.", "wallets"], ["Hash", "Hashes|Hash(?!rate)", "Ein digitaler Fingerabdruck: Aus beliebigen Daten wird eine Zeichenkette fester Länge. Ein geändertes Zeichen ergibt einen völlig anderen Hash, und zurückrechnen geht nicht.", "hashing"], ["Hashrate", "Hashrate|Rechenleistung", "Wie viele Hashes pro Sekunde alle Miner zusammen ausprobieren. Je höher, desto sicherer ist das Netz.", "mining"], ["Hebel", "Hebels?", "Mit geliehenem Geld handeln. Verstärkt Gewinne und Verluste. Bei Hebel 10 ist dein Einsatz nach 10 % Kursverlust weg.", "hebel"], ["HODL", "HODL", "Bitcoin-Slang für „halten statt verkaufen“. Entstand 2013 aus einem Tippfehler in einem Forum.", "fomo"], ["Inflation", "Inflation", "Geld verliert an Kaufkraft: Für denselben Betrag bekommst du mit der Zeit weniger. Passiert, wenn die Geldmenge schneller wächst als das, was man dafür kaufen kann.", "inflation"], ["KYC", "KYC", "Know Your Customer: Börsen müssen deine Identität prüfen. Dadurch weiß die Börse, wem welche Abhebe-Adresse gehört.", "kaufen"], ["Lightning", "Lightning(-Netz(werk)?)?", "Ein Netz auf Bitcoin für schnelle, fast kostenlose Zahlungen. Läuft über Kanäle zwischen Nutzern, nur Öffnen und Schließen landen in der Blockchain.", "lightning"], ["Liquidation", "Liquidationen|Liquidation|liquidiert", "Bei Hebel-Wetten: Ist dein Einsatz aufgebraucht, schließt die Börse die Wette automatisch. Dein Geld ist weg.", "hebel"], ["CPFP", "CPFP", "Child Pays For Parent: Eine Folgezahlung mit hoher Gebühr zieht eine festhängende Zahlung mit in den Block. Miner schauen auf beide zusammen.", "blockbau"], ["Goldstandard", "Goldstandards?", "Ein System, in dem Geldscheine gegen eine feste Menge Gold eingetauscht werden konnten. Der letzte Rest endete 1971.", "goldstandard"], ["Hashcash", "Hashcash", "Ein Arbeitsnachweis gegen Spam von Adam Back (1997). Bitcoin nutzt die Idee beim Mining.", "vorlaeufer"], ["Hyperinflation", "Hyperinflation", "Preise steigen um mehr als 50 % im Monat. Geld verliert dann in kurzer Zeit fast seinen ganzen Wert, wie in Deutschland 1923.", "hyperinflation"], ["HTLC", "HTLC", "Das Schloss mit Geheimnis bei Lightning: Weiterleiter bekommen ihr Geld nur, wenn sie das Geheimnis des Empfängers kennen. So kommt eine Zahlung ganz an oder gar nicht.", "lnnetz"], ["Mempool", "Mempool", "Der Warteraum für Zahlungen, die noch in keinem Block stehen. Miner wählen dort die Zahlungen mit der höchsten Gebühr pro vByte aus.", "bahnhof"], ["Miner", "Minern|Miners?|Mining", "Computer, die neue Blöcke bauen. Sie raten Milliarden Zahlen, bis ein passender Hash herauskommt (Proof of Work), und bekommen dafür neue Bitcoin plus Gebühren.", "mining"], ["Mining-Pool", "Mining-Pools?|Pools", "Ein Zusammenschluss vieler Miner, die gemeinsam rechnen und sich die Belohnung teilen. So bekommen auch kleine Miner regelmäßig etwas.", "mining"], ["Multisig", "Multisig", "Eine Wallet, bei der mehrere Schlüssel nötig sind, z. B. 2 von 3. Geht ein Schlüssel verloren oder wird gestohlen, sind die Bitcoin trotzdem sicher.", "wallets"], ["Node", "Nodes?", "Ein Computer mit der Bitcoin-Software, der die komplette Blockchain speichert und jede Zahlung und jeden Block selbst nach den Regeln prüft. Jeder kann eine betreiben.", "nodes"], ["Nonce", "Nonce", "Die Zahl, die Miner beim Mining immer wieder verändern, bis der Block-Hash genug Nullen hat.", "mining"], ["Öffentlicher Schlüssel", "öffentliche[nmrs]? Schlüssel", "Wird aus dem privaten Schlüssel berechnet und darf jeder sehen. Damit kann jeder prüfen, ob eine Unterschrift von dir stammt. Daraus entsteht die Adresse.", "schluessel"], ["Open Source", "Open Source", "Der Programmcode ist öffentlich. Jeder kann ihn lesen, prüfen und Verbesserungen vorschlagen.", "nodes"], ["Passphrase", "Passphrase", "Ein zusätzliches, selbst gewähltes Wort zum Seed. Wer nur die Seed-Wörter findet, kommt ohne Passphrase nicht an die Bitcoin.", "seed"], ["Privater Schlüssel", "private[nmrs]? Schlüssel", "Eine geheime Zufallszahl, mit der du Zahlungen unterschreibst. Wer ihn hat, besitzt die Bitcoin. Niemals teilen.", "schluessel"], ["Proof of Work", "Proof of Work", "Arbeitsnachweis: Miner müssen echte Rechenarbeit (Strom) investieren, um einen Block zu finden. Das macht Fälschungen extrem teuer.", "mining"], ["Pseudonym", "pseudonym", "Nicht unter echtem Namen, aber auch nicht unsichtbar. Bei Bitcoin stehen Adressen statt Namen in der Blockchain, alles ist öffentlich.", "privatsphaere"], ["Satoshi (Sat)", "Sats|sat/vB", "Die kleinste Einheit: 1 Bitcoin = 100 Millionen Satoshi (Sats). Benannt nach dem Erfinder.", "utxo"], ["Satoshi Nakamoto", "Satoshi Nakamoto|Satoshis(?! Geist)(?!\\))", "Der unbekannte Erfinder von Bitcoin. Veröffentlichte 2008 das Whitepaper und verschwand 2011.", "geschichte"], ["Schwierigkeit", "Schwierigkeit|Difficulty", "Wie schwer es ist, einen Block zu finden. Passt sich alle 2016 Blöcke an, damit im Schnitt alle 10 Minuten ein Block kommt.", "mining"], ["SegWit", "SegWit", "Upgrade von 2017 (Soft Fork): mehr Platz pro Block, günstigere Gebühren, Grundlage für Lightning.", "nodes"], ["Seed", "Seed-Wörtern|Seed-Wörter|Seeds?", "Die 12 oder 24 Wörter, aus denen deine Wallet alle Schlüssel berechnet. Wer den Seed hat, hat alle Bitcoin. Offline aufschreiben, niemals teilen.", "seed"], ["Signatur", "Signaturen|Signatur", "Die digitale Unterschrift unter einer Zahlung, erstellt mit deinem privaten Schlüssel. Jeder kann sie mit deinem öffentlichen Schlüssel prüfen.", "schluessel"], ["Taproot", "Taproot", "Upgrade von 2021 (Soft Fork): bessere Signaturen (Schnorr), mehr Privatsphäre und flexiblere Verträge.", "nodes"], ["Transaktion", "Transaktionen|Transaktion", "Eine Bitcoin-Zahlung: Bitcoin-Beträge (UTXOs) gehen rein, neue Beträge an Empfänger und Wechselgeld gehen raus, unterschrieben mit deinem Schlüssel.", "utxo"], ["UTXO", "UTXOs?", "Unspent Transaction Output: ein einzelner Bitcoin-Betrag in deiner Wallet. Dein Guthaben ist die Summe deiner UTXOs. Sie werden immer ganz ausgegeben, der Rest kommt als Wechselgeld zurück.", "utxo"], ["vByte", "vBytes?", "Virtuelles Byte: Maß für die Größe einer Zahlung. Die Gebühr wird in Sats pro vByte (sat/vB) angegeben.", "bahnhof"], ["Wallet", "Wallets?", "Die App oder das Gerät, das deine Schlüssel verwahrt. Die Bitcoin selbst liegen in der Blockchain, die Wallet beweist, dass sie dir gehören.", "wallets"], ["Whitepaper", "Whitepaper", "Das 9-seitige Dokument, mit dem Satoshi Nakamoto 2008 Bitcoin vorstellte.", "geschichte"], ["Base58", "Base58(Check)?", "Die Schreibweise alter Adressen (1… und 3…): 58 Zeichen ohne die Verwechsler 0, O, I und l, plus eine Prüfsumme gegen Tippfehler.", "adressen"], ["Bech32", "Bech32m?", "Die Schreibweise moderner Adressen (bc1…): nur Kleinbuchstaben und Ziffern, mit starker Prüfsumme, die Tippfehler sicher erkennt.", "adressen"], ["Ableitungspfad", "Ableitungspfade?", "Die „Hausnummer“ eines Schlüssels in deiner Wallet, z. B. m/84'/0'/0'/0/0. Aus einem Seed entstehen so beliebig viele Schlüssel, immer in derselben Reihenfolge.", "ableitung"], ["Entropie", "Entropie", "Wie viel echter Zufall in etwas steckt, gemessen in Bit. Ein Seed aus 12 Wörtern hat 128 Bit, das sind mehr Möglichkeiten als Sandkörner auf der Erde.", "entropie"], ["Elliptische Kurve", "[Ee]lliptische[n]? Kurven?|secp256k1", "Die Rechenformel hinter den Bitcoin-Schlüsseln (y² = x³ + 7). Vorwärts rechnen ist leicht, rückwärts praktisch unmöglich.", "kurven"], ["Schnorr-Signatur", "Schnorr(-Signatur(en)?)?", "Die modernere Unterschrift seit dem Taproot-Upgrade 2021: kleiner als ECDSA, und mehrere Schlüssel lassen sich zu einem zusammenrechnen.", "signaturen"], ["Merkle-Baum", "Merkle-B(aum|äume)|Merkle-Root", "Ein Baum aus Hashes: Tausende Zahlungen werden paarweise zusammengehasht, bis nur ein einziger Hash übrig bleibt, der im Block-Kopf steht.", "merkle"], ["Prüfsumme", "Prüfsummen?", "Ein paar zusätzliche Zeichen, die aus dem Rest berechnet werden. Vertippst du dich, passt die Prüfsumme nicht mehr und die Wallet warnt.", "adressen"], ["Quantencomputer", "Quantencomputern?", "Ein neuartiger Rechner, der bestimmte Aufgaben extrem schnell lösen könnte, darunter das Knacken heutiger Signaturen. Für Bitcoin noch weit entfernt, aber ein Thema für die Zukunft.", "quanten"], ["SHA-256", "SHA-256", "Die Hash-Funktion von Bitcoin: macht aus beliebigen Daten einen 256-Bit-Fingerabdruck, in 64 Runden voller Bit-Tricks.", "sha256"], ["Fiatgeld", "Fiatgeld(es)?|Fiat-Geld", "Geld, das nur per Gesetz gilt und nicht durch Gold gedeckt ist, z. B. Euro und Dollar. Zentralbanken können davon beliebig viel erzeugen.", "geldgeschichte"], ["Geldmenge", "Geldmengen?", "Wie viel Geld insgesamt im Umlauf ist, inklusive Kontoguthaben. Im Euroraum hat sie sich seit 1999 fast vervierfacht.", "geldschoepfung"], ["Cantillon-Effekt", "Cantillon-Effekt(s|es)?", "Wer neues Geld zuerst bekommt, kauft noch zu alten Preisen. Wer es zuletzt bekommt, zahlt schon die höheren.", "cantillon"], ["Stock-to-Flow", "Stock-to-Flow", "Bestand geteilt durch neue Menge pro Jahr. Misst, wie knapp ein Gut ist. Je höher, desto schwerer zu verwässern.", "knappheit"], ["Spread", "Spreads?", "Der Aufschlag auf den echten Kurs beim Kauf. Man sieht ihn nicht als Gebühr, zahlt ihn aber trotzdem.", "kaufen"], ["MiCA", "MiCA(R)?", "Die EU-Regeln für Krypto-Anbieter. Anbieter brauchen damit eine Lizenz, in Deutschland über die BaFin.", "kaufen"], ["CoinJoin", "CoinJoins?", "Viele Nutzer bündeln ihre Zahlungen zu einer gemeinsamen. So lässt sich schwerer verfolgen, wer wem gezahlt hat.", "privatsphaere"], ["Wechselgeld", "Wechselgeld(es)?", "Der Rest einer Zahlung, der an eine neue Adresse des Absenders zurückgeht, wie Wechselgeld an der Kasse.", "privatsphaere"], ["Script", "Script", "Die kleine Programmiersprache in jeder Bitcoin-Zahlung. Sie legt fest, wer einen Betrag ausgeben darf.", "script"], ["Zeitschloss", "Zeitschl(oss|össer)|Timelocks?", "Eine Regel im Script: Der Betrag darf erst ab einem bestimmten Block oder Datum ausgegeben werden.", "script"], ["Stablecoin", "Stablecoins?", "Ein Token, dessen Wert an eine Währung gebunden ist, meist 1 Dollar. Herausgegeben von Firmen, die Guthaben auch einfrieren können.", "eigenschaften"], ["Digitaler Euro", "[Dd]igitale[nr]? Euro", "Geplantes digitales Zentralbankgeld der EZB, frühestens ab 2029. Ein echter Euro, mit Haltegrenze und Offline-Funktion.", "eigenschaften"], ["Allzeithoch", "Allzeithochs?|Rekordhochs?", "Der höchste Kurs, den Bitcoin je erreicht hat. Danach folgten in der Geschichte oft lange Crashs.", "zyklen"], ["Bärenmarkt", "Bärenmarkts?|Bärenmärkte", "Eine lange Phase fallender Kurse. Bei Bitcoin dauerten sie bisher oft ein Jahr und länger.", "zyklen"], ["Erbplan", "Erbplan|Notfall-?[Pp]lan", "Ein Plan, damit deine Familie im Notfall an deine Bitcoin kommt, ohne dass der Seed offen herumliegt.", "seed"], ["Konsens", "Konsens(es|regeln)?", "Die Einigung aller Nodes auf dieselbe Blockchain und dieselben Regeln, ganz ohne Chef.", "konsens"], ["Byzantinische Generäle", "[Bb]yzantinische[n]? Generäle|Generäle-Problem|Problem der Generäle", "Das klassische Problem: Wie einigen sich Teilnehmer, wenn manche lügen? Bitcoin löst es mit Proof of Work.", "konsens"], ["Difficulty-Anpassung", "Difficulty-Anpassung|Schwierigkeitsanpassung", "Alle 2.016 Blöcke passt Bitcoin die Schwierigkeit an, damit ein Block im Schnitt 10 Minuten dauert.", "konsens"], ["Verwaister Block", "[Vv]erwaiste[rn]? Bl(ock|öcke)", "Ein gültiger Block, der verliert, weil die andere Kette länger wurde. Seine Zahlungen landen in einem späteren Block.", "konsens"]];
   // Begriffe im Text antippbar machen: je Seite nur das erste Vorkommen, nicht in Überschriften, Knöpfen, Quiz und Szenen
   const BASE = document.querySelector('link[href^="../lern.css"]') ? "../" : "";   // Unterordner-Seite oder Startseite
+  // Chips wie „(Welt 6)“ mit folgendem Satzzeichen zusammenhalten, damit keine Zeile mit „.“ beginnt
+  function glue(){
+    // Zahl und Einheit nie trennen („75 %“, „3 Jahre“, „z. B.“)
+    const RX = /(\d) (?=(%|‰|€|\$|BTC|sats?\b|sat\/vB|Mio\.|Mrd\.|Bio\.|Jahre|Jahren|Tage|Min\.|Minuten|Byte|Bit\b|vB|TWh|Wörter|Level))|z\. B\./g, tw = document.createTreeWalker(document.querySelector(".wrap") || document.body, NodeFilter.SHOW_TEXT);
+    for (let n; (n = tw.nextNode());) if (/\d |z\. B\./.test(n.nodeValue) && !n.parentElement.closest("script,style,textarea")) n.nodeValue = n.nodeValue.replace(RX, (m, d) => d ? d + "\u00a0" : "z.\u00a0B.");
+    // Begriffe und Chips wie „(Welt 6)“ mit folgendem Satzzeichen zusammenhalten, damit keine Zeile mit „.“ beginnt (auch durch <b>…</b> hindurch)
+    const INL = /^(B|STRONG|EM|I|U|A|SPAN)$/, last = e => { let x = e.nextSibling; while (x && x.nodeType === 3 && !x.nodeValue.length) x = x.nextSibling; return !x; }, first = e => { let x = e.previousSibling; while (x && x.nodeType === 3 && !x.nodeValue.length) x = x.previousSibling; return !x; };
+    document.querySelectorAll(".wrap .gl, .wrap .later").forEach(c => {
+      let top = c; while (top.parentElement && INL.test(top.parentElement.tagName) && !top.parentElement.classList.contains("glw") && last(top) && first(top)) top = top.parentElement;
+      if (top.parentElement && top.parentElement.classList.contains("glw") && last(top)) top = top.parentElement;
+      let n = top.nextSibling; while (n && n.nodeType === 3 && !n.nodeValue.length) n = n.nextSibling; if (!n || n.nodeType !== 3) return; const m = n.nodeValue.match(/^[.,;:!?)“"]+/); if (!m) return;
+      const w = document.createElement("span"); w.className = "glw"; top.before(w); w.appendChild(top); n.splitText(m[0].length); w.appendChild(n); });
+  }
   function glossify(){
     const skip = "h1,h2,h3,a,button,.opts,.lbl,.say,.scn,code,input,label,.foot,.top,svg,.tcard,.mode,.num,script,style,.gl,.guide,.toast,.bossbg,.lvup,.cn,.kv,.chainS,.addrs,select,textarea,.ledger,.nd,.pts,table,.nogl,summary";
     const root = document.querySelector(".wrap"); if (!root || /\/lexikon\//.test(location.pathname)) return;
@@ -603,9 +618,15 @@ const Lern = (() => {
         if (used.has(i)) continue;
         const m = tn.nodeValue.match(rx); if (!m) continue;
         used.add(i);
-        const at = m.index + m[1].length, after = tn.splitText(at); after.nodeValue = after.nodeValue.slice(m[2].length);
+        const at = m.index + m[1].length; let after = tn.splitText(at); after.nodeValue = after.nodeValue.slice(m[2].length);
         const b = document.createElement("button"); b.type = "button"; b.className = "gl"; b.dataset.g = i; b.textContent = m[2];
-        tn.parentNode.insertBefore(b, after); tn = after;   // im Rest weitersuchen
+        tn.parentNode.insertBefore(b, after);
+        // Satzzeichen direkt davor/danach (z. B. „Mempool,“) an den Begriff kleben, damit keine Zeile mit Komma beginnt
+        const lm = tn.nodeValue.match(/\S+$/), tm = after.nodeValue.match(/^\S+/);
+        if (lm || tm){ const w = document.createElement("span"); w.className = "glw"; b.parentNode.insertBefore(w, b);
+          if (lm) w.appendChild(tn.splitText(tn.nodeValue.length - lm[0].length)); w.appendChild(b);
+          if (tm){ const rest = after.splitText(tm[0].length); w.appendChild(after); after = rest; } }
+        tn = after;   // im Rest weitersuchen
       }
     });
     document.addEventListener("click", e => {
@@ -764,7 +785,7 @@ const Lern = (() => {
       <div class="acts">${st < 3 ? `<button class="btn${fail ? "" : " ghost"}" type="button" data-again>🔄 Quiz nochmal</button>` : ""}${nx && !fail ? `<a class="btn" href="${nx.getAttribute("href")}">Weiter: ${nb ? nb.textContent : "nächstes Level"} →</a>` : ""}<button class="btn ghost" type="button" data-stay>Hier bleiben</button></div></div>`;
     document.body.appendChild(o);
     const close = () => o.remove(), again = o.querySelector("[data-again]");
-    o.querySelector("[data-stay]").onclick = close; if (again) again.onclick = () => { location.hash = "quiz"; location.reload(); }; o.onclick = e => { if (e.target === o) close(); };
+    o.querySelector("[data-stay]").onclick = close; if (again) again.onclick = () => { location.hash = "quiz"; location.reload(); }; o.onclick = e => { if (e.target === o) close(); }; const esc = e => { if (e.key === "Escape"){ close(); removeEventListener("keydown", esc); } }; addEventListener("keydown", esc);
     sfx(fail ? "no" : "lvl"); for (let i = 0; i < st; i++) setTimeout(() => sfx("star"), 300 + i*280);
     if (st === 3) setTimeout(confetti, 900);
     (o.querySelector("a.btn") || again || o.querySelector("button")).focus();
@@ -788,7 +809,7 @@ const Lern = (() => {
   }
   const seg = location.pathname.split("/").filter(Boolean), last = seg[seg.length - 1], here = PATH.some(([id]) => id === last) || proOf(last) >= 0 ? last : "";
   function init(){
-    badge(); sndBtn(); intro(); stand(); glossify(); reveal(); guide(); setTimeout(titles, 1500);
+    badge(); sndBtn(); intro(); stand(); glossify(); glue(); reveal(); guide(); setTimeout(titles, 1500);
     if (here && CARD[here]){ const h = document.querySelector("h1"); if (h && !h.previousElementSibling){ const i = document.createElement("span"); i.className = "wico"; i.setAttribute("aria-hidden", "true"); i.innerHTML = art(CARD[here]); h.before(i);
       const pk = proOf(here), k = pk >= 0 ? pk : chapterOf(here), c = CHAPTERS[k], p = document.createElement("p"); p.className = "chap"; p.innerHTML = pk >= 0 ? `🔬 Profi-Pfad · Welt ${k + 1} · ${c[0]} ${c[1]} · Vertiefung ${PRO[k].indexOf(here) + 1} von ${PRO[k].length}` : `Welt ${k + 1} · ${c[0]} ${c[1]} · Level ${k + 1}-${c[3].indexOf(here) + 1} von ${c[3].length}`; i.after(p); } }
   }
@@ -835,6 +856,7 @@ document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElemen
     const rs = [...document.querySelectorAll('input[type="range"]:not([data-nosweep])')]; if (!rs.length || innerWidth === w0) return; w0 = innerWidth;
     const hs = [...new Set([...document.querySelectorAll("[data-hold]")].map(h => getComputedStyle(h).display === "inline" ? h.parentElement : h))];
     const vs = rs.flatMap(r => [...r.parentElement.children].filter(x => x !== r && x.id && /^(B|OUTPUT|SPAN|STRONG|EM)$/.test(x.tagName) && x.offsetParent));
+    if (!hs.length && !vs.length) return;
     hs.forEach(h => h.style.minHeight = ""); vs.forEach(v => { v.style.minWidth = ""; if (getComputedStyle(v).display === "inline") v.style.display = "inline-block"; v.style.textAlign = "right"; });
     const mh = hs.map(h => h.offsetHeight), mw = vs.map(v => v.getBoundingClientRect().width);
     const fire = r => r.dispatchEvent(new Event("input", {bubbles: true})), see = () => { hs.forEach((h, i) => mh[i] = Math.max(mh[i], h.offsetHeight)); vs.forEach((v, i) => mw[i] = Math.max(mw[i], v.getBoundingClientRect().width)); };
@@ -842,13 +864,38 @@ document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElemen
     const v0 = rs.map(r => r.value), set = (r, v) => { r.value = v; fire(r); };
     try { for (const ctx of [null, "min", "max"]){   // jeder Regler einzeln, die anderen auf Start, ganz links und ganz rechts
       if (ctx && rs.length < 2) break;
-      rs.forEach((r, j) => { rs.forEach((o, i) => i !== j && set(o, ctx ? o[ctx] : v0[i]));
-        const st = +r.step || 1, n = Math.max(1, Math.min(60, Math.round((r.max - r.min)/st)));
+      rs.forEach((r, j) => { const sec = r.closest("section, .card") || document.body, mates = rs.filter((o, i) => i !== j && sec.contains(o));
+        if (ctx && !mates.length) return;   // Regler in anderen Abschnitten beeinflussen sich nicht
+        rs.forEach((o, i) => i !== j && set(o, ctx && mates.includes(o) ? o[ctx] : v0[i]));
+        const st = +r.step || 1, n = Math.max(1, Math.min(ctx ? 24 : 60, Math.round((r.max - r.min)/st)));
         for (let k = 0; k <= n; k++){ set(r, +r.min + (r.max - r.min)*k/n); see(); } set(r, v0[j]); }); }
       rs.forEach((r, i) => set(r, v0[i])); } catch(e){}
     window.__sweep = 0;
-    hs.forEach((h, i) => h.style.minHeight = mh[i] + "px"); vs.forEach((v, i) => v.style.minWidth = Math.ceil(mw[i]) + "px");
+    hs.forEach((h, i) => h.style.minHeight = mh[i] + "px"); vs.forEach((v, i) => { v.style.minWidth = Math.ceil(mw[i]) + "px"; v.dataset.tick = 1; });
   }
   addEventListener("load", () => setTimeout(hold, 60));
   let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(hold, 250); });
+})();
+
+// Lebendige Zahlen: Ändert sich ein Wert durch dich (Tippen, Regler), leuchtet er kurz auf
+(() => {
+  let last = -1e9; const SEL = ".kv b, .kv strong, output, [data-tick]";
+  ["pointerdown", "keydown", "input", "change"].forEach(ev => addEventListener(ev, e => { if (e.isTrusted) last = performance.now(); }, {capture: true, passive: true}));
+  const flash = el => { el.classList.remove("tick"); void el.offsetWidth; el.classList.add("tick"); };
+  const cands = n => n.nodeType !== 1 ? [] : n.matches(SEL) ? [n] : [...n.querySelectorAll(SEL)];
+  addEventListener("DOMContentLoaded", () => { const root = document.querySelector(".wrap"); if (!root) return;
+    new MutationObserver(ms => {
+      if (performance.now() - last > 2500 || window.__sweep || document.documentElement.classList.contains("calm")) return;
+      const done = new Set();
+      for (const m of ms){
+        const t = m.target.nodeType === 3 ? m.target.parentElement : m.target, own = t && t.closest(SEL);
+        if (own){ if (done.has(own)) continue; done.add(own);
+          const old = m.type === "characterData" ? m.oldValue : [...m.removedNodes].map(n => n.textContent).join("");
+          if (old !== own.textContent && (m.type === "characterData" || m.removedNodes.length)) flash(own); continue; }
+        if (m.type !== "childList") continue;
+        const o = [...m.removedNodes].flatMap(cands), nw = [...m.addedNodes].flatMap(cands);
+        nw.forEach((el, i) => { if (!done.has(el) && o[i] && o[i].textContent !== el.textContent){ done.add(el); flash(el); } });
+      }
+    }).observe(root, {subtree: true, childList: true, characterData: true, characterDataOldValue: true});
+  });
 })();

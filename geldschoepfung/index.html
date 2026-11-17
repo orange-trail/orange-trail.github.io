@@ -15,22 +15,23 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=59">
+<link rel="stylesheet" href="../lern.css?v=60">
 <style>
 /* Lernwelt "Geld-Maschine": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
 .kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
 .kv div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .kv b{display:block;font:700 18px var(--f-num);color:var(--ink)} .kv .g{color:var(--gold)}
-.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid var(--gold);background:rgba(247,147,26,.15)}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid #ffe3a6;outline-offset:2px}
 .res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
 .res strong{display:block;font-size:18px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
-@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
+@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} .kv > :nth-child(odd):last-child:not(:first-child){grid-column:1/-1} }
 .bal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .bal div{border:3px solid #0d1230;border-radius:14px;padding:10px 12px;background:#f4efe1;color:#0d1230;box-shadow:3px 3px 0 #0d1230}
 .bal h3{margin:0 0 6px;font:900 14px var(--f-display)} .bal ul{list-style:none;margin:0;padding:0;font:14px/1.6 Georgia,serif} .bal li{display:flex;justify-content:space-between;gap:6px;animation:pop .3s}
 .bal li b{font-family:var(--f-num)} .bal .new{color:#1a7a44;font-weight:700}
 .m3{margin-top:14px} .m3 svg{width:100%;height:auto;display:block}
+@media (max-width:560px){ #m3v svg text{font-size:19px} #m3v #m3b text{font-size:18px} }
 .m3t{display:flex;gap:6px;margin-bottom:10px} .m3t button{flex:1;min-height:38px;border-radius:12px;border:2px solid #0d1230;background:#232a6a;color:#dfe3ff;font-weight:800;cursor:pointer}
 .m3t button[aria-pressed=true]{background:#ffc94d;color:#0d1230}
 .who3{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .who3 div{border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.45;color:var(--muted)} .who3 b{display:block;color:var(--ink);font-family:var(--f-display)}
@@ -86,7 +87,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=82"></script>
+<script src="../lern.js?v=83"></script>
 <script>
 /* =====================================================================
    GELD-MASCHINE – Lernwelt von Orange Trail

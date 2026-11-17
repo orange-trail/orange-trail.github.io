@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=59">
+<link rel="stylesheet" href="../lern.css?v=60">
 <style>
 /* Lernwelt "Nodes": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .dev{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
@@ -143,7 +143,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=82"></script>
+<script src="../lern.js?v=83"></script>
 <script>
 /* =====================================================================
    NODE-WACHE – Lernwelt von Orange Trail
@@ -167,7 +167,7 @@ async function compare(){
   if (!Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Node A (Beispiel)"; sm[1].previousElementSibling.textContent = "Node B (Beispiel)"; }
   const [a, b] = Lern.DATA ? [await tip(Lern.api("")).catch(() => null), null] : [ex, ex];
   if (Lern.DATA){ const e = Lern.height(); $("bH").textContent = "ca. Block " + e.toLocaleString("de-DE"); $("bX").textContent = "10 Min. je Block"; }
-  const put = (r, H, X) => { if (r){ $(H).textContent = "Block " + r.h.toLocaleString("de-DE"); $(X).textContent = "Hash …" + r.x.slice(-12); } };
+  const put = (r, H, X) => { if (r){ $(H).textContent = "Block " + r.h.toLocaleString("de-DE"); $(X).textContent = "Hash …" + r.x.slice(-8); } };
   put(a, "aH", "aX"); put(b, "bH", "bX"); if (!a){ $("aH").textContent = "nicht erreichbar"; $("aX").textContent = ""; } if (!b && !Lern.DATA){ $("bH").textContent = "nicht erreichbar"; $("bX").textContent = ""; }
   const ok = Lern.DATA && (a || b); $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : "Beispielwerte";
   const vd = $("vd");

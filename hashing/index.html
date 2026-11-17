@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=59">
+<link rel="stylesheet" href="../lern.css?v=60">
 <style>
 /* Lernwelt "Hashing": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -34,7 +34,7 @@
 .guess{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
 .guess .btn{padding:10px 4px} .guess .btn.y{background:rgba(46,204,113,.25);border-color:var(--bull)} .guess .btn.n{opacity:.5;text-decoration:line-through}
 .gres{margin-top:8px;font-size:14px;color:var(--muted);min-height:1.4em}
-.blk{margin-top:10px;font:700 14px var(--f-code);word-break:break-all;padding:10px 12px;border-radius:12px;border:1px solid var(--line)} .blk em{font-style:normal;color:var(--gold)}
+.blk{margin-top:10px;font:700 14px var(--f-code);word-break:break-all;padding:10px 12px;border-radius:12px;border:1px solid var(--line)} .blk em{font-style:normal;color:var(--gold)} .blk .bkn{display:block;margin-top:6px;font:400 13px/1.45 var(--f-body);word-break:normal}
 @media (max-width:700px){ .props{grid-template-columns:1fr} .guess{grid-template-columns:1fr 1fr} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
@@ -102,7 +102,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=82"></script>
+<script src="../lern.js?v=83"></script>
 <script>
 /* =====================================================================
    FINGERABDRUCK-MASCHINE – Lernwelt von Orange Trail
@@ -153,11 +153,11 @@ game();
 fetch(Lern.api("blocks/tip/hash")).then(r => r.text()).then(h => {
   h = h.trim(); if (!/^[0-9a-f]{64}$/.test(h)) throw 0;
   const z = h.match(/^0*/)[0].length;
-  $("blk").innerHTML = `<em>${h.slice(0, z)}</em>${h.slice(z)}<br><span class="muted" style="font-weight:400">${z} Nullen am Anfang</span>`;
+  $("blk").innerHTML = `<em>${h.slice(0, z)}</em>${h.slice(z)}<span class="muted bkn">${z} Nullen am Anfang</span>`;
   $("mode").className = "mode live"; $("mode").textContent = "Live";
 }).catch(() => {   // ohne Live-Daten: der allererste Bitcoin-Block (2009), echt und unveränderlich
   const h = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f", z = 10;
-  $("blk").innerHTML = `<em>${h.slice(0, z)}</em>${h.slice(z)}<br><span class="muted" style="font-weight:400">Block 0 vom 3. Januar 2009: ${z} Nullen am Anfang. Heutige Blöcke haben rund 19.</span>`;
+  $("blk").innerHTML = `<em>${h.slice(0, z)}</em>${h.slice(z)}<span class="muted bkn">Block 0 vom 3. Januar 2009: ${z} Nullen am Anfang. Heutige Blöcke haben rund 19.</span>`;
   $("mode").className = "mode"; $("mode").textContent = "Block 0";
 });
 

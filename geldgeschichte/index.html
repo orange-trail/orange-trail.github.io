@@ -15,17 +15,17 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=59">
+<link rel="stylesheet" href="../lern.css?v=60">
 <style>
 /* Lernwelt "Geld-Zeitreise": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
 .kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
 .kv div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .kv b{display:block;font:700 18px var(--f-num);color:var(--ink)} .kv .g{color:var(--gold)}
-.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid var(--gold);background:rgba(247,147,26,.15)}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid #ffe3a6;outline-offset:2px}
 .res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
 .res strong{display:block;font-size:18px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
-@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
+@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} .kv > :nth-child(odd):last-child:not(:first-child){grid-column:1/-1} }
 .eras{display:flex;gap:4px;margin-top:12px;overflow-x:auto;padding-bottom:4px} .eras button{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);border-radius:999px;padding:5px 10px;font:800 12px var(--f-num);cursor:pointer}
 .eras button[aria-current="true"]{background:var(--gold);color:#2a1600;border-color:var(--gold)}
 .era{margin-top:12px;animation:rin .35s} .era .scn{height:170px} .era h3{margin:12px 0 4px;font:900 20px var(--f-display)} .era .y{font-size:13px;color:var(--muted)} .era p{margin:0;font-size:15px;line-height:1.55}
@@ -81,7 +81,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=82"></script>
+<script src="../lern.js?v=83"></script>
 <script>
 /* =====================================================================
    GELD-ZEITREISE – Lernwelt von Orange Trail

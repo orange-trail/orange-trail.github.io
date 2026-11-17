@@ -15,17 +15,17 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=59">
+<link rel="stylesheet" href="../lern.css?v=60">
 <style>
 /* Lernwelt "Senden & Empfangen": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
 .kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
 .kv div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .kv b{display:block;font:700 18px var(--f-num);color:var(--ink)} .kv .g{color:var(--gold)}
-.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid var(--gold);background:rgba(247,147,26,.15)}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid #ffe3a6;outline-offset:2px}
 .res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
 .res strong{display:block;font-size:18px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
-@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
+@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} .kv > :nth-child(odd):last-child:not(:first-child){grid-column:1/-1} }
 .phone{max-width:300px;margin:12px auto 0;border-radius:28px;border:4px solid #0d1230;background:linear-gradient(#232a6a,#141a48);box-shadow:5px 5px 0 #0d1230;padding:14px;text-align:center}
 .phone small{display:block;color:var(--muted);font-size:12px}
 .qr{position:relative;width:150px;height:150px;margin:8px auto;border-radius:12px;background:#fff;padding:8px} .qr::after{content:"ÜBUNG";position:absolute;left:-6px;right:-6px;top:50%;transform:translateY(-50%) rotate(-16deg);background:#ff5c73;color:#fff;border:3px solid #0d1230;border-radius:8px;font:900 18px var(--f-display);letter-spacing:.12em;text-align:center;padding:4px 0}   /* nicht benutzbar: Stempel + ungültige Adresse */ .qr svg{width:100%;height:100%;display:block}
@@ -104,7 +104,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=82"></script>
+<script src="../lern.js?v=83"></script>
 <script>
 /* =====================================================================
    SENDEN & EMPFANGEN – Lernwelt von Orange Trail
@@ -126,16 +126,16 @@ $("myAdr").innerHTML = hl(MY);
 
 // Senden: 4 Schritte
 const STEPS = ["Adresse", "Betrag", "Gebühr", "Senden"];
-let s = 0, swap = false, amt = 0, fee = 0, mist = 0;
+let s = 0, swap = false, amt = 0, fee = 0, mist = 0, gen = 0;
 const step = () => { $("st").innerHTML = STEPS.map((t, i) => `<span class="${i === s ? "on" : ""}">${i + 1} · ${t}</span>`).join(""); };
 function view(){
-  step(); const B = $("snd");
+  step(); const B = $("snd"), g = ++gen;
   if (s === 0){ swap = Math.random() < .5;
     B.innerHTML = `<div class="sbox"><h3>Adresse einfügen und prüfen</h3><p class="muted" style="margin:0">Du hast Annas Adresse kopiert und fügst sie ein. Vergleiche <b>Anfang und Ende</b> mit dem, was Anna dir geschickt hat:</p>
       <div class="cmp"><div><small>Von Anna geschickt</small><span class="adr" style="display:block">${hl(ANNA)}</span></div><div><small>Eingefügt in deiner Wallet</small><span class="adr" style="display:block">${hl(swap ? SWAP : ANNA)}</span></div></div>
       <div class="ch"><button class="btn ghost" type="button" data-a="1">✓ Stimmt überein, weiter</button><button class="btn ghost" type="button" data-a="0">✗ Stimmt nicht, abbrechen</button></div><p class="note" id="sN"></p></div>`;
     B.querySelector(".ch").onclick = e => { const b = e.target.closest("[data-a]"); if (!b) return; const same = b.dataset.a === "1";
-      if (same === !swap){ Lern.sfx && Lern.sfx("ok"); if (swap){ $("sN").innerHTML = "<b>Gut aufgepasst!</b> Das Ende war anders. Hier hätte Schadsoftware die Adresse ausgetauscht. Neuer Versuch:"; setTimeout(view, 2200); } else { s = 1; view(); } }
+      if (same === !swap){ Lern.sfx && Lern.sfx("ok"); if (swap){ $("sN").innerHTML = "<b>Gut aufgepasst!</b> Das Ende war anders. Hier hätte Schadsoftware die Adresse ausgetauscht. Neuer Versuch:"; B.querySelectorAll(".ch button").forEach(x => x.disabled = true); setTimeout(() => g === gen && view(), 2200); } else { s = 1; view(); } }
       else { mist++; Lern.sfx && Lern.sfx("no"); $("sN").innerHTML = swap ? "<b>Achtung!</b> Schau aufs Ende: Die Adressen sind <b>verschieden</b>. Das Geld wäre beim Betrüger gelandet." : "Schau nochmal genau hin: Anfang und Ende sind <b>gleich</b>."; } };
   }
   else if (s === 1){
@@ -159,10 +159,10 @@ function view(){
       const MIN = [12, 9, 5, 4, 3, 2], CAP = 8, Q = 10; let k = 0;   // Block fasst 8, Warteraum hat immer 10 andere
       const wait = (q, nw = 0) => { $("mq").innerHTML = '<i class="me"></i>' + "<i></i>".repeat(q - nw) + '<i class="nw"></i>'.repeat(nw); };
       wait(Q); $("sN").innerHTML = "📤 Gesendet! Deine Zahlung (gold) wartet im Warteraum. Miner nehmen die mit der höchsten Gebühr zuerst …";
-      const next = () => { const m = MIN[k], in_ = fee[1] >= m, d = document.createElement("div");
+      const next = () => { if (g !== gen) return; const m = MIN[k], in_ = fee[1] >= m, d = document.createElement("div");
         d.className = "bk" + (in_ ? " hit" : ""); d.innerHTML = `<b>Block ${k + 1}</b><div>${in_ ? '<i class="me"></i>' + "<i></i>".repeat(CAP - 1) : "<i></i>".repeat(CAP)}</div><small>ab ${m} sat/vB</small>`;
         $("bks").prepend(d); k++; Lern.sfx && Lern.sfx(in_ ? "lvl" : "hit");
-        if (!in_){ wait(Q - CAP); setTimeout(() => wait(Q, CAP), 450); $("sN").innerHTML = `⛏️ Block ${k} gefunden: Die ${CAP} Zahlungen mit der höchsten Gebühr (ab ${m} sat/vB) sind eingestiegen, ${CAP} neue kommen nach. Deine ${fee[1]} sat/vB reichen noch nicht …`; setTimeout(next, 2200); return; }
+        if (!in_){ wait(Q - CAP); setTimeout(() => g === gen && wait(Q, CAP), 450); $("sN").innerHTML = `⛏️ Block ${k} gefunden: Die ${CAP} Zahlungen mit der höchsten Gebühr (ab ${m} sat/vB) sind eingestiegen, ${CAP} neue kommen nach. Deine ${fee[1]} sat/vB reichen noch nicht …`; setTimeout(next, 2200); return; }
         wait(Q - CAP + 1); $("mq").firstChild.remove();
         $("sN").innerHTML = `<b>✅ In Block ${k}, also nach ca. ${k * 10} Min. angekommen!</b> ${amt < .01 ? "Der Test hat geklappt. Jetzt kannst du den Rest beruhigt schicken." : "Geschafft."} ${mist ? `(${mist} Fehler unterwegs, beim nächsten Mal genauer hinschauen.)` : "Alles richtig gemacht!"} <button class="btn ghost" type="button" id="again" style="margin-top:8px">↺ Nochmal üben</button>`;
         $("again").onclick = () => { s = 0; mist = 0; view(); }; };

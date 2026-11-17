@@ -15,17 +15,17 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=59">
+<link rel="stylesheet" href="../lern.css?v=60">
 <style>
 /* Lernwelt "SHA-256 von innen": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
 .kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
 .kv div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .kv b{display:block;font:700 18px var(--f-num);color:var(--ink)} .kv .g{color:var(--gold)}
-.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid var(--gold);background:rgba(247,147,26,.15)}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid #ffe3a6;outline-offset:2px}
 .res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
 .res strong{display:block;font-size:18px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
-@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
+@media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} .kv > :nth-child(odd):last-child:not(:first-child){grid-column:1/-1} }
 .inp{width:100%;font:600 16px var(--f-body);padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#0b0f2a;color:var(--ink);margin-top:6px}
 .lbl2{display:block;font-size:13px;color:var(--muted);margin-top:12px}
 .hx{font:600 12px/1.45 var(--f-code);word-break:break-all;color:#cfd5ff}
@@ -140,7 +140,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=82"></script>
+<script src="../lern.js?v=83"></script>
 <script>
 /* =====================================================================
    SHA-256 VON INNEN – Lernwelt von Orange Trail
@@ -212,7 +212,7 @@ function aval(){
   const d = A.map((r, i) => r.v.reduce((n, x, k) => n + pc((x ^ B[i].v[k]) >>> 0), 0));
   const W = 640, H = 300, px = i => 44 + i * (W - 60) / 63, py = v => H - 30 - v / 256 * (H - 50);
   const half = d.findIndex(v => v >= 100) + 1;
-  $("aval").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Unterschiedliche Bits pro Runde"><line x1="30" x2="${W - 10}" y1="${py(128)}" y2="${py(128)}" stroke="#34d982" stroke-dasharray="6 6"/><text x="${W - 12}" y="${py(128) - 10}" fill="#34d982" font-size="22" font-weight="700" text-anchor="end">128 = perfekt gemischt</text><polyline fill="none" stroke="#ffc94d" stroke-width="5" points="${d.map((v, i) => px(i) + "," + py(v)).join(" ")}"/>${d.map((v, i) => i % 8 === 7 ? `<text x="${px(i)}" y="${H - 4}" fill="#8890b8" font-size="20" text-anchor="middle">${i + 1}</text>` : "").join("")}<text x="0" y="${py(256) + 16}" fill="#8890b8" font-size="18">256</text><text x="8" y="${py(0) + 6}" fill="#8890b8" font-size="18">0</text></svg>`;
+  $("aval").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Unterschiedliche Bits pro Runde"><line x1="30" x2="${W - 10}" y1="${py(128)}" y2="${py(128)}" stroke="#34d982" stroke-dasharray="6 6"/><polyline fill="none" stroke="#ffc94d" stroke-width="5" points="${d.map((v, i) => px(i) + "," + py(v)).join(" ")}"/><text x="${W - 12}" y="${py(128) - 26}" fill="#34d982" font-size="24" font-weight="800" text-anchor="end" stroke="#141a3d" stroke-width="7" paint-order="stroke" stroke-linejoin="round">128 = perfekt gemischt</text>${d.map((v, i) => i % 8 === 7 ? `<text x="${px(i)}" y="${H - 4}" fill="#8890b8" font-size="20" text-anchor="middle">${i + 1}</text>` : "").join("")}<text x="0" y="${py(256) + 16}" fill="#8890b8" font-size="18">256</text><text x="8" y="${py(0) + 6}" fill="#8890b8" font-size="18">0</text></svg>`;
   $("avalN").innerHTML = `Am Anfang ist fast alles gleich. Schon nach <b>${half} Runden</b> ist rund die Hälfte der Bits anders, danach bleibt es zufällig um <b>128</b> herum. Die restlichen Runden sind <b>Sicherheitspuffer</b>.`;
 }
 function all(){ T = Bit.sha256(Bit.utf8($("msg").value), true); grid(); go(step); aval(); }
@@ -240,7 +240,7 @@ function hand(){
   $("hDots").innerHTML = S.map((_, k) => `<i class="${k < hs ? "ok" : k === hs ? "cur" : ""}"></i>`).join("");
   $("hand").innerHTML = `<div class="hstep"><h3>Runde ${hr} · Schritt ${hs + 1} von 8: ${t}</h3>
     <div class="hops">${(pre || []).map(([n, v]) => hrow(n, v)).join("")}${ops.map(([n, v]) => hrow(n, v)).join("")}<div class="ln"><span>=</span><span>???? ???? ???? ???? ???? ???? ???? ????</span><em>????????</em></div></div>
-    <div class="hin"><input id="hIn" placeholder="z. B. 1a2b3c4d" autocomplete="off" spellcheck="false" aria-label="Dein Ergebnis"><button class="btn" type="button" id="hChk">Prüfen</button><button class="btn" type="button" id="hTip">💡 Tipp</button><button class="btn" type="button" id="hSol">Lösung</button></div>
+    <div class="hin"><input id="hIn" placeholder="z. B. 1a2b3c4d" autocomplete="off" spellcheck="false" aria-label="Dein Ergebnis"><button class="btn" type="button" id="hChk">Prüfen</button><button class="btn ghost" type="button" id="hTip">💡 Tipp</button><button class="btn ghost" type="button" id="hSol">Lösung</button></div>
     <p class="note" id="hN"></p></div>`;
   const ok = sol => { $("hIn").className = "ok"; $("hN").innerHTML = `${sol ? `Lösung: <b>${GB(want)}</b> = ` : "✅ Richtig: "}<b>${hx(want)}</b> <button class="btn" type="button" id="hNx">${hs < 7 ? "Nächster Schritt →" : hr < 64 ? "Runde " + (hr + 1) + " →" : "↺ Von vorn"}</button>`;
     $("hNx").onclick = () => { if (hs < 7) hs++; else { hs = 0; hr = hr < 64 ? hr + 1 : 1; $("hR").value = hr; } hand(); };
