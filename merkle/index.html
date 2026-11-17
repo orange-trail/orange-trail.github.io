@@ -35,7 +35,7 @@
 .tree{display:grid;gap:10px;margin-top:12px}
 .mlv{display:grid;gap:6px}
 .nd{border:2px solid var(--line);border-radius:10px;padding:6px 4px;text-align:center;font:700 11px var(--f-code);transition:border-color .3s,background .3s;cursor:default;min-width:0}
-.nd small{display:block;font:600 10px var(--f-body);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nd small{display:block;font:600 11px var(--f-body);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nd.tx{cursor:pointer;background:rgba(255,255,255,.03)} .nd.tx:hover{border-color:var(--gold)}
 .nd.bad{border-color:var(--bear);background:rgba(255,92,115,.15);animation:p-pop .4s} .nd.root{border-color:var(--gold);background:rgba(247,147,26,.12);font-size:13px}
 .nd.root.bad{border-color:var(--bear);background:rgba(255,92,115,.2)}
@@ -44,7 +44,7 @@
 .ctl .row{display:flex;align-items:center;gap:10px;margin-top:8px} .ctl .row input{flex:1} .ctl .row b{font:900 16px var(--f-num);min-width:6ch;text-align:right}
 .mode2{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .nd .sh{display:none}
-@media (max-width:620px){ .mlv{gap:3px} .nd{font-size:10px;padding:5px 1px;border-radius:8px} .nd small{font-size:11px;white-space:normal;line-height:1.15;overflow:visible} .nd .lg{display:none} .nd .sh{display:inline} }
+@media (max-width:620px){ .mlv{gap:3px} .nd{font-size:11px;padding:5px 1px;border-radius:8px} .nd small{font-size:11px;white-space:normal;line-height:1.15;overflow:visible} .nd .lg{display:none} .nd .sh{display:inline} .nd{overflow:hidden;white-space:nowrap;text-overflow:ellipsis} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -88,7 +88,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=81"></script>
+<script src="../lern.js?v=82"></script>
 <script>
 /* =====================================================================
    MERKLE-BAUM – Lernwelt von Orange Trail

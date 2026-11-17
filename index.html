@@ -220,7 +220,7 @@ details.fold[open] > summary{margin-bottom:12px}
   <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Satoshi ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Einführung ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Orange Trail</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=81"></script>
+<script src="lern.js?v=82"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -319,7 +319,7 @@ details.fold[open] > summary{margin-bottom:12px}
     d.addEventListener("toggle", () => { fold[k] = d.open; try { localStorage.setItem("satsland-fold", JSON.stringify(fold)); } catch(e){} });
   });
   document.getElementById("dlyS").textContent = dly.streak ? `🔥 ${dly.streak}` + (dly.last === new Date().toLocaleDateString("sv-SE") ? " · erledigt" : "") : "✨ Neue Frage";
-  document.getElementById("pathCount").textContent = `6 Welten · ${Lern.PATH.length} Level · 6 Bosse · 👑 Endboss · 🔬 ${Lern.PRO.flat().length} Profi`;
+  document.getElementById("pathCount").innerHTML = ["6 Welten", `${Lern.PATH.length} Level`, "6 Bosse", "👑 Endboss", `🔬 ${Lern.PRO.flat().length} Profi`].map(t => `<span style="white-space:nowrap">${t}</span>`).join(" · ");
   // Status-Kacheln: Rang, aktuelle Welt, Serie
   const L = Lern.level(n), nx = Lern.LEVELS.find(l => l[0] > n), lv = Lern.LEVELS.find(l => l[2] === L.name), lo = lv ? lv[0] : 0, pct = nx ? (n - lo) / (nx[0] - lo) * 100 : 100;
   document.getElementById("stats").innerHTML = `<div title="${nx ? `Noch ${nx[0] - n} bis ${nx[2]}` : "Höchster Rang"}"><small>Rang</small><span class="lvb"><i>${Lern.art(lv ? lv[3] : "plankton")}</i><b>${L.name}</b></span><span class="bar"><u style="width:${pct}%"></u></span></div>

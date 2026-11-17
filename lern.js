@@ -376,6 +376,26 @@ const Lern = (() => {
     blockchain: ["night", "Block an Block an Block", sa("block", 20, 62, 54, "drop .7s cubic-bezier(.3,1.4,.5,1) both", .2, "top:62%") + sa("block", 44, 62, 54, "drop .7s cubic-bezier(.3,1.4,.5,1) both", .7, "top:62%") + sa("block", 68, 62, 54, "drop .7s cubic-bezier(.3,1.4,.5,1) both", 1.2, "top:62%") + sa("chain", 32, 62, 26, "grow .4s both", 1.4) + sa("chain", 56, 62, 26, "grow .4s both", 1.6) + sa("chain", 82, 62, 26, "grow .4s both", 1.8, "opacity:.45")],
     mining: ["dusk", "Raten, raten … Treffer!", sa("pick", 34, 48, 64, "swing .5s ease-in-out 4") + sa("block", 66, 50, 56, "grow .5s both", 2.2) + sl("Neuer Block!", 66, 88, 2.4)],
     nodes: ["night", "Tausende Wächter prüfen alles", sa("server", 18, 62, 52, "grow .4s both", .1) + sa("server", 39, 62, 52, "grow .4s both", .3) + sa("server", 61, 62, 52, "grow .4s both", .5) + sa("server", 82, 62, 52, "grow .4s both", .7) + sl("✓ ✓ ✓ ✓", 50, 22, 1.2)],
+    // Profi-Vertiefungen
+    whitepaper: ["night", "9 Seiten, die alles änderten", sa("scroll", 34, 50, 64, "grow .5s both", .2) + sa("satoshi", 72, 50, 56, "bobA 1.6s ease-in-out infinite", .6) + sl("31.10.2008", 50, 88, 1.2)],
+    sha256: ["night", "Die Maschine aufschrauben", sa("gear", 30, 56, 64, "grow .5s both", .2) + sa("factory", 68, 58, 72, "grow .5s both", .6) + sl("64 Runden", 50, 88, 1.2)],
+    kurven: ["dusk", "Springen auf der Kurve", sa("curve", 50, 48, 72, "grow .6s both", .2) + sa("key", 16, 64, 40, "bobA 1.4s ease-in-out infinite", .8) + sl("y² = x³ + 7", 50, 88, 1.2)],
+    signaturen: ["dawn", "Zwei Arten zu unterschreiben", sa("pen", 32, 56, 64, "grow .5s both", .2) + sa("letter", 68, 56, 64, "grow .5s both", .6) + sl("ECDSA ⚔️ Schnorr", 50, 88, 1.2)],
+    adressen: ["day", "1…, 3…, bc1…?", sa("letter", 30, 58, 64, "grow .5s both", .2) + sa("tag", 70, 56, 56, "grow .5s both", .6) + sl("Tippfehler? Erwischt!", 50, 88, 1.2)],
+    merkle: ["night", "Tausende Zahlungen, ein Hash", sa("tree", 50, 52, 66, "grow .6s both", .2) + sl("Merkle-Root", 50, 88, 1.2)],
+    script: ["night", "Schlösser aus Code", sa("term", 32, 56, 66, "grow .5s both", .2) + sa("key", 70, 58, 52, "bobA 1.4s ease-in-out infinite", .6) + sl("wahr ✓", 70, 88, 1.2)],
+    quanten: ["night", "Gefahr aus der Zukunft?", sa("atom", 34, 56, 72, "grow .5s both", .2) + sa("key", 70, 58, 52, "sshake .5s ease 1s 3") + sl("Nüchtern betrachtet", 50, 88, 1.4)],
+    entropie: ["day", "Würfel statt Bauchgefühl", sa("dice", 28, 58, 60, "grow .5s both", .2) + sa("dice", 54, 52, 52, "grow .5s both", .5) + sa("dice", 76, 60, 44, "grow .5s both", .8) + sl("Echter Zufall", 50, 88, 1.2)],
+    ableitung: ["dusk", "Aus Wörtern werden Schlüssel", sa("letter", 20, 58, 56, "grow .5s both", .2) + sf("key", 20, 58, 52, 50, 40, .6) + sf("key", 20, 58, 70, 44, 40, 1) + sf("key", 20, 58, 86, 60, 40, 1.4) + sl("m/84'/0'/0'/0/0", 50, 88, 1.6)],
+    blockbau: ["dusk", "Jetzt bist du Miner!", sa("pick", 28, 52, 56, "swing .5s ease-in-out 3") + sa("block", 66, 58, 64, "grow .5s both", 1.4) + sl("Was passt rein?", 50, 88, 1.8)],
+    lnnetz: ["night", "Der Weg durchs Blitz-Netz", sa("phone", 14, 58, 46) + sa("server", 50, 46, 46, "grow .4s both", .4) + sa("phone", 86, 58, 46) + sa("bolt", 32, 50, 30, "szap 1s ease .8s 3") + sa("bolt", 68, 50, 30, "szap 1s ease 1.2s 3") + sl("Station für Station", 50, 88, 1.6)],
+    offline: ["night", "Internet weg? Kein Problem!", sa("phone", 18, 58, 52) + sf("letter", 18, 58, 50, 40, 36, .5) + sf("letter", 50, 40, 82, 58, 36, 1.3) + sa("server", 82, 60, 50, "grow .4s both", .2) + sl("Funk, Satellit, Taube", 50, 88, 1.8)],
+    hyperinflation: ["dusk", "Ein Brot: 201 Milliarden Mark", sa("printer", 26, 54, 56, "sshake .5s ease .3s 3") + sf("dollar", 26, 54, 60, 46, 34, .6) + sf("dollar", 26, 54, 80, 58, 34, 1) + sf("dollar", 26, 54, 62, 66, 34, 1.4) + sl("Deutschland 1923", 50, 88, 1.8)],
+    goldstandard: ["day", "Gold gegen Papier", sa("trophy", 30, 56, 64, "grow .5s both", .2) + sa("dollar", 70, 58, 64, "grow .5s both", .6) + sl("Bis 1971", 50, 88, 1.2)],
+    vorlaeufer: ["night", "Bitcoin hatte Vorfahren", sa("laptop", 22, 60, 54, "grow .4s both", .2) + sa("scroll", 50, 56, 52, "grow .4s both", .5) + sa("coin", 78, 60, 54, "grow .4s both", 1) + sl("1982 → 2008", 50, 88, 1.4)],
+    satoshi: ["night", "Wer bin ich wirklich?", sa("satoshi", 44, 50, 68, "bobA 1.6s ease-in-out infinite") + sl("???", 74, 40, 1)],
+    krimis: ["night", "Sechs echte Fälle", sa("hood", 30, 50, 60, "sshake .5s ease .6s 3") + sa("bank2", 72, 52, 56, "grow .5s both", .3) + sl("Fall gelöst?", 50, 88, 1.4)],
+    psycho: ["dusk", "Was denkt dein Kopf?", sa("mirror", 34, 50, 62, "grow .5s both", .2) + sa("fomo", 72, 52, 52, "bobA 1s ease-in-out infinite", .5) + sl("Drei Experimente", 50, 88, 1.2)],
   };
   function intro(){
     const I = INTRO[here], h = document.querySelector("h1"); if (!I || !h) return;

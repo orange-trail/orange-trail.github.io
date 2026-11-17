@@ -58,6 +58,7 @@
     <input id="sm" class="inp" value="Zahle 0,01 BTC an Anna" autocomplete="off">
     <div class="row" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn" type="button" id="sGo">✍️ Unterschreiben</button><button class="btn" type="button" id="sBad">😈 Nachricht nachträglich ändern</button></div>
     <div class="duel" id="duel"></div>
+    <div class="warnbox">⚠️ <b>Nur zum Üben:</b> Die bc1p-Adressen auf dieser Seite sind echt gerechnet, aber aus Zufallsschlüsseln, die beim Neuladen verschwinden. <b>Niemals Geld hinschicken</b>, es wäre für immer verloren.</div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
@@ -99,7 +100,7 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=81"></script>
+<script src="../lern.js?v=82"></script>
 <script>
 /* =====================================================================
    SIGNATUR-DUELL – Lernwelt von Orange Trail
@@ -129,7 +130,7 @@ sign();
 const P3 = ["🙋‍♀️ Anna", "🙋 Ben", "🧑 Cem"].map(n => [n, Bit.mod(Bit.big(Bit.rand(32)), Bit.N)]);
 const sum = P3.reduce((A, [, k]) => Bit.add(A, Bit.mul(k)), null), short = x => x.toString(16).slice(0, 8) + "…";
 $("keys").innerHTML = P3.map(([n, k]) => `<div><b>${n.split(" ")[0]}</b>${n.split(" ")[1]}<br><span class="hx">${short(Bit.mul(k).x)}</span></div>`).join("") +
-  `<div class="eq">=</div><div class="sum"><b>🔑</b>Gemeinsamer Schlüssel<br><span class="hx">${short(sum.x)}</span><br><span class="hx" style="font-size:10px">${Bit.p2tr(sum)}</span></div>`;
+  `<div class="eq">=</div><div class="sum"><b>🔑</b>Gemeinsamer Schlüssel<br><span class="hx">${short(sum.x)}</span><br><span class="hx" style="font-size:11px;word-break:break-all">${Bit.p2tr(sum)}</span></div>`;
 $("form").innerHTML = `Schnorr: <span style="color:var(--gold)">s = k + e · d</span> → prüfen: s·G = R + e·P<br>Drei Personen: s₁ + s₂ + s₃ passt zu P₁ + P₂ + P₃. <span style="color:var(--bull)">Plus bleibt Plus.</span><br>ECDSA: s = (z + r · d) ÷ k → das Teilen verhindert so einfaches Zusammenzählen.`;
 
 const QUIZ = [["Wann kam die Schnorr-Signatur zu Bitcoin?", ["2009 beim Start", "2017 mit SegWit", "2021 mit Taproot", "Noch gar nicht"], 2, "Schnorr-Signaturen wurden 2021 mit dem Taproot-Upgrade aktiviert."], ["Was kann Schnorr, was ECDSA nicht kann?", ["Ohne Schlüssel unterschreiben", "Mehrere Schlüssel zu einem zusammenrechnen", "Nachrichten verschlüsseln", "Bitcoin erzeugen"], 1, "Weil Schnorr linear ist, lassen sich Schlüssel und Unterschriften addieren. Eine Gruppe sieht aus wie eine Person."], ["Was passiert, wenn jemand die Nachricht nach dem Unterschreiben ändert?", ["Nichts", "Nur ECDSA merkt es", "Beide Prüfungen schlagen fehl", "Die Unterschrift passt sich an"], 2, "Die Unterschrift gilt nur für genau diese Nachricht. Jede Änderung macht sie ungültig, bei beiden Verfahren."]];
