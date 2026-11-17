@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bau deinen Block · Orange Trail</title>
+<meta name="description" content="Profi-Vertiefung: Du bist Miner. Pack die besten Zahlungen in deinen Block, rette eine festhängende Zahlung, erkenn Betrug und sieh, wovon Miner in Zukunft leben.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bau deinen Block · Orange Trail">
+<meta property="og:description" content="Profi-Vertiefung: Du bist Miner. Pack die besten Zahlungen in deinen Block, rette eine festhängende Zahlung, erkenn Betrug und sieh, wovon Miner in Zukunft leben.">
+<meta property="og:image" content="https://satsland.github.io/og/blockbau.jpg">
+<meta property="og:url" content="https://satsland.github.io/blockbau/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=58">
+<style>
+/* Lernwelt "Bau deinen Block": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid var(--gold);background:rgba(247,147,26,.15)}
+.rt{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:4px}
+.rt button{font:800 13px var(--f-body);padding:8px 4px;border-radius:12px;border:2px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);cursor:pointer;line-height:1.25}
+.rt button small{display:block;font-weight:600;font-size:11px}
+.rt button[aria-pressed="true"]{border-color:var(--gold);color:var(--ink);background:rgba(247,147,26,.14)} .rt button.won{color:var(--bull)} .rt button.won::after{content:" ✓"}
+.bar{position:sticky;top:6px;z-index:3;margin-top:12px;padding:8px;border-radius:14px;background:#141a45;border:1px solid var(--line);box-shadow:0 8px 18px -10px #000}
+.fill{position:relative;height:34px;border-radius:10px;background:rgba(255,255,255,.06);overflow:hidden}
+.fill i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,#f7931a,#ffc94d);transition:width .3s}
+.fill i.full{background:linear-gradient(90deg,#34d982,#7ff0b4)}
+.fill span{position:relative;display:flex;justify-content:space-between;align-items:center;height:100%;padding:0 10px;font:800 13px var(--f-num);color:#fff;text-shadow:0 1px 2px #0008}
+.tools{display:flex;gap:6px;margin-top:8px;align-items:center} .tools .btn{flex:1;min-height:34px;padding:3px 6px;font-size:13px;justify-content:center} .tools .btn[aria-pressed="true"]{border-color:var(--gold);background:rgba(247,147,26,.18);color:var(--ink)}
+.tools .sl{font-size:12px;color:var(--muted);flex:none}
+.mp{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
+.mtx{position:relative;text-align:left;font:13px/1.35 var(--f-body);color:var(--ink);padding:9px 10px;border-radius:12px;border:2px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer;transition:border-color .2s,background .2s,transform .12s}
+.mtx:active{transform:scale(.97)}
+.mtx b{display:block;font-size:14px;margin-bottom:3px;padding-right:22px}
+.mtx .m{display:flex;justify-content:space-between;gap:6px;color:var(--muted);font-size:12px}
+.mtx .r{display:inline-block;margin-top:5px;padding:2px 8px;border-radius:999px;font:800 12px var(--f-num);color:#0b0f2a}
+.mtx .x{display:block;margin-top:5px;font-size:12px;color:var(--muted)} .mtx .x.w{color:var(--gold)} .mtx .x.bad{color:#ff8a9a;font-weight:700} .mtx .x.ok{color:#7ff0b4}
+.mtx.in{border-color:var(--gold);background:rgba(247,147,26,.16)} .mtx.in::after{content:"✓";position:absolute;top:7px;right:9px;font-weight:900;color:var(--gold)}
+.mtx.no{border-color:var(--bear);animation:shake .4s}
+.mtx.best{outline:3px dashed var(--bull);outline-offset:1px}
+.fb{margin:10px 0 0;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.45;background:rgba(255,255,255,.04);border:1px solid var(--line)} .fb.ok{border-color:var(--bull)} .fb.no{border-color:var(--bear)}
+.res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
+.res strong{display:block;font-size:18px;margin-bottom:2px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
+.res .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
+.yrs{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px} .yrs .btn{min-height:38px;padding:4px 12px;font-size:14px} .yrs .btn[aria-pressed="true"]{outline:2px solid var(--gold);background:rgba(247,147,26,.15)}
+.lohn{margin-top:12px;display:grid;gap:10px}
+.lohn .row2{display:grid;grid-template-columns:7.5em 1fr 6.5em;gap:8px;align-items:center;font-size:14px}
+.lohn .tr{height:22px;border-radius:7px;background:rgba(255,255,255,.06);overflow:hidden} .lohn .tr i{display:block;height:100%;width:0;transition:width .4s}
+.lohn b{font:800 14px var(--f-num);text-align:right}
+.pie{display:flex;align-items:center;gap:14px;margin-top:4px;font-size:15px;line-height:1.45}
+.pie .big2{font:900 34px var(--f-num);color:var(--gold);flex:none}
+@media (max-width:380px){ .tools .sl{display:none} .tools .btn{font-size:12px;padding:3px 4px} }
+@media (max-width:420px){ .mp{grid-template-columns:1fr 1fr;gap:6px} .mtx{padding:8px} .mtx b{font-size:13px} .lohn .row2{grid-template-columns:6.2em 1fr 5.6em;font-size:13px} }
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Bau deinen <span class="btc">Block</span></h1>
+    <p class="lead">Jetzt bist <b>du</b> der Miner. Im Warteraum (Mempool) stehen Zahlungen, jede mit Größe und Gebühr. Dein Block hat aber nur begrenzt Platz. Welche nimmst du mit? In vier Runden lernst du, wie Miner wirklich denken.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h1s">
+    <h2 id="h1s">Das Spiel</h2>
+    <div class="rt" id="rt" role="tablist" aria-label="Runden"></div>
+    <div class="idea" id="intro" style="margin-top:12px"></div>
+    <div id="game">
+      <div class="bar" id="bar">
+        <div class="fill"><i id="fi"></i><span><span id="fv">0 / 1.000 vB</span><span id="ff">0 sat</span></span></div>
+        <div class="tools"><span class="sl">Sortieren</span><button class="btn ghost" type="button" data-s="0" aria-pressed="true">Warteraum</button><button class="btn ghost" type="button" data-s="1" aria-pressed="false">Gebühr</button><button class="btn ghost" type="button" data-s="2" aria-pressed="false">sat/vB</button></div>
+      </div>
+      <p class="fb" id="fb" aria-live="polite" hidden></p>
+      <div class="mp" id="mp"></div>
+      <div class="seg"><button class="btn" type="button" id="go">⛏ Block abschicken</button><button class="btn ghost" type="button" id="chk" hidden>🔍 Wie eine Node prüfen</button><button class="btn ghost" type="button" id="clr">↺ Leeren</button></div>
+      <div class="res" id="res" hidden aria-live="polite"></div>
+    </div>
+    <div id="pay" hidden>
+      <div class="yrs" id="yrs"></div>
+      <div class="lohn" id="lohn"></div>
+      <div class="res" id="payTxt" style="display:block"></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="hMs">
+    <h2 id="hMs">Das solltest du dir merken</h2>
+    <div class="learn">
+      <div><b>Gebühr pro Platz</b><span>Miner rechnen in <b>sat/vB</b>, nicht in der Gesamtgebühr. Eine kleine Zahlung kann mehr wert sein als eine große.</span></div>
+      <div><b>Eltern &amp; Kind</b><span>Hängt deine Zahlung fest, kann eine <b>Folgezahlung mit hoher Gebühr</b> sie mitziehen. Fachbegriff: CPFP.</span></div>
+      <div><b>Ein Fehler, alles weg</b><span>Steckt <b>eine</b> ungültige Zahlung im Block, lehnen alle Nodes den ganzen Block ab. Der Miner bekommt nichts.</span></div>
+      <div><b>Gebühren sind die Zukunft</b><span>Die neuen Bitcoin pro Block halbieren sich alle vier Jahre. Langfristig müssen <b>Gebühren</b> die Miner bezahlen.</span></div>
+    </div>
+    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+  </section>
+
+  <section class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary>Quellen</summary><p>Vereinfachtes Spiel: Ein echter Block fasst bis zu rund 1.000.000 vB, also etwa 1.000-mal so viel wie hier, und enthält meist 3.000 bis 4.000 Zahlungen. Gebührenanteil am Miner-Lohn zuletzt unter 1 %: <a href="https://cointelegraph.com/news/bitcoin-miners-earn-under-07-of-revenue-from-fees-in-new-10-year-low">Cointelegraph, August 2026</a> · <a href="https://bitcoinops.org/en/topics/cpfp/">Bitcoin Optech: CPFP</a> · <a href="https://developer.bitcoin.org/devguide/block_chain.html">Bitcoin Developer Guide: Block Chain</a></p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=75"></script>
+<script>
+/* =====================================================================
+   BAU DEINEN BLOCK – Lernwelt von Orange Trail
+   Spielblock: 1.000 vB (echt: bis ca. 1.000.000 vB)
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id), nf = n => n.toLocaleString("de-DE");
+// Zahlung: [Name, vB, Gebühr in sat, Extra]  Extra: {p:Eltern-Index} | {coin:"…"} | {sig:0}
+const ROUNDS = [
+  {t: "Voll machen", cap: 1000, intro: "<b>Runde 1:</b> Hol so viele Gebühren wie möglich in deinen Block. Tipp eine Zahlung an, um sie einzupacken, nochmal, um sie herauszunehmen.",
+   tx: [["Anna → Ben", 140, 2800], ["Cem → Dana", 220, 3300], ["Börse → 40 Kunden", 600, 7200], ["Finn → Gil", 110, 3850], ["Hana → Ida", 250, 2500], ["Jan → Kai", 180, 5400], ["Lea → Max", 140, 700], ["Nia → Ole", 300, 7500], ["Pia → Quinn", 160, 4000], ["Rio → Sam", 200, 1000]]},
+  {t: "Eltern & Kind", cap: 1000, intro: "<b>Runde 2:</b> Tom hat zu wenig Gebühr gezahlt, seine Zahlung hängt seit Tagen fest. Uwe will das Geld sofort weiterschicken und zahlt dafür <b>extra viel</b>. Seine Zahlung gilt aber nur, wenn Toms Zahlung auch im Block ist.",
+   tx: [["Tom → Uwe", 200, 400, {stuck: 1}], ["Uwe → Vera", 150, 8350, {p: 0}], ["Ali → Bea", 200, 3000], ["Carl → Doro", 150, 3000], ["Emil → Fay", 300, 6000], ["Gina → Hugo", 120, 1800], ["Ivo → Jule", 250, 5000], ["Karl → Lina", 100, 1200]]},
+  {t: "Schummel-Check", cap: 1000, intro: "<b>Runde 3:</b> Vorsicht, im Warteraum lauern Betrüger, und sie zahlen verdächtig gut. Jede Zahlung nennt die Münze (Coin), die sie ausgibt. Mit „🔍 Wie eine Node prüfen“ siehst du, was jede Node prüft.",
+   tx: [["Lea → Shop", 200, 6000, {coin: "#7"}], ["Mia → Nils", 180, 3600, {coin: "#2"}], ["??? → Rio", 150, 12000, {coin: "#9", sig: 0}], ["Otto → Pam", 220, 4400, {coin: "#4"}], ["Lea → Max", 200, 9000, {coin: "#7"}], ["Quirin → Ria", 150, 2250, {coin: "#5"}], ["Sven → Tara", 250, 5000, {coin: "#1"}], ["Udo → Vio", 120, 3000, {coin: "#8"}], ["Wim → Xena", 200, 2000, {coin: "#3"}]]},
+  {t: "Dein Lohn"}
+];
+let R = 0, sort = 0, checked = false, won = new Set();
+const sel = ROUNDS.map(() => new Set());
+const rate = t => t[2]/t[1];
+const rateCol = r => r >= 40 ? "#ff8a9a" : r >= 25 ? "#ffc94d" : r >= 15 ? "#a7f3c8" : "#9aa5d6";
+const used = s => [...s].reduce((a, i) => a + ROUNDS[R].tx[i][1], 0);
+const fees = (s, r = R) => [...s].reduce((a, i) => a + ROUNDS[r].tx[i][2], 0);
+// Beste Lösung: Rucksack-Rechnung über Gruppen (Eltern+Kind gemeinsam, doppelte Münze nur einmal, falsche Unterschrift nie)
+function best(r){
+  const T = ROUNDS[r].tx, cap = ROUNDS[r].cap/10, groups = [], seen = new Set();
+  T.forEach((t, i) => { if (seen.has(i)) return; const e = t[3] || {};
+    if (e.sig === 0){ seen.add(i); return; }
+    const kids = T.map((u, j) => (u[3] || {}).p === i ? j : -1).filter(j => j >= 0);
+    if (kids.length){ groups.push([[i], [i, ...kids]]); seen.add(i); kids.forEach(k => seen.add(k)); return; }
+    if (e.coin){ const tw = T.map((u, j) => (u[3] || {}).coin === e.coin && (u[3] || {}).sig !== 0 ? j : -1).filter(j => j >= 0); groups.push(tw.map(j => [j])); tw.forEach(j => seen.add(j)); return; }
+    groups.push([[i]]); seen.add(i); });
+  let dp = Array(cap + 1).fill(null).map(() => ({f: 0, ids: []}));
+  groups.forEach(g => { const nx = dp.map(x => ({...x}));
+    g.forEach(opt => { const w = opt.reduce((a, i) => a + T[i][1], 0)/10, f = opt.reduce((a, i) => a + T[i][2], 0);
+      for (let c = cap; c >= w; c--) if (dp[c - w].f + f > nx[c].f) nx[c] = {f: dp[c - w].f + f, ids: dp[c - w].ids.concat(opt)}; });
+    dp = nx; });
+  return dp[cap];
+}
+function fb(ok, html){ const F = $("fb"); F.hidden = false; F.className = "fb " + (ok ? "ok" : "no"); F.innerHTML = html; }
+function tabs(){
+  $("rt").innerHTML = ROUNDS.map((x, i) => `<button type="button" role="tab" data-r="${i}" aria-pressed="${i === R}" class="${won.has(i) ? "won" : ""}">${i + 1}<small>${x.t}</small></button>`).join("");
+}
+function draw(bestIds){
+  tabs(); const Q = ROUNDS[R]; $("intro").innerHTML = Q.intro || "<b>Runde 4:</b> Wovon lebt ein Miner? Sein Lohn besteht aus <b>neuen Bitcoin</b> plus den <b>Gebühren</b>. Tipp ein Jahr an und sieh, wie sich das verschiebt.";
+  $("game").hidden = R === 3; $("pay").hidden = R !== 3; if (R === 3) return pay(2024);
+  const S = sel[R], u = used(S), f = fees(S), full = Q.cap - u < Math.min(...Q.tx.filter((t, i) => !S.has(i)).map(t => t[1]).concat([1e9]));
+  $("fi").style.width = u/Q.cap*100 + "%"; $("fi").classList.toggle("full", full);
+  $("fv").textContent = `${nf(u)} / ${nf(Q.cap)} vB`; $("ff").textContent = `${nf(f)} sat`;
+  $("chk").hidden = R !== 2; $("chk").textContent = checked ? "🙈 Prüfung ausblenden" : "🔍 Wie eine Node prüfen";
+  const coins = {}; Q.tx.forEach(t => { const c = (t[3] || {}).coin; if (c) coins[c] = (coins[c] || 0) + 1; });
+  const order = Q.tx.map((t, i) => i); if (sort === 1) order.sort((a, b) => Q.tx[b][2] - Q.tx[a][2]); if (sort === 2) order.sort((a, b) => rate(Q.tx[b]) - rate(Q.tx[a]));
+  $("mp").innerHTML = order.map(i => { const t = Q.tx[i], e = t[3] || {}, r = rate(t); let x = "";
+    if (e.stuck) x = `<span class="x w">⏳ hängt seit Tagen fest</span>`;
+    if (e.p !== undefined) x = `<span class="x w">🔗 braucht „${Q.tx[e.p][0]}“ · zusammen ${nf(Math.round((t[2] + Q.tx[e.p][2])/(t[1] + Q.tx[e.p][1])))} sat/vB</span>`;
+    if (e.coin) x = `<span class="x">🪙 zahlt mit Coin ${e.coin}</span>` + (checked ? (e.sig === 0 ? `<span class="x bad">✍️ Unterschrift falsch ✗</span>` : coins[e.coin] > 1 ? `<span class="x bad">⚠ Coin ${e.coin} steckt in 2 Zahlungen, nur eine darf in den Block</span>` : `<span class="x ok">✓ Unterschrift und Coin ok</span>`) : "");
+    return `<button type="button" class="mtx${S.has(i) ? " in" : ""}${bestIds && bestIds.includes(i) ? " best" : ""}" data-i="${i}" aria-pressed="${S.has(i)}"><b>${t[0]}</b><span class="m"><span>${nf(t[1])} vB</span><span>${nf(t[2])} sat</span></span><span class="r" style="background:${rateCol(r)}">${nf(Math.round(r))} sat/vB</span>${x}</button>`; }).join("");
+  $("rt").querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", +b.dataset.r === R));
+}
+function tap(i){
+  const Q = ROUNDS[R], S = sel[R], t = Q.tx[i], e = t[3] || {}; let ok = true;
+  $("res").hidden = true;
+  if (S.has(i)){ S.delete(i); const kids = Q.tx.map((u, j) => (u[3] || {}).p === i && S.has(j) ? j : -1).filter(j => j >= 0);
+    kids.forEach(k => S.delete(k));
+    fb(true, kids.length ? `↩ „${t[0]}“ herausgenommen. „${Q.tx[kids[0]][0]}“ muss mit raus, ohne Eltern ist das Kind ungültig.` : `↩ „${t[0]}“ wieder in den Warteraum gelegt.`); }
+  else if (e.p !== undefined && !S.has(e.p)){ ok = false; fb(false, `🔗 <b>Geht nicht allein:</b> „${t[0]}“ gibt Geld aus, das erst mit „${Q.tx[e.p][0]}“ ankommt. Pack zuerst die Eltern ein.`); }
+  else if (used(S) + t[1] > Q.cap){ ok = false; fb(false, `📦 <b>Passt nicht mehr:</b> noch ${nf(Q.cap - used(S))} vB frei, diese Zahlung braucht ${nf(t[1])} vB.`); }
+  else { S.add(i); fb(true, `✅ „${t[0]}“ eingepackt: <b>+${nf(t[2])} sat</b>` + (e.stuck ? ". Allein lohnt sie sich kaum, aber schau dir mal ihr Kind an …" : "")); }
+  draw(); const b = $("mp").querySelector(`[data-i="${i}"]`); if (!ok && b){ b.classList.add("no"); if (navigator.vibrate) try { navigator.vibrate([20, 40, 20]); } catch(e){} }
+}
+function finish(){
+  const Q = ROUNDS[R], S = sel[R], B = best(R), f = fees(S), el = $("res"); el.hidden = false;
+  if (!S.size){ el.className = "res warn"; el.innerHTML = "<strong>Leerer Block?</strong>Geht tatsächlich, aber dann bekommst du nur die neuen Bitcoin und keine einzige Gebühr. Pack erst ein paar Zahlungen ein."; return; }
+  if (R === 2){ const T = Q.tx, c = {}; let why = "";
+    [...S].forEach(i => { const e = T[i][3] || {}; if (e.sig === 0) why = `„${T[i][0]}“ hat eine <b>gefälschte Unterschrift</b>. Wer den Schlüssel nicht hat, kann keine gültige erzeugen.`; c[e.coin] = (c[e.coin] || 0) + 1; });
+    const dbl = Object.keys(c).find(k => c[k] > 1); if (!why && dbl) why = `Coin ${dbl} wird <b>zweimal ausgegeben</b>. Das ist genau der Betrug, den Bitcoin verhindern soll.`;
+    if (why){ el.className = "res bad"; el.innerHTML = `<strong>❌ Block abgelehnt! Lohn: 0</strong>${why} Jede Node prüft <b>jede</b> Zahlung. Ein einziger Fehler, und der ganze Block mit Strom und Arbeit ist wertlos.<div class="acts"><button class="btn ghost" type="button" data-a="chk">🔍 Wie eine Node prüfen</button></div>`; return; } }
+  const p = Math.round(f/B.f*100), top = f >= B.f;
+  if (top){ won.add(R); try { Lern.sfx && Lern.sfx("win"); } catch(e){} if (won.size === 3) try { Lern.confetti && Lern.confetti(); } catch(e){} }
+  const tip = R === 0 ? "Sortier mal nach <b>sat/vB</b>: Die 600-vB-Sammelzahlung hat die höchste Gebühr, frisst aber über die Hälfte des Platzes."
+    : R === 1 ? "Tom allein zahlt fast nichts. Zusammen mit Uwes Zahlung sind beide aber ein <b>Paket mit 25 sat/vB</b>, und das lohnt sich."
+    : "Gültige Zahlungen mit gutem sat/vB, keine doppelte Münze, keine falsche Unterschrift.";
+  const lesson = R === 0 ? "Miner sortieren nach <b>Gebühr pro vB</b>, nicht nach der Gesamtgebühr. So holen sie aus dem knappen Platz am meisten heraus."
+    : R === 1 ? "So rettet man eine festhängende Zahlung: Der Empfänger (oder du über dein Wechselgeld) schickt eine Folgezahlung mit hoher Gebühr. Fachbegriff: <b>CPFP</b>, Child Pays For Parent."
+    : "Du hast Betrug erkannt. Genau so prüft jede Node jeden Block. Deshalb lohnt sich Ehrlichkeit für Miner.";
+  el.className = "res " + (top ? "ok" : p >= 80 ? "warn" : "bad");
+  el.innerHTML = `<strong>${top ? "🏆 Bestmögliche Ausbeute!" : `${p} % der besten Lösung`}</strong>Du: <b>${nf(f)} sat</b> · Bestmöglich: <b>${nf(B.f)} sat</b><br>${top ? lesson : tip}<div class="acts">${top ? (R < 3 ? `<button class="btn" type="button" data-a="next">Weiter zu Runde ${R + 2} →</button>` : "") : `<button class="btn ghost" type="button" data-a="best">💡 Beste Lösung zeigen</button>`}</div>`;
+  tabs();
+}
+// Runde 4: Lohn nach Halvings (Gebühren bleiben auf heutigem Niveau, zuletzt unter 1 % des Lohns)
+const FEE = 0.022, YRS = [2024, 2028, 2032, 2036, 2040, 2060, 2100, 2140];
+const sub = y => y >= 2140 ? 0 : 50/2 ** Math.floor((y - 2008)/4);   // Halving etwa alle 4 Jahre, 2024: 3,125 BTC
+function pay(y){
+  $("yrs").innerHTML = YRS.map(v => `<button class="btn ghost" type="button" data-y="${v}" aria-pressed="${v === y}">${v === 2024 ? "Heute" : v}</button>`).join("");
+  const s = sub(y), tot = s + FEE, sh = FEE/tot*100, mx = 3.125 + FEE, f4 = v => v.toLocaleString("de-DE", {maximumFractionDigits: v < .01 ? 4 : 3});
+  $("lohn").innerHTML = `<div class="row2"><span>⛏ Neue Bitcoin</span><div class="tr"><i style="width:${s/mx*100}%;background:#f7931a"></i></div><b>${f4(s)} BTC</b></div>
+    <div class="row2"><span>🧾 Gebühren</span><div class="tr"><i style="width:${Math.max(FEE/mx*100, .8)}%;background:#34d982"></i></div><b>${f4(FEE)} BTC</b></div>`;
+  $("payTxt").className = "res " + (y >= 2140 ? "bad" : y >= 2040 ? "warn" : "ok");
+  $("payTxt").innerHTML = `<div class="pie"><span class="big2">${sh < 1 ? "<1" : nf(Math.round(sh))} %</span><span>des Lohns kommen ${y === 2024 ? "heute" : "dann"} aus <b>Gebühren</b>${y > 2024 && y < 2140 ? ", wenn die Gebühren so niedrig bleiben wie 2026" : ""}.</span></div>`
+    + (y >= 2140 ? "<p class=\"note\" style=\"margin-top:8px\">Ab etwa 2140 gibt es <b>keine neuen Bitcoin</b> mehr. Dann bezahlen nur noch Gebühren die Miner und damit die Sicherheit des Netzes. Ob das reicht, ist unter Fachleuten <b>offen</b>: Steigen Kurs, Nutzung oder Gebühren, kann es klappen.</p>"
+      : y === 2024 ? "<p class=\"note\" style=\"margin-top:8px\">Bisher bezahlen fast nur die <b>neuen Bitcoin</b> die Miner. Gebühren sind ein kleines Extra, nur in vollen Zeiten werden sie wichtig.</p>"
+      : "<p class=\"note\" style=\"margin-top:8px\">Mit jedem Halving schrumpfen die neuen Bitcoin. Damit Mining sich lohnt, muss der Rest aus <b>Gebühren</b> oder einem höheren Kurs kommen.</p>");
+}
+$("rt").addEventListener("click", e => { const b = e.target.closest("[data-r]"); if (!b) return; R = +b.dataset.r; $("fb").hidden = true; $("res").hidden = true; draw(); });
+$("mp").addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) tap(+b.dataset.i); });
+$("bar").addEventListener("click", e => { const b = e.target.closest("[data-s]"); if (!b) return; sort = +b.dataset.s; $("bar").querySelectorAll("[data-s]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw(); });
+$("go").onclick = finish;
+$("chk").onclick = () => { checked = !checked; draw(); };
+$("clr").onclick = () => { sel[R].clear(); $("fb").hidden = true; $("res").hidden = true; draw(); };
+$("res").addEventListener("click", e => { const a = (e.target.closest("[data-a]") || {}).dataset?.a; if (!a) return;
+  if (a === "next"){ R++; $("fb").hidden = true; $("res").hidden = true; draw(); $("h1s").scrollIntoView({behavior: "smooth"}); }
+  if (a === "chk"){ checked = true; draw(); }
+  if (a === "best"){ const B = best(R); sel[R] = new Set(B.ids); draw(B.ids); fb(true, "💡 Grün gestrichelt: die bestmögliche Auswahl. Schick den Block ab, um sie zu prüfen."); $("res").hidden = true; } });
+$("yrs").addEventListener("click", e => { const b = e.target.closest("[data-y]"); if (b) pay(+b.dataset.y); });
+draw();
+
+const QUIZ = [["Zwei Zahlungen: 600 vB mit 7.200 sat und 110 vB mit 3.850 sat. Welche ist für den Miner pro Platz wertvoller?", ["Die große, sie zahlt mehr", "Die kleine: 35 sat/vB statt 12 sat/vB", "Beide gleich"], 1, "Platz im Block ist knapp. Darum zählt die Gebühr pro vByte, nicht die Gesamtgebühr."],
+  ["Deine Zahlung hängt wegen zu niedriger Gebühr fest. Was kann helfen?", ["Eine Folgezahlung mit hoher Gebühr, die sie mitzieht (CPFP)", "Den Miner anrufen", "Nichts, sie ist verloren"], 0, "Miner schauen auf das Paket aus Eltern und Kind. Zahlt das Kind genug, lohnt sich beides zusammen."],
+  ["Ein Miner packt eine Zahlung mit gefälschter Unterschrift in seinen Block. Was passiert?", ["Nur diese Zahlung wird gestrichen", "Alle Nodes lehnen den ganzen Block ab, der Miner bekommt nichts", "Der Miner bekommt eine Strafe in Euro"], 1, "Ein Block ist nur gültig, wenn jede einzelne Zahlung gültig ist. Betrug kostet den Miner seinen ganzen Lohn."]];
+Lern.quiz($("quiz"), "blockbau", QUIZ, "../"); Lern.visit("blockbau"); Lern.renderNext("blockbau", "../");
+})();
+</script>
+</body>
+</html>
