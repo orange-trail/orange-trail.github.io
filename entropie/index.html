@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=57">
+<link rel="stylesheet" href="../lern.css?v=58">
 <style>
 /* Lernwelt "Würfel-Seed": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -28,7 +28,7 @@
 @media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} }
 .inp{width:100%;font:600 16px var(--f-body);padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#0b0f2a;color:var(--ink);margin-top:6px}
 .lbl2{display:block;font-size:13px;color:var(--muted);margin-top:12px}
-.hx{font:600 12px/1.45 var(--f-num);word-break:break-all;color:#cfd5ff}
+.hx{font:600 12px/1.45 var(--f-code);word-break:break-all;color:#cfd5ff}
 .warnbox{margin-top:12px;padding:10px 12px;border-radius:12px;border:2px dashed var(--bear);font-size:14px;line-height:1.5} .warnbox b{color:var(--bear)}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:12px;color:var(--muted)} .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-2px}
 
@@ -41,9 +41,9 @@
 .dice button{aspect-ratio:1;border-radius:14px;border:3px solid #0d1230;background:#fff;padding:4px;cursor:pointer;box-shadow:0 4px 0 #0d1230;transition:transform .1s} .dice svg{width:100%;height:100%;display:block}
 .dice button:active{transform:translateY(3px);box-shadow:0 1px 0 #0d1230}
 .prog{height:16px;border-radius:8px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:12px} .prog u{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--bull));transition:width .3s}
-.rolls{margin-top:8px;font:700 14px var(--f-num);letter-spacing:2px;word-break:break-all;color:var(--muted)}
+.rolls{margin-top:8px;font:700 14px var(--f-code);letter-spacing:2px;word-break:break-all;color:var(--muted)}
 .words{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:12px}
-.words div{border:1px solid var(--line);border-radius:10px;padding:6px 8px;font-size:14px} .words div small{color:var(--muted);font:700 11px var(--f-num);display:block}
+.words div{border:1px solid var(--line);border-radius:10px;padding:6px 8px;font-size:14px} .words div small{color:var(--muted);font:700 11px var(--f-code);display:block}
 .words div.cs{border-color:var(--gold);background:rgba(247,147,26,.1)}
 .coin{display:flex;gap:10px;margin-top:12px} .coin button{flex:1;font-size:18px}
 .bad3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}

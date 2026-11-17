@@ -15,13 +15,13 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=57">
+<link rel="stylesheet" href="../lern.css?v=58">
 <style>
 /* Lernwelt "Hashing": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
 .hin{width:100%;box-sizing:border-box;margin-top:12px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b0f2a;color:var(--ink);font:16px inherit}
 .arrow{text-align:center;color:var(--muted);font-size:13px;margin:8px 0}
-.hash{padding:12px 14px;border-radius:12px;border:2px solid var(--gold);font:700 15px var(--f-num);word-break:break-all;line-height:1.6}
+.hash{padding:12px 14px;border-radius:12px;border:2px solid var(--gold);font:700 15px var(--f-code);word-break:break-all;line-height:1.6}
 .hash i{font-style:normal;color:var(--bear);background:rgba(231,76,60,.15);border-radius:3px}
 .pix{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;margin-top:10px}
 .pix span{aspect-ratio:1;border-radius:3px;transition:background .25s}
@@ -30,11 +30,11 @@
 .props{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
 .prop{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.03);font-size:14px;line-height:1.5}
 .prop b{display:block;font-size:15px;margin-bottom:4px} .prop .btn{margin-top:8px;width:100%} .prop .o{margin-top:8px;font:12px var(--f-num);word-break:break-all;color:var(--muted)} .prop .o b{display:inline;font:inherit;color:var(--bull)}
-.target{margin-top:10px;padding:10px 12px;border-radius:12px;border:2px dashed var(--gold);font:700 13px var(--f-num);word-break:break-all}
+.target{margin-top:10px;padding:10px 12px;border-radius:12px;border:2px dashed var(--gold);font:700 13px var(--f-code);word-break:break-all}
 .guess{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
 .guess .btn{padding:10px 4px} .guess .btn.y{background:rgba(46,204,113,.25);border-color:var(--bull)} .guess .btn.n{opacity:.5;text-decoration:line-through}
 .gres{margin-top:8px;font-size:14px;color:var(--muted);min-height:1.4em}
-.blk{margin-top:10px;font:700 14px var(--f-num);word-break:break-all;padding:10px 12px;border-radius:12px;border:1px solid var(--line)} .blk em{font-style:normal;color:var(--gold)}
+.blk{margin-top:10px;font:700 14px var(--f-code);word-break:break-all;padding:10px 12px;border-radius:12px;border:1px solid var(--line)} .blk em{font-style:normal;color:var(--gold)}
 @media (max-width:700px){ .props{grid-template-columns:1fr} .guess{grid-template-columns:1fr 1fr} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
@@ -118,7 +118,7 @@ function show(){
   const h = H($("txt").value);
   $("hash").innerHTML = prev ? [...h].map((c, i) => c === prev[i] ? c : `<i>${c}</i>`).join("") : h;
   $("pix").innerHTML = h.match(/.{4}/g).map(q => `<span style="background:hsl(${parseInt(q, 16) % 360} 70% 55%)"></span>`).join("");
-  if (prev && prev !== h){ const n = [...h].filter((c, i) => c !== prev[i]).length; $("chg").innerHTML = `<b>${n} von 64</b> Zeichen haben sich geändert (rot markiert).<br><span class="muted" style="font:12px var(--f-num);word-break:break-all">vorher: ${prev}</span>`; }
+  if (prev && prev !== h){ const n = [...h].filter((c, i) => c !== prev[i]).length; $("chg").innerHTML = `<b>${n} von 64</b> Zeichen haben sich geändert (rot markiert).<br><span class="muted" style="font:12px var(--f-code);word-break:break-all">vorher: ${prev}</span>`; }
   else if (!prev) $("chg").textContent = "";
   prev = h;
 }

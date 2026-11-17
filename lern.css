@@ -8,12 +8,13 @@
   --ink:#eef0ff; --muted:#9aa2d6; --bull:#34d982; --bear:#ff5c73; --gold:#ffc94d; --sky:#7cc4ff; --btc:#f7931a; --eur:#5b8cff;
   --f-display:"Arial Black","Segoe UI Black","Helvetica Neue",Roboto,system-ui,sans-serif;
   --f-body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --f-num:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --f-code:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --f-num:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   color-scheme:dark;
 }
 [hidden]{display:none!important}
 *{box-sizing:border-box}
-body{margin:0;background:var(--night) radial-gradient(1100px 520px at 50% -180px, var(--night2), transparent 70%) no-repeat;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+body{margin:0;background:var(--night) radial-gradient(1100px 520px at 50% -180px, var(--night2), transparent 70%) no-repeat;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;font-variant-numeric:tabular-nums}
 .wrap{max-width:1060px;margin:0 auto;padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
 a{color:var(--sky)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
@@ -220,7 +221,7 @@ svg.line path{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:900
 .ttl i{font-style:normal;font-size:22px;filter:grayscale(1);opacity:.4} .ttl b{display:block;font:900 13px var(--f-display);color:var(--ink)}
 .ttl.on{border-color:rgba(255,201,77,.55);background:rgba(255,201,77,.08)} .ttl.on i{filter:none;opacity:1}
 /* Fortschritt mitnehmen */
-.sync textarea{width:100%;box-sizing:border-box;min-height:70px;padding:10px;border-radius:12px;border:2px solid var(--line);background:#0b0f2a;color:var(--ink);font:12px var(--f-num);word-break:break-all}
+.sync textarea{width:100%;box-sizing:border-box;min-height:70px;padding:10px;border-radius:12px;border:2px solid var(--line);background:#0b0f2a;color:var(--ink);font:12px var(--f-code);word-break:break-all}
 .sync .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px} .sync .msg2{margin:8px 0 0;font-size:14px}
 /* Lexikon: antippbare Begriffe und Erklär-Blase */
 .gl{all:unset;cursor:help;color:inherit;font-weight:inherit;border-bottom:2px dotted rgba(255,201,77,.75);transition:background .15s}
