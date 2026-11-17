@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wer ist Satoshi? · Orange Trail</title>
+<meta name="description" content="Profi-Vertiefung: Das größte Rätsel der Tech-Welt. Spuren, Verdächtige, ein Gerichtsurteil und warum es vielleicht gut ist, dass niemand es weiß.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wer ist Satoshi? · Orange Trail">
+<meta property="og:description" content="Profi-Vertiefung: Das größte Rätsel der Tech-Welt. Spuren, Verdächtige, ein Gerichtsurteil und warum es vielleicht gut ist, dass niemand es weiß.">
+<meta property="og:image" content="https://satsland.github.io/og/satoshi.jpg">
+<meta property="og:url" content="https://satsland.github.io/satoshi/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=59">
+<style>
+/* Lernwelt "Wer ist Satoshi?": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.clues{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
+.clue{position:relative;text-align:left;font:14px/1.4 var(--f-body);color:var(--ink);padding:12px 12px 10px;border-radius:6px;border:none;background:#f3e7c4;color:#2a2210;cursor:pointer;box-shadow:2px 3px 0 #0007;transform:rotate(var(--r,0deg));transition:transform .2s}
+.clue::before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#e74c3c;box-shadow:0 1px 2px #0008}
+.clue b{display:block;font-size:14px;margin-bottom:2px} .clue .d{display:none;font-size:13px;margin-top:4px;color:#4a3d1c} .clue .h{font-size:11px;color:#7a6a40}
+.clue[aria-expanded="true"]{transform:rotate(0) scale(1.02);z-index:2} .clue[aria-expanded="true"] .d{display:block} .clue[aria-expanded="true"] .h{display:none}
+.sus{display:grid;gap:10px;margin-top:10px}
+.su{border:2px solid var(--line);border-radius:16px;padding:12px 14px;background:rgba(255,255,255,.03)}
+.su .top2{display:flex;align-items:center;gap:10px} .su .av{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:24px;background:#232a6a;border:2px solid var(--line)}
+.su .top2 b{font-size:16px} .su small{display:block;color:var(--muted);font-size:12px}
+.su .pc2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;font-size:13px;line-height:1.45}
+.su .pc2 div{padding:8px 10px;border-radius:10px;background:rgba(0,0,0,.2)} .su .pc2 strong{display:block;font-size:12px;margin-bottom:2px}
+.su .pc2 .p strong{color:var(--bull)} .su .pc2 .c strong{color:#ff8a9a}
+.su .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.su .row button{font:700 13px var(--f-body);padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer}
+.su .row button.pick{border-color:var(--gold);background:rgba(247,147,26,.2)}
+.su .v{display:none;margin-top:8px;padding:8px 10px;border-radius:10px;font-size:14px;line-height:1.45;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4)}
+.su.done .v{display:block} .su.wr .v{background:rgba(255,92,115,.1);border-color:rgba(255,92,115,.5)}
+.stamp{display:inline-block;margin-left:6px;font:900 11px var(--f-body);letter-spacing:.6px;padding:1px 6px;border-radius:5px;border:2px solid currentColor;transform:rotate(-4deg)}
+.stamp.no{color:#ff8a9a} .stamp.q{color:var(--gold)}
+.treasure{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;margin-top:12px;padding:14px;border-radius:16px;border:2px solid var(--gold);background:rgba(247,147,26,.08)}
+.treasure .ic{font-size:42px} .treasure b{display:block;font:900 clamp(22px,6vw,30px)/1.15 var(--f-num);color:var(--gold)} .treasure small{color:var(--muted);font-size:13px}
+.note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)}
+@media (max-width:420px){ .su .pc2{grid-template-columns:1fr} }
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Wer ist <span class="btc">Satoshi</span>?</h1>
+    <p class="lead">2008 erfindet jemand das Geld der Zukunft, nennt sich <b>Satoshi Nakamoto</b> und ist zwei Jahre später spurlos verschwunden. Bis heute weiß niemand sicher, wer dahintersteckt. Zeit für deine eigene Ermittlung.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h1s">
+    <h2 id="h1s">1 · Die Spuren an der Pinnwand</h2>
+    <p class="muted" style="margin:0">Was wir über Satoshi wirklich wissen. Tipp einen Zettel an.</p>
+    <div class="clues" id="clues"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h2s">
+    <h2 id="h2s">2 · Die Verdächtigen</h2>
+    <p class="muted" style="margin:0">Lies, was dafür und was dagegen spricht. Dann fällst du dein Urteil.</p>
+    <div class="sus" id="sus"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h3s">
+    <h2 id="h3s">3 · Der unberührte Schatz</h2>
+    <div class="treasure"><span class="ic" aria-hidden="true">💰</span><div><small>Satoshis Bitcoin, nie bewegt (geschätzt rund 1 Million)</small><b id="tv">rund 1 Mio. BTC</b><small id="tn">Wert zum Monatsstand</small></div></div>
+    <div class="learn bx" style="margin-top:12px">
+      <div><b>🔒 Seit 2009 unberührt</b><span>Die frühen Coins liegen auf vielen Adressen, die Fachleute anhand eines Musters Satoshi zuordnen. Keiner davon wurde je bewegt.</span></div>
+      <div><b>📜 Der Beweis wäre einfach</b><span>Wer wirklich Satoshi ist, könnte mit einem alten Schlüssel <b>unterschreiben</b>. Das hat bis heute niemand getan.</span></div>
+      <div><b>👑 Kein König</b><span>Ohne bekannten Erfinder gibt es niemanden, den man unter Druck setzen, verhaften oder bestechen könnte.</span></div>
+      <div><b>🧭 Bitcoin läuft ohne ihn</b><span>Seit 2011 entwickeln andere Bitcoin weiter. Die Regeln bestimmen die Nodes, nicht der Erfinder.</span></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="hMs">
+    <h2 id="hMs">Das solltest du dir merken</h2>
+    <div class="learn">
+      <div><b>Unbekannt bis heute</b><span>Es gibt Verdächtige und Indizien, aber <b>keinen Beweis</b>. Alle Genannten bestreiten es.</span></div>
+      <div><b>Beweis per Unterschrift</b><span>Wer behauptet, Satoshi zu sein, müsste nur mit Satoshis Schlüssel <b>signieren</b>.</span></div>
+      <div><b>Ein Hochstapler fiel durch</b><span>Ein Gericht in London stellte 2024 fest: Craig Wright ist <b>nicht</b> Satoshi.</span></div>
+      <div><b>Gut für Bitcoin</b><span>Ohne Anführer kann niemand Bitcoin über eine einzelne Person angreifen.</span></div>
+    </div>
+    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+  </section>
+
+  <section class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary>Quellen</summary><p>Letzte E-Mail 2011: <a href="https://cointelegraph.com/news/satoshi-nakamoto-final-email-revisited-after-13-years">Cointelegraph</a> · NYT-Recherche 2026 und Antwort von Adam Back: <a href="https://theblock.co/news/business/2026-04-08-nyt-investigation-suggests-adam-back-may-be-satoshi-nakamoto-396663">The Block</a> · Urteil 2024: <a href="https://caselaw.nationalarchives.gov.uk/ewhc/ch/2024/1809">High Court London: COPA v Wright</a> · Wert der Coins zum Monatsstand dieser Seite, keine Live-Daten.</p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=78"></script>
+<script>
+/* =====================================================================
+   WER IST SATOSHI? – Lernwelt von Orange Trail
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id);
+// Spuren: [Titel, Details]
+const C = [["🇬🇧 Britisches Englisch", "Satoshi schrieb „colour“ und „favour“, manchmal auch „bloody“. Das deutet auf jemanden aus Großbritannien oder dem Commonwealth."],
+  ["📰 Die Times-Schlagzeile", "Im allerersten Block steckt eine Schlagzeile der Londoner Zeitung „The Times“ vom 3. Januar 2009 über eine Bankenrettung."],
+  ["🕐 Die Uhrzeiten", "In den Foren schrieb Satoshi fast nie zwischen etwa 5 und 11 Uhr (britische Zeit). Schlief da jemand in Amerika? Oder in Europa nachts?"],
+  ["⌨️ Zwei Leerzeichen", "Nach einem Punkt tippte Satoshi oft zwei Leerzeichen. Das lernte man früher an der Schreibmaschine, typisch für ältere Menschen."],
+  ["👋 Der Abschied", "Letzter Forumsbeitrag im Dezember 2010. Im April 2011 schreibt Satoshi einem Entwickler: „Ich habe mich anderen Dingen zugewandt.“ Danach: Stille."],
+  ["🧠 Profi-Wissen", "Satoshi kannte Kryptografie, Wirtschaft und Programmierung, und zitierte im Whitepaper die Arbeit anderer Cypherpunks."]];
+$("clues").innerHTML = C.map(([t, d], i) => `<button type="button" class="clue" aria-expanded="false" style="--r:${[-2, 1.5, -1, 2, -1.5, 1][i]}deg"><b>${t}</b><span class="h">antippen</span><span class="d">${d}</span></button>`).join("");
+$("clues").addEventListener("click", e => { const b = e.target.closest(".clue"); if (b) b.setAttribute("aria-expanded", b.getAttribute("aria-expanded") !== "true"); });
+
+// Verdächtige: [Emoji, Name, Kurz, Dafür, Dagegen, Auflösung, widerlegt?]
+const S = [["🏃", "Hal Finney", "Kryptograf aus Kalifornien, † 2014",
+  "Bekam die erste Bitcoin-Zahlung. Baute 2004 mit RPOW schon einen Vorläufer.", "Er wurde bei einem Laufwettkampf fotografiert, während Satoshi E-Mails schrieb. Er bestritt es bis zu seinem Tod.", "Wahrscheinlich nicht Satoshi, aber einer der ersten und wichtigsten Helfer."],
+ ["💎", "Nick Szabo", "Informatiker und Jurist",
+  "Erfand Bit Gold, die Idee kommt Bitcoin sehr nah. Manche sehen Ähnlichkeiten im Schreibstil.", "Er bestreitet es klar. Satoshi erwähnte Bit Gold im Whitepaper nicht.", "Offen. Indizien ja, Beweis nein."],
+ ["🇬🇧", "Adam Back", "Britischer Kryptograf, Erfinder von Hashcash",
+  "Brite, Hashcash steht im Whitepaper. 2026 nannte ihn die New York Times nach langer Stil-Analyse den wahrscheinlichsten Kandidaten.", "Er bestreitet es. Satoshi schrieb ihm 2008 eine E-Mail und fragte, wie man Hashcash richtig zitiert. Warum, wenn er es selbst war?", "Offen. Der stärkste Verdacht bisher, aber kein Beweis."],
+ ["🎭", "Craig Wright", "Australischer Unternehmer",
+  "Behauptet seit 2016 lautstark, Satoshi zu sein.", "Hat nie mit Satoshis Schlüssel unterschrieben. Ein Gericht in London fand 2024 <b>gefälschte Dokumente</b>.", "Widerlegt: Laut Urteil ist er <b>nicht</b> Satoshi.", 1]];
+let n = 0;
+$("sus").innerHTML = S.map(([e, nm, k, p, c], i) => `<div class="su" id="s${i}"><div class="top2"><span class="av" aria-hidden="true">${e}</span><div><b>${nm}</b><small>${k}</small></div></div><div class="pc2"><div class="p"><strong>Dafür spricht</strong>${p}</div><div class="c"><strong>Dagegen spricht</strong>${c}</div></div><div class="row"><button type="button" data-i="${i}" data-v="1">✅ Ist Satoshi</button><button type="button" data-i="${i}" data-v="0">❌ Ist es nicht</button><button type="button" data-i="${i}" data-v="2">🤷 Unklar</button></div><div class="v"></div></div>`).join("");
+$("sus").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const i = +b.dataset.i, el = $("s" + i), s = S[i]; if (el.classList.contains("done")) return;
+  el.classList.add("done"); b.classList.add("pick"); const v = +b.dataset.v, w = s[6];
+  const hit = w ? v === 0 : v === 2;
+  if (!hit && w) el.classList.add("wr");
+  el.querySelector(".v").innerHTML = `${w ? '<span class="stamp no">WIDERLEGT</span>' : '<span class="stamp q">UNGEKLÄRT</span>'} ${s[5]}${!w && v === 1 ? " Ganz sicher kann das niemand sagen." : ""}`;
+  if (++n === S.length) Lern.toast && Lern.toast("🕵️ Alle Verdächtigen geprüft. Fall: weiter ungelöst."); });
+
+// Schatz: rund 1 Mio. BTC zum Monatsstand
+fetch(Lern.api("price/BTC-EUR")).then(x => x.json()).then(j => { const p = +j.data.amount; if (!p) return;
+  const v = 1e6*p; $("tv").textContent = "≈ " + (v/1e9).toLocaleString("de-DE", {maximumFractionDigits: 0}) + " Mrd. €";
+  $("tn").textContent = "bei 1 Mio. BTC zum Monatsstand (" + p.toLocaleString("de-DE", {maximumFractionDigits: 0}) + " € je BTC)"; }).catch(() => {});
+
+const QUIZ = [["Wie könnte jemand am einfachsten beweisen, dass er Satoshi ist?", ["Mit einem Interview im Fernsehen", "Mit einer Unterschrift mit Satoshis altem Schlüssel", "Mit einem Gerichtsurteil"], 1, "Eine Signatur mit einem frühen Schlüssel wäre eindeutig. Das hat noch niemand getan."],
+  ["Was stellte ein Gericht in London 2024 fest?", ["Craig Wright ist Satoshi", "Craig Wright ist nicht Satoshi", "Satoshi ist eine Firma"], 1, "Das Gericht fand gefälschte Dokumente und entschied klar dagegen."],
+  ["Warum sehen viele es als Vorteil, dass Satoshi unbekannt ist?", ["Weil Bitcoin dann keinen Anführer hat, den man unter Druck setzen kann", "Weil Satoshi sonst Steuern zahlen müsste", "Weil sonst der Kurs fällt"], 0, "Ohne Kopf gibt es kein einzelnes Ziel. Die Regeln bestimmen die Nodes."]];
+Lern.quiz($("quiz"), "satoshi", QUIZ, "../"); Lern.visit("satoshi"); Lern.renderNext("satoshi", "../");
+})();
+</script>
+</body>
+</html>

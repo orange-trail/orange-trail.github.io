@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bitcoin ohne Internet · Orange Trail</title>
+<meta name="description" content="Profi-Vertiefung: Blöcke aus dem All, Zahlungen per Funk und Tastenhandy. Warum sich Bitcoin kaum abschalten lässt und was passiert, wenn das Netz zerreißt.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bitcoin ohne Internet · Orange Trail">
+<meta property="og:description" content="Profi-Vertiefung: Blöcke aus dem All, Zahlungen per Funk und Tastenhandy. Warum sich Bitcoin kaum abschalten lässt und was passiert, wenn das Netz zerreißt.">
+<meta property="og:image" content="https://satsland.github.io/og/offline.jpg">
+<meta property="og:url" content="https://satsland.github.io/offline/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=59">
+<style>
+/* Lernwelt "Bitcoin ohne Internet": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.ways{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-top:10px}
+.way{border:2px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.03)}
+.way .wt{display:flex;gap:10px;align-items:center} .way .wt span{font-size:30px;line-height:1} .way b{font-size:15px}
+.way p{margin:6px 0 0;font-size:14px;color:var(--muted);line-height:1.45}
+.way .row{display:flex;gap:6px;margin-top:10px}
+.way .row button{flex:1;font:700 13px var(--f-body);padding:8px 6px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer}
+.way .row button.pick{border-color:var(--gold);background:rgba(247,147,26,.2)}
+.way .wa{display:none;margin-top:8px;padding:8px 10px;border-radius:10px;font-size:14px;line-height:1.45;background:rgba(0,0,0,.22)}
+.way.done .wa{display:block} .way.rt{border-color:rgba(52,217,130,.7)} .way.wr{border-color:rgba(255,92,115,.6)}
+.score{margin:10px 0 0;font-weight:800}
+.net{margin-top:12px;padding:12px;border-radius:16px;border:2px solid var(--line);background:rgba(0,0,0,.18)}
+.lane{display:grid;grid-template-columns:6.5em 1fr;gap:8px;align-items:center;margin:6px 0}
+.lane > span{font-size:13px;color:var(--muted);line-height:1.3}
+.blocks{display:flex;gap:4px;flex-wrap:wrap;min-height:26px;align-items:center}
+.blocks i{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font:800 10px var(--f-num);font-style:normal;color:#2a1600;background:var(--gold);animation:pop .3s both}
+.blocks i.o{background:#3a4170;color:var(--ink)} .blocks i.b{background:#7fc8ff} .blocks i.x{background:rgba(255,92,115,.3);color:#ffb0bc;text-decoration:line-through}
+.lane.lost{opacity:.6}
+.acts2{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.fb{margin:10px 0 0;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.45;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Bitcoin ohne <span class="btc">Internet</span></h1>
+    <p class="lead">Stell dir vor, dein Land schaltet das Internet ab. Ist Bitcoin dann tot? Erstaunlich oft nicht: Eine Bitcoin-Zahlung ist nur ein <b>kurzer, unterschriebener Text</b>. Und Text kommt auf vielen Wegen ans Ziel.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h1s">
+    <h2 id="h1s">1 · Echt oder erfunden?</h2>
+    <p class="muted" style="margin:0">Sechs Wege, Bitcoin ohne normales Internet zu nutzen. Was davon gibt es wirklich?</p>
+    <div class="ways" id="ways"></div>
+    <p class="score" id="score" aria-live="polite"></p>
+  </section>
+
+  <section class="card" aria-labelledby="h2s">
+    <h2 id="h2s">2 · Das Netz zerreißt</h2>
+    <p class="muted" style="margin:0">Was, wenn ein Land komplett abgeschnitten ist und beide Seiten einfach weiter Blöcke bauen? Probier es aus.</p>
+    <div class="net">
+      <div class="lane" id="lA"><span>🌍 Rest der Welt</span><div class="blocks" id="bA"></div></div>
+      <div class="lane" id="lB"><span>🏝 Abgeschnittenes Land</span><div class="blocks" id="bB"></div></div>
+    </div>
+    <div class="acts2"><button class="btn" type="button" id="cut">✂️ Internet kappen</button><button class="btn ghost" type="button" id="join" disabled>🔌 Wieder verbinden</button></div>
+    <p class="fb" id="nf" aria-live="polite">Noch ist alles verbunden: Alle teilen dieselbe Kette.</p>
+  </section>
+
+  <section class="card" aria-labelledby="hMs">
+    <h2 id="hMs">Das solltest du dir merken</h2>
+    <div class="learn">
+      <div><b>Zahlung = Text</b><span>Eine unterschriebene Zahlung ist nur ein paar hundert Zeichen lang. Sie kann per <b>Funk, SMS oder Papier</b> reisen.</span></div>
+      <div><b>Blöcke aus dem All</b><span>Satelliten senden die Blockchain seit 2017 rund um die Welt. Empfangen geht mit einer kleinen Schüssel.</span></div>
+      <div><b>Spaltung heilt sich</b><span>Nach einer Trennung gilt die Kette mit der <b>meisten Arbeit</b>. Zahlungen aus der kürzeren kommen zurück in den Warteraum.</span></div>
+      <div><b>Nicht ohne Grenzen</b><span>Ganz ohne Strom und Gerät geht es nicht. Und im abgeschnittenen Teil sollte man mit großen Beträgen <b>warten</b>.</span></div>
+    </div>
+    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+  </section>
+
+  <section class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary>Quellen</summary><p>Satellit: <a href="https://blockstream.com/satellite/">Blockstream Satellite</a> · Kurzwellenfunk 2019: <a href="https://hotfix.coindesk.com/markets/2019/03/04/bitcoin-coders-send-international-lightning-payment-over-ham-radio">CoinDesk</a> · Mesh-Funk: <a href="https://coincenter.org/decentralizing-bitcoins-last-mile-with-mobile-mesh-networks/">Coin Center</a> · Überblick: <a href="https://diyhpl.us/wiki/transcripts/magicalcryptoconference/2019/bitcoin-without-internet">„Bitcoin without internet“ (2019)</a></p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=78"></script>
+<script>
+/* =====================================================================
+   BITCOIN OHNE INTERNET – Lernwelt von Orange Trail
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id);
+// [Emoji, Titel, Beschreibung, echt?, Auflösung]
+const W = [["🛰", "Blöcke aus dem All", "Satelliten senden die Blockchain zur Erde. Mit einer kleinen Schüssel empfängst du neue Blöcke, ganz ohne Internet.", 1, "<b>Echt.</b> Seit 2017 sendet ein Satelliten-Netz die Bitcoin-Blockchain über fast die ganze Welt. Empfangen ist kostenlos."],
+  ["📻", "Zahlung per Kurzwellenfunk", "Ein Funkamateur schickt eine Bitcoin-Zahlung als Funksignal über Hunderte Kilometer.", 1, "<b>Echt.</b> 2019 ging eine Zahlung per Funk von Kanada in die USA. Dort brachte sie jemand mit Internet ins Netz."],
+  ["📡", "Von Handy zu Handy", "Handys mit kleinen Funkgeräten reichen eine Zahlung weiter, bis eins davon Internet hat.", 1, "<b>Echt.</b> Solche Mesh-Netze wurden 2018 mit Bitcoin getestet. Die Zahlung hüpft von Gerät zu Gerät."],
+  ["📟", "Mit dem Tastenhandy", "Ohne Smartphone, nur per Kurzwahl-Menü wie beim Guthaben-Abfragen.", 1, "<b>Echt,</b> zum Beispiel in Afrika. Aber: Meist hält dabei ein Anbieter die Bitcoin, du vertraust ihm."],
+  ["🕊", "Per Brieftaube", "Die Zahlung wird als QR-Code ausgedruckt, eine Taube trägt den Zettel zu jemandem mit Internet.", 1, "<b>Funktioniert tatsächlich!</b> Die Zahlung ist schon unterschrieben, unterwegs kann sie niemand verändern. Ob Taube, Post oder USB-Stick ist egal. Nur schnell ist es nicht."],
+  ["🕯", "Ganz ohne Strom und Gerät", "Bitcoin verschicken nur mit Stift und Papier, ohne jedes elektronische Gerät.", 0, "<b>Erfunden.</b> Zum Unterschreiben braucht es ein Gerät, und irgendwo muss eine Node laufen. Aufbewahren geht aber ohne Strom: deine Seed-Wörter auf Papier."]];
+let pts = 0, n = 0;
+$("ways").innerHTML = W.map(([e, t, d], i) => `<div class="way" id="w${i}"><div class="wt"><span aria-hidden="true">${e}</span><b>${t}</b></div><p>${d}</p><div class="row"><button type="button" data-i="${i}" data-v="1">✅ Echt</button><button type="button" data-i="${i}" data-v="0">🧢 Erfunden</button></div><div class="wa"></div></div>`).join("");
+$("ways").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const i = +b.dataset.i, el = $("w" + i); if (el.classList.contains("done")) return;
+  const ok = +b.dataset.v === W[i][3]; el.classList.add("done", ok ? "rt" : "wr"); b.classList.add("pick");
+  el.querySelector(".wa").innerHTML = (ok ? "✅ " : "❌ ") + W[i][4]; n++; if (ok) pts++;
+  if (n === W.length) $("score").textContent = `${pts} von ${W.length} richtig. Fünf Wege sind echt, nur ganz ohne Strom geht es nicht.`; });
+
+// Netz-Spaltung: zwei Seiten bauen getrennt weiter, danach gilt die Kette mit mehr Arbeit
+let base = 3, A = [], B = [], tA = 0, tB = 0, state = 0;
+const draw = () => {
+  const old = Array.from({length: base}, (_, k) => `<i class="o">${k + 1}</i>`).join("");
+  $("bA").innerHTML = old + A.map((x, k) => `<i>${base + k + 1}</i>`).join("");
+  $("bB").innerHTML = state ? old + B.map((x, k) => `<i class="${state === 2 ? "x" : "b"}">${base + k + 1}</i>`).join("") : "<span class=\"muted\" style=\"font-size:13px\">nutzt dieselbe Kette</span>";
+};
+function stopT(){ clearInterval(tA); clearInterval(tB); }
+$("cut").onclick = () => { stopT(); A = []; B = []; state = 1; $("lB").classList.remove("lost"); draw();
+  $("cut").disabled = true; $("join").disabled = false;
+  $("nf").textContent = "✂️ Getrennt! Beide Seiten bauen weiter. Die Welt hat viel mehr Miner, ihre Kette wächst schneller. Im abgeschnittenen Land sieht alles normal aus …";
+  tA = setInterval(() => { if (A.length < 8){ A.push(1); draw(); } }, 700);
+  tB = setInterval(() => { if (B.length < 4){ B.push(1); draw(); } }, 1900); };
+$("join").onclick = () => { stopT(); state = 2; draw(); $("lB").classList.add("lost"); $("join").disabled = true; $("cut").disabled = false; $("cut").textContent = "✂️ Nochmal kappen";
+  $("nf").innerHTML = `🔌 Wieder verbunden. Die Kette der Welt hat <b>mehr Arbeit</b> (${A.length} gegen ${B.length} neue Blöcke) und gilt. Die ${B.length} Blöcke des Landes werden verworfen, ihre Zahlungen kommen zurück in den Warteraum und landen meist in den nächsten Blöcken. Deshalb gilt: Bei großen Beträgen auf mehrere Bestätigungen warten.`;
+  base += A.length; A = []; B = []; setTimeout(() => { state = 0; $("lB").classList.remove("lost"); draw(); }, 6000); };
+draw();
+
+const QUIZ = [["Warum kann eine Bitcoin-Zahlung sogar per Funk oder Zettel reisen?", ["Weil sie nur ein kurzer, unterschriebener Text ist", "Weil Bitcoin aus Papier ist", "Weil Funk schneller als Internet ist"], 0, "Unterwegs kann niemand die unterschriebene Zahlung verändern. Der Weg ist egal."],
+  ["Wie bekommt man neue Blöcke ganz ohne Internet?", ["Gar nicht", "Per Satellit mit einer kleinen Schüssel", "Per Radio-Werbung"], 1, "Satelliten senden die Blockchain seit 2017 über fast die ganze Welt."],
+  ["Was passiert, wenn zwei getrennte Teile wieder verbunden werden?", ["Beide Ketten gelten", "Die Kette mit der meisten Arbeit gilt, die andere wird verworfen", "Bitcoin startet neu"], 1, "Die Zahlungen aus der verworfenen Kette kommen zurück in den Warteraum."]];
+Lern.quiz($("quiz"), "offline", QUIZ, "../"); Lern.visit("offline"); Lern.renderNext("offline", "../");
+})();
+</script>
+</body>
+</html>

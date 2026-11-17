@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Psychologie-Labor · Orange Trail</title>
+<meta name="description" content="Profi-Vertiefung: Drei echte Experimente zu Verlustangst, Herdentrieb und Rückschaufehler. Teste dich selbst und erfahre, warum gerade diese Denkfallen beim Geld so teuer werden.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Psychologie-Labor · Orange Trail">
+<meta property="og:description" content="Profi-Vertiefung: Drei echte Experimente zu Verlustangst, Herdentrieb und Rückschaufehler. Teste dich selbst und erfahre, warum gerade diese Denkfallen beim Geld so teuer werden.">
+<meta property="og:image" content="https://satsland.github.io/og/psycho.jpg">
+<meta property="og:url" content="https://satsland.github.io/psycho/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=59">
+<style>
+/* Lernwelt "Psychologie-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.exp{margin-top:10px;padding:14px;border-radius:16px;border:2px solid var(--line);background:rgba(255,255,255,.03)}
+.exp .k{font:800 12px var(--f-body);letter-spacing:.6px;text-transform:uppercase;color:var(--gold)}
+.exp .q{margin:6px 0 0;font-size:17px;font-weight:800;line-height:1.4}
+.coin2{display:flex;gap:10px;margin-top:10px}
+.coin2 div{flex:1;text-align:center;padding:10px;border-radius:14px;background:rgba(0,0,0,.2)} .coin2 span{display:block;font-size:30px} .coin2 b{font:900 20px var(--f-num)} .coin2 .w b{color:var(--bull)} .coin2 .l b{color:var(--bear)}
+.opts{display:grid;gap:8px;margin-top:12px}
+.opts button{text-align:left;font:700 15px/1.4 var(--f-body);padding:11px 14px;border-radius:12px;border:2px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);cursor:pointer;transition:transform .12s}
+.opts button:active{transform:scale(.98)} .opts button.pick{border-color:var(--gold);background:rgba(247,147,26,.18)}
+.opts button:disabled{cursor:default} .opts.done button:not(.pick){opacity:.5}
+.crowd{display:block;margin-top:6px;height:8px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden} .crowd i{display:block;height:100%;background:#7fc8ff}
+.crowd + small{display:block;margin-top:3px;font-size:12px;font-weight:600;color:#9ad4ff}
+.out{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--gold);background:rgba(247,147,26,.08);font-size:15px;line-height:1.55} .out strong{display:block;font-size:17px;margin-bottom:2px}
+.chart{display:flex;align-items:flex-end;gap:6px;height:120px;margin-top:12px;padding:8px 6px 0;border-bottom:2px solid var(--line)}
+.chart div{flex:1;border-radius:6px 6px 0 0;background:#3a4170;position:relative;transition:height .5s} .chart div.now{background:var(--gold)} .chart div.fut{background:repeating-linear-gradient(45deg,#3a4170 0 6px,#2a2f5e 6px 12px)} .chart div.rev{background:#ff8a9a}
+.chart div span{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font:700 11px var(--f-num);color:var(--muted);white-space:nowrap}
+.chart div em{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font:800 11px var(--f-num);font-style:normal;color:var(--ink);white-space:nowrap}
+.prof{display:grid;gap:8px;margin-top:10px}
+.prof div{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);font-size:14px} .prof b{text-align:right}
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Psychologie-<span class="btc">Labor</span></h1>
+    <p class="lead">Beim Geld verliert man selten wegen zu wenig Wissen, sondern wegen der eigenen Gefühle. Drei echte Experimente aus der Forschung, und <b>du</b> bist die Versuchsperson. Antworte ehrlich, es gibt kein Richtig oder Falsch.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h1s">
+    <h2 id="h1s">Experiment 1 · Verlustangst</h2>
+    <div class="exp" id="e1"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h2s">
+    <h2 id="h2s">Experiment 2 · Herdentrieb</h2>
+    <div class="exp" id="e2"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h3s">
+    <h2 id="h3s">Experiment 3 · Rückschaufehler</h2>
+    <div class="exp" id="e3"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h4s" id="profS" hidden>
+    <h2 id="h4s">Dein Labor-Ergebnis</h2>
+    <div class="prof" id="prof"></div>
+    <p class="muted" style="margin:10px 0 0;font-size:14px">Alle drei Fallen hat jeder Mensch, auch Profis. Was hilft: <b style="color:var(--ink)">Regeln vorher festlegen</b>, zum Beispiel ein Sparplan, und sie in hektischen Momenten nicht ändern.</p>
+  </section>
+
+  <section class="card" aria-labelledby="hMs">
+    <h2 id="hMs">Das solltest du dir merken</h2>
+    <div class="learn">
+      <div><b>Verluste wiegen doppelt</b><span>Ein Verlust schmerzt etwa <b>doppelt so stark</b>, wie ein gleich großer Gewinn freut. Deshalb verkaufen viele im Crash in Panik.</span></div>
+      <div><b>Die Herde irrt auch</b><span>Wenn alle dasselbe sagen, fühlt es sich richtig an. Ob es stimmt, ist eine <b>andere Frage</b>.</span></div>
+      <div><b>Hinterher ist man schlauer</b><span>Im Rückblick wirkt jeder Kursverlauf logisch. <b>Vorher</b> wusste es niemand.</span></div>
+      <div><b>Plan schlägt Bauch</b><span>Wer seine Regeln festlegt, bevor es aufregend wird, tappt seltener in diese Fallen.</span></div>
+    </div>
+    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+  </section>
+
+  <section class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary>Quellen</summary><p>Verlustangst: Kahneman &amp; Tversky, Prospect Theory (1979), <a href="https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/facts/">Nobelpreis 2002</a> · Herdentrieb: <a href="https://www.simplypsychology.org/asch-conformity.html">Asch-Experimente</a> · Kurse gerundet: Hoch Dezember 2017 knapp 20.000 $, Tief Dezember 2018 rund 3.200 $, neues Hoch 2021 rund 69.000 $.</p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=78"></script>
+<script>
+/* =====================================================================
+   PSYCHOLOGIE-LABOR – Lernwelt von Orange Trail
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id), R = {};
+const opts = (id, list) => `<div class="opts" id="${id}">${list.map((t, i) => `<button type="button" data-v="${i}">${t}</button>`).join("")}</div>`;
+function lock(box, b){ box.classList.add("done"); box.querySelectorAll("button").forEach(x => x.disabled = true); b.classList.add("pick"); }
+function prof(){ if (Object.keys(R).length < 3) return; $("profS").hidden = false;
+  $("prof").innerHTML = `<div><span>😬 Verlustangst</span><b>${R.loss}</b></div><div><span>🐑 Herdentrieb</span><b>${R.herd}</b></div><div><span>🔮 Rückschau</span><b>${R.hind}</b></div>`; }
+
+// 1 · Verlustangst: Münzwurf, wie hoch muss der Gewinn sein?
+const WIN = [110, 150, 200, 300];
+let w = 0;
+function e1(){
+  $("e1").innerHTML = `<span class="k">Ein Münzwurf, einmalig</span><p class="q">Bei Kopf gewinnst du ${WIN[w]} €, bei Zahl verlierst du 100 €. Spielst du mit?</p>
+    <div class="coin2"><div class="w"><span>🪙</span>Kopf<br><b>+${WIN[w]} €</b></div><div class="l"><span>🪙</span>Zahl<br><b>−100 €</b></div></div>${opts("o1", ["✅ Ja, ich spiele", "✋ Nein, lieber nicht"])}`;
+  $("o1").onclick = e => { const b = e.target.closest("button"); if (!b) return; lock($("o1"), b);
+    if (b.dataset.v === "1" && w < WIN.length - 1){ w++; setTimeout(e1, 450); return; }
+    const yes = b.dataset.v === "0", need = yes ? WIN[w] : 400;
+    R.loss = need <= 110 ? "kaum" : need <= 150 ? "mittel" : "stark, wie bei den meisten";
+    $("e1").insertAdjacentHTML("beforeend", `<div class="out"><strong>${yes ? `Du spielst ab ${WIN[w]} € Gewinn.` : "Du hättest bei keinem Angebot mitgespielt."}</strong>Mathematisch lohnt sich das Spiel schon ab <b>101 €</b>, denn im Schnitt gewinnst du. Trotzdem verlangen die meisten Menschen etwa <b>200 €</b>, also das Doppelte. Das ist <b>Verlustangst</b>: Verlieren tut ungefähr doppelt so weh, wie Gewinnen freut. Beim Bitcoin-Crash führt genau das zu Panikverkäufen.</div>`);
+    prof(); };
+}
+e1();
+
+// 2 · Herdentrieb: eine Frage mit angeblicher Mehrheit
+const H = [["21 Millionen", 14], ["210 Millionen", 71], ["Unbegrenzt", 15]];
+$("e2").innerHTML = `<span class="k">Schnelle Frage, die anderen haben schon geantwortet</span><p class="q">Wie viele Bitcoin kann es höchstens geben?</p>
+  <div class="opts" id="o2">${H.map(([t, p], i) => `<button type="button" data-v="${i}">${t}<span class="crowd"><i style="width:${p}%"></i></span><small>${p} % der anderen</small></button>`).join("")}</div>`;
+$("o2").onclick = e => { const b = e.target.closest("button"); if (!b) return; lock($("o2"), b); const v = +b.dataset.v;
+  R.herd = v === 1 ? "gefolgt" : v === 0 ? "widerstanden" : "eigener Weg";
+  $("e2").insertAdjacentHTML("beforeend", `<div class="out"><strong>${v === 0 ? "Stark! Du hast dich nicht beirren lassen." : v === 1 ? "Erwischt: Du bist der Mehrheit gefolgt." : "Eigener Weg, aber leider falsch."}</strong>Die Prozentzahlen waren <b>erfunden</b>. Richtig sind 21 Millionen. In berühmten Experimenten der 1950er gaben viele Menschen absichtlich falsche Antworten, nur weil alle anderen im Raum sie gaben. Beim Geld heißt das: „Alle kaufen gerade“ ist <b>kein Argument</b>.</div>`);
+  prof(); };
+
+// 3 · Rückschaufehler: Dezember 2017
+const K = [["2015", 400], ["2016", 950], ["Dez. 2017", 19500]];
+function chart(rev){ const all = rev ? K.concat([["Dez. 2018", 3200, "rev"], ["2021", 69000, "fut"]]) : K.concat([["2018", 0, "q"]]); const mx = rev ? 69000 : 19500;
+  return `<div class="chart">${all.map(([l, v, c], i) => `<div class="${c === "rev" ? "rev" : c === "q" ? "fut" : i === 2 ? "now" : ""}" style="height:${c === "q" ? 60 : Math.max(4, v/mx*100)}%"><em>${c === "q" ? "?" : v.toLocaleString("de-DE") + " $"}</em><span>${l}</span></div>`).join("")}</div>`; }
+$("e3").innerHTML = `<span class="k">Zeitreise in den Dezember 2017</span><p class="q">Bitcoin steht bei fast 20.000 $, im Jahr davor waren es unter 1.000 $. Überall wird davon geredet. Was glaubst du: Wo steht der Kurs in einem Jahr?</p><div id="c3">${chart(0)}</div><div style="height:16px"></div>${opts("o3", ["📈 Noch höher, der Trend ist klar", "➡️ Ungefähr gleich", "📉 Deutlich tiefer"])}`;
+$("o3").onclick = e => { const b = e.target.closest("button"); if (!b) return; lock($("o3"), b); const v = +b.dataset.v;
+  $("c3").innerHTML = chart(1);
+  R.hind = v === 2 ? "vorsichtig" : "mutig";
+  $("e3").insertAdjacentHTML("beforeend", `<div class="out"><strong>Ein Jahr später: rund 3.200 $, also etwa −84 %.</strong>${v === 2 ? "Gut getippt! Aber ehrlich: Hättest du das damals wirklich gewusst?" : "So ging es vielen."} Und 2021 stand Bitcoin dann bei rund 69.000 $, weit über dem alten Hoch. Heute wirkt beides <b>logisch</b>, damals wusste es niemand. Das ist der <b>Rückschaufehler</b>: Hinterher glauben wir, es wäre vorhersehbar gewesen. Darum helfen feste Regeln mehr als Vorhersagen.</div>`);
+  prof(); };
+
+const QUIZ = [["Münzwurf: Gewinn 120 €, Verlust 100 €. Warum lehnen viele trotzdem ab?", ["Weil das Spiel im Schnitt Geld kostet", "Weil Verluste sich etwa doppelt so stark anfühlen wie Gewinne", "Weil 120 € zu wenig zum Spielen sind"], 1, "Mathematisch lohnt es sich. Die Verlustangst sagt trotzdem Nein."],
+  ["Alle Freunde kaufen gerade eine neue Kryptowährung. Was ist die klügste Reaktion?", ["Sofort mitkaufen, bevor es zu spät ist", "Selbst prüfen und sich an den eigenen Plan halten", "Alles verkaufen, was man hat"], 1, "Dass alle etwas tun, sagt nichts darüber, ob es richtig ist."],
+  ["Was ist der Rückschaufehler?", ["Man vergisst seine Passwörter", "Hinterher wirkt alles vorhersehbar, vorher war es das nicht", "Man schaut zu oft auf den Kurs"], 1, "Deshalb sind feste Regeln wie ein Sparplan robuster als Vorhersagen."]];
+Lern.quiz($("quiz"), "psycho", QUIZ, "../"); Lern.visit("psycho"); Lern.renderNext("psycho", "../");
+})();
+</script>
+</body>
+</html>
