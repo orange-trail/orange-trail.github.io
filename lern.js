@@ -951,3 +951,11 @@ document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElemen
   addEventListener("pointermove", e => { const c = e.target.closest && e.target.closest(".wrap > .card"); if (!c) return; const r = c.getBoundingClientRect();
     c.style.setProperty("--mx", (e.clientX - r.left) + "px"); c.style.setProperty("--my", (e.clientY - r.top) + "px"); }, {passive: true});
 })();
+
+// Partnerlinks: hier eintragen, sobald die Programme freigegeben sind. Dann wird automatisch als Werbung gekennzeichnet.
+const PARTNER = {bitbox: "", trezor: ""};
+addEventListener("DOMContentLoaded", () => {
+  let any = false;
+  document.querySelectorAll("a[data-hw]").forEach(a => { const u = PARTNER[a.dataset.hw]; if (u){ a.href = u; a.insertAdjacentHTML("afterend", '<small class="muted" style="display:block;text-align:center;font-size:12px">Partnerlink · Werbung</small>'); any = true; } });
+  const n = document.getElementById("hwAd"); if (n && any) n.textContent = " Bei den Partnerlinks erhält Orange Trail eine kleine Provision, für dich ändert sich am Preis nichts.";
+});

@@ -31,6 +31,14 @@
 .w.rec{border-color:var(--gold);background:rgba(247,147,26,.1)}
 .rec-box{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--gold);font-size:15px;line-height:1.5} .rec-box strong{display:block;font-size:18px;color:var(--gold)}
 @media (max-width:760px){ .wl{grid-template-columns:1fr 1fr} }
+.hwg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.hwc{border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(255,255,255,.03);display:flex;flex-direction:column;gap:8px;transition:transform .2s,border-color .2s}
+.hwc:hover{transform:translateY(-2px);border-color:rgba(255,201,77,.45)}
+.hwc h3{margin:0;font-size:17px} .hwc .fit{color:var(--gold);font-weight:700;font-size:14px}
+.hwc ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.5} .hwc .pr{font:700 15px var(--f-num)}
+.hwc .btn{margin-top:auto;height:40px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:14px}
+.hwn{font-size:13px;color:var(--muted);margin:12px 0 0}
+@media (max-width:620px){ .hwg{grid-template-columns:1fr} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -59,6 +67,28 @@
     <div class="wl" id="wl2"></div>
   </section>
 
+  <section class="card" aria-labelledby="hHw">
+    <h2 id="hHw">Hardware-Wallets im Vergleich</h2>
+    <p class="muted" style="margin:0">Ab größeren Beträgen lohnt sich ein eigenes Gerät. Zwei bewährte, quelloffene Modelle, beide auch als <b>Bitcoin&#8209;only</b>&#8209;Edition:</p>
+    <div class="hwg">
+      <div class="hwc">
+        <h3>BitBox02 Nova</h3>
+        <span class="fit">Passt, wenn du es einfach willst</span>
+        <ul><li>App führt Schritt für Schritt, auch auf Deutsch</li><li>Backup auf mitgelieferter microSD-Karte</li><li>Sicherheitschip, Touch-Tasten, USB-C</li><li>Hergestellt in der Schweiz</li></ul>
+        <span class="pr">ca. 175 €</span>
+        <a class="btn" data-hw="bitbox" href="https://bitbox.swiss/bitbox02/" target="_blank" rel="sponsored noopener">Zum Hersteller ↗</a>
+      </div>
+      <div class="hwc">
+        <h3>Trezor Safe 3</h3>
+        <span class="fit">Passt, wenn du günstig starten willst</span>
+        <ul><li>Bestätigen über zwei Tasten am Gerät</li><li>Backup mit 12, 20 oder 24 Wörtern</li><li>Sicherheitschip, USB-C</li><li>Hersteller aus Tschechien, seit 2014</li></ul>
+        <span class="pr">ca. 80 €</span>
+        <a class="btn" data-hw="trezor" href="https://trezor.io/trezor-safe-3-bitcoin-only" target="_blank" rel="sponsored noopener">Zum Hersteller ↗</a>
+      </div>
+    </div>
+    <p class="hwn">🛡️ Kaufe nur <b>direkt beim Hersteller</b>, nie gebraucht. Ein echtes Gerät kommt <b>ohne</b> vorgedruckte Wörter. Preise gerundet, Stand Herbst 2026.<span id="hwAd"></span></p>
+  </section>
+
   <section class="card" aria-labelledby="h3s">
     <h2 id="h3s">Das solltest du dir merken</h2>
     <div class="learn">
@@ -76,7 +106,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=84"></script>
+<script src="../lern.js?v=85"></script>
 <script>
 /* =====================================================================
    WALLET-CHECK – Lernwelt von Orange Trail
