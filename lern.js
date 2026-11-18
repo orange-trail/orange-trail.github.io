@@ -916,6 +916,7 @@ document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElemen
       if (performance.now() - last > 2500 || window.__sweep || document.documentElement.classList.contains("calm")) return;
       const done = new Set();
       for (const m of ms){
+        if ([...m.addedNodes].some(n => n.classList && n.classList.contains("em"))) continue;   // Emoji-Tausch ist keine Wertänderung
         const t = m.target.nodeType === 3 ? m.target.parentElement : m.target, own = t && t.closest(SEL);
         if (own && own.classList.contains("cu")) continue;
         if (own){ if (done.has(own)) continue; done.add(own);
@@ -964,3 +965,37 @@ addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("a[data-hw]").forEach(a => { const u = PARTNER[a.dataset.hw]; if (u){ a.href = u; a.insertAdjacentHTML("afterend", '<small class="muted" style="display:block;text-align:center;font-size:12px">Partnerlink · Werbung</small>'); any = true; } });
   const n = document.getElementById("hwAd"); if (n && any) n.textContent = " Bei den Partnerlinks erhält Orange Trail eine kleine Provision, für dich ändert sich am Preis nichts.";
 });
+
+// Einheitliche Comic-Symbole: Emoji werden auf jedem Gerät durch dieselben Zeichnungen ersetzt (eigene Dateien in /e/, nichts Fremdes)
+(() => {
+  const me = document.currentScript; if (!me || !me.src) return;
+  const BASE = new URL("e/", me.src).href;
+  const RX = /\p{RI}\p{RI}|\p{Extended_Pictographic}(?:\uFE0F|\uFE0E)?(?:\p{EMod})?(?:\u200D\p{Extended_Pictographic}\uFE0F?(?:\p{EMod})?)*/gu;
+  const KEEP = new Set([..."✓✗↺↻↩★☆✕✔↗↔➡⬆➕↘↙↖⬇⬅©®™‼⁉↪"]);
+  const SKIP = "script,style,textarea,input,select,option,svg,title,canvas,.noem,[contenteditable]";
+  const name = s => [...s].map(c => c.codePointAt(0).toString(16)).filter(c => c !== "fe0f").join("-");
+  const fail = function(){ const t = document.createElement("span"); t.className = "noem"; t.textContent = this.alt; this.replaceWith(t); };   // Fallback ohne Endlosschleife
+  function conv(tn){
+    const t = tn.nodeValue; if (!t || t.length > 4000) return; RX.lastIndex = 0; let m, last = 0, frag = null;
+    while ((m = RX.exec(t))){
+      const s = m[0]; if (s.endsWith("\uFE0E") || KEEP.has(s.replace(/\uFE0F/g, ""))) continue;
+      frag = frag || document.createDocumentFragment();
+      if (m.index > last) frag.append(t.slice(last, m.index));
+      const im = document.createElement("img"); im.className = "em"; im.alt = s; im.draggable = false; im.decoding = "async"; im.src = BASE + name(s) + ".svg"; im.onerror = fail;
+      frag.append(im); last = m.index + s.length;
+    }
+    if (!frag) return; if (last < t.length) frag.append(t.slice(last)); tn.replaceWith(frag);
+  }
+  const ok = n => { const p = n.parentElement; return p && !p.closest(SKIP); };
+  function scan(root){
+    if (root.nodeType === 3){ if (ok(root)) conv(root); return; }
+    if (root.nodeType !== 1 || root.closest(SKIP)) return;
+    const tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), list = [];
+    for (let n; (n = tw.nextNode());) if (/[\u2190-\u2BFF\uD83C-\uD83E\u3030\u303D\u3297\u3299]/.test(n.nodeValue) && ok(n)) list.push(n);
+    list.forEach(conv);
+  }
+  const go = () => { scan(document.body);
+    new MutationObserver(ms => ms.forEach(m => m.type === "characterData" ? scan(m.target) : m.addedNodes.forEach(scan)))
+      .observe(document.body, {subtree: true, childList: true, characterData: true}); };
+  document.readyState === "loading" ? addEventListener("DOMContentLoaded", go) : go();
+})();

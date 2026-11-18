@@ -387,3 +387,5 @@ details[open] > :not(summary){animation:whyIn .35s cubic-bezier(.2,.8,.2,1)}
 @view-transition{navigation:auto} ::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}
 html.calm .sprog{display:none}
 @media (prefers-reduced-motion:reduce){ details[open] > :not(summary),.opts button.ok{animation:none} @view-transition{navigation:none} }
+/* Comic-Symbole statt System-Emoji */
+img.em{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.24em;margin:0 .03em;object-fit:contain;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35));pointer-events:none;-webkit-user-drag:none;user-select:none}
