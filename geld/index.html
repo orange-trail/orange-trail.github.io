@@ -28,7 +28,10 @@
 @media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} .kv > :nth-child(odd):last-child:not(:first-child){grid-column:1/-1} }
 .isle{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
 .pp{border:2px solid var(--line);border-radius:14px;padding:8px;text-align:center;background:rgba(255,255,255,.03);font:inherit;color:var(--ink);cursor:pointer;transition:transform .15s,border-color .2s}
-.pp:hover{transform:translateY(-3px)} .pp .e{font-size:30px;display:block} .pp b{display:block;font:900 13px var(--f-display)} .pp small{display:block;font-size:11px;color:var(--muted);line-height:1.3}
+.pp:hover{transform:translateY(-3px)} .pp .e{display:grid;place-items:center;width:58px;height:58px;margin:2px auto 6px;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(var(--t),.35),rgba(var(--t),.08) 70%);box-shadow:inset 0 0 0 2px rgba(var(--t),.35);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
+.pp .e svg{width:40px;height:40px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.35))} .pp:hover .e{transform:scale(1.08) rotate(-4deg)}
+.pp small.hw span{display:block;white-space:nowrap} .gi{display:inline-block;width:1.25em;height:1.25em;vertical-align:-.3em;font-style:normal} .gi svg{width:100%;height:100%;display:block}
+.hv .gi{animation:pop .4s} .nw{white-space:nowrap} .pp b{display:block;font:900 13px var(--f-display)} .pp small{display:block;font-size:11px;color:var(--muted);line-height:1.3}
 .pp:active{transform:scale(.96)} .pp.hit{border-color:var(--bull);background:rgba(52,217,130,.14);animation:pop .35s} .pp.miss{border-color:var(--bear);background:rgba(255,92,92,.1);animation:shake .4s}
 .fb{margin:10px 0 0;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.45;background:rgba(255,255,255,.04);border:1px solid var(--line)} .fb.ok{border-color:var(--bull)} .fb.no{border-color:var(--bear)} .fb .t{display:inline-block;animation:pop .35s}
 .inv{margin-top:12px;font-size:15px} .inv b{font-family:var(--f-display)}
@@ -89,27 +92,42 @@
 (() => {
 const $ = id => document.getElementById(id);
 // Insel: Jede Runde ein neues Rätsel (wer du bist, was du willst, wer was hat)
-const G = {Fisch: ["🐟", "Fischer"], Brot: ["🍞", "Bäckerin"], Holz: ["🪵", "Holzfäller"], Schuhe: ["👞", "Schuster"], Käse: ["🧀", "Käserin"], Wein: ["🍷", "Winzer"], Wolle: ["🧶", "Schäferin"]};
+// Eigene Comic-Symbole statt Emoji (sehen auf jedem Gerät gleich aus)
+const SK = 'stroke="#0d1230" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"';
+const IC = {
+  Fisch: `<path d="M12 50c12-18 38-22 56-8l18-12v40L68 58c-18 14-44 10-56-8z" fill="#4fb3ff" ${SK}/><path d="M50 38c4 8 4 16 0 24" fill="none" ${SK}/><circle cx="30" cy="46" r="4.5" fill="#0d1230"/>`,
+  Brot: `<path d="M10 62c0-22 17-34 40-34s40 12 40 34v6a7 7 0 0 1-7 7H17a7 7 0 0 1-7-7z" fill="#e8a24f" ${SK}/><path d="M30 42l7 12M47 38l7 12M64 42l7 12" fill="none" stroke="#fff1cf" stroke-width="5" stroke-linecap="round"/>`,
+  Holz: `<rect x="10" y="33" width="66" height="36" rx="7" fill="#a8693a" ${SK}/><path d="M22 45h24M30 58h26" stroke="#7a4824" stroke-width="4" stroke-linecap="round"/><ellipse cx="76" cy="51" rx="13" ry="18" fill="#f0c58a" ${SK}/><ellipse cx="76" cy="51" rx="5" ry="8" fill="none" stroke="#b27a45" stroke-width="3.5"/>`,
+  Schuhe: `<path d="M12 36h22l7 12c11 3 25 5 35 11 8 5 12 10 12 14v4H12z" fill="#c8563a" ${SK}/><path d="M12 69h76" ${SK}/><path d="M42 50l-6 7M52 53l-6 7" stroke="#ffe0d0" stroke-width="3.5" stroke-linecap="round"/>`,
+  Käse: `<path d="M10 72V48l68-22 12 22v24z" fill="#ffd23f" ${SK}/><path d="M10 48h80" ${SK}/><circle cx="30" cy="61" r="5.5" fill="#d99a00"/><circle cx="56" cy="63" r="6.5" fill="#d99a00"/><circle cx="77" cy="58" r="4" fill="#d99a00"/>`,
+  Wein: `<path d="M42 10h16v20c0 6 12 10 12 22v34a6 6 0 0 1-6 6H36a6 6 0 0 1-6-6V52c0-12 12-16 12-22z" fill="#8b2f5e" ${SK}/><rect x="35" y="55" width="30" height="18" rx="3" fill="#fff1cf" ${SK}/><path d="M43 20h14" ${SK}/>`,
+  Wolle: `<circle cx="50" cy="52" r="32" fill="#f29cc4" ${SK}/><path d="M27 34c14 6 30 22 36 46M22 55c16 0 33 9 43 25M38 22c10 12 22 30 26 56M61 22c-4 14-2 28 10 40" fill="none" stroke="#c45b8e" stroke-width="4" stroke-linecap="round"/><path d="M80 68c6 6 12 8 14 4" fill="none" ${SK}/>`
+};
+const TINT = {Fisch: "79,179,255", Brot: "232,162,79", Holz: "168,105,58", Schuhe: "200,86,58", Käse: "255,210,63", Wein: "139,47,94", Wolle: "242,156,196"};
+const svg = k => `<svg viewBox="0 0 100 100" aria-hidden="true">${IC[k]}</svg>`;
+const gi = k => `<i class="gi">${svg(k)}</i>`;
+const G = {Fisch: [gi("Fisch"), "Fischer"], Brot: [gi("Brot"), "Bäckerin"], Holz: [gi("Holz"), "Holzfäller"], Schuhe: [gi("Schuhe"), "Schuster"], Käse: [gi("Käse"), "Käserin"], Wein: [gi("Wein"), "Winzer"], Wolle: [gi("Wolle"), "Schäferin"]};
 const shuf = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(v => v[1]);
-let P, have, want, path, steps;
+let P, have, want, path, steps, shown;
 function newRound(){
   const g = shuf(Object.keys(G)); have = g[0]; want = g[3]; steps = 0; path = [g[0], g[1], g[2], g[3]];
   // Kette: jemand hat g1 und will g0, jemand hat g2 und will g1, jemand hat g3 (dein Wunsch) und will g2; dazu eine falsche Fährte
   P = shuf([[g[1], g[0]], [g[2], g[1]], [g[3], g[2]], [g[4], g[5]]]).map(([h, w]) => [G[h][0], G[h][1], h, w]);
-  $("who").innerHTML = `Du bist <b>${G[have][1]}</b> und hast <b>${G[have][0]} ${have}</b>. Du willst <b>${G[want][0]} ${want}</b>. Geld gibt es nicht, nur Tausch. Tippe die Person an, mit der du als Nächstes tauschen willst.`;
+  $("who").innerHTML = `Du bist <b>${G[have][1]}</b> und hast <b><span class="nw">${G[have][0]} ${have}</span></b>. Du willst <b><span class="nw">${G[want][0]} ${want}</span></b>. Geld gibt es nicht, nur Tausch. Tippe die Person an, mit der du als Nächstes tauschen willst.`;
   $("res").hidden = true; $("fb").hidden = true; draw();
 }
 function draw(){
-  $("isle").innerHTML = P.map(([e, n, h, w], i) => `<button class="pp" type="button" data-i="${i}"><span class="e">${e}</span><b>${n}</b><small>hat ${h}<br>will ${w}</small></button>`).join("");
-  $("inv").innerHTML = `Du hast: <b>${G[have][0]} ${have}</b>${have === want ? " 🎉" : ""} · Tauschversuche: <b>${steps}</b>`;
+  $("isle").innerHTML = P.map(([e, n, h, w], i) => `<button class="pp" type="button" data-i="${i}" style="--t:${TINT[h]}"><span class="e">${svg(h)}</span><b>${n}</b><small class="hw"><span>hat ${gi(h)} ${h}</span><span>will ${gi(w)} ${w}</span></small></button>`).join("");
+  const nw = shown !== have; shown = have;
+  $("inv").innerHTML = `Du hast: <b class="${nw ? "hv" : ""}"><span class="nw">${G[have][0]} ${have}</span></b>${have === want ? " 🎉" : ""} · Tauschversuche: <b>${steps}</b>`;
 }
 $("isle").onclick = e => {
   const b = e.target.closest(".pp"); if (!b || have === want) return;
   const [, n, h, w] = P[+b.dataset.i]; steps++;
   const i = +b.dataset.i, ok = w === have, F = $("fb");
   F.hidden = false; F.className = "fb " + (ok ? "ok" : "no");
-  F.innerHTML = ok ? `<span class="t">✅</span> <b>Getauscht!</b> ${n} nimmt ${G[have][0]} ${have} und gibt dir ${G[h][0]} <b>${h}</b>.`
-    : `<span class="t">❌</span> <b>Kein Tausch:</b> ${n} will ${G[w][0]} ${w}, nicht ${G[have][0]} ${have}.`;
+  F.innerHTML = ok ? `<span class="t">✅</span> <b>Getauscht!</b> ${n} nimmt <span class="nw">${G[have][0]} ${have}</span> und gibt dir <b class="nw">${G[h][0]} ${h}</b>.`
+    : `<span class="t">❌</span> <b>Kein Tausch:</b> ${n} will <span class="nw">${G[w][0]} ${w}</span>, nicht <span class="nw">${G[have][0]} ${have}</span>.`;
   if (ok) have = h;
   draw();
   const nb = $("isle").children[i]; nb.classList.add(ok ? "hit" : "miss"); if (navigator.vibrate) try { navigator.vibrate(ok ? 30 : [20, 40, 20]); } catch(e){}
