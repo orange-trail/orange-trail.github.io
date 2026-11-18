@@ -37,6 +37,8 @@
 .hwc h3{margin:0;font-size:17px} .hwc .fit{color:var(--gold);font-weight:700;font-size:14px}
 .hwc ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.5} .hwc .pr{font:700 15px var(--f-num)}
 .hwc .btn{margin-top:auto;height:40px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:14px}
+.hwc.top{border-color:rgba(255,201,77,.55);background:linear-gradient(180deg,rgba(255,201,77,.08),rgba(255,255,255,.02));box-shadow:0 10px 30px -18px rgba(255,201,77,.6)}
+.hwb{align-self:flex-start;font:800 11px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:#2a1400;background:linear-gradient(180deg,#ffd36b,#f7a531);padding:4px 10px;border-radius:999px}
 .hwn{font-size:13px;color:var(--muted);margin:12px 0 0}
 @media (max-width:620px){ .hwg{grid-template-columns:1fr} }
 </style>
@@ -71,9 +73,10 @@
     <h2 id="hHw">Hardware-Wallets im Vergleich</h2>
     <p class="muted" style="margin:0">Ab größeren Beträgen lohnt sich ein eigenes Gerät. Zwei bewährte, quelloffene Modelle, beide auch als <b>Bitcoin&#8209;only</b>&#8209;Edition:</p>
     <div class="hwg">
-      <div class="hwc">
+      <div class="hwc top">
+        <span class="hwb">⭐ Unsere Empfehlung</span>
         <h3>BitBox02 Nova</h3>
-        <span class="fit">Passt, wenn du es einfach willst</span>
+        <span class="fit">Passt, wenn du es einfach willst. Für Einsteiger unser Favorit.</span>
         <ul><li>App führt Schritt für Schritt, auch auf Deutsch</li><li>Backup auf mitgelieferter microSD-Karte</li><li>Sicherheitschip, Touch-Tasten, USB-C</li><li>Hergestellt in der Schweiz</li></ul>
         <span class="pr">ca. 175 €</span>
         <a class="btn" data-hw="bitbox" href="https://bitbox.swiss/bitbox02/" target="_blank" rel="sponsored noopener">Zum Hersteller ↗</a>
