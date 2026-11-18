@@ -31,8 +31,15 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)} @media (max-widt
 .you p{margin:0;color:var(--muted);font-size:14px}
 .ctrl{display:flex;flex-direction:column;gap:10px}
 .cfRow{display:flex;align-items:center;gap:12px;margin-top:10px} .cfRow input{flex:1} .cfRow b{font:900 22px var(--f-num);min-width:2ch;text-align:right}
-.cfBlocks{display:flex;gap:6px;margin-top:8px;align-items:flex-end;min-height:44px} .cfBlocks span{width:36px;height:36px;border-radius:8px;border:2px solid #0d1230;display:grid;place-items:center;font:900 12px var(--f-num);background:#f7931a;color:#2a1600;animation:pop .25s}
-.cfBlocks span.me{background:#34d982;color:#04240f}
+.cfBlocks{--cl:clamp(8px,2.6vw,16px);--cs:min(56px,calc((100% - 5 * var(--cl)) / 6));display:flex;align-items:flex-start;margin-top:12px;min-height:76px}
+.cfc{display:flex;flex-direction:column;align-items:center;gap:4px;width:var(--cs);flex:none}
+.cfc svg{width:100%;height:auto;display:block;filter:drop-shadow(0 5px 6px rgba(0,0,0,.4));animation:cfDrop .55s cubic-bezier(.3,1.45,.5,1) both}
+.cfc small{font:800 11px var(--f-num);color:var(--muted);white-space:nowrap} .cfc.me small{color:var(--bull)}
+.cfc.wait svg{animation:cfWait 1.6s ease-in-out infinite;filter:none}
+.cfl{width:var(--cl);flex:none;margin-top:calc(var(--cs) * .42);height:8px;border-radius:5px;border:2.5px solid #f7931a;box-shadow:0 0 0 2px #0d1230;transform-origin:0 50%;animation:cfLink .3s .2s both}
+@keyframes cfDrop{from{transform:translateY(-40px) rotate(-10deg);opacity:0}}
+@keyframes cfLink{from{transform:scaleX(0)}}
+@keyframes cfWait{50%{opacity:.45;transform:translateY(-3px)}}
 .cfT{margin:8px 0 0;font-size:15px;line-height:1.5}
 .feeRow{display:flex;align-items:flex-start;gap:12px} .zsel{flex:1;min-width:0} .zsel input{width:100%} .zt{display:flex;justify-content:space-between;margin-top:4px;font:800 13px var(--f-display);color:var(--ink)} .zt span{text-align:center;width:4.6em} .zt span:first-child{text-align:left} .zt span:last-child{text-align:right} .zt small{display:block;font:500 11px var(--f-body);color:var(--muted)}
 .feeVal{font:600 20px var(--f-num);min-width:7.5ch;text-align:right}
@@ -119,7 +126,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)} @media (max-widt
 </div>
 
 <details class="foot"><summary>Quellen</summary><p>Warteraum, Gebühren und Blöcke als realistische Beispielwerte (echte Werte z. B. auf <a href="https://mempool.space">mempool.space</a>); <a href="https://en.bitcoin.it/wiki/Transaction_fees">Bitcoin Wiki: Transaction fees</a>. Das Spiel ist eine Simulation mit vereinfachten Zahlen.</p></details>
-<script src="../lern.js?v=85"></script>
+<script src="../lern.js?v=86"></script>
 <script>
 /* =====================================================================
    MEMPOOL-BAHNHOF – Lernwelt von Orange Trail
@@ -450,8 +457,20 @@ let cvOn = true; if ("IntersectionObserver" in window) new IntersectionObserver(
     "✅ <b>4 Bestätigungen:</b> Ein Angreifer müsste 4 Blöcke neu rechnen und schneller als alle anderen sein.",
     "✅ <b>5 Bestätigungen:</b> Fast geschafft.",
     "🛡️ <b>6 Bestätigungen (ca. 1 Stunde):</b> Eine <b>Faustregel</b>, keine mathematische Garantie. Je größer der Betrag, desto länger warten viele, Börsen oft so lange."];
+  // Blöcke als kleine 3D-Würfel mit Kettengliedern; nur neue fallen herein, bestehende bleiben stehen
+  const SK = 'stroke="#0d1230" stroke-width="5" stroke-linejoin="round"';
+  const cube = (side, top) => `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10l36 19v42L50 90 14 71V29z" fill="${side}" ${SK}/><path d="M14 29l36 19 36-19M50 48v42" fill="none" ${SK}/><path d="M50 10l36 19-36 19-36-19z" fill="${top}" ${SK}/><text x="32" y="74" font-size="22" font-weight="900" text-anchor="middle" fill="#fff" font-family="Arial">₿</text></svg>`;
+  const B = document.getElementById("cfB");
+  const blocks = v => {
+    const cs = B.querySelectorAll(".cfc:not(.wait)");
+    if (!v){ B.innerHTML = `<div class="cfc wait"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10l36 19v42L50 90 14 71V29z" fill="none" stroke="#7d86c4" stroke-width="4" stroke-dasharray="8 7" stroke-linejoin="round"/><text x="50" y="62" font-size="30" font-weight="900" text-anchor="middle" fill="#7d86c4" font-family="Arial">?</text></svg><small>wartet</small></div>`; return; }
+    if (B.querySelector(".wait")) B.innerHTML = "";
+    let n = B.querySelectorAll(".cfc").length;
+    while (n < v){ B.insertAdjacentHTML("beforeend", (n ? '<i class="cfl"></i>' : "") + `<div class="cfc ${n ? "" : "me"}">${n ? cube("#f7931a", "#ffb04a") : cube("#22b866", "#5ff0a0")}<small>${n ? "+" + n : "Du"}</small></div>`); n++; }
+    while (n > v){ B.lastElementChild.remove(); if (B.lastElementChild && B.lastElementChild.classList.contains("cfl")) B.lastElementChild.remove(); n--; }
+  };
   const draw = () => { const v = +document.getElementById("cf").value; document.getElementById("cfV").textContent = v;
-    document.getElementById("cfB").innerHTML = v ? Array.from({length: v}, (_, i) => `<span class="${i === 0 ? "me" : ""}">${i === 0 ? "Du" : "+" + i}</span>`).join("") : '<span style="background:transparent;border-style:dashed;color:var(--muted)">?</span>';
+    blocks(v);
     document.getElementById("cfT").innerHTML = T[v] + (v ? ' <span class="muted">Warum? Wer eine bestätigte Zahlung rückgängig machen will, müsste alle Blöcke danach neu minen und das ehrliche Netz überholen.</span>' : ""); };
   document.getElementById("cf").addEventListener("input", draw); draw();
 }

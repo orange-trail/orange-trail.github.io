@@ -596,15 +596,20 @@ const Lern = (() => {
   // Chips wie „(Welt 6)“ mit folgendem Satzzeichen zusammenhalten, damit keine Zeile mit „.“ beginnt
   function glue(){
     // Zahl und Einheit nie trennen („75 %“, „3 Jahre“, „z. B.“)
-    const RX = /(\d) (?=(%|‰|€|\$|BTC|sats?\b|sat\/vB|Mio\.|Mrd\.|Bio\.|Jahre|Jahren|Tage|Min\.|Minuten|Byte|Bit\b|vB|TWh|Wörter|Level))|z\. B\./g, tw = document.createTreeWalker(document.querySelector(".wrap") || document.body, NodeFilter.SHOW_TEXT);
+    const RX = /(\d) (?=(%|‰|€|\$|BTC|sats?\b|sat\/vB|Mio\.|Mrd\.|Bio\.|Jahre|Jahren|Tage|Min\.|Minuten|Byte|Bit\b|vB|TWh|Wörter|Level|Bestätigung|Bestätigungen|Block|Blöcke))|z\. B\./g, tw = document.createTreeWalker(document.querySelector(".wrap") || document.body, NodeFilter.SHOW_TEXT);
     for (let n; (n = tw.nextNode());) if (/\d |z\. B\./.test(n.nodeValue) && !n.parentElement.closest("script,style,textarea")) n.nodeValue = n.nodeValue.replace(RX, (m, d) => d ? d + "\u00a0" : "z.\u00a0B.");
     // Begriffe und Chips wie „(Welt 6)“ mit folgendem Satzzeichen zusammenhalten, damit keine Zeile mit „.“ beginnt (auch durch <b>…</b> hindurch)
     const INL = /^(B|STRONG|EM|I|U|A|SPAN)$/, last = e => { let x = e.nextSibling; while (x && x.nodeType === 3 && !x.nodeValue.length) x = x.nextSibling; return !x; }, first = e => { let x = e.previousSibling; while (x && x.nodeType === 3 && !x.nodeValue.length) x = x.previousSibling; return !x; };
     document.querySelectorAll(".wrap .gl, .wrap .later").forEach(c => {
       let top = c; while (top.parentElement && INL.test(top.parentElement.tagName) && !top.parentElement.classList.contains("glw") && last(top) && first(top)) top = top.parentElement;
       if (top.parentElement && top.parentElement.classList.contains("glw") && last(top)) top = top.parentElement;
-      let n = top.nextSibling; while (n && n.nodeType === 3 && !n.nodeValue.length) n = n.nextSibling; if (!n || n.nodeType !== 3) return; const m = n.nodeValue.match(/^[.,;:!?)“"]+/); if (!m) return;
-      const w = document.createElement("span"); w.className = "glw"; top.before(w); w.appendChild(top); n.splitText(m[0].length); w.appendChild(n); });
+      let n = top.nextSibling; while (n && n.nodeType === 3 && !n.nodeValue.length) n = n.nextSibling;
+      let pv = top.previousSibling; while (pv && pv.nodeType === 3 && !pv.nodeValue.length) pv = pv.previousSibling;
+      const m = n && n.nodeType === 3 && n.nodeValue.match(/^[.,;:!?)“"]+/), lm = pv && pv.nodeType === 3 && pv.nodeValue.match(/[(„"‚]+$/);
+      if (!m && !lm) return;
+      const w = document.createElement("span"); w.className = "glw"; top.before(w);
+      if (lm) w.appendChild(pv.splitText(pv.nodeValue.length - lm[0].length)); w.appendChild(top);
+      if (m){ n.splitText(m[0].length); w.appendChild(n); } });
   }
   function glossify(){
     const skip = "h1,h2,h3,a,button,.opts,.lbl,.say,.scn,code,input,label,.foot,.top,svg,.tcard,.mode,.num,script,style,.gl,.guide,.toast,.bossbg,.lvup,.cn,.kv,.chainS,.addrs,select,textarea,.ledger,.nd,.pts,table,.nogl,summary";
