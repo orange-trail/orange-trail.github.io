@@ -800,9 +800,32 @@ const Lern = (() => {
       if (top) top.insertBefore(el, top.children[1] || null); else if (back) back.after(el); }
   }
   // Welten erscheinen beim Scrollen
+  // Kennzahlen zählen beim Hereingleiten kurz hoch (nur Text, Format bleibt)
+  function countUp(card){
+    if (!card.matches || !card.matches(".card") || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Kurven in Diagrammen zeichnen sich einmal ein
+    card.querySelectorAll("svg polyline, svg path").forEach(l => {
+      const st = getComputedStyle(l); if (st.fill !== "none" || st.strokeDasharray !== "none" || +st.strokeWidth < 1.5 || l.closest(".scn, .a, .wico") || l.getTotalLength() < 150) return;
+      l.setAttribute("pathLength", 1); l.style.strokeDasharray = 1; l.animate([{strokeDashoffset: 1}, {strokeDashoffset: 0}], {duration: 1100, easing: "cubic-bezier(.4,0,.2,1)"})
+        .onfinish = () => { l.style.strokeDasharray = ""; l.removeAttribute("pathLength"); };
+    });
+    const RX = /\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:,\d+)?/;
+    card.querySelectorAll(".kv b, .kv strong").forEach(el => {
+      const tn = [...el.childNodes].find(n => n.nodeType === 3 && RX.test(n.nodeValue)); if (!tn) return;
+      const orig = tn.nodeValue, m = orig.match(RX), raw = m[0], grp = raw.includes("."), dec = (raw.split(",")[1] || "").length, val = parseFloat(raw.replace(/\./g, "").replace(",", "."));
+      if (!(val >= 2) || (!grp && !dec && val >= 1900 && val < 2200)) return;   // Jahreszahlen und Kleinkram nicht zählen
+      const fmt = v => v.toLocaleString("de-DE", {minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: grp});
+      const t0 = performance.now(), D = 900; let mine = orig; el.classList.add("cu");
+      const step = t => { if (tn.nodeValue !== mine || !tn.isConnected){ el.classList.remove("cu"); return; }   // Seite hat den Wert inzwischen selbst geändert
+        const k = Math.min(1, (t - t0) / D), e = 1 - Math.pow(1 - k, 3);
+        mine = k < 1 ? orig.replace(raw, fmt(val * e)) : orig; tn.nodeValue = mine;
+        if (k < 1) requestAnimationFrame(step); else el.classList.remove("cu"); };
+      requestAnimationFrame(step);
+    });
+  }
   function reveal(){
     if (calm || !("IntersectionObserver" in window)) return;
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin: "0px 0px -6% 0px"});
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); countUp(e.target); } }), {rootMargin: "0px 0px -6% 0px"});
     const vh = innerHeight;   // was beim Start schon sichtbar ist, steht sofort da; nur Weiter-unten-Inhalte gleiten beim Scrollen herein
     document.querySelectorAll(".wrap > .card, .learn > div, a.w").forEach((el, i) => { if (el.getBoundingClientRect().top < vh * .92) return; el.classList.add("rv"); el.style.setProperty("--d", (i % 4)*70 + "ms"); io.observe(el); });
     setTimeout(() => document.querySelectorAll(".rv").forEach(el => el.classList.add("in")), 5000);   // Sicherheitsnetz
@@ -889,6 +912,7 @@ document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElemen
       const done = new Set();
       for (const m of ms){
         const t = m.target.nodeType === 3 ? m.target.parentElement : m.target, own = t && t.closest(SEL);
+        if (own && own.classList.contains("cu")) continue;
         if (own){ if (done.has(own)) continue; done.add(own);
           const old = m.type === "characterData" ? m.oldValue : [...m.removedNodes].map(n => n.textContent).join("");
           if (old !== own.textContent && (m.type === "characterData" || m.removedNodes.length)) flash(own); continue; }
@@ -898,4 +922,32 @@ document.addEventListener("DOMContentLoaded", () => { try { if (HTMLScriptElemen
       }
     }).observe(root, {subtree: true, childList: true, characterData: true, characterDataOldValue: true});
   });
+})();
+
+// Regler: Füllstand der Spur folgt dem Wert, auch wenn eine Seite den Wert per Code setzt
+(() => {
+  const fill = r => { const lo = +r.min || 0, hi = r.max === "" ? 100 : +r.max, p = hi > lo ? Math.min(1, Math.max(0, (r.valueAsNumber - lo) / (hi - lo))) : 0;
+    r.style.setProperty("--p", `calc(${(p * 100).toFixed(2)}% + ${((.5 - p) * 22).toFixed(1)}px)`); };
+  const all = () => document.querySelectorAll("input[type=range]").forEach(fill);
+  const d = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value");
+  Object.defineProperty(HTMLInputElement.prototype, "value", {...d, set(v){ d.set.call(this, v); if (this.type === "range") fill(this); }});
+  addEventListener("input", e => e.target.type === "range" && fill(e.target), true);
+  addEventListener("click", () => requestAnimationFrame(all), true);
+  addEventListener("DOMContentLoaded", all); addEventListener("load", () => setTimeout(all, 120));
+  new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(n => n.nodeType === 1 && (n.matches("input[type=range]") ? fill(n) : n.querySelectorAll && n.querySelectorAll("input[type=range]").forEach(fill)))))
+    .observe(document.documentElement, {childList: true, subtree: true});
+})();
+// Lesefortschritt: dünne Linie oben auf Level-Seiten
+(() => {
+  if (location.pathname.split("/").filter(Boolean).length === 0) return;
+  addEventListener("DOMContentLoaded", () => { if (!document.querySelector(".wrap")) return;
+    const b = document.createElement("div"); b.className = "sprog"; b.setAttribute("aria-hidden", "true"); document.body.appendChild(b);
+    let q = 0; const upd = () => { q = 0; const h = document.documentElement.scrollHeight - innerHeight; b.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`; };
+    addEventListener("scroll", () => q || (q = requestAnimationFrame(upd)), {passive: true}); addEventListener("resize", upd); upd(); });
+})();
+// Lichtkegel: Karten folgen auf dem Computer sanft der Maus
+(() => {
+  if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  addEventListener("pointermove", e => { const c = e.target.closest && e.target.closest(".wrap > .card"); if (!c) return; const r = c.getBoundingClientRect();
+    c.style.setProperty("--mx", (e.clientX - r.left) + "px"); c.style.setProperty("--my", (e.clientY - r.top) + "px"); }, {passive: true});
 })();
