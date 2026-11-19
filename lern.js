@@ -766,7 +766,7 @@ const Lern = (() => {
 
   // ---------- Spaß-Schicht: Level, Konfetti, Einblenden ----------
   // Sats-Level nach geschafften Welten (angelehnt an die Bitcoin-Tierwelt von Garnele bis Wal)
-  const LEVELS = [[0, "🦠", "Plankton", "plankton"], [1, "🦐", "Garnele", "shrimp"], [3, "🦀", "Krabbe", "crab"], [7, "🐟", "Fisch", "fish"], [12, "🐬", "Delfin", "dolphin"], [20, "🦈", "Hai", "shark"], [28, "🐳", "Buckelwal", "humpback"], [37, "🐋", "Wal", "whale"]];
+  const LEVELS = [[0, "🦠", "Plankton", "plankton"], [2, "🦐", "Garnele", "shrimp"], [5, "🦀", "Krabbe", "crab"], [11, "🐟", "Fisch", "fish"], [17, "🐬", "Delfin", "dolphin"], [23, "🦈", "Hai", "shark"], [29, "🐳", "Buckelwal", "humpback"], [37, "🐋", "Wal", "whale"]];
   const count = s => PATH.filter(([id]) => done(s, id)).length;
   function level(n){ let L = LEVELS[0]; for (const l of LEVELS) if (n >= l[0]) L = l; return {n, ico: L[1], name: L[2], art: L[3]}; }
   // „Weniger Bewegung“ ist ein eigener Schalter (Fußzeile der Startseite): Firmen-PCs melden die Systemeinstellung oft, obwohl Animationen gewünscht sind
