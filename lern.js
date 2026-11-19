@@ -84,7 +84,6 @@ const Lern = (() => {
       if (new Date().getHours() < 4){ const tt = tget(); tt.owl = 1; tset(tt); }
       badge(); renderNext(id, root); titles();
       setTimeout(() => lvDone(right, QUIZ.length, first, after.name !== before.name ? after : null, after), 700);
-      setTimeout(() => planki(before, after), 900);
     }
   }
   // "Weiter mit …"-Karte am Seitenende
@@ -266,9 +265,9 @@ const Lern = (() => {
     };
   }
 
-  // ---------- Planki als Begleiter: wächst mit deinem Rang (Plankton → Wal) ----------
+  // ---------- Planki als Begleiter: bleibt klein und reitet auf deinem Rang-Tier mit ----------
   const TIPS = {
-    "": "Folge dem Pfad Level für Level. Mit jedem Level wachse ich ein Stück, bis ich ein Wal bin!",
+    "": "Folge dem Pfad Level für Level. Mit jedem Level wächst du ein Stück, bis du ein Wal bist. Ich reite mit!",
     whitepaper: "Neun Seiten, die die Welt verändert haben. Lies mit mir!",
     start: "Willkommen! In 6 Szenen zeige ich dir das große Bild.",
     konsens: "Tausende Fremde, ein Kassenbuch. Wie geht das ohne Chef?",
@@ -337,9 +336,9 @@ const Lern = (() => {
     let off = false; try { off = localStorage.getItem(GK) === "1"; } catch(e){}
     if (off || !(here in TIPS) && here) return;
     const g = document.createElement("div"); g.className = "guide";
-    g.innerHTML = `<div class="gb"><span></span><button type="button" class="gx" aria-label="Sprechblase schließen">×</button></div><button type="button" class="gs" aria-label="Planki fragen">${art(level(count(load())).art)}</button>`;
+    g.innerHTML = `<div class="gb"><span></span><button type="button" class="gx" aria-label="Sprechblase schließen">×</button></div><button type="button" class="gs" aria-label="Planki fragen">${art("plankton")}</button>`;
     document.body.appendChild(g);
-    const tip = () => !here && !count(load()) ? "Willkommen! Ich bin Planki, noch ganz klein. Tipp oben auf den gelben Knopf, dann geht's mit Level 1 los." : TIPS[here] || TIPS[""];
+    const tip = () => !here && !count(load()) ? "Willkommen! Ich bin Planki und begleite dich. Tipp oben auf den gelben Knopf, dann geht's mit Level 1 los." : TIPS[here] || TIPS[""];
     g.querySelector(".gs").onclick = () => say(tip());
     g.querySelector(".gx").onclick = () => { clearTimeout(gTimer); g.classList.remove("talk"); };   // × schließt nur die Blase, Planki bleibt
     g.querySelector(".gb span").onclick = () => g.classList.remove("talk");   // Antippen schließt die Blase
@@ -347,9 +346,9 @@ const Lern = (() => {
     let seen = []; try { seen = JSON.parse(localStorage.getItem("satsland-tipseen")) || []; } catch(e){}
     if (!seen.includes(here)) setTimeout(() => { if (document.querySelector(".intro")) return; say(tip(), 5500); try { localStorage.setItem("satsland-tipseen", JSON.stringify(seen.concat(here))); } catch(e){} }, 900);
   }
-  // Planki wächst sichtbar mit deinem Rang: Figur unten rechts tauschen
-  function planki(before, after){ const g = document.querySelector(".guide .gs"); if (!g || after.name === before.name) return;
-    g.innerHTML = art(after.art); g.classList.remove("grow2"); void g.offsetWidth; g.classList.add("grow2"); }
+  // Dein Rang-Tier mit Planki als kleinem Reiter obendrauf
+  const SEAT = {shrimp: [27, 24], crab: [32, 4], fish: [32, -3], dolphin: [27, -2], shark: [22, 3], humpback: [32, -2], whale: [40, -6]};   // Sitzplatz auf dem Rücken (links, oben in %)
+  const ride = k => `<span class="ride">${art(k)}${SEAT[k] ? `<span class="rider" style="left:${SEAT[k][0]}%;top:${SEAT[k][1]}%">${art("plankton")}</span>` : ""}</span>`;
   const PRAISE = ["Stark! 💪", "Genau so!", "Du hast's drauf!", "Richtig! Weiter so."], OOPS = ["Fast! Lies kurz die Erklärung.", "Kein Problem, so lernt man.", "Knapp daneben. Jetzt weißt du's!"];
   const pickOne = a => a[Math.floor(Math.random()*a.length)];
 
@@ -825,9 +824,9 @@ const Lern = (() => {
     const o = document.createElement("div"); o.className = "lvdone"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Level geschafft");
     o.innerHTML = `<div class="ldb"><small>${fail ? "Noch nicht geschafft" : first ? "Level geschafft!" : "Quiz wiederholt"}</small><div class="stars">${[0, 1, 2].map(i => `<span class="${i < st ? "on" : ""}" style="animation-delay:${.25 + i*.28}s">★</span>`).join("")}</div>
       <b class="sc">${right} von ${total} richtig</b><p>${msg}</p>${(() => { const nx2 = LEVELS.find(l => l[0] > L.n);
-        const t = rankUp ? (rankUp.art === "whale" ? "<b>Planki ist ein Wal!</b> Danke, dass du ihn bis hierher gebracht hast." : `<b>Planki ist gewachsen!</b> Ihr seid jetzt ${rankUp.ico} ${rankUp.name}.`)
-          : fail ? "Planki glaubt an dich. Gleich nochmal!" : nx2 ? `Noch ${nx2[0] - L.n} Level, dann wächst Planki zum ${nx2[1]} ${nx2[2]}.` : "Planki ist schon ein Wal. Stark!";
-        return `<div class="pk${rankUp ? " up" : ""}"><span class="pka">${art(L.art)}</span><p>${t}<small>${L.n} von ${PATH.length} Level geschafft</small></p></div>`; })()}
+        const t = rankUp ? (rankUp.art === "whale" ? "<b>Du bist ein Wal!</b> Planki ist mächtig stolz auf dich." : `<b>Du bist gewachsen!</b> Du bist jetzt ${rankUp.ico} ${rankUp.name}, und Planki reitet mit.`)
+          : fail ? "Planki glaubt an dich. Gleich nochmal!" : nx2 ? `Noch ${nx2[0] - L.n} Level, dann wirst du zum ${nx2[1]} ${nx2[2]}.` : "Du bist schon ein Wal, Planki genießt die Aussicht.";
+        return `<div class="pk${rankUp ? " up" : ""}"><span class="pka">${ride(L.art)}</span><p>${t}<small>${L.n} von ${PATH.length} Level geschafft</small></p></div>`; })()}
       <div class="acts">${st < 3 ? `<button class="btn${fail ? "" : " ghost"}" type="button" data-again>🔄 Quiz nochmal</button>` : ""}${nx && !fail ? `<a class="btn" href="${nx.getAttribute("href")}">Weiter: ${nb ? nb.textContent : "nächstes Level"} →</a>` : ""}<button class="btn ghost" type="button" data-stay>Hier bleiben</button></div></div>`;
     document.body.appendChild(o);
     const close = () => o.remove(), again = o.querySelector("[data-again]");
@@ -905,7 +904,7 @@ const Lern = (() => {
   }
 
   init();
-  return {DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, seen, bossName, bossArt, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
+  return {DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, seen, bossName, bossArt, ride, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
 })();
 // Offline-Betrieb und „Zum Startbildschirm hinzufügen“: Service Worker der ganzen Seite anmelden
 try { const me = document.currentScript && document.currentScript.src; if (me && "serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href))

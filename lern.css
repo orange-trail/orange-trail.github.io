@@ -421,8 +421,12 @@ img.em{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.24em;margi
 .boss .bimg.bshd{filter:brightness(0) drop-shadow(0 0 10px #7fd0ff)}
 .boss .bimg.rvl{transition:filter .9s ease}
 .boss .bubble.hid{opacity:0}
-.guide .gs.grow2{animation:pgrow 1s cubic-bezier(.3,1.6,.5,1)}@keyframes pgrow{0%{transform:scale(1)}30%{transform:scale(.6) rotate(-10deg)}70%{transform:scale(1.35) rotate(6deg)}100%{transform:scale(1)}}
+@keyframes pgrow{0%{transform:scale(1)}30%{transform:scale(.6) rotate(-10deg)}70%{transform:scale(1.35) rotate(6deg)}100%{transform:scale(1)}}
 .lvdone .pk{display:flex;align-items:center;gap:12px;margin:12px 0 4px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.06);text-align:left}
 .lvdone .pk p{margin:0;color:var(--ink);font-size:14.5px;line-height:1.4}.lvdone .pk small{display:block;opacity:.7;font-size:12.5px;margin-top:2px}
 .lvdone .pka{flex:none;width:58px;height:58px;padding:3px;border-radius:50%;border:3px solid #0d1230;background:radial-gradient(circle at 35% 30%,#ffd36b,#f7931a)}.lvdone .pka svg{display:block}
 .lvdone .pk.up{background:rgba(255,201,77,.14);box-shadow:inset 0 0 0 2px rgba(255,201,77,.5)}.lvdone .pk.up .pka{animation:pgrow 1s .6s cubic-bezier(.3,1.6,.5,1) both}
+.ride{position:relative;display:block;width:100%;height:100%}.ride>svg{display:block;width:100%;height:100%}
+.rider{position:absolute;width:36%;height:36%;animation:rider 1.8s ease-in-out infinite}.rider svg{display:block;width:100%;height:100%}
+@keyframes rider{50%{transform:translateY(-8%) rotate(-6deg)}}
+@media (prefers-reduced-motion:reduce){.rider{animation:none}}
