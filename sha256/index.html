@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SHA-256 von innen · Orange Trail</title>
+<title>SHA-256 von innen · Satsea</title>
 <meta name="description" content="Profi-Vertiefung: Wie SHA-256 wirklich rechnet. Auffüllen, Bit-Werkzeuge und 64 Runden, Schritt für Schritt animiert mit echten Werten.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="SHA-256 von innen · Orange Trail">
+<meta property="og:title" content="SHA-256 von innen · Satsea">
 <meta property="og:description" content="Profi-Vertiefung: Wie SHA-256 wirklich rechnet. Auffüllen, Bit-Werkzeuge und 64 Runden, Schritt für Schritt animiert mit echten Werten.">
 <meta property="og:image" content="https://orange-trail.github.io/og/sha256.jpg">
 <meta property="og:url" content="https://orange-trail.github.io/sha256/">
@@ -71,7 +71,7 @@
 </head>
 <body data-nogl="Block">
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a class="back" href="../">← Satsea</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
     <h1>SHA-256 <span class="btc">von innen</span></h1>
     <p class="lead">In der Welt Hashing war SHA-256 eine geheimnisvolle Maschine. Jetzt schrauben wir sie auf. Drinnen gibt es nur <b>ganz einfache Bit-Tricks</b>, die aber <b>64 Mal</b> hintereinander laufen. Alle Werte hier sind echt und werden live in deinem Browser berechnet.</p>
@@ -81,7 +81,7 @@
     <h2 id="h1s">1 · Aus Text werden 512 Bits</h2>
     <p class="muted" style="margin:0">Computer rechnen mit Nullen und Einsen. Jeder Buchstabe wird zu <b>8 Bits</b>. Dann wird der Text auf genau <b>512 Bits</b> aufgefüllt: erst eine <b>1</b> als Endmarke, dann Nullen und ganz am Ende die Länge des Textes.</p>
     <label class="lbl2" for="msg">Dein Text (bis 55 Zeichen, dann passt er in einen Block)</label>
-    <input id="msg" class="inp" maxlength="55" value="Orange Trail" autocomplete="off" spellcheck="false">
+    <input id="msg" class="inp" maxlength="55" value="Satsea" autocomplete="off" spellcheck="false">
     <div class="bitgrid nogl" id="bg" aria-hidden="true"></div>
     <div class="legend"><span><i style="background:var(--gold)"></i>Dein Text</span><span><i style="background:var(--bull)"></i>Die „1“ als Endmarke</span><span><i style="background:#3a4070"></i>Nullen zum Auffüllen</span><span><i style="background:#7cc4ff"></i>Länge des Textes</span></div>
     <p class="note" id="bgN"></p>
@@ -140,10 +140,10 @@
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=89"></script>
+<script src="../lern.js?v=90"></script>
 <script>
 /* =====================================================================
-   SHA-256 VON INNEN – Lernwelt von Orange Trail
+   SHA-256 VON INNEN – Lernwelt von Satsea
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
@@ -258,7 +258,7 @@ hand();
 $("hPrint").onclick = () => {
   const Bk = T.blocks[0], m = $("msg").value, tr = (cells, cls = "") => `<tr>${cells.map(c => `<td class="${cls}">${c}</td>`).join("")}</tr>`;
   const W16 = Bk.W.slice(0, 16), blanks = n => Array.from({length: n}, () => tr(["", "", ""], "blank")).join("");
-  $("sheet").innerHTML = `<h1>SHA-256 von Hand · Orange Trail</h1><p>Text: „${m.replace(/</g, "&lt;")}“ · Ziel-Hash: ${Bit.hex(T.out)}</p>
+  $("sheet").innerHTML = `<h1>SHA-256 von Hand · Satsea</h1><p>Text: „${m.replace(/</g, "&lt;")}“ · Ziel-Hash: ${Bit.hex(T.out)}</p>
     <h2>Nachricht als 16 Wörter (W0–W15)</h2><table>${[0, 4, 8, 12].map(o => tr(W16.slice(o, o + 4).map((w, k) => `W${o + k}: ${hx(w)}<br>${GB(w)}`))).join("")}</table>
     <h2>Startwerte a–h</h2><table>${tr(Bk.before.map((v, k) => NAMES[k] + ": " + hx(v)))}</table>
     <h2>Rundenkonstanten K0–K63</h2><table>${Array.from({length: 8}, (_, r) => tr(KC.slice(r * 8, r * 8 + 8).map((k, c) => `K${r * 8 + c}: ${hx(k)}`))).join("")}</table>

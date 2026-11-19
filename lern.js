@@ -4,7 +4,7 @@
    ===================================================================== */
 const Lern = (() => {
   const KEY = "bvb-lernen";
-  // ---------- Live-Daten: eine eigene Quelle für alles (Orange-Trail-Node + Kurs), Pfade wie bei mempool.space ----------
+  // ---------- Live-Daten: eine eigene Quelle für alles (Satsea-Node + Kurs), Pfade wie bei mempool.space ----------
   // DATA leer = Entwicklungsmodus mit öffentlichen Quellen. Vor dem Start die eigene Adresse eintragen (siehe node/ANLEITUNG.md).
   // Ohne eigene Quelle (DATA leer): feste Werte mit Stand-Datum, kein einziger fremder Dienst wird abgefragt.
   // Netzwerk-Werte (Blöcke, Gebühren …) laufen dann als Schätzung bzw. Simulation der jeweiligen Seite.
@@ -102,7 +102,7 @@ const Lern = (() => {
 
 
   // ---------- Comic-Zeichnungen (gemeinsam für Szenen, Karten und Satoshi) ----------
-  // Comic-Zeichnungen im Orange-Trail-Stil: dicke dunkle Kontur, flache Farben, Glanzpunkt. viewBox 0 0 100 100
+  // Comic-Zeichnungen im Satsea-Stil: dicke dunkle Kontur, flache Farben, Glanzpunkt. viewBox 0 0 100 100
   const SK = 'stroke="#0d1230" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"';
   const hl = (x, y, rx, ry) => `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#fff" opacity=".45"/>`;
   // Helfer für die Boss-Grafiken (Glüh-Augen, Geldscheine)
@@ -573,14 +573,14 @@ const Lern = (() => {
     g.strokeStyle = fin ? "#ffc94d" : "#f7931a"; g.lineWidth = 14; g.strokeRect(40, 40, S - 80, S - 80); g.lineWidth = 3; g.strokeRect(66, 66, S - 132, S - 132);
     const txt = (t, y, size, col, w = 900) => { g.font = `${w} ${size}px "Arial Black", Arial, sans-serif`; g.fillStyle = col; g.textAlign = "center"; g.fillText(t, S/2, y); };
     const im = new Image(); im.onload = () => {
-      if (fin){ txt("URKUNDE", 190, 92, "#ffc94d"); txt("Orange Trail durchgespielt", 260, 46, "#ffffff", 700); if (who) txt(who, 400, 70, "#ffffff");
+      if (fin){ txt("URKUNDE", 190, 92, "#ffc94d"); txt("Satsea durchgespielt", 260, 46, "#ffffff", 700); if (who) txt(who, 400, 70, "#ffffff");
         g.drawImage(im, S/2 - 170, who ? 450 : 330, 340, 340); txt("Alle 6 Welten · alle Bosse · altes Ich besiegt", who ? 860 : 760, 34, "#dfe3ff", 700); }
       else { txt(perfect ? "✨ BOSS BESIEGT – OHNE FEHLER" : "🏆 BOSS BESIEGT", 180, 52, "#ffc94d"); g.drawImage(im, S/2 - 210, 230, 420, 420);
         txt(name, 740, 64, "#ffffff"); txt(`Welt ${k + 1} · ${CHAPTERS[k][0]} ${CHAPTERS[k][1]}`, 810, 38, "#dfe3ff", 700); }
       txt(`${lv.ico} Rang: ${lv.name} · ${count(s)} von ${PATH.length} Level`, 930, 34, "#9aa2d6", 700);
       txt("orange-trail.github.io", 990, 34, fin ? "#ffc94d" : "#f7931a");
-      c.toBlob(async b => { if (!b) return; const f = new File([b], fin ? "orange-trail-urkunde.png" : `satsland-boss-${k + 1}.png`, {type: "image/png"});
-        try { if (navigator.canShare && navigator.canShare({files: [f]})){ await navigator.share({files: [f], text: fin ? "Ich habe Orange Trail durchgespielt! 👑" : `Boss besiegt: ${name} 🏆`}); return; } } catch(e){ if (e && e.name === "AbortError") return; }
+      c.toBlob(async b => { if (!b) return; const f = new File([b], fin ? "satsea-urkunde.png" : `satsland-boss-${k + 1}.png`, {type: "image/png"});
+        try { if (navigator.canShare && navigator.canShare({files: [f]})){ await navigator.share({files: [f], text: fin ? "Ich habe Satsea durchgespielt! 👑" : `Boss besiegt: ${name} 🏆`}); return; } } catch(e){ if (e && e.name === "AbortError") return; }
         const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); toast("📥 Bild gespeichert"); }, "image/png"); };
     im.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400">${ART[img]}</svg>`);
   }
@@ -979,7 +979,7 @@ const PARTNER = {bitbox: "", trezor: ""};
 addEventListener("DOMContentLoaded", () => {
   let any = false;
   document.querySelectorAll("a[data-hw]").forEach(a => { const u = PARTNER[a.dataset.hw]; if (u){ a.href = u; a.insertAdjacentHTML("afterend", '<small class="muted" style="display:block;text-align:center;font-size:12px">Partnerlink · Werbung</small>'); any = true; } });
-  const n = document.getElementById("hwAd"); if (n && any) n.textContent = " Bei den Partnerlinks erhält Orange Trail eine kleine Provision, für dich ändert sich am Preis nichts.";
+  const n = document.getElementById("hwAd"); if (n && any) n.textContent = " Bei den Partnerlinks erhält Satsea eine kleine Provision, für dich ändert sich am Preis nichts.";
 });
 
 // Einheitliche Comic-Symbole: Emoji werden auf jedem Gerät durch dieselben Zeichnungen ersetzt (eigene Dateien in /e/, nichts Fremdes)
