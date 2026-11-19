@@ -84,7 +84,7 @@ const Lern = (() => {
       if (new Date().getHours() < 4){ const tt = tget(); tt.owl = 1; tset(tt); }
       badge(); renderNext(id, root); titles();
       setTimeout(() => lvDone(right, QUIZ.length, first, after.name !== before.name ? after : null, after), 700);
-      if (after.name !== before.name) setTimeout(() => { const g = document.querySelector(".guide .gs"); if (g) g.innerHTML = art("pk_" + after.art); laser(); }, 900);
+      if (after.name !== before.name) setTimeout(() => { const g = document.querySelector(".guide .gs"); if (g) g.innerHTML = art("pk_" + after.art); hop(); }, 900);
     }
   }
   // "Weiter mit …"-Karte am Seitenende
@@ -190,14 +190,11 @@ const Lern = (() => {
     bull: `<path d="M24 26q-14-4-14-18 10 4 20 12M76 26q14-4 14-18-10 4-20 12" fill="#fff4d6" ${SK}/><circle cx="50" cy="48" r="30" fill="#34d982" ${SK}/><ellipse cx="50" cy="64" rx="20" ry="14" fill="#b6f5cf" ${SK}/><circle cx="43" cy="62" r="3" fill="#0d1230"/><circle cx="57" cy="62" r="3" fill="#0d1230"/><circle cx="50" cy="80" r="5" fill="none" stroke="#ffc94d" stroke-width="4"/><path d="M34 40h12v8H34zM54 40h12v8H54zM46 43h8" fill="#0d1230" stroke="#0d1230" stroke-width="2"/>${hl(36, 30, 8, 3)}`,
     trophy: `<path d="M30 14h40v22c0 16-8 26-20 26s-20-10-20-26z" fill="#ffc94d" ${SK}/><path d="M30 22H16c0 14 6 20 16 20M70 22h14c0 14-6 20-16 20" fill="none" ${SK}/><path d="M44 62h12v12H44zM32 74h36v12H32z" fill="#e0a000" ${SK}/><text x="50" y="44" font-size="20" font-weight="900" text-anchor="middle" fill="#b86e00" font-family="Arial">₿</text>${hl(40, 22, 5, 2)}`,
   };
-  // Planki in allen Stufen (pk_plankton … pk_whale): immer mit ₿-Mütze, Laser-Augen nur in besonderen Momenten (Klasse .lzon)
+  // Planki in allen Stufen (pk_plankton … pk_whale): immer mit ₿-Mütze
   { const S = 'stroke="#0d1230" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"', T = 'stroke="#0d1230" stroke-width="2" stroke-linejoin="round"';
     const HAT = `<path d="M-14 0C-14-17 14-17 14 0z" fill="#f7931a" ${S}/><path d="M-6-11q6-4 12 0" fill="none" stroke="#ffc94d" stroke-width="2" stroke-linecap="round"/><rect x="-16" y="-4" width="32" height="7" rx="3.5" fill="#ffc94d" ${T}/><circle cx="0" cy="-16" r="4.5" fill="#fff" ${T}/><text x="0" y="2" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="6.5" fill="#b86e00">₿</text>`;
     const H = {plankton: [50, 24, 0, .95], shrimp: [70, 26, 25, .7], crab: [50, 32, 0, .85], fish: [38, 38, -14, .85], dolphin: [34, 45, -14, .85], shark: [32, 41, -16, .85], humpback: [29, 43, -14, .9], whale: [31, 38, -10, .95]};
-    const E = {plankton: [[45, 50], [57.5, 50]], shrimp: [[71, 30]], crab: [[40, 39], [60, 39]], fish: [[30, 46]], dolphin: [[28.5, 52]], shark: [[30, 47.5]], humpback: [[24, 51.5]], whale: [[25, 51.5]]};
-    const lz = k => E[k].map(([x, y], i) => { const fr = E[k].length === 2, x2 = x + (fr ? (i ? 30 : -30) : -60), y2 = y + (fr ? 42 : -15);
-      return `<path d="M${x} ${y}L${x2} ${y2}" stroke="#ff2a2a" stroke-width="5" stroke-linecap="round" opacity=".35"/><path d="M${x} ${y}L${x2} ${y2}" stroke="#ff4040" stroke-width="2.4" stroke-linecap="round"/><path d="M${x} ${y}L${x2} ${y2}" stroke="#fff" stroke-width=".9" stroke-linecap="round"/><circle cx="${x}" cy="${y}" r="4" fill="#ff2a2a" opacity=".5"/><circle cx="${x}" cy="${y}" r="2" fill="#fff"/>`; }).join("");
-    Object.keys(H).forEach(k => { const [x, y, r, z] = H[k]; ART["pk_" + k] = `${ART[k]}<g class="lz">${lz(k)}</g><g transform="translate(${x} ${y}) rotate(${r}) scale(${z})">${HAT}</g>`; }); }
+    Object.keys(H).forEach(k => { const [x, y, r, z] = H[k]; ART["pk_" + k] = `${ART[k]}<g transform="translate(${x} ${y}) rotate(${r}) scale(${z})">${HAT}</g>`; }); }
   const art = n => `<svg viewBox="${n.startsWith("pk_") ? "-4 -6 108 108" : "0 0 100 100"}" width="100%" height="100%" aria-hidden="true">${ART[n]}</svg>`;
 
   // Zeichnung je Welt (Weltsymbol und Karte im Lernpfad)
@@ -355,8 +352,8 @@ const Lern = (() => {
     let seen = []; try { seen = JSON.parse(localStorage.getItem("satsland-tipseen")) || []; } catch(e){}
     if (!seen.includes(here)) setTimeout(() => { if (document.querySelector(".intro")) return; say(tip(), 5500); try { localStorage.setItem("satsland-tipseen", JSON.stringify(seen.concat(here))); } catch(e){} }, 900);
   }
-  // Laser-Augen kurz einschalten: Rangaufstieg, Boss besiegt
-  function laser(ms = 2600){ const g = document.querySelector(".guide .gs"); if (!g || window.__sweep) return; g.classList.remove("grow2"); void g.offsetWidth; g.classList.add("grow2", "lzon"); setTimeout(() => g.classList.remove("lzon"), ms); }
+  // Planki hüpft vor Freude: Rangaufstieg, Boss besiegt
+  function hop(){ const g = document.querySelector(".guide .gs"); if (!g || window.__sweep) return; g.classList.remove("grow2"); void g.offsetWidth; g.classList.add("grow2"); }
   const PRAISE = ["Stark! 💪", "Genau so!", "Du hast's drauf!", "Richtig! Weiter so."], OOPS = ["Fast! Lies kurz die Erklärung.", "Kein Problem, so lernt man.", "Knapp daneben. Jetzt weißt du's!"];
   const pickOne = a => a[Math.floor(Math.random()*a.length)];
 
@@ -538,7 +535,7 @@ const Lern = (() => {
       </div><div id="bq"></div></div>`;
     document.body.appendChild(bg);
     const B = bg.querySelector(".boss"), A = bg.querySelector(".arena"), im = bg.querySelector(".bimg"), bub = bg.querySelector(".bubble"), box = bg.querySelector("#bq"), fx = bg.querySelector(".fx");
-    const close = () => { gone = true; clearInterval(timer); const w = A.classList.contains("won"); bg.remove(); document.removeEventListener("keydown", esc); if (w) setTimeout(() => { laser(); say("Boss besiegt! Laser-Augen an! 🔴", 4000); }, 300); };
+    const close = () => { gone = true; clearInterval(timer); const w = A.classList.contains("won"); bg.remove(); document.removeEventListener("keydown", esc); if (w) setTimeout(() => { hop(); say("Boss besiegt! Planki ist begeistert! 🎉", 4000); }, 300); };
     const esc = e => { if (e.key === "Escape") close(); }; document.addEventListener("keydown", esc);
     bg.querySelector(".bx").onclick = close;
     const re = (el, c) => { el.classList.remove(c); void el.offsetWidth; el.classList.add(c); };
@@ -834,7 +831,7 @@ const Lern = (() => {
       <b class="sc">${right} von ${total} richtig</b><p>${msg}</p>${(() => { const nx2 = LEVELS.find(l => l[0] > L.n);
         const t = rankUp ? (rankUp.art === "whale" ? "<b>Planki ist ein Wal!</b> Danke, dass du ihn bis hierher gebracht hast." : `<b>Planki ist gewachsen!</b> Jetzt: ${rankUp.ico} ${rankUp.name}.`)
           : fail ? "Planki glaubt an dich. Gleich nochmal!" : nx2 ? `Noch ${nx2[0] - L.n} Level, dann wird Planki zum ${nx2[1]} ${nx2[2]}.` : "Planki ist schon ein Wal. Stark!";
-        return `<div class="pk${rankUp ? " up" : ""}"><span class="pka${rankUp ? " lzon" : ""}">${art("pk_" + L.art)}</span><p>${t}<small>${L.n} von ${PATH.length} Level geschafft</small></p></div>`; })()}
+        return `<div class="pk${rankUp ? " up" : ""}"><span class="pka">${art("pk_" + L.art)}</span><p>${t}<small>${L.n} von ${PATH.length} Level geschafft</small></p></div>`; })()}
       <div class="acts">${st < 3 ? `<button class="btn${fail ? "" : " ghost"}" type="button" data-again>🔄 Quiz nochmal</button>` : ""}${nx && !fail ? `<a class="btn" href="${nx.getAttribute("href")}">Weiter: ${nb ? nb.textContent : "nächstes Level"} →</a>` : ""}<button class="btn ghost" type="button" data-stay>Hier bleiben</button></div></div>`;
     document.body.appendChild(o);
     const close = () => o.remove(), again = o.querySelector("[data-again]");
@@ -912,7 +909,7 @@ const Lern = (() => {
   }
 
   init();
-  return {DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, seen, bossName, bossArt, laser, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
+  return {DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, seen, bossName, bossArt, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
 })();
 // Offline-Betrieb und „Zum Startbildschirm hinzufügen“: Service Worker der ganzen Seite anmelden
 try { const me = document.currentScript && document.currentScript.src; if (me && "serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href))
