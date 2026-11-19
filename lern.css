@@ -261,7 +261,7 @@ h2{scroll-margin-top:12px}
 .boss .bimg.idle{animation:bidle 2.4s ease-in-out infinite}
 .boss .bimg.ouch{animation:bouch .5s} .boss .bimg.laugh{animation:blaugh .6s}
 .boss .bimg.down{animation:none;transform:rotate(90deg) translate(30px,10px) scale(.85);opacity:.35;filter:grayscale(1);transition:1.2s cubic-bezier(.3,1.4,.5,1)}
-.boss .bubble{position:absolute;right:8px;top:40px;max-width:42%;transition:opacity .3s;margin:0;z-index:3;font-size:13.5px} .boss .bubble::after{content:"";position:absolute;left:-10px;bottom:12px;border:8px solid transparent;border-right-color:#fff}
+.boss .bubble{position:absolute;right:8px;top:40px;max-width:42%;transition:opacity .3s;margin:0;z-index:3;font-size:13.5px;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:10 4 4;overflow-wrap:break-word} .boss .bubble::after{content:"";position:absolute;left:-10px;bottom:12px;border:8px solid transparent;border-right-color:#fff}
 .boss .bubble.pop{animation:bpop .35s}
 .boss .bhp{position:absolute;left:12px;right:12px;top:10px;z-index:3} .boss .bhp .hp{position:relative;height:16px;border-radius:8px;background:rgba(0,0,0,.45);border:2.5px solid #0d1230}
 .boss .bhp .hp i{position:absolute;inset:0 auto 0 0;width:100%;border-radius:6px;transition:width .35s} .boss .bhp .hp .gh{background:#fff;transition:width .6s .1s} .boss .bhp .hp .cur{background:linear-gradient(90deg,#ff3d5a,#ff9a6a)}
