@@ -271,9 +271,9 @@ const Lern = (() => {
     };
   }
 
-  // ---------- Planki als Begleiter: entwickelt sich mit deinem Rang (Plankton → Wal), erkennbar an der ₿-Mütze ----------
+  // ---------- Planki als Begleiter: entwickelt sich mit deinem Rang (Plankton → Buckelwal), erkennbar an der ₿-Mütze ----------
   const TIPS = {
-    "": "Folge dem Pfad Level für Level. Mit jedem Level wachse ich ein Stück, bis ich ein Wal bin!",
+    "": "Folge dem Pfad Level für Level. Mit jedem Level wachse ich ein Stück, bis ich ein Buckelwal bin!",
     whitepaper: "Neun Seiten, die die Welt verändert haben. Lies mit mir!",
     start: "Willkommen! In 6 Szenen zeige ich dir das große Bild.",
     konsens: "Tausende Fremde, ein Kassenbuch. Wie geht das ohne Chef?",
@@ -687,7 +687,7 @@ const Lern = (() => {
     ["✨", "Glanzsammler", "3 Glanz-Bosskarten", (s, d, b) => BOSSES.filter((x, k) => b[k] === "perfect").length >= 3],
     ["🏆", "Bezwinger", "Alle Welt-Bosse besiegt", (s, d, b) => BOSSES.every((x, k) => b[k])],
     ["👑", "Satoshis Erbe", "Den Endboss besiegt", (s, d, b) => !!b.f],
-    ["🐋", "Wal", "Alle Welten geschafft", (s) => PATH.every(([id]) => done(s, id))],
+    ["🐋", "Buckelwal", "Alle Welten geschafft", (s) => PATH.every(([id]) => done(s, id))],
     ["📚", "Wortschatz", "10 Begriffe im Lexikon nachgeschlagen", (s, d, b, t) => (t.words || 0) >= 10],
     ["🔬", "Tüftler", "Die erste Profi-Vertiefung geschafft", (s) => PRO.flat().some(id => done(s, id))],
     ["🧙", "Cypherpunk", "Alle Profi-Vertiefungen geschafft", (s) => PRO.flat().every(id => done(s, id))],
@@ -765,8 +765,8 @@ const Lern = (() => {
   }
 
   // ---------- Spaß-Schicht: Level, Konfetti, Einblenden ----------
-  // Sats-Level nach geschafften Welten (angelehnt an die Bitcoin-Tierwelt von Garnele bis Wal)
-  const LEVELS = [[0, "🦠", "Plankton", "plankton"], [2, "🦐", "Garnele", "shrimp"], [5, "🦀", "Krabbe", "crab"], [11, "🐟", "Fisch", "fish"], [17, "🐬", "Delfin", "dolphin"], [23, "🦈", "Hai", "shark"], [29, "🐳", "Buckelwal", "humpback"], [37, "🐋", "Wal", "whale"]];
+  // Ränge nach geschafften Welten (angelehnt an die Bitcoin-Tierwelt von Garnele bis Buckelwal; hier zählt Wissen, nicht Besitz)
+  const LEVELS = [[0, "🦠", "Plankton", "plankton"], [2, "🦐", "Garnele", "shrimp"], [5, "🦀", "Krabbe", "crab"], [11, "🐟", "Fisch", "fish"], [17, "🐬", "Delfin", "dolphin"], [23, "🦈", "Hai", "shark"], [29, "🐳", "Wal", "humpback"], [37, "🐋", "Buckelwal", "whale"]];
   const count = s => PATH.filter(([id]) => done(s, id)).length;
   function level(n){ let L = LEVELS[0]; for (const l of LEVELS) if (n >= l[0]) L = l; return {n, ico: L[1], name: L[2], art: L[3]}; }
   // „Weniger Bewegung“ ist ein eigener Schalter (Fußzeile der Startseite): Firmen-PCs melden die Systemeinstellung oft, obwohl Animationen gewünscht sind
@@ -829,8 +829,8 @@ const Lern = (() => {
     const o = document.createElement("div"); o.className = "lvdone"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Level geschafft");
     o.innerHTML = `<div class="ldb"><small>${fail ? "Noch nicht geschafft" : first ? "Level geschafft!" : "Quiz wiederholt"}</small><div class="stars">${[0, 1, 2].map(i => `<span class="${i < st ? "on" : ""}" style="animation-delay:${.25 + i*.28}s">★</span>`).join("")}</div>
       <b class="sc">${right} von ${total} richtig</b><p>${msg}</p>${(() => { const nx2 = LEVELS.find(l => l[0] > L.n);
-        const t = rankUp ? (rankUp.art === "whale" ? "<b>Planki ist ein Wal!</b> Danke, dass du ihn bis hierher gebracht hast." : `<b>Planki ist gewachsen!</b> Jetzt: ${rankUp.ico} ${rankUp.name}.`)
-          : fail ? "Planki glaubt an dich. Gleich nochmal!" : nx2 ? `Noch ${nx2[0] - L.n} Level, dann wird Planki zum ${nx2[1]} ${nx2[2]}.` : "Planki ist schon ein Wal. Stark!";
+        const t = rankUp ? (rankUp.art === "whale" ? "<b>Planki ist ein Buckelwal!</b> Danke, dass du ihn bis hierher gebracht hast." : `<b>Planki ist gewachsen!</b> Jetzt: ${rankUp.ico} ${rankUp.name}.`)
+          : fail ? "Planki glaubt an dich. Gleich nochmal!" : nx2 ? `Noch ${nx2[0] - L.n} Level, dann wird Planki zum ${nx2[1]} ${nx2[2]}.` : "Planki ist schon ein Buckelwal. Stark!";
         return `<div class="pk${rankUp ? " up" : ""}"><span class="pka">${art("pk_" + L.art)}</span><p>${t}<small>${L.n} von ${PATH.length} Level geschafft</small></p></div>`; })()}
       <div class="acts">${st < 3 ? `<button class="btn${fail ? "" : " ghost"}" type="button" data-again>🔄 Quiz nochmal</button>` : ""}${nx && !fail ? `<a class="btn" href="${nx.getAttribute("href")}">Weiter: ${nb ? nb.textContent : "nächstes Level"} →</a>` : ""}<button class="btn ghost" type="button" data-stay>Hier bleiben</button></div></div>`;
     document.body.appendChild(o);
