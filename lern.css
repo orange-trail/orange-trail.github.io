@@ -105,7 +105,7 @@ h1 span.btc{background:linear-gradient(90deg,#ffb347,#f7931a 40%,#ffd36b 60%,#f7
 .learn div:hover{transform:translateY(-3px);border-color:rgba(255,201,77,.35)}
 /* Quiz */
 .qz summary{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:rgba(255,201,77,.1);border:1px solid rgba(255,201,77,.4);list-style:none}
-.qz summary::-webkit-details-marker{display:none} .qz summary::before{content:"🎯"}
+.qz summary::-webkit-details-marker{display:none} .qz summary::before{content:"";display:inline-block;width:1.2em;height:1.2em;vertical-align:-.24em;background:url(e/1f3af.svg) center/contain no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
 .opts button{transition:transform .12s,border-color .15s,background .15s} .opts button:hover{border-color:rgba(255,201,77,.5)}
 .opts button.ok{animation:pop .35s}
 @keyframes pop{40%{transform:scale(1.08)}}

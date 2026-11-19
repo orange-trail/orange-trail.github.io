@@ -475,7 +475,7 @@ const Lern = (() => {
     [["Ich setze alles mit Hebel, dann werde ich schneller reich.", ["Mit Hebel kann der ganze Einsatz weg sein", "Hebel ist risikofrei", "Hebel verdoppelt immer den Gewinn"], "10× Hebel: 10 % Minus, und alles ist weg."],
      ["Ich warte einfach auf den perfekten Zeitpunkt.", ["Den trifft fast niemand, ein Sparplan hilft", "Den sieht man im Chart ganz genau", "Am besten nur bei Rekordhochs kaufen"], "Regelmäßig kaufen glättet den Preis."],
      ["Bei minus 70 % verkaufe ich alles, sicher ist sicher.", ["Panikverkauf macht den Verlust endgültig", "Richtig, danach geht es nie wieder hoch", "So macht man immer Gewinn"], "Bitcoin fiel mehrmals um über 75 % und erholte sich bisher."]],
-    [["Eine Bitcoin-Zahlung kann ich jederzeit zurückholen.", ["Nein, bestätigte Zahlungen sind endgültig", "Ja, über die Hotline", "Ja, innerhalb von 14 Tagen"], "Darum vor dem Senden die Adresse prüfen."],
+    [["Eine Bitcoin-Zahlung kann ich jederzeit zurückholen.", ["Nein, eine Rückbuchung gibt es nicht", "Ja, über die Hotline", "Ja, innerhalb von 14 Tagen"], "Es gibt keine Stelle, die zurückbucht. Nach einigen Bestätigungen gilt eine Zahlung praktisch als endgültig. Darum vor dem Senden die Adresse prüfen."],
      ["Bitcoin ist viel zu langsam zum Bezahlen.", ["Mit Lightning zahlt man in Sekunden", "Stimmt, jede Zahlung dauert Tage", "Bezahlen geht mit Bitcoin gar nicht"], "Lightning ist fürs schnelle Bezahlen gebaut."],
      ["Je größer der Betrag, desto höher die Gebühr.", ["Nein, die Gebühr hängt von der Größe in vByte ab", "Stimmt, es ist immer 1 %", "Gebühren gibt es bei Bitcoin nicht"], "1 Million kann günstiger sein als 10 €."]],
     [["Irgendeine Firma kontrolliert doch Bitcoin.", ["Nein, tausende Nodes prüfen die Regeln selbst", "Ja, die Bitcoin AG", "Ja, Satoshis Firma"], "Bitcoin hat keinen Chef und keine Zentrale."],
@@ -689,8 +689,23 @@ const Lern = (() => {
   }
   // Zusammenführen statt überschreiben: von beiden Geräten zählt jeweils das Bessere
   function syncImport(code){
+    if (typeof code !== "string" || !code.trim() || code.length > 50000) return false;
     let o; try { o = JSON.parse(decodeURIComponent(escape(atob(code.trim().replace(/-/g, "+").replace(/_/g, "/"))))); } catch(e){ return false; }
-    if (!o || typeof o !== "object") return false;
+    // Fremde Codes nie blind übernehmen: nur bekannte Bereiche, harmlose Schlüssel und einfache Werte (Zahlen, Ja/Nein, kurze Texte)
+    const KEYOK = k => /^[\w-]{1,40}$/.test(k) && !["__proto__", "constructor", "prototype"].includes(k);
+    const clean = (v, d) => {
+      if (typeof v === "number") return Number.isFinite(v) && Math.abs(v) < 1e13 ? v : undefined;
+      if (typeof v === "boolean") return v;
+      if (typeof v === "string") return v.length <= 40 && /^[\w .:\-äöüÄÖÜß]*$/.test(v) ? v : undefined;
+      if (d > 3 || !v || typeof v !== "object") return undefined;
+      if (Array.isArray(v)) return v.slice(0, 500).map(x => clean(x, d + 1)).filter(x => x !== undefined && typeof x !== "object");
+      const r = {}; Object.keys(v).slice(0, 500).forEach(k => { if (!KEYOK(k)) return; const c = clean(v[k], d + 1); if (c !== undefined) r[k] = c; }); return r;
+    };
+    if (!o || typeof o !== "object" || Array.isArray(o)) return false;
+    o = Object.fromEntries(SYNC_KEYS.filter(k => o[k] && typeof o[k] === "object" && !Array.isArray(o[k])).map(k => [k, clean(o[k], 0)]));
+    if (!Object.keys(o).length) return false;
+    const isObj = x => x && typeof x === "object" && !Array.isArray(x);
+    ["bvb-lernen", "satsland-rep"].forEach(k => { if (o[k]) Object.keys(o[k]).forEach(id => { if (!isObj(o[k][id])) delete o[k][id]; }); });
     const get = k => { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch(e){ return {}; } }, put = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} };
     const L = get("bvb-lernen"); Object.entries(o["bvb-lernen"] || {}).forEach(([id, v]) => { const a = L[id] || {}; L[id] = Object.assign({}, a, v, {quiz: Math.max(a.quiz || 0, v.quiz || 0) || undefined, total: v.total || a.total}); }); put("bvb-lernen", L);
     const B = get("satsland-boss"); const B0 = bossWon(); localStorage.setItem("satsland-boss", JSON.stringify(Object.assign({}, o["satsland-boss"] || {}))); const B1 = bossWon(); Object.entries(B1).forEach(([k, v]) => { if (v === "perfect" || !B0[k]) B0[k] = v; }); put("satsland-boss", B0);

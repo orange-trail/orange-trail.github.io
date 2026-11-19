@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=62">
+<link rel="stylesheet" href="../lern.css?v=63">
 <style>
 /* Lernwelt "Seed-Trainer": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .warn{border-color:rgba(255,92,115,.45);background:rgba(255,92,115,.07)}
@@ -23,7 +23,7 @@
 .words{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}
 .words div{background:#0b0f2a;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:700 15px var(--f-body)}
 .words div i{font:600 12px var(--f-num);font-style:normal;color:var(--muted);margin-right:6px}
-.words.hide div span{filter:blur(6px)} .words{cursor:pointer} .words.hide{position:relative} .words.hide::after{content:"👁 Tippen zum Anzeigen · niemand schaut zu?";position:absolute;inset:0;display:grid;place-items:center;font:800 14px var(--f-display);color:var(--ink);text-shadow:0 1px 6px #000}
+.words.hide div span{filter:blur(6px)} .words{cursor:pointer} .words.hide{position:relative} .words.hide::after{content:"Tippen zum Anzeigen · niemand schaut zu?";position:absolute;inset:0;display:grid;place-items:center;font:800 14px var(--f-display);color:var(--ink);text-shadow:0 1px 6px #000}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .ask{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}
 .cheer{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid rgba(52,217,130,.5);background:rgba(52,217,130,.08);font-size:14.5px;line-height:1.5}
@@ -68,7 +68,7 @@
   <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
     <h1><span class="btc">Seed</span>-Trainer</h1>
-    <p class="lead">Wer seine Bitcoin selbst verwahrt, bekommt 12 oder 24 Wörter, den <b>Seed</b>. Diese Wörter <b>sind</b> deine Bitcoin. Hier übst du den Umgang damit.</p>
+    <p class="lead">Wer seine Bitcoin selbst verwahrt, bekommt 12 oder 24 Wörter, den <b>Seed</b>. Mit diesen Wörtern stellst du deine <b>Wallet und alle Schlüssel</b> jederzeit wieder her. Wer sie hat, kann über deine Bitcoin verfügen. Hier übst du den Umgang damit.</p>
   </div>
 
   <section class="card warn"><b>Wichtig:</b> Hier gibt es nur <b>Übungswörter</b>, die nicht zu echten Wallets passen. Gib deinen echten Seed <b>niemals</b> auf einer Webseite ein, auch nicht hier. Niemand Seriöses fragt jemals danach.</section>
@@ -139,7 +139,7 @@
 </div>
 
 <details class="foot"><summary>Quellen</summary><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP 39: Seed-Wörter (12, 15, 18, 21 oder 24 Wörter, optionale Passphrase)</a>; <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP 32: Ableitung der Schlüssel</a>. Alle Wörter auf dieser Seite sind Übungsdaten.</p></details>
-<script src="../lern.js?v=87"></script>
+<script src="../lern.js?v=88"></script>
 <script>
 /* =====================================================================
    SEED-TRAINER – Lernwelt von Orange Trail

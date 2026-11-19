@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=62">
+<link rel="stylesheet" href="../lern.css?v=63">
 <style>
 /* Lernwelt "Kopier-Problem": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -88,7 +88,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=87"></script>
+<script src="../lern.js?v=88"></script>
 <script>
 /* =====================================================================
    KOPIER-PROBLEM – Lernwelt von Orange Trail
@@ -116,7 +116,7 @@ $("go").onclick = () => {
       $("ledger").innerHTML = `<div class="ledger"><b>₿ Block 1 (für alle gleich)</b><br><span class="ok">Du → Anna: 1 Münze ✓</span><br><span class="x">Du → Ben: 1 Münze</span> (Münze schon im Block ausgegeben)</div><div class="nodes" id="nd"></div>`;
       const nd = $("nd"); for (let i = 0; i < 24; i++) nd.insertAdjacentHTML("beforeend", `<span style="animation:pop .3s both ${i*.04}s">✓</span>`);
       setTimeout(() => nd.querySelectorAll("span").forEach(s => s.className = "y"), 300);
-      R.className = "res ok"; R.innerHTML = `<strong>✓ Ohne Bank verhindert!</strong>Tausende Nodes haben dasselbe Kassenbuch. Die Zahlung an Anna steht zuerst im Block. Die an Ben lehnt <b>jede Node</b> ab. Niemand muss einer einzelnen Firma vertrauen.`; }
+      R.className = "res ok"; R.innerHTML = `<strong>✓ Ohne Bank verhindert!</strong>Tausende Nodes haben dasselbe Kassenbuch. Die Zahlung an Anna steht zuerst im Block. Die an Ben lehnt <b>jede Node</b> ab. Mit jedem weiteren Block wird das noch sicherer. Niemand muss einer einzelnen Firma vertrauen.`; }
   }, mode ? 1700 : 1100);
 };
 reset();
