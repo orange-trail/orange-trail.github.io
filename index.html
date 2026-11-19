@@ -286,22 +286,21 @@ html.noscroll{overflow:hidden}
   Lern.daily(document.getElementById("daily"));
   Lern.review(document.getElementById("rep"), n => { document.getElementById("rpS").textContent = n ? n + " fällig" : ""; });
 
-  // ---------- Kurzfilm: Mias Sparschwein, eine erfundene Geschichte als Einstieg (ca. 30 Sekunden, überspringbar) ----------
+  // ---------- Kurzfilm: Plankis Weg über den Orange Trail, erklärt die Seite als Geschichte (ca. 35 Sekunden, überspringbar) ----------
   function film(done){
     const A = (k, x, y, sz, an = "", d = 0, st = "") => `<span class="a" style="left:${x}%;top:${y}%;width:${sz}px;height:${sz}px;${an ? `animation:${an};animation-delay:${d}s;` : ""}${st}">${Lern.art(k)}</span>`;
     const F = (k, fx, fy, x, y, sz, d) => A(k, x, y, sz, "fly 1.4s cubic-bezier(.3,.7,.3,1) both", d, `--fx:${fx}%;--fy:${fy}%`);
-    // Euro-Varianten der Zeichnungen für Mias Geschichte (statt ₿)
-    const Ae = (...x) => A(...x).replace(/₿/g, "€"), Fe = (...x) => F(...x).replace(/₿/g, "€");
     const T = (t, x, y, d = 0, st = "") => `<span class="lbl" style="left:${x}%;top:${y}%;animation-delay:${d}s;${st}">${t}</span>`;
     const SH = [
-      ["day", "Das ist <b>Mia</b>. Sie ist 8 und spart für ein Fahrrad. Jeden Monat ein bisschen, bis <b>100 €</b> im Sparschwein sind.", Ae("pig", 50, 58, 110, "grow .6s cubic-bezier(.3,1.6,.5,1) both", .1) + [0, 1, 2].map(i => Fe("coin", 50, -10, 50, 40, 34, .7 + i*.45)).join("") + T("🚲 100 €", 50, 16, 1.9, "font-size:17px")],
-      ["dusk", "Ein paar Jahre später schlachtet sie das Schwein. Endlich! Doch im Laden steht: <b>Das Fahrrad kostet jetzt 130 €.</b>", Ae("pig", 26, 60, 80) + T("🚲 100 €", 70, 30, .3, "font-size:17px;text-decoration:line-through;opacity:.7") + T("🚲 130 €", 70, 58, 1.3, "font-size:21px;background:#e74c3c;color:#fff")],
-      ["night", "Niemand hat ihr Geld geklaut. Es sind immer noch 100 €. Aber sie bekommen <b>weniger</b> dafür. <b>Wie kann das sein?</b>", Ae("pig", 50, 56, 96, "bobA 2s ease-in-out .3s infinite") + T("100 €", 50, 20, .2, "font-size:18px") + T("?", 22, 40, .8, "font-size:30px") + T("?", 80, 46, 1.2, "font-size:24px")],
-      ["night", "Irgendwo wird ständig <b>neues Geld geschaffen</b>. Mehr Geld, aber nicht mehr Fahrräder. Also wird jeder Euro ein bisschen weniger wert.", A("printer", 40, 54, 110, "sshake .5s ease .4s 6") + [0, 1, 2, 3].map(i => F("dollar", 40, 54, 68 + i*7, 30 + i*14, 40, .8 + i*.35).replace(/>\$</g, ">€<")).join("")],
-      ["gold", "2009 hatte jemand eine Idee: <b>Geld, das niemand nachdrucken kann.</b> Kann das funktionieren? <b>Finde es selbst heraus.</b>", A("satoshi", 28, 58, 84, "grow .5s both", .1) + A("coin", 66, 44, 96, "grow .7s cubic-bezier(.3,1.6,.5,1) both", .8) + T("Bitcoin", 66, 84, 1.4, "font-size:18px;background:#f7931a;color:#2a1600")],
+      ["night", "Das ist <b>Planki</b>. Planki hat keine Ahnung von Geld. Und Bitcoin? Klingt nach Zauberei.", A("plankton", 50, 56, 96, "grow .6s cubic-bezier(.3,1.6,.5,1) both, bobA 2.2s ease-in-out .7s infinite", .1) + T("?", 24, 30, .9, "font-size:28px") + T("₿ ?", 78, 34, 1.3, "font-size:20px")],
+      ["dawn", "Eines Tages entdeckt Planki einen <b>orangen Pfad</b>. Ganz oben, so heißt es, wartet ein Schatz: <b>endlich verstehen.</b>", `<svg class="line" viewBox="0 0 400 210" preserveAspectRatio="none"><path d="M30 190 C120 180 90 120 180 120 S310 70 350 40" stroke="#f7931a" stroke-dasharray="10 8" style="stroke-width:7;stroke-dasharray:900"/></svg>` + A("plankton", 12, 84, 46) + A("trophy", 88, 18, 52, "grow .6s cubic-bezier(.3,1.6,.5,1) both", 2.2) + T("Gipfel", 70, 10, 2.5)],
+      ["day", "Unterwegs: <b>6 Welten</b>. Hier wird nicht gepaukt, hier wird <b>ausprobiert</b>: Fisch gegen Brot tauschen, selbst minen, einen Block fälschen.", A("fish", 20, 58, 52, "grow .5s both", .2) + A("pick", 40, 42, 56, "grow .5s both", .7) + A("block", 62, 60, 56, "grow .5s both", 1.2) + A("phone", 82, 42, 50, "grow .5s both", 1.7)],
+      ["dusk", "Am Ende jeder Welt wartet ein <b>Boss</b>: der Gelddrucker, das FOMO-Monster … Nur wer verstanden hat, gewinnt.", A("printer", 30, 56, 96, "sshake .5s ease .5s 4") + A("fomo", 72, 54, 90, "grow .6s both", 1) + T("BOSS", 50, 16, .4, "background:#e74c3c;color:#fff;font-size:18px")],
+      ["day", "Mit jedem Level wächst Planki: <b>Garnele, Fisch, Delfin</b> … bis zum <b>Wal</b>.", ["plankton", "shrimp", "fish", "dolphin", "whale"].map((k, i) => A(k, 12 + i*19, 56, 26 + i*12, "grow .5s cubic-bezier(.3,1.6,.5,1) both", .2 + i*.45)).join("") + T("🐋 Wal", 88, 18, 2.3)],
+      ["gold", "Jetzt bist <b>du</b> dran. Ohne Vorwissen, ohne Anmeldung, <b>ca. 5 Minuten</b> pro Level. Kostenlos.", A("plankton", 30, 56, 70, "bobA 1.6s ease-in-out infinite") + A("coin", 68, 46, 90, "grow .7s cubic-bezier(.3,1.6,.5,1) both", .4) + T("Los geht's!", 50, 86, 1, "font-size:18px;background:#f7931a;color:#2a1600")],
     ];
-    const DUR = matchMedia("(prefers-reduced-motion: reduce)").matches ? 4500 : 6500;
-    const o = document.createElement("div"); o.className = "film"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Kurzfilm: Mias Sparschwein");
+    const DUR = matchMedia("(prefers-reduced-motion: reduce)").matches ? 4500 : 6000;
+    const o = document.createElement("div"); o.className = "film"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Kurzfilm: Plankis Weg über den Orange Trail");
     o.innerHTML = `<div class="fbar">${SH.map(() => "<i><b></b></i>").join("")}</div><button type="button" class="fsk">Überspringen ›</button><div class="fst"><div class="scn" id="fScn" aria-hidden="true"></div><p class="fcap" id="fCap" aria-live="polite"></p><p class="fhint">Tippen für weiter</p></div>`;
     document.body.appendChild(o); document.documentElement.classList.add("noscroll");
     let k = -1, tm = 0;
