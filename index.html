@@ -14,7 +14,7 @@
 <meta property="og:description" content="Bitcoin spielerisch verstehen, Level für Level.">
 <meta property="og:image" content="https://orange-trail.github.io/og.png">
 <meta property="og:url" content="https://orange-trail.github.io/">
-<link rel="stylesheet" href="lern.css?v=66">
+<link rel="stylesheet" href="lern.css?v=67">
 <style>
 /* Übersicht der Lernwelten: gleiche Farben und Schriften wie das Spiel. */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -76,7 +76,7 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .mpl{display:grid;gap:8px} .mpl a{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:14px;background:rgba(178,107,255,.12);border:2px solid rgba(178,107,255,.35);color:var(--ink);text-decoration:none;font-weight:800}
 .mpl a:hover{border-color:#b26bff} .mpl a.ok{border-color:var(--bull)} .mpl .ic{width:36px;height:36px;flex:none} .mpl .ic svg{width:100%;height:100%} .mpl span:nth-child(2){flex:1} .mpl em{font-style:normal;color:#e3ccff}
 .mapw .bub{animation:bub 7s linear infinite} @keyframes bub{0%{transform:translateY(0);opacity:0}15%{opacity:.6}100%{transform:translateY(-160px);opacity:0}}
-.mapw .mboss{transform-box:fill-box;animation:mbob 3.2s ease-in-out infinite} @keyframes mbob{50%{transform:translateY(-4px)}} .mapw .mboss.beat{opacity:.5;filter:grayscale(.85);animation:none} .mapw .mboss.beat *{animation:none!important}
+.mapw .mboss{transform-box:fill-box;animation:mbob 3.2s ease-in-out infinite} @keyframes mbob{50%{transform:translateY(-4px)}} .mapw .mboss.beat{opacity:.55;animation:none} .mapw .mboss.beat *{animation:none!important}
 .mapw .kelp{transform-box:fill-box;transform-origin:50% 100%;animation:kelp 4s ease-in-out infinite} @keyframes kelp{50%{transform:rotate(5deg)}}
 .mapw .ray{animation:ray 6s ease-in-out infinite} @keyframes ray{50%{opacity:.4}}
 .mapw .flow{animation:flow 3s linear infinite} @keyframes flow{to{stroke-dashoffset:-36}}
@@ -232,7 +232,7 @@ html.noscroll{overflow:hidden}
   <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Satoshi ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Kurzfilm ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Satsea</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=96"></script>
+<script src="lern.js?v=97"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -262,7 +262,7 @@ html.noscroll{overflow:hidden}
   // Kapitel-Boss am Ende jedes Kapitels
   const won = Lern.bossWon();
   document.querySelectorAll("details.kap").forEach(d => { const k = +d.dataset.k - 1, c = Lern.CHAPTERS[k], ready = c[3].every(id => Lern.done(s, id)), [img, name] = Lern.BOSSES[k];
-    d.insertAdjacentHTML("beforeend", `<button class="bossbtn ${won[k] ? "won" : ""}" type="button" data-b="${k}" ${ready ? "" : "disabled"}><span class="bi">${Lern.art(img)}</span><span>${won[k] ? "🏆 " + name + " besiegt" : "⚔️ Boss: " + name}<small>${won[k] ? "Nochmal kämpfen?" : ready ? "5 Fragen auf Zeit. Bereit?" : "🔒 Schaffe erst alle Level dieser Welt"}</small></span></button>`); });
+    d.insertAdjacentHTML("beforeend", `<button class="bossbtn ${won[k] ? "won" : ""}" type="button" data-b="${k}" ${ready ? "" : "disabled"}><span class="bi">${Lern.bossArt(k)}</span><span>${won[k] ? "🏆 " + name + " besiegt" : "⚔️ Boss: " + Lern.bossName(k)}<small>${won[k] ? "Nochmal kämpfen?" : ready ? "5 Fragen auf Zeit. Bereit?" : "🔒 Schaffe erst alle Level dieser Welt"}</small></span></button>`); });
   document.querySelectorAll(".bossbtn").forEach(b => b.onclick = () => Lern.boss(+b.dataset.b));
   // Profi-Pfade: nach dem Boss freigeschaltet (vorher sichtbar, aber gedimmt)
   const PD = {whitepaper: "Satoshis 9 Seiten Abschnitt für Abschnitt: Originalsätze einfach erklärt.", entropie: "Wie sicher ist ein Seed? Würfle dir einen und teste deinen Zufall.", ableitung: "Von 12 Wörtern bis zur Adresse: jede Station echt gerechnet.", sha256: "Die Hash-Maschine aufgeschraubt: 64 Runden Schritt für Schritt.",
@@ -297,7 +297,7 @@ html.noscroll{overflow:hidden}
       ["night", "Das ist <b>Planki</b>. Planki hat keine Ahnung von Geld. Und Bitcoin? Klingt nach Zauberei.", A("plankton", 50, 56, 96, "grow .6s cubic-bezier(.3,1.6,.5,1) both, bobA 2.2s ease-in-out .7s infinite", .1) + T("?", 24, 30, .9, "font-size:28px") + T("₿ ?", 78, 34, 1.3, "font-size:20px")],
       ["day", "Eines Tages entdeckt Planki eine <b>leuchtende Strömung</b>. Sie führt quer durchs <b>Satsea</b> bis zur Schatzinsel. Dort wartet ein Schatz: <b>endlich verstehen.</b>", `<svg class="line" viewBox="0 0 400 210" preserveAspectRatio="none"><path d="M30 190 C120 180 90 120 180 120 S310 70 350 40" stroke="#9fd8ff" style="stroke-width:7;stroke-dasharray:900"/></svg>` + A("plankton", 12, 84, 46) + `<span class="a" style="left:78%;top:24%;width:96px;height:40px;animation:grow .6s both;animation-delay:2s"><svg viewBox="0 0 96 40"><ellipse cx="48" cy="30" rx="44" ry="10" fill="#e8c27a" stroke="#0d1230" stroke-width="3"/><path d="M30 28 q-2 -18 6 -26" fill="none" stroke="#8a5a2a" stroke-width="4" stroke-linecap="round"/><path d="M36 2 q-12 -2 -18 6 M36 2 q10 -4 18 4 M36 2 q-2 -8 -10 -10" fill="none" stroke="#2f9a6a" stroke-width="4" stroke-linecap="round"/></svg></span>` + A("trophy", 82, 13, 34, "grow .6s cubic-bezier(.3,1.6,.5,1) both", 2.4) + T("Schatzinsel", 50, 8, 2.7)],
       ["day", "Unterwegs: <b>6 Welten</b>. Hier wird nicht gepaukt, hier wird <b>ausprobiert</b>: Fisch gegen Brot tauschen, selbst minen, einen Block fälschen.", A("fish", 20, 58, 52, "grow .5s both", .2) + A("pick", 40, 42, 56, "grow .5s both", .7) + A("block", 62, 60, 56, "grow .5s both", 1.2) + A("phone", 82, 42, 50, "grow .5s both", 1.7)],
-      ["dusk", "Am Ende jeder Welt wartet ein <b>Boss</b>: der Druck-Kalmar, die FOMO-Sirene … Nur wer verstanden hat, gewinnt.", A("squid", 30, 56, 96, "sshake .5s ease .5s 4") + A("siren", 72, 54, 90, "grow .6s both", 1) + T("BOSS", 50, 16, .4, "background:#e74c3c;color:#fff;font-size:18px")],
+      ["dusk", "Am Ende jeder Welt lauert ein <b>Boss</b> im Dunkeln. Wer es ist, siehst du erst im Kampf. Nur wer verstanden hat, gewinnt.", A("squid", 30, 56, 96, "sshake .5s ease .5s 4", 0, "filter:brightness(0) drop-shadow(0 0 6px #7fd0ff)") + A("siren", 72, 54, 90, "grow .6s both", 1, "filter:brightness(0) drop-shadow(0 0 6px #7fd0ff)") + T("BOSS", 50, 16, .4, "background:#e74c3c;color:#fff;font-size:18px")],
       ["day", "Mit jedem Level wächst Planki: <b>Garnele, Fisch, Delfin</b> … bis zum <b>Wal</b>.", ["plankton", "shrimp", "fish", "dolphin", "whale"].map((k, i) => A(k, 12 + i*19, 56, 26 + i*12, "grow .5s cubic-bezier(.3,1.6,.5,1) both", .2 + i*.45)).join("") + T("🐋 Wal", 88, 18, 2.3)],
       ["gold", "Jetzt bist <b>du</b> dran. Ohne Vorwissen, ohne Anmeldung, <b>ca. 5 Minuten</b> pro Level. Kostenlos.", A("plankton", 30, 56, 70, "bobA 1.6s ease-in-out infinite") + A("coin", 68, 46, 90, "grow .7s cubic-bezier(.3,1.6,.5,1) both", .4) + T("Los geht's!", 50, 86, 1, "font-size:18px;background:#f7931a;color:#2a1600")],
     ];
@@ -350,7 +350,7 @@ html.noscroll{overflow:hidden}
     gl.onclick = e => { e.preventDefault(); try { off ? localStorage.removeItem(Lern.GK) : localStorage.setItem(Lern.GK, "1"); } catch(x){} location.reload(); }; }
   document.getElementById("album").innerHTML = Lern.BOSSES.map((b, k) => Lern.bossCard(k)).join("") + Lern.finalCard();
   { const w5 = Lern.bossWon(), ready5 = Lern.BOSSES.every((x, k) => w5[k]);
-    document.getElementById("album").insertAdjacentHTML("afterend", `<button class="bossbtn ${w5.f ? "won" : ""}" id="finalBtn" type="button" ${ready5 ? "" : "disabled"}><span class="bi">${Lern.art(w5.f ? "mirror" : "pool")}</span><span>${w5.f ? "🪞 Spiegelbild besiegt" : "★ Endboss: Dein Spiegelbild"}<small>${ready5 ? "13 alte Sprüche widerlegen, höchstens 2 Fehler" : "🔒 Besiege erst alle 6 Welt-Bosse"}</small></span></button>`);
+    document.getElementById("album").insertAdjacentHTML("afterend", `<button class="bossbtn ${w5.f ? "won" : ""}" id="finalBtn" type="button" ${ready5 ? "" : "disabled"}><span class="bi">${w5.f ? Lern.art("mirror") : Lern.bossArt("f")}</span><span>${w5.f ? "🪞 Spiegelbild besiegt" : "★ Endboss: " + Lern.bossName("f")}<small>${ready5 ? "13 alte Sprüche widerlegen, höchstens 2 Fehler" : "🔒 Besiege erst alle 6 Welt-Bosse"}</small></span></button>`);
     document.getElementById("finalBtn").onclick = () => Lern.boss("f");
     let tr = {}; try { tr = JSON.parse(localStorage.getItem("satsland-tresor")) || {}; } catch(e){}
     document.getElementById("finalBtn").insertAdjacentHTML("afterend", w5.f ? `<a class="bossbtn tre ${tr.open ? "won" : ""}" href="tresor/"><span class="bi">${Lern.art("bag")}</span><span>${tr.open ? "🏆 Tresor geknackt" : "🗝️ Finale: Der Tresor"}<small>${tr.open ? "Urkunde ansehen" : "Vier Schlösser aus allem, was du gelernt hast"}</small></span></a>` : `<button class="bossbtn tre" type="button" disabled><span class="bi">${Lern.art("bag")}</span><span>🗝️ Finale: Der Tresor<small>🔒 Öffnet sich nach dem Endboss</small></span></button>`); }
@@ -392,7 +392,7 @@ html.noscroll{overflow:hidden}
       return `<rect x="${x0}" y="${cy - h / 2}" width="${w}" height="${h}" rx="13" fill="${bg}"/><text x="${x0 + w / 2}" y="${cy + 4.5 - (L.length - 1) * lh / 2}" fill="${col}" font-size="${fs}" font-weight="800" text-anchor="middle" font-family="system-ui,sans-serif">${L.map((l, k) => `<tspan x="${x0 + w / 2}" dy="${k ? lh : 0}">${l}</tspan>`).join("")}</text>`; };
     // Meer: oben Himmel und Schatzinsel, darunter Wasser, das nach unten immer dunkler wird
     const SURF = peakY + 52;
-    let g = `<defs><linearGradient id="msky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1d5e"/><stop offset=".7" stop-color="#c0486a"/><stop offset="1" stop-color="#ff9a5a"/></linearGradient>
+    let g = `<defs><filter id="fshd" x="-25%" y="-25%" width="150%" height="150%"><feFlood flood-color="#08102e"/><feComposite in2="SourceAlpha" operator="in"/><feDropShadow dx="0" dy="0" stdDeviation="2.2" flood-color="#7fd0ff" flood-opacity=".9"/></filter><filter id="fgray"><feColorMatrix type="saturate" values=".15"/></filter><linearGradient id="msky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1d5e"/><stop offset=".7" stop-color="#c0486a"/><stop offset="1" stop-color="#ff9a5a"/></linearGradient>
       <linearGradient id="msea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f74b8"/><stop offset=".08" stop-color="#175c9e"/><stop offset=".35" stop-color="#103a7a"/><stop offset=".7" stop-color="#0a1f52"/><stop offset="1" stop-color="#050a26"/></linearGradient>
       <linearGradient id="mray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe8ff" stop-opacity=".22"/><stop offset="1" stop-color="#bfe8ff" stop-opacity="0"/></linearGradient>
       <radialGradient id="mglow"><stop offset="0" stop-color="#ffc94d" stop-opacity=".75"/><stop offset="1" stop-color="#ffc94d" stop-opacity="0"/></radialGradient>
@@ -438,7 +438,7 @@ html.noscroll{overflow:hidden}
     nodes.forEach((n, i) => { const [cx, cy] = P[i], ok = isDone(n), now = i === cur, boss = n.t === "b", r = boss ? R + 9 : R, locked = !ok && !now;
       const lt = false, ready = boss && L.CHAPTERS[n.k][3].every(id => Lern.done(s, id)), base = boss ? (ok ? "#c4581c" : ready ? "#a33a5a" : "#3a2a4a")   : ok ? "#ff9f2e" : now ? "#ffc94d" : lt ? "#fff4ea" : "#323a7a";
       const lip = boss ? (ok ? "#7a3410" : "#21162e") : ok ? "#c46a10" : now ? "#c98a00" : lt ? "#d9b4a4" : "#1c2256";
-      const name = boss ? L.BOSSES[n.k][1] : L.TITLES[n.id][0], fs = boss ? 13 : 12.5;
+      const name = boss ? (ok ? L.BOSSES[n.k][1] : L.bossName(n.k) === "???" ? "Boss " + (n.k + 1) + ": ???" : L.BOSSES[n.k][1]) : L.TITLES[n.id][0], fs = boss ? 13 : 12.5;
       // Schild immer neben den Knoten: erst zur freien Seite, sonst andere Seite, sonst zweizeilig, nur notfalls darunter
       const wOf = t => Math.max(...t.split("\n").map(l => l.length)) * fs * .56 + 18, fits = (t, sd) => sd > 0 ? cx + r + 8 + wOf(t) <= W - 4 : cx - r - 8 - wOf(t) >= 4;
       const brk = t => { let b = -1; for (let k = 0; k < t.length; k++) if ((t[k] === " " || t[k] === "-") && k > 3 && (b < 0 || Math.abs(k - t.length / 2) < Math.abs(b - t.length / 2))) b = k; return b < 0 ? t : t[b] === "-" ? t.slice(0, b + 1) + "\n" + t.slice(b + 1) : t.slice(0, b) + "\n" + t.slice(b + 1); };
@@ -447,7 +447,7 @@ html.noscroll{overflow:hidden}
       g += boss ? `<g data-b="${n.k}" role="button" tabindex="0" aria-label="Boss: ${name}">` : `<a href="${L.TITLES[n.id][1]}" aria-label="${name}">`;
       if (now) g += `<circle cx="${cx}" cy="${cy}" r="${r + 34}" fill="url(#mglow)"/><circle class="spin" cx="${cx}" cy="${cy}" r="${r + 10}" fill="none" stroke="#ffc94d" stroke-width="4" stroke-dasharray="7 7"/>`;
       g += `<g class="${now ? "curr" : ""}"><ellipse cx="${cx}" cy="${cy + 8}" rx="${r}" ry="${r * .92}" fill="${lip}" stroke="#0a0d26" stroke-width="3"/><circle class="nb" cx="${cx}" cy="${cy}" r="${r}" fill="${base}" stroke="#0a0d26" stroke-width="3"/><ellipse cx="${cx - r * .3}" cy="${cy - r * .45}" rx="${r * .38}" ry="${r * .2}" fill="#fff" opacity="${locked ? .08 : .3}"/>
-        <g opacity="${locked && !boss ? .8 : 1}" class="${boss ? "mboss" + (ok ? " beat" : "") : ""}">${art(boss ? L.BOSSES[n.k][0] : L.CARD[n.id], cx, cy, boss ? r * 1.75 : r * 1.3)}</g></g>`;
+        <g opacity="${locked && !boss ? .8 : 1}" class="${boss ? "mboss" + (ok ? " beat" : "") : ""}"${boss && ok ? ' filter="url(#fgray)"' : boss && !L.seen(n.k) ? ' filter="url(#fshd)"' : ""}>${art(boss ? L.BOSSES[n.k][0] : L.CARD[n.id], cx, cy, boss ? r * 1.75 : r * 1.3)}</g></g>`;
       if (ok) g += `<circle cx="${cx + r * .75}" cy="${cy - r * .7}" r="10" fill="#fff" stroke="#0a0d26" stroke-width="2.5"/><path d="M${cx + r * .75 - 5} ${cy - r * .7}l3.5 3.5 6.5-7.5" fill="none" stroke="#178a4c" stroke-width="3" stroke-linecap="round"/>`;
       g += chip(cx + side * (r + 8), side ? cy : boss ? cy - r - (now ? 58 : 20) : cy + r + 24, lab, side, boss ? "#ffb3c2" : now ? "#ffc94d" : ok ? "#ffe2b8" : lt ? "#f6e3ee" : "#9aa2c8", boss ? "rgba(58,20,40,.92)" : lt ? "rgba(70,30,70,.86)" : "rgba(11,15,42,.88)", boss ? 13 : 12.5);
       // Sprechblase zuletzt zeichnen (liegt dann oben) und vom nächsten Knoten weg schieben
@@ -466,7 +466,7 @@ html.noscroll{overflow:hidden}
     // Schatzinsel an der Oberfläche: Sand, Palme, darauf der Endboss
     g += `<g aria-hidden="true"><ellipse cx="${sx}" cy="${SURF + 2}" rx="${Math.min(150, W * .36)}" ry="26" fill="#e8c27a" stroke="#0a0d26" stroke-width="3"/><ellipse cx="${sx}" cy="${SURF + 10}" rx="${Math.min(150, W * .36) + 10}" ry="14" fill="#bfe8ff" opacity=".35"/>
       <path d="M${sx - 92} ${SURF - 8} q-6 -60 10 -96" fill="none" stroke="#8a5a2a" stroke-width="7" stroke-linecap="round"/><g transform="translate(${sx - 82} ${SURF - 104})" fill="#2f9a6a" stroke="#0a0d26" stroke-width="2.5"><path d="M0 0 q-30 -10 -44 10 q20 -6 44 -10z"/><path d="M0 0 q30 -12 46 6 q-22 -4 -46 -6z"/><path d="M0 0 q-10 -30 -34 -30 q16 10 34 30z"/><path d="M0 0 q14 -28 38 -26 q-20 8 -38 26z"/></g></g>`;
-    g += `<g data-b="f" role="button" tabindex="0" aria-label="Endboss: Dein Spiegelbild"><circle cx="${sx}" cy="${sy}" r="90" fill="url(#mglow)"/><ellipse cx="${sx}" cy="${sy + 9}" rx="46" ry="42" fill="${fw ? "#b8860b" : "#5a4a14"}" stroke="#0a0d26" stroke-width="3"/><circle class="nb ${cur >= N && !fw ? "curr" : ""}" cx="${sx}" cy="${sy}" r="46" fill="${fw || finReady ? "#ffd36b" : "#8a7a3a"}" stroke="#0a0d26" stroke-width="3"/>${art(fw ? "mirror" : "pool", sx, sy, 66)}
+    g += `<g data-b="f" role="button" tabindex="0" aria-label="Endboss: ${L.bossName("f")}"><circle cx="${sx}" cy="${sy}" r="90" fill="url(#mglow)"/><ellipse cx="${sx}" cy="${sy + 9}" rx="46" ry="42" fill="${fw ? "#b8860b" : "#5a4a14"}" stroke="#0a0d26" stroke-width="3"/><circle class="nb ${cur >= N && !fw ? "curr" : ""}" cx="${sx}" cy="${sy}" r="46" fill="${fw || finReady ? "#ffd36b" : "#8a7a3a"}" stroke="#0a0d26" stroke-width="3"/><g${fw || L.seen("f") ? "" : ' filter="url(#fshd)"'}>${art(fw ? "mirror" : "pool", sx, sy, 66)}</g>
       <path d="M${sx + 30} ${sy - 44}V${sy - 112}" stroke="#0a0d26" stroke-width="5"/><path class="flag" d="M${sx + 30} ${sy - 112}l46 13-46 15z" fill="#f7931a" stroke="#0a0d26" stroke-width="3.5"/><text x="${sx + 46}" y="${sy - 93}" font-size="14" font-weight="900" fill="#fff" font-family="Arial">₿</text>
       ${chip(sx - 105, sy + 84, fw ? "🏆 Schatzinsel erreicht!" : "👑 Endboss: ?", 1, "#ffd36b", "rgba(11,15,42,.92)", 14)}</g>`;
     document.getElementById("map").innerHTML = `<svg${first ? ' class="min"' : ""} viewBox="0 0 ${W} ${H}" role="img" aria-label="Lernpfad als Meer">${g}</svg>`;
@@ -482,7 +482,7 @@ html.noscroll{overflow:hidden}
   mapw.addEventListener("click", e => { const a = e.target.closest("[data-pro]"); if (!a) return; e.preventDefault(); e.stopPropagation(); openPro(+a.dataset.pro - 1); }, true);
   function openPro(k){ const open = !!won[k], L = Lern.PRO[k];
     mpop.innerHTML = `<div class="mph"><b id="mpT">🔬 Profi-Pfad · ${Lern.CHAPTERS[k][0]} ${Lern.CHAPTERS[k][1]}</b><button type="button" id="mpx" aria-label="Schließen">✕</button></div>
-      <p class="muted">${open ? "Freigeschaltet! Vertiefungen für alle, die es genau wissen wollen." : "🔒 Empfohlen nach dem Boss " + Lern.BOSSES[k][1] + ". Reinschauen geht trotzdem."}</p>
+      <p class="muted">${open ? "Freigeschaltet! Vertiefungen für alle, die es genau wissen wollen." : "🔒 Empfohlen nach " + (Lern.seen(k) ? "dem Boss " + Lern.BOSSES[k][1] : "Boss " + (k + 1)) + ". Reinschauen geht trotzdem."}</p>
       <div class="mpl">${L.map(id => { const ok = Lern.done(s, id); return `<a href="${Lern.TITLES[id][1]}" class="${ok ? "ok" : ""}"><span class="ic">${Lern.art(Lern.CARD[id])}</span><span>${Lern.TITLES[id][0]}</span><em>${ok ? "✓" : open ? "→" : "🔒"}</em></a>`; }).join("")}</div>`;
     mpop.hidden = mback.hidden = false; document.getElementById("mpx").onclick = closePop; document.getElementById("mpx").focus(); }
   mapw.addEventListener("click", e => { const b = e.target.closest("[data-b]"); if (!b) return; const k = b.dataset.b;
@@ -506,7 +506,7 @@ html.noscroll{overflow:hidden}
       if (st.w){ const k = Lern.chapterOf(st.w); r.href = Lern.TITLES[st.w][1];
         r.innerHTML = `<span class="ic" aria-hidden="true">${Lern.art(Lern.CARD[st.w])}</span><span><small>${fresh ? "Los geht's mit" : "Weiter mit"} · Level ${k + 1}-${Lern.CHAPTERS[k][3].indexOf(st.w) + 1}</small>${Lern.TITLES[st.w][0]}</span>`; }
       else { r.href = "#"; r.onclick = e => { e.preventDefault(); Lern.boss(st.b); };
-        r.innerHTML = `<span class="ic" aria-hidden="true">${Lern.art(Lern.BOSSES[st.b][0])}</span><span><small>Welt ${st.b + 1} geschafft! Jetzt der Boss</small>${Lern.BOSSES[st.b][1]}</span>`; } }
+        r.innerHTML = `<span class="ic" aria-hidden="true">${Lern.bossArt(st.b)}</span><span><small>Welt ${st.b + 1} geschafft! Jetzt der Boss</small>${Lern.bossName(st.b)}</span>`; } }
     if (last && (!st || st.w !== last)){ const a = document.getElementById("alt"); a.hidden = false; a.innerHTML = `oder zurück zu <a href="${Lern.TITLES[last][1]}">${Lern.TITLES[last][0]}</a>`; } }
 })();
 </script>
@@ -523,7 +523,7 @@ html.noscroll{overflow:hidden}
 </div>
 <script>
 (() => {
-  const K = ["bvb-lernen", "satsland-boss", "satsland-titles", "satsland-daily", "satsland-intro", "satsland-rep", "satsland-tresor"], BK = "satsland-dev-backup";
+  const K = ["bvb-lernen", "satsland-boss", "satsland-titles", "satsland-daily", "satsland-intro", "satsland-rep", "satsland-tresor", "satsland-seen"], BK = "satsland-dev-backup";
   document.getElementById("devT").onclick = () => { const p = document.getElementById("devP"); p.hidden = !p.hidden; };
   document.getElementById("devP").onclick = e => { const b = e.target.closest("button"); if (!b) return;
     if (b.dataset.b){ document.getElementById("devP").hidden = true; return Lern.boss(b.dataset.b === "f" ? "f" : +b.dataset.b); }

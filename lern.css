@@ -416,3 +416,8 @@ img.em{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.24em;margi
 .ko-siren .ba-bait{animation:baDrop 1s .2s forwards}@keyframes baDrop{to{transform:translateY(55px) rotate(160deg);opacity:0}}
 @media (prefers-reduced-motion:reduce){[class^="ba-"],[class*=" ba-"]{animation:none!important}.boss .ink{animation:none;opacity:0}}
 .boss .stamp{left:37%;top:58%} @media (max-width:420px){.boss .stamp{font-size:44px;left:35%}.boss .stamp.go{font-size:34px}}
+/* Bosse als Schatten, bis man ihnen begegnet */
+.shd{display:contents}.shd>svg,.tart.seen svg{filter:brightness(0) drop-shadow(0 0 4px #7fd0ff)}.tart.seen svg{filter:grayscale(.8);opacity:.6}
+.boss .bimg.bshd{filter:brightness(0) drop-shadow(0 0 10px #7fd0ff)}
+.boss .bimg.rvl{transition:filter .9s ease}
+.boss .bubble.hid{opacity:0}
