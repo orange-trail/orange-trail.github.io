@@ -128,12 +128,12 @@ details.fold[open] > summary{margin-bottom:12px}
  @media(max-width:360px){.stats{grid-template-columns:1fr 1fr} .stats > :first-child{grid-column:1/-1}}
 .film{position:fixed;inset:0;z-index:200;background:radial-gradient(ellipse at 50% 30%,#1a2160,#070a1e 75%);display:grid;place-items:center;padding:56px 16px 24px;animation:fIn .4s ease;cursor:pointer}
 .film.out{animation:fOut .35s ease forwards} @keyframes fIn{from{opacity:0}} @keyframes fOut{to{opacity:0}}
-.fbar{position:absolute;top:14px;left:16px;right:16px;display:flex;gap:5px} .fbar i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.18);overflow:hidden} .fbar b{display:block;height:100%;width:0;background:linear-gradient(90deg,#f7931a,#ffc94d)}
+.fbar{position:absolute;top:14px;left:16px;right:16px;display:flex;gap:5px} .fbar i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.18);overflow:hidden} .fbar b{display:block;height:100%;width:0;background:linear-gradient(90deg,#f7931a,#ffc94d);transition:width .35s ease}
 .fsk{position:absolute;top:28px;right:16px;border:0;background:rgba(255,255,255,.1);color:#fff;font:800 13px var(--f-body);padding:7px 12px;border-radius:999px;cursor:pointer}
 .fst{width:min(560px,100%);text-align:center} .fst .scn{height:min(46vh,340px);margin:0}
 .fcap{margin:20px 4px 0;font:700 clamp(18px,5vw,23px)/1.4 var(--f-body);color:#eef0ff;min-height:4.2em;text-wrap:balance} .fcap b{color:var(--gold)} .fcap.in{animation:capIn .7s cubic-bezier(.2,.8,.2,1)}
 @keyframes capIn{from{opacity:0;transform:translateY(10px)}}
-.fhint{margin:6px 0 0;font-size:12px;color:#7d86c4}
+.fhint{margin:10px 0 0;font:700 13px var(--f-body);color:#9aa2d6;animation:hint 1.6s ease-in-out infinite} @keyframes hint{50%{opacity:.45}}
 html.noscroll{overflow:hidden}
 .bossbtn.tre{text-decoration:none;color:inherit;background:linear-gradient(90deg,#5a4310,#2a1f08)}
 </style>
@@ -286,7 +286,7 @@ html.noscroll{overflow:hidden}
   Lern.daily(document.getElementById("daily"));
   Lern.review(document.getElementById("rep"), n => { document.getElementById("rpS").textContent = n ? n + " fällig" : ""; });
 
-  // ---------- Kurzfilm: Plankis Weg über den Orange Trail, erklärt die Seite als Geschichte (ca. 35 Sekunden, überspringbar) ----------
+  // ---------- Kurzfilm: Plankis Weg über den Orange Trail, erklärt die Seite als Geschichte (weiter per Tippen, überspringbar) ----------
   function film(done){
     const A = (k, x, y, sz, an = "", d = 0, st = "") => `<span class="a" style="left:${x}%;top:${y}%;width:${sz}px;height:${sz}px;${an ? `animation:${an};animation-delay:${d}s;` : ""}${st}">${Lern.art(k)}</span>`;
     const F = (k, fx, fy, x, y, sz, d) => A(k, x, y, sz, "fly 1.4s cubic-bezier(.3,.7,.3,1) both", d, `--fx:${fx}%;--fy:${fy}%`);
@@ -299,7 +299,6 @@ html.noscroll{overflow:hidden}
       ["day", "Mit jedem Level wächst Planki: <b>Garnele, Fisch, Delfin</b> … bis zum <b>Wal</b>.", ["plankton", "shrimp", "fish", "dolphin", "whale"].map((k, i) => A(k, 12 + i*19, 56, 26 + i*12, "grow .5s cubic-bezier(.3,1.6,.5,1) both", .2 + i*.45)).join("") + T("🐋 Wal", 88, 18, 2.3)],
       ["gold", "Jetzt bist <b>du</b> dran. Ohne Vorwissen, ohne Anmeldung, <b>ca. 5 Minuten</b> pro Level. Kostenlos.", A("plankton", 30, 56, 70, "bobA 1.6s ease-in-out infinite") + A("coin", 68, 46, 90, "grow .7s cubic-bezier(.3,1.6,.5,1) both", .4) + T("Los geht's!", 50, 86, 1, "font-size:18px;background:#f7931a;color:#2a1600")],
     ];
-    const DUR = matchMedia("(prefers-reduced-motion: reduce)").matches ? 4500 : 6000;
     const o = document.createElement("div"); o.className = "film"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Kurzfilm: Plankis Weg über den Orange Trail");
     o.innerHTML = `<div class="fbar">${SH.map(() => "<i><b></b></i>").join("")}</div><button type="button" class="fsk">Überspringen ›</button><div class="fst"><div class="scn" id="fScn" aria-hidden="true"></div><p class="fcap" id="fCap" aria-live="polite"></p><p class="fhint">Tippen für weiter</p></div>`;
     document.body.appendChild(o); document.documentElement.classList.add("noscroll");
@@ -307,12 +306,11 @@ html.noscroll{overflow:hidden}
     const bars = [...o.querySelectorAll(".fbar b")];
     const close = () => { clearTimeout(tm); o.classList.add("out"); document.documentElement.classList.remove("noscroll"); setTimeout(() => { o.remove(); done && done(); }, 350); };
     const show = i => { if (i >= SH.length) return close(); k = i; clearTimeout(tm);
-      bars.forEach((b, j) => { b.style.transition = "none"; b.style.width = j < k ? "100%" : "0"; });
-      requestAnimationFrame(() => requestAnimationFrame(() => { bars[k].style.transition = `width ${DUR}ms linear`; bars[k].style.width = "100%"; }));
+      bars.forEach((b, j) => { b.style.width = j <= k ? "100%" : "0"; });
       const sc = o.querySelector("#fScn"); sc.className = "scn " + SH[k][0]; sc.innerHTML = SH[k][2];
       const cap = o.querySelector("#fCap"); cap.innerHTML = SH[k][1]; cap.classList.remove("in"); void cap.offsetWidth; cap.classList.add("in");
       sc.querySelectorAll("[data-cnt]").forEach(el => { const e = +el.dataset.cnt, t0 = performance.now(); (function f(t){ const q = Math.min(1, (t - t0)/1800); el.textContent = Math.round(e*(1 - Math.pow(1 - q, 3))).toLocaleString("de-DE"); if (q < 1) requestAnimationFrame(f); })(t0); });
-      Lern.sfx("click"); tm = setTimeout(() => show(k + 1), DUR); };
+      Lern.sfx("click"); o.querySelector(".fhint").textContent = k === SH.length - 1 ? "Tippen zum Starten" : "Tippen für weiter ›"; };
     o.querySelector(".fsk").onclick = e => { e.stopPropagation(); close(); };
     o.addEventListener("click", () => show(k + 1));
     o.addEventListener("keydown", e => { if (e.key === "Escape") close(); else if (e.key === "ArrowRight" || e.key === " "){ e.preventDefault(); show(k + 1); } });
