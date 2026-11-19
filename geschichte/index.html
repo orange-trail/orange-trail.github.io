@@ -18,21 +18,29 @@
 <link rel="stylesheet" href="../lern.css?v=63">
 <style>
 /* Lernwelt "Geschichte": nur seitenspezifische Teile, der Rest kommt aus lern.css */
-.dots{display:flex;gap:4px;margin-top:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
-.dots button{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);border-radius:999px;padding:5px 9px;font:700 12px var(--f-num);cursor:pointer}
-.dots button[aria-current="true"]{background:var(--gold);color:#2a1600;border-color:var(--gold)} .dots button.seen{color:var(--ink)}
-.ev{margin-top:12px;padding:16px;border-radius:18px;border:2px solid var(--gold);background:rgba(247,147,26,.06);animation:p-pop .3s}
-.ev .d{font-size:13px;color:var(--muted);margin-top:6px} .ev h3{margin:2px 0 8px;font-size:21px}
-.ev p{margin:0;font-size:15px;line-height:1.55}
 .kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
 .kv div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .kv b{display:block;font:700 17px var(--f-num);color:var(--ink)} .kv .g{color:var(--gold)}
-.nav{display:flex;justify-content:space-between;gap:8px;margin-top:12px} .nav .btn{flex:1;white-space:nowrap;padding-left:10px;padding-right:10px} .nav #prev{flex:0 0 52px}
 .pz{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px} .pz .btn.y{background:rgba(46,204,113,.25);border-color:var(--bull)} .pz .btn.n{opacity:.5}
 .pres{margin-top:10px;font-size:15px;line-height:1.5;min-height:1.4em}
-.play{margin-left:auto}
 
+.stbar{position:sticky;top:6px;z-index:5;margin:12px -6px 4px;padding:10px 12px 8px;border-radius:16px;background:rgba(16,21,56,.92);backdrop-filter:blur(6px);border:1px solid var(--line);box-shadow:0 10px 24px -14px #000}
+.sty{display:flex;align-items:baseline;justify-content:space-between;gap:10px} .sty b{font:900 26px var(--f-display);color:var(--gold);transition:transform .25s} .sty b.bump{animation:pop .4s} .sty span{font:700 14px var(--f-num);color:var(--ink);text-align:right}
+.spk{display:block;width:100%;height:40px;margin-top:4px;overflow:visible} .spk circle{transition:cx .6s cubic-bezier(.3,.8,.3,1),cy .6s cubic-bezier(.3,.8,.3,1)}
+.sbar{height:3px;border-radius:3px;background:rgba(255,255,255,.08);margin-top:4px} .sbar i{display:block;height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,#f7931a,#ffc94d);transition:width .5s}
+.story{display:grid;gap:22px;margin-top:14px}
+.st{padding:14px;border-radius:18px;border:2px solid var(--line);background:rgba(255,255,255,.02);opacity:.35;transform:translateY(18px) scale(.98);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1),border-color .4s,background .4s}
+.st.on{opacity:1;transform:none} .st.cur{border-color:var(--gold);background:rgba(247,147,26,.06)}
+.st .d{font-size:13px;color:var(--muted);margin-top:6px} .st h3{margin:2px 0 8px;font-size:21px} .st p{margin:0;font-size:15px;line-height:1.55}
+.gen{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px;font:700 13px var(--f-code)}
+.gen button{all:unset;cursor:pointer;min-width:24px;padding:5px 3px;text-align:center;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#9aa2d6;transition:background .3s,color .3s,transform .3s}
+.gen button.t{background:rgba(255,255,255,.02);color:#5a628f} .gen button.ch{background:rgba(247,147,26,.18);border-color:rgba(255,201,77,.5);color:#ffe3a6;animation:flip .45s} .gen button:focus-visible{outline:2px solid var(--gold)}
+.gen button.sp{min-width:12px}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+.gnews{margin-top:14px;animation:p-pop .5s} .np{border:4px solid #0d1230;box-shadow:5px 5px 0 #0d1230;border-radius:10px;background:#f4ecd8;color:#1a1a1a;padding:14px;text-align:center;font-family:Georgia,"Times New Roman",serif}
+.np small{display:block;font:700 11px Georgia,serif;letter-spacing:.12em;border-bottom:2px solid #1a1a1a;padding-bottom:6px;margin-bottom:8px} .np b{display:block;font:900 clamp(19px,5.6vw,26px)/1.15 Georgia,serif} .np span{display:block;margin-top:8px;font-style:italic;font-size:14px;color:#444}
 @keyframes p-pop{from{opacity:0;transform:translateY(6px)}}
 @media (max-width:620px){ .pz{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:reduce){ .st{opacity:1;transform:none;transition:none} .gen button.ch{animation:none} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -41,14 +49,29 @@
   <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
     <h1><span class="btc">Zeit</span>reise</h1>
-    <p class="lead">Von einem Text im Internet zu einer Billionen-Dollar-Idee: Bitcoin in <b>15 animierten Szenen</b>. Blättere durch, tippe ein Jahr an oder drück auf <b>▶ Abspielen</b>.</p>
+    <p class="lead">Von einem Text im Internet zu einer Billionen-Dollar-Idee: Bitcoin in <b>15 animierten Szenen</b>. Scroll einfach nach unten: Jahr und Kurs laufen oben mit.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
     <h2 id="h1s">Die Geschichte von Bitcoin <span class="mode" id="mode">Verbinde …</span></h2>
-    <div class="dots" id="dots"></div>
-    <div id="ev"></div>
-    <div class="nav"><button class="btn ghost" id="prev" type="button">←</button><button class="btn ghost" id="play" type="button">▶ Abspielen</button><button class="btn" id="nextE" type="button">Weiter →</button></div>
+    <div class="stbar" id="stbar" aria-hidden="true">
+      <div class="sty"><b id="sY">2008</b><span id="sP">noch kein Preis</span></div>
+      <svg class="spk" viewBox="0 0 300 54" preserveAspectRatio="none"><path id="sL" d="" fill="none" stroke="#f7931a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle id="sD" r="5" fill="#ffc94d" stroke="#0d1230" stroke-width="2" cx="0" cy="50"/></svg>
+      <div class="sbar"><i id="sB"></i></div>
+    </div>
+    <div class="story" id="story"></div>
+  </section>
+
+  <section class="card" aria-labelledby="hGen">
+    <h2 id="hGen">Das Geheimnis im ersten Block</h2>
+    <p class="muted" style="margin:0">Das sind <b>echte Bytes</b> aus Block 0, dem Genesis-Block vom 3. Januar 2009. Satoshi hat darin eine Nachricht versteckt. Jedes Zahlenpaar ist ein Zeichen in Hex-Schrift, zum Beispiel <code>54</code> = <b>T</b>. Tippe ein Paar an oder entschlüssle alles.</p>
+    <div class="gen" id="gen"></div>
+    <div class="row" style="margin-top:12px;gap:8px;flex-wrap:wrap"><button class="btn" id="gDec" type="button">🔍 Entschlüsseln</button><button class="btn ghost" id="gRst" type="button" hidden>↺ Zurück zu Hex</button></div>
+    <div class="gnews" id="gNews" hidden>
+      <div class="np"><small>THE TIMES · 3. Januar 2009</small><b>Chancellor on brink of second bailout for banks</b><span>„Finanzminister kurz vor zweiter Rettung der Banken“</span></div>
+      <p class="note" style="margin:10px 0 0">Die Schlagzeile ist <b>Zeitstempel und Botschaft</b> zugleich: Der Block kann nicht vor diesem Tag entstanden sein, und Bitcoin startet mitten in der Bankenkrise als Geld <b>ohne Bankenrettung</b>.</p>
+      <div class="kv"><div>Block<b class="num">0</b></div><div>Belohnung<b class="num">50 BTC</b></div><div>Ausgebbar?<b>nie</b></div><div>Hash beginnt mit<b class="num g">10 Nullen</b></div></div>
+    </div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
@@ -75,7 +98,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=88"></script>
+<script src="../lern.js?v=89"></script>
 <script>
 /* =====================================================================
    ZEITREISE – Lernwelt von Orange Trail
@@ -130,25 +153,48 @@ const SC = [
 // Zahlen hochzählen lassen
 function counters(root){ root.querySelectorAll("[data-count]").forEach(el => { const end = +el.dataset.count, t0 = performance.now();
   (function f(t){ const q = Math.min(1, (t - t0)/1600); el.textContent = Math.round(end*(1 - Math.pow(1 - q, 3))).toLocaleString("de-DE"); if (q < 1) requestAnimationFrame(f); })(t0); }); }
-let auto = 0;
-function draw(){
-  const [ic, d, t, x, p] = E[k];
-  $("dots").innerHTML = E.map((e, i) => `<button type="button" data-i="${i}" aria-current="${i === k}" class="${i < k ? "seen" : ""}">${e[1].match(/\d{4}/)[0]}</button>`).join("");
-  $("dots").children[k].scrollIntoView({block: "nearest", inline: "center"});
-  const x100 = p && now ? now/p : 0;
-  $("ev").innerHTML = `<div class="ev"><div class="scn ${SC[k][0]}" aria-hidden="true">${SC[k][1]}</div><div class="d">${k + 1} von ${E.length} · ${d}</div><h3>${t}</h3><p>${x}</p>
-    <div class="kv"><div>1 Bitcoin kostete damals<b class="num">${p ? usd(p) : "noch nichts"}</b></div><div>${x100 ? "100 $ von damals wären heute" : k < 2 ? "Blöcke bis heute (ca.)" : "Kurs heute"}<b class="num g">${x100 ? usd(100*x100) : k < 2 ? (height ? (Lern.DATA ? height : Math.round(height/100)*100).toLocaleString("de-DE") : "–") : now ? usd(now) : "–"}</b></div></div></div>`;
-  counters($("ev"));
-  $("prev").disabled = k === 0; $("nextE").textContent = k === E.length - 1 ? "Von vorn ↺" : "Weiter →";
+// ---------- Scroll-Story: jede Szene spielt, sobald sie ins Bild kommt; oben laufen Jahr und Kurs mit ----------
+const kvOf = i => { const p = E[i][4], x100 = p && now ? now/p : 0;
+  return `<div class="kv"><div>1 Bitcoin kostete damals<b class="num">${p ? usd(p) : "noch nichts"}</b></div><div>${x100 ? "100 $ von damals wären heute" : i < 2 ? "Blöcke bis heute (ca.)" : "Kurs heute"}<b class="num g">${x100 ? usd(100*x100) : i < 2 ? (height ? (Lern.DATA ? height : Math.round(height/100)*100).toLocaleString("de-DE") : "–") : now ? usd(now) : "–"}</b></div></div>`; };
+$("story").innerHTML = E.map(([ic, d, t, x], i) => `<article class="st" data-i="${i}"><div class="scn ${SC[i][0]}" aria-hidden="true"></div><div class="d">${i + 1} von ${E.length} · ${d}</div><h3>${t}</h3><p>${x}</p><div class="kvh">${kvOf(i)}</div></article>`).join("");
+const ST = [...$("story").children];
+// Mini-Kurslinie (logarithmisch): Punkte je Moment, ohne Preis = Grundlinie
+const PX = i => 6 + i*(288/(E.length - 1)), PY = p => p ? 50 - (Math.log10(p) + 3)/(Math.log10(150000) + 3)*46 : 50;
+let cur = -1;
+function focus(i){
+  if (i === cur) return; cur = i; ST.forEach((el, j) => el.classList.toggle("cur", j === i));
+  const y = E[i][1].match(/\d{4}/)[0], sY = $("sY"); if (sY.textContent !== y){ sY.textContent = y; sY.classList.remove("bump"); void sY.offsetWidth; sY.classList.add("bump"); }
+  $("sP").textContent = E[i][4] ? "1 ₿ ≈ " + usd(E[i][4]) : "noch kein Preis";
+  $("sL").setAttribute("d", E.slice(0, i + 1).map((e, j) => (j ? "L" : "M") + PX(j).toFixed(1) + " " + PY(e[4]).toFixed(1)).join(" "));
+  $("sD").setAttribute("cx", PX(i)); $("sD").setAttribute("cy", PY(E[i][4]));
+  $("sB").style.width = ((i + 1)/E.length*100) + "%";
 }
-$("dots").onclick = e => { const b = e.target.closest("button"); if (b){ k = +b.dataset.i; draw(); } };
-$("prev").onclick = () => { if (k > 0){ k--; draw(); } };
-$("nextE").onclick = () => { k = k === E.length - 1 ? 0 : k + 1; draw(); };
-// Automatisch durch alle Momente, wie ein kleiner Film
-$("play").onclick = () => {
-  if (auto){ clearInterval(auto); auto = 0; $("play").textContent = "▶ Abspielen"; return; }
-  $("play").textContent = "⏸ Pause"; auto = setInterval(() => { if (k === E.length - 1){ clearInterval(auto); auto = 0; $("play").textContent = "▶ Abspielen"; return; } k++; draw(); }, 6500);
-};
+// Szene beim Hereinkommen (neu) abspielen, aktuellen Moment nach Bildschirmmitte wählen
+const io = new IntersectionObserver(es => es.forEach(e => { const el = e.target, i = +el.dataset.i;
+  if (e.isIntersecting){ if (!el.classList.contains("on")){ el.classList.add("on"); const sc = el.querySelector(".scn"); sc.innerHTML = SC[i][1]; counters(sc); } }
+  else if (e.boundingClientRect.top > 0){ el.classList.remove("on"); el.querySelector(".scn").innerHTML = ""; }   // nach unten verlassen: beim Zurückscrollen erneut abspielen
+}), {rootMargin: "0px 0px -15% 0px", threshold: .15});
+ST.forEach(el => io.observe(el));
+let q = 0; const pick = () => { q = 0; const mid = innerHeight*.5; let best = 0, bd = 1e9; ST.forEach((el, i) => { const r = el.getBoundingClientRect(), d = Math.abs((r.top + r.bottom)/2 - mid); if (d < bd){ bd = d; best = i; } }); focus(best); };
+addEventListener("scroll", () => q || (q = requestAnimationFrame(pick)), {passive: true}); focus(0);
+function draw(){ ST.forEach((el, i) => el.querySelector(".kvh").innerHTML = kvOf(i)); }
+
+// ---------- Genesis-Block: echte Bytes der Coinbase-Eingabe, Nachricht entschlüsseln ----------
+const MSG = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
+const BYTES = [0x04, 0xff, 0xff, 0x00, 0x1d, 0x01, 0x04, 0x45, ...[...MSG].map(c => c.charCodeAt(0))];
+const hx = b => b.toString(16).padStart(2, "0");
+$("gen").innerHTML = BYTES.map((b, i) => `<button type="button" class="${i < 8 ? "t" : b === 32 ? "sp" : ""}" data-i="${i}" aria-label="Byte ${hx(b)}">${hx(b)}</button>`).join("");
+const G = [...$("gen").children];
+const show = (i, on) => { const b = BYTES[i], el = G[i]; if (i < 8) return; el.textContent = on ? (b === 32 ? "␣" : String.fromCharCode(b)) : hx(b); el.classList.toggle("ch", on); };
+const allOn = () => G.every((el, i) => i < 8 || el.classList.contains("ch"));
+const reveal = () => { if ($("gNews").hidden){ $("gNews").hidden = false; $("gRst").hidden = false; Lern.sfx("star"); } };
+$("gen").onclick = e => { const el = e.target.closest("button"); if (!el) return; const i = +el.dataset.i;
+  if (i < 8){ Lern.toast ? Lern.toast("Diese ersten Bytes sind Technik (Schwierigkeit, Länge), keine Buchstaben.") : 0; return; }
+  show(i, !el.classList.contains("ch")); if (allOn()) reveal(); };
+let gt = 0;
+$("gDec").onclick = () => { clearInterval(gt); let i = 8; $("gDec").disabled = true;
+  gt = setInterval(() => { while (i < BYTES.length && G[i].classList.contains("ch")) i++; if (i >= BYTES.length){ clearInterval(gt); $("gDec").disabled = false; reveal(); return; } show(i++, true); }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 5 : 45); };
+$("gRst").onclick = () => { clearInterval(gt); $("gDec").disabled = false; G.forEach((el, i) => show(i, false)); $("gNews").hidden = true; $("gRst").hidden = true; };
 
 // Pizza-Rätsel
 function pizza(){

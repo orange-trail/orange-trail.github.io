@@ -37,6 +37,15 @@
 .esides{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .esides div{border:2px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.5}
 .esides .c{border-color:rgba(231,76,60,.6)} .esides .p{border-color:rgba(46,204,113,.6)} .esides b{display:block;margin-bottom:2px}
 @media (max-width:620px){ .ekv,.esides{grid-template-columns:1fr} .ebars div{grid-template-columns:7.5em 1fr 4.8em} }
+.vs{margin-top:14px} .vsr{margin-top:12px;text-align:center}
+.vsh{margin:0;color:var(--muted);font-size:14px} .vsn{display:block;font:900 clamp(30px,9vw,46px)/1.1 var(--f-display);color:var(--gold);margin:6px 0;text-shadow:0 0 22px rgba(255,201,77,.35)}
+.vsx{margin:0 0 10px;font-weight:700}
+.tl{position:relative;height:140px;margin:8px 4px 26px;border-bottom:3px solid #3a4180}
+.tl .ev{position:absolute;bottom:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted);text-align:center;width:72px;line-height:1.2}
+.tl .ev i{display:block;width:2px;background:#3a4180;margin-top:2px} .tl .ev.l{transform:translateX(-1px);align-items:flex-start;text-align:left} .tl .ev.r{transform:translateX(calc(-100% + 1px));align-items:flex-end;text-align:right}
+.tl .me{position:absolute;bottom:-9px;left:0;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe08a,#f7931a);border:3px solid #0d1230;box-shadow:0 0 16px rgba(255,201,77,.8);transition:left 2.6s cubic-bezier(.25,.8,.25,1)}
+.tl .me::after{content:"Du";position:absolute;top:20px;left:50%;transform:translateX(-50%);font:900 12px var(--f-display);color:var(--gold)}
+.vsf{font-size:12px;margin:10px 0 0}
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -68,6 +77,16 @@
       <div><small>So viele deiner Geräte</small><b class="num" id="dev">–</b></div>
       <div><small>Dein Gerät bräuchte für 1 Block</small><b class="num g" id="solo">–</b></div>
       <div><small>Nullen bei echten Blöcken</small><b class="num" id="realz">–</b></div>
+    </div>
+    <div class="vs">
+      <button class="btn" id="bench" type="button">⏱ Mein Gerät messen</button>
+      <div class="vsr" id="vsr" hidden>
+        <p class="vsh">Dein Gerät bräuchte allein für <b>einen</b> Block ungefähr</p>
+        <b class="vsn num" id="vsN">–</b>
+        <p class="vsx" id="vsX"></p>
+        <div class="tl" id="tl" aria-hidden="true"></div>
+        <p class="muted vsf">Zeitachse gestaucht (logarithmisch), sonst würde sie nicht auf den Bildschirm passen. Gemessen mit SHA-256 in deinem Browser, echte Miner rechnen mit Spezialchips millionenfach schneller.</p>
+      </div>
     </div>
     <p class="bxh">📏 <b>Was heißt „Tempo“?</b></p><div class="learn bx"><div><b>Hash</b><span>Ein Versuch heißt <b>Hash</b>. Tempo misst man in <b>H/s</b>: Hashes pro Sekunde.</span></div><div><b>Das ganze Netz</b><span>Rund <b>1.000 Trillionen</b> pro Sekunde (kurz <b>EH/s</b>). Eine Trillion ist eine 1 mit 18 Nullen.</span></div><div><b>Zum Vergleich</b><span>Pro Sekunde mehr Versuche als 100-mal alle Sandkörner der Erde.</span></div></div>
     <p class="note">Deshalb rechnen Miner mit Spezialchips in großen Hallen und schließen sich zu <b>Pools</b> zusammen, die sich die Belohnung teilen.</p>
@@ -105,7 +124,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=88"></script>
+<script src="../lern.js?v=89"></script>
 <script>
 /* =====================================================================
    MINING-WERKSTATT – Lernwelt von Orange Trail
@@ -154,6 +173,31 @@ async function load(){
   compare();
 }
 load();
+
+// Handy gegen Netz: kurze Messung, dann die Zeit für einen echten Block auf einer kosmischen Zeitachse
+const EV = [[1, "1 Jahr"], [80, "ein Menschen&shy;leben"], [4500, "seit den Pyramiden"], [3e5, "seit es Menschen gibt"], [6.6e7, "seit die Dinos weg sind"], [1.38e10, "Alter des Univer&shy;sums"]];
+const yrs = y => y < 1e3 ? fmt(y) + " Jahre" : y < 1e6 ? fmt(y) + " Jahre" : big(y) + " Jahre";
+$("bench").addEventListener("click", () => {
+  const b = $("bench"); if (b.disabled) return; b.disabled = true; b.textContent = "⏱ Messe …";
+  let n = 0; const t0 = performance.now(), D = 1200, data = "Messung " + Date.now();
+  const step = () => { const end = performance.now() + 25; while (performance.now() < end){ for (let k = 0; k < 100; k++){ Lern.sha256(data + n); n++; } }
+    if (performance.now() - t0 < D){ b.textContent = `⏱ Messe … ${fmt(n)} Versuche`; requestAnimationFrame(step); return; }
+    myRate = n/((performance.now() - t0)/1000); $("rate").textContent = big(myRate); compare(); result(); b.disabled = false; b.textContent = "↻ Nochmal messen"; };
+  requestAnimationFrame(step);
+});
+function result(){
+  const D = diff || 1.48e14, y = D*4294967296/myRate/31557600, U = 1.38e10;
+  $("vsr").hidden = false;
+  const lo = 0, hi = Math.max(Math.log10(y)*1.08, 11.5), X = v => (Math.log10(Math.max(1, v)) - lo)/(hi - lo)*100;
+  $("tl").innerHTML = EV.map(([v, t], i) => `<div class="ev${i === 0 ? " l" : X(v) > 88 ? " r" : ""}" style="left:${X(v).toFixed(1)}%"><span>${t}</span><i style="height:${i % 2 ? 70 : 14}px"></i></div>`).join("") + '<div class="me" id="me"></div>';
+  const me = $("me"); requestAnimationFrame(() => requestAnimationFrame(() => me.style.left = X(y).toFixed(1) + "%"));
+  const t0 = performance.now(), dur2 = 2600;
+  const run = t => { const k = Math.min(1, (t - t0)/dur2), e = 1 - Math.pow(1 - k, 3); $("vsN").textContent = yrs(Math.pow(10, Math.log10(y)*e));
+    if (k < 1) requestAnimationFrame(run); else { $("vsN").textContent = yrs(y);
+      $("vsX").innerHTML = y > U ? `Das ist <b>${(y/U).toLocaleString("de-DE", {maximumFractionDigits: 1})}-mal</b> so lang, wie es das Universum schon gibt. 🤯` : y > 5e9 ? "Länger, als unsere Sonne noch scheinen wird. 🤯" : `Das Netz schafft das in rund <b>10 Minuten</b>.`;
+      Lern.sfx("star"); } };
+  requestAnimationFrame(run);
+}
 
 // Strom-Schätzung aus der Live-Hashrate (früher eigene Welt "Strom-Check")
 // Spanne 15 J/TH (nur neue Geräte) bis 30 J/TH (viele ältere), Mitte 22; Haushalt ca. 3.500 kWh/Jahr

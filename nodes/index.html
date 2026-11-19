@@ -18,6 +18,17 @@
 <link rel="stylesheet" href="../lern.css?v=63">
 <style>
 /* Lernwelt "Nodes": nur seitenspezifische Teile, der Rest kommt aus lern.css */
+.wmap{margin-top:12px;border-radius:14px;overflow:hidden;border:4px solid #0d1230;box-shadow:5px 5px 0 #0d1230;background:radial-gradient(ellipse at 50% 40%,#16205a,#0b0f2a)}
+.wmap svg{display:block;width:100%;height:auto}
+.wmap .land{fill:#263170;stroke:#0d1230;stroke-width:5;stroke-linejoin:round}
+.wmap .ln{stroke:#4a56a8;stroke-width:2.5;opacity:.6} .wmap .ln.hot{stroke:#ffc94d;stroke-width:5;opacity:1;stroke-dasharray:var(--l);stroke-dashoffset:var(--l);animation:wl var(--d) linear forwards}
+.wmap .ln.bad{stroke:#e74c3c;stroke-width:5;opacity:1;stroke-dasharray:var(--l);stroke-dashoffset:var(--l);animation:wl var(--d) linear forwards}
+.wmap .nd{fill:#7d86c4;stroke:#0d1230;stroke-width:4;cursor:pointer;transition:fill .3s} .wmap .nd.got{fill:#ffc94d;animation:wpop .5s} .wmap .nd.rej{fill:#e74c3c;animation:wpop .5s} .wmap .nd.src{fill:#34d982}
+.wmap .rg{fill:none;stroke:#ffc94d;stroke-width:3;opacity:0;transform-box:fill-box;transform-origin:center;animation:wring .9s ease-out}
+.wmap .rg.bad{stroke:#e74c3c}
+@keyframes wl{to{stroke-dashoffset:0}} @keyframes wpop{50%{r:19}} @keyframes wring{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(3)}}
+.wstat{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px} .wstat div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .wstat b{display:block;font:800 18px var(--f-num);color:var(--ink)} .wstat .g{color:var(--gold)}
+
 .dev{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
 .dev div{border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.45;color:var(--muted);background:rgba(255,255,255,.03)} .dev b{color:var(--ink)} .dev div > b:first-child{display:block;margin-bottom:2px;font-family:var(--f-display)}
 @media (max-width:620px){ .dev{grid-template-columns:1fr} }
@@ -77,6 +88,15 @@
       <div><small>blockstream.info</small><b class="num" id="bH">–</b><code id="bX">–</code></div>
     </div>
     <p class="verdict" id="vd"></p>
+  </section>
+
+  <section class="card" aria-labelledby="hW">
+    <h2 id="hW">Dein Block geht um die Welt</h2>
+    <p class="muted" style="margin:0">Tippe auf eine Node: Dort findet ein Miner einen Block. Jede Node <b>prüft</b> ihn und reicht ihn an ihre Nachbarn weiter. Achte darauf, wie schnell er um die Erde läuft.</p>
+    <div class="wmap" id="wmap"></div>
+    <div class="wstat"><div><small>Nodes mit dem Block</small><b class="num" id="wN">0 von 0</b></div><div><small>Echte Zeit (ca.)</small><b class="num g" id="wT">–</b></div></div>
+    <div class="row" style="margin-top:10px;gap:8px;flex-wrap:wrap"><button class="btn" id="wGo" type="button">⛏ Block finden</button><button class="btn ghost" id="wBad" type="button">🦹 Gefälschten Block senden</button></div>
+    <p class="note" id="wMsg" style="margin:10px 0 0">In echt erreicht ein neuer Block die meisten der rund 20.000 erreichbaren Nodes in <b>wenigen Sekunden</b>.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
@@ -143,7 +163,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=88"></script>
+<script src="../lern.js?v=89"></script>
 <script>
 /* =====================================================================
    NODE-WACHE – Lernwelt von Orange Trail
@@ -255,6 +275,51 @@ run();
   const tl = h => { $("fTl").innerHTML = EV.map(([y, blk, t, k]) => `<li><b>${y}: ${t}</b> (${k}), Block ${blk.toLocaleString("de-DE")}${h ? `, <em>vor ${(h - blk).toLocaleString("de-DE")} Blöcken</em>` : ""}</li>`).join(""); };
   tl(0); fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { if (+t > 709632) tl(+t); }).catch(() => tl(Lern.height()));
 }
+
+
+// ---------- Dein Block geht um die Welt: Weitergabe von Node zu Node ----------
+(() => {
+  const W = $("wmap"); if (!W) return;
+  const LAND = ["M60 92 186 58 300 66 336 112 292 160 258 214 214 252 176 228 128 186 76 150Z", "M330 38 392 32 384 80 342 82Z", "M246 262 318 276 352 326 322 396 292 458 270 438 262 360 240 300Z",
+    "M462 92 532 66 586 86 566 130 524 152 480 142 456 120Z", "M466 168 560 158 604 210 594 282 562 350 530 380 508 340 488 262 448 228Z",
+    "M586 70 762 46 908 78 886 142 826 172 786 222 730 204 690 236 646 194 590 160Z", "M796 330 878 318 904 368 862 402 810 392Z", "M890 120 908 112 916 150 902 158Z"];
+  const N = [[110,120],[170,98],[232,110],[282,118],[200,160],[150,150],[242,192],[270,86],[288,326],[312,372],[284,412],[268,300],[490,108],[522,92],[548,116],[506,136],[478,124],[562,100],
+    [520,200],[562,250],[532,320],[492,232],[620,110],[700,90],[780,100],[848,110],[762,160],[700,150],[652,182],[826,150],[903,135],[600,172],[842,352],[874,372]];
+  const d = (a, b) => Math.hypot(N[a][0] - N[b][0], N[a][1] - N[b][1]);
+  const E = new Map(), add = (a, b) => { const k = a < b ? a + "-" + b : b + "-" + a; if (a !== b && !E.has(k)) E.set(k, [Math.min(a, b), Math.max(a, b)]); };
+  N.forEach((_, i) => N.map((_, j) => j).filter(j => j !== i).sort((x, y) => d(i, x) - d(i, y)).slice(0, 3).forEach(j => add(i, j)));
+  [[3, 16], [7, 13], [17, 22], [25, 30], [29, 32], [11, 21], [30, 1], [14, 31], [18, 31]].forEach(([a, b]) => add(a, b));
+  const nb = N.map(() => []); [...E.values()].forEach(([a, b]) => { nb[a].push(b); nb[b].push(a); });
+  W.innerHTML = `<svg viewBox="30 20 900 420" role="img" aria-label="Weltkarte mit Nodes">${LAND.map(p => `<path class="land" d="${p}"/>`).join("")}<g id="wL">${[...E.values()].map(([a, b]) => `<line class="ln" data-k="${a}-${b}" x1="${N[a][0]}" y1="${N[a][1]}" x2="${N[b][0]}" y2="${N[b][1]}"/>`).join("")}</g><g id="wR"></g><g>${N.map(([x, y], i) => `<circle class="nd" data-i="${i}" cx="${x}" cy="${y}" r="13"/>`).join("")}</g></svg>`;
+  const C = [...W.querySelectorAll(".nd")], Ls = new Map([...W.querySelectorAll(".ln")].map(l => [l.dataset.k, l]));
+  $("wN").textContent = `0 von ${N.length}`;
+  let timers = [], t0 = 0, raf = 0, got = 0;
+  const reset = () => { timers.forEach(clearTimeout); timers = []; cancelAnimationFrame(raf); got = 0; C.forEach(c => c.setAttribute("class", "nd")); Ls.forEach(l => { l.setAttribute("class", "ln"); l.style.cssText = ""; }); $("wR").innerHTML = ""; $("wN").textContent = `0 von ${N.length}`; $("wT").textContent = "–"; };
+  const ring = (i, bad) => { $("wR").insertAdjacentHTML("beforeend", `<circle class="rg${bad ? " bad" : ""}" cx="${N[i][0]}" cy="${N[i][1]}" r="14"/>`); const r = $("wR").lastElementChild; setTimeout(() => r.remove(), 950); };
+  const SLOW = matchMedia("(prefers-reduced-motion: reduce)").matches ? .15 : 1, PX = 4.2*SLOW, HOP = 260*SLOW;   // ms pro Pixel Weg, ms Prüfzeit je Node
+  function run(src, bad){
+    reset(); t0 = performance.now(); const T = new Array(N.length).fill(Infinity); T[src] = 0; const done = new Set(), Q = [src];
+    // kürzeste Ankunftszeiten (Dijkstra); bei Fälschung lehnen die Nachbarn ab und geben nichts weiter
+    while (Q.length){ Q.sort((a, b) => T[a] - T[b]); const u = Q.shift(); if (done.has(u)) continue; done.add(u); if (bad && u !== src) continue;
+      nb[u].forEach(v => { const t = T[u] + HOP + d(u, v)*PX*(0.85 + Math.random()*.3); if (t < T[v]){ T[v] = t; Q.push(v); } }); }
+    C[src].setAttribute("class", "nd src"); ring(src, false); got = bad ? 0 : 1; $("wN").textContent = `${got} von ${N.length}`; Lern.sfx("click");
+    N.forEach((_, v) => { if (v === src || !isFinite(T[v])) return;
+      const from = nb[v].filter(u => (u === src || !bad) && isFinite(T[u]) && T[u] < T[v]).sort((a, b) => T[a] - T[b])[0], k = from < v ? from + "-" + v : v + "-" + from, l = Ls.get(k);
+      const start = T[v] - d(from, v)*PX;
+      timers.push(setTimeout(() => { if (!l) return; l.style.setProperty("--l", Math.ceil(d(from, v))); l.style.setProperty("--d", Math.max(60, T[v] - start - HOP) + "ms");
+        if (from > v){ l.setAttribute("x1", N[from][0]); l.setAttribute("y1", N[from][1]); l.setAttribute("x2", N[v][0]); l.setAttribute("y2", N[v][1]); }
+        l.setAttribute("class", "ln " + (bad ? "bad" : "hot")); }, Math.max(0, start - HOP)));
+      timers.push(setTimeout(() => { C[v].setAttribute("class", "nd " + (bad ? "rej" : "got")); ring(v, bad); if (!bad){ got++; $("wN").textContent = `${got} von ${N.length}`; } }, T[v]));
+    });
+    const end = Math.max(...T.filter(isFinite));
+    const tick = () => { const e = performance.now() - t0; $("wT").textContent = (Math.min(e, end)/end*(bad ? .3 : 2.2)).toLocaleString("de-DE", {minimumFractionDigits: 1, maximumFractionDigits: 1}) + " Sek."; if (e < end) raf = requestAnimationFrame(tick); else fin(); };
+    const fin = () => { $("wMsg").innerHTML = bad ? "🛡️ <b>Abgelehnt!</b> Die direkten Nachbarn prüfen den Block, finden den Fehler und geben ihn <b>nicht weiter</b>. Eine Fälschung kommt nicht weit." : "✓ <b>Alle haben ihn!</b> Jede Node hat den Block selbst geprüft, bevor sie ihn weitergab. In echt dauert das nur wenige Sekunden."; Lern.sfx(bad ? "no" : "ok"); };
+    raf = requestAnimationFrame(tick);
+  }
+  W.addEventListener("click", e => { const c = e.target.closest(".nd"); if (c) run(+c.dataset.i, false); });
+  $("wGo").onclick = () => run([3, 13, 23, 9, 19][Math.floor(Math.random()*5)], false);
+  $("wBad").onclick = () => run([13, 24, 2][Math.floor(Math.random()*3)], true);
+})();
 
 const QUIZ = [
   ["Wer entscheidet, ob ein Block gültig ist?", ["Der größte Miner", "Jede Node selbst, nach den Regeln", "Eine Bitcoin-Firma"], 1, "Jede Node prüft jeden Block eigenständig. Ungültige Blöcke werden ignoriert, egal von wem sie kommen."],

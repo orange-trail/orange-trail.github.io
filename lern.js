@@ -682,7 +682,7 @@ const Lern = (() => {
 
 
   // ---------- Fortschritt mitnehmen: alles als Code, ohne Konto und ohne Server ----------
-  const SYNC_KEYS = ["bvb-lernen", "satsland-boss", "satsland-daily", "satsland-titles", "satsland-rep"];
+  const SYNC_KEYS = ["bvb-lernen", "satsland-boss", "satsland-daily", "satsland-titles", "satsland-rep", "satsland-tresor"];
   function syncExport(){
     const o = {}; SYNC_KEYS.forEach(k => { try { const v = localStorage.getItem(k); if (v) o[k] = JSON.parse(v); } catch(e){} });
     return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
@@ -711,6 +711,7 @@ const Lern = (() => {
     const B = get("satsland-boss"); const B0 = bossWon(); localStorage.setItem("satsland-boss", JSON.stringify(Object.assign({}, o["satsland-boss"] || {}))); const B1 = bossWon(); Object.entries(B1).forEach(([k, v]) => { if (v === "perfect" || !B0[k]) B0[k] = v; }); put("satsland-boss", B0);
     const D = get("satsland-daily"), d2 = o["satsland-daily"] || {}; if ((d2.last || "") > (D.last || "") || (d2.streak || 0) > (D.streak || 0)) put("satsland-daily", Object.assign({}, D, d2, {best: Math.max(D.best || 0, d2.best || 0)}));
     const T = get("satsland-titles"), t2 = o["satsland-titles"] || {}; T.got = Object.assign({}, t2.got || {}, T.got || {}); T.words = Math.max(T.words || 0, t2.words || 0); T.owl = T.owl || t2.owl; T.wp = [...new Set([...(T.wp || []), ...(t2.wp || [])])]; put("satsland-titles", T);
+    const Tr = get("satsland-tresor"), tr2 = o["satsland-tresor"] || {}; Object.keys(tr2).forEach(k => { if (tr2[k] === 1) Tr[k] = 1; }); put("satsland-tresor", Tr);
     const Rp = get("satsland-rep"); Object.entries(o["satsland-rep"] || {}).forEach(([k, v]) => { if (!Rp[k] || (v.b || 0) > (Rp[k].b || 0)) Rp[k] = v; }); put("satsland-rep", Rp);
     return true;
   }
@@ -1013,4 +1014,18 @@ addEventListener("DOMContentLoaded", () => {
     new MutationObserver(ms => ms.forEach(m => m.type === "characterData" ? scan(m.target) : m.addedNodes.forEach(scan)))
       .observe(document.body, {subtree: true, childList: true, characterData: true}); };
   document.readyState === "loading" ? addEventListener("DOMContentLoaded", go) : go();
+})();
+
+// Fühlbares Feedback überall: Ergebnisboxen (grün/rot) und Erfolge geben Ton + kurze Vibration, nur nach eigener Aktion
+(() => {
+  let last = -1e9; ["pointerdown", "keydown"].forEach(ev => addEventListener(ev, e => { if (e.isTrusted) last = performance.now(); }, {capture: true, passive: true}));
+  const rec = () => performance.now() - last < 15000;
+  addEventListener("DOMContentLoaded", () => {
+    if (typeof Lern === "undefined" || !Lern.sfx) return; const done = new WeakMap();
+    new MutationObserver(ms => { if (!rec() || window.__sweep) return;
+      for (const m of ms){ const el = m.target; if (!(el instanceof Element)) continue;
+        const k = el.matches(".res.bad, .hx.bad") ? (/Liquidiert/.test(el.textContent) ? "ko" : "no") : el.matches(".res.ok, .res.good, .hx.win") ? "ok" : "";
+        if (!k){ done.delete(el); continue; } if (done.get(el) === el.className + k) continue; done.set(el, el.className + k); Lern.sfx(k); }
+    }).observe(document.querySelector(".wrap") || document.body, {subtree: true, attributes: true, attributeFilter: ["class"]});
+  });
 })();

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Der Tresor · Orange Trail</title>
+<meta name="description" content="Das Finale von Orange Trail: Vier Schlösser aus allem, was du gelernt hast. Knack den Tresor und hol dir deine Urkunde.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Der Tresor · Orange Trail">
+<meta property="og:description" content="Das Finale von Orange Trail: Vier Schlösser aus allem, was du gelernt hast. Knack den Tresor und hol dir deine Urkunde.">
+<meta property="og:image" content="https://orange-trail.github.io/og.png">
+<meta property="og:url" content="https://orange-trail.github.io/tresor/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f2a">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../lern.css?v=63">
+<style>
+/* Der Tresor: Abschluss-Rätsel nach dem Endboss */
+.vault{position:relative;width:min(300px,82%);aspect-ratio:1;margin:8px auto 0;perspective:900px}
+.vault .frame{position:absolute;inset:0;border-radius:24px;background:linear-gradient(145deg,#2a2f55,#141836);border:5px solid #0d1230;box-shadow:6px 6px 0 #0d1230,inset 0 0 40px rgba(0,0,0,.6);display:grid;place-items:center;overflow:hidden}
+.vault .inside{position:absolute;inset:14px;border-radius:16px;background:radial-gradient(circle at 50% 60%,rgba(255,201,77,.55),#3a2a08 70%);display:grid;place-items:center;font-size:64px}
+.vault .door{position:absolute;inset:10px;border-radius:18px;background:linear-gradient(145deg,#5a6290,#30365e);border:5px solid #0d1230;transform-origin:4% 50%;transition:transform 1.4s cubic-bezier(.5,0,.2,1);display:grid;place-items:center;box-shadow:inset 0 0 0 6px rgba(255,255,255,.06)}
+.vault.open .door{transform:rotateY(-108deg)}
+.dial{width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#8a92c8 0 18%,#3c4373 19% 62%,#262b52 63%);border:5px solid #0d1230;box-shadow:0 6px 0 #0d1230;position:relative;transition:transform 1.2s cubic-bezier(.3,1.3,.5,1)}
+.dial::before{content:"";position:absolute;left:50%;top:6%;width:8%;height:30%;margin-left:-4%;border-radius:6px;background:#ffc94d;border:3px solid #0d1230}
+.vault.spin .dial{transform:rotate(720deg)}
+.slots{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);display:flex;gap:6px}
+.slots b{width:30px;height:38px;border-radius:8px;background:#0d1230;color:#ffc94d;font:900 22px/38px var(--f-num);text-align:center;border:2px solid #4a5290}
+.slots b.on{animation:pop .4s;border-color:#ffc94d;box-shadow:0 0 12px rgba(255,201,77,.6)}
+.locks{display:grid;gap:14px;margin-top:4px}
+.lock{border:2px solid var(--line);border-radius:18px;padding:14px;background:rgba(255,255,255,.02);transition:border-color .4s,background .4s}
+.lock.done{border-color:var(--bull);background:rgba(52,217,130,.06)}
+.lock h3{margin:0 0 6px;font-size:18px;display:flex;align-items:center;gap:8px} .lock h3 .st{margin-left:auto;font:800 12px var(--f-body);color:var(--muted)} .lock.done h3 .st{color:var(--bull)}
+.lock p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.5}
+.tgt{margin-top:10px;font:700 13px var(--f-code);color:var(--gold);word-break:break-all;padding:8px 10px;border-radius:10px;background:rgba(0,0,0,.25)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips button{font:700 14px var(--f-body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer}
+.chips button.y{background:rgba(52,217,130,.25);border-color:var(--bull)} .chips button.n{background:rgba(231,76,60,.18);border-color:#e74c3c;animation:shake .35s}
+.hres{margin-top:8px;font:600 12.5px var(--f-code);color:var(--muted);min-height:1.4em;word-break:break-all}
+.chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.chain button{all:unset;cursor:pointer;border:2px solid var(--line);border-radius:12px;padding:8px;background:rgba(255,255,255,.03);font:600 11px/1.4 var(--f-code);color:var(--muted);word-break:break-all}
+.chain button b{display:block;font:800 13px var(--f-body);color:var(--ink);margin-bottom:4px}
+.chain button.y{border-color:var(--bull)} .chain button.n{border-color:#e74c3c;animation:shake .35s} .chain button:focus-visible{outline:2px solid var(--gold)}
+.chain em{font-style:normal;color:#9aa2d6} .chain i{font-style:normal;color:var(--gold)}
+.digit{display:none;margin-top:10px;font:800 14px var(--f-body);color:var(--bull)} .lock.done .digit{display:block}
+.digit b{display:inline-grid;place-items:center;width:28px;height:32px;margin-left:6px;border-radius:7px;background:#0d1230;color:#ffc94d;font:900 18px var(--f-num)}
+.cert{display:none;margin-top:16px;text-align:center} .cert.on{display:block;animation:p-pop .6s}
+.cert canvas{width:min(100%,420px);height:auto;border-radius:12px;box-shadow:0 18px 40px -16px #000}
+.lockd{text-align:center} .lockd .big{font-size:56px;margin:4px 0}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@keyframes p-pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
+@media (max-width:520px){ .chain{grid-template-columns:1fr 1fr} }
+@media (prefers-reduced-motion:reduce){ .vault .door,.dial{transition:none} }
+</style>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../">← Orange Trail</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div>
+    <h1>Der <span class="btc">Tresor</span></h1>
+    <p class="lead">Das Finale: Vier Schlösser, jedes braucht etwas, das du auf dem Trail gelernt hast. Jedes geknackte Schloss verrät eine Ziffer. Mit allen vier öffnet sich der Tresor.</p>
+  </div>
+
+  <section class="card lockd" id="gate" hidden>
+    <div class="big">🔒</div>
+    <h2 style="margin:0">Noch verschlossen</h2>
+    <p class="muted">Der Tresor öffnet sich erst, wenn du am Gipfel den <b>Endboss</b> besiegt hast.</p>
+    <a class="btn" href="../">Zum Trail</a>
+  </section>
+
+  <div id="game" hidden>
+  <section class="card" aria-labelledby="hV">
+    <h2 id="hV">Der Code</h2>
+    <div class="vault" id="vault"><div class="frame"><div class="inside">🏆</div><div class="door"><div class="dial"></div><div class="slots" id="slots"><b>?</b><b>?</b><b>?</b><b>?</b></div></div></div></div>
+    <div class="row" style="justify-content:center;margin-top:16px"><button class="btn" id="open" type="button" disabled>🔒 Noch 4 Schlösser</button></div>
+    <div class="cert" id="cert"><canvas id="cv" width="1080" height="1080" aria-label="Deine Urkunde"></canvas>
+      <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn" id="dl" type="button">⬇ Urkunde speichern</button><button class="btn ghost" id="sh" type="button" hidden>Teilen</button></div></div>
+  </section>
+
+  <section class="card" aria-labelledby="hL">
+    <h2 id="hL">Die vier Schlösser</h2>
+    <div class="locks">
+      <div class="lock" id="L1"><h3>🔑 1 · Fingerabdruck<span class="st">offen</span></h3>
+        <p>Dieser SHA-256-Fingerabdruck gehört zu einem dieser Wörter. Probier sie aus, dein Gerät rechnet echt.</p>
+        <div class="tgt" id="tgt">…</div><div class="chips" id="c1"></div><div class="hres" id="h1"></div><div class="digit">Ziffer gefunden:<b>7</b></div></div>
+      <div class="lock" id="L2"><h3>⛓️ 2 · Die gefälschte Kette<span class="st">offen</span></h3>
+        <p>Jeder Block speichert den Fingerabdruck seines Vorgängers. In einem Block wurde heimlich etwas geändert. Vergleiche den <b>eigenen</b> Fingerabdruck jedes Blocks mit dem, den der <b>nächste</b> Block gespeichert hat. Welcher Block wurde gefälscht?</p>
+        <div class="chain" id="c2"></div><div class="digit">Ziffer gefunden:<b>6</b></div></div>
+      <div class="lock" id="L3"><h3>✂️ 3 · Halving<span class="st">offen</span></h3>
+        <p>Wie viele Bitcoin bekam ein Miner pro Block nach dem Halving <b>2020</b>?</p>
+        <div class="chips" id="c3"></div><div class="digit">Ziffer gefunden:<b>1</b></div></div>
+      <div class="lock" id="L4"><h3>📰 4 · Die Botschaft im ersten Block<span class="st">offen</span></h3>
+        <p>„Chancellor on brink of second ______ for banks.“ Welches Wort hat Satoshi in den Genesis-Block geschrieben?</p>
+        <div class="chips" id="c4"></div><div class="digit">Ziffer gefunden:<b>4</b></div></div>
+    </div>
+  </section>
+  </div>
+
+  <details class="foot"><summary>Quellen</summary><p>Alle Fingerabdrücke werden mit echtem SHA-256 direkt in deinem Browser berechnet. Halving: Bitcoin-Regeln (Belohnung 6,25 BTC ab Mai 2020). Genesis-Block: Coinbase-Nachricht von Block 0. Die Urkunde entsteht nur auf deinem Gerät.</p></details>
+  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+</div>
+
+<script src="../lern.js?v=89"></script>
+<script>
+/* =====================================================================
+   DER TRESOR – Abschluss-Rätsel von Orange Trail
+   Vier Schlösser, je eine Ziffer; Fortschritt bleibt im Browser.
+   ===================================================================== */
+(() => {
+const $ = id => document.getElementById(id), KEY = "satsland-tresor", CODE = ["7", "6", "1", "4"];
+const won = Lern.bossWon().f;
+$("gate").hidden = !!won; $("game").hidden = !won;
+if (!won) return;
+let st = {}; try { st = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e){} };
+const mix = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
+
+function solve(n, silent){
+  st[n] = 1; save(); $("L" + n).classList.add("done"); $("L" + n).querySelector(".st").textContent = "✓ geknackt";
+  const s = $("slots").children[n - 1]; s.textContent = CODE[n - 1]; s.classList.add("on");
+  if (!silent){ Lern.sfx("ok"); Lern.toast && Lern.toast(`🔓 Schloss ${n} geknackt: Ziffer ${CODE[n - 1]}`); }
+  const left = 4 - [1, 2, 3, 4].filter(k => st[k]).length;
+  $("open").disabled = !!left; $("open").textContent = left ? `🔒 Noch ${left} Schloss${left > 1 ? "er" : ""}` : (st.open ? "✓ Geöffnet" : "🔓 Tresor öffnen");
+}
+const miss = b => { b.classList.add("n"); Lern.sfx("no"); setTimeout(() => b.classList.remove("n"), 700); };
+
+// 1 · Fingerabdruck: echter SHA-256
+const W1 = ["Satoshi", "Halving", "Pizza", "Block", "Wal", "Seed"], A1 = "Pizza", H = Lern.sha256(A1);
+$("tgt").textContent = H.slice(0, 32) + "…";
+$("c1").innerHTML = mix(W1).map(w => `<button type="button">${w}</button>`).join("");
+$("c1").onclick = e => { const b = e.target.closest("button"); if (!b || st[1]) return; const h = Lern.sha256(b.textContent);
+  $("h1").innerHTML = `SHA-256(„${b.textContent}“) = ${h.slice(0, 32)}…`;
+  if (h === H){ b.classList.add("y"); solve(1); } else miss(b); };
+
+// 2 · Gefälschte Kette: Block 3 wurde verändert, sein neuer Fingerabdruck passt nicht zu Block 4
+{ const D = ["Anna → Ben 2 BTC", "Ben → Cem 1 BTC", "Cem → Dana 5 BTC", "Dana → Eli 3 BTC"], bad = 2;
+  const h = []; let prev = "0000";
+  D.forEach((d, i) => { h[i] = Lern.sha256(prev + d); prev = h[i]; });
+  const stored = D.map((d, i) => i ? h[i - 1] : "0000");   // was jeder Block über seinen Vorgänger gespeichert hat
+  const shown = D.map((d, i) => i === bad ? "Cem → Dana 50 BTC" : d);
+  const real = []; prev = "0000"; shown.forEach((d, i) => { real[i] = Lern.sha256(stored[i] + d); });
+  $("c2").innerHTML = shown.map((d, i) => `<button type="button" data-i="${i}"><b>Block ${i + 1}</b>${d}<br><em>vorher:</em> ${stored[i].slice(0, 6)}<br><em>eigener:</em> <i>${real[i].slice(0, 6)}</i></button>`).join("");
+  $("c2").onclick = e => { const b = e.target.closest("button"); if (!b || st[2]) return; if (+b.dataset.i === bad){ b.classList.add("y"); solve(2); } else miss(b); };
+}
+
+// 3 · Halving
+$("c3").innerHTML = mix(["50", "25", "12,5", "6,25", "3,125"]).map(v => `<button type="button">${v} BTC</button>`).join("");
+$("c3").onclick = e => { const b = e.target.closest("button"); if (!b || st[3]) return; if (b.textContent === "6,25 BTC"){ b.classList.add("y"); solve(3); } else miss(b); };
+
+// 4 · Genesis-Botschaft
+$("c4").innerHTML = mix(["bailout", "crisis", "bitcoin", "budget"]).map(v => `<button type="button">${v}</button>`).join("");
+$("c4").onclick = e => { const b = e.target.closest("button"); if (!b || st[4]) return; if (b.textContent === "bailout"){ b.classList.add("y"); solve(4); } else miss(b); };
+
+[1, 2, 3, 4].forEach(n => st[n] && solve(n, true));
+
+// Tresor öffnen + Urkunde (nur lokal gezeichnet)
+function cert(){
+  const c = $("cv"), g = c.getContext("2d"), S = 1080, s = Lern.load(), lv = Lern.level(Lern.count(s));
+  const bg = g.createLinearGradient(0, 0, 0, S); bg.addColorStop(0, "#3a2a08"); bg.addColorStop(1, "#0b0f2a"); g.fillStyle = bg; g.fillRect(0, 0, S, S);
+  g.strokeStyle = "#ffc94d"; g.lineWidth = 14; g.strokeRect(40, 40, S - 80, S - 80); g.lineWidth = 3; g.strokeRect(66, 66, S - 132, S - 132);
+  const t = (x, y, size, col, w = 900) => { g.font = `${w} ${size}px "Arial Black", Arial, sans-serif`; g.fillStyle = col; g.textAlign = "center"; g.fillText(x, S/2, y); };
+  t("ORANGE TRAIL", 170, 44, "#f7931a"); t("URKUNDE", 270, 92, "#ffd36b");
+  t("Tresor geknackt", 380, 54, "#ffffff");
+  t("Alle Level, alle Bosse, der Endboss", 470, 36, "#dfe3ff", 700); t("und das letzte Rätsel.", 520, 36, "#dfe3ff", 700);
+  t("Rang: " + (lv && lv.name ? lv.name : "Wal"), 640, 50, "#ffc94d");
+  t("Code 7 · 6 · 1 · 4", 740, 34, "#9aa2d6", 700);
+  t(new Date().toLocaleDateString("de-DE", {day: "numeric", month: "long", year: "numeric"}), 880, 32, "#9aa2d6", 700);
+  t("₿", 990, 60, "#f7931a");
+}
+function opened(anim){
+  st.open = 1; save(); $("open").textContent = "✓ Geöffnet"; $("open").disabled = true;
+  const v = $("vault"); cert();
+  if (!anim){ v.classList.add("open"); $("cert").classList.add("on"); return; }
+  v.classList.add("spin"); Lern.sfx("click");
+  setTimeout(() => { v.classList.add("open"); Lern.sfx("win"); Lern.confetti && Lern.confetti(); }, 1250);
+  setTimeout(() => { $("cert").classList.add("on"); $("cert").scrollIntoView({behavior: "smooth", block: "center"}); }, 2500);
+}
+$("open").onclick = () => { if ([1, 2, 3, 4].every(k => st[k])) opened(true); };
+if (st.open) opened(false);
+$("dl").onclick = () => { const a = document.createElement("a"); a.download = "orange-trail-urkunde.png"; a.href = $("cv").toDataURL("image/png"); a.click(); };
+if (navigator.canShare){ $("sh").hidden = false; $("sh").onclick = () => $("cv").toBlob(async b => { const f = new File([b], "orange-trail-urkunde.png", {type: "image/png"}); try { if (navigator.canShare({files: [f]})) await navigator.share({files: [f], text: "Ich habe den Tresor von Orange Trail geknackt! 🏆"}); } catch(e){} }); }
+})();
+</script>
+</body>
+</html>

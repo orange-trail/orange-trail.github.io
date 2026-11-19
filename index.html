@@ -126,6 +126,16 @@ details.fold[open] > summary{margin-bottom:12px}
 .iwel .ign{width:100%;justify-content:center;font-size:17px} .ilook{display:block;width:100%;margin:8px 0 6px;background:none;border:0;color:var(--muted);font:700 14px var(--f-body);padding:10px;cursor:pointer;text-decoration:underline;text-underline-offset:3px} .iwel small{display:block;color:var(--muted);font-size:12px;opacity:.8}
 .calm .iev span,.calm .iev i{animation:none}
  @media(max-width:360px){.stats{grid-template-columns:1fr 1fr} .stats > :first-child{grid-column:1/-1}}
+.film{position:fixed;inset:0;z-index:200;background:radial-gradient(ellipse at 50% 30%,#1a2160,#070a1e 75%);display:grid;place-items:center;padding:56px 16px 24px;animation:fIn .4s ease;cursor:pointer}
+.film.out{animation:fOut .35s ease forwards} @keyframes fIn{from{opacity:0}} @keyframes fOut{to{opacity:0}}
+.fbar{position:absolute;top:14px;left:16px;right:16px;display:flex;gap:5px} .fbar i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.18);overflow:hidden} .fbar b{display:block;height:100%;width:0;background:linear-gradient(90deg,#f7931a,#ffc94d)}
+.fsk{position:absolute;top:28px;right:16px;border:0;background:rgba(255,255,255,.1);color:#fff;font:800 13px var(--f-body);padding:7px 12px;border-radius:999px;cursor:pointer}
+.fst{width:min(560px,100%);text-align:center} .fst .scn{height:min(46vh,340px);margin:0}
+.fcap{margin:20px 4px 0;font:700 clamp(18px,5vw,23px)/1.4 var(--f-body);color:#eef0ff;min-height:4.2em;text-wrap:balance} .fcap b{color:var(--gold)} .fcap.in{animation:capIn .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes capIn{from{opacity:0;transform:translateY(10px)}}
+.fhint{margin:6px 0 0;font-size:12px;color:#7d86c4}
+html.noscroll{overflow:hidden}
+.bossbtn.tre{text-decoration:none;color:inherit;background:linear-gradient(90deg,#5a4310,#2a1f08)}
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
 </head>
@@ -217,10 +227,10 @@ details.fold[open] > summary{margin-bottom:12px}
     <p class="msg2" id="syM"></p>
   </details>
   <div class="card" id="inst" hidden><h2 style="margin:0 0 4px">📱 Orange Trail als App</h2><p class="muted" id="instT" style="margin:0 0 8px;font-size:14px">Mit einem Symbol auf dem Startbildschirm bist du mit einem Tipp wieder da. Ohne App-Store, nichts wird hochgeladen.</p><div class="acts"><button class="btn" id="instB" type="button">📲 Installieren</button></div></div>
-  <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Satoshi ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Einführung ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Orange Trail</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
+  <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Satoshi ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Kurzfilm ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Orange Trail</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=88"></script>
+<script src="lern.js?v=89"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -275,6 +285,40 @@ details.fold[open] > summary{margin-bottom:12px}
       B.onclick = async () => { if (!ev) return; ev.prompt(); const r = await ev.userChoice; if (r.outcome === "accepted"){ box.hidden = true; Lern.toast("📱 Orange Trail ist jetzt auf deinem Startbildschirm!"); } ev = null; }; } }
   Lern.daily(document.getElementById("daily"));
   Lern.review(document.getElementById("rep"), n => { document.getElementById("rpS").textContent = n ? n + " fällig" : ""; });
+
+  // ---------- Kurzfilm: Wie wir zu Bitcoin kamen (ca. 50 Sekunden, überspringbar) ----------
+  function film(done){
+    const A = (k, x, y, sz, an = "", d = 0, st = "") => `<span class="a" style="left:${x}%;top:${y}%;width:${sz}px;height:${sz}px;${an ? `animation:${an};animation-delay:${d}s;` : ""}${st}">${Lern.art(k)}</span>`;
+    const F = (k, fx, fy, x, y, sz, d) => A(k, x, y, sz, "fly 1.4s cubic-bezier(.3,.7,.3,1) both", d, `--fx:${fx}%;--fy:${fy}%`);
+    const T = (t, x, y, d = 0, st = "") => `<span class="lbl" style="left:${x}%;top:${y}%;animation-delay:${d}s;${st}">${t}</span>`;
+    const SH = [
+      ["dawn", "Vor Tausenden Jahren tauschten Menschen Ware gegen Ware. Dann wurden <b>Muscheln</b> zu Geld.", A("fish", 24, 60, 64, "grow .6s both", .2) + A("shell", 50, 46, 56, "grow .6s both", .9) + A("shell", 64, 58, 46, "grow .6s both", 1.2) + A("shell", 78, 48, 40, "grow .6s both", 1.5) + T("Tausch", 24, 22, .4)],
+      ["day", "Dann kam <b>Gold</b>: selten, haltbar, schwer zu fälschen. Jahrhundertelang das beste Geld.", A("scale", 50, 52, 120, "tilt 1.6s cubic-bezier(.3,1.6,.5,1) both", .2, "transform:translate(-50%,-50%) rotate(-14deg)") + T("Gold", 50, 18, .9, "background:#ffd23f")],
+      ["dusk", "Später <b>Papiergeld</b>: ein Versprechen, dass dahinter Gold oder Silber liegt.", A("bank", 34, 52, 110) + F("letter", 34, 52, 74, 46, 56, .6) + T("Versprechen", 74, 20, 1.4)],
+      ["night", "<b>1971</b>: Die Bindung an Gold fällt. Seitdem hat die Geldmenge <b>keine feste Grenze</b> mehr.", A("printer", 40, 54, 110, "sshake .5s ease .4s 6") + [0, 1, 2, 3].map(i => F("dollar", 40, 54, 68 + i*7, 30 + i*14, 40, .8 + i*.35)).join("") + T("1971", 18, 18, .2, "background:#f7931a")],
+      ["night", "<b>2008</b>: Die Bankenkrise. Banken werden mit frisch gedrucktem Geld gerettet.", A("bank2", 50, 56, 116, "sshake .4s ease .3s 5") + A("boom", 50, 50, 80, "grow .4s both", 2) + T("Bankenrettung", 50, 16, 1.2, "background:#e74c3c;color:#fff")],
+      ["night", "Wenige Wochen später schreibt ein Unbekannter, <b>Satoshi Nakamoto</b>, neun Seiten: Geld ganz ohne Bank.", A("satoshi", 24, 58, 80) + A("laptop", 52, 66, 70, "grow .5s both", .5) + A("block", 78, 40, 60, "drop .9s cubic-bezier(.3,1.4,.5,1) both", 1.6) + T("31.10.2008", 52, 18, 1)],
+      ["gold", "<b>Bitcoin</b>: Niemand kann mehr davon drucken. Es wird nie mehr als <b>21 Millionen</b> geben.", A("coin", 50, 44, 110, "grow .7s cubic-bezier(.3,1.6,.5,1) both", .2) + T('<span data-cnt="21000000">0</span>', 50, 86, .6, "font-size:20px;background:#f7931a;color:#2a1600")],
+    ];
+    const DUR = matchMedia("(prefers-reduced-motion: reduce)").matches ? 4500 : 7200;
+    const o = document.createElement("div"); o.className = "film"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Kurzfilm: Wie wir zu Bitcoin kamen");
+    o.innerHTML = `<div class="fbar">${SH.map(() => "<i><b></b></i>").join("")}</div><button type="button" class="fsk">Überspringen ›</button><div class="fst"><div class="scn" id="fScn" aria-hidden="true"></div><p class="fcap" id="fCap" aria-live="polite"></p><p class="fhint">Tippen für weiter</p></div>`;
+    document.body.appendChild(o); document.documentElement.classList.add("noscroll");
+    let k = -1, tm = 0;
+    const bars = [...o.querySelectorAll(".fbar b")];
+    const close = () => { clearTimeout(tm); o.classList.add("out"); document.documentElement.classList.remove("noscroll"); setTimeout(() => { o.remove(); done && done(); }, 350); };
+    const show = i => { if (i >= SH.length) return close(); k = i; clearTimeout(tm);
+      bars.forEach((b, j) => { b.style.transition = "none"; b.style.width = j < k ? "100%" : "0"; });
+      requestAnimationFrame(() => requestAnimationFrame(() => { bars[k].style.transition = `width ${DUR}ms linear`; bars[k].style.width = "100%"; }));
+      const sc = o.querySelector("#fScn"); sc.className = "scn " + SH[k][0]; sc.innerHTML = SH[k][2];
+      const cap = o.querySelector("#fCap"); cap.innerHTML = SH[k][1]; cap.classList.remove("in"); void cap.offsetWidth; cap.classList.add("in");
+      sc.querySelectorAll("[data-cnt]").forEach(el => { const e = +el.dataset.cnt, t0 = performance.now(); (function f(t){ const q = Math.min(1, (t - t0)/1800); el.textContent = Math.round(e*(1 - Math.pow(1 - q, 3))).toLocaleString("de-DE"); if (q < 1) requestAnimationFrame(f); })(t0); });
+      Lern.sfx("click"); tm = setTimeout(() => show(k + 1), DUR); };
+    o.querySelector(".fsk").onclick = e => { e.stopPropagation(); close(); };
+    o.addEventListener("click", () => show(k + 1));
+    o.addEventListener("keydown", e => { if (e.key === "Escape") close(); else if (e.key === "ArrowRight" || e.key === " "){ e.preventDefault(); show(k + 1); } });
+    o.querySelector(".fsk").focus(); show(0);
+  }
   // Einführung beim allerersten Besuch (3 kurze Karten)
   function intro(){   // Startbildschirm für neue Besucher: Versprechen, Ablauf, ein klarer Start
     const o = document.createElement("div"); o.className = "intro"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Willkommen bei Orange Trail"); document.body.appendChild(o);
@@ -293,8 +337,8 @@ details.fold[open] > summary{margin-bottom:12px}
     o.querySelector(".ign").onclick = () => { try { localStorage.setItem("satsland-intro", "1"); } catch(e){} };
     o.addEventListener("keydown", e => { if (e.key === "Escape") end(false); }); o.querySelector(".ign").focus();
   }
-  { let seen = false; try { seen = localStorage.getItem("satsland-intro") === "1"; } catch(e){} if (!seen && !Lern.count(s)) intro(); }
-  document.getElementById("introOn").onclick = e => { e.preventDefault(); intro(); };
+  { let seen = false; try { seen = localStorage.getItem("satsland-intro") === "1"; } catch(e){} if (!seen && !Lern.count(s)) film(intro); }
+  document.getElementById("introOn").onclick = e => { e.preventDefault(); film(); };
   { const c = document.getElementById("calmOn"); c.textContent = Lern.calm ? "Bewegung wieder an" : "Weniger Bewegung"; c.onclick = e => { e.preventDefault(); Lern.calmToggle(); }; }
   { const box = document.getElementById("rstBox");   // Fortschritt zurücksetzen: Box zeigen, bestätigen, löschen
     document.getElementById("rstOn").onclick = e => { e.preventDefault(); box.hidden = false; box.scrollIntoView({behavior: "smooth", block: "center"}); };
@@ -308,7 +352,9 @@ details.fold[open] > summary{margin-bottom:12px}
   document.getElementById("album").innerHTML = Lern.BOSSES.map((b, k) => Lern.bossCard(k)).join("") + Lern.finalCard();
   { const w5 = Lern.bossWon(), ready5 = Lern.BOSSES.every((x, k) => w5[k]);
     document.getElementById("album").insertAdjacentHTML("afterend", `<button class="bossbtn ${w5.f ? "won" : ""}" id="finalBtn" type="button" ${ready5 ? "" : "disabled"}><span class="bi">${Lern.art(w5.f ? "mirror" : "hood")}</span><span>${w5.f ? "🪞 Altes Ich besiegt" : "★ Endboss: Dein altes Ich"}<small>${ready5 ? "13 alte Sprüche widerlegen, höchstens 2 Fehler" : "🔒 Besiege erst alle 6 Welt-Bosse"}</small></span></button>`);
-    document.getElementById("finalBtn").onclick = () => Lern.boss("f"); }
+    document.getElementById("finalBtn").onclick = () => Lern.boss("f");
+    let tr = {}; try { tr = JSON.parse(localStorage.getItem("satsland-tresor")) || {}; } catch(e){}
+    document.getElementById("finalBtn").insertAdjacentHTML("afterend", w5.f ? `<a class="bossbtn tre ${tr.open ? "won" : ""}" href="tresor/"><span class="bi">${Lern.art("bag")}</span><span>${tr.open ? "🏆 Tresor geknackt" : "🗝️ Finale: Der Tresor"}<small>${tr.open ? "Urkunde ansehen" : "Vier Schlösser aus allem, was du gelernt hast"}</small></span></a>` : `<button class="bossbtn tre" type="button" disabled><span class="bi">${Lern.art("bag")}</span><span>🗝️ Finale: Der Tresor<small>🔒 Öffnet sich nach dem Endboss</small></span></button>`); }
   document.getElementById("albN").textContent = `${Lern.BOSSES.filter((x, k) => Lern.bossWon()[k]).length} von ${Lern.BOSSES.length}${Lern.bossWon().f ? " · 👑" : ""}`;
   // Klappbereiche: gemerkter Zustand, sonst sinnvoller Standard
   let fold = {}; try { fold = JSON.parse(localStorage.getItem("satsland-fold")) || {}; } catch(e){}
@@ -461,7 +507,7 @@ details.fold[open] > summary{margin-bottom:12px}
 </div>
 <script>
 (() => {
-  const K = ["bvb-lernen", "satsland-boss", "satsland-titles", "satsland-daily", "satsland-intro", "satsland-rep"], BK = "satsland-dev-backup";
+  const K = ["bvb-lernen", "satsland-boss", "satsland-titles", "satsland-daily", "satsland-intro", "satsland-rep", "satsland-tresor"], BK = "satsland-dev-backup";
   document.getElementById("devT").onclick = () => { const p = document.getElementById("devP"); p.hidden = !p.hidden; };
   document.getElementById("devP").onclick = e => { const b = e.target.closest("button"); if (!b) return;
     if (b.dataset.b){ document.getElementById("devP").hidden = true; return Lern.boss(b.dataset.b === "f" ? "f" : +b.dataset.b); }
