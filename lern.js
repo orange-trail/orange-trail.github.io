@@ -84,6 +84,7 @@ const Lern = (() => {
       if (new Date().getHours() < 4){ const tt = tget(); tt.owl = 1; tset(tt); }
       badge(); renderNext(id, root); titles();
       setTimeout(() => lvDone(right, QUIZ.length, first, after.name !== before.name ? after : null, after), 700);
+      setTimeout(() => planki(before, after), 900);
     }
   }
   // "Weiter mit …"-Karte am Seitenende
@@ -265,9 +266,9 @@ const Lern = (() => {
     };
   }
 
-  // ---------- Satoshi als Begleiter ----------
+  // ---------- Planki als Begleiter: wächst mit deinem Rang (Plankton → Wal) ----------
   const TIPS = {
-    "": "Folge dem Pfad Level für Level. Am Ende jeder Welt wartet ein Boss auf dich.",
+    "": "Folge dem Pfad Level für Level. Mit jedem Level wachse ich ein Stück, bis ich ein Wal bin!",
     whitepaper: "Neun Seiten, die die Welt verändert haben. Lies mit mir!",
     start: "Willkommen! In 6 Szenen zeige ich dir das große Bild.",
     konsens: "Tausende Fremde, ein Kassenbuch. Wie geht das ohne Chef?",
@@ -290,12 +291,12 @@ const Lern = (() => {
     goldstandard: "Gold war mal Geld. Bis die Regeln geändert wurden …",
     vorlaeufer: "Bitcoin hatte Vorfahren. Bau es aus ihren Teilen zusammen!",
     krimis: "Sechs Akten, sechs echte Fälle. Kannst du sie lösen?",
-    satoshi: "Wer bin ich wirklich? Ermittle selbst!",
+    satoshi: "Wer ist Satoshi wirklich? Ermittle selbst!",
     offline: "Internet weg? Bitcoin findet einen Weg, sogar per Brieftaube!",
     psycho: "Drei Experimente, und du bist die Versuchsperson!",
     lnnetz: "Finde den Weg durchs Blitz-Netz, ohne dass ein Kanal leerläuft!",
     quanten: "Quantencomputer: Panik oder Popcorn? Schauen wir nüchtern hin.",
-    geld: "Hi, ich bin Satoshi! Bevor es um Bitcoin geht: Was ist eigentlich Geld?",
+    geld: "Hi, ich bin Planki! Bevor es um Bitcoin geht: Was ist eigentlich Geld?",
     geldgeschichte: "5.000 Jahre Geld in 9 Stationen. Achte darauf, was immer wieder schiefging.",
     geldschoepfung: "Spiel Bank und vergib einen Kredit. Du wirst staunen, woher das Geld kommt.",
     cantillon: "Wer bekommt neues Geld zuerst? Schau genau hin.",
@@ -307,11 +308,11 @@ const Lern = (() => {
     eigenschaften: "Rate, welches Geld gewinnt. Tipp: Gold ist ein harter Gegner.",
     inflation: "Schau, wie dein Einkaufswagen schrumpft. Genau das ist Inflation.",
     halving: "Alle 4 Jahre halbiert sich die Belohnung. Das macht Bitcoin knapp.",
-    geschichte: "Drück auf ▶ Abspielen, dann zeige ich dir meine Geschichte.",
+    geschichte: "Drück auf ▶ Abspielen, dann zeige ich dir die Geschichte von Bitcoin.",
     wallets: "Nicht deine Schlüssel, nicht deine Bitcoin. Merk dir das!",
     seed: "Deine Seed-Wörter sind alles. Nie abfotografieren, nie online speichern!",
     senden: "Erst Anfang und Ende der Adresse prüfen, dann senden. Immer!",
-    betrug: "Ich schreibe dir nie. Wer sich als Satoshi ausgibt, ist ein Betrüger.",
+    betrug: "Satoshi schreibt dir nie. Wer sich als Satoshi ausgibt, ist ein Betrüger.",
     krypto: "Es gibt Tausende Coins. Prüf jeden mit den sechs Fragen.",
     sparplan: "Regelmäßig kaufen schlägt Timing. Probier verschiedene Startjahre.",
     fomo: "Kannst du ruhig bleiben, wenn alle schreien? Ich bin gespannt.",
@@ -336,16 +337,19 @@ const Lern = (() => {
     let off = false; try { off = localStorage.getItem(GK) === "1"; } catch(e){}
     if (off || !(here in TIPS) && here) return;
     const g = document.createElement("div"); g.className = "guide";
-    g.innerHTML = `<div class="gb"><span></span><button type="button" class="gx" aria-label="Sprechblase schließen">×</button></div><button type="button" class="gs" aria-label="Satoshi fragen">${art("satoshi")}</button>`;
+    g.innerHTML = `<div class="gb"><span></span><button type="button" class="gx" aria-label="Sprechblase schließen">×</button></div><button type="button" class="gs" aria-label="Planki fragen">${art(level(count(load())).art)}</button>`;
     document.body.appendChild(g);
-    const tip = () => !here && !count(load()) ? "Willkommen! Tipp oben auf den gelben Knopf, dann geht's mit Level 1 los." : TIPS[here] || TIPS[""];
+    const tip = () => !here && !count(load()) ? "Willkommen! Ich bin Planki, noch ganz klein. Tipp oben auf den gelben Knopf, dann geht's mit Level 1 los." : TIPS[here] || TIPS[""];
     g.querySelector(".gs").onclick = () => say(tip());
-    g.querySelector(".gx").onclick = () => { clearTimeout(gTimer); g.classList.remove("talk"); };   // × schließt nur die Blase, Satoshi bleibt
+    g.querySelector(".gx").onclick = () => { clearTimeout(gTimer); g.classList.remove("talk"); };   // × schließt nur die Blase, Planki bleibt
     g.querySelector(".gb span").onclick = () => g.classList.remove("talk");   // Antippen schließt die Blase
     // Jeder Tipp kommt nur beim ersten Besuch der Seite von selbst, danach nur auf Antippen
     let seen = []; try { seen = JSON.parse(localStorage.getItem("satsland-tipseen")) || []; } catch(e){}
     if (!seen.includes(here)) setTimeout(() => { if (document.querySelector(".intro")) return; say(tip(), 5500); try { localStorage.setItem("satsland-tipseen", JSON.stringify(seen.concat(here))); } catch(e){} }, 900);
   }
+  // Planki wächst sichtbar mit deinem Rang: Figur unten rechts tauschen
+  function planki(before, after){ const g = document.querySelector(".guide .gs"); if (!g || after.name === before.name) return;
+    g.innerHTML = art(after.art); g.classList.remove("grow2"); void g.offsetWidth; g.classList.add("grow2"); }
   const PRAISE = ["Stark! 💪", "Genau so!", "Du hast's drauf!", "Richtig! Weiter so."], OOPS = ["Fast! Lies kurz die Erklärung.", "Kein Problem, so lernt man.", "Knapp daneben. Jetzt weißt du's!"];
   const pickOne = a => a[Math.floor(Math.random()*a.length)];
 
@@ -820,7 +824,10 @@ const Lern = (() => {
     const fail = !right, msg = fail ? "Lies die Erklärungen unter den Fragen und versuch es gleich nochmal. Ab 1 richtigen Antwort ist das Level abgehakt." : st === 3 ? "Perfekt, alles richtig!" : st === 2 ? "Stark! Lies die eine Erklärung nochmal, dann sitzt alles." : "Geschafft! Wiederhole das Quiz für mehr Sterne.";
     const o = document.createElement("div"); o.className = "lvdone"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Level geschafft");
     o.innerHTML = `<div class="ldb"><small>${fail ? "Noch nicht geschafft" : first ? "Level geschafft!" : "Quiz wiederholt"}</small><div class="stars">${[0, 1, 2].map(i => `<span class="${i < st ? "on" : ""}" style="animation-delay:${.25 + i*.28}s">★</span>`).join("")}</div>
-      <b class="sc">${right} von ${total} richtig</b><p>${msg}</p>${rankUp ? `<p class="ru">${rankUp.ico} Aufgestiegen! Du bist jetzt <b>${rankUp.name}</b>.</p>` : `<p class="ru2">${L.n} von ${PATH.length} Level geschafft</p>`}
+      <b class="sc">${right} von ${total} richtig</b><p>${msg}</p>${(() => { const nx2 = LEVELS.find(l => l[0] > L.n);
+        const t = rankUp ? (rankUp.art === "whale" ? "<b>Planki ist ein Wal!</b> Danke, dass du ihn bis hierher gebracht hast." : `<b>Planki ist gewachsen!</b> Ihr seid jetzt ${rankUp.ico} ${rankUp.name}.`)
+          : fail ? "Planki glaubt an dich. Gleich nochmal!" : nx2 ? `Noch ${nx2[0] - L.n} Level, dann wächst Planki zum ${nx2[1]} ${nx2[2]}.` : "Planki ist schon ein Wal. Stark!";
+        return `<div class="pk${rankUp ? " up" : ""}"><span class="pka">${art(L.art)}</span><p>${t}<small>${L.n} von ${PATH.length} Level geschafft</small></p></div>`; })()}
       <div class="acts">${st < 3 ? `<button class="btn${fail ? "" : " ghost"}" type="button" data-again>🔄 Quiz nochmal</button>` : ""}${nx && !fail ? `<a class="btn" href="${nx.getAttribute("href")}">Weiter: ${nb ? nb.textContent : "nächstes Level"} →</a>` : ""}<button class="btn ghost" type="button" data-stay>Hier bleiben</button></div></div>`;
     document.body.appendChild(o);
     const close = () => o.remove(), again = o.querySelector("[data-again]");

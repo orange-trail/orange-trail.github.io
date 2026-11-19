@@ -14,7 +14,7 @@
 <meta property="og:description" content="Bitcoin spielerisch verstehen, Level für Level.">
 <meta property="og:image" content="https://orange-trail.github.io/og.png">
 <meta property="og:url" content="https://orange-trail.github.io/">
-<link rel="stylesheet" href="lern.css?v=67">
+<link rel="stylesheet" href="lern.css?v=69">
 <style>
 /* Übersicht der Lernwelten: gleiche Farben und Schriften wie das Spiel. */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -229,10 +229,10 @@ html.noscroll{overflow:hidden}
     <p class="msg2" id="syM"></p>
   </details>
   <div class="card" id="inst" hidden><h2 style="margin:0 0 4px">📱 Satsea als App</h2><p class="muted" id="instT" style="margin:0 0 8px;font-size:14px">Mit einem Symbol auf dem Startbildschirm bist du mit einem Tipp wieder da. Ohne App-Store, nichts wird hochgeladen.</p><div class="acts"><button class="btn" id="instB" type="button">📲 Installieren</button></div></div>
-  <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Satoshi ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Kurzfilm ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Satsea</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
+  <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Planki ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Kurzfilm ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Satsea</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=97"></script>
+<script src="lern.js?v=99"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -346,7 +346,7 @@ html.noscroll{overflow:hidden}
       try { Object.keys(localStorage).filter(k => /^(bvb|satsland)-/.test(k) && k !== "satsland-dev-backup").forEach(k => localStorage.removeItem(k)); sessionStorage.clear(); } catch(e){}
       scrollTo(0, 0); location.replace(location.pathname); }; }
   { const gl = document.getElementById("guideOn"); let off = false; try { off = localStorage.getItem(Lern.GK) === "1"; } catch(x){}   // Satoshi aus- und wieder einblenden
-    gl.textContent = off ? "Satoshi einblenden" : "Satoshi ausblenden";
+    gl.textContent = off ? "Planki einblenden" : "Planki ausblenden";
     gl.onclick = e => { e.preventDefault(); try { off ? localStorage.removeItem(Lern.GK) : localStorage.setItem(Lern.GK, "1"); } catch(x){} location.reload(); }; }
   document.getElementById("album").innerHTML = Lern.BOSSES.map((b, k) => Lern.bossCard(k)).join("") + Lern.finalCard();
   { const w5 = Lern.bossWon(), ready5 = Lern.BOSSES.every((x, k) => w5[k]);
