@@ -830,7 +830,7 @@ const Lern = (() => {
     o.innerHTML = `<div class="ldb"><small>${fail ? "Noch nicht geschafft" : first ? "Level geschafft!" : "Quiz wiederholt"}</small><div class="stars">${[0, 1, 2].map(i => `<span class="${i < st ? "on" : ""}" style="animation-delay:${.25 + i*.28}s">★</span>`).join("")}</div>
       <b class="sc">${right} von ${total} richtig</b><p>${msg}</p>${(() => { const nx2 = LEVELS.find(l => l[0] > L.n);
         const t = rankUp ? (rankUp.art === "whale" ? "<b>Planki ist ein Buckelwal!</b> Danke, dass du ihn bis hierher gebracht hast." : `<b>Planki ist gewachsen!</b> Jetzt: ${rankUp.ico} ${rankUp.name}.`)
-          : fail ? "Planki glaubt an dich. Gleich nochmal!" : nx2 ? `Noch ${nx2[0] - L.n} Level, dann wird Planki zum ${nx2[1]} ${nx2[2]}.` : "Planki ist schon ein Buckelwal. Stark!";
+          : fail ? "Planki glaubt an dich. Gleich nochmal!" : nx2 ? `Noch ${nx2[0] - L.n} Level, dann wird Planki ${/^(Garnele|Krabbe)$/.test(nx2[2]) ? "zur" : "zum"} ${nx2[1]} ${nx2[2]}.` : "Planki ist schon ein Buckelwal. Stark!";
         return `<div class="pk${rankUp ? " up" : ""}"><span class="pka">${art("pk_" + L.art)}</span><p>${t}<small>${L.n} von ${PATH.length} Level geschafft</small></p></div>`; })()}
       <div class="acts">${st < 3 ? `<button class="btn${fail ? "" : " ghost"}" type="button" data-again>🔄 Quiz nochmal</button>` : ""}${nx && !fail ? `<a class="btn" href="${nx.getAttribute("href")}">Weiter: ${nb ? nb.textContent : "nächstes Level"} →</a>` : ""}<button class="btn ghost" type="button" data-stay>Hier bleiben</button></div></div>`;
     document.body.appendChild(o);
