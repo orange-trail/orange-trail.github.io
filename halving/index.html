@@ -62,7 +62,6 @@
 .ssplit{display:flex;height:40px;border-radius:12px;overflow:hidden;margin-top:12px;border:1px solid var(--line)}
 .ssplit div{display:grid;place-items:center;font:700 13px var(--f-num);white-space:nowrap;overflow:hidden;min-width:0}
 .ssplit .sa{background:#f7931a;color:#1a1000} .ssplit .sb{background:#2ecc71;color:#06210f} .ssplit div{transition:flex-basis .35s}
-.syr{display:flex;align-items:center;gap:12px;margin-top:12px} .syr input{flex:1} .syr b{font:900 22px var(--f-num);min-width:4ch;text-align:right}
 .sleg{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:var(--muted)} .sleg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
 .stab th,.stab td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right} .stab th:first-child,.stab td:first-child{text-align:left}
@@ -118,18 +117,15 @@ table.stab{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
       <div><small>Belohnung pro Block</small><b class="num" data-hold id="tmReward">–</b></div>
       <div><small>Noch übrig</small><b class="num" data-hold id="tmLeft">–</b></div>
     </div>
-  </section>
-
-  <!-- 4 · Merksätze -->
-<section class="card" aria-labelledby="hSs">
-    <h2 id="hSs">Wer bezahlt die Miner danach? <span class="mode" id="sMode">Verbinde …</span></h2>
-    <p class="muted" style="margin:0">Miner bekommen pro Block <b style="color:#f7931a">neue Bitcoin</b> plus die <b style="color:#2ecc71">Gebühren</b> aller Zahlungen darin. Der erste Teil halbiert sich immer weiter. Schieb das Jahr und sieh, wie sich der Lohn verschiebt (gleiche Gebühren wie im Beispiel angenommen):</p>
-    <div class="syr"><input type="range" id="sYear" min="2024" max="2140" value="2026" aria-label="Jahr für den Miner-Lohn"><b id="sYv">2026</b></div>
+    <h3 id="hSs" style="margin:22px 0 4px;font:900 18px var(--f-display)">Wer bezahlt die Miner danach? <span class="mode" id="sMode">Verbinde …</span></h3>
+    <p class="muted" style="margin:0">Miner bekommen pro Block <b style="color:#f7931a">neue Bitcoin</b> plus die <b style="color:#2ecc71">Gebühren</b> aller Zahlungen darin. Der erste Teil halbiert sich immer weiter. Der Regler oben verschiebt auch den Lohn im Jahr <b id="sYv">2026</b> (gleiche Gebühren wie heute angenommen):</p>
     <div class="ssplit" id="sSplit"><div class="sa"></div><div class="sb"></div></div>
     <div class="sleg"><span><i style="background:#f7931a"></i>Neue Bitcoin</span><span><i style="background:#2ecc71"></i>Gebühren (typischer Wert)</span></div>
     <table class="stab" id="sTab"></table>
     <p class="note">Ohne neue Bitcoin müssen langfristig <b>Gebühren</b> die Miner bezahlen. Ob das reicht, ist eine <b>offene Frage</b>: Befürworter setzen auf mehr Nutzung und einen höheren Kurs, Kritiker warnen, dass ein Angriff sonst billiger würde.</p>
-  </section>
+    </section>
+
+  <!-- 4 · Merksätze -->
 
   <section class="card" aria-labelledby="h4s">
     <h2 id="h4s">Das solltest du dir merken</h2>
@@ -229,7 +225,6 @@ function renderYear(){
   renderCurve(); if (window.minerSplit) minerSplit(y);
 }
 $("year").addEventListener("input", renderYear);
-$("sYear").addEventListener("input", () => { $("year").value = $("sYear").value; renderYear(); });
 
 // ---------- Live-Daten ----------
 async function load(){
@@ -265,11 +260,11 @@ setInterval(() => {
 // Sicherheitsbudget (früher eigene Welt "Miner-Lohn"): Anteil Gebühren heute und bei gleichen Gebühren in Zukunft
 {
   const btc = v => v.toLocaleString("de-DE", {maximumFractionDigits: v < 0.01 ? 4 : 3});
-  const sub = y => y >= 2140 ? 0 : 3.125/Math.pow(2, Math.floor((y - 2024)/4));
+  const sub = y => y >= 2140 ? 0 : 50/Math.pow(2, Math.max(0, Math.floor((y - 2008)/4)));
   const show = (fee, live) => {
     const t = 3.125 + fee;
-    window.minerSplit = y => { y = Math.max(2024, Math.min(2140, y)); const [a, b] = $("sSplit").children, sb = sub(y), pa = sb/(sb + fee)*100, r = v => v > 99.5 && v < 100 ? "> 99" : v < 1 && v > 0 ? "< 1" : Math.round(v);
-      $("sYear").value = y; $("sYv").textContent = y;
+    window.minerSplit = y => { y = Math.max(2009, Math.min(2140, y)); const [a, b] = $("sSplit").children, sb = sub(y), pa = sb/(sb + fee)*100, r = v => v > 99.5 && v < 100 ? "> 99" : v < 1 && v > 0 ? "< 1" : Math.round(v);
+      $("sYv").textContent = y;
       a.style.flexBasis = pa + "%"; b.style.flexBasis = (100 - pa) + "%"; a.textContent = pa >= 14 ? r(pa) + " % neue BTC" : pa >= 8 ? r(pa) + " %" : ""; b.textContent = 100 - pa >= 14 ? r(100 - pa) + " % Gebühren" : 100 - pa >= 8 ? r(100 - pa) + " %" : ""; };
     minerSplit(+$("year").value);
     $("sTab").innerHTML = `<tr><th>Jahr</th><th>Neue BTC</th><th>+ Gebühren</th><th>Lohn im Vergleich zu heute</th></tr>` + [new Date().getFullYear(), 2028, 2032, 2040, 2060, 2140].map((y, i) => {
