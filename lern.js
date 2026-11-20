@@ -44,7 +44,16 @@ const Lern = (() => {
   const save = s => { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} };
   const done = (s, id) => !!(s[id] && s[id].quiz);
   // Seite als besucht merken
-  function visit(id){ const s = load(); s[id] = Object.assign({}, s[id], {seen: Date.now()}); save(s); }
+  function visit(id){ const s = load(); s[id] = Object.assign({}, s[id], {seen: Date.now()}); save(s); proGate(id); }
+  // Profi-Pfad ist erst nach dem Boss der Welt frei: Seite sperren, Querverweise auf gesperrte Vertiefungen entschärfen
+  const proOpen = k => !!bossWon()[k] || window.__devAll;
+  function proGate(id){ const k = proOf(id); if (k < 0 || proOpen(k) || done(load(), id)) return;
+    const g = document.createElement("div"); g.className = "progate"; g.setAttribute("role", "dialog"); g.setAttribute("aria-modal", "true");
+    g.innerHTML = `<div class="pgc"><div class="pga">${art("pk_plankton")}</div><h2>🔒 Profi-Pfad</h2><p>Diese Vertiefung gehört zu <b>Welt ${k + 1}</b> und wird frei, sobald du ${seen(k) ? "<b>" + BOSSES[k][1] + "</b>" : "den Boss dieser Welt"} besiegt hast.</p><a class="btn" href="../">Zum Lernpfad →</a></div>`;
+    document.body.appendChild(g); document.documentElement.style.overflow = "hidden"; }
+  document.addEventListener("DOMContentLoaded", () => document.querySelectorAll(".xref a[href]").forEach(a => { const id = (a.getAttribute("href").match(/([a-z0-9]+)\/?$/) || [])[1], k = id ? proOf(id) : -1;
+    if (k < 0 || proOpen(k) || done(load(), id)) return; const sp = document.createElement("span"); sp.className = "xlock"; sp.textContent = a.textContent + " 🔒"; sp.title = `Frei nach dem Boss von Welt ${k + 1}`; a.replaceWith(sp);
+    const n = sp.parentElement.querySelector(".muted"); if (n) n.textContent = `(wird frei nach dem Boss von Welt ${k + 1})`; }));
   // Nächste empfohlene Welt (erste noch nicht abgeschlossene, außer der aktuellen)
   // Nächster Schritt im Lernpfad: Welten in Kapitel-Reihenfolge, nach jedem fertigen Kapitel dessen Boss.
   // Gesucht wird ab der aktuellen Welt vorwärts (danach von vorn); Bosse zählen erst, wenn ihr Kapitel komplett ist.

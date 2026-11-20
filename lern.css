@@ -427,3 +427,10 @@ img.em{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.24em;margi
 .lvdone .pka{flex:none;width:58px;height:58px;padding:3px;border-radius:50%;border:3px solid #0d1230;background:radial-gradient(circle at 35% 30%,#ffd36b,#f7931a)}.lvdone .pka svg{display:block}
 .lvdone .pk.up{background:rgba(255,201,77,.14);box-shadow:inset 0 0 0 2px rgba(255,201,77,.5)}.lvdone .pk.up .pka{animation:pgrow 1s .6s cubic-bezier(.3,1.6,.5,1) both}
 .guide .gs.grow2{animation:pgrow 1s cubic-bezier(.3,1.6,.5,1)}
+/* Profi-Pfad gesperrt */
+.progate{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:16px;background:rgba(6,9,30,.82);backdrop-filter:blur(6px)}
+.progate .pgc{max-width:380px;text-align:center;padding:24px 20px;border-radius:22px;background:linear-gradient(160deg,#2a2470,#141a4a);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.progate .pga{width:84px;height:84px;margin:0 auto 6px;padding:6px;border-radius:50%;border:3px solid #0d1230;background:radial-gradient(circle at 35% 30%,#ffd36b,#f7931a)}
+.progate h2{margin:6px 0}.progate p{color:var(--muted,#c9cff5);line-height:1.5}
+.xlock{color:var(--muted,#9aa3d6);font-weight:700}
+.w.lkd,.mpl .lkd{opacity:.6;cursor:not-allowed}

@@ -14,7 +14,7 @@
 <meta property="og:description" content="Bitcoin spielerisch verstehen, Level für Level.">
 <meta property="og:image" content="https://orange-trail.github.io/og.png">
 <meta property="og:url" content="https://orange-trail.github.io/">
-<link rel="stylesheet" href="lern.css?v=72">
+<link rel="stylesheet" href="lern.css?v=73">
 <style>
 /* Übersicht der Lernwelten: gleiche Farben und Schriften wie das Spiel. */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -73,7 +73,7 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .mpop .mph{display:flex;align-items:center;gap:10px} .mpop .mph b{flex:1;font:900 17px var(--f-display);color:#e3ccff}
 .mpop .mph button{width:36px;height:36px;border-radius:50%;border:2px solid #0d1230;background:#3b2a66;color:#fff;font-size:16px;cursor:pointer}
 .mpop p{margin:6px 0 10px;font-size:13.5px}
-.mpl{display:grid;gap:8px} .mpl a{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:14px;background:rgba(178,107,255,.12);border:2px solid rgba(178,107,255,.35);color:var(--ink);text-decoration:none;font-weight:800}
+.mpl{display:grid;gap:8px} .mpl a,.mpl .lkd{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:14px;background:rgba(178,107,255,.12);border:2px solid rgba(178,107,255,.35);color:var(--ink);text-decoration:none;font-weight:800}
 .mpl a:hover{border-color:#b26bff} .mpl a.ok{border-color:var(--bull)} .mpl .ic{width:36px;height:36px;flex:none} .mpl .ic svg{width:100%;height:100%} .mpl span:nth-child(2){flex:1} .mpl em{font-style:normal;color:#e3ccff}
 .mapw .bub{animation:bub 7s linear infinite} @keyframes bub{0%{transform:translateY(0);opacity:0}15%{opacity:.6}100%{transform:translateY(-160px);opacity:0}}
 .mapw .mboss{transform-box:fill-box;animation:mbob 3.2s ease-in-out infinite} @keyframes mbob{50%{transform:translateY(-4px)}} .mapw .mboss.beat{opacity:.55;animation:none} .mapw .mboss.beat *{animation:none!important}
@@ -232,7 +232,7 @@ html.noscroll{overflow:hidden}
   <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Planki ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Kurzfilm ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Bitcoin Voyage</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=107"></script>
+<script src="lern.js?v=108"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -270,8 +270,8 @@ html.noscroll{overflow:hidden}
     merkle: "Wie tausende Zahlungen in einen einzigen Hash passen.", blockbau: "Du bist Miner: Pack den besten Block, rette eine Zahlung, entlarve Betrug.", hyperinflation: "Deutschland 1923, Simbabwe, Venezuela: Wenn Geld in Monaten verdampft.", goldstandard: "Was 100 Dollar an Gold kauften und wie Staaten die Regeln brachen.", vorlaeufer: "DigiCash, Hashcash, b-money: Bau Bitcoin aus seinen Vorfahren zusammen.", krimis: "Mt. Gox, FTX, Binance 2026: sechs echte Fälle, die du lösen kannst.", satoshi: "Spuren, Verdächtige, ein Gerichtsurteil: Ermittle selbst.", offline: "Blöcke aus dem All, Zahlungen per Funk: Bitcoin trotz Internet-Sperre.", psycho: "Verlustangst, Herdentrieb, Rückschau: drei Experimente mit dir.", lnnetz: "Routen, Kanal-Guthaben und das Schloss mit Geheimnis: Lightning selbst steuern.", script: "Jede Zahlung ist ein kleines Programm: Stapel, Multisig, Zeitschloss.", quanten: "Was Quantencomputer bedrohen und was Bitcoin vorbereitet."};
   document.querySelectorAll("details.kap").forEach(d => { const k = +d.dataset.k - 1, L = Lern.PRO[k]; if (!L.length) return;
     const open = won[k], dn = L.filter(id => Lern.done(s, id)).length;
-    d.insertAdjacentHTML("beforeend", `<details class="pro fold ${open ? "" : "lock"}" id="pro${k + 1}" data-k="p${k + 1}"><summary><b>🔬 Profi-Pfad</b><small>${open ? `${dn}/${L.length} geschafft` : "🔒 Empfohlen nach dem Boss"}</small></summary><div class="grid big">${L.map(id => { const [t, path] = Lern.TITLES[id], ok = Lern.done(s, id);
-      return `<a class="w ${ok ? "done" : ""}" href="${path}">${open ? `<span class="no">${ok ? "✓" : "🔬"}</span>` : '<span class="lk">🔒</span>'}<span class="ic" aria-hidden="true">${Lern.art(Lern.CARD[id])}</span><b>${t}</b><span>${PD[id]}</span><span class="go">Vertiefen →</span></a>`; }).join("")}</div></details>`); });
+    d.insertAdjacentHTML("beforeend", `<details class="pro fold ${open ? "" : "lock"}" id="pro${k + 1}" data-k="p${k + 1}"><summary><b>🔬 Profi-Pfad</b><small>${open ? `${dn}/${L.length} geschafft` : "🔒 Frei nach dem Boss"}</small></summary><div class="grid big">${L.map(id => { const [t, path] = Lern.TITLES[id], ok = Lern.done(s, id);
+      const tg = open || ok ? "a" : "div"; return `<${tg} class="w ${ok ? "done" : ""}${tg === "div" ? " lkd" : ""}"${tg === "a" ? ` href="${path}"` : ' aria-disabled="true"'}>${open ? `<span class="no">${ok ? "✓" : "🔬"}</span>` : '<span class="lk">🔒</span>'}<span class="ic" aria-hidden="true">${Lern.art(Lern.CARD[id])}</span><b>${t}</b><span>${PD[id]}</span><span class="go">${tg === "a" ? "Vertiefen →" : "🔒 Nach dem Boss"}</span></${tg}>`; }).join("")}</div></details>`); });
   { const ph = location.hash.match(/^#pro(\d)$/), el = ph && document.getElementById("pro" + ph[1]); let vw = "map"; try { vw = localStorage.getItem("satsland-view") || "map"; } catch(e){} if (el && vw === "list") setTimeout(() => { el.open = true; el.closest("details.kap").open = true; history.replaceState(null, "", location.pathname); setTimeout(() => el.scrollIntoView({block: "start"}), 200); }, 0); }
   // Direkt zum Boss über die Empfehlung (#boss1 … #boss5)
   const bh = location.hash.match(/^#boss(\d)$/);
@@ -482,8 +482,8 @@ html.noscroll{overflow:hidden}
   mapw.addEventListener("click", e => { const a = e.target.closest("[data-pro]"); if (!a) return; e.preventDefault(); e.stopPropagation(); openPro(+a.dataset.pro - 1); }, true);
   function openPro(k){ const open = !!won[k], L = Lern.PRO[k];
     mpop.innerHTML = `<div class="mph"><b id="mpT">🔬 Profi-Pfad · ${Lern.CHAPTERS[k][0]} ${Lern.CHAPTERS[k][1]}</b><button type="button" id="mpx" aria-label="Schließen">✕</button></div>
-      <p class="muted">${open ? "Freigeschaltet! Vertiefungen für alle, die es genau wissen wollen." : "🔒 Empfohlen nach " + (Lern.seen(k) ? "dem Boss " + Lern.BOSSES[k][1] : "Boss " + (k + 1)) + ". Reinschauen geht trotzdem."}</p>
-      <div class="mpl">${L.map(id => { const ok = Lern.done(s, id); return `<a href="${Lern.TITLES[id][1]}" class="${ok ? "ok" : ""}"><span class="ic">${Lern.art(Lern.CARD[id])}</span><span>${Lern.TITLES[id][0]}</span><em>${ok ? "✓" : open ? "→" : "🔒"}</em></a>`; }).join("")}</div>`;
+      <p class="muted">${open ? "Freigeschaltet! Vertiefungen für alle, die es genau wissen wollen." : "🔒 Wird frei, sobald du " + (Lern.seen(k) ? "den Boss " + Lern.BOSSES[k][1] : "Boss " + (k + 1)) + " besiegt hast."}</p>
+      <div class="mpl">${L.map(id => { const ok = Lern.done(s, id); const tg = open || ok ? "a" : "span"; return `<${tg}${tg === "a" ? ` href="${Lern.TITLES[id][1]}"` : ' aria-disabled="true"'} class="${ok ? "ok" : open ? "" : "lkd"}"><span class="ic">${Lern.art(Lern.CARD[id])}</span><span>${Lern.TITLES[id][0]}</span><em>${ok ? "✓" : open ? "→" : "🔒"}</em></${tg}>`; }).join("")}</div>`;
     mpop.hidden = mback.hidden = false; document.getElementById("mpx").onclick = closePop; document.getElementById("mpx").focus(); }
   mapw.addEventListener("click", e => { const b = e.target.closest("[data-b]"); if (!b) return; const k = b.dataset.b;
     if (k === "f"){ if ([0, 1, 2, 3, 4, 5].every(k => won[k])) Lern.boss("f"); else Lern.toast && Lern.toast("👑 Erst alle 6 Bosse besiegen, dann wartet der Endboss auf der Schatzinsel!"); return; }
