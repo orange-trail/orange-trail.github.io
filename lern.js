@@ -4,7 +4,7 @@
    ===================================================================== */
 const Lern = (() => {
   const KEY = "bvb-lernen";
-  // ---------- Live-Daten: eine eigene Quelle für alles (Satsea-Node + Kurs), Pfade wie bei mempool.space ----------
+  // ---------- Live-Daten: eine eigene Quelle für alles (eigener Node + Kurs), Pfade wie bei mempool.space ----------
   // DATA leer = Entwicklungsmodus mit öffentlichen Quellen. Vor dem Start die eigene Adresse eintragen (siehe node/ANLEITUNG.md).
   // Ohne eigene Quelle (DATA leer): feste Werte mit Stand-Datum, kein einziger fremder Dienst wird abgefragt.
   // Netzwerk-Werte (Blöcke, Gebühren …) laufen dann als Schätzung bzw. Simulation der jeweiligen Seite.
@@ -103,7 +103,7 @@ const Lern = (() => {
 
 
   // ---------- Comic-Zeichnungen (gemeinsam für Szenen, Karten und Satoshi) ----------
-  // Comic-Zeichnungen im Satsea-Stil: dicke dunkle Kontur, flache Farben, Glanzpunkt. viewBox 0 0 100 100
+  // Comic-Zeichnungen im Comic-Stil: dicke dunkle Kontur, flache Farben, Glanzpunkt. viewBox 0 0 100 100
   const SK = 'stroke="#0d1230" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"';
   const hl = (x, y, rx, ry) => `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#fff" opacity=".45"/>`;
   // Helfer für die Boss-Grafiken (Glüh-Augen, Geldscheine)
@@ -233,7 +233,7 @@ const Lern = (() => {
     ["Welche Einheit nutzt man für Gebühren?", ["sat/vB (Sats pro virtuellem Byte)", "Euro pro Bitcoin", "Prozent vom Betrag"], 0, "Die Gebühr hängt von der Größe der Transaktion ab, nicht vom Betrag."],
     ["Was ist die Mempool?", ["Der Warteraum für unbestätigte Transaktionen", "Ein Mining-Pool", "Eine Wallet"], 0, "Miner suchen sich dort die Transaktionen mit den höchsten Gebühren aus."],
     ["Welches Land machte Bitcoin 2021 zum Zahlungsmittel?", ["El Salvador", "Deutschland", "Japan"], 0, "El Salvador war das erste Land der Welt."],
-    ["Was ist Inflation?", ["Dein Geld verliert an Kaufkraft", "Der Bitcoin-Kurs steigt", "Banken zahlen Zinsen"], 0, "Dieselben Dinge kosten mit der Zeit mehr Geld."],,
+    ["Was ist Inflation?", ["Dein Geld verliert an Kaufkraft", "Der Bitcoin-Kurs steigt", "Banken zahlen Zinsen"], 0, "Dieselben Dinge kosten mit der Zeit mehr Geld."],
     ["Was kostet beim Kauf oft mehr als die sichtbare Gebühr?", ["Der Spread, ein Aufschlag auf den Kurs", "Die Wallet", "Das Internet"], 0, "Prüf immer die Gesamtkosten."],
     ["Wem gehören Bitcoin auf einer Börse?", ["Erstmal der Börse", "Immer dir", "Dem Staat"], 0, "Erst in deiner eigenen Wallet gehören sie wirklich dir."],
     ["Wie lange dauerte es nach großen Crashs meist bis zum neuen Rekord?", ["2 bis 3 Jahre", "2 Wochen", "Nie"], 0, "Geduld war bisher Pflicht. Garantie gibt es keine."],
@@ -597,14 +597,14 @@ const Lern = (() => {
     g.strokeStyle = fin ? "#ffc94d" : "#f7931a"; g.lineWidth = 14; g.strokeRect(40, 40, S - 80, S - 80); g.lineWidth = 3; g.strokeRect(66, 66, S - 132, S - 132);
     const txt = (t, y, size, col, w = 900) => { g.font = `${w} ${size}px "Arial Black", Arial, sans-serif`; g.fillStyle = col; g.textAlign = "center"; g.fillText(t, S/2, y); };
     const im = new Image(); im.onload = () => {
-      if (fin){ txt("URKUNDE", 190, 92, "#ffc94d"); txt("Satsea durchgespielt", 260, 46, "#ffffff", 700); if (who) txt(who, 400, 70, "#ffffff");
+      if (fin){ txt("URKUNDE", 190, 92, "#ffc94d"); txt("Bitcoin Voyage durchgespielt", 260, 46, "#ffffff", 700); if (who) txt(who, 400, 70, "#ffffff");
         g.drawImage(im, S/2 - 170, who ? 450 : 330, 340, 340); txt("Alle 6 Welten · alle Bosse · Spiegelbild besiegt", who ? 860 : 760, 34, "#dfe3ff", 700); }
       else { txt(perfect ? "✨ BOSS BESIEGT – OHNE FEHLER" : "🏆 BOSS BESIEGT", 180, 52, "#ffc94d"); g.drawImage(im, S/2 - 210, 230, 420, 420);
         txt(name, 740, 64, "#ffffff"); txt(`Welt ${k + 1} · ${CHAPTERS[k][0]} ${CHAPTERS[k][1]}`, 810, 38, "#dfe3ff", 700); }
       txt(`${lv.ico} Rang: ${lv.name} · ${count(s)} von ${PATH.length} Level`, 930, 34, "#9aa2d6", 700);
       txt("orange-trail.github.io", 990, 34, fin ? "#ffc94d" : "#f7931a");
-      c.toBlob(async b => { if (!b) return; const f = new File([b], fin ? "satsea-urkunde.png" : `satsland-boss-${k + 1}.png`, {type: "image/png"});
-        try { if (navigator.canShare && navigator.canShare({files: [f]})){ await navigator.share({files: [f], text: fin ? "Ich habe Satsea durchgespielt! 👑" : `Boss besiegt: ${name} 🏆`}); return; } } catch(e){ if (e && e.name === "AbortError") return; }
+      c.toBlob(async b => { if (!b) return; const f = new File([b], fin ? "bitcoin-voyage-urkunde.png" : `satsland-boss-${k + 1}.png`, {type: "image/png"});
+        try { if (navigator.canShare && navigator.canShare({files: [f]})){ await navigator.share({files: [f], text: fin ? "Ich habe Bitcoin Voyage durchgespielt! 👑" : `Boss besiegt: ${name} 🏆`}); return; } } catch(e){ if (e && e.name === "AbortError") return; }
         const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); toast("📥 Bild gespeichert"); }, "image/png"); };
     im.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400">${ART[img]}</svg>`);
   }
@@ -845,7 +845,7 @@ const Lern = (() => {
   function badge(){
     const L = level(count(load())), el = document.querySelector(".lvl") || document.createElement("a");
     el.className = "lvl"; el.href = here ? "../" : "#pth"; el.title = "Dein Rang: mehr Level schaffen, um aufzusteigen";
-    el.innerHTML = `<span class="li">${art(L.art)}</span><span><b>${L.name}</b><small>${L.n} von ${PATH.length} Level</small></span><i><u style="width:${L.n/PATH.length*100}%"></u></i>`;
+    el.innerHTML = `<span class="li">${art("pk_" + L.art)}</span><span><b>${L.name}</b><small>${L.n} von ${PATH.length} Level</small></span><i><u style="width:${L.n/PATH.length*100}%"></u></i>`;
     if (!el.parentNode){ const top = document.querySelector(".top"), back = document.querySelector(".wrap > .back");
       if (top) top.insertBefore(el, top.children[1] || null); else if (back) back.after(el); }
   }
@@ -1008,7 +1008,7 @@ const PARTNER = {bitbox: "", trezor: ""};
 addEventListener("DOMContentLoaded", () => {
   let any = false;
   document.querySelectorAll("a[data-hw]").forEach(a => { const u = PARTNER[a.dataset.hw]; if (u){ a.href = u; a.insertAdjacentHTML("afterend", '<small class="muted" style="display:block;text-align:center;font-size:12px">Partnerlink · Werbung</small>'); any = true; } });
-  const n = document.getElementById("hwAd"); if (n && any) n.textContent = " Bei den Partnerlinks erhält Satsea eine kleine Provision, für dich ändert sich am Preis nichts.";
+  const n = document.getElementById("hwAd"); if (n && any) n.textContent = " Bei den Partnerlinks erhält Bitcoin Voyage eine kleine Provision, für dich ändert sich am Preis nichts.";
 });
 
 // Einheitliche Comic-Symbole: Emoji werden auf jedem Gerät durch dieselben Zeichnungen ersetzt (eigene Dateien in /e/, nichts Fremdes)

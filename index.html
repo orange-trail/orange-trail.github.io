@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Satsea · Bitcoin spielerisch verstehen</title>
+<title>Bitcoin Voyage · Bitcoin spielerisch verstehen</title>
 <meta name="description" content="Bitcoin spielerisch verstehen: Lernwelten im Comic-Stil.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:title" content="Satsea · Bitcoin spielerisch verstehen">
+<meta property="og:title" content="Bitcoin Voyage · Bitcoin spielerisch verstehen">
 <meta property="og:description" content="Bitcoin spielerisch verstehen, Level für Level.">
 <meta property="og:image" content="https://orange-trail.github.io/og.png">
 <meta property="og:url" content="https://orange-trail.github.io/">
@@ -144,7 +144,7 @@ html.noscroll{overflow:hidden}
 <body>
 <div class="wrap">
   <div class="top"><a class="back" href="lexikon/">📖 Lexikon</a></div>
-  <header class="hero2"><img class="wico" id="heroIc" src="icon.svg" alt="" style="border-radius:22%"><div><h1><span>Sats</span>ea</h1><p>Bitcoin spielerisch verstehen</p></div></header>
+  <header class="hero2"><img class="wico" id="heroIc" src="icon.svg" alt="" style="border-radius:22%"><div><h1>Bitcoin <span>Voyage</span></h1><p>Bitcoin spielerisch verstehen</p></div></header>
   <div class="stats" id="stats"></div>
   <a class="resume" id="resume" hidden></a>
   <p class="alt" id="alt" hidden></p>
@@ -228,11 +228,11 @@ html.noscroll{overflow:hidden}
     <div class="acts"><button class="btn ghost" id="syI" type="button">📥 Code übernehmen</button></div>
     <p class="msg2" id="syM"></p>
   </details>
-  <div class="card" id="inst" hidden><h2 style="margin:0 0 4px">📱 Satsea als App</h2><p class="muted" id="instT" style="margin:0 0 8px;font-size:14px">Mit einem Symbol auf dem Startbildschirm bist du mit einem Tipp wieder da. Ohne App-Store, nichts wird hochgeladen.</p><div class="acts"><button class="btn" id="instB" type="button">📲 Installieren</button></div></div>
-  <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Planki ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Kurzfilm ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Satsea</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
+  <div class="card" id="inst" hidden><h2 style="margin:0 0 4px">📱 Bitcoin Voyage als App</h2><p class="muted" id="instT" style="margin:0 0 8px;font-size:14px">Mit einem Symbol auf dem Startbildschirm bist du mit einem Tipp wieder da. Ohne App-Store, nichts wird hochgeladen.</p><div class="acts"><button class="btn" id="instB" type="button">📲 Installieren</button></div></div>
+  <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Planki ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Kurzfilm ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Bitcoin Voyage</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=104"></script>
+<script src="lern.js?v=106"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -253,7 +253,7 @@ html.noscroll{overflow:hidden}
   { const T = document.getElementById("syT"), M = document.getElementById("syM"), link = () => location.origin + location.pathname + "#sync=" + Lern.syncExport();
     const take = code => { if (Lern.syncImport(code)){ M.textContent = "✓ Übernommen! Die Seite lädt neu …"; setTimeout(() => location.replace(location.pathname), 900); } else M.textContent = "✗ Der Code passt nicht. Bitte komplett kopieren."; };
     document.getElementById("syE").onclick = () => { T.value = Lern.syncExport(); T.select(); M.textContent = "Code markiert, jetzt kopieren."; if (navigator.clipboard) navigator.clipboard.writeText(T.value).then(() => { M.textContent = "✓ Code kopiert. Auf dem anderen Gerät einfügen."; }).catch(() => {}); document.getElementById("syS").hidden = !navigator.share; };
-    document.getElementById("syS").onclick = () => navigator.share && navigator.share({title: "Mein Satsea-Fortschritt", url: link()}).catch(() => {});
+    document.getElementById("syS").onclick = () => navigator.share && navigator.share({title: "Mein Bitcoin Voyage-Fortschritt", url: link()}).catch(() => {});
     document.getElementById("syI").onclick = () => T.value.trim() && take(T.value);
     const m = location.hash.match(/^#sync=(.+)$/); if (m){ history.replaceState(null, "", location.pathname); take(m[1]); }
   }
@@ -284,24 +284,24 @@ html.noscroll{overflow:hidden}
   { const box = document.getElementById("inst"), B = document.getElementById("instB"), app = matchMedia("(display-mode: standalone)").matches || navigator.standalone; let ev = null;
     if (!app){ addEventListener("beforeinstallprompt", e => { e.preventDefault(); ev = e; box.hidden = false; });
       if (/iphone|ipad|ipod/i.test(navigator.userAgent)){ box.hidden = false; B.hidden = true; document.getElementById("instT").innerHTML += " <b>So geht's auf dem iPhone:</b> unten auf <b>Teilen</b> (□↑) tippen, dann <b>„Zum Home-Bildschirm“</b>."; }
-      B.onclick = async () => { if (!ev) return; ev.prompt(); const r = await ev.userChoice; if (r.outcome === "accepted"){ box.hidden = true; Lern.toast("📱 Satsea ist jetzt auf deinem Startbildschirm!"); } ev = null; }; } }
+      B.onclick = async () => { if (!ev) return; ev.prompt(); const r = await ev.userChoice; if (r.outcome === "accepted"){ box.hidden = true; Lern.toast("📱 Bitcoin Voyage ist jetzt auf deinem Startbildschirm!"); } ev = null; }; } }
   Lern.daily(document.getElementById("daily"));
   Lern.review(document.getElementById("rep"), n => { document.getElementById("rpS").textContent = n ? n + " fällig" : ""; });
 
-  // ---------- Kurzfilm: Plankis Weg über den Satsea, erklärt die Seite als Geschichte (weiter per Tippen, überspringbar) ----------
+  // ---------- Kurzfilm: Plankis Weg über den Bitcoin Voyage, erklärt die Seite als Geschichte (weiter per Tippen, überspringbar) ----------
   function film(done){
     const A = (k, x, y, sz, an = "", d = 0, st = "") => `<span class="a" style="left:${x}%;top:${y}%;width:${sz}px;height:${sz}px;${an ? `animation:${an};animation-delay:${d}s;` : ""}${st}">${Lern.art(k)}</span>`;
     const F = (k, fx, fy, x, y, sz, d) => A(k, x, y, sz, "fly 1.4s cubic-bezier(.3,.7,.3,1) both", d, `--fx:${fx}%;--fy:${fy}%`);
     const T = (t, x, y, d = 0, st = "") => `<span class="lbl" style="left:${x}%;top:${y}%;animation-delay:${d}s;${st}">${t}</span>`;
     const SH = [
       ["night", "Das ist <b>Planki</b>. Planki hat keine Ahnung von Geld. Und Bitcoin? Klingt nach Zauberei.", A("pk_plankton", 50, 56, 96, "grow .6s cubic-bezier(.3,1.6,.5,1) both, bobA 2.2s ease-in-out .7s infinite", .1) + T("?", 24, 30, .9, "font-size:28px") + T("₿ ?", 78, 34, 1.3, "font-size:20px")],
-      ["day", "Eines Tages entdeckt Planki eine <b>leuchtende Strömung</b>. Sie führt quer durchs <b>Satsea</b> bis zur Schatzinsel. Dort wartet ein Schatz: <b>endlich verstehen.</b>", `<svg class="line" viewBox="0 0 400 210" preserveAspectRatio="none"><path d="M30 190 C120 180 90 120 180 120 S310 70 350 40" stroke="#9fd8ff" style="stroke-width:7;stroke-dasharray:900"/></svg>` + A("pk_plankton", 12, 84, 46) + `<span class="a" style="left:78%;top:24%;width:96px;height:40px;animation:grow .6s both;animation-delay:2s"><svg viewBox="0 0 96 40"><ellipse cx="48" cy="30" rx="44" ry="10" fill="#e8c27a" stroke="#0d1230" stroke-width="3"/><path d="M30 28 q-2 -18 6 -26" fill="none" stroke="#8a5a2a" stroke-width="4" stroke-linecap="round"/><path d="M36 2 q-12 -2 -18 6 M36 2 q10 -4 18 4 M36 2 q-2 -8 -10 -10" fill="none" stroke="#2f9a6a" stroke-width="4" stroke-linecap="round"/></svg></span>` + A("trophy", 82, 13, 34, "grow .6s cubic-bezier(.3,1.6,.5,1) both", 2.4) + T("Schatzinsel", 50, 8, 2.7)],
+      ["day", "Eines Tages entdeckt Planki eine <b>leuchtende Strömung</b>. Sie führt quer durchs <b>Meer</b> bis zur Schatzinsel. Dort wartet ein Schatz: <b>endlich verstehen.</b>", `<svg class="line" viewBox="0 0 400 210" preserveAspectRatio="none"><path d="M30 190 C120 180 90 120 180 120 S310 70 350 40" stroke="#9fd8ff" style="stroke-width:7;stroke-dasharray:900"/></svg>` + A("pk_plankton", 12, 84, 46) + `<span class="a" style="left:78%;top:24%;width:96px;height:40px;animation:grow .6s both;animation-delay:2s"><svg viewBox="0 0 96 40"><ellipse cx="48" cy="30" rx="44" ry="10" fill="#e8c27a" stroke="#0d1230" stroke-width="3"/><path d="M30 28 q-2 -18 6 -26" fill="none" stroke="#8a5a2a" stroke-width="4" stroke-linecap="round"/><path d="M36 2 q-12 -2 -18 6 M36 2 q10 -4 18 4 M36 2 q-2 -8 -10 -10" fill="none" stroke="#2f9a6a" stroke-width="4" stroke-linecap="round"/></svg></span>` + A("trophy", 82, 13, 34, "grow .6s cubic-bezier(.3,1.6,.5,1) both", 2.4) + T("Schatzinsel", 50, 8, 2.7)],
       ["day", "Unterwegs: <b>6 Welten</b>. Hier wird nicht gepaukt, hier wird <b>ausprobiert</b>: Fisch gegen Brot tauschen, selbst minen, einen Block fälschen.", A("fish", 20, 58, 52, "grow .5s both", .2) + A("pick", 40, 42, 56, "grow .5s both", .7) + A("block", 62, 60, 56, "grow .5s both", 1.2) + A("phone", 82, 42, 50, "grow .5s both", 1.7)],
       ["dusk", "Am Ende jeder Welt lauert ein <b>Boss</b> im Dunkeln. Wer es ist, siehst du erst im Kampf. Nur wer verstanden hat, gewinnt.", A("squid", 30, 56, 96, "sshake .5s ease .5s 4", 0, "filter:brightness(0) drop-shadow(0 0 6px #7fd0ff)") + A("siren", 72, 54, 90, "grow .6s both", 1, "filter:brightness(0) drop-shadow(0 0 6px #7fd0ff)") + T("BOSS", 50, 16, .4, "background:#e74c3c;color:#fff;font-size:18px")],
       ["day", "Mit jedem Level wächst Planki: <b>Garnele, Fisch, Delfin</b> … bis zum <b>Buckelwal</b>. Die ₿-Mütze bleibt immer auf.", ["plankton", "shrimp", "fish", "dolphin", "whale"].map((k, i) => A("pk_" + k, 12 + i*19, 56, 30 + i*12, "grow .5s cubic-bezier(.3,1.6,.5,1) both", .2 + i*.45)).join("") + T("🐋 Buckelwal", 78, 18, 2.3)],
       ["gold", "Jetzt bist <b>du</b> dran. Ohne Vorwissen, ohne Anmeldung, <b>ca. 5 Minuten</b> pro Level. Kostenlos.", A("pk_plankton", 30, 56, 70, "bobA 1.6s ease-in-out infinite") + A("coin", 68, 46, 90, "grow .7s cubic-bezier(.3,1.6,.5,1) both", .4) + T("Los geht's!", 50, 86, 1, "font-size:18px;background:#f7931a;color:#2a1600")],
     ];
-    const o = document.createElement("div"); o.className = "film"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Kurzfilm: Plankis Weg über den Satsea");
+    const o = document.createElement("div"); o.className = "film"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Kurzfilm: Plankis Weg über den Bitcoin Voyage");
     o.innerHTML = `<div class="fbar">${SH.map(() => "<i><b></b></i>").join("")}</div><button type="button" class="fsk">Überspringen ›</button><div class="fst"><div class="scn" id="fScn" aria-hidden="true"></div><p class="fcap" id="fCap" aria-live="polite"></p><p class="fhint">Tippen für weiter</p></div>`;
     document.body.appendChild(o); document.documentElement.classList.add("noscroll");
     let k = -1, tm = 0;
@@ -320,7 +320,7 @@ html.noscroll{overflow:hidden}
   }
   // Einführung beim allerersten Besuch (3 kurze Karten)
   function intro(){   // Startbildschirm für neue Besucher: Versprechen, Ablauf, ein klarer Start
-    const o = document.createElement("div"); o.className = "intro"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Willkommen bei Satsea"); document.body.appendChild(o);
+    const o = document.createElement("div"); o.className = "intro"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Willkommen bei Bitcoin Voyage"); document.body.appendChild(o);
     const first = Lern.TITLES[Lern.PATH[0][0] || Lern.PATH[0]], ev = ["plankton", "fish", "dolphin", "whale"];
     const end = go => { try { localStorage.setItem("satsland-intro", "1"); } catch(e){} o.remove(); if (go){ const pc = document.querySelector(".card.path"); if (pc){ pc.scrollIntoView({behavior: "smooth", block: "start"}); pc.classList.add("hl"); setTimeout(() => pc.classList.remove("hl"), 2600); } } };
     o.innerHTML = `<div class="ibox iwel"><button type="button" class="isk">Später</button>
@@ -342,7 +342,7 @@ html.noscroll{overflow:hidden}
   { const box = document.getElementById("rstBox");   // Fortschritt zurücksetzen: Box zeigen, bestätigen, löschen
     document.getElementById("rstOn").onclick = e => { e.preventDefault(); box.hidden = false; box.scrollIntoView({behavior: "smooth", block: "center"}); };
     document.getElementById("rstNo").onclick = () => { box.hidden = true; };
-    document.getElementById("rstYes").onclick = () => {   // wie beim allerersten Besuch: alles von Satsea löschen (nur die DEV-Sicherung bleibt)
+    document.getElementById("rstYes").onclick = () => {   // wie beim allerersten Besuch: alles von Bitcoin Voyage löschen (nur die DEV-Sicherung bleibt)
       try { Object.keys(localStorage).filter(k => /^(bvb|satsland)-/.test(k) && k !== "satsland-dev-backup").forEach(k => localStorage.removeItem(k)); sessionStorage.clear(); } catch(e){}
       scrollTo(0, 0); location.replace(location.pathname); }; }
   { const gl = document.getElementById("guideOn"); let off = false; try { off = localStorage.getItem(Lern.GK) === "1"; } catch(x){}   // Satoshi aus- und wieder einblenden

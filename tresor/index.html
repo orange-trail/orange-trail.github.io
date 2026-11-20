@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Der Tresor · Satsea</title>
-<meta name="description" content="Das Finale von Satsea: Vier Schlösser aus allem, was du gelernt hast. Knack den Tresor und hol dir deine Urkunde.">
+<title>Der Tresor · Bitcoin Voyage</title>
+<meta name="description" content="Das Finale von Bitcoin Voyage: Vier Schlösser aus allem, was du gelernt hast. Knack den Tresor und hol dir deine Urkunde.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Der Tresor · Satsea">
-<meta property="og:description" content="Das Finale von Satsea: Vier Schlösser aus allem, was du gelernt hast. Knack den Tresor und hol dir deine Urkunde.">
+<meta property="og:title" content="Der Tresor · Bitcoin Voyage">
+<meta property="og:description" content="Das Finale von Bitcoin Voyage: Vier Schlösser aus allem, was du gelernt hast. Knack den Tresor und hol dir deine Urkunde.">
 <meta property="og:image" content="https://orange-trail.github.io/og.png">
 <meta property="og:url" content="https://orange-trail.github.io/tresor/">
 <meta name="twitter:card" content="summary_large_image">
@@ -58,10 +58,10 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Satsea</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
     <h1>Der <span class="btc">Tresor</span></h1>
-    <p class="lead">Das Finale: Vier Schlösser, jedes braucht etwas, das du in Satsea gelernt hast. Jedes geknackte Schloss verrät eine Ziffer. Mit allen vier öffnet sich der Tresor.</p>
+    <p class="lead">Das Finale: Vier Schlösser, jedes braucht etwas, das du in Bitcoin Voyage gelernt hast. Jedes geknackte Schloss verrät eine Ziffer. Mit allen vier öffnet sich der Tresor.</p>
   </div>
 
   <section class="card lockd" id="gate" hidden>
@@ -103,10 +103,10 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=104"></script>
+<script src="../lern.js?v=106"></script>
 <script>
 /* =====================================================================
-   DER TRESOR – Abschluss-Rätsel von Satsea
+   DER TRESOR – Abschluss-Rätsel von Bitcoin Voyage
    Vier Schlösser, je eine Ziffer; Fortschritt bleibt im Browser.
    ===================================================================== */
 (() => {
@@ -162,7 +162,7 @@ function cert(){
   const bg = g.createLinearGradient(0, 0, 0, S); bg.addColorStop(0, "#3a2a08"); bg.addColorStop(1, "#0b0f2a"); g.fillStyle = bg; g.fillRect(0, 0, S, S);
   g.strokeStyle = "#ffc94d"; g.lineWidth = 14; g.strokeRect(40, 40, S - 80, S - 80); g.lineWidth = 3; g.strokeRect(66, 66, S - 132, S - 132);
   const t = (x, y, size, col, w = 900) => { g.font = `${w} ${size}px "Arial Black", Arial, sans-serif`; g.fillStyle = col; g.textAlign = "center"; g.fillText(x, S/2, y); };
-  t("SATSEA", 170, 44, "#f7931a"); t("URKUNDE", 270, 92, "#ffd36b");
+  t("BITCOIN VOYAGE", 170, 44, "#f7931a"); t("URKUNDE", 270, 92, "#ffd36b");
   t("Tresor geknackt", 380, 54, "#ffffff");
   t("Alle Level, alle Bosse, der Endboss", 470, 36, "#dfe3ff", 700); t("und das letzte Rätsel.", 520, 36, "#dfe3ff", 700);
   t("Rang: " + (lv && lv.name ? lv.name : "Buckelwal"), 640, 50, "#ffc94d");
@@ -180,8 +180,8 @@ function opened(anim){
 }
 $("open").onclick = () => { if ([1, 2, 3, 4].every(k => st[k])) opened(true); };
 if (st.open) opened(false);
-$("dl").onclick = () => { const a = document.createElement("a"); a.download = "satsea-urkunde.png"; a.href = $("cv").toDataURL("image/png"); a.click(); };
-if (navigator.canShare){ $("sh").hidden = false; $("sh").onclick = () => $("cv").toBlob(async b => { const f = new File([b], "satsea-urkunde.png", {type: "image/png"}); try { if (navigator.canShare({files: [f]})) await navigator.share({files: [f], text: "Ich habe den Tresor von Satsea geknackt! 🏆"}); } catch(e){} }); }
+$("dl").onclick = () => { const a = document.createElement("a"); a.download = "bitcoin-voyage-urkunde.png"; a.href = $("cv").toDataURL("image/png"); a.click(); };
+if (navigator.canShare){ $("sh").hidden = false; $("sh").onclick = () => $("cv").toBlob(async b => { const f = new File([b], "bitcoin-voyage-urkunde.png", {type: "image/png"}); try { if (navigator.canShare({files: [f]})) await navigator.share({files: [f], text: "Ich habe den Tresor von Bitcoin Voyage geknackt! 🏆"}); } catch(e){} }); }
 })();
 </script>
 </body>
