@@ -32,7 +32,7 @@
 .locks{display:grid;gap:14px;margin-top:4px}
 .lock{border:2px solid var(--line);border-radius:18px;padding:14px;background:rgba(255,255,255,.02);transition:border-color .4s,background .4s}
 .lock.done{border-color:var(--bull);background:rgba(52,217,130,.06)}
-.lock h3{margin:0 0 6px;font-size:18px;display:flex;align-items:center;gap:8px} .lock h3 .st{margin-left:auto;font:800 12px var(--f-body);color:var(--muted)} .lock.done h3 .st{color:var(--bull)}
+.lock h3{margin:0 0 6px;font-size:18px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px} .lock h3>span:first-child{flex:1 1 220px} .lock h3 .st{margin-left:auto;white-space:nowrap;font:800 12px var(--f-body);color:var(--muted)} .lock.done h3 .st{color:var(--bull)}
 .lock p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.5}
 .tgt{margin-top:10px;font:700 13px var(--f-code);color:var(--gold);word-break:break-all;padding:8px 10px;border-radius:10px;background:rgba(0,0,0,.25)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
@@ -48,10 +48,21 @@
 .digit b{display:inline-grid;place-items:center;width:28px;height:32px;margin-left:6px;border-radius:7px;background:#0d1230;color:#ffc94d;font:900 18px var(--f-num)}
 .cert{display:none;margin-top:16px;text-align:center} .cert.on{display:block;animation:p-pop .6s}
 .cert canvas{width:min(100%,420px);height:auto;border-radius:12px;box-shadow:0 18px 40px -16px #000}
+.tin{width:100%;margin-top:10px;padding:11px 14px;border-radius:12px;border:2px solid var(--line);background:rgba(0,0,0,.25);color:var(--ink);font:700 16px var(--f-body);box-sizing:border-box} .tin:focus{outline:none;border-color:var(--gold)} .lock.done .tin{display:none}
+.hres b.ok{color:var(--bull)} .hres b.no{color:#ff7a7a}
+.mine{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)} .mine p{margin-bottom:10px}
+.hex{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px} .hex span{padding:6px 9px;border-radius:8px;background:#0d1230;color:var(--gold);font:800 15px var(--f-code)}
+.htab{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:4px;margin-top:10px} .htab span{padding:4px 0;text-align:center;border-radius:6px;background:rgba(255,255,255,.04);font:600 12.5px var(--f-code);color:var(--muted)} .htab b{color:var(--ink)}
+.dstat{text-align:center;margin:14px 0 0;font-weight:800;color:var(--muted)}
+.dctl{margin-top:14px} .dnum{margin:0 auto;width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:#0d1230;border:4px solid #ffc94d;color:#ffc94d;font:900 44px var(--f-num);box-shadow:0 0 18px rgba(255,201,77,.35)}
+.dhint{text-align:center;font-weight:800;margin:10px 0}
+.slots b.lit{background:#3a2a08;box-shadow:0 0 14px rgba(255,201,77,.9)}
+.vault .dial{transition:transform .3s} .vault.spin .dial{transition:transform 1.2s cubic-bezier(.3,1.3,.5,1)}
+.vault.alarm .frame{animation:alarm .5s 3} @keyframes alarm{50%{box-shadow:0 0 0 6px #e74c3c,inset 0 0 40px rgba(231,76,60,.6)}}
 .lockd{text-align:center} .lockd .big{font-size:56px;margin:4px 0}
 @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 @keyframes p-pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
-@media (max-width:520px){ .chain{grid-template-columns:1fr 1fr} }
+@media (max-width:520px){ .chain{grid-template-columns:1fr 1fr} .lock h3{font-size:16px} .lock h3>span:first-child{flex-basis:100%} }
 @media (prefers-reduced-motion:reduce){ .vault .door,.dial{transition:none} }
 </style>
 <style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
@@ -61,7 +72,7 @@
   <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
     <h1>Der <span class="btc">Tresor</span></h1>
-    <p class="lead">Das Finale: Vier Schlösser, jedes braucht etwas, das du in Bitcoin Voyage gelernt hast. Jedes geknackte Schloss verrät eine Ziffer. Mit allen vier öffnet sich der Tresor.</p>
+    <p class="lead">Das Finale: <b>Satoshis Tresor</b>. Vier Schlösser prüfen, was du auf deiner Reise gelernt hast. Jedes geknackte Schloss verrät eine Ziffer. Zum Schluss stellst du den Code selbst am Drehrad ein, wie bei einem echten Tresor.</p>
   </div>
 
   <section class="card lockd" id="gate" hidden>
@@ -75,7 +86,13 @@
   <section class="card" aria-labelledby="hV">
     <h2 id="hV">Der Code</h2>
     <div class="vault" id="vault"><div class="frame"><div class="inside">🏆</div><div class="door"><div class="dial"></div><div class="slots" id="slots"><b>?</b><b>?</b><b>?</b><b>?</b></div></div></div></div>
-    <div class="row" style="justify-content:center;margin-top:16px"><button class="btn" id="open" type="button" disabled>🔒 Noch 4 Schlösser</button></div>
+    <p class="dstat" id="dstat">🔒 Noch 4 Schlösser</p>
+    <div class="dctl" id="dctl" hidden>
+      <div class="dnum" id="dnum" aria-live="polite">0</div>
+      <p class="dhint" id="dhint"></p>
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap"><button class="btn ghost" id="dL" type="button" aria-label="Nach links drehen">⟲ Links</button><button class="btn ghost" id="dR" type="button" aria-label="Nach rechts drehen">⟳ Rechts</button><button class="btn" id="dOk" type="button">🔐 Einrasten</button></div>
+      <p class="muted" style="font-size:13px;text-align:center;margin:10px 0 0">Wie bei echten Tresoren: abwechselnd drehen. Erste Ziffer <b>rechts</b>, zweite <b>links</b>, dritte <b>rechts</b>, vierte <b>links</b>. Ein Fehler, und alles springt zurück.</p>
+    </div>
     <div class="cert" id="cert"><canvas id="cv" width="1080" height="1080" aria-label="Deine Urkunde"></canvas>
       <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn" id="dl" type="button">⬇ Urkunde speichern</button><button class="btn ghost" id="sh" type="button" hidden>Teilen</button></div></div>
   </section>
@@ -83,18 +100,21 @@
   <section class="card" aria-labelledby="hL">
     <h2 id="hL">Die vier Schlösser</h2>
     <div class="locks">
-      <div class="lock" id="L1"><h3>🔑 1 · Fingerabdruck<span class="st">offen</span></h3>
-        <p>Dieser SHA-256-Fingerabdruck gehört zu einem dieser Wörter. Probier sie aus, dein Gerät rechnet echt.</p>
-        <div class="tgt" id="tgt">…</div><div class="chips" id="c1"></div><div class="hres" id="h1"></div><div class="digit">Ziffer gefunden:<b>7</b></div></div>
-      <div class="lock" id="L2"><h3>⛓️ 2 · Die gefälschte Kette<span class="st">offen</span></h3>
-        <p>Jeder Block speichert den Fingerabdruck seines Vorgängers. In einem Block wurde heimlich etwas geändert. Vergleiche den <b>eigenen</b> Fingerabdruck jedes Blocks mit dem, den der <b>nächste</b> Block gespeichert hat. Welcher Block wurde gefälscht?</p>
-        <div class="chain" id="c2"></div><div class="digit">Ziffer gefunden:<b>6</b></div></div>
-      <div class="lock" id="L3"><h3>✂️ 3 · Halving<span class="st">offen</span></h3>
-        <p>Wie viele Bitcoin bekam ein Miner pro Block nach dem Halving <b>2020</b>?</p>
-        <div class="chips" id="c3"></div><div class="digit">Ziffer gefunden:<b>1</b></div></div>
-      <div class="lock" id="L4"><h3>📰 4 · Die Botschaft im ersten Block<span class="st">offen</span></h3>
-        <p>„Chancellor on brink of second ______ for banks.“ Welches Wort hat Satoshi in den Genesis-Block geschrieben?</p>
-        <div class="chips" id="c4"></div><div class="digit">Ziffer gefunden:<b>4</b></div></div>
+      <div class="lock" id="L1"><h3><span>🔑 1 · Der Fingerabdruck</span><span class="st">offen</span></h3>
+        <p>Satoshi hat das erste Schloss mit einem SHA-256-Fingerabdruck gesichert. Gesucht ist das <b>Essen</b>, das 2010 für 10.000 Bitcoin gekauft wurde. Tipp das Wort ein, dein Gerät rechnet bei jedem Buchstaben echt mit.</p>
+        <div class="tgt" id="tgt">…</div><input class="tin" id="i1" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Wort eintippen …" aria-label="Wort für Schloss 1"><div class="hres" id="h1"></div><div class="digit">Ziffer gefunden:<b>7</b></div></div>
+      <div class="lock" id="L2"><h3><span>⛓️ 2 · Der Fälscher</span><span class="st">offen</span></h3>
+        <p>Jeder Block speichert den Fingerabdruck seines Vorgängers. Ein Fälscher hat einen Betrag geändert. Vergleiche den <b>eigenen</b> Fingerabdruck jedes Blocks mit dem, den der <b>nächste</b> Block gespeichert hat. Welcher Block ist gefälscht?</p>
+        <div class="chain" id="c2"></div>
+        <div class="mine" id="m2" hidden><p><b>Entlarvt!</b> Der Fälscher will seinen Block jetzt gültig machen. Zeig, wie viel Arbeit das ist: Mine den Block neu, bis sein Fingerabdruck mit <b>000</b> beginnt.</p><button class="btn" id="mb" type="button">⛏ Neu minen</button><div class="hres" id="h2"></div></div>
+        <div class="digit">Ziffer gefunden:<b>6</b></div></div>
+      <div class="lock" id="L3"><h3><span>✂️ 3 · Die Halvings</span><span class="st">offen</span></h3>
+        <p>Das dritte Schloss ist eine Zeitleiste. Tippe die Belohnung pro Block in der <b>richtigen Reihenfolge</b>, von 2009 bis heute. Ein falscher Tipp, und das Schloss springt zurück.</p>
+        <div class="chips" id="c3"></div><div class="hres" id="h3"></div><div class="digit">Ziffer gefunden:<b>1</b></div></div>
+      <div class="lock" id="L4"><h3><span>📰 4 · Die Geheimbotschaft</span><span class="st">offen</span></h3>
+        <p>Im allerersten Block steht eine Zeitungs-Schlagzeile: „Chancellor on brink of second ______ for banks.“ Das fehlende Wort ist im Block als <b>Hex-Code</b> gespeichert. Entschlüssle es mit der Tabelle.</p>
+        <div class="hex" id="hx"></div><div class="htab" id="ht"></div>
+        <input class="tin" id="i4" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Entschlüsseltes Wort …" aria-label="Wort für Schloss 4"><div class="hres" id="h4"></div><div class="digit">Ziffer gefunden:<b>4</b></div></div>
     </div>
   </section>
   </div>
@@ -118,41 +138,67 @@ let st = {}; try { st = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e){} };
 const mix = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
 
+// Drehrad: abwechselnd rechts/links drehen und einrasten, ein Fehler setzt alles zurück
+let pos = 0, dir = 0, dstep = 0;
+const NEED = [1, -1, 1, -1];
+function dial(reset){ if (reset !== undefined){ dstep = 0; dir = 0; } $("dnum").textContent = pos; document.querySelector("#vault .dial").style.transform = `rotate(${pos*36}deg)`;
+  $("dhint").textContent = `Ziffer ${dstep + 1} von 4: nach ${NEED[dstep] > 0 ? "rechts ⟳" : "links ⟲"} drehen`;
+  [...$("slots").children].forEach((b, i) => b.classList.toggle("lit", i < dstep)); }
+const turn = d => { pos = (pos + d + 10) % 10; dir = d; Lern.sfx("click"); dial(); };
+
 function solve(n, silent){
   st[n] = 1; save(); $("L" + n).classList.add("done"); $("L" + n).querySelector(".st").textContent = "✓ geknackt";
   const s = $("slots").children[n - 1]; s.textContent = CODE[n - 1]; s.classList.add("on");
   if (!silent){ Lern.sfx("ok"); Lern.toast && Lern.toast(`🔓 Schloss ${n} geknackt: Ziffer ${CODE[n - 1]}`); }
   const left = 4 - [1, 2, 3, 4].filter(k => st[k]).length;
-  $("open").disabled = !!left; $("open").textContent = left ? `🔒 Noch ${left} Schloss${left > 1 ? "er" : ""}` : (st.open ? "✓ Geöffnet" : "🔓 Tresor öffnen");
+  $("dstat").textContent = left ? `🔒 Noch ${left} Schloss${left > 1 ? "er" : ""}` : st.open ? "✓ Geöffnet" : "🎛️ Alle Ziffern gefunden! Jetzt das Drehrad.";
+  $("dctl").hidden = !!left || !!st.open; if (!left && !st.open) dial(0);
 }
 const miss = b => { b.classList.add("n"); Lern.sfx("no"); setTimeout(() => b.classList.remove("n"), 700); };
 
-// 1 · Fingerabdruck: echter SHA-256
-const W1 = ["Satoshi", "Halving", "Pizza", "Block", "Wal", "Seed"], A1 = "Pizza", H = Lern.sha256(A1);
-$("tgt").textContent = H.slice(0, 32) + "…";
-$("c1").innerHTML = mix(W1).map(w => `<button type="button">${w}</button>`).join("");
-$("c1").onclick = e => { const b = e.target.closest("button"); if (!b || st[1]) return; const h = Lern.sha256(b.textContent);
-  $("h1").innerHTML = `SHA-256(„${b.textContent}“) = ${h.slice(0, 32)}…`;
-  if (h === H){ b.classList.add("y"); solve(1); } else miss(b); };
+// 1 · Fingerabdruck: Wort eintippen, echter SHA-256 bei jedem Buchstaben
+const A1 = "Pizza", H = Lern.sha256(A1); let t1 = 0;
+$("tgt").textContent = "Gesucht: " + H.slice(0, 24) + "…";
+$("i1").addEventListener("input", () => { if (st[1]) return; const w = $("i1").value.trim(); if (!w){ $("h1").textContent = ""; return; }
+  const h = Lern.sha256(w), safe = w.replace(/[<>&]/g, "");
+  if (h === H){ $("h1").innerHTML = `<b class="ok">✓ Treffer!</b> SHA-256(„${safe}“) = ${h.slice(0, 24)}…`; solve(1); return; }
+  $("h1").innerHTML = `SHA-256(„${safe}“) = ${h.slice(0, 24)}…` + (w.toLowerCase() === "pizza" ? ` <b class="no">Fast! Beim Hash zählt sogar Groß- und Kleinschreibung.</b>` : ""); });
+$("i1").addEventListener("change", () => { if (st[1]) return; t1++; if (t1 >= 3) $("h1").insertAdjacentHTML("beforeend", `<br>💡 Tipp: Es beginnt mit „${A1.slice(0, Math.min(t1 - 2, 3))}“.`); });
 
-// 2 · Gefälschte Kette: Block 3 wurde verändert, sein neuer Fingerabdruck passt nicht zu Block 4
+// 2 · Gefälschte Kette: Block 3 wurde verändert. Danach neu minen (echte Rechenarbeit)
 { const D = ["Anna → Ben 2 BTC", "Ben → Cem 1 BTC", "Cem → Dana 5 BTC", "Dana → Eli 3 BTC"], bad = 2;
   const h = []; let prev = "0000";
   D.forEach((d, i) => { h[i] = Lern.sha256(prev + d); prev = h[i]; });
-  const stored = D.map((d, i) => i ? h[i - 1] : "0000");   // was jeder Block über seinen Vorgänger gespeichert hat
+  const stored = D.map((d, i) => i ? h[i - 1] : "0000");
   const shown = D.map((d, i) => i === bad ? "Cem → Dana 50 BTC" : d);
-  const real = []; prev = "0000"; shown.forEach((d, i) => { real[i] = Lern.sha256(stored[i] + d); });
+  const real = shown.map((d, i) => Lern.sha256(stored[i] + d));
   $("c2").innerHTML = shown.map((d, i) => `<button type="button" data-i="${i}"><b>Block ${i + 1}</b>${d}<br><em>vorher:</em> ${stored[i].slice(0, 6)}<br><em>eigener:</em> <i>${real[i].slice(0, 6)}</i></button>`).join("");
-  $("c2").onclick = e => { const b = e.target.closest("button"); if (!b || st[2]) return; if (+b.dataset.i === bad){ b.classList.add("y"); solve(2); } else miss(b); };
+  $("c2").onclick = e => { const b = e.target.closest("button"); if (!b || st[2] || !$("m2").hidden) return; if (+b.dataset.i === bad){ b.classList.add("y"); Lern.sfx("ok"); $("m2").hidden = false; } else miss(b); };
+  let mining = 0;
+  $("mb").onclick = () => { if (mining || st[2]) return; mining = 1; $("mb").disabled = true; let n = 0;
+    const step = () => { for (let k = 0; k < 120; k++, n++){ const x = Lern.sha256(stored[bad] + shown[bad] + n);
+        if (x.startsWith("000")){ $("h2").innerHTML = `<b class="ok">Gefunden!</b> Nonce ${n.toLocaleString("de-DE")} · ${x.slice(0, 20)}…<br>Nach ${n.toLocaleString("de-DE")} Versuchen. Aber Block 4 zeigt noch auf den alten Fingerabdruck. Der Fälscher müsste <b>jeden</b> Block danach neu minen, schneller als das ganze Netz. Darum ist Fälschen fast unmöglich.`; mining = 0; solve(2); return; }
+        if (k === 119) $("h2").innerHTML = `⛏ Versuch ${n.toLocaleString("de-DE")} · ${x.slice(0, 20)}…`; }
+      requestAnimationFrame(step); };
+    step(); };
 }
 
-// 3 · Halving
-$("c3").innerHTML = mix(["50", "25", "12,5", "6,25", "3,125"]).map(v => `<button type="button">${v} BTC</button>`).join("");
-$("c3").onclick = e => { const b = e.target.closest("button"); if (!b || st[3]) return; if (b.textContent === "6,25 BTC"){ b.classList.add("y"); solve(3); } else miss(b); };
+// 3 · Halvings in der richtigen Reihenfolge
+{ const R = [["50", 2009], ["25", 2012], ["12,5", 2016], ["6,25", 2020], ["3,125", 2024]]; let k = 0;
+  $("c3").innerHTML = mix(R).map(([v]) => `<button type="button" data-v="${v}">${v} BTC</button>`).join("");
+  $("c3").onclick = e => { const b = e.target.closest("button"); if (!b || st[3] || b.classList.contains("y")) return;
+    if (b.dataset.v === R[k][0]){ b.classList.add("y"); b.textContent = `${R[k][0]} BTC · ab ${R[k][1]}`; k++; Lern.sfx("click"); if (k === R.length){ $("h3").innerHTML = `<b class="ok">Zeitleiste komplett!</b> Etwa alle vier Jahre halbiert sich die Belohnung.`; solve(3); } }
+    else { miss(b); k = 0; $("c3").querySelectorAll("button").forEach(x => { x.classList.remove("y"); x.textContent = x.dataset.v + " BTC"; }); $("h3").innerHTML = `<b class="no">Falsche Reihenfolge, das Schloss springt zurück.</b>`; } };
+}
 
-// 4 · Genesis-Botschaft
-$("c4").innerHTML = mix(["bailout", "crisis", "bitcoin", "budget"]).map(v => `<button type="button">${v}</button>`).join("");
-$("c4").onclick = e => { const b = e.target.closest("button"); if (!b || st[4]) return; if (b.textContent === "bailout"){ b.classList.add("y"); solve(4); } else miss(b); };
+// 4 · Hex-Botschaft aus dem Genesis-Block entschlüsseln
+{ const W = "bailout", T = "abeiklnorstu";
+  $("hx").innerHTML = [...W].map(c => `<span>${c.charCodeAt(0).toString(16)}</span>`).join("");
+  $("ht").innerHTML = [...T].map(c => `<span>${c.charCodeAt(0).toString(16)} = <b>${c}</b></span>`).join("");
+  $("i4").addEventListener("input", () => { if (st[4]) return; const w = $("i4").value.trim().toLowerCase(); if (!w){ $("h4").textContent = ""; return; }
+    if (w === W){ $("h4").innerHTML = `<b class="ok">✓ „second bailout for banks“</b>: Satoshi startete Bitcoin mitten in der Bankenrettung 2009.`; solve(4); return; }
+    $("h4").textContent = `Dein Wort als Hex: ${[...w].map(c => c.charCodeAt(0).toString(16)).join(" ")}`; });
+}
 
 [1, 2, 3, 4].forEach(n => st[n] && solve(n, true));
 
@@ -171,14 +217,16 @@ function cert(){
   t("₿", 990, 60, "#f7931a");
 }
 function opened(anim){
-  st.open = 1; save(); $("open").textContent = "✓ Geöffnet"; $("open").disabled = true;
+  st.open = 1; save(); $("dstat").textContent = "✓ Geöffnet"; $("dctl").hidden = true;
   const v = $("vault"); cert();
   if (!anim){ v.classList.add("open"); $("cert").classList.add("on"); return; }
-  v.classList.add("spin"); Lern.sfx("click");
+  document.querySelector("#vault .dial").style.transform = ""; v.classList.add("spin"); Lern.sfx("click");
   setTimeout(() => { v.classList.add("open"); Lern.sfx("win"); Lern.confetti && Lern.confetti(); }, 1250);
   setTimeout(() => { $("cert").classList.add("on"); $("cert").scrollIntoView({behavior: "smooth", block: "center"}); }, 2500);
 }
-$("open").onclick = () => { if ([1, 2, 3, 4].every(k => st[k])) opened(true); };
+$("dR").onclick = () => turn(1); $("dL").onclick = () => turn(-1);
+$("dOk").onclick = () => { if (+CODE[dstep] === pos && dir === NEED[dstep]){ dstep++; Lern.sfx("ok"); if (dstep === 4) return opened(true); dir = 0; dial(); }
+  else { Lern.sfx("no"); const v = $("vault"); v.classList.remove("alarm"); void v.offsetWidth; v.classList.add("alarm"); $("dhint").textContent = "🚨 Falsch! Das Schloss springt zurück."; dstep = 0; dir = 0; setTimeout(() => dial(), 1300); } };
 if (st.open) opened(false);
 $("dl").onclick = () => { const a = document.createElement("a"); a.download = "bitcoin-voyage-urkunde.png"; a.href = $("cv").toDataURL("image/png"); a.click(); };
 if (navigator.canShare){ $("sh").hidden = false; $("sh").onclick = () => $("cv").toBlob(async b => { const f = new File([b], "bitcoin-voyage-urkunde.png", {type: "image/png"}); try { if (navigator.canShare({files: [f]})) await navigator.share({files: [f], text: "Ich habe den Tresor von Bitcoin Voyage geknackt! 🏆"}); } catch(e){} }); }
