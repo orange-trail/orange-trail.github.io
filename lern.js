@@ -62,7 +62,10 @@ const Lern = (() => {
     CHAPTERS.forEach((c, k) => { c[3].forEach(w => seq.push({w})); seq.push({b: k}); });
     const open = it => it.w ? !done(s, it.w) : !won[it.b] && CHAPTERS[it.b][3].every(w => done(s, w));
     const start = seq.findIndex(it => it.w === id);
-    for (let n = 1; n <= seq.length; n++){ const it = seq[(start + n + seq.length) % seq.length]; if (it.w !== id && open(it)) return it; }
+    // Nie in die nächste Welt springen, solange der Boss davor nicht besiegt ist: erst offene Level dieser Welt, dann der Boss
+    for (let n = 1; n <= seq.length; n++){ const it = seq[(start + n + seq.length) % seq.length];
+      if (it.b !== undefined && !won[it.b]){ const rest = CHAPTERS[it.b][3].find(w => w !== id && !done(s, w)); return rest ? {w: rest} : it; }
+      if (it.w !== id && open(it)) return it; }
     return null;
   }
   function nextAfter(id){ const it = nextStep(id); return it && it.w ? PATH.find(p => p[0] === it.w) : null; }
