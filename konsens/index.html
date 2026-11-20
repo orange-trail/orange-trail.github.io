@@ -23,7 +23,7 @@
 .kv div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .kv b{display:block;font:700 18px var(--f-num);color:var(--ink)} .kv .g{color:var(--gold)}
 .seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px} .seg .btn[aria-pressed="true"]{outline:2px solid #ffe3a6;outline-offset:2px}
 .res{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font-size:15px;line-height:1.5}
-.res strong{display:block;font-size:18px} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
+.res strong{display:block;font-size:18px} .res .calm{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;color:var(--muted)} .res .calm b{color:var(--ink)} .res.ok{border-color:var(--bull)} .res.ok strong{color:var(--bull)} .res.bad{border-color:var(--bear)} .res.bad strong{color:var(--bear)} .res.warn{border-color:var(--gold)} .res.warn strong{color:var(--gold)}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
 @media (max-width:620px){ .kv{grid-template-columns:1fr 1fr} .kv > :nth-child(odd):last-child:not(:first-child){grid-column:1/-1} }
 .lbl2{display:block;font-size:13px;color:var(--muted);margin-top:12px}
@@ -263,7 +263,7 @@ live();
       if (h >= Z) paid = true;
       $("rCost").textContent = usd(a*PER);
       $("rState").textContent = !paid ? `Händler wartet (${h}/${Z})` : a > h ? "Du führst!" : `${h - a} Block${h - a === 1 ? "" : "e"} zurück`;
-      if (paid && a > h) return end(true, `<strong>😈 Angriff geglückt</strong>Deine Kette ist länger, alle Nodes wechseln zu ihr. Die Zahlung an den Händler ist verschwunden. ${q < .3 ? "Mit so wenig Rechenleistung war das <b>großes Glück</b>." : `Mit ${Math.round(q*100)} % Rechenleistung klappt so etwas öfter.`} Darum warten Händler bei großen Beträgen auf <b>mehr Bestätigungen</b>: Stell oben 6 ein und versuch es nochmal.`);
+      if (paid && a > h) return end(true, `<strong>😈 Angriff geglückt</strong>Deine Kette ist länger, alle Nodes wechseln zu ihr. Die Zahlung an den Händler ist verschwunden. ${q < .3 ? "Mit so wenig Rechenleistung war das <b>großes Glück</b>." : `Mit ${Math.round(q*100)} % Rechenleistung klappt so etwas öfter.`} Darum warten Händler bei großen Beträgen auf <b>mehr Bestätigungen</b>: Stell oben 6 ein und versuch es nochmal.<span class="calm"><b>🛡️ Warum das in echt kaum passiert:</b> Du kannst nur <b>deine eigene</b> Zahlung zurückholen, fremde Bitcoin stehlen geht so nicht. Dafür hast du hier rund <b>${usd(a*PER)}</b> Strom verbrannt, oft mehr, als die Zahlung wert war. Und echte Angreifer bräuchten Rechenleistung in der Größe ganzer Länder. Bei kleinen Beträgen reicht deshalb 1 Bestätigung, bei großen warten Händler einfach länger.</span>`);
       if (h - a >= 8 || n >= 60) return end(false, `<strong>🛡️ Angriff gescheitert</strong>Die ehrliche Kette ist dir davongezogen. Du hast rund <b>${usd(a*PER)}</b> für Strom ausgegeben und bekommst nichts dafür. ${q < .3 ? "Mit weniger als einem Drittel der Rechenleistung ist das fast immer so." : "Selbst mit viel Rechenleistung ist es ein teures Glücksspiel."}`);
     }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 60 : 380);
   };
