@@ -37,7 +37,7 @@
 .esides{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .esides div{border:2px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.5}
 .esides .c{border-color:rgba(231,76,60,.6)} .esides .p{border-color:rgba(46,204,113,.6)} .esides b{display:block;margin-bottom:2px}
 @media (max-width:620px){ .ekv,.esides{grid-template-columns:1fr} .ebars div{grid-template-columns:7.5em 1fr 4.8em} }
-.vs{margin-top:14px} .vsr{margin-top:12px;text-align:center}
+.vs{margin-top:14px} table.dv{width:100%;border-collapse:collapse;margin-top:6px;font-size:14px} .dv th{font-size:12px;color:var(--muted);font-weight:600;text-align:right;padding:4px 6px} .dv td{padding:7px 6px;border-top:1px solid var(--line);text-align:right} .dv td:first-child{text-align:left;font-weight:700} .dv tr.me td{color:var(--gold)} .vsr{margin-top:12px;text-align:center}
 .vsh{margin:0;color:var(--muted);font-size:14px} .vsn{display:block;font:900 clamp(30px,9vw,46px)/1.1 var(--f-display);color:var(--gold);margin:6px 0;text-shadow:0 0 22px rgba(255,201,77,.35)}
 .vsx{margin:0 0 10px;font-weight:700}
 .tl{position:relative;height:140px;margin:8px 4px 26px;border-bottom:3px solid #3a4180}
@@ -78,7 +78,11 @@
       <div><small>Dein Gerät bräuchte für 1 Block</small><b class="num g" id="solo">–</b></div>
       <div><small>Nullen bei echten Blöcken</small><b class="num" id="realz">–</b></div>
     </div>
+    <h3 class="bxh" style="margin-top:16px">Wer schafft wie viel?</h3>
+    <table class="dv" id="dv"></table>
+    <p class="muted" style="font-size:13px;margin:6px 0 0">Handy und PC: typische Werte, wenn sie wie hier im Browser rechnen. Ein Spezial-Miner ist ein Gerät, das nur für Bitcoin-Mining gebaut ist.</p>
     <div class="vs">
+      <p style="margin:0 0 8px">Und dein Gerät? Wir lassen es kurz rechnen und zählen, wie viele Versuche es pro Sekunde schafft.</p>
       <button class="btn" id="bench" type="button">⏱ Mein Gerät messen</button>
       <div class="vsr" id="vsr" hidden>
         <p class="vsh">Dein Gerät bräuchte allein für <b>einen</b> Block ungefähr</p>
@@ -135,7 +139,7 @@ const $ = id => document.getElementById(id);
 const MP = Lern.api("v1/");
 const fmt = n => Math.round(n).toLocaleString("de-DE");
 const dur = s => s < 1 ? "< 1 Sek." : s < 90 ? Math.round(s) + " Sek." : s < 5400 ? Math.round(s/60) + " Min." : s < 172800 ? Math.round(s/3600) + " Std." : s < 3.2e7*2 ? Math.round(s/86400) + " Tage" : big(s/3.156e7) + " Jahre";
-function big(v){ if (v < 1e6) return fmt(v); const u = [["Mio.", 1e6], ["Mrd.", 1e9], ["Bio.", 1e12], ["Brd.", 1e15], ["Trio.", 1e18]]; let k = u[0]; for (const x of u) if (v >= x[1]) k = x; return (v/k[1]).toLocaleString("de-DE", {maximumFractionDigits: 1}) + " " + k[0]; }
+function big(v){ if (v < 1e6) return fmt(v); const u = [["Millionen", 1e6], ["Milliarden", 1e9], ["Billionen", 1e12], ["Billiarden", 1e15], ["Trillionen", 1e18]]; let k = u[0]; for (const x of u) if (v >= x[1]) k = x; const x = v/k[1]; return x.toLocaleString("de-DE", {maximumFractionDigits: x < 10 ? 1 : 0}) + " " + k[0]; }
 const zeros = hx => { const m = hx.match(/^0*/)[0].length; return `<i>${hx.slice(0, m)}</i>${hx.slice(m)}`; };
 let myRate = 0, netHash = 0, diff = 0, busy = false;
 
@@ -163,6 +167,8 @@ function compare(){
   energy();
   $("net").textContent = fmt(netHash/1e18) + " Trillionen";
   if (myRate > 0){ $("dev").textContent = big(netHash/myRate); if (diff) $("solo").textContent = dur(diff*4294967296/myRate); }
+  const D = (diff || 1.48e14)*4294967296, R = [["📱", "Handy", 1.5e5], ["💻", "PC", 5e5], ...(myRate > 0 ? [["⭐", "Dein Gerät (gemessen)", myRate, 1]] : []), ["⚙️", "Spezial-Miner", 2e14], ["🌍", "Ganzes Netz", netHash]];
+  $("dv").innerHTML = `<tr><th></th><th>Versuche pro Sekunde</th><th>Allein für 1 Block</th></tr>` + R.map(([i, n, r, me]) => `<tr${me ? ' class="me"' : ""}><td>${i} ${n}</td><td class="num">${big(r)}</td><td class="num">${r >= netHash ? "rund 10 Min." : dur(D/r)}</td></tr>`).join("");
 }
 async function load(){
   let ok = false;
