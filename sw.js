@@ -1,8 +1,8 @@
 // Satsea: Offline-Betrieb und Installierbarkeit.
 // Seiten: zuerst das Netz (frisch), bei langsamem oder fehlendem Netz die zuletzt gespeicherte Version.
-const CACHE = "satsland-v219";
+const CACHE = "satsland-v220";
 const PAGES = ["./ableitung/", "./adressen/", "./bahnhof/", "./besitzer/", "./betrug/", "./blockbau/", "./blockchain/", "./cantillon/", "./datenschutz/", "./doppelt/", "./eigenschaften/", "./entropie/", "./fomo/", "./geld/", "./geldgeschichte/", "./geldschoepfung/", "./geschichte/", "./goldstandard/", "./halving/", "./hashing/", "./hebel/", "./hyperinflation/", "./inflation/", "./kaufen/", "./knappheit/", "./konsens/", "./krimis/", "./kritik/", "./krypto/", "./kurven/", "./lexikon/", "./lightning/", "./lnnetz/", "./merkle/", "./mining/", "./mythen/", "./nodes/", "./offline/", "./privatsphaere/", "./psycho/", "./quanten/", "./reise/", "./risiken/", "./satoshi/", "./schluessel/", "./script/", "./seed/", "./senden/", "./sha256/", "./signaturen/", "./sparplan/", "./start/", "./tresor/", "./ueber/", "./utxo/", "./vorlaeufer/", "./wallets/", "./wert/", "./whitepaper/", "./zyklen/"];   // alle Level-Seiten: nach dem ersten Besuch im Hintergrund gespeichert
-const CORE = ["./", "./index.html", "./404.html", "./lern.js?v=109", "./lern.css?v=73", "./bitlib.js?v=24", "./icon-192.png", "./icon-512.png", "./icon.svg", "./manifest.webmanifest"];
+const CORE = ["./", "./index.html", "./404.html", "./lern.js?v=110", "./lern.css?v=73", "./bitlib.js?v=24", "./icon-192.png", "./icon-512.png", "./icon.svg", "./manifest.webmanifest"];
 self.addEventListener("install", e => {
   self.skipWaiting();
   e.waitUntil(caches.open(CACHE).then(c => Promise.all(CORE.map(u => c.add(u).catch(() => {})))));

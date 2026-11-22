@@ -79,7 +79,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=109"></script>
+<script src="../lern.js?v=110"></script>
 <script>
 /* =====================================================================
    KNAPPHEITS-MESSER – Lernwelt von Bitcoin Voyage
@@ -100,7 +100,7 @@ function draw(){
   const max = Math.max(sfB, sfG)*1.05, r = sfB/sfG, rt = r.toLocaleString("de-DE", {maximumFractionDigits: r < 10 ? 1 : 0});
   $("sf").innerHTML = `<span class="cap">Wie viele Jahre Produktion stecken schon im Bestand? Länger = knapper.</span>` + [["🥇 Gold", sfG, "#ffc94d"], ["₿ Bitcoin " + y, sfB, "#f7931a"]].map(([n, v, c]) => `<div><span>${n}</span><i><u style="width:${Math.min(100, v/max*100)}%;background:${c}"></u></i><b>${Math.round(v).toLocaleString("de-DE")} Jahre</b></div>`).join("")
     + `<span class="vd">${r >= 1.05 ? `Bitcoin ist ${y} etwa <b>${rt}× so knapp</b> wie Gold.` : r > .95 ? `Bitcoin ist ${y} etwa <b>gleich knapp</b> wie Gold.` : `Gold ist ${y} noch etwa <b>${(1/r).toLocaleString("de-DE", {maximumFractionDigits: 1})}× so knapp</b> wie Bitcoin.`}</span>`;
-  $("kv").innerHTML = `<div>Bitcoin-Bestand ${y}<b class="num">${(st/1e6).toLocaleString("de-DE", {maximumFractionDigits: 2})} Mio.</b></div><div>Neu pro Jahr<b class="num">${Math.round(fl).toLocaleString("de-DE")} BTC</b></div><div>Knapper als Gold?<b class="num ${sfB > sfG ? "g" : ""}">${sfB > sfG ? "Ja ✓" : "Noch nicht"}</b></div><div>Gold neu pro Jahr<b class="num">ca. 3.600 t</b></div>`;
+  $("kv").innerHTML = `<div>Bitcoin-Bestand Anfang ${y}<b class="num">${(st/1e6).toLocaleString("de-DE", {maximumFractionDigits: 2})} Mio.</b></div><div>Neu pro Jahr<b class="num">${Math.round(fl).toLocaleString("de-DE")} BTC</b></div><div>Knapper als Gold?<b class="num ${sfB > sfG ? "g" : ""}">${sfB > sfG ? "Ja ✓" : "Noch nicht"}</b></div><div>Gold neu pro Jahr<b class="num">ca. 3.600 t</b></div>`;
 }
 $("yr").addEventListener("input", draw);
 fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t || 0; live = height > 0; }).catch(() => {})
