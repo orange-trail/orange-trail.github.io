@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Whitepaper-Tour": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -156,7 +156,7 @@ $("paper").querySelectorAll("details").forEach(d => d.addEventListener("toggle",
     if (read.size === WP.length){ Lern.confetti && Lern.confetti(); Lern.say && Lern.say("Whitepaper komplett gelesen! Du kennst jetzt die Original-Idee von Satoshi. 📜", 5000); Lern.titles && setTimeout(Lern.titles, 800); } } }));
 bar();
 
-const QUIZ = [["Was ersetzt Bitcoin laut Whitepaper?", ["Gold", "Vertrauen in Dritte durch kryptografischen Beweis", "Das Internet", "Computer"], 1, "Satoshi wollte ein Zahlungssystem, das auf Beweis statt Vertrauen beruht."], ["Wie definiert Satoshi eine elektronische Münze?", ["Als Datei", "Als Kette digitaler Unterschriften", "Als Goldstück", "Als Bankkonto"], 1, "Jede Übergabe wird vom bisherigen Besitzer unterschrieben."], ["Welche Kette halten Nodes laut Whitepaper für die richtige?", ["Die kürzeste", "Die längste, also die mit der meisten Arbeit", "Die von Satoshi", "Die neueste"], 1, "Nodes arbeiten immer an der längsten Kette weiter."]];
+const QUIZ = [["Was ersetzt Bitcoin laut Whitepaper?", ["Gold als sicheren Wertspeicher für alle", "Vertrauen in Dritte durch kryptografischen Beweis", "Das Internet durch ein eigenes Netzwerk", "Den Computer durch spezielle Mining-Geräte"], 1, "Satoshi wollte ein Zahlungssystem, das auf Beweis statt Vertrauen beruht."], ["Wie definiert Satoshi eine elektronische Münze?", ["Als einfache Datei auf der Festplatte", "Als Kette digitaler Unterschriften", "Als digitales Goldstück", "Als Eintrag auf einem Bankkonto"], 1, "Jede Übergabe wird vom bisherigen Besitzer unterschrieben."], ["Welche Kette halten Nodes laut Whitepaper für die richtige?", ["Die kürzeste, weil sie schneller ist", "Die längste, also die mit der meisten Arbeit", "Die Kette, die Satoshi festlegt", "Die neueste, egal wie viel Arbeit"], 1, "Nodes arbeiten immer an der längsten Kette weiter."]];
 Lern.quiz($("quiz"), "whitepaper", QUIZ, "../"); Lern.visit("whitepaper"); Lern.renderNext("whitepaper", "../");
 })();
 </script>

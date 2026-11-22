@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Wer ist Satoshi?": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .clues{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
@@ -131,9 +131,9 @@ fetch(Lern.api("price/BTC-EUR")).then(x => x.json()).then(j => { const p = +j.da
   const v = 1e6*p; $("tv").textContent = "≈ " + (v/1e9).toLocaleString("de-DE", {maximumFractionDigits: 0}) + " Mrd. €";
   $("tn").textContent = "bei 1 Mio. BTC zum Monatsstand (" + p.toLocaleString("de-DE", {maximumFractionDigits: 0}) + " € je BTC)"; }).catch(() => {});
 
-const QUIZ = [["Wie könnte jemand am einfachsten beweisen, dass er Satoshi ist?", ["Mit einem Interview im Fernsehen", "Mit einer Unterschrift mit Satoshis altem Schlüssel", "Mit einem Gerichtsurteil"], 1, "Eine Signatur mit einem frühen Schlüssel wäre eindeutig. Das hat noch niemand getan."],
+const QUIZ = [["Wie könnte jemand am einfachsten beweisen, dass er Satoshi ist?", ["Mit einem langen Interview im Fernsehen", "Mit einer Unterschrift mit Satoshis altem Schlüssel", "Mit einem Gerichtsurteil, das es bestätigt"], 1, "Eine Signatur mit einem frühen Schlüssel wäre eindeutig. Das hat noch niemand getan."],
   ["Was stellte ein Gericht in London 2024 fest?", ["Craig Wright ist Satoshi", "Craig Wright ist nicht Satoshi", "Satoshi ist eine Firma"], 1, "Das Gericht fand gefälschte Dokumente und entschied klar dagegen."],
-  ["Warum sehen viele es als Vorteil, dass Satoshi unbekannt ist?", ["Weil Bitcoin dann keinen Anführer hat, den man unter Druck setzen kann", "Weil Satoshi sonst Steuern zahlen müsste", "Weil sonst der Kurs fällt"], 0, "Ohne Kopf gibt es kein einzelnes Ziel. Die Regeln bestimmen die Nodes."]];
+  ["Warum sehen viele es als Vorteil, dass Satoshi unbekannt ist?", ["Weil Bitcoin dann keinen Anführer hat, den man unter Druck setzen kann", "Weil Satoshi sonst sehr viele Steuern zahlen müsste", "Weil der Kurs sonst sofort stark fallen würde"], 0, "Ohne Kopf gibt es kein einzelnes Ziel. Die Regeln bestimmen die Nodes."]];
 Lern.quiz($("quiz"), "satoshi", QUIZ, "../"); Lern.visit("satoshi"); Lern.renderNext("satoshi", "../");
 })();
 </script>

@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Bitcoin vs. Krypto": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -129,9 +129,9 @@ fetch(Lern.api("global")).then(r => r.json()).then(j => {
 }).catch(() => { $("kN").textContent = "über 15.000"; $("kD").textContent = "etwa 60 %"; $("mode").className = "mode demo"; $("mode").textContent = "Schätzung"; });
 
 const QUIZ = [
-  ["Warum gibt es so viele Kryptowährungen?", ["Weil jeder mit wenig Aufwand einen eigenen Coin erstellen kann", "Weil Bitcoin sie alle erstellt hat", "Weil jedes Land einen braucht"], 0, "Einen Coin zu kopieren oder neu zu starten ist einfach. Ein Netz aufzubauen, dem Menschen weltweit vertrauen, ist sehr schwer."],
-  ["Was ist ein typisches Warnsignal bei einem neuen Coin?", ["Er ist Open Source", "Das Team hält vorab einen großen Teil aller Coins", "Er hat eine Webseite"], 1, "Wenn Gründer vorab viele Coins haben, können sie später teuer an Neueinsteiger verkaufen."],
-  ["Was unterscheidet Bitcoin am stärksten von den meisten anderen Coins?", ["Die Farbe des Logos", "Kein Chef, fairer Start und eine Menge, die niemand ändern kann", "Er ist der schnellste"], 1, "Bitcoin hat keine Firma, keine Vorab-Coins und feste Regeln. Das ist sein Kern, nicht Geschwindigkeit."],
+  ["Warum gibt es so viele Kryptowährungen?", ["Weil jeder mit wenig Aufwand einen eigenen Coin erstellen kann", "Weil Bitcoin sie alle selbst erschaffen hat", "Weil jedes Land eine eigene Kryptowährung braucht"], 0, "Einen Coin zu kopieren oder neu zu starten ist einfach. Ein Netz aufzubauen, dem Menschen weltweit vertrauen, ist sehr schwer."],
+  ["Was ist ein typisches Warnsignal bei einem neuen Coin?", ["Der Code ist öffentlich und für alle einsehbar", "Das Team hält vorab einen großen Teil aller Coins", "Das Projekt hat eine eigene Webseite und App"], 1, "Wenn Gründer vorab viele Coins haben, können sie später teuer an Neueinsteiger verkaufen."],
+  ["Was unterscheidet Bitcoin am stärksten von den meisten anderen Coins?", ["Das bekannteste Logo, die meisten Fans und die größte Werbung", "Kein Chef, fairer Start und eine Menge, die niemand ändern kann", "Er ist schneller und günstiger als alle anderen Coins am Markt"], 1, "Bitcoin hat keine Firma, keine Vorab-Coins und feste Regeln. Das ist sein Kern, nicht Geschwindigkeit."],
 ];
 Lern.quiz($("quiz"), "krypto", QUIZ, "../"); Lern.visit("krypto"); Lern.renderNext("krypto", "../");
 })();

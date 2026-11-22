@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Seed-Trainer": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .warn{border-color:rgba(255,92,115,.45);background:rgba(255,92,115,.07)}
@@ -239,8 +239,8 @@ draw();
 
 const QUIZ = [
   ["Ein Mitarbeiter deiner Börse schreibt dir und braucht deine 12 Wörter, um dein Konto zu „retten“. Was tust du?", ["Ich gebe sie ihm, er will ja helfen", "Nichts verraten, das ist Betrug", "Ich schicke nur die Hälfte"], 1, "Niemand Seriöses fragt nach dem Seed. Wer ihn hat, kann sofort alles abziehen, auch mit der Hälfte der Wörter wird es gefährlich."],
-  ["Deine Hardware-Wallet ist kaputt. Wie kommst du an deine Bitcoin?", ["Gar nicht mehr", "Mit den 12 bzw. 24 Wörtern in einer neuen Wallet", "Nur über den Hersteller"], 1, "Die Bitcoin liegen nicht im Gerät, sondern in der Blockchain. Mit dem Seed stellst du alles in jeder kompatiblen Wallet wieder her."],
-  ["Welche Aufbewahrung ist am sichersten?", ["Foto in der Cloud", "Passwort-Manager im Browser", "Offline auf Papier oder Metall, an sicheren Orten"], 2, "Offline-Backups kann niemand aus der Ferne stehlen. Metall schützt zusätzlich vor Feuer und Wasser."],
+  ["Deine Hardware-Wallet ist kaputt. Wie kommst du an deine Bitcoin?", ["Gar nicht mehr, die Bitcoin sind verloren", "Mit den 12 bzw. 24 Wörtern in einer neuen Wallet", "Nur über den Kundendienst des Herstellers"], 1, "Die Bitcoin liegen nicht im Gerät, sondern in der Blockchain. Mit dem Seed stellst du alles in jeder kompatiblen Wallet wieder her."],
+  ["Welche Aufbewahrung ist am sichersten?", ["Als Foto in der Cloud, damit es nie verloren geht", "Im Passwort-Manager des Browsers, schön verschlüsselt", "Offline auf Papier oder Metall, an sicheren Orten"], 2, "Offline-Backups kann niemand aus der Ferne stehlen. Metall schützt zusätzlich vor Feuer und Wasser."],
 ];
 Lern.quiz($("quiz"), "seed", QUIZ, "../"); Lern.visit("seed"); Lern.renderNext("seed", "../");
 newWords();

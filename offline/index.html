@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Bitcoin ohne Internet": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .ways{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-top:10px}
@@ -122,8 +122,8 @@ $("join").onclick = () => { stopT(); state = 2; draw(); $("lB").classList.add("l
 draw();
 
 const QUIZ = [["Warum kann eine Bitcoin-Zahlung sogar per Funk oder Zettel reisen?", ["Weil sie nur ein kurzer, unterschriebener Text ist", "Weil Bitcoin aus Papier ist", "Weil Funk schneller als Internet ist"], 0, "Unterwegs kann niemand die unterschriebene Zahlung verändern. Der Weg ist egal."],
-  ["Wie bekommt man neue Blöcke ganz ohne Internet?", ["Gar nicht", "Per Satellit mit einer kleinen Schüssel", "Per Radio-Werbung"], 1, "Satelliten senden die Blockchain seit 2017 über fast die ganze Welt."],
-  ["Was passiert, wenn zwei getrennte Teile wieder verbunden werden?", ["Beide Ketten gelten", "Die Kette mit der meisten Arbeit gilt, die andere wird verworfen", "Bitcoin startet neu"], 1, "Die Zahlungen aus der verworfenen Kette kommen zurück in den Warteraum."]];
+  ["Wie bekommt man neue Blöcke ganz ohne Internet?", ["Gar nicht, ohne Internet geht nichts", "Per Satellit mit einer kleinen Schüssel", "Per Radio, aber nur für Profis"], 1, "Satelliten senden die Blockchain seit 2017 über fast die ganze Welt."],
+  ["Was passiert, wenn zwei getrennte Teile wieder verbunden werden?", ["Beide Ketten gelten weiter nebeneinander", "Die Kette mit der meisten Arbeit gilt, die andere wird verworfen", "Bitcoin startet neu, alle Blöcke werden gelöscht"], 1, "Die Zahlungen aus der verworfenen Kette kommen zurück in den Warteraum."]];
 Lern.quiz($("quiz"), "offline", QUIZ, "../"); Lern.visit("offline"); Lern.renderNext("offline", "../");
 })();
 </script>

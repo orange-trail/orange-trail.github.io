@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Bau deinen Block": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -222,8 +222,8 @@ $("yrs").addEventListener("click", e => { const b = e.target.closest("[data-y]")
 draw();
 
 const QUIZ = [["Zwei Zahlungen: 600 vB mit 7.200 sat und 110 vB mit 3.850 sat. Welche ist für den Miner pro Platz wertvoller?", ["Die große, sie zahlt mehr", "Die kleine: 35 sat/vB statt 12 sat/vB", "Beide gleich"], 1, "Platz im Block ist knapp. Darum zählt die Gebühr pro vByte, nicht die Gesamtgebühr."],
-  ["Deine Zahlung hängt wegen zu niedriger Gebühr fest. Was kann helfen?", ["Eine Folgezahlung mit hoher Gebühr, die sie mitzieht (CPFP)", "Den Miner anrufen", "Nichts, sie ist verloren"], 0, "Miner schauen auf das Paket aus Eltern und Kind. Zahlt das Kind genug, lohnt sich beides zusammen."],
-  ["Ein Miner packt eine Zahlung mit gefälschter Unterschrift in seinen Block. Was passiert?", ["Nur diese Zahlung wird gestrichen", "Alle Nodes lehnen den ganzen Block ab, der Miner bekommt nichts", "Der Miner bekommt eine Strafe in Euro"], 1, "Ein Block ist nur gültig, wenn jede einzelne Zahlung gültig ist. Betrug kostet den Miner seinen ganzen Lohn."]];
+  ["Deine Zahlung hängt wegen zu niedriger Gebühr fest. Was kann helfen?", ["Eine Folgezahlung mit hoher Gebühr, die sie mitzieht (CPFP)", "Die gleiche Zahlung einfach nochmal senden", "Nichts, die Zahlung ist für immer verloren"], 0, "Miner schauen auf das Paket aus Eltern und Kind. Zahlt das Kind genug, lohnt sich beides zusammen."],
+  ["Ein Miner packt eine Zahlung mit gefälschter Unterschrift in seinen Block. Was passiert?", ["Nur diese eine Zahlung wird aus dem Block gestrichen", "Alle Nodes lehnen den ganzen Block ab, der Miner bekommt nichts", "Der Block gilt, der Miner zahlt nur eine Geldstrafe"], 1, "Ein Block ist nur gültig, wenn jede einzelne Zahlung gültig ist. Betrug kostet den Miner seinen ganzen Lohn."]];
 Lern.quiz($("quiz"), "blockbau", QUIZ, "../"); Lern.visit("blockbau"); Lern.renderNext("blockbau", "../");
 })();
 </script>

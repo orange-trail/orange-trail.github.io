@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Mythen-Check": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -109,7 +109,7 @@ $("pick").onclick = e => { const b = e.target.closest("[data-a]"); if (!b || i >
   $("nx").onclick = () => { i++; card(); }; score(); };
 card();
 
-const QUIZ = [["Wie hoch war laut Chainalysis 2025 der Anteil illegaler Krypto-Zahlungen?", ["Etwa 50 %", "Etwa 25 %", "Unter 1 %", "Genau 10 %"], 2, "Laut Chainalysis lag der illegale Anteil 2025 bei unter 1 % aller Krypto-Zahlungen."], ["Ist Bitcoin anonym?", ["Ja, völlig", "Nein, pseudonym: alle Zahlungen sind öffentlich, nur ohne Namen", "Nur am Wochenende", "Nur mit Lightning"], 1, "Jede Zahlung steht öffentlich in der Blockchain. Namen stehen nicht dabei, lassen sich aber oft herausfinden."], ["Wurde das Bitcoin-Netzwerk selbst schon gehackt?", ["Ja, mehrmals", "Nein, gehackt wurden Börsen und schlecht gesicherte Wallets", "Ja, 2021 von China", "Ja, jedes Jahr"], 1, "Die Regeln wurden nie geknackt, ein Software-Fehler 2010 war in wenigen Stunden behoben. Verluste entstanden vor allem bei Börsen und unsicheren Wallets."]];
+const QUIZ = [["Wie hoch war laut Chainalysis 2025 der Anteil illegaler Krypto-Zahlungen?", ["Etwa 50 %", "Etwa 25 %", "Unter 1 %", "Genau 10 %"], 2, "Laut Chainalysis lag der illegale Anteil 2025 bei unter 1 % aller Krypto-Zahlungen."], ["Ist Bitcoin anonym?", ["Ja, niemand kann Zahlungen jemals einer Person zuordnen", "Nein, pseudonym: alle Zahlungen sind öffentlich, nur ohne Namen", "Nur wenn man Bitcoin über eine Börse kauft", "Nur wenn man ausschließlich Lightning nutzt"], 1, "Jede Zahlung steht öffentlich in der Blockchain. Namen stehen nicht dabei, lassen sich aber oft herausfinden."], ["Wurde das Bitcoin-Netzwerk selbst schon gehackt?", ["Ja, mehrmals, deshalb gibt es so viele Updates", "Nein, gehackt wurden Börsen und schlecht gesicherte Wallets", "Ja, 2021 hat China das Netzwerk übernommen", "Ja, aber jedes Mal nur für wenige Minuten"], 1, "Die Regeln wurden nie geknackt, ein Software-Fehler 2010 war in wenigen Stunden behoben. Verluste entstanden vor allem bei Börsen und unsicheren Wallets."]];
 Lern.quiz($("quiz"), "mythen", QUIZ, "../"); Lern.visit("mythen"); Lern.renderNext("mythen", "../");
 })();
 </script>

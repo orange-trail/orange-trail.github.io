@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Reise einer Zahlung": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -120,7 +120,7 @@ Promise.allSettled([
   $("mode").className = "mode " + (L.live ? "live" : "demo"); $("mode").textContent = L.live ? "Live" : "Beispielwerte"; draw(); });
 draw();
 
-const QUIZ = [["Womit wird eine Bitcoin-Zahlung unterschrieben?", ["Mit dem privaten Schlüssel deiner Wallet", "Mit Annas Adresse", "Von einem Miner"], 0, "Die Unterschrift beweist, dass die Bitcoin dir gehören."], ["Wo wartet eine Zahlung, bevor sie in einen Block kommt?", ["In der Mempool", "Bei der Bank", "Auf Annas Handy"], 0, "Miner wählen dort die Zahlungen mit der höchsten Gebühr pro Byte."], ["Ab wie vielen Bestätigungen gilt eine große Zahlung nach der Faustregel als sicher?", ["Etwa 6", "1", "100"], 0, "6 Blöcke dauern ungefähr eine Stunde. Kleine Beträge brauchen oft weniger."]];
+const QUIZ = [["Womit wird eine Bitcoin-Zahlung unterschrieben?", ["Mit dem privaten Schlüssel deiner Wallet", "Mit Annas Adresse als Unterschrift", "Vom Miner, der den Block findet"], 0, "Die Unterschrift beweist, dass die Bitcoin dir gehören."], ["Wo wartet eine Zahlung, bevor sie in einen Block kommt?", ["In der Mempool", "Bei der Bank", "Auf Annas Handy"], 0, "Miner wählen dort die Zahlungen mit der höchsten Gebühr pro Byte."], ["Ab wie vielen Bestätigungen gilt eine große Zahlung nach der Faustregel als sicher?", ["Etwa 6", "Etwa 1", "Etwa 100"], 0, "6 Blöcke dauern ungefähr eine Stunde. Kleine Beträge brauchen oft weniger."]];
 Lern.quiz($("quiz"), "reise", QUIZ, "../"); Lern.visit("reise"); Lern.renderNext("reise", "../");
 })();
 </script>

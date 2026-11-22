@@ -13,7 +13,7 @@
 <meta property="og:description" content="Fälsch einen Block und sieh, wie die Kette bricht.">
 <meta property="og:image" content="https://orange-trail.github.io/og/blockchain.jpg">
 <meta property="og:url" content="https://orange-trail.github.io/blockchain/">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Blockchain": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 /* 1 · Echte Kette */
@@ -197,7 +197,7 @@ toy.forEach(b => {
 const QUIZ = [
   ["Was steht in jedem Bitcoin-Block, das ihn mit der Kette verbindet?", ["Der Name des Miners", "Der Hash des vorherigen Blocks", "Das Datum der Halving-Uhr"], 1, "Jeder Block enthält den Fingerabdruck (Hash) seines Vorgängers. Ändert sich der Vorgänger, passt der Verweis nicht mehr."],
   ["Du änderst in einem Text nur einen einzigen Buchstaben. Was passiert mit dem SHA-256-Hash?", ["Er ändert sich an einer Stelle", "Er bleibt gleich", "Er sieht komplett anders aus"], 2, "Das ist die wichtigste Eigenschaft einer Hash-Funktion: Die kleinste Änderung ergibt einen völlig anderen Fingerabdruck."],
-  ["Warum kann man einen alten Bitcoin-Block praktisch nicht fälschen?", ["Weil er verschlüsselt ist", "Weil man ihn und alle folgenden Blöcke neu minen und schneller als alle Miner sein müsste", "Weil die Regierung ihn schützt"], 1, "Jede Fälschung verlangt das Neu-Minen der ganzen Kette ab diesem Block, gegen die Rechenleistung des gesamten Netzwerks. Das ist nicht zu schaffen."],
+  ["Warum kann man einen alten Bitcoin-Block praktisch nicht fälschen?", ["Weil jeder alte Block mit einem geheimen Passwort verschlüsselt und gesperrt ist", "Weil man ihn und alle folgenden Blöcke neu minen und schneller als alle Miner sein müsste", "Weil eine Behörde alle alten Blöcke sicher aufbewahrt und jede Änderung sofort meldet"], 1, "Jede Fälschung verlangt das Neu-Minen der ganzen Kette ab diesem Block, gegen die Rechenleistung des gesamten Netzwerks. Das ist nicht zu schaffen."],
 ];
 Lern.quiz($("quiz"), "blockchain", QUIZ, "../"); Lern.visit("blockchain"); Lern.renderNext("blockchain", "../");
 

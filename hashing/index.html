@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Hashing": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -164,7 +164,7 @@ fetch(Lern.api("blocks/tip/hash")).then(r => r.text()).then(h => {
 const QUIZ = [
   ["Du änderst in einem Text ein einziges Komma. Was passiert mit dem Hash?", ["Ein Zeichen ändert sich", "Er sieht komplett anders aus", "Er bleibt gleich"], 1, "Das ist der Lawinen-Effekt: Schon eine winzige Änderung ergibt einen völlig anderen Hash."],
   ["Wie lang ist ein SHA-256-Hash von einem ganzen Buch?", ["Viel länger als von einem Wort", "Immer 64 Zeichen", "Genauso lang wie das Buch"], 1, "SHA-256 liefert immer 256 Bit, also 64 Zeichen in Hex-Schreibweise, egal wie groß die Eingabe ist."],
-  ["Wie findet man heraus, welcher Text zu einem Hash gehört?", ["Man rechnet ihn zurück", "Nur durch Ausprobieren und Vergleichen", "Man fragt die Blockchain"], 1, "Hashes sind Einbahnstraßen. Man kann nur Kandidaten hashen und vergleichen. Genau das machen Miner milliardenfach."],
+  ["Wie findet man heraus, welcher Text zu einem Hash gehört?", ["Man rechnet den Hash Schritt für Schritt zurück", "Nur durch Ausprobieren und Vergleichen", "Man fragt die Blockchain nach dem Originaltext"], 1, "Hashes sind Einbahnstraßen. Man kann nur Kandidaten hashen und vergleichen. Genau das machen Miner milliardenfach."],
 ];
 Lern.quiz($("quiz"), "hashing", QUIZ, "../"); Lern.visit("hashing"); Lern.renderNext("hashing", "../");
 })();

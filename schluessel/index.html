@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Schlüssel": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .keys{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
@@ -263,7 +263,7 @@ setTimeout(rate, 400);
 const QUIZ = [
   ["Was darfst du anderen zeigen?", ["Den privaten Schlüssel", "Den öffentlichen Schlüssel", "Die Seed-Wörter"], 1, "Der öffentliche Schlüssel (bzw. die Adresse daraus) ist zum Teilen da. Privater Schlüssel und Seed bleiben geheim."],
   ["Jemand ändert in einer unterschriebenen Zahlung den Betrag. Was passiert?", ["Die Zahlung geht mit dem neuen Betrag durch", "Die Signatur passt nicht mehr, alle Nodes lehnen ab", "Nur große Beträge fallen auf"], 1, "Die Signatur gilt nur für genau diese Nachricht. Jede Änderung macht sie ungültig."],
-  ["Warum kann niemand deinen privaten Schlüssel erraten?", ["Weil er geheim gespeichert ist", "Weil es mehr mögliche Schlüssel gibt als Atome auf der Erde", "Weil Raten verboten ist"], 1, "2²⁵⁶ Möglichkeiten sind so viele, dass alle Computer der Welt zusammen keine Chance hätten."],
+  ["Warum kann niemand deinen privaten Schlüssel erraten?", ["Weil er in der Wallet verschlüsselt gespeichert ist", "Weil es mehr mögliche Schlüssel gibt als Atome auf der Erde", "Weil das Raten von Schlüsseln gesetzlich verboten ist"], 1, "2²⁵⁶ Möglichkeiten sind so viele, dass alle Computer der Welt zusammen keine Chance hätten."],
 ];
 Lern.quiz($("quiz"), "schluessel", QUIZ, "../"); Lern.visit("schluessel"); Lern.renderNext("schluessel", "../");
 })();

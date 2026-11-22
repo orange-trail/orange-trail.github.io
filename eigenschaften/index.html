@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Eigenschaften": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -173,10 +173,10 @@ fetch(Lern.api("price/BTC-EUR")).then(x => x.json()).then(j => { eurPrice = +j.d
   .finally(() => { $("mode").className = "mode " + (eurPrice ? "live" : "demo"); $("mode").textContent = eurPrice ? "Live" : "Beispielwerte"; });
 
 const QUIZ = [
-  ["Welche Eigenschaft hat Bitcoin, die Euro nicht hat?", ["Einen stabilen Preis", "Eine feste Obergrenze, die niemand ändern kann", "Er ist älter"], 1, "Die Menge von 21 Millionen steht fest. Eine Zentralbank kann dagegen neues Geld schaffen."],
-  ["Wo schneidet Gold besser ab als Bitcoin?", ["Bei der Erfahrung: seit Jahrtausenden Geld", "Beim Verschicken", "Bei der Teilbarkeit"], 0, "Gold ist seit Jahrtausenden Geld. Bitcoin gibt es erst seit 2009."],
+  ["Welche Eigenschaft hat Bitcoin, die Euro nicht hat?", ["Einen Preis, der kaum schwankt", "Eine feste Obergrenze, die niemand ändern kann", "Eine längere Geschichte als Geld"], 1, "Die Menge von 21 Millionen steht fest. Eine Zentralbank kann dagegen neues Geld schaffen."],
+  ["Wo schneidet Gold besser ab als Bitcoin?", ["Bei der Erfahrung: seit Jahrtausenden Geld", "Beim schnellen Verschicken weltweit", "Bei der Teilbarkeit in kleine Stücke"], 0, "Gold ist seit Jahrtausenden Geld. Bitcoin gibt es erst seit 2009."],
   ["Was unterscheidet einen Stablecoin von Bitcoin?", ["Stablecoins gibt eine Firma heraus und kann sie einfrieren", "Stablecoins sind auf 21 Millionen begrenzt", "Es gibt keinen Unterschied"], 0, "Hinter einem Stablecoin steht eine Firma. Sie hält den Wert stabil, kann Guthaben aber auch sperren."],
-  ["Was heißt „dezentral“ bei Bitcoin?", ["Es gibt einen Chef pro Land", "Kein Einzelner bestimmt, tausende Nodes prüfen gemeinsam", "Bitcoin liegt auf einem großen Server"], 1, "Es gibt keine Firma und keine Zentralbank. Die Regeln werden von allen Nodes gemeinsam durchgesetzt."],
+  ["Was heißt „dezentral“ bei Bitcoin?", ["Jedes Land hat einen eigenen Bitcoin-Chef", "Kein Einzelner bestimmt, tausende Nodes prüfen gemeinsam", "Alle Daten liegen auf einem großen Server"], 1, "Es gibt keine Firma und keine Zentralbank. Die Regeln werden von allen Nodes gemeinsam durchgesetzt."],
 ];
 Lern.quiz($("quiz"), "eigenschaften", QUIZ, "../"); Lern.visit("eigenschaften"); Lern.renderNext("eigenschaften", "../");
 round();

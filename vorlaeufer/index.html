@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Die Vorläufer": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .pre{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-top:10px}
@@ -125,9 +125,9 @@ $("pieces").addEventListener("click", e => { const b = e.target.closest("button"
 });
 draw();
 
-const QUIZ = [["Woran scheiterte DigiCash?", ["Die Technik funktionierte nicht", "Es hing an einer Firma, und die ging 1998 pleite", "Es war zu schnell"], 1, "Ohne die Firma ging nichts. Genau dieses Risiko vermeidet Bitcoin."],
+const QUIZ = [["Woran scheiterte DigiCash?", ["Die Technik dahinter funktionierte nie richtig", "Es hing an einer Firma, und die ging 1998 pleite", "Es war für die damaligen Computer zu langsam"], 1, "Ohne die Firma ging nichts. Genau dieses Risiko vermeidet Bitcoin."],
   ["Wofür war Hashcash ursprünglich gedacht?", ["Gegen Spam-Mails", "Als Ersatz für den Euro", "Für Online-Spiele"], 0, "Jede Mail kostet etwas Rechenarbeit. Bitcoin nutzt die Idee als Arbeitsnachweis."],
-  ["Welches Teil hat Satoshi neu hinzugefügt?", ["Digitale Unterschriften", "Die Regel: Die Kette mit der meisten Arbeit gilt", "Das Internet"], 1, "Damit einigen sich alle ohne Chef auf eine Reihenfolge der Zahlungen."]];
+  ["Welches Teil hat Satoshi neu hinzugefügt?", ["Digitale Unterschriften für Zahlungen", "Die Regel: Die Kette mit der meisten Arbeit gilt", "Das Internet als Netz zwischen Rechnern"], 1, "Damit einigen sich alle ohne Chef auf eine Reihenfolge der Zahlungen."]];
 Lern.quiz($("quiz"), "vorlaeufer", QUIZ, "../"); Lern.visit("vorlaeufer"); Lern.renderNext("vorlaeufer", "../");
 })();
 </script>

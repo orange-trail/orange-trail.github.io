@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Senden & Empfangen": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -171,7 +171,7 @@ function view(){
 }
 view();
 
-const QUIZ = [["Was solltest du vor dem Senden immer prüfen?", ["Anfang und Ende der Empfänger-Adresse", "Nur die Länge der Adresse", "Ob die Adresse schön aussieht"], 0, "Schadsoftware kann kopierte Adressen austauschen. Ein Blick auf Anfang und Ende entlarvt das."], ["Wovon hängt die Bitcoin-Gebühr ab?", ["Wie eilig es ist und wie groß die Transaktion in Daten ist", "Vom Betrag in Euro", "Von der Uhrzeit"], 0, "Auch eine Million Euro kann wenig Gebühr kosten. Es zählt der Platz im Block."], ["Die Börse bietet beim Abheben mehrere Netzwerke an. Was wählst du für echte Bitcoin?", ["Das Bitcoin-Netzwerk", "Irgendeins, Hauptsache billig", "Das mit dem schönsten Logo"], 0, "Im falschen Netzwerk kann das Geld verloren sein. Für Bitcoin: Bitcoin-Netzwerk oder Lightning."]];
+const QUIZ = [["Was solltest du vor dem Senden immer prüfen?", ["Anfang und Ende der Empfänger-Adresse", "Nur die Länge der Adresse", "Ob die Adresse schön aussieht"], 0, "Schadsoftware kann kopierte Adressen austauschen. Ein Blick auf Anfang und Ende entlarvt das."], ["Wovon hängt die Bitcoin-Gebühr ab?", ["Wie eilig es ist und wie groß die Transaktion in Daten ist", "Vom Betrag in Euro, den du an jemanden überweist", "Von der Uhrzeit und dem Wochentag, an dem du sendest"], 0, "Auch eine Million Euro kann wenig Gebühr kosten. Es zählt der Platz im Block."], ["Die Börse bietet beim Abheben mehrere Netzwerke an. Was wählst du für echte Bitcoin?", ["Das Bitcoin-Netzwerk", "Irgendeins, Hauptsache billig", "Das mit dem schönsten Logo"], 0, "Im falschen Netzwerk kann das Geld verloren sein. Für Bitcoin: Bitcoin-Netzwerk oder Lightning."]];
 Lern.quiz($("quiz"), "senden", QUIZ, "../"); Lern.visit("senden"); Lern.renderNext("senden", "../");
 })();
 </script>

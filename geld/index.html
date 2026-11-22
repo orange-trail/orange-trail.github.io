@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Tausch-Insel": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -151,7 +151,7 @@ $("fn").onclick = e => {
   sel = -1; $("fn").querySelectorAll("div").forEach(x => x.classList.remove("drop"));
 };
 
-const QUIZ = [["Warum ist reiner Tauschhandel so mühsam?", ["Man muss jemanden finden, der genau das will, was man hat", "Weil Tauschen verboten ist", "Weil es zu viele Waren gibt"], 0, "Ökonomen nennen das die „doppelte Übereinstimmung der Wünsche“."], ["Du sparst für ein Auto in drei Jahren. Welche Aufgabe von Geld nutzt du?", ["Wertspeicher", "Recheneinheit", "Tauschmittel"], 0, "Gutes Geld muss seinen Wert über die Zeit halten."], ["„Ein Brot kostet 3 €.“ Welche Aufgabe erfüllt Geld hier?", ["Recheneinheit", "Wertspeicher", "Tauschmittel"], 0, "Geld macht Preise vergleichbar."]];
+const QUIZ = [["Warum ist reiner Tauschhandel so mühsam?", ["Man muss jemanden finden, der genau das will, was man hat", "Weil Tauschen in den meisten Ländern verboten ist", "Weil es viel zu viele verschiedene Waren gibt"], 0, "Ökonomen nennen das die „doppelte Übereinstimmung der Wünsche“."], ["Du sparst für ein Auto in drei Jahren. Welche Aufgabe von Geld nutzt du?", ["Wertspeicher", "Recheneinheit", "Tauschmittel"], 0, "Gutes Geld muss seinen Wert über die Zeit halten."], ["„Ein Brot kostet 3 €.“ Welche Aufgabe erfüllt Geld hier?", ["Recheneinheit", "Wertspeicher", "Tauschmittel"], 0, "Geld macht Preise vergleichbar."]];
 Lern.quiz($("quiz"), "geld", QUIZ, "../"); Lern.visit("geld"); Lern.renderNext("geld", "../");
 })();
 </script>

@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "UTXO": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -188,9 +188,9 @@ $("again").onclick = real; real();
 reset();
 
 const QUIZ = [
-  ["Du hast einen Bitcoin-Betrag über 0,05 BTC und zahlst 0,01 BTC. Was passiert?", ["Von dem Betrag werden 0,01 BTC abgezogen", "Der ganze Betrag wird ausgegeben, etwa 0,04 BTC kommen als Wechselgeld zurück", "Das geht nicht"], 1, "Beträge (UTXOs) werden immer ganz ausgegeben. Der Rest kommt als neuer Betrag zu dir zurück, minus Gebühr."],
-  ["Wovon hängt die Gebühr vor allem ab?", ["Vom Betrag", "Von der Größe der Transaktion, also wie viele Beträge rein und raus gehen", "Von der Uhrzeit"], 1, "Miner werden pro vByte bezahlt. Mehr Beträge bedeuten mehr Daten und damit eine höhere Gebühr, egal wie groß der Betrag ist."],
-  ["Wohin schickt eine gute Wallet das Wechselgeld?", ["An den Empfänger", "An eine neue Adresse, die dir gehört", "An die Miner"], 1, "Eine neue Adresse macht es schwerer, deine Zahlungen miteinander zu verbinden. Das schützt deine Privatsphäre."],
+  ["Du hast einen Bitcoin-Betrag über 0,05 BTC und zahlst 0,01 BTC. Was passiert?", ["Vom Betrag werden einfach 0,01 BTC abgezogen, der Rest bleibt liegen", "Der ganze Betrag wird ausgegeben, etwa 0,04 BTC kommen als Wechselgeld zurück", "Das geht nicht, man kann nur ganze Beträge genau passend zahlen"], 1, "Beträge (UTXOs) werden immer ganz ausgegeben. Der Rest kommt als neuer Betrag zu dir zurück, minus Gebühr."],
+  ["Wovon hängt die Gebühr vor allem ab?", ["Vom Betrag, den du verschickst, also wie viel Euro es wert ist", "Von der Größe der Transaktion, also wie viele Beträge rein und raus gehen", "Von der Uhrzeit, zu der du sendest, und wie weit der Empfänger weg ist"], 1, "Miner werden pro vByte bezahlt. Mehr Beträge bedeuten mehr Daten und damit eine höhere Gebühr, egal wie groß der Betrag ist."],
+  ["Wohin schickt eine gute Wallet das Wechselgeld?", ["An den Empfänger als Trinkgeld", "An eine neue Adresse, die dir gehört", "An die Miner als Gebühr"], 1, "Eine neue Adresse macht es schwerer, deine Zahlungen miteinander zu verbinden. Das schützt deine Privatsphäre."],
 ];
 Lern.quiz($("quiz"), "utxo", QUIZ, "../"); Lern.visit("utxo"); Lern.renderNext("utxo", "../");
 })();

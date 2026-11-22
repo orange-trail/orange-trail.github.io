@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Hebel": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -50,7 +50,7 @@ table.t{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
 
   <section class="card" aria-labelledby="h1s">
     <h2 id="h1s">Teste eine Wette <span class="mode" id="mode">Beispielverlauf</span></h2>
-    <div class="idea">Du setzt <b>100 $</b>. Mit Hebel 10 wettest du so, als hättest du 1.000 $. Fällt der Kurs aber um knapp <b>10 %</b>, ist dein Einsatz fast aufgebraucht. Die Börse schließt die Wette dann sofort, meist schon etwas vorher: <b>Liquidation</b>.</div>
+    <div class="idea">Du setzt <b>100 $</b>. Mit Hebel 10 wettest du so, als hättest du 1.000 $. Fällt der Kurs aber um knapp <b>10 %</b>, ist dein Einsatz fast aufgebraucht. Die Börse schließt die Wette dann sofort, meist schon etwas vorher: <b>Liquidation</b>. <small class="usd">💵 Beträge in US-Dollar, denn darin wird Bitcoin weltweit gehandelt.</small></div>
     <div class="ctl">
       <div><label for="lev">Hebel</label><div class="row"><input id="lev" type="range" min="1" max="100" value="10"><b id="levV" class="num">10×</b></div></div>
       <div><label>Du wettest, dass Bitcoin …</label><div class="seg" id="dir"><button class="btn ghost" data-d="1" type="button" aria-pressed="true">📈 steigt (Long)</button><button class="btn ghost" data-d="-1" type="button" aria-pressed="false">📉 fällt (Short)</button></div></div>
@@ -178,7 +178,7 @@ load();
 const QUIZ = [
   ["Du setzt 100 $ mit Hebel 20 auf steigende Kurse. Ab welchem Minus ist ungefähr alles weg?", ["20 %", "5 %", "50 %"], 1, "100 % geteilt durch 20 = 5 %. Wegen des Mindestpuffers schließt die Börse sogar schon etwas früher. Ein normaler Tag kann so eine Bewegung bringen."],
   ["Was passiert bei einer Liquidation?", ["Die Börse wartet, bis der Kurs sich erholt", "Die Börse schließt die Wette automatisch, dein Einsatz ist weg", "Du bekommst eine Mahnung"], 1, "Ist der Einsatz aufgebraucht, schließt die Börse sofort. Eine spätere Erholung hilft dir nicht mehr."],
-  ["Wer kann nie liquidiert werden?", ["Wer mit Hebel 2 handelt", "Wer Bitcoin ohne Hebel kauft und selbst verwahrt", "Wer nur nachts handelt"], 1, "Ohne geliehenes Geld gibt es nichts zu liquidieren. Der Kurs kann fallen, aber deine Bitcoin bleiben deine."],
+  ["Wer kann nie liquidiert werden?", ["Wer nur mit einem kleinen Hebel von 2 handelt", "Wer Bitcoin ohne Hebel kauft und selbst verwahrt", "Wer immer einen Stop-Loss bei der Börse setzt"], 1, "Ohne geliehenes Geld gibt es nichts zu liquidieren. Der Kurs kann fallen, aber deine Bitcoin bleiben deine."],
 ];
 Lern.quiz($("quiz"), "hebel", QUIZ, "../"); Lern.visit("hebel"); Lern.renderNext("hebel", "../");
 })();

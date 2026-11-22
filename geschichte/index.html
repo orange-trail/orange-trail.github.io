@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Geschichte": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
@@ -212,9 +212,9 @@ Promise.allSettled([
 draw();
 
 const QUIZ = [
-  ["Wer hat Bitcoin erfunden?", ["Elon Musk", "Eine unbekannte Person oder Gruppe namens Satoshi Nakamoto", "Eine amerikanische Bank"], 1, "Bis heute weiß niemand sicher, wer Satoshi Nakamoto ist. Seit 2011 hat er sich nicht mehr gemeldet."],
+  ["Wer hat Bitcoin erfunden?", ["Ein bekannter Tech-Unternehmer aus den USA", "Eine unbekannte Person oder Gruppe namens Satoshi Nakamoto", "Eine Gruppe großer amerikanischer Banken"], 1, "Bis heute weiß niemand sicher, wer Satoshi Nakamoto ist. Seit 2011 hat er sich nicht mehr gemeldet."],
   ["Was geschah am Pizza-Tag 2010?", ["Bitcoin wurde verboten", "Jemand bezahlte 10.000 Bitcoin für zwei Pizzen", "Die erste Bitcoin-Börse öffnete"], 1, "Der erste bekannte Kauf mit Bitcoin. Heute wären diese Bitcoin ein Vermögen."],
-  ["Was lehrt die Pleite von Mt. Gox und FTX?", ["Bitcoin funktioniert nicht", "Wer Coins auf einer Börse lässt, vertraut der Börse", "Man sollte nur nachts handeln"], 1, "Bitcoin selbst lief weiter. Verloren hat, wer die Schlüssel der Börse überlassen hatte."],
+  ["Was lehrt die Pleite von Mt. Gox und FTX?", ["Dass Bitcoin selbst technisch nicht funktioniert", "Wer Coins auf einer Börse lässt, vertraut der Börse", "Dass man nur zu bestimmten Zeiten handeln sollte"], 1, "Bitcoin selbst lief weiter. Verloren hat, wer die Schlüssel der Börse überlassen hatte."],
 ];
 Lern.quiz($("quiz"), "geschichte", QUIZ, "../"); Lern.visit("geschichte"); Lern.renderNext("geschichte", "../");
 })();

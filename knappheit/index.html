@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Knappheits-Messer": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -107,7 +107,7 @@ fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t
   .finally(() => { const lv = live && Lern.DATA; $("mode").className = "mode " + (lv ? "live" : "demo"); $("mode").textContent = lv ? "Live" : "Schätzung"; draw(); });
 draw();
 
-const QUIZ = [["Was misst Stock-to-Flow?", ["Bestand geteilt durch die neue Menge pro Jahr", "Den Preis pro Gramm", "Die Zahl der Nutzer"], 0, "Je höher die Zahl, desto schwerer ist das Gut zu verwässern."], ["Was passiert mit der Knappheit von Bitcoin bei jedem Halving?", ["Sie verdoppelt sich ungefähr", "Sie halbiert sich", "Sie bleibt gleich"], 0, "Die neue Menge pro Jahr halbiert sich, der Bestand bleibt fast gleich."], ["Hat das Stock-to-Flow-Modell den Preis zuverlässig vorhergesagt?", ["Nein, bekannte Prognosen trafen nicht ein", "Ja, auf den Dollar genau", "Ja, aber nur bei Gold"], 0, "Knappheit allein macht keinen Preis, es braucht Nachfrage."]];
+const QUIZ = [["Was misst Stock-to-Flow?", ["Bestand geteilt durch die neue Menge pro Jahr", "Den Preis pro Gramm im Vergleich zu Gold", "Die Zahl der Nutzer im Verhältnis zur Menge"], 0, "Je höher die Zahl, desto schwerer ist das Gut zu verwässern."], ["Was passiert mit der Knappheit von Bitcoin bei jedem Halving?", ["Sie verdoppelt sich ungefähr", "Sie halbiert sich ungefähr", "Sie bleibt genau gleich"], 0, "Die neue Menge pro Jahr halbiert sich, der Bestand bleibt fast gleich."], ["Hat das Stock-to-Flow-Modell den Preis zuverlässig vorhergesagt?", ["Nein, bekannte Prognosen trafen nicht ein", "Ja, die Prognosen stimmten fast genau", "Ja, aber nur für Gold, nicht für Bitcoin"], 0, "Knappheit allein macht keinen Preis, es braucht Nachfrage."]];
 Lern.quiz($("quiz"), "knappheit", QUIZ, "../"); Lern.visit("knappheit"); Lern.renderNext("knappheit", "../");
 })();
 </script>

@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Script-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -139,7 +139,7 @@ $("bad").onclick = () => { wrong = true; build(); }; $("rs").onclick = () => { w
 $("kind").onclick = e => { const b = e.target.closest("[data-s]"); if (!b) return; kind = b.dataset.s; wrong = false; $("kind").querySelectorAll("[data-s]").forEach(x => x.setAttribute("aria-pressed", x === b)); build(); };
 build();
 
-const QUIZ = [["Was liegt am Ende einer gültigen Script-Ausführung oben auf dem Stapel?", ["Nichts", "WAHR", "Der private Schlüssel", "Die Adresse"], 1, "Ein Script ist erfüllt, wenn am Ende WAHR oben auf dem Stapel liegt."], ["Was bedeutet 2-von-3 Multisig?", ["Zwei Bitcoin für drei Personen", "Von drei Schlüsseln müssen zwei unterschreiben", "Die Zahlung dauert 2 bis 3 Blöcke", "Drei Adressen, zwei Seeds"], 1, "Bei 2-von-3 gibt es drei Schlüssel, zwei Unterschriften reichen zum Ausgeben."], ["Warum kann Script keine Schleifen?", ["Aus Versehen", "Damit jede Node jedes Script schnell und sicher prüfen kann", "Weil Satoshi keine Schleifen mochte", "Kann es doch"], 1, "Ohne Schleifen endet jedes Script sicher und schnell. So kann niemand das Netz mit Endlos-Programmen lahmlegen."]];
+const QUIZ = [["Was liegt am Ende einer gültigen Script-Ausführung oben auf dem Stapel?", ["Nichts", "WAHR", "Der private Schlüssel", "Die Adresse"], 1, "Ein Script ist erfüllt, wenn am Ende WAHR oben auf dem Stapel liegt."], ["Was bedeutet 2-von-3 Multisig?", ["Zwei Bitcoin für drei Personen", "Von drei Schlüsseln müssen zwei unterschreiben", "Die Zahlung dauert 2 bis 3 Blöcke", "Drei Adressen, zwei Seeds"], 1, "Bei 2-von-3 gibt es drei Schlüssel, zwei Unterschriften reichen zum Ausgeben."], ["Warum kann Script keine Schleifen?", ["Weil man das bei der Entwicklung einfach vergessen hat", "Damit jede Node jedes Script schnell und sicher prüfen kann", "Weil Satoshi Schleifen für unnötig hielt", "Kann es doch, nur werden sie selten genutzt"], 1, "Ohne Schleifen endet jedes Script sicher und schnell. So kann niemand das Netz mit Endlos-Programmen lahmlegen."]];
 Lern.quiz($("quiz"), "script", QUIZ, "../"); Lern.visit("script"); Lern.renderNext("script", "../");
 })();
 </script>

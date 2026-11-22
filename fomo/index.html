@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "FOMO & FUD": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -46,7 +46,7 @@ svg.ch{width:100%;height:auto;display:block;margin-top:12px;max-height:220px}
 
   <section class="card" aria-labelledby="h1s">
     <h2 id="h1s">Kannst du deinen Gefühlen widerstehen? <span class="mode" id="mode">Verbinde …</span></h2>
-    <div class="idea">Du startest mit <b>1.000 $</b> und erlebst <b>8 echte Momente</b> der Bitcoin-Geschichte. Bei jedem entscheidest du: kaufen, nichts tun oder verkaufen. Am Ende vergleichen wir mit jemandem, der einfach gehalten hat.</div>
+    <div class="idea">Du startest mit <b>1.000 $</b> und erlebst <b>8 echte Momente</b> der Bitcoin-Geschichte. Bei jedem entscheidest du: kaufen, nichts tun oder verkaufen. Am Ende vergleichen wir mit jemandem, der einfach gehalten hat. <small class="usd">💵 Beträge in US-Dollar, denn darin wird Bitcoin weltweit gehandelt.</small></div>
     <div id="game"></div>
     <svg class="ch" id="ch" viewBox="0 0 500 180" aria-hidden="true"></svg>
   </section>
@@ -135,7 +135,7 @@ fetch(Lern.api("price/BTC-USD")).then(r => r.json()).then(j => { const p = +j.da
 
 const QUIZ = [
   ["Was bedeutet FOMO?", ["Angst, etwas zu verpassen", "Ein Bitcoin-Upgrade", "Eine Börse"], 0, "Fear Of Missing Out: Man kauft, weil alle anderen schon reich zu werden scheinen. Oft ist der Kurs dann schon hoch."],
-  ["Die Nachrichten sind voller Panik, der Kurs ist 70 % gefallen. Was hat sich in der Vergangenheit oft als Fehler herausgestellt?", ["In Panik alles verkaufen", "Einen Plan haben", "Ruhig bleiben"], 0, "Wer in der Panik verkaufte, machte den Verlust endgültig. Wer durchhielt, kam in der Vergangenheit wieder heraus. Eine Garantie ist das nicht."],
+  ["Die Nachrichten sind voller Panik, der Kurs ist 70 % gefallen. Was hat sich in der Vergangenheit oft als Fehler herausgestellt?", ["In Panik alles verkaufen", "Vorher einen festen Plan haben", "Ruhig bleiben und abwarten"], 0, "Wer in der Panik verkaufte, machte den Verlust endgültig. Wer durchhielt, kam in der Vergangenheit wieder heraus. Eine Garantie ist das nicht."],
   ["Was hilft am besten gegen Gefühls-Entscheidungen?", ["Täglich den Kurs prüfen", "Ein fester Plan, zum Beispiel ein Sparplan", "Auf Tipps aus Social Media hören"], 1, "Feste Regeln, wie ein monatlicher Sparplan, nehmen Gefühle aus der Entscheidung."],
 ];
 Lern.quiz($("quiz"), "fomo", QUIZ, "../"); Lern.visit("fomo"); Lern.renderNext("fomo", "../");

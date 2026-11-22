@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Betrug erkennen": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
@@ -116,7 +116,7 @@ show();
 const QUIZ = [
   ["Wer darf deinen Seed (die 12 oder 24 Wörter) kennen?", ["Der offizielle Support", "Niemand außer dir", "Die Polizei im Notfall"], 1, "Niemand. Wer danach fragt, ist ein Betrüger, egal wie offiziell er wirkt."],
   ["Ein Angebot verspricht garantiert 2 % Gewinn pro Tag. Was ist das?", ["Ein Geheimtipp", "Fast sicher ein Betrug", "Normal bei Krypto"], 1, "Garantierte hohe Renditen gibt es nicht. 2 % pro Tag wären über 1.000 % im Jahr."],
-  ["Du wurdest betrogen. Ein Dienst will dein Geld gegen eine Gebühr vorab zurückholen. Was tust du?", ["Bezahlen, Hauptsache Geld zurück", "Nichts zahlen, Anzeige bei der Polizei erstatten", "Erst mal die Hälfte zahlen"], 1, "Rückhol-Dienste mit Vorab-Gebühr sind meist die nächste Betrugsmasche. Richtig ist: Belege sichern und Anzeige erstatten."],
+  ["Du wurdest betrogen. Ein Dienst will dein Geld gegen eine Gebühr vorab zurückholen. Was tust du?", ["Bezahlen, Hauptsache das Geld kommt zurück", "Nichts zahlen, Anzeige bei der Polizei erstatten", "Erst mal die Hälfte zahlen und abwarten"], 1, "Rückhol-Dienste mit Vorab-Gebühr sind meist die nächste Betrugsmasche. Richtig ist: Belege sichern und Anzeige erstatten."],
 ];
 Lern.quiz($("quiz"), "betrug", QUIZ, "../"); Lern.visit("betrug"); Lern.renderNext("betrug", "../");
 })();

@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Wert-Waage": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -119,7 +119,7 @@ fetch(Lern.api("price/BTC-USD")).then(r => r.json()).then(j => { price = +j.data
   .finally(() => { $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Schätzung"; calc(); });
 calc();
 
-const QUIZ = [["Warum steigt der Preis, wenn mehr Menschen Bitcoin kaufen wollen?", ["Weil das Angebot fest ist und nicht mitwachsen kann", "Weil dann mehr Bitcoin gedruckt werden", "Weil die Gebühren steigen"], 0, "Bei festem Angebot muss sich der Preis bewegen."], ["Was meint „Netzwerkeffekt“?", ["Je mehr Menschen es nutzen, desto nützlicher wird es für alle", "Das Internet wird schneller", "Miner verdienen mehr"], 0, "Wie beim Telefon: Allein ist es nutzlos."], ["Ist ein steigender Bitcoin-Preis garantiert?", ["Nein, der Preis kann auch stark fallen", "Ja, wegen der 21 Millionen", "Ja, wegen der Halvings"], 0, "Knappheit allein garantiert keinen Preis. Ohne Nachfrage fällt er."]];
+const QUIZ = [["Warum steigt der Preis, wenn mehr Menschen Bitcoin kaufen wollen?", ["Weil das Angebot fest ist und nicht mitwachsen kann", "Weil dann mehr Bitcoin gedruckt werden", "Weil die Gebühren steigen"], 0, "Bei festem Angebot muss sich der Preis bewegen."], ["Was meint „Netzwerkeffekt“?", ["Je mehr Menschen es nutzen, desto nützlicher wird es für alle", "Das Internet wird mit mehr Nutzern schneller", "Miner verdienen mehr, je mehr Nodes es gibt"], 0, "Wie beim Telefon: Allein ist es nutzlos."], ["Ist ein steigender Bitcoin-Preis garantiert?", ["Nein, der Preis kann auch stark fallen", "Ja, wegen der 21 Millionen", "Ja, wegen der Halvings"], 0, "Knappheit allein garantiert keinen Preis. Ohne Nachfrage fällt er."]];
 Lern.quiz($("quiz"), "wert", QUIZ, "../"); Lern.visit("wert"); Lern.renderNext("wert", "../");
 })();
 </script>

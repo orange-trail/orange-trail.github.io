@@ -13,7 +13,7 @@
 <meta property="og:description" content="Live-Countdown zum nächsten Bitcoin-Halving und warum es nur 21 Millionen gibt.">
 <meta property="og:image" content="https://orange-trail.github.io/og/halving.jpg">
 <meta property="og:url" content="https://orange-trail.github.io/halving/">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Knappheit & Halving": gleiche Farben und Schriften wie das Spiel. Nur Systemschriften, keine Cookies, kein Tracking. */
 
@@ -278,8 +278,8 @@ setInterval(() => {
 }
 
 const QUIZ = [
-  ["Wie oft halbiert sich die Belohnung für Miner?", ["Jedes Jahr", "Alle 210.000 Blöcke, etwa alle 4 Jahre", "Wenn der Kurs fällt"], 1, "Die Regel hängt an der Blockzahl, nicht am Kalender: alle 210.000 Blöcke. Bei rund 10 Minuten pro Block sind das etwa 4 Jahre."],
-  ["Wann wird ungefähr der letzte Bitcoin geschürft?", ["2030", "2050", "Um 2140"], 2, "Weil sich die Belohnung immer weiter halbiert, kommen die letzten Bruchteile erst um das Jahr 2140 dazu, obwohl heute schon über 95 % geschürft sind."],
+  ["Wie oft halbiert sich die Belohnung für Miner?", ["Jedes Jahr am 1. Januar", "Alle 210.000 Blöcke, etwa alle 4 Jahre", "Immer wenn der Kurs stark fällt"], 1, "Die Regel hängt an der Blockzahl, nicht am Kalender: alle 210.000 Blöcke. Bei rund 10 Minuten pro Block sind das etwa 4 Jahre."],
+  ["Wann wird ungefähr der letzte Bitcoin geschürft?", ["Um 2030", "Um 2050", "Um 2140"], 2, "Weil sich die Belohnung immer weiter halbiert, kommen die letzten Bruchteile erst um das Jahr 2140 dazu, obwohl heute schon über 95 % geschürft sind."],
   ["Wovon leben Miner, wenn es keine neuen Bitcoin mehr gibt?", ["Von den Transaktionsgebühren", "Vom Staat", "Von nichts, dann endet Bitcoin"], 0, "Schon heute bekommen Miner neben der Belohnung die Gebühren aller Transaktionen im Block. Langfristig sollen diese allein reichen."],
 ];
 Lern.quiz($("quiz"), "halving", QUIZ, "../"); Lern.visit("halving"); Lern.renderNext("halving", "../");

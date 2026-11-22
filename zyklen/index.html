@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Kurs-Achterbahn": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -60,8 +60,8 @@
 
   <section class="card" aria-labelledby="h3s">
     <h2 id="h3s">2 · Simulator: Hältst du durch?</h2>
-    <p class="muted" style="margin:0">Du hast am Hoch von Dezember 2017 für <b>1.000 €</b> Bitcoin gekauft. Dann beginnt der Absturz …</p>
-    <div class="big" id="sv">1.000 €<small>Wert deiner Bitcoin</small></div>
+    <p class="muted" style="margin:0">Du hast am Hoch von Dezember 2017 für <b>1.000 $</b> Bitcoin gekauft. Dann beginnt der Absturz … <small class="usd">💵 Beträge in US-Dollar, denn darin wird Bitcoin weltweit gehandelt.</small></p>
+    <div class="big" id="sv">1.000 $<small>Wert deiner Bitcoin</small></div>
     <div class="row" style="display:flex;justify-content:center;margin-top:10px"><button class="btn" type="button" id="sGo">▶ Zeit laufen lassen</button></div>
     <div class="dec" id="dec" hidden><button class="btn" type="button" data-d="sell">😱 Verkaufen!</button><button class="btn" type="button" data-d="hold">💎 Halten</button></div>
     <div id="sRes"></div>
@@ -117,7 +117,7 @@ function cyc(){
   $("cyc").innerHTML = P.map((c, i) => `<button type="button" class="${c.up ? "up" : ""}" data-i="${i}" aria-pressed="${i === sel}">${c.up ? "▲" : "▼"} ${c.l}<b>${pf(c)}</b></button>`).join("");
   const c = P[sel];
   $("ckv").innerHTML = `<div>${c.up ? "Tief → Hoch" : "Hoch → Tief"}<b style="font-size:15px">${c.a.toLocaleString("de-DE")} → ${c.b.toLocaleString("de-DE")} $</b></div><div>Zeitraum<b class="g" style="font-size:15px">${c.per}</b></div><div>${c.up ? "Dauer" : "Bis zum neuen Rekord"}<b style="font-size:15px">${c.dur}</b></div>`;
-  $("cN").innerHTML = c.up ? "Aus 1.000 € im Tief wurden am Hoch rund <b>" + Math.round(1000 * c.b / c.a).toLocaleString("de-DE") + " €</b>. Aber: Wer erst am Hoch kaufte, verlor danach oft den Großteil." : c.i === 4 ? "Der aktuelle Crash: Vom Rekord von rund <b>126.000 $</b> im Oktober 2025 fiel Bitcoin bis Februar 2026 um <b>mehr als die Hälfte</b>. Anfang November 2026 lag er bei rund <b>74.000 $</b>. Wie es weitergeht, weiß niemand." : "Aus 1.000 € am Hoch wurden im Tief <b>" + Math.round(1000 * c.b / c.a).toLocaleString("de-DE") + " €</b>. Wer gehalten hat, war Jahre später trotzdem im Plus.";
+  $("cN").innerHTML = c.up ? "Aus 1.000 $ im Tief wurden am Hoch rund <b>" + Math.round(1000 * c.b / c.a).toLocaleString("de-DE") + " $</b>. Aber: Wer erst am Hoch kaufte, verlor danach oft den Großteil." : c.i === 4 ? "Der aktuelle Crash: Vom Rekord von rund <b>126.000 $</b> im Oktober 2025 fiel Bitcoin bis Februar 2026 um <b>mehr als die Hälfte</b>. Anfang November 2026 lag er bei rund <b>74.000 $</b>. Wie es weitergeht, weiß niemand." : "Aus 1.000 $ am Hoch wurden im Tief <b>" + Math.round(1000 * c.b / c.a).toLocaleString("de-DE") + " $</b>. Wer gehalten hat, war Jahre später trotzdem im Plus.";
   chart();
 }
 $("cyc").onclick = e => { const b = e.target.closest("[data-i]"); if (b){ sel = +b.dataset.i; cyc(); } };
@@ -126,15 +126,15 @@ cyc();
 // Simulator: Hoch Dez 2017 (19.000 $) bis Tief Dez 2018 (3.300 $), dann Ende 2020 (29.000 $) und heute (~74.000 $)
 const PATH = [19000, 15000, 11000, 8000, 7000, 9500, 7500, 6500, 6300, 6400, 5500, 4000, 3300];
 $("sGo").onclick = () => { $("sGo").disabled = true; $("sRes").innerHTML = ""; let i = 0;
-  const tm = setInterval(() => { const v = 1000 * PATH[i] / 19000; $("sv").innerHTML = `${Math.round(v).toLocaleString("de-DE")} €<small>Monat ${i + 1}: Bitcoin bei ${PATH[i].toLocaleString("de-DE")} $</small>`; $("sv").style.color = v < 500 ? "var(--bear)" : "";
+  const tm = setInterval(() => { const v = 1000 * PATH[i] / 19000; $("sv").innerHTML = `${Math.round(v).toLocaleString("de-DE")} $<small>Monat ${i + 1}: Bitcoin bei ${PATH[i].toLocaleString("de-DE")} $</small>`; $("sv").style.color = v < 500 ? "var(--bear)" : "";
     if (++i >= PATH.length){ clearInterval(tm); $("dec").hidden = false; Lern.say && Lern.say("Minus 83 %! Alle reden von Bitcoin-Tod. Was machst du?", 4000); } }, 260); };
 $("dec").onclick = e => { const b = e.target.closest("[data-d]"); if (!b) return; $("dec").hidden = true; $("sGo").disabled = false; $("sGo").textContent = "↺ Nochmal";
   const hold = b.dataset.d === "hold", v20 = Math.round(1000 * 29000 / 19000), now = Math.round(1000 * 74000 / 19000);
-  $("sRes").innerHTML = hold ? `<div class="res ok"><strong>💎 Durchgehalten!</strong>Ende 2020 war Bitcoin bei rund 29.000 $, deine Bitcoin waren <b>${v20.toLocaleString("de-DE")} €</b> wert. Im November 2026, mitten im nächsten Crash, immer noch rund <b>${now.toLocaleString("de-DE")} €</b>. Ohne Garantie, dass es immer so läuft.</div>`
-    : `<div class="res bad"><strong>😱 Verkauft für 174 €</strong>Der Verlust von <b>826 €</b> ist jetzt endgültig. Hättest du gehalten, wären es Ende 2020 rund ${v20.toLocaleString("de-DE")} € gewesen. Panik ist der teuerste Berater.</div>`;
+  $("sRes").innerHTML = hold ? `<div class="res ok"><strong>💎 Durchgehalten!</strong>Ende 2020 war Bitcoin bei rund 29.000 $, deine Bitcoin waren <b>${v20.toLocaleString("de-DE")} $</b> wert. Im November 2026, mitten im nächsten Crash, immer noch rund <b>${now.toLocaleString("de-DE")} $</b>. Ohne Garantie, dass es immer so läuft.</div>`
+    : `<div class="res bad"><strong>😱 Verkauft für 174 $</strong>Der Verlust von <b>826 $</b> ist jetzt endgültig. Hättest du gehalten, wären es Ende 2020 rund ${v20.toLocaleString("de-DE")} $ gewesen. Panik ist der teuerste Berater.</div>`;
   if (hold) Lern.confetti && Lern.confetti(); };
 
-const QUIZ = [["Wie oft ist Bitcoin schon um mehr als 75 % gefallen?", ["Noch nie", "Einmal", "Vier Mal", "Jedes Jahr"], 2, "2011, 2013 bis 2015, 2017 bis 2018 und 2021 bis 2022 fiel Bitcoin jeweils um 77 bis 93 %."], ["Wie lange dauerte es meist bis zum nächsten Rekordhoch?", ["Ein paar Tage", "Etwa 2 bis 3 Jahre", "20 Jahre", "Es gab nie ein neues Hoch"], 1, "Nach den großen Crashs dauerte es meist 2 bis 3 Jahre bis zum nächsten Rekord."], ["Was ist im Crash meistens der teuerste Fehler?", ["Halten", "In Panik verkaufen", "Nichts tun", "Lernen"], 1, "Wer im Tief verkauft, macht den Verlust endgültig. Darum nur Geld investieren, das man lange nicht braucht."]];
+const QUIZ = [["Wie oft ist Bitcoin schon um mehr als 75 % gefallen?", ["Noch nie", "Einmal", "Vier Mal", "Jedes Jahr"], 2, "2011, 2013 bis 2015, 2017 bis 2018 und 2021 bis 2022 fiel Bitcoin jeweils um 77 bis 93 %."], ["Wie lange dauerte es meist bis zum nächsten Rekordhoch?", ["Ein paar Tage", "Etwa 2 bis 3 Jahre", "20 Jahre", "Es gab nie ein neues Hoch"], 1, "Nach den großen Crashs dauerte es meist 2 bis 3 Jahre bis zum nächsten Rekord."], ["Was ist im Crash meistens der teuerste Fehler?", ["Einfach ruhig halten", "In Panik verkaufen", "Gar nichts mehr tun", "Erst mal weiterlernen"], 1, "Wer im Tief verkauft, macht den Verlust endgültig. Darum nur Geld investieren, das man lange nicht braucht."]];
 Lern.quiz($("quiz"), "zyklen", QUIZ, "../"); Lern.visit("zyklen"); Lern.renderNext("zyklen", "../");
 })();
 </script>

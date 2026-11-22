@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Bitcoin-Krimis": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .akten{display:grid;gap:12px;margin-top:10px}
@@ -112,9 +112,9 @@ $("akten").addEventListener("click", e => { const b = e.target.closest("button[d
     R.innerHTML = `<strong>${pts === K.length ? "🕵️ Meisterdetektiv!" : pts >= 4 ? "🔎 Kommissar" : "📋 Anwärter"}: ${pts} von ${K.length} Akten gelöst</strong>Fast alle Verluste passierten bei Börsen oder durch fehlende Backups, nicht weil Bitcoin selbst gehackt wurde.`;
     if (pts === K.length) try { Lern.confetti && Lern.confetti(); } catch(e){} } });
 
-const QUIZ = [["Was haben Mt. Gox, QuadrigaCX und FTX gemeinsam?", ["Bitcoin selbst wurde gehackt", "Die Kunden ließen ihre Bitcoin bei einer Börse, die sie verlor", "Es waren alles kleine, unbekannte Börsen"], 1, "In allen drei Fällen hatten die Kunden ihre Schlüssel nicht selbst."],
-  ["Wie schützt man sich am besten vor dem Fall „Festplatte im Müll“?", ["Seed-Wörter offline an zwei sicheren Orten aufbewahren", "Nie wieder aufräumen", "Alles in der Cloud speichern"], 0, "Die Cloud kann gehackt werden. Zwei Offline-Kopien schützen vor Verlust und Dieben."],
-  ["Warum konnten die Bitfinex-Diebe überführt werden?", ["Bitcoin-Zahlungen sind öffentlich und lassen sich verfolgen", "Die Börse hatte ihre Namen", "Durch einen Zufall im Supermarkt"], 0, "Bitcoin ist pseudonym, nicht anonym. Die Spur bleibt für immer in der Blockchain."]];
+const QUIZ = [["Was haben Mt. Gox, QuadrigaCX und FTX gemeinsam?", ["Das Bitcoin-Netzwerk selbst wurde jeweils gehackt", "Die Kunden ließen ihre Bitcoin bei einer Börse, die sie verlor", "Es waren alles kleine, völlig unbekannte Börsen"], 1, "In allen drei Fällen hatten die Kunden ihre Schlüssel nicht selbst."],
+  ["Wie schützt man sich am besten vor dem Fall „Festplatte im Müll“?", ["Seed-Wörter offline an zwei sicheren Orten aufbewahren", "Den Computer nie wieder ausschalten oder ersetzen", "Die Wörter als Foto in der Cloud speichern"], 0, "Die Cloud kann gehackt werden. Zwei Offline-Kopien schützen vor Verlust und Dieben."],
+  ["Warum konnten die Bitfinex-Diebe überführt werden?", ["Bitcoin-Zahlungen sind öffentlich und lassen sich verfolgen", "Die Börse kannte von Anfang an ihre Namen", "Durch einen Zufallsfund bei einer Hausdurchsuchung"], 0, "Bitcoin ist pseudonym, nicht anonym. Die Spur bleibt für immer in der Blockchain."]];
 Lern.quiz($("quiz"), "krimis", QUIZ, "../"); Lern.visit("krimis"); Lern.renderNext("krimis", "../");
 })();
 </script>

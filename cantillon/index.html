@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Geldfluss": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -105,7 +105,7 @@ $("go").onclick = () => {
 $("again").onclick = () => { $("go").disabled = false; $("again").hidden = true; base(); };
 base();
 
-const QUIZ = [["Was beschreibt der Cantillon-Effekt?", ["Wer neues Geld zuerst bekommt, profitiert, wer es zuletzt bekommt, verliert", "Geld wird gleichmäßig verteilt", "Preise sinken durch neues Geld"], 0, "Neues Geld fließt schrittweise, Preise steigen unterwegs."], ["Wer bekommt neues Geld meist zuletzt?", ["Arbeiter und Rentner", "Banken", "Große Firmen"], 0, "Löhne und Renten werden oft erst später angepasst."], ["Warum spielt der Effekt bei Bitcoin keine Rolle?", ["Weil die Menge fest ist und niemand neues Geld zuerst bekommt", "Weil Bitcoin schneller ist", "Weil Bitcoin Zinsen zahlt"], 0, "Neue Bitcoin entstehen nur nach festem Plan beim Mining."]];
+const QUIZ = [["Was beschreibt der Cantillon-Effekt?", ["Wer neues Geld zuerst bekommt, profitiert, wer es zuletzt bekommt, verliert", "Neues Geld verteilt sich sofort gleichmäßig auf alle Menschen", "Neues Geld lässt die Preise sinken, weil mehr Waren entstehen"], 0, "Neues Geld fließt schrittweise, Preise steigen unterwegs."], ["Wer bekommt neues Geld meist zuletzt?", ["Arbeiter und Rentner", "Banken und Börsen", "Große Firmen"], 0, "Löhne und Renten werden oft erst später angepasst."], ["Warum spielt der Effekt bei Bitcoin keine Rolle?", ["Weil die Menge fest ist und niemand neues Geld zuerst bekommt", "Weil Bitcoin schneller verschickt wird als Euro", "Weil Bitcoin-Besitzer regelmäßig Zinsen bekommen"], 0, "Neue Bitcoin entstehen nur nach festem Plan beim Mining."]];
 Lern.quiz($("quiz"), "cantillon", QUIZ, "../"); Lern.visit("cantillon"); Lern.renderNext("cantillon", "../");
 })();
 </script>

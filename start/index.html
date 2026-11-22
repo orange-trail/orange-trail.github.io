@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Bitcoin in 5 Minuten": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -124,7 +124,7 @@ $("match").onclick = e => { const b = e.target.closest("button"); if (!b || b.cl
   else { err++; b.classList.remove("no"); void b.offsetWidth; b.classList.add("no"); } };
 match();
 
-const QUIZ = [["Wer hat eine Kopie der Bitcoin-Blockchain?", ["Nur Satoshi", "Tausende Nodes auf der ganzen Welt", "Eine Bank in der Schweiz", "Niemand"], 1, "Jeder kann eine Node betreiben. Tausende tun es und prüfen jede Zahlung selbst."], ["Wie oft wird im Schnitt ein neuer Block angehängt?", ["Jede Sekunde", "Etwa alle 10 Minuten", "Einmal im Jahr", "Nie"], 1, "Im Schnitt alle 10 Minuten, dafür sorgt die Difficulty-Anpassung."], ["Was beweist, dass dir Bitcoin gehören?", ["Dein Name im Kassenbuch", "Dein privater Schlüssel, mit dem du unterschreiben kannst", "Dein Personalausweis", "Ein Vertrag"], 1, "Bitcoin kennt keine Namen. Wer den Schlüssel hat, kann ausgeben. (Bei Multisig-Wallets braucht es mehrere Schlüssel.)"]];
+const QUIZ = [["Wer hat eine Kopie der Bitcoin-Blockchain?", ["Nur Satoshi", "Tausende Nodes auf der ganzen Welt", "Eine Bank in der Schweiz", "Niemand"], 1, "Jeder kann eine Node betreiben. Tausende tun es und prüfen jede Zahlung selbst."], ["Wie oft wird im Schnitt ein neuer Block angehängt?", ["Jede Sekunde", "Etwa alle 10 Minuten", "Einmal im Jahr", "Nie"], 1, "Im Schnitt alle 10 Minuten, dafür sorgt die Difficulty-Anpassung."], ["Was beweist, dass dir Bitcoin gehören?", ["Dein Name, der im öffentlichen Kassenbuch eingetragen ist", "Dein privater Schlüssel, mit dem du unterschreiben kannst", "Dein Personalausweis, den du bei der Wallet hinterlegst", "Ein Kaufvertrag mit einer anerkannten Bitcoin-Firma"], 1, "Bitcoin kennt keine Namen. Wer den Schlüssel hat, kann ausgeben. (Bei Multisig-Wallets braucht es mehrere Schlüssel.)"]];
 Lern.quiz($("quiz"), "start", QUIZ, "../"); Lern.visit("start"); Lern.renderNext("start", "../");
 })();
 </script>

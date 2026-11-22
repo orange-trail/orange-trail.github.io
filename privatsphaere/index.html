@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Spuren-Detektiv": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -127,7 +127,7 @@ function graph(){
 $("mode2").onclick = e => { const b = e.target.closest("[data-m]"); if (!b) return; same = b.dataset.m === "1"; $("mode2").querySelectorAll("[data-m]").forEach(x => x.setAttribute("aria-pressed", x === b)); graph(); };
 graph();
 
-const QUIZ = [["Ist eine Bitcoin-Zahlung geheim?", ["Ja, nur Sender und Empfänger sehen sie", "Nein, sie ist für immer öffentlich, nur ohne Namen", "Nur die Bank sieht sie", "Sie wird nach 10 Minuten gelöscht"], 1, "Alle Zahlungen stehen öffentlich in der Blockchain. Namen stehen nicht dabei, lassen sich aber oft zuordnen."], ["Warum sollte man für jede Zahlung eine neue Adresse nutzen?", ["Weil alte Adressen ablaufen", "Damit Fremde Zahlungen und Kontostand schwerer verknüpfen können", "Weil es Gebühren spart", "Das ist verboten"], 1, "Mit neuen Adressen sehen Außenstehende nicht auf einen Blick alle Zahlungen an dich. Anonym wirst du dadurch aber nicht, Analysen finden oft trotzdem Muster."], ["Woran erkennen Analysten oft das Wechselgeld?", ["Am krummen Betrag", "An der Farbe", "Am Namen", "Gar nicht"], 0, "Zahlungen sind oft runde Beträge. Der krumme Rest ist dann meist das Wechselgeld."]];
+const QUIZ = [["Ist eine Bitcoin-Zahlung geheim?", ["Ja, nur Sender und Empfänger sehen sie", "Nein, sie ist für immer öffentlich, nur ohne Namen", "Nur die Bank sieht sie", "Sie wird nach 10 Minuten gelöscht"], 1, "Alle Zahlungen stehen öffentlich in der Blockchain. Namen stehen nicht dabei, lassen sich aber oft zuordnen."], ["Warum sollte man für jede Zahlung eine neue Adresse nutzen?", ["Weil alte Adressen nach einer Weile ablaufen", "Damit Fremde Zahlungen und Kontostand schwerer verknüpfen können", "Weil jede neue Adresse Gebühren spart", "Weil es gesetzlich so vorgeschrieben ist"], 1, "Mit neuen Adressen sehen Außenstehende nicht auf einen Blick alle Zahlungen an dich. Anonym wirst du dadurch aber nicht, Analysen finden oft trotzdem Muster."], ["Woran erkennen Analysten oft das Wechselgeld?", ["Am krummen Betrag", "An der Farbe", "Am Namen", "Gar nicht"], 0, "Zahlungen sind oft runde Beträge. Der krumme Rest ist dann meist das Wechselgeld."]];
 Lern.quiz($("quiz"), "privatsphaere", QUIZ, "../"); Lern.visit("privatsphaere"); Lern.renderNext("privatsphaere", "../");
 })();
 </script>

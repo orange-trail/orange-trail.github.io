@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Vom Gold zum Papier": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .yrs{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 8px;margin-top:10px}
@@ -143,8 +143,8 @@ $("vs").addEventListener("click", e => { const b = e.target.closest("button[data
   el.classList.add("done"); b.classList.add("pick"); n++; if (b.dataset.v === V[i][1]) pts++;
   if (n === V.length) $("score").textContent = `${pts} von ${V.length} getroffen. Fazit: Bitcoin ist bei den Regeln stärker, Gold bei Erfahrung und Robustheit.`; });
 
-const QUIZ = [["Was passierte 1933 in den USA?", ["Gold wurde verboten zu fördern", "Bürger mussten ihr Gold abgeben, danach wurde der Goldpreis von 20,67 $ auf 35 $ angehoben", "Der Dollar wurde abgeschafft"], 1, "So verloren Dollar-Besitzer auf einen Schlag rund 40 % ihrer Goldmenge."],
-  ["Warum endete der Gold-Tausch 1971?", ["Es gab zu viel Gold", "Die USA hatten mehr Dollar ausgegeben, als sie Gold besaßen", "Gold war plötzlich wertlos"], 1, "Andere Länder tauschten Dollar in Gold, die Reserven schrumpften stark."],
+const QUIZ = [["Was passierte 1933 in den USA?", ["Die Förderung von Gold wurde komplett verboten, der Goldpreis fiel stark", "Bürger mussten ihr Gold abgeben, danach wurde der Goldpreis von 20,67 $ auf 35 $ angehoben", "Der Dollar wurde abgeschafft und durch reine Goldmünzen ersetzt"], 1, "So verloren Dollar-Besitzer auf einen Schlag rund 40 % ihrer Goldmenge."],
+  ["Warum endete der Gold-Tausch 1971?", ["Es gab plötzlich viel zu viel Gold auf der Welt", "Die USA hatten mehr Dollar ausgegeben, als sie Gold besaßen", "Gold war nach einem Börsencrash nichts mehr wert"], 1, "Andere Länder tauschten Dollar in Gold, die Reserven schrumpften stark."],
   ["Wo ist Gold Bitcoin klar überlegen?", ["Beim Verschicken", "Bei der Echtheitsprüfung", "Bei der Erfahrung über Jahrtausende"], 2, "Gold ist seit über 5.000 Jahren als Wert anerkannt, Bitcoin erst seit 2009."]];
 Lern.quiz($("quiz"), "goldstandard", QUIZ, "../"); Lern.visit("goldstandard"); Lern.renderNext("goldstandard", "../");
 })();

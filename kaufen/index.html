@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Erster Kauf": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -141,7 +141,7 @@ $("order").onclick = e => { const b = e.target.closest("button[data-i]"); if (!b
   else { err++; b.classList.remove("no"); void b.offsetWidth; b.classList.add("no"); $("oRes").innerHTML = `<p class="note">✋ ${WHY[i]}</p>`; } };
 order();
 
-const QUIZ = [["Was ist ein Spread?", ["Eine Wallet-Art", "Der Aufschlag auf den echten Kurs, den man beim Kauf zahlt", "Ein Bitcoin-Upgrade", "Die Zinsen der Bank"], 1, "Beim Spread kaufst du etwas teurer als der echte Marktpreis. Diese Kosten sieht man oft nicht direkt."], ["Wem gehören Bitcoin, die auf einer Plattform liegen?", ["Immer dir", "Erstmal der Plattform, du hast nur ein Versprechen", "Dem Staat", "Niemandem"], 1, "Auf der Plattform hält der Anbieter die Schlüssel. Erst nach der Auszahlung in deine Wallet gehören sie wirklich dir."], ["Was machst du vor der ersten großen Auszahlung?", ["Nichts", "Eine kleine Test-Auszahlung", "Den Seed fotografieren", "Die Adresse per Hand abtippen"], 1, "Eine kleine Test-Auszahlung zeigt, dass Adresse und Wallet funktionieren. Erst dann den Rest schicken."]];
+const QUIZ = [["Was ist ein Spread?", ["Eine besondere Art von Hardware-Wallet", "Der Aufschlag auf den echten Kurs, den man beim Kauf zahlt", "Ein Update, das Bitcoin schneller macht", "Die Zinsen, die die Bank auf Bitcoin zahlt"], 1, "Beim Spread kaufst du etwas teurer als der echte Marktpreis. Diese Kosten sieht man oft nicht direkt."], ["Wem gehören Bitcoin, die auf einer Plattform liegen?", ["Immer dir, egal wo sie liegen", "Erstmal der Plattform, du hast nur ein Versprechen", "Dem Staat, bis du sie versteuert hast", "Niemandem, bis du sie verkaufst"], 1, "Auf der Plattform hält der Anbieter die Schlüssel. Erst nach der Auszahlung in deine Wallet gehören sie wirklich dir."], ["Was machst du vor der ersten großen Auszahlung?", ["Nichts", "Eine kleine Test-Auszahlung", "Den Seed fotografieren", "Die Adresse per Hand abtippen"], 1, "Eine kleine Test-Auszahlung zeigt, dass Adresse und Wallet funktionieren. Erst dann den Rest schicken."]];
 Lern.quiz($("quiz"), "kaufen", QUIZ, "../"); Lern.visit("kaufen"); Lern.renderNext("kaufen", "../");
 })();
 </script>

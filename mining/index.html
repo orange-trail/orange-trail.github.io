@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Mining": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .diff{display:flex;align-items:center;gap:12px;margin:8px 0 12px}
@@ -74,8 +74,8 @@
     <h2 id="h2s">Du gegen das ganze Netz <span class="mode" id="mode">Verbinde …</span></h2>
     <div class="kv">
       <div><small>Alle Miner zusammen: Versuche pro Sekunde</small><b class="num" id="net">–</b></div>
-      <div><small>So viele deiner Geräte</small><b class="num" id="dev">–</b></div>
-      <div><small>Dein Gerät bräuchte für 1 Block</small><b class="num g" id="solo">–</b></div>
+      <div class="mine" style="display:none"><small>So viele deiner Geräte</small><b class="num" id="dev">–</b></div>
+      <div class="mine" style="display:none"><small>Dein Gerät bräuchte für 1 Block</small><b class="num g" id="solo">–</b></div>
       <div><small>Nullen bei echten Blöcken</small><b class="num" id="realz">–</b></div>
     </div>
     <h3 class="bxh" style="margin-top:16px">Wer schafft wie viel?</h3>
@@ -166,7 +166,7 @@ function compare(){
   if (!netHash) return;
   energy();
   $("net").textContent = fmt(netHash/1e18) + " Trillionen";
-  if (myRate > 0){ $("dev").textContent = big(netHash/myRate); if (diff) $("solo").textContent = dur(diff*4294967296/myRate); }
+  if (myRate > 0){ document.querySelectorAll(".kv .mine").forEach(d => d.style.display = ""); $("dev").textContent = big(netHash/myRate); if (diff) $("solo").textContent = dur(diff*4294967296/myRate); }
   const D = (diff || 1.48e14)*4294967296, R = [["📱", "Handy", 1.5e5], ["💻", "PC", 5e5], ...(myRate > 0 ? [["⭐", "Dein Gerät (gemessen)", myRate, 1]] : []), ["⚙️", "Spezial-Miner", 2e14], ["🌍", "Ganzes Netz", netHash]];
   $("dv").innerHTML = `<tr><th></th><th>Versuche pro Sekunde</th><th>Allein für 1 Block</th></tr>` + R.map(([i, n, r, me]) => `<tr${me ? ' class="me"' : ""}><td>${i} ${n}</td><td class="num">${big(r)}</td><td class="num">${r >= netHash ? "rund 10 Min." : dur(D/r)}</td></tr>`).join("");
 }
@@ -217,9 +217,9 @@ function energy(){
 }
 
 const QUIZ = [
-  ["Wie findet ein Miner einen gültigen Block?", ["Er rechnet ihn mit einer Formel aus", "Er probiert Milliarden Zahlen durch, bis der Hash passt", "Er bekommt ihn zugeteilt"], 1, "Einen passenden Hash kann man nicht berechnen, nur durch Ausprobieren finden. Das ist die Arbeit im Proof of Work."],
-  ["Doppelt so viele Miner steigen ein. Was passiert langfristig?", ["Blöcke kommen doppelt so schnell", "Die Schwierigkeit steigt, es bleibt bei etwa 10 Minuten", "Es gibt mehr Bitcoin"], 1, "Alle 2016 Blöcke passt sich die Schwierigkeit an. Mehr Rechenleistung macht das Netz sicherer, aber nicht schneller."],
-  ["Warum macht Mining Bitcoin sicher?", ["Weil Miner Polizisten sind", "Weil eine Fälschung mehr Rechenleistung bräuchte als alle ehrlichen Miner zusammen", "Weil die Daten verschlüsselt sind"], 1, "Um die Kette zu ändern, müsste man das ganze Netz überholen. Das kostet unvorstellbar viel Strom und Hardware."],
+  ["Wie findet ein Miner einen gültigen Block?", ["Er rechnet ihn mit einer geheimen Formel direkt aus", "Er probiert Milliarden Zahlen durch, bis der Hash passt", "Er bekommt ihn vom Netzwerk der Reihe nach zugeteilt"], 1, "Einen passenden Hash kann man nicht berechnen, nur durch Ausprobieren finden. Das ist die Arbeit im Proof of Work."],
+  ["Doppelt so viele Miner steigen ein. Was passiert langfristig?", ["Blöcke kommen dann doppelt so schnell", "Die Schwierigkeit steigt, es bleibt bei etwa 10 Minuten", "Es entstehen doppelt so viele Bitcoin"], 1, "Alle 2016 Blöcke passt sich die Schwierigkeit an. Mehr Rechenleistung macht das Netz sicherer, aber nicht schneller."],
+  ["Warum macht Mining Bitcoin sicher?", ["Weil Miner jede Zahlung persönlich überprüfen und melden", "Weil eine Fälschung mehr Rechenleistung bräuchte als alle ehrlichen Miner zusammen", "Weil alle Daten in der Blockchain stark verschlüsselt sind"], 1, "Um die Kette zu ändern, müsste man das ganze Netz überholen. Das kostet unvorstellbar viel Strom und Hardware."],
 ];
 Lern.quiz($("quiz"), "mining", QUIZ, "../"); Lern.visit("mining"); Lern.renderNext("mining", "../");
 })();

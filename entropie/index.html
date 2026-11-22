@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Würfel-Seed": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -170,7 +170,7 @@ function cTest(){
 }
 cTest();
 
-const QUIZ = [["Wie viele Bit Zufall stecken in einem Seed aus 12 Wörtern?", ["12 Bit", "128 Bit", "2048 Bit", "64 Bit"], 1, "12 Wörter enthalten 128 Bit Zufall plus 4 Bit Prüfsumme. 24 Wörter enthalten 256 Bit."], ["Warum ist das letzte Wort besonders?", ["Es ist immer gleich", "Es enthält eine Prüfsumme, die aus den anderen Wörtern berechnet wird", "Es ist das Passwort", "Es kann man weglassen"], 1, "Ein Teil des letzten Wortes ist eine Prüfsumme. Darum ist nicht jedes beliebige Wort am Ende gültig und Tippfehler fallen auf."], ["Warum soll man sich keinen Seed selbst ausdenken?", ["Weil es zu lange dauert", "Weil Menschen vorhersagbar sind und Angreifer solche Wörter durchprobieren", "Weil Wallets das verbieten", "Ist kein Problem"], 1, "Menschen sind schlechte Zufallsgeneratoren. Ausgedachte Wörter und Sätze werden von Angreifern massenhaft durchprobiert."]];
+const QUIZ = [["Wie viele Bit Zufall stecken in einem Seed aus 12 Wörtern?", ["12 Bit", "128 Bit", "2048 Bit", "64 Bit"], 1, "12 Wörter enthalten 128 Bit Zufall plus 4 Bit Prüfsumme. 24 Wörter enthalten 256 Bit."], ["Warum ist das letzte Wort besonders?", ["Es ist bei allen Wallets immer dasselbe Wort", "Es enthält eine Prüfsumme, die aus den anderen Wörtern berechnet wird", "Es ist das Passwort, mit dem man die Wallet öffnet", "Man kann es beim Aufschreiben einfach weglassen"], 1, "Ein Teil des letzten Wortes ist eine Prüfsumme. Darum ist nicht jedes beliebige Wort am Ende gültig und Tippfehler fallen auf."], ["Warum soll man sich keinen Seed selbst ausdenken?", ["Weil das Ausdenken von 24 Wörtern zu lange dauert", "Weil Menschen vorhersagbar sind und Angreifer solche Wörter durchprobieren", "Weil Wallets selbst gewählte Wörter grundsätzlich ablehnen", "Ist kein Problem, solange man sich die Wörter merkt"], 1, "Menschen sind schlechte Zufallsgeneratoren. Ausgedachte Wörter und Sätze werden von Angreifern massenhaft durchprobiert."]];
 Lern.quiz($("quiz"), "entropie", QUIZ, "../"); Lern.visit("entropie"); Lern.renderNext("entropie", "../");
 })();
 </script>

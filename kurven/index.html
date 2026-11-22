@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Kurven-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -163,7 +163,7 @@ $("kR").onclick = () => real256(Bit.mod(Bit.big(Bit.rand(32)), Bit.N) || 1n);
 $("k1").onclick = () => real256(1n); $("k2").onclick = () => real256(2n);
 $("kR").onclick();
 
-const QUIZ = [["Wie addiert man zwei Punkte auf der Kurve?", ["Die Koordinaten zusammenzählen", "Gerade durch beide Punkte, dritten Treffer suchen, spiegeln", "Den Mittelpunkt nehmen", "Gar nicht, das geht nicht"], 1, "Die Gerade durch zwei Punkte trifft die Kurve an einer dritten Stelle. Gespiegelt ergibt das die Summe."], ["Was ist dein öffentlicher Schlüssel?", ["Dein privater Schlüssel rückwärts", "Der Punkt k × G", "Dein Seed", "Eine zufällige Zahl"], 1, "Der öffentliche Schlüssel ist der Startpunkt G, k-mal addiert. k ist dein privater Schlüssel."], ["Warum kann niemand aus dem öffentlichen Schlüssel k berechnen?", ["Weil es verboten ist", "Weil die Sprünge chaotisch sind und man bei 10^77 Möglichkeiten nur raten kann", "Weil der Schlüssel versteckt ist", "Weil Computer zu langsam für Plus sind"], 1, "Es gibt keine bekannte Abkürzung. Man müsste raten, und dafür reicht nicht die Zeit des Universums."]];
+const QUIZ = [["Wie addiert man zwei Punkte auf der Kurve?", ["Die Koordinaten beider Punkte einfach zusammenzählen", "Gerade durch beide Punkte, dritten Treffer suchen, spiegeln", "Den Mittelpunkt zwischen beiden Punkten nehmen", "Gar nicht, Punkte kann man nicht addieren"], 1, "Die Gerade durch zwei Punkte trifft die Kurve an einer dritten Stelle. Gespiegelt ergibt das die Summe."], ["Was ist dein öffentlicher Schlüssel?", ["Dein privater Schlüssel rückwärts", "Der Punkt k × G", "Dein Seed", "Eine zufällige Zahl"], 1, "Der öffentliche Schlüssel ist der Startpunkt G, k-mal addiert. k ist dein privater Schlüssel."], ["Warum kann niemand aus dem öffentlichen Schlüssel k berechnen?", ["Weil die Berechnung gesetzlich verboten ist", "Weil die Sprünge chaotisch sind und man bei 10^77 Möglichkeiten nur raten kann", "Weil der öffentliche Schlüssel nirgends gespeichert ist", "Weil Computer für die Plus-Rechnung zu langsam sind"], 1, "Es gibt keine bekannte Abkürzung. Man müsste raten, und dafür reicht nicht die Zeit des Universums."]];
 Lern.quiz($("quiz"), "kurven", QUIZ, "../"); Lern.visit("kurven"); Lern.renderNext("kurven", "../");
 })();
 </script>

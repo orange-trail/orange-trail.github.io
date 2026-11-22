@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Merkle-Baum": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -124,7 +124,7 @@ function calc(){ const n = 2 ** +$("nt").value, h = Math.ceil(Math.log2(n));
   $("mkv").innerHTML = `<div>Zahlungen<b>${n.toLocaleString("de-DE")}</b></div><div>Hashes für den Beweis<b class="g">${h}</b></div><div>Beweis-Größe<b>${h * 32} Byte</b></div>`; }
 $("nt").oninput = calc; calc();
 
-const QUIZ = [["Was steht im Block-Kopf?", ["Alle Zahlungen", "Nur die Merkle-Root, ein einziger Hash über alle Zahlungen", "Die Namen der Absender", "Nichts über Zahlungen"], 1, "Der Block-Kopf enthält die Merkle-Root. Sie fasst alle Zahlungen des Blocks in einem Hash zusammen."], ["Was passiert, wenn jemand eine Zahlung im Block ändert?", ["Nichts", "Nur ihr eigener Hash ändert sich", "Alle Hashes bis zur Root ändern sich, der Block wird ungültig", "Die Zahlung wird doppelt gezählt"], 2, "Jede Änderung zieht sich bis zur Merkle-Root durch. Die passt dann nicht mehr zum Block-Kopf."], ["Wie viele Hashes braucht ein Beweis bei etwa 4.000 Zahlungen?", ["4.000", "2.000", "Etwa 12", "1"], 2, "Jede Ebene halbiert die Anzahl. 2 hoch 12 sind 4.096, also reichen 12 Hashes."]];
+const QUIZ = [["Was steht im Block-Kopf?", ["Eine Liste aller Zahlungen im Block", "Nur die Merkle-Root, ein einziger Hash über alle Zahlungen", "Die Namen aller Absender und Empfänger", "Gar nichts, was mit Zahlungen zu tun hat"], 1, "Der Block-Kopf enthält die Merkle-Root. Sie fasst alle Zahlungen des Blocks in einem Hash zusammen."], ["Was passiert, wenn jemand eine Zahlung im Block ändert?", ["Nichts, der Block bleibt trotzdem gültig", "Nur der Hash dieser einen Zahlung ändert sich", "Alle Hashes bis zur Root ändern sich, der Block wird ungültig", "Die Zahlung wird dann einfach doppelt gezählt"], 2, "Jede Änderung zieht sich bis zur Merkle-Root durch. Die passt dann nicht mehr zum Block-Kopf."], ["Wie viele Hashes braucht ein Beweis bei etwa 4.000 Zahlungen?", ["4.000", "2.000", "Etwa 12", "1"], 2, "Jede Ebene halbiert die Anzahl. 2 hoch 12 sind 4.096, also reichen 12 Hashes."]];
 Lern.quiz($("quiz"), "merkle", QUIZ, "../"); Lern.visit("merkle"); Lern.renderNext("merkle", "../");
 })();
 </script>

@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Lightning unter der Haube": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .rt2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:4px}
@@ -213,8 +213,8 @@ $("lc").onclick = () => { const P = last.p, m = P[P.length - 2], pre = P[P.lengt
   C.innerHTML = `<b>😈 Was, wenn ${M} schummeln will?</b><br>• <b>Geld behalten, Café nicht bezahlen:</b> Geht nicht. Das Geld ${pre === "du" ? "von dir" : "von " + (pre === "hub" ? "dem Hub" : N[pre][0])} bekommt ${M} nur mit dem Geheimnis, und das gibt es erst, wenn das Café bezahlt ist.<br>• <b>Café bezahlen, dann Geheimnis verschweigen:</b> Schadet nur ${m === "hub" ? "ihm" : "ihr"} selbst. ${M[0].toUpperCase() + M.slice(1)} hat bezahlt, holt sich aber nichts zurück.<br>• <b>Einfach nicht weiterleiten:</b> Dann läuft die Reservierung nach einer Frist ab und das Geld fließt zurück zu dir. Deine Wallet probiert einen anderen Weg.`; };
 lock();
 
-const QUIZ = [["Warum scheitert eine Lightning-Zahlung manchmal?", ["Weil das Internet zu langsam ist", "Weil in einem Kanal unterwegs nicht genug Geld auf der sendenden Seite liegt", "Weil die Blockchain voll ist"], 1, "Dann sucht die Wallet einen anderen Weg. Verloren geht dabei nichts."],
-  ["Was verhindert, dass eine Station unterwegs dein Geld behält?", ["Ein Schloss, das sich nur mit dem Geheimnis des Empfängers öffnet", "Eine Bank, die aufpasst", "Nichts, man muss den Stationen vertrauen"], 0, "Wer weiterleitet, bekommt sein Geld nur, wenn er das Geheimnis weitergibt. Alle oder keiner."],
+const QUIZ = [["Warum scheitert eine Lightning-Zahlung manchmal?", ["Weil das mobile Internet unterwegs für Lightning meistens zu langsam ist", "Weil in einem Kanal unterwegs nicht genug Geld auf der sendenden Seite liegt", "Weil die Blockchain gerade voll ist und keine Lightning-Zahlungen annimmt"], 1, "Dann sucht die Wallet einen anderen Weg. Verloren geht dabei nichts."],
+  ["Was verhindert, dass eine Station unterwegs dein Geld behält?", ["Ein Schloss, das sich nur mit dem Geheimnis des Empfängers öffnet", "Eine Bank, die jede einzelne Station unterwegs genau überwacht", "Nichts, man muss den Stationen unterwegs einfach vertrauen"], 0, "Wer weiterleitet, bekommt sein Geld nur, wenn er das Geheimnis weitergibt. Alle oder keiner."],
   ["Was machen moderne Wallets mit sehr großen Zahlungen?", ["Sie lehnen sie immer ab", "Sie teilen sie auf mehrere Wege auf", "Sie schicken sie per E-Mail"], 1, "Mehrere Teilzahlungen setzen sich beim Empfänger wieder zusammen."]];
 Lern.quiz($("quiz"), "lnnetz", QUIZ, "../"); Lern.visit("lnnetz"); Lern.renderNext("lnnetz", "../");
 })();

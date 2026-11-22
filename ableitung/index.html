@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Seed-Fabrik": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -142,7 +142,7 @@ let deb; const later = () => { clearTimeout(deb); deb = setTimeout(calc, 350); }
 if (!window.crypto || !crypto.subtle) $("pipe").innerHTML = `<div class="res warn"><strong>Dein Browser erlaubt hier keine Krypto-Funktionen.</strong>Öffne die Seite über https.</div>`;
 else $("wTest").onclick();
 
-const QUIZ = [["Wofür steht die 84 im Pfad m/84'/0'/0'/0/0?", ["Für das Jahr 1984", "Für den Adresstyp SegWit (bc1q…)", "Für 84 Wörter", "Für das Konto Nr. 84"], 1, "Die erste Zahl ist der Zweck: 44 = alte 1…-Adressen, 49 = 3…, 84 = bc1q…, 86 = Taproot bc1p…."], ["Was passiert, wenn du eine Passphrase hinzufügst?", ["Nichts", "Es entsteht eine komplett andere Wallet", "Der Seed wird kürzer", "Die Adressen bekommen ein Passwort"], 1, "Die Passphrase fließt in die Seed-Berechnung ein. Ein anderes Zeichen ergibt eine völlig andere Wallet."], ["Warum rechnet man 2048 Runden, bevor der Seed entsteht?", ["Zum Spaß", "Um Rate-Angriffe auf Wörter und Passphrase zu bremsen", "Damit die Wallet schneller wird", "Weil es 2048 Wörter gibt"], 1, "Die vielen Runden machen jeden einzelnen Rateversuch teurer. Das schützt vor allem schwache Passphrasen."]];
+const QUIZ = [["Wofür steht die 84 im Pfad m/84'/0'/0'/0/0?", ["Für das Jahr, in dem der Standard entstand", "Für den Adresstyp SegWit (bc1q…)", "Für die Anzahl der Wörter im Seed", "Für die Nummer deines ersten Kontos"], 1, "Die erste Zahl ist der Zweck: 44 = alte 1…-Adressen, 49 = 3…, 84 = bc1q…, 86 = Taproot bc1p…."], ["Was passiert, wenn du eine Passphrase hinzufügst?", ["Nichts", "Es entsteht eine komplett andere Wallet", "Der Seed wird kürzer", "Die Adressen bekommen ein Passwort"], 1, "Die Passphrase fließt in die Seed-Berechnung ein. Ein anderes Zeichen ergibt eine völlig andere Wallet."], ["Warum rechnet man 2048 Runden, bevor der Seed entsteht?", ["Damit die Wörter leichter zu merken sind", "Um Rate-Angriffe auf Wörter und Passphrase zu bremsen", "Damit die Wallet beim Start schneller lädt", "Weil die Wortliste genau 2048 Wörter hat"], 1, "Die vielen Runden machen jeden einzelnen Rateversuch teurer. Das schützt vor allem schwache Passphrasen."]];
 Lern.quiz($("quiz"), "ableitung", QUIZ, "../"); Lern.visit("ableitung"); Lern.renderNext("ableitung", "../");
 })();
 </script>

@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Hyperinflation-Akte": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .tl{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 8px;margin-top:10px;scrollbar-width:thin}
@@ -158,7 +158,7 @@ $("sort").addEventListener("click", e => { const b = e.target.closest("button[da
 
 const QUIZ = [["Ab wann spricht man von Hyperinflation?", ["Ab 10 % Inflation im Jahr", "Ab etwa 50 % Preissteigerung pro Monat", "Wenn die Zentralbank den Zins erhöht"], 1, "Bei 50 % im Monat verdoppeln sich die Preise in weniger als zwei Monaten."],
   ["Wer kam in Deutschland 1923 am besten weg?", ["Wer viel Geld gespart hatte", "Wer Schulden oder Sachwerte hatte", "Wer eine feste Rente bekam"], 1, "Schulden in Mark wurden praktisch wertlos, echte Dinge behielten ihren Wert."],
-  ["Was beendete die Hyperinflation 1923?", ["Größere Geldscheine", "Eine neue Währung mit streng begrenzter Menge: die Rentenmark", "Das Verbot, Brot zu kaufen"], 1, "1 Rentenmark ersetzte 1 Billion Papiermark. Entscheidend war das Vertrauen in die neue Grenze."]];
+  ["Was beendete die Hyperinflation 1923?", ["Größere Geldscheine mit vielen Nullen darauf", "Eine neue Währung mit streng begrenzter Menge: die Rentenmark", "Ein strenges Verbot, die Preise zu erhöhen"], 1, "1 Rentenmark ersetzte 1 Billion Papiermark. Entscheidend war das Vertrauen in die neue Grenze."]];
 Lern.quiz($("quiz"), "hyperinflation", QUIZ, "../"); Lern.visit("hyperinflation"); Lern.renderNext("hyperinflation", "../");
 })();
 </script>

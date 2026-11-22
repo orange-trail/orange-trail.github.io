@@ -13,7 +13,7 @@
 <meta property="og:description" content="Der schrumpfende Einkaufswagen: Was 100 € von früher heute noch wert sind.">
 <meta property="og:image" content="https://orange-trail.github.io/og/inflation.jpg">
 <meta property="og:url" content="https://orange-trail.github.io/inflation/">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Geld & Inflation": gleiche Farben und Schriften wie das Spiel. Nur Systemschriften, keine Cookies, kein Tracking. */
 
@@ -111,10 +111,10 @@
       <div class="col eur">
         <h3>€ Euro</h3>
         <div class="bars">
-          <div class="bar"><span>4,7 Billionen €</span><i style="height:26.7%;background:#5b8cff"></i><em>Ende 1999</em></div>
-          <div class="bar"><span>17,6 Billionen €</span><i style="height:100%;background:#5b8cff"></i><em>Juli 2026</em></div>
+          <div class="bar"><span>4,5 Billionen €</span><i style="height:26%;background:#5b8cff"></i><em>1999</em></div>
+          <div class="bar"><span>17,3 Billionen €</span><i style="height:100%;background:#5b8cff"></i><em>Januar 2026</em></div>
         </div>
-        <p>Die Geldmenge im Euroraum ist auf das <b>3,7-Fache</b> gewachsen.</p>
+        <p>Die Geldmenge im Euroraum ist auf fast das <b>Vierfache</b> gewachsen.</p>
       </div>
       <div class="col btc">
         <h3>₿ Bitcoin</h3>
@@ -234,7 +234,7 @@ $("dRate").addEventListener("input", defl); defl();
 const QUIZ = [
   ["Inflation liegt bei 2 % pro Jahr. Was passiert mit 1.000 € unter dem Kopfkissen nach 10 Jahren?", ["Sie kaufen genauso viel", "Sie kaufen etwa 18 % weniger", "Sie werden mehr wert"], 1, "Jedes Jahr 2 % weniger Kaufkraft summiert sich: 1,02 hoch 10 ergibt 1,22, deine 1.000 € kaufen nur noch so viel wie heute 820 €."],
   ["Du bekommst 1 % Zinsen, die Inflation liegt bei 2,8 %. Wie viel gewinnst du wirklich?", ["+1 %", "+3,8 %", "−1,8 %"], 2, "Real zählt Zins minus Inflation. 1 % − 2,8 % = −1,8 %: Dein Geld verliert trotz Zinsen an Kaufkraft."],
-  ["Wer kann neue Bitcoin einfach herstellen, wenn mehr gebraucht werden?", ["Niemand, die Menge ist auf 21 Mio. begrenzt", "Die Zentralbank", "Die Börsen"], 0, "Neue Bitcoin entstehen nur nach festen Regeln beim Mining, und bei 21 Millionen ist Schluss. Das kann keine Bank und keine Regierung ändern."],
+  ["Wer kann neue Bitcoin einfach herstellen, wenn mehr gebraucht werden?", ["Niemand, die Menge ist auf 21 Mio. begrenzt", "Die Zentralbank, wenn die Preise steigen", "Die großen Börsen, wenn viele kaufen wollen"], 0, "Neue Bitcoin entstehen nur nach festen Regeln beim Mining, und bei 21 Millionen ist Schluss. Das kann keine Bank und keine Regierung ändern."],
   ["Was bedeutet Deflation?", ["Die Preise sinken im Durchschnitt, Geld kauft mehr", "Die Preise steigen besonders schnell", "Die Bank druckt neue Geldscheine"], 0, "Deflation ist das Gegenteil von Inflation. Klingt gut, kann aber gefährlich werden, wenn alle Käufe aufschieben und Schulden schwerer wiegen."],
 ];
 Lern.quiz($("quiz"), "inflation", QUIZ, "../"); Lern.visit("inflation"); Lern.renderNext("inflation", "../");

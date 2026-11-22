@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Sparplan": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .ctl{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -48,6 +48,7 @@ svg.ch{width:100%;height:220px;display:block}
 
   <section class="card" aria-labelledby="h1s">
     <h2 id="h1s">Dein Sparplan in der Vergangenheit</h2>
+    <p class="muted" style="margin:0 0 10px"><small class="usd">💵 Beträge in US-Dollar, denn darin wird Bitcoin weltweit gehandelt.</small></p>
     <div class="ctl">
       <div><label for="amt">Betrag pro Monat</label><div class="row"><input id="amt" type="range" min="10" max="500" step="10" value="50"><b id="amtV" class="num">50 $</b></div></div>
       <div><label for="yr">Start im Januar</label><div class="row"><input id="yr" type="range" min="2014" max="2025" value="2018"><b id="yrV" class="num">2018</b></div></div>
@@ -140,9 +141,9 @@ update();
 
 
 const QUIZ = [
-  ["Was ist der größte Vorteil eines Sparplans?", ["Er garantiert Gewinn", "Man muss nicht den perfekten Kaufzeitpunkt treffen", "Er ist steuerfrei"], 1, "Man kauft regelmäßig, mal teuer, mal günstig. Das nimmt den Druck, den richtigen Moment zu erwischen. Gewinn ist damit nicht garantiert."],
+  ["Was ist der größte Vorteil eines Sparplans?", ["Er garantiert am Ende einen Gewinn", "Man muss nicht den perfekten Kaufzeitpunkt treffen", "Gewinne daraus sind immer steuerfrei"], 1, "Man kauft regelmäßig, mal teuer, mal günstig. Das nimmt den Druck, den richtigen Moment zu erwischen. Gewinn ist damit nicht garantiert."],
   ["Dein Sparplan liegt seit einem Jahr 40 % im Minus. Was zeigt die Vergangenheit?", ["Solche Phasen gab es oft", "Das passiert nie", "Dann ist alles verloren"], 0, "Bitcoin hatte mehrere lange Minus-Phasen, etwa 2018 und 2022. Wer durchhielt, kam in der Vergangenheit wieder heraus. Eine Garantie für die Zukunft ist das nicht."],
-  ["Welches Geld gehört in einen Bitcoin-Sparplan?", ["Der Notgroschen", "Geld, das du lange nicht brauchst", "Ein Kredit"], 1, "Nur Geld, auf das du jahrelang verzichten kannst. Sonst musst du womöglich genau im Minus verkaufen."],
+  ["Welches Geld gehört in einen Bitcoin-Sparplan?", ["Der Notgroschen für Reparaturen", "Geld, das du lange nicht brauchst", "Ein Kredit mit niedrigen Zinsen"], 1, "Nur Geld, auf das du jahrelang verzichten kannst. Sonst musst du womöglich genau im Minus verkaufen."],
 ];
 Lern.quiz($("quiz"), "sparplan", QUIZ, "../"); Lern.visit("sparplan"); Lern.renderNext("sparplan", "../");
 })();

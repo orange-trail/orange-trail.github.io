@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Quanten-Check": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -126,7 +126,7 @@ const lg = v => Math.log10(v) / 7 * 100;
 $("meter").innerHTML = M.map(([n, v, c, t]) => `<div><span>${n}</span><i><u style="background:${c}" data-w="${lg(v)}"></u></i><em>${t} Qubits</em></div>`).join("");
 setTimeout(() => document.querySelectorAll("#meter u").forEach(u => u.style.width = u.dataset.w + "%"), 300);
 
-const QUIZ = [["Was könnte ein großer Quantencomputer bei Bitcoin angreifen?", ["Das Mining", "Die Signaturen: aus dem öffentlichen den privaten Schlüssel berechnen", "Die Anzahl von 21 Millionen", "Das Internet"], 1, "Der Shor-Algorithmus bedroht Signaturen. Hashes und Mining bleiben dank 128 Bit Rest-Sicherheit sicher."], ["Welche Coins wären zuerst gefährdet?", ["Alle gleich", "Coins auf Adressen, deren öffentlicher Schlüssel schon sichtbar ist", "Nur neue Coins", "Keine"], 1, "Wo der öffentliche Schlüssel sichtbar ist, etwa bei alten P2PK-Adressen oder wiederverwendeten Adressen, könnte ein Angreifer ansetzen."], ["Was ist eine sinnvolle Vorsorge für dich?", ["Alles sofort verkaufen", "Adressen nicht wiederverwenden und Wallet-Updates nutzen", "Den Seed online speichern", "Nichts, es ist unmöglich"], 1, "Keine Adressen wiederverwenden und eine gepflegte Wallet nutzen. Kommen quantensichere Adressen, kann man umziehen."]];
+const QUIZ = [["Was könnte ein großer Quantencomputer bei Bitcoin angreifen?", ["Das Mining, sodass ein Rechner alle Blöcke findet", "Die Signaturen: aus dem öffentlichen den privaten Schlüssel berechnen", "Die Grenze von 21 Millionen Bitcoin", "Das Internet, über das Nodes reden"], 1, "Der Shor-Algorithmus bedroht Signaturen. Hashes und Mining bleiben dank 128 Bit Rest-Sicherheit sicher."], ["Welche Coins wären zuerst gefährdet?", ["Alle Coins gleichzeitig und gleich stark", "Coins auf Adressen, deren öffentlicher Schlüssel schon sichtbar ist", "Nur ganz neue Coins aus den letzten Blöcken", "Keine, Bitcoin ist dagegen vollständig geschützt"], 1, "Wo der öffentliche Schlüssel sichtbar ist, etwa bei alten P2PK-Adressen oder wiederverwendeten Adressen, könnte ein Angreifer ansetzen."], ["Was ist eine sinnvolle Vorsorge für dich?", ["Vorsichtshalber sofort alle Bitcoin verkaufen", "Adressen nicht wiederverwenden und Wallet-Updates nutzen", "Den Seed zur Sicherheit online speichern", "Nichts, ein Angriff ist für immer unmöglich"], 1, "Keine Adressen wiederverwenden und eine gepflegte Wallet nutzen. Kommen quantensichere Adressen, kann man umziehen."]];
 Lern.quiz($("quiz"), "quanten", QUIZ, "../"); Lern.visit("quanten"); Lern.renderNext("quanten", "../");
 })();
 </script>

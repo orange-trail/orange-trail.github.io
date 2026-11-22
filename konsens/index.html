@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Einigungs-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -269,7 +269,7 @@ live();
   };
 })();
 
-const QUIZ = [["Welche Kette gilt, wenn es zwei Versionen gibt?", ["Die ältere", "Die mit der meisten Rechenarbeit", "Die von Satoshi", "Die mit den meisten Zahlungen"], 1, "Nodes folgen immer der gültigen Kette mit der meisten Arbeit. Der andere Block verwaist."], ["Warum lohnt sich Betrug für Miner meist nicht?", ["Weil er verboten ist", "Weil er Milliarden kostet und den Wert der eigenen Bitcoin zerstören würde", "Weil Satoshi aufpasst", "Er lohnt sich immer"], 1, "Ehrliches Minen bringt sichere Belohnung. Ein Angriff würde das Vertrauen und damit den eigenen Gewinn vernichten."], ["Wie oft passt Bitcoin die Schwierigkeit an?", ["Jeden Block", "Alle 2.016 Blöcke, etwa alle 2 Wochen", "Einmal im Jahr", "Nie"], 1, "Alle 2.016 Blöcke, damit ein Block im Schnitt 10 Minuten dauert."]];
+const QUIZ = [["Welche Kette gilt, wenn es zwei Versionen gibt?", ["Die ältere", "Die mit der meisten Rechenarbeit", "Die von Satoshi", "Die mit den meisten Zahlungen"], 1, "Nodes folgen immer der gültigen Kette mit der meisten Arbeit. Der andere Block verwaist."], ["Warum lohnt sich Betrug für Miner meist nicht?", ["Weil Betrug unter Minern gesetzlich verboten ist und hart bestraft wird", "Weil er Milliarden kostet und den Wert der eigenen Bitcoin zerstören würde", "Weil Satoshi bis heute alle neuen Blöcke persönlich prüft und freigibt", "Er lohnt sich sogar sehr, deshalb versuchen es ständig viele Miner"], 1, "Ehrliches Minen bringt sichere Belohnung. Ein Angriff würde das Vertrauen und damit den eigenen Gewinn vernichten."], ["Wie oft passt Bitcoin die Schwierigkeit an?", ["Bei jedem einzelnen neuen Block", "Alle 2.016 Blöcke, etwa alle 2 Wochen", "Einmal im Jahr, immer am 3. Januar", "Nie, sie ist seit 2009 gleich"], 1, "Alle 2.016 Blöcke, damit ein Block im Schnitt 10 Minuten dauert."]];
 Lern.quiz($("quiz"), "konsens", QUIZ, "../"); Lern.visit("konsens"); Lern.renderNext("konsens", "../");
 })();
 </script>

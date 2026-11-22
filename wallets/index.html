@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Wallets": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -154,9 +154,9 @@ function rec(){
 buttons("amt", AMT, i => { a = i; rec(); }, a); buttons("use", USE, i => { u = i; rec(); }, u); rec();
 
 const QUIZ = [
-  ["Was speichert eine Wallet eigentlich?", ["Die Bitcoin selbst", "Die Schlüssel, mit denen du deine Bitcoin bewegen kannst", "Deinen Kontostand bei der Bank"], 1, "Die Bitcoin liegen in der Blockchain. Die Wallet verwahrt nur die Schlüssel, die beweisen, dass sie dir gehören."],
+  ["Was speichert eine Wallet eigentlich?", ["Die Bitcoin selbst als kleine Dateien", "Die Schlüssel, mit denen du deine Bitcoin bewegen kannst", "Deinen Kontostand bei einer Bitcoin-Bank"], 1, "Die Bitcoin liegen in der Blockchain. Die Wallet verwahrt nur die Schlüssel, die beweisen, dass sie dir gehören."],
   ["Deine Börse geht pleite. Wer ist sicher?", ["Nur wer seine Bitcoin auf der Börse lässt", "Wer seine Bitcoin in einer eigenen Wallet hat", "Niemand"], 1, "Wer die Schlüssel selbst hat, ist von einer Börsenpleite nicht betroffen. Auf der Börse hast du nur ein Versprechen."],
-  ["Deine Hardware-Wallet geht kaputt. Was brauchst du?", ["Nichts, die Bitcoin sind weg", "Deine Seed-Wörter, damit stellst du alles wieder her", "Den Kaufbeleg"], 1, "Mit den 12 oder 24 Seed-Wörtern stellst du die Schlüssel auf einem neuen Gerät wieder her."],
+  ["Deine Hardware-Wallet geht kaputt. Was brauchst du?", ["Nichts mehr, die Bitcoin sind dann weg", "Deine Seed-Wörter, damit stellst du alles wieder her", "Den Kaufbeleg des Geräts für den Hersteller"], 1, "Mit den 12 oder 24 Seed-Wörtern stellst du die Schlüssel auf einem neuen Gerät wieder her."],
 ];
 Lern.quiz($("quiz"), "wallets", QUIZ, "../"); Lern.visit("wallets"); Lern.renderNext("wallets", "../");
 })();

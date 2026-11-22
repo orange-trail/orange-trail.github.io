@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Kritik-Check": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -148,7 +148,7 @@ document.querySelectorAll(".kc").forEach(c => { const i = c.dataset.i;
 });
 res();
 
-const QUIZ = [["Was ist ein ehrliches Fazit zur Kritik an der Schwankung?", ["Für Geld, das man bald braucht, ist Bitcoin ungeeignet", "Bitcoin schwankt gar nicht", "Schwankung ist immer gut"], 0, "Starke Schwankungen sind real. Wer Geld kurzfristig braucht, sollte es nicht in Bitcoin halten."], ["Warum ist die „Sicherheit nach den Halvings“ eine offene Frage?", ["Weil langfristig allein Gebühren die Miner bezahlen müssen", "Weil Bitcoin 2030 abgeschaltet wird", "Weil Miner keinen Strom mehr brauchen"], 0, "Die Belohnung halbiert sich alle 4 Jahre. Ob Gebühren das später ausgleichen, ist ungeklärt."], ["Was passierte nach dem Krypto-Verbot in China 2021?", ["Das Netz lief weiter, Mining zog in andere Länder", "Bitcoin war weltweit abgeschaltet", "Alle Bitcoin wurden gelöscht"], 0, "Das Protokoll lässt sich nicht abschalten. Der Zugang im Land wurde aber stark erschwert."]];
+const QUIZ = [["Was ist ein ehrliches Fazit zur Kritik an der Schwankung?", ["Für Geld, das man bald braucht, ist Bitcoin ungeeignet", "Bitcoin schwankt heute eigentlich gar nicht mehr", "Schwankung ist für Sparer immer ein Vorteil"], 0, "Starke Schwankungen sind real. Wer Geld kurzfristig braucht, sollte es nicht in Bitcoin halten."], ["Warum ist die „Sicherheit nach den Halvings“ eine offene Frage?", ["Weil langfristig allein Gebühren die Miner bezahlen müssen", "Weil Bitcoin im Jahr 2030 abgeschaltet werden soll", "Weil Miner ab dann keinen Strom mehr brauchen"], 0, "Die Belohnung halbiert sich alle 4 Jahre. Ob Gebühren das später ausgleichen, ist ungeklärt."], ["Was passierte nach dem Krypto-Verbot in China 2021?", ["Das Netz lief weiter, Mining zog in andere Länder", "Bitcoin war weltweit abgeschaltet", "Alle Bitcoin wurden gelöscht"], 0, "Das Protokoll lässt sich nicht abschalten. Der Zugang im Land wurde aber stark erschwert."]];
 Lern.quiz($("quiz"), "kritik", QUIZ, "../"); Lern.visit("kritik"); Lern.renderNext("kritik", "../");
 })();
 </script>

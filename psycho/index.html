@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Psychologie-Labor": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .exp{margin-top:10px;padding:14px;border-radius:16px;border:2px solid var(--line);background:rgba(255,255,255,.03)}
@@ -131,9 +131,9 @@ $("o3").onclick = e => { const b = e.target.closest("button"); if (!b) return; l
   $("e3").insertAdjacentHTML("beforeend", `<div class="out"><strong>Ein Jahr später: rund 3.200 $, also etwa −84 %.</strong>${v === 2 ? "Gut getippt! Aber ehrlich: Hättest du das damals wirklich gewusst?" : "So ging es vielen."} Und 2021 stand Bitcoin dann bei rund 69.000 $, weit über dem alten Hoch. Heute wirkt beides <b>logisch</b>, damals wusste es niemand. Das ist der <b>Rückschaufehler</b>: Hinterher glauben wir, es wäre vorhersehbar gewesen. Darum helfen feste Regeln mehr als Vorhersagen.</div>`);
   prof(); };
 
-const QUIZ = [["Münzwurf: Gewinn 120 €, Verlust 100 €. Warum lehnen viele trotzdem ab?", ["Weil das Spiel im Schnitt Geld kostet", "Weil Verluste sich etwa doppelt so stark anfühlen wie Gewinne", "Weil 120 € zu wenig zum Spielen sind"], 1, "Mathematisch lohnt es sich. Die Verlustangst sagt trotzdem Nein."],
+const QUIZ = [["Münzwurf: Gewinn 120 €, Verlust 100 €. Warum lehnen viele trotzdem ab?", ["Weil das Spiel im Schnitt Geld kostet", "Weil Verluste sich etwa doppelt so stark anfühlen wie Gewinne", "Weil 120 € als Gewinn für ein Spiel zu wenig sind"], 1, "Mathematisch lohnt es sich. Die Verlustangst sagt trotzdem Nein."],
   ["Alle Freunde kaufen gerade eine neue Kryptowährung. Was ist die klügste Reaktion?", ["Sofort mitkaufen, bevor es zu spät ist", "Selbst prüfen und sich an den eigenen Plan halten", "Alles verkaufen, was man hat"], 1, "Dass alle etwas tun, sagt nichts darüber, ob es richtig ist."],
-  ["Was ist der Rückschaufehler?", ["Man vergisst seine Passwörter", "Hinterher wirkt alles vorhersehbar, vorher war es das nicht", "Man schaut zu oft auf den Kurs"], 1, "Deshalb sind feste Regeln wie ein Sparplan robuster als Vorhersagen."]];
+  ["Was ist der Rückschaufehler?", ["Man vergisst seine Passwörter nach dem Kauf", "Hinterher wirkt alles vorhersehbar, vorher war es das nicht", "Man schaut viel zu oft auf den aktuellen Kurs"], 1, "Deshalb sind feste Regeln wie ein Sparplan robuster als Vorhersagen."]];
 Lern.quiz($("quiz"), "psycho", QUIZ, "../"); Lern.visit("psycho"); Lern.renderNext("psycho", "../");
 })();
 </script>

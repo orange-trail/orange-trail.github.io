@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "SHA-256 von innen": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -267,7 +267,7 @@ $("hPrint").onclick = () => {
   window.print();
 };
 
-const QUIZ = [["Warum wird der Text auf 512 Bits aufgefüllt?", ["Damit er schöner aussieht", "Weil SHA-256 immer in festen Blöcken von 512 Bits rechnet", "Um ihn zu verschlüsseln", "Damit er kürzer wird"], 1, "SHA-256 verarbeitet Daten in Blöcken von genau 512 Bits. Endmarke, Nullen und Länge sorgen dafür, dass jeder Text eindeutig passt."], ["Wie viele Kästen bekommen pro Runde einen neuen Wert?", ["Alle acht", "Keiner", "Zwei: a und e", "Nur h"], 2, "Nur a und e werden neu berechnet. Die anderen rutschen einen Kasten weiter. Nach 64 Runden ist alles gründlich vermischt."], ["Was macht XOR?", ["Gibt 1, wenn die Bits verschieden sind", "Addiert zwei Zahlen", "Löscht alle Bits", "Dreht die Reihenfolge um"], 0, "XOR liefert 1 bei verschiedenen Bits und 0 bei gleichen. Es ist der wichtigste Misch-Trick in SHA-256."]];
+const QUIZ = [["Warum wird der Text auf 512 Bits aufgefüllt?", ["Damit der Text am Ende schöner aussieht", "Weil SHA-256 immer in festen Blöcken von 512 Bits rechnet", "Damit der Text dabei verschlüsselt wird", "Damit der Text kürzer und schneller wird"], 1, "SHA-256 verarbeitet Daten in Blöcken von genau 512 Bits. Endmarke, Nullen und Länge sorgen dafür, dass jeder Text eindeutig passt."], ["Wie viele Kästen bekommen pro Runde einen neuen Wert?", ["Alle acht", "Keiner", "Zwei: a und e", "Nur h"], 2, "Nur a und e werden neu berechnet. Die anderen rutschen einen Kasten weiter. Nach 64 Runden ist alles gründlich vermischt."], ["Was macht XOR?", ["Gibt 1, wenn die Bits verschieden sind", "Addiert zwei Zahlen miteinander", "Setzt alle Bits auf null zurück", "Dreht die Reihenfolge der Bits um"], 0, "XOR liefert 1 bei verschiedenen Bits und 0 bei gleichen. Es ist der wichtigste Misch-Trick in SHA-256."]];
 Lern.quiz($("quiz"), "sha256", QUIZ, "../"); Lern.visit("sha256"); Lern.renderNext("sha256", "../");
 })();
 </script>

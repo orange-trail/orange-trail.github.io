@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=73">
+<link rel="stylesheet" href="../lern.css?v=74">
 <style>
 /* Lernwelt "Risiko-Radar": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
@@ -82,7 +82,7 @@ const LV = {h: "hoch", m: "mittel", l: "eher gering"};
 $("risks").innerHTML = RK.map(([t, l, a]) => `<button class="rk" type="button"><b>${t}</b><span class="lv ${l}">Risiko: ${LV[l]}</span><span class="ra">${a}</span></button>`).join("");
 $("risks").onclick = e => { const r = e.target.closest(".rk"); if (!r) return; const o = !r.classList.contains("open"); document.querySelectorAll(".rk.open").forEach(x => x.classList.remove("open")); r.classList.toggle("open", o); };
 
-const QUIZ = [["Was schützt dich bei einer Börsen-Pleite?", ["Bitcoin nach dem Kauf auf die eigene Wallet abheben", "Eine besonders große Börse wählen", "Das Passwort öfter ändern"], 0, "Auch große Börsen wie FTX sind pleitegegangen. Was in deiner eigenen Wallet liegt, ist nicht betroffen."], ["Was hilft gegen starke Kursschwankungen?", ["Nur Geld, das du lange nicht brauchst, und ein Sparplan", "Mit Hebel schnell reagieren", "Bei jedem Absturz sofort verkaufen"], 0, "Schwankungen gehören zu Bitcoin. Zeit und ein Plan helfen mehr als schnelle Reaktionen."], ["Wodurch verlieren die meisten Menschen Bitcoin?", ["Verlorene Seeds, Betrug oder Panikverkäufe", "Durch Hacker, die Bitcoin selbst knacken", "Durch Quantencomputer"], 0, "Bitcoin selbst wurde nie gehackt. Die Risiken liegen meist beim Menschen."]];
+const QUIZ = [["Was schützt dich bei einer Börsen-Pleite?", ["Bitcoin nach dem Kauf auf die eigene Wallet abheben", "Eine besonders große und bekannte Börse wählen", "Das Passwort bei der Börse öfter ändern"], 0, "Auch große Börsen wie FTX sind pleitegegangen. Was in deiner eigenen Wallet liegt, ist nicht betroffen."], ["Was hilft gegen starke Kursschwankungen?", ["Nur Geld, das du lange nicht brauchst, und ein Sparplan", "Mit Hebel schnell auf Bewegungen reagieren", "Bei jedem Absturz sofort alles verkaufen"], 0, "Schwankungen gehören zu Bitcoin. Zeit und ein Plan helfen mehr als schnelle Reaktionen."], ["Wodurch verlieren die meisten Menschen Bitcoin?", ["Verlorene Seeds, Betrug oder Panikverkäufe", "Durch Hacker, die Bitcoin selbst knacken", "Durch Quantencomputer"], 0, "Bitcoin selbst wurde nie gehackt. Die Risiken liegen meist beim Menschen."]];
 Lern.quiz($("quiz"), "risiken", QUIZ, "../"); Lern.visit("risiken"); Lern.renderNext("risiken", "../");
 })();
 </script>
