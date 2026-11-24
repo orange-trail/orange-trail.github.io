@@ -13,7 +13,7 @@
 <meta property="og:description" content="So kommt deine Bitcoin-Überweisung in einen Block. Der Mempool als Bahnhof zum Ausprobieren.">
 <meta property="og:image" content="https://orange-trail.github.io/og/bahnhof.jpg">
 <meta property="og:url" content="https://orange-trail.github.io/bahnhof/">
-<link rel="stylesheet" href="../lern.css?v=76">
+<link rel="stylesheet" href="../lern.css?v=77">
 <style>
 /* Lernwelt "Mempool-Bahnhof": gleiche Farben und Schriften wie das Spiel. Nur Systemschriften, keine Cookies, kein Tracking. */
 .card > .mode{margin-bottom:8px}
@@ -126,7 +126,7 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)} @media (max-widt
 </div>
 
 <details class="foot"><summary>Quellen</summary><p>Warteraum, Gebühren und Blöcke als realistische Beispielwerte (echte Werte z. B. auf <a href="https://mempool.space">mempool.space</a>); <a href="https://en.bitcoin.it/wiki/Transaction_fees">Bitcoin Wiki: Transaction fees</a>. Das Spiel ist eine Simulation mit vereinfachten Zahlen.</p></details>
-<script src="../lern.js?v=116"></script>
+<script src="../lern.js?v=117"></script>
 <script>
 /* =====================================================================
    MEMPOOL-BAHNHOF – Lernwelt von Bitcoin Voyage
@@ -182,6 +182,8 @@ async function loadPrice(){ try { const j = await (await fetch(Lern.api("v1/pric
 
 // ---------- Spiel-Bahnhof: Beispiel mit Andrang, damit jeder Platz erreichbar ist ----------
 let demoIn = 25;
+// Zeit bis zum nächsten Übungs-Zug: zufällig wie echte Blöcke, aber zwischen 20 und 120 s
+const nextDemo = () => Math.min(120, Math.max(20, -30*Math.log(1 - Math.random())));
 function startDemo(){
   mode = "demo"; tip = {h: LV.tip.h || Lern.height(), ts: Date.now()/1000 - rnd(4, 15)}; waiting = 42000; if (!eur) eur = Lern.PRICE.EUR;
   demoBlocks(true);
@@ -195,7 +197,8 @@ function demoBlocks(hi){
 }
 function demoStep(dt){
   if (mode !== "demo") return;
-  if ((demoIn -= dt) <= 0){ demoIn = Math.min(120, Math.max(3, -30*Math.log(1 - Math.random()))); newBlock({height: tip.h + 1, timestamp: Date.now()/1000, tx_count: mblocks[0].nTx, extras: {feeRange: mblocks[0].feeRange, pool: {name: ["Foundry USA", "AntPool", "ViaBTC", "F2Pool"][Math.floor(Math.random()*4)]}}});  }
+  // Automatischer Übungs-Zug: frühestens 20 s nach dem letzten, nie während eine Abfahrt noch läuft
+  if ((demoIn -= dt) <= 0 && !(anim && t - anim.t0 < 6)){ demoIn = nextDemo(); newBlock({height: tip.h + 1, timestamp: Date.now()/1000, tx_count: mblocks[0].nTx, extras: {feeRange: mblocks[0].feeRange, pool: {name: ["Foundry USA", "AntPool", "ViaBTC", "F2Pool"][Math.floor(Math.random()*4)]}}});  }
 }
 
 // ---------- Neuer Block = Zug fährt ab ----------
@@ -216,7 +219,8 @@ function newBlock(b){
 }
 
 // Vorschau: Block sofort "finden", damit man nicht 10 Minuten warten muss (ändert keine echten Daten)
-$("simB").onclick = () => { if (!mblocks || (anim && t - anim.t0 < 5.2)) return; demoIn = Math.min(120, Math.max(3, -30*Math.log(1 - Math.random())));
+// Ein Klick = genau ein Zug: danach startet der Countdown für den automatischen Zug neu (mind. 45 s)
+$("simB").onclick = () => { if (!mblocks || (anim && t - anim.t0 < 5.2)) return; demoIn = 45 + nextDemo();
   newBlock({height: tip.h + 1, timestamp: Date.now()/1000, tx_count: mblocks[0].nTx, extras: {feeRange: mblocks[0].feeRange, pool: {name: "einem Miner"}}}); };
 
 // Nach der Abfahrt rücken alle einen Abschnitt nach vorne
