@@ -442,3 +442,15 @@ img.em{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.24em;margi
 .usd{display:block;margin-top:6px;font-size:13px;color:#8890b8;font-weight:400}
 /* Buch-Box auf der Startseite (erst nach Erscheinen sichtbar) */
 .bookbox{display:flex;gap:12px;align-items:center;margin:18px auto 0;max-width:520px;padding:12px 16px;border:1.5px solid rgba(255,179,71,.6);border-radius:16px;background:rgba(3,10,30,.5);color:#e3e9fb;text-decoration:none}.bookbox[hidden]{display:none}.bookbox .bbi{width:64px;height:64px;border-radius:8px;flex:none;box-shadow:0 4px 12px rgba(0,0,0,.4)}.bookbox small{display:block;color:#9aa3d8;font-size:13px;margin-top:2px}
+
+/* ---------- Spenden per Lightning ---------- */
+.spende .spbox{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.spqr{flex:0 0 auto;width:150px;border-radius:14px;overflow:hidden;display:block;background:#fff}
+.spqr svg{display:block;width:100%;height:auto}
+.spinfo{flex:1 1 200px;min-width:0}
+.spinfo code{display:block;word-break:break-all;font-size:14px;color:var(--gold);margin-bottom:10px}
+.sprow{display:flex;gap:8px;flex-wrap:wrap}.sprow .btn{display:inline-flex;align-items:center;text-decoration:none}
+.spfx{min-height:1.5em;font-weight:800;margin:8px 0 0}
+.spbolt{display:inline-block;animation:spz .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes spz{from{transform:translateX(-46px);opacity:0}to{transform:none;opacity:1}}
+.calm .spbolt{animation:none}@media (prefers-reduced-motion:reduce){.spbolt{animation:none}}
