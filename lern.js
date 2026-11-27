@@ -659,7 +659,7 @@ const Lern = (() => {
       else { txt(perfect ? "✨ BOSS BESIEGT – OHNE FEHLER" : "🏆 BOSS BESIEGT", 180, 52, "#ffc94d"); g.drawImage(im, S/2 - 210, 230, 420, 420);
         txt(name, 740, 64, "#ffffff"); txt(`Welt ${k + 1} · ${CHAPTERS[k][0]} ${CHAPTERS[k][1]}`, 810, 38, "#dfe3ff", 700); }
       txt(`${lv.ico} Rang: ${lv.name} · ${count(s)} von ${PATH.length} Level`, 930, 34, "#9aa2d6", 700);
-      txt("orange-trail.github.io", 990, 34, fin ? "#ffc94d" : "#f7931a");
+      txt("bitcoinvoyage.de", 990, 34, fin ? "#ffc94d" : "#f7931a");
       c.toBlob(async b => { if (!b) return; const f = new File([b], fin ? "bitcoin-voyage-urkunde.png" : `satsland-boss-${k + 1}.png`, {type: "image/png"});
         try { if (navigator.canShare && navigator.canShare({files: [f]})){ await navigator.share({files: [f], text: fin ? "Ich habe Bitcoin Voyage durchgespielt! 👑" : `Boss besiegt: ${name} 🏆`}); return; } } catch(e){ if (e && e.name === "AbortError") return; }
         const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); toast("📥 Bild gespeichert"); }, "image/png"); };
