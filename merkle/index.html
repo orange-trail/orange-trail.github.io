@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=83">
+<link rel="stylesheet" href="../lern.css?v=84">
 <style>
 /* Lernwelt "Merkle-Baum": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .idea{padding:12px 14px;border-radius:14px;background:rgba(247,147,26,.1);border:1px solid rgba(247,147,26,.4);font-size:15px;line-height:1.5}
@@ -89,7 +89,7 @@
 
 <script src="../bitlib.js?v=24"></script>
 <script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Thousands of payments, <span class=\"btc\">one<\/span> hash", "k4": "A block often contains more than 3,000 payments, but the small block header only has room for <b>one<\/b> hash. The trick: you hash the payments together <b>in pairs<\/b>, again and again, until only one is left. That makes a tree standing upside down.", "k5": "1 · The tree of 8 payments", "k6": "😈 Forge: tap a payment", "k7": "📱 Prove: tap a payment", "k8": "↺ Reset", "k9": "2 · Why this is so brilliant", "k10": "To prove that a payment is in the block, you don't need all payments, only the <b>sibling hashes<\/b> on the way up. With twice as many payments you need only <b>one more hash<\/b>.", "k11": "Payments in the block", "k12": "This is exactly how many phone wallets check payments without downloading the whole blockchain. Satoshi already described it in the whitepaper as <b>“simplified payment verification”<\/b> (SPV).", "k13": "Remember this", "k14": "Hashing in pairs", "k15": "Two hashes at a time are hashed together, level by level, until only the <b>Merkle root<\/b> remains.", "k16": "Root in the block header", "k17": "The Merkle root sits in the <b>block header<\/b>. If a payment changes, the root changes, and the block is invalid.", "k18": "Short proof", "k19": "For 4,000 payments, <b>12 hashes<\/b> are enough to prove a payment.", "k20": "Odd number", "k21": "If a partner is missing, Bitcoin simply <b>duplicates<\/b> the last hash.", "k22": "Test yourself: 3 questions", "k23": "Sources", "k24": "Bitcoin whitepaper, sections 7 and 8", "k25": "Bitcoin Developer Reference: Merkle Trees", "k26": "Entertainment and learning, not investment advice.", "k27@aria-label": "Next", "_title": "Merkle Tree · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Merkle-Bäume. Wie tausende Zahlungen in einen einzigen Hash passen und wie ein Handy mit wenigen Hashes eine Zahlung beweisen kann."}</script>
-<script src="../lern.js?v=127"></script>
+<script src="../lern.js?v=128"></script>
 <script>
 /* =====================================================================
    MERKLE-BAUM – Lernwelt von Bitcoin Voyage

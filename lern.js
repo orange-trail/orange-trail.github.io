@@ -883,8 +883,9 @@ const Lern = (() => {
     // Spenden-Knopf (⚡) rechts neben dem Ton-Knopf, führt zur Spendenbox auf der Über-Seite
     const base = (document.querySelector('script[src*="lern.js"]')?.getAttribute("src") || "lern.js").replace(/lern\.js.*$/, "");
     const r = document.createElement("span"); r.className = "tright";
-    r.innerHTML = `<button type="button" class="back lng" title="${t("Switch to English", "Auf Deutsch umschalten")}" aria-label="${t("Switch to English", "Auf Deutsch umschalten")}">${t("EN", "DE")}</button><a class="back don" href="${base}ueber/#spenden" title="${t("Bitcoin Voyage unterstützen", "Support Bitcoin Voyage")}" aria-label="${t("Bitcoin Voyage unterstützen", "Support Bitcoin Voyage")}">⚡<span class="tx"> ${t("Unterstützen", "Support")}</span></a>`;
-    r.querySelector(".lng").onclick = () => setLang(EN ? "de" : "en");
+    r.innerHTML = `<button type="button" class="lng${EN ? " en" : ""}" role="switch" aria-checked="${EN}" title="${t("Switch to English", "Auf Deutsch umschalten")}" aria-label="${t("Sprache: Deutsch. Auf Englisch umschalten", "Language: English. Switch to German")}"><span class="k" aria-hidden="true"></span><b${EN ? "" : ' class="on"'}>DE</b><b${EN ? ' class="on"' : ""}>EN</b></button><a class="back don" href="${base}ueber/#spenden" title="${t("Bitcoin Voyage unterstützen", "Support Bitcoin Voyage")}" aria-label="${t("Bitcoin Voyage unterstützen", "Support Bitcoin Voyage")}">⚡<span class="tx"> ${t("Unterstützen", "Support")}</span></a>`;
+    r.querySelector(".lng").onclick = e => { const b = e.currentTarget; if (b.dataset.busy) return; b.dataset.busy = 1;   // Knopf gleitet rüber, dann Seite in der neuen Sprache laden
+      b.classList.toggle("en"); b.querySelectorAll("b").forEach(x => x.classList.toggle("on")); sfx("click"); setTimeout(() => setLang(EN ? "de" : "en"), 320); };
     r.appendChild(b); top.appendChild(r);
   }
   document.addEventListener("click", e => { if (e.target.closest(".btn:not(.q .btn)")) sfx("click"); });
