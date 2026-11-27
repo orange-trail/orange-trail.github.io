@@ -842,7 +842,12 @@ const Lern = (() => {
     const lx = top.querySelector('a[href*="lexikon"]'); if (lx && !lx.querySelector(".tx")) lx.innerHTML = lx.innerHTML.replace(/^(\S+)\s+(.+)$/, '$1<span class="tx"> $2</span>');
     const b = document.createElement("button"); b.type = "button"; b.className = "snd";
     const upd = () => { b.textContent = sndOn() ? "🔊" : "🔇"; b.title = sndOn() ? "Ton & Vibration aus" : "Ton & Vibration an"; b.setAttribute("aria-label", b.title); };
-    b.onclick = () => { try { localStorage.setItem(SND, sndOn() ? "0" : "1"); } catch(e){} upd(); sfx("click"); }; upd(); top.appendChild(b);
+    b.onclick = () => { try { localStorage.setItem(SND, sndOn() ? "0" : "1"); } catch(e){} upd(); sfx("click"); }; upd();
+    // Spenden-Knopf (⚡) rechts neben dem Ton-Knopf, führt zur Spendenbox auf der Über-Seite
+    const base = (document.querySelector('script[src*="lern.js"]')?.getAttribute("src") || "lern.js").replace(/lern\.js.*$/, "");
+    const r = document.createElement("span"); r.className = "tright";
+    r.innerHTML = `<a class="back don" href="${base}ueber/#spenden" title="Bitcoin Voyage unterstützen" aria-label="Bitcoin Voyage unterstützen">⚡<span class="tx"> Unterstützen</span></a>`;
+    r.appendChild(b); top.appendChild(r);
   }
   document.addEventListener("click", e => { if (e.target.closest(".btn:not(.q .btn)")) sfx("click"); });
 

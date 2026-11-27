@@ -454,3 +454,10 @@ img.em{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.24em;margi
 .spbolt{display:inline-block;animation:spz .9s cubic-bezier(.2,.8,.2,1)}
 @keyframes spz{from{transform:translateX(-46px);opacity:0}to{transform:none;opacity:1}}
 .calm .spbolt{animation:none}@media (prefers-reduced-motion:reduce){.spbolt{animation:none}}
+
+/* Spenden-Knopf in der Kopfleiste */
+.top .tright{display:flex;gap:6px;align-items:center;flex:none}
+.top .don{height:34px;padding:0 9px;border-color:#f7931a66;color:#ffcf7a}
+.top .don:hover{border-color:#f7931a;background:#f7931a22}
+@media (min-width:700px){.top .don .tx{display:inline}}
+@media (max-width:380px){.top .lvl > span:not(.li){display:none}}
