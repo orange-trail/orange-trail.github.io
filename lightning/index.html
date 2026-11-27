@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0f2a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../lern.css?v=79">
+<link rel="stylesheet" href="../lern.css?v=83">
 <style>
 /* Lernwelt "Lightning": nur seitenspezifische Teile, der Rest kommt aus lern.css */
 .race{display:flex;flex-direction:column;gap:14px;margin-top:10px}
@@ -42,9 +42,29 @@
 .bal{display:flex;justify-content:space-between;font:600 13px var(--f-num);color:var(--muted);margin-top:4px}
 .payrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .note{margin:10px 0 0;font-size:14px;color:var(--muted)} .note b{color:var(--ink)}
+/* Übung: Planki bezahlen (Spielgeld) */
+.pxw{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.pxw>div{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.pxw small{display:block;font-size:12px;color:var(--muted)}
+.pxw b{font:600 clamp(18px,3.4vw,24px) var(--f-num)}
+.pxw .pk{display:flex;align-items:center;gap:8px}.pxw .pk i{width:44px;height:44px;flex:none}
+.pxmenu{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pxinv{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;margin-top:12px;padding:12px;border:2px dashed #ffe06688;border-radius:14px;background:rgba(255,224,102,.05)}
+.pxinv[hidden]{display:none}
+.pxqr{width:88px;height:88px;background:#fff;border-radius:10px;padding:5px}.pxqr svg{width:100%;height:100%;display:block}
+.pxinv code{display:block;font-size:12px;color:var(--muted);word-break:break-all;margin-top:4px}
+.pxinv ul{margin:6px 0 0;padding:0;list-style:none;font-size:14px}.pxinv li b{color:var(--ink)}
+.pxroute{display:flex;align-items:center;margin:16px 0 4px;position:relative}
+.pxroute .nd{flex:none;width:56px;text-align:center;font:700 11px var(--f-num);color:var(--muted)}
+.pxroute .nd span{display:grid;place-items:center;width:40px;height:40px;margin:0 auto 4px;border-radius:50%;border:2px solid var(--line);background:#141a3d;font-size:20px;transition:.25s}
+.pxroute .nd span svg{width:80%;height:80%}.pxroute .nd.on span{border-color:#ffe066;box-shadow:0 0 14px #ffe06699;background:#2a2a14}
+.pxroute .ln{flex:1;height:4px;border-radius:4px;background:var(--line);margin-bottom:18px;position:relative;overflow:hidden}
+.pxroute .ln i{position:absolute;inset:0;width:0;background:linear-gradient(90deg,#ffe066,#ffc94d);transition:width .3s linear}
+.pxmsg{margin:10px 0 0;min-height:1.4em}
+@media (max-width:420px){.pxroute .nd{width:46px}.pxroute .nd span{width:34px;height:34px;font-size:17px}.pxinv{grid-template-columns:1fr}.pxqr{margin:0 auto}}
 @media (max-width:640px){ .kv{grid-template-columns:1fr 1fr 1fr;gap:6px} .kv div{padding:8px} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot")</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=1"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
@@ -74,6 +94,35 @@
     </div>
     <div class="payrow"><button class="btn" id="a2b" type="button">Anna zahlt Ben 10.000 sats</button><button class="btn ghost" id="b2a" type="button">Ben zahlt Anna 10.000 sats</button></div>
     <p class="note" id="chNote">Erst wenn einer den Kanal schließt, landet der Endstand wieder in der Blockchain.</p>
+  </section>
+
+  <section class="card" aria-labelledby="hpx" id="uebung">
+    <h2 id="hpx">Probier's aus: Bezahl Planki ⚡</h2>
+    <p class="muted" style="margin:0">Du hast eine Übungs-Wallet mit <b>1.000 Spiel-sats</b>. Kein echtes Geld, alles passiert nur hier im Browser. Planki verkauft Snacks und schickt dir eine <b>Rechnung</b>.</p>
+    <div class="pxw">
+      <div><small>Deine Übungs-Wallet</small><b id="pxMe">1.000</b> <small style="display:inline">Spiel-sats</small></div>
+      <div class="pk"><i id="pxPk"></i><div><small>Plankis Kasse</small><b id="pxPl">0</b> <small style="display:inline">sats</small></div></div>
+    </div>
+    <div class="pxmenu" id="pxMenu" role="group" aria-label="Snack wählen">
+      <button class="btn ghost" type="button" data-a="21" data-t="Algenkeks">🍪 Algenkeks · 21 sats</button>
+      <button class="btn ghost" type="button" data-a="150" data-t="Muschel-Limo">🥤 Muschel-Limo · 150 sats</button>
+      <button class="btn ghost" type="button" data-a="5000" data-t="Riesen-Perle">🔮 Riesen-Perle · 5.000 sats</button>
+    </div>
+    <div class="pxinv" id="pxInv" hidden>
+      <div class="pxqr" id="pxQr" aria-hidden="true"></div>
+      <div><b id="pxTitle">Rechnung</b>
+        <ul><li>Betrag: <b id="pxAmt">–</b></li><li>Für: <b id="pxFor">–</b></li><li>Gültig: <b>10 Minuten</b></li></ul>
+        <code id="pxCode"></code>
+        <div class="pxmenu"><button class="btn" id="pxPay" type="button">⚡ Bezahlen</button></div>
+      </div>
+    </div>
+    <div class="pxroute" aria-hidden="true">
+      <div class="nd" id="pxN0"><span>🧑</span>Du</div><div class="ln"><i id="pxL0"></i></div>
+      <div class="nd" id="pxN1"><span>🐢</span>Knoten A</div><div class="ln"><i id="pxL1"></i></div>
+      <div class="nd" id="pxN2"><span>🐙</span>Knoten B</div><div class="ln"><i id="pxL2"></i></div>
+      <div class="nd" id="pxN3"><span id="pxN3i"></span>Planki</div>
+    </div>
+    <p class="note pxmsg" id="pxMsg" aria-live="polite">Wähle oben einen Snack, dann bekommst du Plankis Rechnung.</p>
   </section>
 
   <section class="card" aria-labelledby="h3s" id="netCard" hidden>
@@ -124,7 +173,7 @@
   <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=123"></script>
+<script src="../lern.js?v=125"></script>
 <script>
 /* =====================================================================
    LIGHTNING-RENNEN – Lernwelt von Bitcoin Voyage
@@ -183,6 +232,40 @@ function chan(msg){
 $("a2b").addEventListener("click", () => { if (a < 10000) return chan("<b>Geht nicht:</b> Anna hat auf ihrer Seite nicht mehr genug. Man kann nur ausgeben, was auf der eigenen Seite des Kanals liegt."); a -= 10000; chan("Sofort angekommen, <b>ohne neuen Block</b>. Der Kanal hat sich nur anders aufgeteilt."); });
 $("b2a").addEventListener("click", () => { if (CAP - a < 10000) return chan("<b>Geht nicht:</b> Ben hat auf seiner Seite nicht mehr genug."); a += 10000; chan("Zurück zu Anna, wieder sofort. Insgesamt bleiben es immer <b>100.000 sats</b> im Kanal."); });
 chan();
+
+
+// Übung: Planki mit Spiel-sats bezahlen (Rechnung → Route über 2 Knoten → Guthaben ändert sich)
+const PXFEE = 1; let me = 1000, pl = 0, inv = null, busy = false;
+$("pxPk").innerHTML = $("pxN3i").innerHTML = Lern.art("pk_plankton");
+const pxShow = () => { $("pxMe").textContent = fmt(me); $("pxPl").textContent = fmt(pl); };
+const pxQr = seed => { let x = seed * 9301 + 49297, d = ""; for (let r = 0; r < 21; r++) for (let c = 0; c < 21; c++){ const fin = (r < 7 && c < 7) || (r < 7 && c > 13) || (r > 13 && c < 7);
+  const on = fin ? !(r % 6 && c % 6 && (r % 14) % 6 && (c % 14) % 6) || ((r % 14) > 1 && (r % 14) < 5 && (c % 14) > 1 && (c % 14) < 5) : ((x = (x * 9301 + 49297) % 233280) / 233280) > .5;
+  if (on) d += `M${c} ${r}h1v1h-1z`; } return `<svg viewBox="-1 -1 23 23" shape-rendering="crispEdges"><path d="${d}" fill="#0b0f2a"/></svg>`; };
+const pxRoute = (k, on) => { for (let i = 0; i < 4; i++){ $("pxN" + i).classList.toggle("on", on && i <= k); if (i < 3) $("pxL" + i).style.width = on && i < k ? "100%" : "0"; } };
+$("pxMenu").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b || busy) return;
+  inv = {a: +b.dataset.a, t: b.dataset.t}; pxRoute(0, false);
+  $("pxInv").hidden = false; $("pxQr").innerHTML = pxQr(inv.a);
+  $("pxTitle").textContent = "Rechnung von Planki"; $("pxAmt").textContent = fmt(inv.a) + " sats"; $("pxFor").textContent = inv.t;
+  $("pxCode").textContent = "lnbc" + inv.a + "n1p" + Math.random().toString(36).slice(2, 14) + "…  (Übung)";
+  $("pxPay").disabled = false; $("pxMsg").innerHTML = "Das ist eine <b>Rechnung</b> (Invoice): Betrag, Zweck und Ablaufzeit stehen fest drin. Du musst nichts abtippen, nur bestätigen.";
+  Lern.sfx("click");
+});
+$("pxPay").addEventListener("click", () => {
+  if (!inv || busy) return;
+  if (inv.a + PXFEE > me){ $("pxMsg").innerHTML = `<b>Geht nicht:</b> In deiner Wallet sind nur ${fmt(me)} sats. Lightning kann nur ausgeben, was wirklich da ist. Niemand kann ins Minus gehen.`; Lern.sfx("no"); return; }
+  busy = true; $("pxPay").disabled = true; let k = 0; pxRoute(0, true);
+  $("pxMsg").innerHTML = "Deine Wallet sucht einen <b>Weg</b> durchs Netz …";
+  const step = () => {
+    k++; pxRoute(k, true);
+    if (k < 3){ $("pxMsg").innerHTML = k === 1 ? "Knoten A leitet weiter. Er sieht nicht, wer am Ende bezahlt wird." : "Knoten B leitet weiter zu Planki …"; return setTimeout(step, 450); }
+    me -= inv.a + PXFEE; pl += inv.a; pxShow(); busy = false;
+    $("pxMsg").innerHTML = `<b>Bezahlt in unter 2 Sekunden!</b> Planki hat ${fmt(inv.a)} sats bekommen, die Knoten zusammen <b>${PXFEE} sat</b> Gebühr. Kein Block, keine Wartezeit.`;
+    Lern.sfx("coin"); inv = null; $("pxInv").hidden = true;
+  };
+  setTimeout(step, 450);
+});
+pxShow();
 
 const QUIZ = [
   ["Was kommt bei Lightning in die Blockchain?", ["Jede einzelne Zahlung, nur etwas später", "Nur das Öffnen und Schließen eines Kanals", "Gar nichts, Lightning ist ganz getrennt"], 1, "Die vielen Zahlungen dazwischen laufen nur zwischen den Beteiligten. In die Blockchain kommt am Anfang und am Ende jeweils eine Transaktion."],

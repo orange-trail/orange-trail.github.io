@@ -460,4 +460,7 @@ img.em{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.24em;margi
 .top .don{height:34px;padding:0 9px;border-color:#f7931a66;color:#ffcf7a}
 .top .don:hover{border-color:#f7931a;background:#f7931a22}
 @media (min-width:700px){.top .don .tx{display:inline}}
-@media (max-width:380px){.top .lvl > span:not(.li){display:none}}
+@media (max-width:460px){.top .lvl > span:not(.li){display:none}}
+.top .lng{height:34px;padding:0 9px;font:800 12px var(--f-num,inherit);letter-spacing:.04em}
+.enonly{margin:0 0 12px;padding:8px 12px;border:1px dashed var(--line);border-radius:12px;font-size:13px;color:var(--muted)}
+@media (max-width:380px){.top{gap:4px}.top .tright{gap:4px}.top .back{padding-left:7px;padding-right:7px}}

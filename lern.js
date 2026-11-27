@@ -16,6 +16,31 @@
    ===================================================================== */
 const Lern = (() => {
   const KEY = "bvb-lernen";
+  // ---------- Sprache: Deutsch (Standard) oder Englisch, Wahl bleibt im Browser ----------
+  // Englische Texte: gemeinsame in i18n-en.js (wird im Kopf jeder Seite nur bei Englisch geladen), seitenbezogene in <script type="application/json" id="i18n">
+  const LANG = (() => { try { return localStorage.getItem("bv-lang") === "en" ? "en" : "de"; } catch(e){ return "de"; } })(), EN = LANG === "en", X = (EN && window.BV_EN) || {};
+  const t = (de, en) => EN && en != null ? en : de;
+  const setLang = l => { try { localStorage.setItem("bv-lang", l); } catch(e){} location.reload(); };
+  document.documentElement.lang = LANG;
+  if (EN){
+    const j = document.getElementById("i18n"), d = j ? JSON.parse(j.textContent) : {};
+    document.querySelectorAll("[data-i]").forEach(el => { const k = el.dataset.i; if (d[k] != null) el.innerHTML = d[k];
+      ["aria-label", "title", "placeholder", "alt"].forEach(a => { if (d[k + "@" + a] != null) el.setAttribute(a, d[k + "@" + a]); }); });
+    if (d._title) document.title = d._title;
+    // Seite noch nicht übersetzt: kurzer Hinweis oben
+    if (!j) document.addEventListener("DOMContentLoaded", () => { const tp = document.querySelector(".top"); if (!tp || document.querySelector(".enonly")) return;
+      const n = document.createElement("p"); n.className = "enonly"; n.innerHTML = "🇩🇪 This world is only available in <b>German</b> so far. The English version is coming soon."; tp.after(n); });
+    // Texte, die Skripte später erzeugen: feste Sätze (phr) und Muster mit Zahlen (re) übersetzen
+    const RE = (X.re || []).map(([p, r]) => [new RegExp("^" + p + "$"), r]), P = X.phr || {};
+    const tr = v => { const k = v.trim(); if (!k || !/[a-zäöüß]/i.test(k)) return v; if (P[k] != null) return v.replace(k, P[k]);
+      for (const [re, r] of RE) if (re.test(k)) return v.replace(k, k.replace(re, r)); return v; };
+    const walk = n => { if (n.nodeType === 3){ const v = tr(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; return; }
+      if (n.nodeType !== 1 || n.tagName === "SCRIPT" || n.tagName === "STYLE") return;
+      ["title", "aria-label", "placeholder"].forEach(a => { const v = n.getAttribute(a); if (v){ const w = tr(v); if (w !== v) n.setAttribute(a, w); } });
+      n.childNodes.forEach(walk); };
+    walk(document.body);
+    new MutationObserver(ms => ms.forEach(m => m.type === "characterData" ? walk(m.target) : m.addedNodes.forEach(walk))).observe(document.body, {subtree: true, childList: true, characterData: true});
+  }
   // ---------- Live-Daten: eine eigene Quelle für alles (eigener Node + Kurs), Pfade wie bei mempool.space ----------
   // DATA leer = Entwicklungsmodus mit öffentlichen Quellen. Vor dem Start die eigene Adresse eintragen (siehe node/ANLEITUNG.md).
   // Ohne eigene Quelle (DATA leer): feste Werte mit Stand-Datum, kein einziger fremder Dienst wird abgefragt.
@@ -45,11 +70,13 @@ const Lern = (() => {
     ["💸", "Bezahlen & Senden", "Wie eine Zahlung wirklich abläuft, schnell und günstig.", ["utxo", "senden", "bahnhof", "lightning", "privatsphaere", "reise"]],
     ["🧠", "Klug handeln", "Richtig kaufen, Sparplan statt Bauchgefühl, Finger weg vom Hebel und Mythen durchschauen.", ["kaufen", "sparplan", "zyklen", "fomo", "hebel", "besitzer", "mythen", "kritik"]]
   ];
+  if (X.chapters) X.chapters.forEach((c, i) => { CHAPTERS[i][1] = c[0]; CHAPTERS[i][2] = c[1]; });
   // Profi-Pfade: Vertiefungen je Kapitel (Index wie CHAPTERS), freigeschaltet nach dem Kapitel-Boss. Zählen nicht für Level.
   const PRO = [["hyperinflation", "goldstandard"], ["vorlaeufer", "satoshi"], ["whitepaper", "sha256", "kurven", "signaturen", "adressen", "merkle", "script", "quanten"], ["entropie", "ableitung", "krimis"], ["blockbau", "lnnetz", "offline"], ["psycho"]];
   const proOf = id => PRO.findIndex(c => c.includes(id));
   // Lernpfad = alle Welten in Kapitel-Reihenfolge: [id, Titel, Pfad]
   const TITLES = {geld: ["Tausch-Insel", "geld/"], geldgeschichte: ["Geld-Zeitreise", "geldgeschichte/"], geldschoepfung: ["Geld-Maschine", "geldschoepfung/"], cantillon: ["Geldfluss", "cantillon/"], knappheit: ["Knappheits-Messer", "knappheit/"], doppelt: ["Kopier-Problem", "doppelt/"], wert: ["Wert-Waage", "wert/"], risiken: ["Risiko-Radar", "risiken/"], reise: ["Reise einer Zahlung", "reise/"], eigenschaften: ["Geld-Duell", "eigenschaften/"], inflation: ["Geld & Inflation", "inflation/"], halving: ["Knappheit & Halving", "halving/"], geschichte: ["Zeitreise", "geschichte/"], wallets: ["Wallet-Check", "wallets/"], seed: ["Seed-Trainer", "seed/"], senden: ["Senden & Empfangen", "senden/"], betrug: ["Betrug erkennen", "betrug/"], krypto: ["Coin-Check", "krypto/"], sparplan: ["Sparplan", "sparplan/"], fomo: ["Gefühls-Achterbahn", "fomo/"], hebel: ["Hebel-Falle", "hebel/"], utxo: ["Wechselgeld-Kasse", "utxo/"], bahnhof: ["Mempool-Bahnhof", "bahnhof/"], lightning: ["Lightning", "lightning/"], hashing: ["Fingerabdruck-Maschine", "hashing/"], schluessel: ["Schlüssel-Labor", "schluessel/"], blockchain: ["Blockchain", "blockchain/"], mining: ["Mining-Werkstatt", "mining/"], nodes: ["Node-Wache", "nodes/"], entropie: ["Würfel-Seed", "entropie/"], ableitung: ["Seed-Fabrik", "ableitung/"], sha256: ["SHA-256 von innen", "sha256/"], kurven: ["Kurven-Labor", "kurven/"], signaturen: ["Signatur-Duell", "signaturen/"], adressen: ["Adress-Zoo", "adressen/"], merkle: ["Merkle-Baum", "merkle/"], blockbau: ["Bau deinen Block", "blockbau/"], hyperinflation: ["Hyperinflation-Akte", "hyperinflation/"], goldstandard: ["Vom Gold zum Papier", "goldstandard/"], vorlaeufer: ["Die Vorläufer", "vorlaeufer/"], krimis: ["Bitcoin-Krimis", "krimis/"], satoshi: ["Wer ist Satoshi?", "satoshi/"], offline: ["Bitcoin ohne Internet", "offline/"], psycho: ["Psychologie-Labor", "psycho/"], lnnetz: ["Lightning unter der Haube", "lnnetz/"], quanten: ["Quanten-Check", "quanten/"], kaufen: ["Erster Kauf", "kaufen/"], mythen: ["Mythen-Check", "mythen/"], kritik: ["Kritik-Check", "kritik/"], privatsphaere: ["Spuren-Detektiv", "privatsphaere/"], script: ["Script-Labor", "script/"], zyklen: ["Kurs-Achterbahn", "zyklen/"], besitzer: ["Wem gehört Bitcoin?", "besitzer/"], start: ["Bitcoin in 5 Minuten", "start/"], konsens: ["Einigungs-Labor", "konsens/"], whitepaper: ["Whitepaper-Tour", "whitepaper/"]};
+  if (X.titles) for (const k in X.titles) if (TITLES[k]) TITLES[k][0] = X.titles[k];
   const PATH = CHAPTERS.flatMap(c => c[3].map(id => [id, ...TITLES[id]]));
   const chapterOf = id => CHAPTERS.findIndex(c => c[3].includes(id));
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){ return {}; } };
@@ -273,6 +300,7 @@ const Lern = (() => {
     ["Was passiert mit einem verwaisten Block?", ["Seine Zahlungen landen in einem späteren Block", "Das Geld ist weg", "Er wird gelöscht und alle Zahlungen verfallen"], 0, "Verwaiste Blöcke sind normal und harmlos."],
     ["Wie lange dauert eine Difficulty-Periode ungefähr?", ["2 Wochen", "2 Minuten", "2 Jahre"], 0, "2.016 Blöcke à 10 Minuten."]
   ];
+  if (X.daily) X.daily.forEach((d, i) => { DAILY[i][0] = d[0]; DAILY[i][1] = d[1]; DAILY[i][3] = d[2]; });
   const DK = "satsland-daily", ymd = d => d.toLocaleDateString("sv-SE"), today = () => ymd(new Date());
   const yesterday = () => { const d = new Date(); d.setDate(d.getDate() - 1); return ymd(d); };
   function streak(){ let d = {}; try { d = JSON.parse(localStorage.getItem(DK)) || {}; } catch(e){}
@@ -280,9 +308,9 @@ const Lern = (() => {
   function daily(box){
     const day = Math.floor(new Date(today()).getTime()/864e5), [q, opts, ok, why] = DAILY[day % DAILY.length], d = streak(), doneToday = d.last === today();
     const order = opts.map((o, i) => [((day*7 + i*13) % 11), i, o]).sort((a, b) => a[0] - b[0]);
-    box.innerHTML = `<div class="dh"><span class="fl ${d.streak ? "on" : ""}">🔥 <b>${d.streak || 0}</b></span><span>Tag${d.streak === 1 ? "" : "e"} in Folge${d.best ? ` · Rekord ${d.best}` : ""}</span></div>
+    box.innerHTML = `<div class="dh"><span class="fl ${d.streak ? "on" : ""}">🔥 <b>${d.streak || 0}</b></span><span>${EN ? (d.streak === 1 ? "day" : "days") + " in a row" + (d.best ? " · best " + d.best : "") : `Tag${d.streak === 1 ? "" : "e"} in Folge${d.best ? ` · Rekord ${d.best}` : ""}`}</span></div>
       <p class="dq">${q}</p><div class="opts">${order.map(([, i, o]) => `<button type="button" data-i="${i}" ${doneToday ? "disabled" : ""} class="${doneToday && i === ok ? "ok" : ""}">${o}</button>`).join("")}</div>
-      <p class="why" ${doneToday ? "" : "hidden"}>${doneToday ? (d.ok ? "✓ Heute geschafft! " : "Heute war's knapp. ") + why + " Morgen gibt's eine neue Frage." : ""}</p>`;
+      <p class="why" ${doneToday ? "" : "hidden"}>${doneToday ? (d.ok ? t("✓ Heute geschafft! ", "✓ Done for today! ") : t("Heute war's knapp. ", "Close one today. ")) + why + t(" Morgen gibt's eine neue Frage.", " A new question tomorrow.") : ""}</p>`;
     if (doneToday) return;
     box.querySelector(".opts").onclick = e => { const b = e.target.closest("button"); if (!b) return;
       const right = +b.dataset.i === ok, s = streak();
@@ -355,6 +383,7 @@ const Lern = (() => {
     mining: "Probier selbst zu minen. Ganz schön viel Arbeit, oder?",
     nodes: "Nodes gehorchen niemandem, nur den Regeln.",
   };
+  if (X.tips) Object.assign(TIPS, X.tips);
   const GK = "satsland-guide-off";
   let gTimer = 0;
   function say(text, ms = 7000){ if (window.__sweep) return;
@@ -379,6 +408,7 @@ const Lern = (() => {
   // Planki hüpft vor Freude: Rangaufstieg, Boss besiegt
   function hop(){ const g = document.querySelector(".guide .gs"); if (!g || window.__sweep) return; g.classList.remove("grow2"); void g.offsetWidth; g.classList.add("grow2"); }
   const PRAISE = ["Stark! 💪", "Genau so!", "Du hast's drauf!", "Richtig! Weiter so."], OOPS = ["Fast! Lies kurz die Erklärung.", "Kein Problem, so lernt man.", "Knapp daneben. Jetzt weißt du's!"];
+  if (X.praise){ PRAISE.splice(0, 9, ...X.praise); OOPS.splice(0, 9, ...X.oops); }
   const pickOne = a => a[Math.floor(Math.random()*a.length)];
 
 
@@ -497,6 +527,7 @@ const Lern = (() => {
       ["Wer hat mehr Bitcoin: Satoshi oder alle Staaten zusammen?", ["Satoshi", "Alle Staaten", "Gleich viel"], "Satoshi hat geschätzt 1,1 Millionen."],
       ["Wird Bitcoin vor allem für Kriminalität genutzt?", ["Nein, der illegale Anteil liegt unter 1 %", "Ja, zu 90 %", "Ja, ausschließlich"], "Weil alles öffentlich ist, werden viele Täter gefasst."]]]
   ];
+  if (X.bosses) X.bosses.forEach((b, i) => { BOSSES[i][1] = b[0]; BOSSES[i][2] = b[1]; BOSSES[i][3] = b[2]; });
   const FINAL = ["pool", "Dein Spiegelbild", "Schau ins Wasser. Wer bin ich? Komm näher …", []];
   // Endboss-Sprüche je Welt: [Spruch, [richtige Antwort, falsch, falsch], Erklärung] · 2 pro Welt + Finale
   const MYTHS = [
@@ -718,6 +749,7 @@ const Lern = (() => {
     ["📜", "Whitepaper-Leser", "Alle 13 Abschnitte des Whitepapers gelesen", (s, d, b, t) => (t.wp || []).length >= 13],
     ["🦉", "Nachteule", "Zwischen Mitternacht und 4 Uhr gelernt", (s, d, b, t) => !!t.owl],
   ];
+  if (X.titleList) X.titleList.forEach((t, i) => { TITLES_LIST[i][1] = t[0]; TITLES_LIST[i][2] = t[1]; });
   // Prüft alle Titel; neue werden gespeichert und als Meldung gezeigt
   function titles(){
     const t = tget(), s = load(), d = streak(), b = bossWon(), had = t.got || {};
@@ -791,6 +823,7 @@ const Lern = (() => {
   // ---------- Spaß-Schicht: Level, Konfetti, Einblenden ----------
   // Ränge nach geschafften Welten (angelehnt an die Bitcoin-Tierwelt von Garnele bis Buckelwal; hier zählt Wissen, nicht Besitz)
   const LEVELS = [[0, "🦠", "Plankton", "plankton"], [2, "🦐", "Garnele", "shrimp"], [5, "🦀", "Krabbe", "crab"], [11, "🐟", "Fisch", "fish"], [17, "🐬", "Delfin", "dolphin"], [23, "🦈", "Hai", "shark"], [29, "🐳", "Wal", "humpback"], [37, "🐋", "Buckelwal", "whale"]];
+  if (X.levels) X.levels.forEach((n, i) => { LEVELS[i][2] = n; });
   const count = s => PATH.filter(([id]) => done(s, id)).length;
   function level(n){ let L = LEVELS[0]; for (const l of LEVELS) if (n >= l[0]) L = l; return {n, ico: L[1], name: L[2], art: L[3]}; }
   // „Weniger Bewegung“ ist ein eigener Schalter (Fußzeile der Startseite): Firmen-PCs melden die Systemeinstellung oft, obwohl Animationen gewünscht sind
@@ -846,7 +879,8 @@ const Lern = (() => {
     // Spenden-Knopf (⚡) rechts neben dem Ton-Knopf, führt zur Spendenbox auf der Über-Seite
     const base = (document.querySelector('script[src*="lern.js"]')?.getAttribute("src") || "lern.js").replace(/lern\.js.*$/, "");
     const r = document.createElement("span"); r.className = "tright";
-    r.innerHTML = `<a class="back don" href="${base}ueber/#spenden" title="Bitcoin Voyage unterstützen" aria-label="Bitcoin Voyage unterstützen">⚡<span class="tx"> Unterstützen</span></a>`;
+    r.innerHTML = `<button type="button" class="back lng" title="${t("Switch to English", "Auf Deutsch umschalten")}" aria-label="${t("Switch to English", "Auf Deutsch umschalten")}">${t("EN", "DE")}</button><a class="back don" href="${base}ueber/#spenden" title="${t("Bitcoin Voyage unterstützen", "Support Bitcoin Voyage")}" aria-label="${t("Bitcoin Voyage unterstützen", "Support Bitcoin Voyage")}">⚡<span class="tx"> ${t("Unterstützen", "Support")}</span></a>`;
+    r.querySelector(".lng").onclick = () => setLang(EN ? "de" : "en");
     r.appendChild(b); top.appendChild(r);
   }
   document.addEventListener("click", e => { if (e.target.closest(".btn:not(.q .btn)")) sfx("click"); });
@@ -938,7 +972,7 @@ const Lern = (() => {
   }
 
   init();
-  return {DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, seen, bossName, bossArt, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
+  return {LANG, EN, t, setLang, DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, seen, bossName, bossArt, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
 })();
 // Offline-Betrieb und „Zum Startbildschirm hinzufügen“: Service Worker der ganzen Seite anmelden
 try { const me = document.currentScript && document.currentScript.src; if (me && "serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href))
