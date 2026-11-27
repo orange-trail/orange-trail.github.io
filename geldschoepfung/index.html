@@ -37,57 +37,58 @@
 .who3{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .who3 div{border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.45;color:var(--muted)} .who3 b{display:block;color:var(--ink);font-family:var(--f-display)}
 @media (max-width:620px){ .who3,.bal{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=2"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Wie entsteht <span class="btc">Geld</span>?</h1>
-    <p class="lead">Die meisten denken: Die Zentralbank druckt Geld. Tatsächlich entsteht der größte Teil unseres Geldes ganz anders, nämlich <b>immer dann, wenn eine Bank einen Kredit vergibt</b>.</p>
+    <h1 data-i="k3">Wie entsteht <span class="btc">Geld</span>?</h1>
+    <p data-i="k4" class="lead">Die meisten denken: Die Zentralbank druckt Geld. Tatsächlich entsteht der größte Teil unseres Geldes ganz anders, nämlich <b>immer dann, wenn eine Bank einen Kredit vergibt</b>.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Du bist die Bank</h2>
-    <div class="idea">Lena möchte ein Auto für <b>20.000 €</b> kaufen und braucht einen Kredit. Schau ins <b>Kassenbuch der Bank</b>, was passiert, wenn du „Ja“ sagst.</div>
-    <div class="bal"><div><h3>Die Bank hat (Forderungen)</h3><ul id="aL"></ul></div><div><h3>Die Bank schuldet (Guthaben der Kunden)</h3><ul id="pL"></ul></div></div>
-    <div class="seg"><button class="btn" id="loan" type="button">✅ Kredit über 20.000 € geben</button><button class="btn ghost" id="repay" type="button" disabled>💸 Lena zahlt zurück</button></div>
+    <h2 data-i="k5" id="h1s">Du bist die Bank</h2>
+    <div data-i="k6" class="idea">Lena möchte ein Auto für <b>20.000 €</b> kaufen und braucht einen Kredit. Schau ins <b>Kassenbuch der Bank</b>, was passiert, wenn du „Ja“ sagst.</div>
+    <div class="bal"><div><h3 data-i="k7">Die Bank hat (Forderungen)</h3><ul id="aL"></ul></div><div><h3 data-i="k8">Die Bank schuldet (Guthaben der Kunden)</h3><ul id="pL"></ul></div></div>
+    <div class="seg"><button data-i="k9" class="btn" id="loan" type="button">✅ Kredit über 20.000 € geben</button><button data-i="k10" class="btn ghost" id="repay" type="button" disabled>💸 Lena zahlt zurück</button></div>
     <div class="res" id="res" hidden></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">So viel Geld gibt es <span class="mode demo">gerundet</span></h2>
-    <p class="muted" style="margin:0">Die Geldmenge umfasst Bargeld, Kontoguthaben und kurzfristige Ersparnisse. Sie ist seit 1999 um ein Vielfaches gewachsen, beim Euro und beim Dollar:</p>
+    <h2 data-i="k11" id="h2s">So viel Geld gibt es <span class="mode demo">gerundet</span></h2>
+    <p data-i="k12" class="muted" style="margin:0">Die Geldmenge umfasst Bargeld, Kontoguthaben und kurzfristige Ersparnisse. Sie ist seit 1999 um ein Vielfaches gewachsen, beim Euro und beim Dollar:</p>
     <div class="m3" id="m3"></div>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Wer macht was?</h2>
+    <h2 data-i="k13" id="h3s">Wer macht was?</h2>
     <div class="who3">
-      <div><b>🏛 Die Zentralbank (EZB)</b>Gibt Bargeld heraus, legt den Leitzins fest und versorgt die Banken mit Reserven. In Krisen kauft sie auch Anleihen und bringt so viel Geld in Umlauf.</div>
-      <div><b>🏦 Die Geschäftsbanken</b>Erschaffen das meiste Geld, wenn sie Kredite vergeben. Wie viel, hängt von Zinsen, Regeln und der Nachfrage nach Krediten ab.</div>
+      <div data-i="k14"><b>🏛 Die Zentralbank (EZB)</b>Gibt Bargeld heraus, legt den Leitzins fest und versorgt die Banken mit Reserven. In Krisen kauft sie auch Anleihen und bringt so viel Geld in Umlauf.</div>
+      <div data-i="k15"><b>🏦 Die Geschäftsbanken</b>Erschaffen das meiste Geld, wenn sie Kredite vergeben. Wie viel, hängt von Zinsen, Regeln und der Nachfrage nach Krediten ab.</div>
     </div>
-    <div class="learn" style="margin-top:12px"><div><b>🧱 Warum nicht unbegrenzt?</b><span>Banken können nicht beliebig viel Geld schaffen. Es bremsen: <b>Eigenkapital-Regeln</b>, genug <b>flüssige Mittel</b> (Geld fließt an andere Banken ab), das <b>Risiko</b> von Kreditausfällen, die <b>Nachfrage</b> nach Krediten und der <b>Leitzins</b> der Zentralbank. Es ist ein Zusammenspiel, keine feste Quote.</span></div></div>
-    <p class="note">Bei Bitcoin gibt es nichts davon: Neue Bitcoin entstehen <b>nur</b> beim Mining, nach festem Plan. Kein Kredit, keine Zentralbank kann die Menge erhöhen.</p>
+    <div class="learn" style="margin-top:12px"><div><b data-i="k16">🧱 Warum nicht unbegrenzt?</b><span data-i="k17">Banken können nicht beliebig viel Geld schaffen. Es bremsen: <b>Eigenkapital-Regeln</b>, genug <b>flüssige Mittel</b> (Geld fließt an andere Banken ab), das <b>Risiko</b> von Kreditausfällen, die <b>Nachfrage</b> nach Krediten und der <b>Leitzins</b> der Zentralbank. Es ist ein Zusammenspiel, keine feste Quote.</span></div></div>
+    <p data-i="k18" class="note">Bei Bitcoin gibt es nichts davon: Neue Bitcoin entstehen <b>nur</b> beim Mining, nach festem Plan. Kein Kredit, keine Zentralbank kann die Menge erhöhen.</p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k19" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Kredit = neues Geld</b><span>Vergibt eine Bank einen Kredit, schreibt sie dem Kunden Geld gut, das es <b>vorher nicht gab</b>.</span></div>
-      <div><b>Rückzahlung = Geld verschwindet</b><span>Wird der Kredit getilgt, wird das Geld wieder <b>gelöscht</b>.</span></div>
-      <div><b>Zentralbank steuert</b><span>Über den <b>Leitzins</b> beeinflusst die EZB, wie viele Kredite vergeben werden.</span></div>
-      <div><b>Bitcoin anders</b><span>Die Bitcoin-Menge folgt einem <b>festen Plan</b>. Niemand kann sie per Kredit oder Beschluss erhöhen.</span></div>
+      <div><b data-i="k20">Kredit = neues Geld</b><span data-i="k21">Vergibt eine Bank einen Kredit, schreibt sie dem Kunden Geld gut, das es <b>vorher nicht gab</b>.</span></div>
+      <div><b data-i="k22">Rückzahlung = Geld verschwindet</b><span data-i="k23">Wird der Kredit getilgt, wird das Geld wieder <b>gelöscht</b>.</span></div>
+      <div><b data-i="k24">Zentralbank steuert</b><span data-i="k25">Über den <b>Leitzins</b> beeinflusst die EZB, wie viele Kredite vergeben werden.</span></div>
+      <div><b data-i="k26">Bitcoin anders</b><span data-i="k27">Die Bitcoin-Menge folgt einem <b>festen Plan</b>. Niemand kann sie per Kredit oder Beschluss erhöhen.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k28">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Geldmenge M3 des Euroraums gerundet nach Daten der EZB (Januar 2026: rund 17,3 Billionen €, <a href="https://data.ecb.europa.eu/data/datasets/BSI/BSI.M.U2.Y.V.M30.X.1.U2.2300.Z01.E">EZB-Datenportal</a>; Monatsberichte der Bundesbank). Geldmenge M2 der USA gerundet nach Daten der Federal Reserve (<a href="https://fred.stlouisfed.org/series/M2SL">FRED, M2SL</a>). Zur Geldschöpfung durch Kredite siehe z. B. <a href="https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy">Bank of England, „Money creation in the modern economy“ (2014)</a>. Die Bank-Bilanz ist ein vereinfachtes Beispiel.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k32" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k29">Quellen</summary><p data-i="k30">Geldmenge M3 des Euroraums gerundet nach Daten der EZB (Januar 2026: rund 17,3 Billionen €, <a href="https://data.ecb.europa.eu/data/datasets/BSI/BSI.M.U2.Y.V.M30.X.1.U2.2300.Z01.E">EZB-Datenportal</a>; Monatsberichte der Bundesbank). Geldmenge M2 der USA gerundet nach Daten der Federal Reserve (<a href="https://fred.stlouisfed.org/series/M2SL">FRED, M2SL</a>). Zur Geldschöpfung durch Kredite siehe z. B. <a href="https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy">Bank of England, „Money creation in the modern economy“ (2014)</a>. Die Bank-Bilanz ist ein vereinfachtes Beispiel.</p></details>
+  <p data-i="k31" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=125"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "How is <span class=\"btc\">money<\/span> created?", "k4": "Most people think the central bank prints money. In fact, most of our money is created quite differently: <b>whenever a bank gives a loan<\/b>.", "k5": "You are the bank", "k6": "Lena wants to buy a car for <b>€20,000<\/b> and needs a loan. Look at the <b>bank's ledger<\/b> to see what happens when you say “yes”.", "k7": "The bank owns (claims)", "k8": "The bank owes (customers' balances)", "k9": "✅ Give a €20,000 loan", "k10": "💸 Lena repays", "k11": "This is how much money there is <span class=\"mode demo\">rounded<\/span>", "k12": "The money supply includes cash, account balances and short-term savings. It has grown many times over since 1999, for the euro and for the dollar:", "k13": "Who does what?", "k14": "<b>🏛 The central bank (ECB)<\/b>Issues cash, sets the key interest rate and supplies banks with reserves. In crises it also buys bonds and so puts a lot of money into circulation.", "k15": "<b>🏦 Commercial banks<\/b>Create most money when they give loans. How much depends on interest rates, rules and the demand for loans.", "k16": "🧱 Why not unlimited?", "k17": "Banks can't create unlimited money. The brakes are: <b>capital rules<\/b>, enough <b>liquid funds<\/b> (money flows off to other banks), the <b>risk<\/b> of loan defaults, the <b>demand<\/b> for loans and the central bank's <b>key interest rate<\/b>. It is an interplay, not a fixed ratio.", "k18": "Bitcoin has none of this: new bitcoin are created <b>only<\/b> through mining, by a fixed schedule. No loan and no central bank can increase the supply.", "k19": "Remember this", "k20": "Loan = new money", "k21": "When a bank gives a loan, it credits the customer with money that <b>didn't exist before<\/b>.", "k22": "Repayment = money disappears", "k23": "When the loan is paid off, the money is <b>deleted<\/b> again.", "k24": "The central bank steers", "k25": "Through the <b>key interest rate<\/b>, the ECB influences how many loans are given.", "k26": "Bitcoin is different", "k27": "The bitcoin supply follows a <b>fixed schedule<\/b>. Nobody can increase it by loan or decision.", "k28": "Test yourself: 3 questions", "k29": "Sources", "k30": "Euro area M3 money supply, rounded, based on ECB data (January 2026: about €17.3 trillion, <a href=\"https://data.ecb.europa.eu/data/datasets/BSI/BSI.M.U2.Y.V.M30.X.1.U2.2300.Z01.E\">ECB Data Portal<\/a>; Bundesbank monthly reports). US M2 money supply, rounded, based on Federal Reserve data (<a href=\"https://fred.stlouisfed.org/series/M2SL\">FRED, M2SL<\/a>). On money creation through loans see e.g. <a href=\"https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy\">Bank of England, “Money creation in the modern economy” (2014)<\/a>. The bank balance sheet is a simplified example.", "k31": "Entertainment and learning, not investment advice.", "k32@aria-label": "Next", "_title": "Money Machine · Bitcoin Voyage", "_desc": "Learning world: how money is created. Central bank, commercial banks and why every loan creates new money."}</script>
+<script src="../lern.js?v=126"></script>
 <script>
 /* =====================================================================
    GELD-MASCHINE – Lernwelt von Bitcoin Voyage
@@ -95,28 +96,31 @@
 (() => {
 const $ = id => document.getElementById(id);
 let loan = false;
-const eur = v => v.toLocaleString("de-DE") + " €";
+const eur = v => Lern.EN ? "€" + v.toLocaleString("en-US") : v.toLocaleString("de-DE") + " €";
 function draw(){
-  $("aL").innerHTML = `<li><span>Reserven bei der EZB</span><b>5.000 €</b></li><li><span>Alte Kredite</span><b>95.000 €</b></li>` + (loan ? `<li class="new"><span>➕ Kredit an Lena</span><b>20.000 €</b></li>` : "");
-  $("pL").innerHTML = `<li><span>Guthaben anderer Kunden</span><b>90.000 €</b></li><li><span>Eigenkapital</span><b>10.000 €</b></li>` + (loan ? `<li class="new"><span>➕ Guthaben von Lena</span><b>20.000 €</b></li>` : "");
+  $("aL").innerHTML = Lern.t(`<li><span>Reserven bei der EZB</span><b>5.000 €</b></li><li><span>Alte Kredite</span><b>95.000 €</b></li>`, `<li><span>Reserves at the ECB</span><b>€5,000</b></li><li><span>Old loans</span><b>€95,000</b></li>`) + (loan ? Lern.t(`<li class="new"><span>➕ Kredit an Lena</span><b>20.000 €</b></li>`, `<li class="new"><span>➕ Loan to Lena</span><b>€20,000</b></li>`) : "");
+  $("pL").innerHTML = Lern.t(`<li><span>Guthaben anderer Kunden</span><b>90.000 €</b></li><li><span>Eigenkapital</span><b>10.000 €</b></li>`, `<li><span>Other customers' balances</span><b>€90,000</b></li><li><span>Equity</span><b>€10,000</b></li>`) + (loan ? Lern.t(`<li class="new"><span>➕ Guthaben von Lena</span><b>20.000 €</b></li>`, `<li class="new"><span>➕ Lena's balance</span><b>€20,000</b></li>`) : "");
 }
 $("loan").onclick = () => { loan = true; draw(); $("loan").disabled = true; $("repay").disabled = false; const R = $("res"); R.hidden = false; R.className = "res warn";
-  R.innerHTML = `<strong>✨ 20.000 € neues Geld!</strong>Die Bank hat Lena das Geld nicht von anderen Kunden weggenommen. Sie hat einfach <b>beide Seiten des Kassenbuchs verlängert</b>: eine Forderung an Lena und ein neues Guthaben auf Lenas Konto. Lena kann damit sofort das Auto bezahlen. Die Geldmenge ist gewachsen.`; };
+  R.innerHTML = Lern.t(`<strong>✨ 20.000 € neues Geld!</strong>Die Bank hat Lena das Geld nicht von anderen Kunden weggenommen. Sie hat einfach <b>beide Seiten des Kassenbuchs verlängert</b>: eine Forderung an Lena und ein neues Guthaben auf Lenas Konto. Lena kann damit sofort das Auto bezahlen. Die Geldmenge ist gewachsen.`, `<strong>✨ €20,000 of new money!</strong>The bank didn't take the money away from other customers. It simply <b>extended both sides of its ledger</b>: a claim on Lena and a new balance in Lena's account. Lena can pay for the car right away. The money supply has grown.`); };
 $("repay").onclick = () => { loan = false; draw(); $("repay").disabled = true; $("loan").disabled = false; const R = $("res"); R.className = "res ok";
-  R.innerHTML = `<strong>Und weg ist es wieder.</strong>Zahlt Lena den Kredit zurück, verschwinden Forderung und Guthaben. Das Geld wird <b>gelöscht</b>. Weil aber ständig neue Kredite vergeben werden, wächst die Geldmenge insgesamt meist weiter. Die Zinsen behält die Bank als Einnahme.`; };
+  R.innerHTML = Lern.t(`<strong>Und weg ist es wieder.</strong>Zahlt Lena den Kredit zurück, verschwinden Forderung und Guthaben. Das Geld wird <b>gelöscht</b>. Weil aber ständig neue Kredite vergeben werden, wächst die Geldmenge insgesamt meist weiter. Die Zinsen behält die Bank als Einnahme.`, `<strong>And it's gone again.</strong>When Lena repays the loan, the claim and the balance disappear. The money is <b>deleted</b>. But because new loans are given all the time, the money supply usually keeps growing overall. The bank keeps the interest as income.`); };
 draw();
 // Geldmenge: M3 Euroraum (Billionen €) und M2 USA (Billionen $), gerundet
 const D = [[1999, 4.5, 4.6], [2004, 6.0, 6.4], [2008, 9.3, 8.2], [2012, 9.8, 10.4], [2016, 11.2, 13.2], [2020, 14.3, 19.1], [2022, 16.0, 21.4], [2026, 17.3, 22.4]];
-const X = i => 34 + i/(D.length - 1)*436, Y = v => 150 - v/23.5*128, nf = v => v.toLocaleString("de-DE");
-const TXT = {e: `Von etwa <b>4,5 Billionen €</b> (1999) auf etwa <b>17,3 Billionen €</b> (Januar 2026), also fast das <b>Vierfache</b>.`,
-  d: `Von etwa <b>4,6 Billionen $</b> (1999) auf etwa <b>22,4 Billionen $</b> (Anfang 2026), also fast das <b>Fünffache</b>. Allein 2020 kamen rund 4 Billionen dazu.`,
-  b: `Beide wachsen und wachsen: Euro <b>fast ×4</b>, Dollar <b>fast ×5</b>. Bei Bitcoin steht die Höchstmenge fest: <b>21 Millionen</b>.`};
+const X = i => 34 + i/(D.length - 1)*436, Y = v => 150 - v/23.5*128, nf = v => v.toLocaleString(Lern.EN ? "en-US" : "de-DE");
+const TXT = {e: Lern.t(`Von etwa <b>4,5 Billionen €</b> (1999) auf etwa <b>17,3 Billionen €</b> (Januar 2026), also fast das <b>Vierfache</b>.`, `From about <b>€4.5 trillion</b> (1999) to about <b>€17.3 trillion</b> (January 2026), almost <b>four times</b> as much.`),
+  d: Lern.t(`Von etwa <b>4,6 Billionen $</b> (1999) auf etwa <b>22,4 Billionen $</b> (Anfang 2026), also fast das <b>Fünffache</b>. Allein 2020 kamen rund 4 Billionen dazu.`, `From about <b>$4.6 trillion</b> (1999) to about <b>$22.4 trillion</b> (early 2026), almost <b>five times</b> as much. In 2020 alone, about 4 trillion were added.`),
+  b: Lern.t(`Beide wachsen und wachsen: Euro <b>fast ×4</b>, Dollar <b>fast ×5</b>. Bei Bitcoin steht die Höchstmenge fest: <b>21 Millionen</b>.`, `Both keep growing: euro <b>almost ×4</b>, dollar <b>almost ×5</b>. With Bitcoin the maximum supply is fixed: <b>21 million</b>.`)};
 // Ein festes Diagramm: Balken „morphen“ beim Wechsel (Höhe, Breite, Position, Farbe)
 const NS = "http://www.w3.org/2000/svg", BARS = [];
-$("m3").innerHTML = `<div class="m3t" role="group" aria-label="Währung wählen"><button type="button" data-m="e">€ Euro</button><button type="button" data-m="d">$ Dollar</button><button type="button" data-m="b">Beide</button></div>
+$("m3").innerHTML = Lern.t(`<div class="m3t" role="group" aria-label="Währung wählen"><button type="button" data-m="e">€ Euro</button><button type="button" data-m="d">$ Dollar</button><button type="button" data-m="b">Beide</button></div>
   <div id="m3v"><svg viewBox="0 0 500 175" aria-label="Geldmenge im Zeitverlauf"><text id="m3u" x="4" y="14" font-size="11" fill="#9aa2d6" font-family="Arial"></text>
   <g id="m3l" style="transition:opacity .4s"><text x="496" y="14" font-size="11" fill="#dfe3ff" font-family="Arial" text-anchor="end"><tspan fill="#f7931a">●</tspan> Euro (M3)<tspan dx="10" fill="#34d982">●</tspan> Dollar (M2)</text></g>
-  <g id="m3b"></g></svg><p class="note" id="m3n" style="transition:opacity .25s"></p></div>`;
+  <g id="m3b"></g></svg><p class="note" id="m3n" style="transition:opacity .25s"></p></div>`, `<div class="m3t" role="group" aria-label="Choose currency"><button type="button" data-m="e">€ Euro</button><button type="button" data-m="d">$ Dollar</button><button type="button" data-m="b">Both</button></div>
+  <div id="m3v"><svg viewBox="0 0 500 175" aria-label="Money supply over time"><text id="m3u" x="4" y="14" font-size="11" fill="#9aa2d6" font-family="Arial"></text>
+  <g id="m3l" style="transition:opacity .4s"><text x="496" y="14" font-size="11" fill="#dfe3ff" font-family="Arial" text-anchor="end"><tspan fill="#f7931a">●</tspan> Euro (M3)<tspan dx="10" fill="#34d982">●</tspan> Dollar (M2)</text></g>
+  <g id="m3b"></g></svg><p class="note" id="m3n" style="transition:opacity .25s"></p></div>`);
 D.forEach(([y], i) => { const g = $("m3b"), mk = (t, at) => { const e = document.createElementNS(NS, t); for (const k in at) e.setAttribute(k, at[k]); g.appendChild(e); return e; };
   BARS.push({a: mk("rect", {rx: 4, fill: "#f7931a", stroke: "#0d1230", "stroke-width": 2}), b: mk("rect", {rx: 4, fill: "#34d982", stroke: "#0d1230", "stroke-width": 2}),
     t: mk("text", {"font-size": 12, "font-weight": 800, "text-anchor": "middle", fill: "#fff", "font-family": "Arial"}), cur: null});
@@ -128,7 +132,7 @@ const lerp = (p, q, k) => p.map((x, j) => x + (q[j] - x)*k), ease = k => k < .5 
 let anim = 0;
 function m3(mode){
   document.querySelectorAll("#m3 [data-m]").forEach(b => b.setAttribute("aria-pressed", b.dataset.m === mode));
-  $("m3u").textContent = mode === "e" ? "Billionen €" : mode === "d" ? "Billionen $" : "Billionen (€ bzw. $)";
+  $("m3u").textContent = mode === "e" ? Lern.t("Billionen €", "Trillion €") : mode === "d" ? Lern.t("Billionen $", "Trillion $") : Lern.t("Billionen (€ bzw. $)", "Trillion (€ or $)");
   $("m3l").style.opacity = mode === "b" ? 1 : 0;
   const n = $("m3n"); n.style.opacity = 0; setTimeout(() => { n.innerHTML = TXT[mode]; n.style.opacity = 1; }, 250);
   const from = BARS.map((B, i) => B.cur || {a: [0, 32, 0, 1], b: [0, 32, 0, 0], v: 0, tv: 1}), to = D.map(([, e, d]) => goal(mode, e, d)), t0 = performance.now(), my = ++anim;
@@ -145,7 +149,7 @@ function m3(mode){
 $("m3").onclick = e => { const b = e.target.closest("[data-m]"); if (b) m3(b.dataset.m); };
 m3("e");
 
-const QUIZ = [["Was passiert, wenn eine Bank einen Kredit vergibt?", ["Es entsteht neues Geld auf dem Konto des Kunden", "Die Bank nimmt Geld von anderen Kunden weg", "Die Zentralbank druckt Scheine"], 0, "Die Bank verlängert beide Seiten ihrer Bilanz. So entsteht der größte Teil unseres Geldes."], ["Was passiert mit dem Geld, wenn ein Kredit zurückgezahlt wird?", ["Es wird gelöscht", "Es geht an die Zentralbank", "Es bleibt für immer"], 0, "Forderung und Guthaben verschwinden wieder."], ["Wie entstehen neue Bitcoin?", ["Nur beim Mining, nach festem Plan", "Durch Kredite", "Durch Beschluss einer Zentralbank"], 0, "Die Menge ist im Code festgelegt."]];
+const QUIZ = [[Lern.t("Was passiert, wenn eine Bank einen Kredit vergibt?", "What happens when a bank gives a loan?"), [Lern.t("Es entsteht neues Geld auf dem Konto des Kunden", "New money appears in the customer's account"), Lern.t("Die Bank nimmt Geld von anderen Kunden weg", "The bank takes money away from other customers"), Lern.t("Die Zentralbank druckt Scheine", "The central bank prints notes")], 0, Lern.t("Die Bank verlängert beide Seiten ihrer Bilanz. So entsteht der größte Teil unseres Geldes.", "The bank extends both sides of its balance sheet. That is how most of our money is created.")], [Lern.t("Was passiert mit dem Geld, wenn ein Kredit zurückgezahlt wird?", "What happens to the money when a loan is repaid?"), [Lern.t("Es wird gelöscht", "It is deleted"), Lern.t("Es geht an die Zentralbank", "It goes to the central bank"), Lern.t("Es bleibt für immer", "It stays forever")], 0, Lern.t("Forderung und Guthaben verschwinden wieder.", "The claim and the balance disappear again.")], [Lern.t("Wie entstehen neue Bitcoin?", "How are new bitcoin created?"), [Lern.t("Nur beim Mining, nach festem Plan", "Only through mining, by a fixed schedule"), Lern.t("Durch Kredite", "Through loans"), Lern.t("Durch Beschluss einer Zentralbank", "By a central bank decision")], 0, Lern.t("Die Menge ist im Code festgelegt.", "The supply is fixed in the code.")]];
 Lern.quiz($("quiz"), "geldschoepfung", QUIZ, "../"); Lern.visit("geldschoepfung"); Lern.renderNext("geldschoepfung", "../");
 })();
 </script>

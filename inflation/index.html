@@ -64,25 +64,25 @@
 @media (max-width:340px){ .learn{grid-template-columns:1fr} }
 @media (prefers-reduced-motion:reduce){ .cart span,.bill{transition:none} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=2"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Geld &amp; <span>Inflation</span></h1>
-    <p class="lead">Warum dein Geld mit der Zeit weniger wert wird, mit den offiziellen Zahlen für Deutschland.</p>
+    <h1 data-i="k3">Geld &amp; <span>Inflation</span></h1>
+    <p data-i="k4" class="lead">Warum dein Geld mit der Zeit weniger wert wird, mit den offiziellen Zahlen für Deutschland.</p>
   </div>
 
   <!-- 1 · Der schrumpfende Einkaufswagen -->
   <section class="card shop" aria-labelledby="h1s">
     <div>
-      <h2 id="h1s">Der schrumpfende Einkaufswagen</h2>
-      <p class="muted" style="margin:0">Wähle ein Jahr und sieh, wie viel weniger 100 € von damals heute kaufen.</p>
-      <div class="yearRow"><input id="year" type="range" min="1991" max="2025" value="2002" aria-label="Jahr"><b id="yearVal" class="num">2002</b></div>
+      <h2 data-i="k5" id="h1s">Der schrumpfende Einkaufswagen</h2>
+      <p data-i="k6" class="muted" style="margin:0">Wähle ein Jahr und sieh, wie viel weniger 100 € von damals heute kaufen.</p>
+      <div class="yearRow"><input data-i="k72" id="year" type="range" min="1991" max="2025" value="2002" aria-label="Jahr"><b id="yearVal" class="num">2002</b></div>
       <div class="big">
-        <div><small>100 € von <span id="yA">2002</span> kaufen heute so viel wie</small><b class="bad num" id="power">–</b></div>
-        <div><small>Preise seit <span id="yB">2002</span></small><b class="bad num" id="rise">–</b></div>
+        <div><small data-i="k7">100 € von <span id="yA">2002</span> kaufen heute so viel wie</small><b class="bad num" id="power">–</b></div>
+        <div><small data-i="k8">Preise seit <span id="yB">2002</span></small><b class="bad num" id="rise">–</b></div>
       </div>
       <p class="say" id="say">–</p>
     </div>
@@ -96,84 +96,85 @@
 
   <!-- 2 · Inflation aktuell -->
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Inflation zuletzt</h2>
+    <h2 data-i="k9" id="h2s">Inflation zuletzt</h2>
     <div class="now">
-      <div><small>Inflationsrate Deutschland</small><b class="num" id="rate">2,8 %</b><p>Oktober 2026 gegenüber dem Vorjahresmonat (Destatis, endgültig, 11.11.2026)</p></div>
-      <div><small>Ziel der Europäischen Zentralbank</small><b class="num">2 %</b><p>pro Jahr. Die EZB will also, dass Preise langsam, aber stetig steigen.</p></div>
-      <div><small>So schnell halbiert sich dein Geld</small><b class="num" id="half">–</b><p>wenn die Inflation dauerhaft so hoch bliebe und es keine Zinsen gäbe</p></div>
+      <div><small data-i="k10">Inflationsrate Deutschland</small><b class="num" id="rate">2,8 %</b><p data-i="k11">Oktober 2026 gegenüber dem Vorjahresmonat (Destatis, endgültig, 11.11.2026)</p></div>
+      <div><small data-i="k12">Ziel der Europäischen Zentralbank</small><b class="num">2 %</b><p data-i="k13">pro Jahr. Die EZB will also, dass Preise langsam, aber stetig steigen.</p></div>
+      <div><small data-i="k14">So schnell halbiert sich dein Geld</small><b class="num" id="half">–</b><p data-i="k15">wenn die Inflation dauerhaft so hoch bliebe und es keine Zinsen gäbe</p></div>
     </div>
   </section>
 
   <!-- 3 · Euro vs Bitcoin -->
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Euro gegen Bitcoin: Wer kann einfach mehr machen?</h2>
+    <h2 data-i="k16" id="h3s">Euro gegen Bitcoin: Wer kann einfach mehr machen?</h2>
     <div class="vs">
       <div class="col eur">
-        <h3>€ Euro</h3>
+        <h3 data-i="k17">€ Euro</h3>
         <div class="bars">
-          <div class="bar"><span>4,5 Billionen €</span><i style="height:26%;background:#5b8cff"></i><em>1999</em></div>
-          <div class="bar"><span>17,3 Billionen €</span><i style="height:100%;background:#5b8cff"></i><em>Januar 2026</em></div>
+          <div class="bar"><span data-i="k18">4,5 Billionen €</span><i style="height:26%;background:#5b8cff"></i><em>1999</em></div>
+          <div class="bar"><span data-i="k19">17,3 Billionen €</span><i style="height:100%;background:#5b8cff"></i><em data-i="k20">Januar 2026</em></div>
         </div>
-        <p>Die Geldmenge im Euroraum ist auf fast das <b>Vierfache</b> gewachsen.</p>
+        <p data-i="k21">Die Geldmenge im Euroraum ist auf fast das <b>Vierfache</b> gewachsen.</p>
       </div>
       <div class="col btc">
-        <h3>₿ Bitcoin</h3>
+        <h3 data-i="k22">₿ Bitcoin</h3>
         <div class="bars">
-          <div class="bar"><span id="minedTxt">– Mio.</span><i id="minedBar" style="height:95%;background:#f7931a"></i><em>schon geschürft</em></div>
-          <div class="bar"><span>21 Mio.</span><i style="height:100%;background:repeating-linear-gradient(45deg,#f7931a 0 6px,#c46f0c 6px 12px)"></i><em>Höchstmenge, für immer</em></div>
+          <div class="bar"><span data-i="k23" id="minedTxt">– Mio.</span><i id="minedBar" style="height:95%;background:#f7931a"></i><em data-i="k24">schon geschürft</em></div>
+          <div class="bar"><span data-i="k25">21 Mio.</span><i style="height:100%;background:repeating-linear-gradient(45deg,#f7931a 0 6px,#c46f0c 6px 12px)"></i><em data-i="k26">Höchstmenge, für immer</em></div>
         </div>
-        <p><b>Nie mehr als 21 Millionen</b>, festgelegt im Code. Niemand kann mehr herstellen.</p>
+        <p data-i="k27"><b>Nie mehr als 21 Millionen</b>, festgelegt im Code. Niemand kann mehr herstellen.</p>
       </div>
     </div>
-    <p class="muted" style="margin:12px 0 0;font-size:14px"><b style="color:var(--ink)">Wichtig:</b> Mehr Geld ist nur <b>eine</b> Ursache für Inflation. Auch teure Energie, knappe Waren (wie 2022), hohe Nachfrage, steigende Löhne, Erwartungen und der Wechselkurs treiben die Preise.</p>
-    <p class="muted" style="margin:12px 0 0;font-size:14px"><b style="color:var(--ink)">Aber ehrlich:</b> Feste Menge heißt nicht, dass der Kurs nur steigt. Bitcoin hat schon −70 % und mehr in einem Jahr verloren, siehe Kurs-Achterbahn <span class="later">(Welt 6)</span>.</p>
+    <p data-i="k28" class="muted" style="margin:12px 0 0;font-size:14px"><b style="color:var(--ink)">Wichtig:</b> Mehr Geld ist nur <b>eine</b> Ursache für Inflation. Auch teure Energie, knappe Waren (wie 2022), hohe Nachfrage, steigende Löhne, Erwartungen und der Wechselkurs treiben die Preise.</p>
+    <p data-i="k29" class="muted" style="margin:12px 0 0;font-size:14px"><b style="color:var(--ink)">Aber ehrlich:</b> Feste Menge heißt nicht, dass der Kurs nur steigt. Bitcoin hat schon −70 % und mehr in einem Jahr verloren, siehe Kurs-Achterbahn <span class="later">(Welt 6)</span>.</p>
   </section>
 
   <!-- 3b · Deflation -->
   <section class="card" aria-labelledby="h5s">
-    <h2 id="h5s">Und das Gegenteil? Deflation</h2>
-    <p class="muted" style="margin:0">Bei <b style="color:var(--ink)">Deflation</b> sinken die Preise im Durchschnitt, dein Geld kauft mit der Zeit <b style="color:var(--ink)">mehr</b>. Stell eine Rate ein und sieh, was nach 10 Jahren passiert:</p>
-    <div class="yearRow"><input id="dRate" type="range" min="-3" max="6" step="0.5" value="2" aria-label="Preisänderung pro Jahr"><b id="dVal" class="num">+2 %</b></div>
+    <h2 data-i="k30" id="h5s">Und das Gegenteil? Deflation</h2>
+    <p data-i="k31" class="muted" style="margin:0">Bei <b style="color:var(--ink)">Deflation</b> sinken die Preise im Durchschnitt, dein Geld kauft mit der Zeit <b style="color:var(--ink)">mehr</b>. Stell eine Rate ein und sieh, was nach 10 Jahren passiert:</p>
+    <div class="yearRow"><input data-i="k73" id="dRate" type="range" min="-3" max="6" step="0.5" value="2" aria-label="Preisänderung pro Jahr"><b id="dVal" class="num">+2 %</b></div>
     <div class="big">
-      <div><small>100 € kaufen nach 10 Jahren so viel wie heute</small><b class="num" id="dPow">–</b></div>
-      <div><small>Ein Brot für 3 € kostet dann</small><b class="num" id="dBread">–</b></div>
+      <div><small data-i="k32">100 € kaufen nach 10 Jahren so viel wie heute</small><b class="num" id="dPow">–</b></div>
+      <div><small data-i="k33">Ein Brot für 3 € kostet dann</small><b class="num" id="dBread">–</b></div>
     </div>
-    <p class="say stk" id="dSay"><span><b>Deflation:</b> Preise sinken, dein Geld wird mehr wert. Klingt gut, aber wenn alle aufs Billigerwerden warten, kann die Wirtschaft ins Stocken geraten.</span><span><b>Stabile Preise:</b> 100 € kaufen in 10 Jahren genau so viel wie heute.</span><span><b>Leichte Inflation:</b> So will es die EZB. Dein Erspartes verliert langsam, aber stetig an Kaufkraft.</span><span><b>Über dem Ziel:</b> Mehr als die 2 % der EZB. Nach 10 Jahren fehlt schon ein spürbarer Teil der Kaufkraft.</span><span><b>Hohe Inflation:</b> Dein Erspartes schmilzt spürbar, so wie 2022 mit fast 7 %.</span></p>
-    <p class="bxh">Warum fürchten Notenbanken Deflation?</p>
+    <p class="say stk" id="dSay"><span data-i="k34"><b>Deflation:</b> Preise sinken, dein Geld wird mehr wert. Klingt gut, aber wenn alle aufs Billigerwerden warten, kann die Wirtschaft ins Stocken geraten.</span><span data-i="k35"><b>Stabile Preise:</b> 100 € kaufen in 10 Jahren genau so viel wie heute.</span><span data-i="k36"><b>Leichte Inflation:</b> So will es die EZB. Dein Erspartes verliert langsam, aber stetig an Kaufkraft.</span><span data-i="k37"><b>Über dem Ziel:</b> Mehr als die 2 % der EZB. Nach 10 Jahren fehlt schon ein spürbarer Teil der Kaufkraft.</span><span data-i="k38"><b>Hohe Inflation:</b> Dein Erspartes schmilzt spürbar, so wie 2022 mit fast 7 %.</span></p>
+    <p data-i="k39" class="bxh">Warum fürchten Notenbanken Deflation?</p>
     <div class="learn bx">
-      <div><b>⏳ Abwarten</b><span>Wer glaubt, dass morgen alles billiger ist, kauft später. Firmen verkaufen weniger und sparen, auch bei Jobs.</span></div>
-      <div><b>🏋️ Schulden wiegen schwerer</b><span>Die Schuld bleibt gleich, aber Löhne und Preise sinken. Abzahlen wird <b>härter</b>.</span></div>
-      <div><b>📉 Echte Beispiele</b><span>USA ab 1929: Preise fielen um rund ein Viertel, mitten in der Weltwirtschaftskrise. Japan: viele Jahre leicht fallende Preise und schwaches Wachstum.</span></div>
+      <div><b data-i="k40">⏳ Abwarten</b><span data-i="k41">Wer glaubt, dass morgen alles billiger ist, kauft später. Firmen verkaufen weniger und sparen, auch bei Jobs.</span></div>
+      <div><b data-i="k42">🏋️ Schulden wiegen schwerer</b><span data-i="k43">Die Schuld bleibt gleich, aber Löhne und Preise sinken. Abzahlen wird <b>härter</b>.</span></div>
+      <div><b data-i="k44">📉 Echte Beispiele</b><span data-i="k45">USA ab 1929: Preise fielen um rund ein Viertel, mitten in der Weltwirtschaftskrise. Japan: viele Jahre leicht fallende Preise und schwaches Wachstum.</span></div>
     </div>
-    <p class="bxh">Die andere Seite: „gute“ Deflation</p>
+    <p data-i="k46" class="bxh">Die andere Seite: „gute“ Deflation</p>
     <div class="learn bx">
-      <div><b>📺 Alltag</b><span>Fernseher und Handys werden seit Jahren billiger, weil Technik besser wird, und trotzdem kauft man sie. Wer etwas braucht, kauft es.</span></div>
-      <div><b>💪 Fitnessprogramm</b><span>Sinken die Preise, kommt nur mit, wer <b>effizienter</b> wird: bessere Maschinen, klügere Abläufe, neue Ideen. Billiges neues Geld hält dagegen auch schwache Firmen am Leben.</span></div>
-      <div><b>💡 Erfinder-Zeit 1873–1896</b><span>Preise fielen rund <b>2 % pro Jahr</b>, die Wirtschaft wuchs trotzdem um 2–3 %. In dieser Zeit kamen <b>Telefon</b> (1876), <b>Glühbirne</b> (1879), erste <b>Kraftwerke</b> (1882) und das <b>Auto</b> (1886).</span></div>
-      <div><b>⚖️ Aber</b><span>Auch damals gab es Krisen, und Schuldner wie Bauern litten unter steigender Schuldenlast. Ob Deflation eher Fitnesskur oder Bremse ist, hängt davon ab, <b>warum</b> die Preise fallen.</span></div>
+      <div><b data-i="k47">📺 Alltag</b><span data-i="k48">Fernseher und Handys werden seit Jahren billiger, weil Technik besser wird, und trotzdem kauft man sie. Wer etwas braucht, kauft es.</span></div>
+      <div><b data-i="k49">💪 Fitnessprogramm</b><span data-i="k50">Sinken die Preise, kommt nur mit, wer <b>effizienter</b> wird: bessere Maschinen, klügere Abläufe, neue Ideen. Billiges neues Geld hält dagegen auch schwache Firmen am Leben.</span></div>
+      <div><b data-i="k51">💡 Erfinder-Zeit 1873–1896</b><span data-i="k52">Preise fielen rund <b>2 % pro Jahr</b>, die Wirtschaft wuchs trotzdem um 2–3 %. In dieser Zeit kamen <b>Telefon</b> (1876), <b>Glühbirne</b> (1879), erste <b>Kraftwerke</b> (1882) und das <b>Auto</b> (1886).</span></div>
+      <div><b data-i="k53">⚖️ Aber</b><span data-i="k54">Auch damals gab es Krisen, und Schuldner wie Bauern litten unter steigender Schuldenlast. Ob Deflation eher Fitnesskur oder Bremse ist, hängt davon ab, <b>warum</b> die Preise fallen.</span></div>
     </div>
-    <p class="muted" style="margin:12px 0 0;font-size:14px"><b style="color:var(--ink)">Und Bitcoin?</b> Weil die Menge fest ist, könnten Preise in Bitcoin langfristig sinken. Ob das gut oder schlecht wäre, ist <b style="color:var(--ink)">umstritten</b>. Beide Seiten findest du im Kritik-Check <span class="later">(Welt 6)</span>.</p>
+    <p data-i="k55" class="muted" style="margin:12px 0 0;font-size:14px"><b style="color:var(--ink)">Und Bitcoin?</b> Weil die Menge fest ist, könnten Preise in Bitcoin langfristig sinken. Ob das gut oder schlecht wäre, ist <b style="color:var(--ink)">umstritten</b>. Beide Seiten findest du im Kritik-Check <span class="later">(Welt 6)</span>.</p>
   </section>
 
   <!-- 4 · Merksätze und Quiz -->
   <section class="card" aria-labelledby="h4s">
-    <h2 id="h4s">Das solltest du dir merken</h2>
+    <h2 data-i="k56" id="h4s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Was ist Inflation?</b><span>Preise steigen im Durchschnitt, dein Geld kauft dadurch <b>weniger</b>. 2 % klingen wenig, über 30 Jahre sind das fast <b>−45 % Kaufkraft</b>.</span></div>
-      <div><b>Woher kommt sie?</b><span>Zum Beispiel, wenn es <b>mehr Geld</b> gibt als Waren, wenn Energie teurer wird oder wenn viele gleichzeitig kaufen wollen.</span></div>
-      <div><b>Sparen &amp; Zinsen</b><span>Zählt nur, was nach der Inflation übrig bleibt: 1 % Zinsen bei 2,8 % Inflation sind <b>−1,8 %</b> pro Jahr (Realzins).</span></div>
-      <div><b>Bitcoin</b><span>Feste Menge, niemand kann mehr drucken. Dafür <b>starke Kursschwankungen</b>. Deshalb setzen viele auf kleine, regelmäßige Beträge statt auf einen großen Kauf.</span></div>
+      <div><b data-i="k57">Was ist Inflation?</b><span data-i="k58">Preise steigen im Durchschnitt, dein Geld kauft dadurch <b>weniger</b>. 2 % klingen wenig, über 30 Jahre sind das fast <b>−45 % Kaufkraft</b>.</span></div>
+      <div><b data-i="k59">Woher kommt sie?</b><span data-i="k60">Zum Beispiel, wenn es <b>mehr Geld</b> gibt als Waren, wenn Energie teurer wird oder wenn viele gleichzeitig kaufen wollen.</span></div>
+      <div><b data-i="k61">Sparen &amp; Zinsen</b><span data-i="k62">Zählt nur, was nach der Inflation übrig bleibt: 1 % Zinsen bei 2,8 % Inflation sind <b>−1,8 %</b> pro Jahr (Realzins).</span></div>
+      <div><b data-i="k63">Bitcoin</b><span data-i="k64">Feste Menge, niemand kann mehr drucken. Dafür <b>starke Kursschwankungen</b>. Deshalb setzen viele auf kleine, regelmäßige Beträge statt auf einen großen Kauf.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 4 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k65">Teste dich: 4 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b>Vertiefen:</b> <a href="../hyperinflation/">Hyperinflation-Akte</a> <span class="muted">(wenn Geld in Monaten verdampft: Deutschland 1923)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p> Verbraucherpreisindex Deutschland, Jahresdurchschnitte 2020 = 100 (<a href="https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/_inhalt.html">Statistisches Bundesamt</a>, Tabelle <a href="https://www-genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0001">61111-0001</a>); Inflationsrate Oktober 2026: <a href="https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/10/PD26_382_611.html">Destatis-Pressemitteilung</a>; Geldmenge M3: <a href="https://data.ecb.europa.eu/data/datasets/BSI/BSI.M.U2.Y.V.M30.X.1.U2.2300.Z01.E">EZB-Datenportal</a>; geschürfte Bitcoin aus der geschätzten Blockhöhe berechnet.  Gute und schlechte Deflation, 1873–1896: <a href="https://www.nber.org/papers/w10833">Bordo &amp; Filardo, NBER 2004</a>.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k74" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b data-i="k66">Vertiefen:</b> <a data-i="k67" href="../hyperinflation/">Hyperinflation-Akte</a> <span data-i="k68" class="muted">(wenn Geld in Monaten verdampft: Deutschland 1923)</span></p></section>
+  <section data-i="k75" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k69">Quellen</summary><p data-i="k70"> Verbraucherpreisindex Deutschland, Jahresdurchschnitte 2020 = 100 (<a href="https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/_inhalt.html">Statistisches Bundesamt</a>, Tabelle <a href="https://www-genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0001">61111-0001</a>); Inflationsrate Oktober 2026: <a href="https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/10/PD26_382_611.html">Destatis-Pressemitteilung</a>; Geldmenge M3: <a href="https://data.ecb.europa.eu/data/datasets/BSI/BSI.M.U2.Y.V.M30.X.1.U2.2300.Z01.E">EZB-Datenportal</a>; geschürfte Bitcoin aus der geschätzten Blockhöhe berechnet.  Gute und schlechte Deflation, 1873–1896: <a href="https://www.nber.org/papers/w10833">Bordo &amp; Filardo, NBER 2004</a>.</p></details>
+  <p data-i="k71" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=125"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Money &amp; <span>inflation<\/span>", "k4": "Why your money is worth less over time, with the official figures for Germany.", "k5": "The shrinking shopping cart", "k6": "Choose a year and see how much less €100 from back then buys today.", "k7": "€100 from <span id=\"yA\">2002<\/span> buys as much today as", "k8": "Prices since <span id=\"yB\">2002<\/span>", "k9": "Latest inflation", "k10": "Inflation rate Germany", "k11": "October 2026 compared with the same month last year (Destatis, final, 11 Nov 2026)", "k12": "European Central Bank target", "k13": "per year. So the ECB wants prices to rise slowly but steadily.", "k14": "How fast your money halves", "k15": "if inflation stayed this high permanently and there were no interest", "k16": "Euro vs. Bitcoin: who can simply make more?", "k17": "€ Euro", "k18": "€4.5 trillion", "k19": "€17.3 trillion", "k20": "January 2026", "k21": "The money supply in the euro area has grown almost <b>fourfold<\/b>.", "k22": "₿ Bitcoin", "k23": "– million", "k24": "already mined", "k25": "21 million", "k26": "maximum supply, forever", "k27": "<b>Never more than 21 million<\/b>, fixed in the code. Nobody can make more.", "k28": "<b style=\"color:var(--ink)\">Important:<\/b> more money is only <b>one<\/b> cause of inflation. Expensive energy, scarce goods (as in 2022), high demand, rising wages, expectations and the exchange rate also drive prices.", "k29": "<b style=\"color:var(--ink)\">But to be honest:<\/b> a fixed supply doesn't mean the price only goes up. Bitcoin has lost −70 % and more in a year, see Price Roller Coaster <span class=\"later\">(World 6)<\/span>.", "k30": "And the opposite? Deflation", "k31": "With <b style=\"color:var(--ink)\">deflation<\/b>, prices fall on average and your money buys <b style=\"color:var(--ink)\">more<\/b> over time. Set a rate and see what happens after 10 years:", "k32": "After 10 years, €100 buys as much as today's", "k33": "A €3 loaf of bread will then cost", "k34": "<b>Deflation:<\/b> prices fall, your money becomes worth more. Sounds good, but if everyone waits for things to get cheaper, the economy can stall.", "k35": "<b>Stable prices:<\/b> in 10 years, €100 buys exactly as much as today.", "k36": "<b>Mild inflation:<\/b> this is what the ECB wants. Your savings lose purchasing power slowly but steadily.", "k37": "<b>Above target:<\/b> more than the ECB's 2 %. After 10 years a noticeable part of the purchasing power is already gone.", "k38": "<b>High inflation:<\/b> your savings melt away noticeably, as in 2022 with almost 7 %.", "k39": "Why do central banks fear deflation?", "k40": "⏳ Waiting", "k41": "If you believe everything will be cheaper tomorrow, you buy later. Companies sell less and cut costs, including jobs.", "k42": "🏋️ Debts weigh more", "k43": "The debt stays the same, but wages and prices fall. Paying it off gets <b>harder<\/b>.", "k44": "📉 Real examples", "k45": "USA from 1929: prices fell by about a quarter, in the middle of the Great Depression. Japan: many years of slightly falling prices and weak growth.", "k46": "The other side: “good” deflation", "k47": "📺 Everyday life", "k48": "TVs and phones have been getting cheaper for years because technology improves, and people still buy them. If you need something, you buy it.", "k49": "💪 Fitness programme", "k50": "When prices fall, only those who become <b>more efficient<\/b> keep up: better machines, smarter processes, new ideas. Cheap new money, on the other hand, also keeps weak companies alive.", "k51": "💡 Age of inventors 1873–1896", "k52": "Prices fell about <b>2 % per year<\/b>, yet the economy still grew by 2–3 %. This period brought the <b>telephone<\/b> (1876), the <b>light bulb<\/b> (1879), the first <b>power stations<\/b> (1882) and the <b>car<\/b> (1886).", "k53": "⚖️ But", "k54": "There were crises back then too, and debtors such as farmers suffered under a growing debt burden. Whether deflation is more of a fitness cure or a brake depends on <b>why<\/b> prices fall.", "k55": "<b style=\"color:var(--ink)\">And Bitcoin?<\/b> Because the supply is fixed, prices in bitcoin could fall in the long run. Whether that would be good or bad is <b style=\"color:var(--ink)\">disputed<\/b>. You'll find both sides in the Criticism Check <span class=\"later\">(World 6)<\/span>.", "k56": "Remember this", "k57": "What is inflation?", "k58": "Prices rise on average, so your money buys <b>less<\/b>. 2 % sounds small, but over 30 years it's almost <b>−45 % purchasing power<\/b>.", "k59": "Where does it come from?", "k60": "For example when there is <b>more money<\/b> than goods, when energy gets more expensive or when many people want to buy at the same time.", "k61": "Saving &amp; interest", "k62": "Only what's left after inflation counts: 1 % interest with 2.8 % inflation is <b>−1.8 %<\/b> per year (real interest rate).", "k63": "Bitcoin", "k64": "Fixed supply, nobody can print more. But <b>strong price swings<\/b>. That's why many people prefer small, regular amounts over one big purchase.", "k65": "Test yourself: 4 questions", "k66": "Go deeper:", "k67": "Hyperinflation File", "k68": "(when money evaporates within months: Germany 1923)", "k69": "Sources", "k70": " Consumer price index Germany, annual averages 2020 = 100 (<a href=\"https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/_inhalt.html\">Federal Statistical Office<\/a>, table <a href=\"https://www-genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0001\">61111-0001<\/a>); inflation rate October 2026: <a href=\"https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/10/PD26_382_611.html\">Destatis press release<\/a>; M3 money supply: <a href=\"https://data.ecb.europa.eu/data/datasets/BSI/BSI.M.U2.Y.V.M30.X.1.U2.2300.Z01.E\">ECB Data Portal<\/a>; mined bitcoin calculated from the estimated block height.  Good and bad deflation, 1873–1896: <a href=\"https://www.nber.org/papers/w10833\">Bordo &amp; Filardo, NBER 2004<\/a>.", "k71": "Entertainment and learning, not investment advice.", "k72@aria-label": "Year", "k73@aria-label": "Price change per year", "k74@aria-label": "Related", "k75@aria-label": "Next", "_title": "Money & Inflation · Bitcoin Voyage", "_desc": "Learning world: how inflation shrinks your money, with the official figures for Germany, and why Bitcoin has a fixed supply."}</script>
+<script src="../lern.js?v=126"></script>
 <script>
 /* =====================================================================
    GELD & INFLATION – Lernwelt von Bitcoin Voyage
@@ -186,8 +187,9 @@ const $ = id => document.getElementById(id);
 const VPI = {1991:61.9,1992:65.0,1993:67.9,1994:69.7,1995:71.0,1996:72.0,1997:73.4,1998:74.0,1999:74.5,2000:75.5,2001:77.0,2002:78.1,2003:78.9,2004:80.2,2005:81.5,2006:82.8,2007:84.7,2008:86.9,2009:87.2,2010:88.1,2011:90.0,2012:91.7,2013:93.1,2014:94.0,2015:94.5,2016:95.0,2017:96.4,2018:98.1,2019:99.5,2020:100.0,2021:103.1,2022:110.2,2023:116.7,2024:119.3,2025:121.9};
 const NOW_VPI = 126.6, NOW_LABEL = "September 2026";   // neuester veröffentlichter Monatswert
 const RATE = 2.8;                                        // Inflationsrate Oktober 2026 (vorläufig)
+if (Lern.EN){ $("rate").textContent = RATE + " %"; $("bill").textContent = "€100"; }   // englische Schreibweise
 const ITEMS = ["🍞","🥛","🧀","🍎","🍌","🥚","🧈","☕","🍫","🥕","🍅","🥔","🍝","🧃","🍕","🥨","🧻","🍗","🥫","🍪"];
-const eur = v => v.toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " €";
+const eur = v => { const o = {minimumFractionDigits: 2, maximumFractionDigits: 2}; return Lern.EN ? "€" + v.toLocaleString("en-US", o) : v.toLocaleString("de-DE", o) + " €"; };
 
 // Einkaufswagen füllen
 const cart = $("cart");
@@ -197,24 +199,24 @@ function update(){
   const y = +$("year").value, ratio = VPI[y]/NOW_VPI, rise = (NOW_VPI/VPI[y] - 1)*100;
   $("yearVal").textContent = y; $("yA").textContent = y; $("yB").textContent = y;
   $("power").textContent = eur(100*ratio).replace(" €", " €");
-  $("rise").textContent = "+" + Math.round(rise).toLocaleString("de-DE") + " %";
+  $("rise").textContent = "+" + Math.round(rise).toLocaleString(Lern.EN ? "en-US" : "de-DE") + " %";
   const keep = Math.round(ITEMS.length*ratio);
   [...cart.children].forEach((s, i) => s.classList.toggle("gone", i >= keep));
   $("bill").style.transform = `scale(${Math.sqrt(ratio).toFixed(3)})`;
-  $("cartCap").textContent = `Von 20 Sachen, die 100 € ${y} kauften, bekommst du heute noch ${keep}.`;
+  $("cartCap").textContent = Lern.t(`Von 20 Sachen, die 100 € ${y} kauften, bekommst du heute noch ${keep}.`, `Of 20 things that €100 bought in ${y}, today you still get ${keep}.`);
   const back = 100/ratio;
-  $("say").innerHTML = `Was ${y} genau <b>100 €</b> gekostet hat, kostet heute im Schnitt <b>${eur(back)}</b> (Stand ${NOW_LABEL}).`;
+  $("say").innerHTML = Lern.t(`Was ${y} genau <b>100 €</b> gekostet hat, kostet heute im Schnitt <b>${eur(back)}</b> (Stand ${NOW_LABEL}).`, `What cost exactly <b>€100</b> in ${y} costs <b>${eur(back)}</b> on average today (as of ${NOW_LABEL}).`);
 }
 $("year").addEventListener("input", update);
 
 // Halbierungszeit bei der aktuellen Inflationsrate
-$("half").textContent = "ca. " + Math.round(Math.log(2)/Math.log(1 + RATE/100)) + " Jahre";
+$("half").textContent = Lern.t("ca. ", "approx. ") + Math.round(Math.log(2)/Math.log(1 + RATE/100)) + Lern.t(" Jahre", " years");
 
 // Geschürfte Bitcoin live (Blockhöhe von mempool.space), sonst letzter bekannter Näherungswert
 function mined(h){ let sat = 0, n = h + 1, r = 50e8; while (n > 0 && r >= 1){ const k = Math.min(n, 210000); sat += k*r; n -= k; r = Math.floor(r/2); } return sat/1e8; }
 function showMined(h, live){
   const m = mined(h), pct = m/21e6*100;
-  $("minedTxt").textContent = (m/1e6).toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " Mio." + (live ? "" : " (ca.)");
+  $("minedTxt").textContent = (m/1e6).toLocaleString(Lern.EN ? "en-US" : "de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + Lern.t(" Mio.", " million") + (live ? "" : Lern.t(" (ca.)", " (approx.)"));
   $("minedBar").style.height = pct.toFixed(2) + "%";
 }
 showMined(975000, false);
@@ -222,7 +224,7 @@ fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { const h = p
 
 // Deflation-Regler: 10 Jahre mit fester Preisänderung
 function defl(){
-  const r = +$("dRate").value, f = Math.pow(1 + r/100, 10), sg = v => (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v).toLocaleString("de-DE") + " %";
+  const r = +$("dRate").value, f = Math.pow(1 + r/100, 10), sg = v => (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v).toLocaleString(Lern.EN ? "en-US" : "de-DE") + " %";
   $("dVal").textContent = sg(r);
   $("dPow").textContent = eur(100/f); $("dPow").className = "num " + (r > 0 ? "bad" : r < 0 ? "good" : "");
   $("dBread").textContent = eur(3*f);
@@ -232,10 +234,10 @@ $("dRate").addEventListener("input", defl); defl();
 
 // Mini-Quiz
 const QUIZ = [
-  ["Inflation liegt bei 2 % pro Jahr. Was passiert mit 1.000 € unter dem Kopfkissen nach 10 Jahren?", ["Sie kaufen genauso viel", "Sie kaufen etwa 18 % weniger", "Sie werden mehr wert"], 1, "Jedes Jahr 2 % weniger Kaufkraft summiert sich: 1,02 hoch 10 ergibt 1,22, deine 1.000 € kaufen nur noch so viel wie heute 820 €."],
-  ["Du bekommst 1 % Zinsen, die Inflation liegt bei 2,8 %. Wie viel gewinnst du wirklich?", ["+1 %", "+3,8 %", "−1,8 %"], 2, "Real zählt Zins minus Inflation. 1 % − 2,8 % = −1,8 %: Dein Geld verliert trotz Zinsen an Kaufkraft."],
-  ["Wer kann neue Bitcoin einfach herstellen, wenn mehr gebraucht werden?", ["Niemand, die Menge ist auf 21 Mio. begrenzt", "Die Zentralbank, wenn die Preise steigen", "Die großen Börsen, wenn viele kaufen wollen"], 0, "Neue Bitcoin entstehen nur nach festen Regeln beim Mining, und bei 21 Millionen ist Schluss. Das kann keine Bank und keine Regierung ändern."],
-  ["Was bedeutet Deflation?", ["Die Preise sinken im Durchschnitt, Geld kauft mehr", "Die Preise steigen besonders schnell", "Die Bank druckt neue Geldscheine"], 0, "Deflation ist das Gegenteil von Inflation. Klingt gut, kann aber gefährlich werden, wenn alle Käufe aufschieben und Schulden schwerer wiegen."],
+  [Lern.t("Inflation liegt bei 2 % pro Jahr. Was passiert mit 1.000 € unter dem Kopfkissen nach 10 Jahren?", "Inflation is 2 % per year. What happens to €1,000 under the mattress after 10 years?"), [Lern.t("Sie kaufen genauso viel", "It buys just as much"), Lern.t("Sie kaufen etwa 18 % weniger", "It buys about 18 % less"), Lern.t("Sie werden mehr wert", "It becomes worth more")], 1, Lern.t("Jedes Jahr 2 % weniger Kaufkraft summiert sich: 1,02 hoch 10 ergibt 1,22, deine 1.000 € kaufen nur noch so viel wie heute 820 €.", "Losing 2 % purchasing power every year adds up: 1.02 to the power of 10 is 1.22, so your €1,000 only buys as much as €820 today.")],
+  [Lern.t("Du bekommst 1 % Zinsen, die Inflation liegt bei 2,8 %. Wie viel gewinnst du wirklich?", "You get 1 % interest, inflation is 2.8 %. How much do you really gain?"), Lern.EN ? ["+1 %", "+3.8 %", "−1.8 %"] : ["+1 %", "+3,8 %", "−1,8 %"], 2, Lern.t("Real zählt Zins minus Inflation. 1 % − 2,8 % = −1,8 %: Dein Geld verliert trotz Zinsen an Kaufkraft.", "What counts in real terms is interest minus inflation. 1 % − 2.8 % = −1.8 %: your money loses purchasing power despite the interest.")],
+  [Lern.t("Wer kann neue Bitcoin einfach herstellen, wenn mehr gebraucht werden?", "Who can simply create new bitcoin when more are needed?"), [Lern.t("Niemand, die Menge ist auf 21 Mio. begrenzt", "Nobody, the supply is capped at 21 million"), Lern.t("Die Zentralbank, wenn die Preise steigen", "The central bank, when prices rise"), Lern.t("Die großen Börsen, wenn viele kaufen wollen", "The big exchanges, when many people want to buy")], 0, Lern.t("Neue Bitcoin entstehen nur nach festen Regeln beim Mining, und bei 21 Millionen ist Schluss. Das kann keine Bank und keine Regierung ändern.", "New bitcoin are only created by fixed rules through mining, and it stops at 21 million. No bank and no government can change that.")],
+  [Lern.t("Was bedeutet Deflation?", "What does deflation mean?"), [Lern.t("Die Preise sinken im Durchschnitt, Geld kauft mehr", "Prices fall on average, money buys more"), Lern.t("Die Preise steigen besonders schnell", "Prices rise especially fast"), Lern.t("Die Bank druckt neue Geldscheine", "The bank prints new banknotes")], 0, Lern.t("Deflation ist das Gegenteil von Inflation. Klingt gut, kann aber gefährlich werden, wenn alle Käufe aufschieben und Schulden schwerer wiegen.", "Deflation is the opposite of inflation. Sounds good, but it can become dangerous when everyone postpones purchases and debts weigh more.")],
 ];
 Lern.quiz($("quiz"), "inflation", QUIZ, "../"); Lern.visit("inflation"); Lern.renderNext("inflation", "../");
 

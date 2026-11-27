@@ -35,52 +35,53 @@
 .price b{font:900 16px var(--f-num);color:var(--ink);min-width:6ch;text-align:right} .price span{line-height:1.15} .price small{font-size:12px}
 @media (max-width:520px){ .flow{gap:4px} .fp{padding:6px 2px} .fp .e{font-size:20px} .fp b{font-size:11px;word-break:break-word} .fp small{display:none} .fp .k{font-size:11px} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=2"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Wer bekommt das neue <span class="btc">Geld</span> zuerst?</h1>
-    <p class="lead">Neues Geld landet nicht bei allen gleichzeitig. Es fließt nach und nach durch die Wirtschaft, und die <b>Preise steigen unterwegs</b>. Das nennt man den <b>Cantillon-Effekt</b>, nach dem Ökonomen Richard Cantillon (um 1730).</p>
+    <h1 data-i="k3">Wer bekommt das neue <span class="btc">Geld</span> zuerst?</h1>
+    <p data-i="k4" class="lead">Neues Geld landet nicht bei allen gleichzeitig. Es fließt nach und nach durch die Wirtschaft, und die <b>Preise steigen unterwegs</b>. Das nennt man den <b>Cantillon-Effekt</b>, nach dem Ökonomen Richard Cantillon (um 1730).</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Neues Geld fließt durch die Stadt</h2>
-    <div class="idea">Die Zentralbank bringt <b>neues Geld</b> in Umlauf. Es landet erst bei den Banken, dann bei großen Firmen, dann bei Händlern und erst zum Schluss bei Arbeitern und Rentnern. Bei jedem Schritt <b>steigen die Preise</b> ein Stück.</div>
+    <h2 data-i="k5" id="h1s">Neues Geld fließt durch die Stadt</h2>
+    <div data-i="k6" class="idea">Die Zentralbank bringt <b>neues Geld</b> in Umlauf. Es landet erst bei den Banken, dann bei großen Firmen, dann bei Händlern und erst zum Schluss bei Arbeitern und Rentnern. Bei jedem Schritt <b>steigen die Preise</b> ein Stück.</div>
     <div class="flow" id="flow"></div>
-    <div class="price"><span>🛒 Wocheneinkauf<br><small>kostet</small></span><i><u id="pu"></u></i><b id="pv">100 €</b></div>
-    <div class="seg"><button class="btn" id="go" type="button">🖨 Neues Geld in Umlauf bringen</button><button class="btn ghost" id="again" type="button" hidden>↺ Nochmal</button></div>
+    <div class="price"><span data-i="k7">🛒 Wocheneinkauf<br><small>kostet</small></span><i><u id="pu"></u></i><b id="pv">100 €</b></div>
+    <div class="seg"><button data-i="k8" class="btn" id="go" type="button">🖨 Neues Geld in Umlauf bringen</button><button data-i="k9" class="btn ghost" id="again" type="button" hidden>↺ Nochmal</button></div>
     <div class="res" id="res" hidden></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Was das im echten Leben heißt</h2>
+    <h2 data-i="k10" id="h2s">Was das im echten Leben heißt</h2>
     <div class="learn">
-      <div><b>📈 Vermögen steigt zuerst</b><span>Neues Geld fließt oft zuerst in <b>Aktien und Immobilien</b>. Wer schon viel besitzt, profitiert früh.</span></div>
-      <div><b>🧾 Löhne kommen zuletzt</b><span>Gehälter und Renten werden meist <b>erst später</b> angepasst, wenn die Preise schon gestiegen sind.</span></div>
+      <div><b data-i="k11">📈 Vermögen steigt zuerst</b><span data-i="k12">Neues Geld fließt oft zuerst in <b>Aktien und Immobilien</b>. Wer schon viel besitzt, profitiert früh.</span></div>
+      <div><b data-i="k13">🧾 Löhne kommen zuletzt</b><span data-i="k14">Gehälter und Renten werden meist <b>erst später</b> angepasst, wenn die Preise schon gestiegen sind.</span></div>
     </div>
-    <p class="note"><span class="mk">vereinfacht</span>Die Reihenfolge in der Stadt ist nur ein Beispiel. Je nach Weg des Geldes (Kredite, Anleihekäufe, Staatsausgaben) profitieren andere zuerst. Wie stark der Effekt ist, ist unter Ökonomen umstritten.</p>
-    <p class="note">Bitcoiner sehen darin einen Grund für eine <b>feste Geldmenge</b>: Ohne neues Geld bekommt es auch niemand zuerst. Kritiker halten dagegen: Eine flexible Geldmenge kann in Krisen Jobs retten.</p>
+    <p data-i="k15" class="note"><span class="mk">vereinfacht</span>Die Reihenfolge in der Stadt ist nur ein Beispiel. Je nach Weg des Geldes (Kredite, Anleihekäufe, Staatsausgaben) profitieren andere zuerst. Wie stark der Effekt ist, ist unter Ökonomen umstritten.</p>
+    <p data-i="k16" class="note">Bitcoiner sehen darin einen Grund für eine <b>feste Geldmenge</b>: Ohne neues Geld bekommt es auch niemand zuerst. Kritiker halten dagegen: Eine flexible Geldmenge kann in Krisen Jobs retten.</p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k17" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Nicht alle gleichzeitig</b><span>Neues Geld kommt <b>schrittweise</b> bei den Menschen an.</span></div>
-      <div><b>Früh = Vorteil</b><span>Wer das Geld zuerst bekommt, kauft noch zu <b>alten Preisen</b>.</span></div>
-      <div><b>Spät = Nachteil</b><span>Wer es zuletzt bekommt, zahlt schon die <b>höheren Preise</b>.</span></div>
-      <div><b>Bitcoin</b><span>Bei einer festen Menge gibt es <b>kein neues Geld</b>, das jemand zuerst bekommen könnte.</span></div>
+      <div><b data-i="k18">Nicht alle gleichzeitig</b><span data-i="k19">Neues Geld kommt <b>schrittweise</b> bei den Menschen an.</span></div>
+      <div><b data-i="k20">Früh = Vorteil</b><span data-i="k21">Wer das Geld zuerst bekommt, kauft noch zu <b>alten Preisen</b>.</span></div>
+      <div><b data-i="k22">Spät = Nachteil</b><span data-i="k23">Wer es zuletzt bekommt, zahlt schon die <b>höheren Preise</b>.</span></div>
+      <div><b data-i="k24">Bitcoin</b><span data-i="k25">Bei einer festen Menge gibt es <b>kein neues Geld</b>, das jemand zuerst bekommen könnte.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k26">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Richard Cantillon, „Essai sur la nature du commerce en général“ (um 1730). Das Fluss-Beispiel ist vereinfacht und zeigt das Prinzip, keine echten Messwerte. Die Stärke des Effekts ist in der Forschung umstritten.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k30" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k27">Quellen</summary><p data-i="k28">Richard Cantillon, „Essai sur la nature du commerce en général“ (um 1730). Das Fluss-Beispiel ist vereinfacht und zeigt das Prinzip, keine echten Messwerte. Die Stärke des Effekts ist in der Forschung umstritten.</p></details>
+  <p data-i="k29" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=125"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Who gets the new <span class=\"btc\">money<\/span> first?", "k4": "New money doesn't reach everyone at the same time. It flows through the economy bit by bit, and <b>prices rise along the way<\/b>. This is called the <b>Cantillon effect<\/b>, after the economist Richard Cantillon (around 1730).", "k5": "New money flows through the city", "k6": "The central bank puts <b>new money<\/b> into circulation. It first reaches the banks, then big companies, then shops, and only at the very end workers and pensioners. With every step <b>prices rise<\/b> a little.", "k7": "🛒 Weekly shopping<br/><small>costs<\/small>", "k8": "🖨 Put new money into circulation", "k9": "↺ Again", "k10": "What this means in real life", "k11": "📈 Assets rise first", "k12": "New money often flows first into <b>stocks and real estate<\/b>. People who already own a lot benefit early.", "k13": "🧾 Wages come last", "k14": "Salaries and pensions are usually adjusted <b>only later<\/b>, when prices have already risen.", "k15": "<span class=\"mk\">simplified<\/span>The order in the city is just an example. Depending on how the money travels (loans, bond purchases, government spending), others benefit first. How strong the effect is remains disputed among economists.", "k16": "Bitcoiners see this as a reason for a <b>fixed money supply<\/b>: without new money, nobody gets it first. Critics counter that a flexible money supply can save jobs in a crisis.", "k17": "Remember this", "k18": "Not everyone at once", "k19": "New money reaches people <b>step by step<\/b>.", "k20": "Early = advantage", "k21": "Whoever gets the money first still buys at <b>old prices<\/b>.", "k22": "Late = disadvantage", "k23": "Whoever gets it last already pays the <b>higher prices<\/b>.", "k24": "Bitcoin", "k25": "With a fixed supply there is <b>no new money<\/b> that anyone could get first.", "k26": "Test yourself: 3 questions", "k27": "Sources", "k28": "Richard Cantillon, “Essai sur la nature du commerce en général” (around 1730). The flow example is simplified and shows the principle, not real measurements. The strength of the effect is disputed in research.", "k29": "Entertainment and learning, not investment advice.", "k30@aria-label": "Next", "_title": "Money Flow · Bitcoin Voyage", "_desc": "Learning world: the Cantillon effect. Whoever gets new money first benefits. Whoever gets it last pays the price."}</script>
+<script src="../lern.js?v=126"></script>
 <script>
 /* =====================================================================
    GELDFLUSS – Lernwelt von Bitcoin Voyage
@@ -88,24 +89,24 @@
 (() => {
 const $ = id => document.getElementById(id);
 // [Symbol, Name, Kaufkraft-Effekt in %]
-const F = [["🏦", "Banken", 8], ["🏢", "Große Firmen", 5], ["🛒", "Händler", 1], ["👷", "Arbeiter", -4], ["👵", "Rentner", -7]];
+const F = [["🏦", Lern.t("Banken", "Banks"), 8], ["🏢", Lern.t("Große Firmen", "Big companies"), 5], ["🛒", Lern.t("Händler", "Shops"), 1], ["👷", Lern.t("Arbeiter", "Workers"), -4], ["👵", Lern.t("Rentner", "Pensioners"), -7]];
 let busy = false;
-function base(){ $("flow").innerHTML = F.map(([e, n]) => `<div class="fp"><span class="e">${e}</span><b>${n}</b><small>Kaufkraft</small><span class="k">±0 %</span></div>`).join(""); $("pu").style.width = "20%"; $("pv").textContent = "100 €"; $("res").hidden = true; }
+function base(){ $("flow").innerHTML = F.map(([e, n]) => Lern.t(`<div class="fp"><span class="e">${e}</span><b>${n}</b><small>Kaufkraft</small><span class="k">±0 %</span></div>`, `<div class="fp"><span class="e">${e}</span><b>${n}</b><small>Purchasing power</small><span class="k">±0 %</span></div>`)).join(""); $("pu").style.width = "20%"; $("pv").textContent = Lern.EN ? "€100" : "100 €"; $("res").hidden = true; }
 $("go").onclick = () => {
   if (busy) return; busy = true; $("go").disabled = true; base();
   F.forEach(([, , eff], i) => setTimeout(() => {
     const el = $("flow").children[i]; el.classList.add("got"); el.insertAdjacentHTML("beforeend", `<span class="coin">${Lern.art("coin")}</span>`);
     const k = el.querySelector(".k"); k.textContent = (eff > 0 ? "+" : "") + eff + " %"; k.className = "k " + (eff >= 0 ? "up" : "dn");
-    const p = 100 + (i + 1)*2; $("pu").style.width = 20 + (i + 1)*16 + "%"; $("pv").textContent = p + " €";
+    const p = 100 + (i + 1)*2; $("pu").style.width = 20 + (i + 1)*16 + "%"; $("pv").textContent = Lern.EN ? "€" + p : p + " €";
     if (i === F.length - 1){ const R = $("res"); R.hidden = false; R.className = "res warn";
-      R.innerHTML = `<strong>Der Wocheneinkauf kostet jetzt 110 € statt 100 €.</strong>Die <b>Banken</b> konnten noch zu alten Preisen kaufen und gewinnen Kaufkraft. Bei <b>Arbeitern und Rentnern</b> kam das Geld erst an, als alles schon teurer war: Sie verlieren. Die Zahlen sind ein vereinfachtes Beispiel.`;
+      R.innerHTML = Lern.t(`<strong>Der Wocheneinkauf kostet jetzt 110 € statt 100 €.</strong>Die <b>Banken</b> konnten noch zu alten Preisen kaufen und gewinnen Kaufkraft. Bei <b>Arbeitern und Rentnern</b> kam das Geld erst an, als alles schon teurer war: Sie verlieren. Die Zahlen sind ein vereinfachtes Beispiel.`, `<strong>The weekly shopping now costs €110 instead of €100.</strong>The <b>banks</b> could still buy at old prices and gain purchasing power. <b>Workers and pensioners</b> only got the money when everything was already more expensive: they lose. The numbers are a simplified example.`);
       $("again").hidden = false; busy = false; }
   }, 500 + i*900));
 };
 $("again").onclick = () => { $("go").disabled = false; $("again").hidden = true; base(); };
 base();
 
-const QUIZ = [["Was beschreibt der Cantillon-Effekt?", ["Wer neues Geld zuerst bekommt, profitiert, wer es zuletzt bekommt, verliert", "Neues Geld verteilt sich sofort gleichmäßig auf alle Menschen", "Neues Geld lässt die Preise sinken, weil mehr Waren entstehen"], 0, "Neues Geld fließt schrittweise, Preise steigen unterwegs."], ["Wer bekommt neues Geld meist zuletzt?", ["Arbeiter und Rentner", "Banken und Börsen", "Große Firmen"], 0, "Löhne und Renten werden oft erst später angepasst."], ["Warum spielt der Effekt bei Bitcoin keine Rolle?", ["Weil die Menge fest ist und niemand neues Geld zuerst bekommt", "Weil Bitcoin schneller verschickt wird als Euro", "Weil Bitcoin-Besitzer regelmäßig Zinsen bekommen"], 0, "Neue Bitcoin entstehen nur nach festem Plan beim Mining."]];
+const QUIZ = [[Lern.t("Was beschreibt der Cantillon-Effekt?", "What does the Cantillon effect describe?"), [Lern.t("Wer neues Geld zuerst bekommt, profitiert, wer es zuletzt bekommt, verliert", "Whoever gets new money first benefits, whoever gets it last loses"), Lern.t("Neues Geld verteilt sich sofort gleichmäßig auf alle Menschen", "New money is spread evenly to all people at once"), Lern.t("Neues Geld lässt die Preise sinken, weil mehr Waren entstehen", "New money makes prices fall because more goods are produced")], 0, Lern.t("Neues Geld fließt schrittweise, Preise steigen unterwegs.", "New money flows step by step, and prices rise along the way.")], [Lern.t("Wer bekommt neues Geld meist zuletzt?", "Who usually gets new money last?"), [Lern.t("Arbeiter und Rentner", "Workers and pensioners"), Lern.t("Banken und Börsen", "Banks and stock markets"), Lern.t("Große Firmen", "Big companies")], 0, Lern.t("Löhne und Renten werden oft erst später angepasst.", "Wages and pensions are often adjusted only later.")], [Lern.t("Warum spielt der Effekt bei Bitcoin keine Rolle?", "Why does the effect not matter for Bitcoin?"), [Lern.t("Weil die Menge fest ist und niemand neues Geld zuerst bekommt", "Because the supply is fixed and nobody gets new money first"), Lern.t("Weil Bitcoin schneller verschickt wird als Euro", "Because Bitcoin is sent faster than euros"), Lern.t("Weil Bitcoin-Besitzer regelmäßig Zinsen bekommen", "Because Bitcoin owners regularly receive interest")], 0, Lern.t("Neue Bitcoin entstehen nur nach festem Plan beim Mining.", "New bitcoin are only created by a fixed schedule through mining.")]];
 Lern.quiz($("quiz"), "cantillon", QUIZ, "../"); Lern.visit("cantillon"); Lern.renderNext("cantillon", "../");
 })();
 </script>

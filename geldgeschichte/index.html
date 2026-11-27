@@ -39,49 +39,50 @@
 .tl u{position:absolute;top:-4px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:#fff;border:3px solid #f7931a;z-index:2;box-shadow:0 0 12px #ffc94d;transition:left .8s cubic-bezier(.2,.8,.2,1)}
 .tyr{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap} .tyr span{font-size:12px;color:var(--muted)} .tyr b{font:900 20px var(--f-num);color:var(--gold)} .tyr small{font:700 12px var(--f-num);color:var(--muted)}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=2"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Die <span class="btc">Geschichte</span> des Geldes</h1>
-    <p class="lead">Muscheln, Salz, Gold, Papier, Zahlen auf dem Bildschirm: Geld hat sich immer wieder verändert. Und jedes Mal ging es um dieselbe Frage: <b>Kann man ihm trauen?</b></p>
+    <h1 data-i="k3">Die <span class="btc">Geschichte</span> des Geldes</h1>
+    <p data-i="k4" class="lead">Muscheln, Salz, Gold, Papier, Zahlen auf dem Bildschirm: Geld hat sich immer wieder verändert. Und jedes Mal ging es um dieselbe Frage: <b>Kann man ihm trauen?</b></p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Reise durch 5.000 Jahre Geld</h2>
+    <h2 data-i="k5" id="h1s">Reise durch 5.000 Jahre Geld</h2>
     <div class="eras" id="eras"></div>
-    <div class="tsc" aria-hidden="true"><div class="tl" id="tl"></div><div class="tyr"><span>🕰️ Zeitmaschine</span><b id="tyr">–</b><small id="tdy"></small></div></div>
+    <div class="tsc" aria-hidden="true"><div class="tl" id="tl"></div><div class="tyr"><span data-i="k6">🕰️ Zeitmaschine</span><b id="tyr">–</b><small id="tdy"></small></div></div>
     <div id="era"></div>
-    <div class="nav"><button class="btn ghost" id="prev" type="button">← Zurück</button><button class="btn" id="nextE" type="button">Weiter →</button></div>
+    <div class="nav"><button data-i="k7" class="btn ghost" id="prev" type="button">← Zurück</button><button data-i="k8" class="btn" id="nextE" type="button">Weiter →</button></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Der Tag, an dem das Gold verschwand</h2>
-    <div class="learn bx"><div><b>Bis 1971</b><span>Staaten konnten Dollar bei den USA zum <b>festen Preis</b> gegen Gold tauschen. Privatleute in den USA schon seit 1933 nicht mehr.</span></div><div><b>15. August 1971</b><span>US-Präsident Nixon beendet den Tausch. Das Bretton-Woods-System ist vorbei.</span></div><div><b>Seitdem</b><span>Kein großes Geld der Welt ist mehr an Gold gebunden.</span></div></div>
-    <div class="gold"><div>1 Unze Gold, bis 1971<b>35 $</b>fester Preis</div><div>1 Unze Gold, heute<b>ein Vielfaches</b>mehrere Tausend Dollar</div></div>
-    <div class="learn bx"><div><b>Wer steuert?</b><span>Die <b>Zentralbank</b> (für den Euro die EZB) legt fest, wie teuer Kredite ungefähr sind, und kann selbst neues Geld in Umlauf bringen. Das meiste neue Geld entsteht aber, wenn <b>Banken Kredite</b> vergeben. Wie das geht, zeigt das nächste Level.</span></div><div><b>Befürworter</b><span>Das hilft in Krisen.</span></div><div><b>Kritiker</b><span>Das führt zu Inflation und Schulden.</span></div><div><b>Bitcoin</b><span>Für viele eine Antwort darauf: Die Menge ist <b>fest</b>.</span></div></div>
+    <h2 data-i="k9" id="h2s">Der Tag, an dem das Gold verschwand</h2>
+    <div class="learn bx"><div><b data-i="k10">Bis 1971</b><span data-i="k11">Staaten konnten Dollar bei den USA zum <b>festen Preis</b> gegen Gold tauschen. Privatleute in den USA schon seit 1933 nicht mehr.</span></div><div><b data-i="k12">15. August 1971</b><span data-i="k13">US-Präsident Nixon beendet den Tausch. Das Bretton-Woods-System ist vorbei.</span></div><div><b data-i="k14">Seitdem</b><span data-i="k15">Kein großes Geld der Welt ist mehr an Gold gebunden.</span></div></div>
+    <div class="gold"><div data-i="k16">1 Unze Gold, bis 1971<b>35 $</b>fester Preis</div><div data-i="k17">1 Unze Gold, heute<b>ein Vielfaches</b>mehrere Tausend Dollar</div></div>
+    <div class="learn bx"><div><b data-i="k18">Wer steuert?</b><span data-i="k19">Die <b>Zentralbank</b> (für den Euro die EZB) legt fest, wie teuer Kredite ungefähr sind, und kann selbst neues Geld in Umlauf bringen. Das meiste neue Geld entsteht aber, wenn <b>Banken Kredite</b> vergeben. Wie das geht, zeigt das nächste Level.</span></div><div><b data-i="k20">Befürworter</b><span data-i="k21">Das hilft in Krisen.</span></div><div><b data-i="k22">Kritiker</b><span data-i="k23">Das führt zu Inflation und Schulden.</span></div><div><b data-i="k24">Bitcoin</b><span data-i="k25">Für viele eine Antwort darauf: Die Menge ist <b>fest</b>.</span></div></div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k26" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Geld war immer etwas Knappes</b><span>Muscheln, Salz, Gold: Gutes Geld war <b>schwer herzustellen</b>.</span></div>
-      <div><b>Papier = Versprechen</b><span>Papiergeld war in Europa lange ein <b>Versprechen auf Gold oder Silber</b>, das Banken oder Staaten einlösen sollten. Man musste ihnen vertrauen.</span></div>
-      <div><b>1971</b><span>Mit dem Ende von Bretton Woods endet die letzte Bindung an Gold. Seitdem beruht Geld <b>auf Vertrauen</b> in Staat und Zentralbank (Fiatgeld).</span></div>
-      <div><b>Bitcoin</b><span>Knapp wie Gold, digital wie Kontogeld, aber <b>ohne Bank</b>, der man vertrauen muss.</span></div>
+      <div><b data-i="k27">Geld war immer etwas Knappes</b><span data-i="k28">Muscheln, Salz, Gold: Gutes Geld war <b>schwer herzustellen</b>.</span></div>
+      <div><b data-i="k29">Papier = Versprechen</b><span data-i="k30">Papiergeld war in Europa lange ein <b>Versprechen auf Gold oder Silber</b>, das Banken oder Staaten einlösen sollten. Man musste ihnen vertrauen.</span></div>
+      <div><b>1971</b><span data-i="k31">Mit dem Ende von Bretton Woods endet die letzte Bindung an Gold. Seitdem beruht Geld <b>auf Vertrauen</b> in Staat und Zentralbank (Fiatgeld).</span></div>
+      <div><b data-i="k32">Bitcoin</b><span data-i="k33">Knapp wie Gold, digital wie Kontogeld, aber <b>ohne Bank</b>, der man vertrauen muss.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k34">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b>Vertiefen:</b> <a href="../goldstandard/">Vom Gold zum Papier</a> <span class="muted">(was 100 Dollar an Gold kauften)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Gerundete Jahreszahlen nach gängigen Darstellungen der Geldgeschichte (u. a. Münzen in Lydien um 600 v. Chr., Papiergeld in China um 1000 n. Chr., Bretton-Woods-Abkommen 1944, Ende der Gold-Konvertibilität am 15.08.1971, Euro als Buchgeld 1999 und Bargeld 2002).</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k41" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b data-i="k35">Vertiefen:</b> <a data-i="k36" href="../goldstandard/">Vom Gold zum Papier</a> <span data-i="k37" class="muted">(was 100 Dollar an Gold kauften)</span></p></section>
+  <section data-i="k42" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k38">Quellen</summary><p data-i="k39">Gerundete Jahreszahlen nach gängigen Darstellungen der Geldgeschichte (u. a. Münzen in Lydien um 600 v. Chr., Papiergeld in China um 1000 n. Chr., Bretton-Woods-Abkommen 1944, Ende der Gold-Konvertibilität am 15.08.1971, Euro als Buchgeld 1999 und Bargeld 2002).</p></details>
+  <p data-i="k40" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=125"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "The <span class=\"btc\">history<\/span> of money", "k4": "Shells, salt, gold, paper, numbers on a screen: money has changed again and again. And every time it came down to the same question: <b>can you trust it?<\/b>", "k5": "A journey through 5,000 years of money", "k6": "🕰️ Time machine", "k7": "← Back", "k8": "Next →", "k9": "The day the gold disappeared", "k10": "Until 1971", "k11": "States could exchange dollars for gold with the USA at a <b>fixed price<\/b>. Private individuals in the USA had not been able to since 1933.", "k12": "15 August 1971", "k13": "US President Nixon ends the exchange. The Bretton Woods system is over.", "k14": "Since then", "k15": "No major currency in the world is tied to gold anymore.", "k16": "1 ounce of gold, until 1971<b>$35<\/b>fixed price", "k17": "1 ounce of gold, today<b>many times more<\/b>several thousand dollars", "k18": "Who is in control?", "k19": "The <b>central bank<\/b> (the ECB for the euro) sets roughly how expensive loans are and can put new money into circulation itself. But most new money is created when <b>banks give loans<\/b>. The next level shows how that works.", "k20": "Supporters", "k21": "This helps in crises.", "k22": "Critics", "k23": "This leads to inflation and debt.", "k24": "Bitcoin", "k25": "For many, an answer to this: the supply is <b>fixed<\/b>.", "k26": "Remember this", "k27": "Money was always something scarce", "k28": "Shells, salt, gold: good money was <b>hard to make<\/b>.", "k29": "Paper = promise", "k30": "In Europe, paper money was for a long time a <b>promise of gold or silver<\/b> that banks or states were supposed to honour. You had to trust them.", "k31": "With the end of Bretton Woods, the last tie to gold ended. Since then, money has rested <b>on trust<\/b> in the state and central bank (fiat money).", "k32": "Bitcoin", "k33": "Scarce like gold, digital like money in an account, but <b>without a bank<\/b> you have to trust.", "k34": "Test yourself: 3 questions", "k35": "Go deeper:", "k36": "From gold to paper", "k37": "(what 100 dollars bought in gold)", "k38": "Sources", "k39": "Rounded dates based on common accounts of monetary history (including coins in Lydia around 600 BC, paper money in China around 1000 AD, the Bretton Woods agreement 1944, end of gold convertibility on 15 Aug 1971, the euro as book money 1999 and as cash 2002).", "k40": "Entertainment and learning, not investment advice.", "k41@aria-label": "Related", "k42@aria-label": "Next", "_title": "Money Time Travel · Bitcoin Voyage", "_desc": "Learning world: the history of money from shells to gold and paper money, the end of the gold standard in 1971 and Bitcoin."}</script>
+<script src="../lern.js?v=126"></script>
 <script>
 /* =====================================================================
    GELD-ZEITREISE – Lernwelt von Bitcoin Voyage
@@ -92,35 +93,35 @@ const sa = (n, x, y, z, an = "", d = 0, st = "") => `<span class="a" style="left
 const sl = (t, x, y, d = 0) => `<span class="lbl" style="left:${x}%;top:${y}%;animation-delay:${d}s">${t}</span>`;
 // [Jahr-Kurz, Zeit, Titel, Himmel, Szene, Text, Lehre]
 const E = [
-  ["Tausch", "vor über 10.000 Jahren", "Tauschhandel", "dawn", sa("🐟", 25, 55, 56, "grow .5s both") + sa("🍞", 75, 55, 56, "grow .5s both", .5) + sl("Fisch gegen Brot?", 50, 88, 1),
-    "Am Anfang tauschten Menschen Waren direkt, oder sie merkten sich, wer wem etwas schuldet. Das funktionierte in kleinen Dörfern, aber nicht mit Fremden.", "Ohne gemeinsames Geld ist Handeln mühsam."],
-  ["Muscheln", "ab ca. 1.200 v. Chr.", "Muscheln, Salz und Perlen", "day", sa("🐚", 30, 58, 60, "grow .5s both") + sa("🧂", 70, 58, 56, "grow .5s both", .4) + sl("Selten = wertvoll", 50, 88, 1),
-    "In vielen Kulturen wurden seltene Dinge zu Geld: Kaurimuscheln in Afrika und Asien, Salz bei den Römern (daher das Wort „Salär“), Glasperlen in Westafrika.", "Als Europäer später massenhaft Glasperlen nach Afrika brachten, verloren die Perlen dort ihren Wert. Wer Geld leicht herstellen kann, macht es wertlos."],
-  ["Münzen", "ab ca. 600 v. Chr.", "Die ersten Münzen", "dusk", sa("coin", 50, 52, 74, "grow .6s cubic-bezier(.3,1.6,.5,1) both") + sl("König von Lydien", 50, 88, .8),
-    "Im Königreich Lydien (heutige Türkei) prägte man erstmals Münzen aus Gold und Silber. Der Stempel des Königs garantierte Gewicht und Reinheit.", "Später streckten Herrscher ihre Münzen mit billigem Metall, z. B. im alten Rom. Die Preise stiegen. Die erste bekannte Inflation durch „Geld verwässern“."],
-  ["Papier", "ab ca. 1.000 n. Chr.", "Papiergeld aus China", "night", sa("news", 40, 56, 70, "grow .5s both") + sa("bank2", 72, 58, 60, "grow .5s both", .5) + sl("Ein Gutschein für Metall", 50, 88, 1),
-    "In China gab es zuerst Papierscheine, die man gegen Münzen einlösen konnte. Leichter zu tragen als schwere Metalle. In Europa kamen Banknoten im 17. Jahrhundert.", "Als die Kaiser zu viele Scheine druckten, verloren sie an Wert. Papiergeld funktioniert nur, solange man dem Herausgeber vertraut."],
-  ["Gold", "ca. 1870 bis 1914", "Der klassische Goldstandard", "gold", sa("trophy", 50, 52, 74, "grow .6s both") + sl("Jeder Schein = Gold", 50, 88, .8),
-    "Die großen Länder banden ihr Geld an Gold. Jeder Schein war ein Anspruch auf eine feste Menge Gold. Das sorgte für stabile Preise, aber Staaten konnten nicht einfach mehr Geld schaffen.", "Im Ersten Weltkrieg setzten die Länder den Goldstandard aus, um den Krieg zu finanzieren."],
-  ["1944", "1944 bis 1971", "Bretton Woods", "day", sa("dollar", 34, 58, 70) + sa("trophy", 70, 56, 56, "grow .5s both", .4) + sl("35 $ = 1 Unze Gold", 50, 88, 1),
-    "Nach dem Zweiten Weltkrieg wurde der US-Dollar zur Weltwährung. Andere Währungen waren fest an den Dollar gebunden, und der Dollar an Gold: 35 Dollar je Unze.", "Die USA gaben mehr Dollar aus, als sie Gold hatten. Andere Länder wurden misstrauisch und wollten ihr Gold."],
-  ["1971", "15. August 1971", "Das Ende der Golddeckung", "dusk", sa("trophy", 50, 50, 70, "fade 2s ease .8s both") + sa("printer", 50, 56, 74, "grow .5s both", 2.4) + sl("Nixon-Schock", 50, 88, .4),
-    "US-Präsident Nixon stoppte den Umtausch von Dollar in Gold. Seitdem ist Geld weltweit nur noch durch Vertrauen gedeckt (Fiatgeld, von lateinisch „es werde“).", "Zentralbanken und Banken können die Geldmenge seitdem ohne Golddeckung ausweiten, begrenzt durch Regeln und Nachfrage. Mehr dazu in der Welt „Wie Geld entsteht“."],
-  ["Euro", "1999 / 2002", "Der Euro", "day", sa("dollar", 50, 54, 76, "grow .5s both") + sl("Eine Währung für viele Länder", 50, 88, .8),
-    "Elf Länder führten 1999 den Euro als Buchgeld ein, 2002 kamen Scheine und Münzen. Die Europäische Zentralbank (EZB) steuert ihn.", "Heute existiert der allergrößte Teil des Geldes nur als Zahl auf Konten, nicht als Scheine."],
-  ["2009", "3. Januar 2009", "Bitcoin", "night", sa("coin", 50, 52, 76, "grow .6s cubic-bezier(.3,1.6,.5,1) both") + sl("Knapp wie Gold, digital, ohne Bank", 50, 88, .8),
-    "Mitten in der Finanzkrise startet Bitcoin: ein Geld mit fester Menge, das niemand drucken kann und für das man keiner Bank vertrauen muss.", "Ob Bitcoin das Geld der Zukunft wird, ist offen. Aber es ist die erste ernsthafte Alternative, die ohne Staat funktioniert."],
+  [Lern.t("Tausch", "Barter"), Lern.t("vor über 10.000 Jahren", "more than 10,000 years ago"), Lern.t("Tauschhandel", "Barter"), "dawn", sa("🐟", 25, 55, 56, "grow .5s both") + sa("🍞", 75, 55, 56, "grow .5s both", .5) + sl(Lern.t("Fisch gegen Brot?", "Fish for bread?"), 50, 88, 1),
+    Lern.t("Am Anfang tauschten Menschen Waren direkt, oder sie merkten sich, wer wem etwas schuldet. Das funktionierte in kleinen Dörfern, aber nicht mit Fremden.", "In the beginning people traded goods directly, or remembered who owed whom something. That worked in small villages, but not with strangers."), Lern.t("Ohne gemeinsames Geld ist Handeln mühsam.", "Without shared money, trading is tedious.")],
+  [Lern.t("Muscheln", "Shells"), Lern.t("ab ca. 1.200 v. Chr.", "from about 1200 BC"), Lern.t("Muscheln, Salz und Perlen", "Shells, salt and beads"), "day", sa("🐚", 30, 58, 60, "grow .5s both") + sa("🧂", 70, 58, 56, "grow .5s both", .4) + sl(Lern.t("Selten = wertvoll", "Rare = valuable"), 50, 88, 1),
+    Lern.t("In vielen Kulturen wurden seltene Dinge zu Geld: Kaurimuscheln in Afrika und Asien, Salz bei den Römern (daher das Wort „Salär“), Glasperlen in Westafrika.", "In many cultures rare things became money: cowrie shells in Africa and Asia, salt among the Romans (hence the word “salary”), glass beads in West Africa."), Lern.t("Als Europäer später massenhaft Glasperlen nach Afrika brachten, verloren die Perlen dort ihren Wert. Wer Geld leicht herstellen kann, macht es wertlos.", "When Europeans later brought glass beads to Africa in huge numbers, the beads lost their value there. Whoever can make money easily makes it worthless.")],
+  [Lern.t("Münzen", "Coins"), Lern.t("ab ca. 600 v. Chr.", "from about 600 BC"), Lern.t("Die ersten Münzen", "The first coins"), "dusk", sa("coin", 50, 52, 74, "grow .6s cubic-bezier(.3,1.6,.5,1) both") + sl(Lern.t("König von Lydien", "King of Lydia"), 50, 88, .8),
+    Lern.t("Im Königreich Lydien (heutige Türkei) prägte man erstmals Münzen aus Gold und Silber. Der Stempel des Königs garantierte Gewicht und Reinheit.", "In the kingdom of Lydia (today's Turkey) coins of gold and silver were minted for the first time. The king's stamp guaranteed weight and purity."), Lern.t("Später streckten Herrscher ihre Münzen mit billigem Metall, z. B. im alten Rom. Die Preise stiegen. Die erste bekannte Inflation durch „Geld verwässern“.", "Later, rulers stretched their coins with cheap metal, e.g. in ancient Rome. Prices rose. The first known inflation from “watering down money”.")],
+  [Lern.t("Papier", "Paper"), Lern.t("ab ca. 1.000 n. Chr.", "from about 1000 AD"), Lern.t("Papiergeld aus China", "Paper money from China"), "night", sa("news", 40, 56, 70, "grow .5s both") + sa("bank2", 72, 58, 60, "grow .5s both", .5) + sl(Lern.t("Ein Gutschein für Metall", "A voucher for metal"), 50, 88, 1),
+    Lern.t("In China gab es zuerst Papierscheine, die man gegen Münzen einlösen konnte. Leichter zu tragen als schwere Metalle. In Europa kamen Banknoten im 17. Jahrhundert.", "China was first to use paper notes that could be redeemed for coins. Easier to carry than heavy metal. In Europe, banknotes arrived in the 17th century."), Lern.t("Als die Kaiser zu viele Scheine druckten, verloren sie an Wert. Papiergeld funktioniert nur, solange man dem Herausgeber vertraut.", "When the emperors printed too many notes, they lost value. Paper money only works as long as people trust the issuer.")],
+  [Lern.t("Gold", "Gold"), Lern.t("ca. 1870 bis 1914", "about 1870 to 1914"), Lern.t("Der klassische Goldstandard", "The classical gold standard"), "gold", sa("trophy", 50, 52, 74, "grow .6s both") + sl(Lern.t("Jeder Schein = Gold", "Every note = gold"), 50, 88, .8),
+    Lern.t("Die großen Länder banden ihr Geld an Gold. Jeder Schein war ein Anspruch auf eine feste Menge Gold. Das sorgte für stabile Preise, aber Staaten konnten nicht einfach mehr Geld schaffen.", "The big countries tied their money to gold. Every note was a claim to a fixed amount of gold. That kept prices stable, but states couldn't simply create more money."), Lern.t("Im Ersten Weltkrieg setzten die Länder den Goldstandard aus, um den Krieg zu finanzieren.", "In the First World War, countries suspended the gold standard to finance the war.")],
+  ["1944", "1944 bis 1971", Lern.t("Bretton Woods", "Bretton Woods"), "day", sa("dollar", 34, 58, 70) + sa("trophy", 70, 56, 56, "grow .5s both", .4) + sl(Lern.t("35 $ = 1 Unze Gold", "$35 = 1 ounce of gold"), 50, 88, 1),
+    Lern.t("Nach dem Zweiten Weltkrieg wurde der US-Dollar zur Weltwährung. Andere Währungen waren fest an den Dollar gebunden, und der Dollar an Gold: 35 Dollar je Unze.", "After the Second World War the US dollar became the world currency. Other currencies were fixed to the dollar, and the dollar to gold: 35 dollars per ounce."), Lern.t("Die USA gaben mehr Dollar aus, als sie Gold hatten. Andere Länder wurden misstrauisch und wollten ihr Gold.", "The USA issued more dollars than it had gold. Other countries grew suspicious and wanted their gold.")],
+  ["1971", "15. August 1971", Lern.t("Das Ende der Golddeckung", "The end of gold backing"), "dusk", sa("trophy", 50, 50, 70, "fade 2s ease .8s both") + sa("printer", 50, 56, 74, "grow .5s both", 2.4) + sl(Lern.t("Nixon-Schock", "Nixon shock"), 50, 88, .4),
+    Lern.t("US-Präsident Nixon stoppte den Umtausch von Dollar in Gold. Seitdem ist Geld weltweit nur noch durch Vertrauen gedeckt (Fiatgeld, von lateinisch „es werde“).", "US President Nixon stopped exchanging dollars for gold. Since then, money worldwide has been backed only by trust (fiat money, from Latin “let it be”)."), Lern.t("Zentralbanken und Banken können die Geldmenge seitdem ohne Golddeckung ausweiten, begrenzt durch Regeln und Nachfrage. Mehr dazu in der Welt „Wie Geld entsteht“.", "Since then, central banks and banks can expand the money supply without gold backing, limited by rules and demand. More in the world “Understanding money”.")],
+  [Lern.t("Euro", "Euro"), "1999 / 2002", Lern.t("Der Euro", "The euro"), "day", sa("dollar", 50, 54, 76, "grow .5s both") + sl(Lern.t("Eine Währung für viele Länder", "One currency for many countries"), 50, 88, .8),
+    Lern.t("Elf Länder führten 1999 den Euro als Buchgeld ein, 2002 kamen Scheine und Münzen. Die Europäische Zentralbank (EZB) steuert ihn.", "Eleven countries introduced the euro as book money in 1999; notes and coins followed in 2002. The European Central Bank (ECB) manages it."), Lern.t("Heute existiert der allergrößte Teil des Geldes nur als Zahl auf Konten, nicht als Scheine.", "Today by far the largest part of money exists only as numbers in accounts, not as notes.")],
+  ["2009", "3. Januar 2009", Lern.t("Bitcoin", "Bitcoin"), "night", sa("coin", 50, 52, 76, "grow .6s cubic-bezier(.3,1.6,.5,1) both") + sl(Lern.t("Knapp wie Gold, digital, ohne Bank", "Scarce like gold, digital, without a bank"), 50, 88, .8),
+    Lern.t("Mitten in der Finanzkrise startet Bitcoin: ein Geld mit fester Menge, das niemand drucken kann und für das man keiner Bank vertrauen muss.", "In the middle of the financial crisis Bitcoin launches: money with a fixed supply that nobody can print and that doesn't require trusting any bank."), Lern.t("Ob Bitcoin das Geld der Zukunft wird, ist offen. Aber es ist die erste ernsthafte Alternative, die ohne Staat funktioniert.", "Whether Bitcoin becomes the money of the future is open. But it is the first serious alternative that works without a state.")],
 ];
 let k = 0;
 const YR = [-10000, -1200, -600, 1000, 1870, 1944, 1971, 1999, 2009];
-const yf = v => v < 0 ? Math.abs(Math.round(v)).toLocaleString("de-DE") + " v. Chr." : String(Math.round(v));
+const yf = v => v < 0 ? Math.abs(Math.round(v)).toLocaleString(Lern.EN ? "en-US" : "de-DE") + Lern.t(" v. Chr.", " BC") : String(Math.round(v));
 let yNow = YR[0], yRaf = 0, lastK = 0;
 $("tl").innerHTML = YR.map((v, i) => `<i style="left:${i / (YR.length - 1) * 100}%"></i>`).join("") + `<u id="tlm"></u><em id="tlf"></em>`;
 function timeTravel(){
   const to = YR[k], from = yNow, t0 = performance.now(), d = Math.abs(to - YR[lastK]), up = to > YR[lastK]; lastK = k;
   $("tlm").style.left = $("tlf").style.width = k / (YR.length - 1) * 100 + "%";
   [...$("tl").querySelectorAll("i")].forEach((e, i) => e.classList.toggle("on", i <= k));
-  $("tdy").textContent = d ? (up ? "+" : "−") + d.toLocaleString("de-DE") + " Jahre" : "";
+  $("tdy").textContent = d ? (up ? "+" : "−") + d.toLocaleString(Lern.EN ? "en-US" : "de-DE") + Lern.t(" Jahre", " years") : "";
   cancelAnimationFrame(yRaf);
   const step = n => { const p = Math.min(1, (n - t0) / 800), e = 1 - Math.pow(1 - p, 3); yNow = from + (to - from) * e; $("tyr").textContent = yf(yNow); if (p < 1) yRaf = requestAnimationFrame(step); else yNow = to; };
   yRaf = requestAnimationFrame(step);
@@ -131,14 +132,14 @@ function draw(){
   $("eras").children[k].scrollIntoView({block: "nearest", inline: "center"});
   $("era").innerHTML = `<div class="era"><div class="scn ${sky}" aria-hidden="true">${sc}</div><span class="y">${k + 1} von ${E.length} · ${y}</span><h3>${t}</h3><p>${x}</p><div class="les">💡 ${les}</div></div>`;
   timeTravel();
-  $("prev").disabled = k === 0; $("nextE").textContent = k === E.length - 1 ? "Von vorn ↺" : "Weiter →";
+  $("prev").disabled = k === 0; $("nextE").textContent = k === E.length - 1 ? Lern.t("Von vorn ↺", "Start over ↺") : Lern.t("Weiter →", "Next →");
 }
 $("eras").onclick = e => { const b = e.target.closest("button"); if (b){ k = +b.dataset.i; draw(); } };
 $("prev").onclick = () => { if (k > 0){ k--; draw(); } };
 $("nextE").onclick = () => { k = k === E.length - 1 ? 0 : k + 1; draw(); };
 draw();
 
-const QUIZ = [["Warum verloren Glasperlen in Westafrika ihren Wert?", ["Europäer brachten massenhaft billige Perlen ins Land", "Die Perlen zerbrachen nach wenigen Jahren", "Ein König verbot sie als Zahlungsmittel"], 0, "Was leicht herzustellen ist, taugt schlecht als Geld."], ["Was geschah am 15. August 1971?", ["Die USA beendeten den Umtausch von Dollar in Gold", "Die Mark wurde durch den Euro ersetzt", "Die erste Kreditkarte kam auf den Markt"], 0, "Seitdem ist kein großes Geld mehr an Gold gebunden."], ["Was bedeutet „Fiatgeld“?", ["Geld, das nur durch Vertrauen in den Staat gedeckt ist", "Geld, das vollständig durch Gold gedeckt ist", "Geld, das nur eine einzige Bank ausgibt"], 0, "Lateinisch „fiat“: es werde. Es gilt, weil der Staat es so bestimmt."]];
+const QUIZ = [[Lern.t("Warum verloren Glasperlen in Westafrika ihren Wert?", "Why did glass beads lose their value in West Africa?"), [Lern.t("Europäer brachten massenhaft billige Perlen ins Land", "Europeans brought cheap beads into the country in huge numbers"), Lern.t("Die Perlen zerbrachen nach wenigen Jahren", "The beads broke after a few years"), Lern.t("Ein König verbot sie als Zahlungsmittel", "A king banned them as a means of payment")], 0, Lern.t("Was leicht herzustellen ist, taugt schlecht als Geld.", "Things that are easy to make are poor money.")], [Lern.t("Was geschah am 15. August 1971?", "What happened on 15 August 1971?"), [Lern.t("Die USA beendeten den Umtausch von Dollar in Gold", "The USA ended the exchange of dollars for gold"), Lern.t("Die Mark wurde durch den Euro ersetzt", "The Deutsche Mark was replaced by the euro"), Lern.t("Die erste Kreditkarte kam auf den Markt", "The first credit card came onto the market")], 0, Lern.t("Seitdem ist kein großes Geld mehr an Gold gebunden.", "Since then, no major money has been tied to gold.")], [Lern.t("Was bedeutet „Fiatgeld“?", "What does “fiat money” mean?"), [Lern.t("Geld, das nur durch Vertrauen in den Staat gedeckt ist", "Money backed only by trust in the state"), Lern.t("Geld, das vollständig durch Gold gedeckt ist", "Money fully backed by gold"), Lern.t("Geld, das nur eine einzige Bank ausgibt", "Money issued by a single bank only")], 0, Lern.t("Lateinisch „fiat“: es werde. Es gilt, weil der Staat es so bestimmt.", "Latin “fiat”: let it be. It is valid because the state says so.")]];
 Lern.quiz($("quiz"), "geldgeschichte", QUIZ, "../"); Lern.visit("geldgeschichte"); Lern.renderNext("geldgeschichte", "../");
 })();
 </script>

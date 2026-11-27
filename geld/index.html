@@ -42,18 +42,18 @@
 .fn .ok{color:var(--bull);font-size:13px;margin-top:4px;display:block}
 @media (max-width:620px){ .isle{grid-template-columns:1fr 1fr} .fn{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=2"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Was ist <span class="btc">Geld</span>?</h1>
-    <p class="lead">Bevor es um Bitcoin geht: Was ist Geld überhaupt? Auf einer kleinen Insel ohne Geld findest du es heraus.</p>
+    <h1 data-i="k3">Was ist <span class="btc">Geld</span>?</h1>
+    <p data-i="k4" class="lead">Bevor es um Bitcoin geht: Was ist Geld überhaupt? Auf einer kleinen Insel ohne Geld findest du es heraus.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Tauschen ohne Geld</h2>
+    <h2 data-i="k5" id="h1s">1 · Tauschen ohne Geld</h2>
     <div class="idea" id="who"></div>
     <div class="isle" id="isle"></div>
     <p class="fb" id="fb" aria-live="polite" hidden></p>
@@ -62,29 +62,30 @@
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Die drei Aufgaben von Geld</h2>
-    <p class="muted" style="margin:0">Tippe eine Aussage an und dann die passende Aufgabe.</p>
+    <h2 data-i="k6" id="h2s">2 · Die drei Aufgaben von Geld</h2>
+    <p data-i="k7" class="muted" style="margin:0">Tippe eine Aussage an und dann die passende Aufgabe.</p>
     <div class="cards2" id="st"></div>
     <div class="fn" id="fn"></div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k8" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Tausch ist mühsam</b><span>Ohne Geld muss man jemanden finden, der <b>genau das will</b>, was man hat. Das klappt selten.</span></div>
-      <div><b>Tauschmittel</b><span>Geld nimmt jeder an. Damit kann man <b>alles gegen alles</b> tauschen.</span></div>
-      <div><b>Wertspeicher</b><span>Gutes Geld behält seinen Wert, damit man <b>heute sparen</b> und später ausgeben kann.</span></div>
-      <div><b>Recheneinheit</b><span>Mit Geld kann man Preise <b>vergleichen</b>: Ein Brot kostet 3 €, ein Fisch 5 €.</span></div>
+      <div><b data-i="k9">Tausch ist mühsam</b><span data-i="k10">Ohne Geld muss man jemanden finden, der <b>genau das will</b>, was man hat. Das klappt selten.</span></div>
+      <div><b data-i="k11">Tauschmittel</b><span data-i="k12">Geld nimmt jeder an. Damit kann man <b>alles gegen alles</b> tauschen.</span></div>
+      <div><b data-i="k13">Wertspeicher</b><span data-i="k14">Gutes Geld behält seinen Wert, damit man <b>heute sparen</b> und später ausgeben kann.</span></div>
+      <div><b data-i="k15">Recheneinheit</b><span data-i="k16">Mit Geld kann man Preise <b>vergleichen</b>: Ein Brot kostet 3 €, ein Fisch 5 €.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k17">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Die drei Geldfunktionen sind Lehrbuchwissen der Volkswirtschaft. Die Tausch-Insel ist ein vereinfachtes Beispiel. Historiker diskutieren, wie verbreitet reiner Tauschhandel wirklich war, oft gab es auch Schuld-Notizen und Vertrauen.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k21" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k18">Quellen</summary><p data-i="k19">Die drei Geldfunktionen sind Lehrbuchwissen der Volkswirtschaft. Die Tausch-Insel ist ein vereinfachtes Beispiel. Historiker diskutieren, wie verbreitet reiner Tauschhandel wirklich war, oft gab es auch Schuld-Notizen und Vertrauen.</p></details>
+  <p data-i="k20" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=125"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "What is <span class=\"btc\">money<\/span>?", "k4": "Before we get to Bitcoin: what is money anyway? You'll find out on a small island without money.", "k5": "1 · Trading without money", "k6": "2 · The three jobs of money", "k7": "Tap a statement and then the matching job.", "k8": "Remember this", "k9": "Barter is tedious", "k10": "Without money you have to find someone who wants <b>exactly what<\/b> you have. That rarely works.", "k11": "Medium of exchange", "k12": "Everyone accepts money. With it you can trade <b>anything for anything<\/b>.", "k13": "Store of value", "k14": "Good money keeps its value, so you can <b>save today<\/b> and spend later.", "k15": "Unit of account", "k16": "With money you can <b>compare<\/b> prices: a loaf of bread costs €3, a fish €5.", "k17": "Test yourself: 3 questions", "k18": "Sources", "k19": "The three functions of money are standard economics textbook knowledge. Barter Island is a simplified example. Historians debate how common pure barter really was; often there were also debt notes and trust.", "k20": "Entertainment and learning, not investment advice.", "k21@aria-label": "Next", "_title": "Barter Island · Bitcoin Voyage", "_desc": "Learning world: what is money? Why barter fails and which three jobs money does."}</script>
+<script src="../lern.js?v=126"></script>
 <script>
 /* =====================================================================
    TAUSCH-INSEL – Lernwelt von Bitcoin Voyage
@@ -106,39 +107,40 @@ const IC = {
 const TINT = {Fisch: "79,179,255", Brot: "232,162,79", Holz: "168,105,58", Schuhe: "200,86,58", Käse: "255,210,63", Wein: "139,47,94", Wolle: "242,156,196"};
 const svg = k => `<svg viewBox="0 0 100 100" aria-hidden="true">${IC[k]}</svg>`;
 const gi = k => `<i class="gi">${svg(k)}</i>`;
-const G = {Fisch: [gi("Fisch"), "Fischer"], Brot: [gi("Brot"), "Bäckerin"], Holz: [gi("Holz"), "Holzfäller"], Schuhe: [gi("Schuhe"), "Schuster"], Käse: [gi("Käse"), "Käserin"], Wein: [gi("Wein"), "Winzer"], Wolle: [gi("Wolle"), "Schäferin"]};
+const G = {Fisch: [gi("Fisch"), Lern.t("Fischer", "Fisherman")], Brot: [gi("Brot"), Lern.t("Bäckerin", "Baker")], Holz: [gi("Holz"), Lern.t("Holzfäller", "Woodcutter")], Schuhe: [gi("Schuhe"), Lern.t("Schuster", "Shoemaker")], Käse: [gi("Käse"), Lern.t("Käserin", "Cheesemaker")], Wein: [gi("Wein"), Lern.t("Winzer", "Winemaker")], Wolle: [gi("Wolle"), Lern.t("Schäferin", "Shepherdess")]};
+const NM = k => Lern.t(k, {Fisch: "fish", Brot: "bread", Holz: "wood", Schuhe: "shoes", Käse: "cheese", Wein: "wine", Wolle: "wool"}[k]);   // Anzeigename der Ware
 const shuf = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(v => v[1]);
 let P, have, want, path, steps, shown;
 function newRound(){
   const g = shuf(Object.keys(G)); have = g[0]; want = g[3]; steps = 0; path = [g[0], g[1], g[2], g[3]];
   // Kette: jemand hat g1 und will g0, jemand hat g2 und will g1, jemand hat g3 (dein Wunsch) und will g2; dazu eine falsche Fährte
   P = shuf([[g[1], g[0]], [g[2], g[1]], [g[3], g[2]], [g[4], g[5]]]).map(([h, w]) => [G[h][0], G[h][1], h, w]);
-  $("who").innerHTML = `Du bist <b>${G[have][1]}</b> und hast <b><span class="nw">${G[have][0]} ${have}</span></b>. Du willst <b><span class="nw">${G[want][0]} ${want}</span></b>. Geld gibt es nicht, nur Tausch. Tippe die Person an, mit der du als Nächstes tauschen willst.`;
+  $("who").innerHTML = Lern.t(`Du bist <b>${G[have][1]}</b> und hast <b><span class="nw">${G[have][0]} ${have}</span></b>. Du willst <b><span class="nw">${G[want][0]} ${want}</span></b>. Geld gibt es nicht, nur Tausch. Tippe die Person an, mit der du als Nächstes tauschen willst.`, `You are the <b>${G[have][1]}</b> and you have <b><span class="nw">${G[have][0]} ${NM(have)}</span></b>. You want <b><span class="nw">${G[want][0]} ${NM(want)}</span></b>. There is no money, only barter. Tap the person you want to trade with next.`);
   $("res").hidden = true; $("fb").hidden = true; draw();
 }
 function draw(){
-  $("isle").innerHTML = P.map(([e, n, h, w], i) => `<button class="pp" type="button" data-i="${i}" style="--t:${TINT[h]}"><span class="e">${svg(h)}</span><b>${n}</b><small class="hw"><span>hat ${gi(h)} ${h}</span><span>will ${gi(w)} ${w}</span></small></button>`).join("");
+  $("isle").innerHTML = P.map(([e, n, h, w], i) => Lern.t(`<button class="pp" type="button" data-i="${i}" style="--t:${TINT[h]}"><span class="e">${svg(h)}</span><b>${n}</b><small class="hw"><span>hat ${gi(h)} ${h}</span><span>will ${gi(w)} ${w}</span></small></button>`, `<button class="pp" type="button" data-i="${i}" style="--t:${TINT[h]}"><span class="e">${svg(h)}</span><b>${n}</b><small class="hw"><span>has ${gi(h)} ${NM(h)}</span><span>wants ${gi(w)} ${NM(w)}</span></small></button>`)).join("");
   const nw = shown !== have; shown = have;
-  $("inv").innerHTML = `Du hast: <b class="${nw ? "hv" : ""}"><span class="nw">${G[have][0]} ${have}</span></b>${have === want ? " 🎉" : ""} · Tauschversuche: <b>${steps}</b>`;
+  $("inv").innerHTML = Lern.t(`Du hast: <b class="${nw ? "hv" : ""}"><span class="nw">${G[have][0]} ${have}</span></b>${have === want ? " 🎉" : ""} · Tauschversuche: <b>${steps}</b>`, `You have: <b class="${nw ? "hv" : ""}"><span class="nw">${G[have][0]} ${NM(have)}</span></b>${have === want ? " 🎉" : ""} · Trade attempts: <b>${steps}</b>`);
 }
 $("isle").onclick = e => {
   const b = e.target.closest(".pp"); if (!b || have === want) return;
   const [, n, h, w] = P[+b.dataset.i]; steps++;
   const i = +b.dataset.i, ok = w === have, F = $("fb");
   F.hidden = false; F.className = "fb " + (ok ? "ok" : "no");
-  F.innerHTML = ok ? `<span class="t">✅</span> <b>Getauscht!</b> ${n} nimmt <span class="nw">${G[have][0]} ${have}</span> und gibt dir <b class="nw">${G[h][0]} ${h}</b>.`
-    : `<span class="t">❌</span> <b>Kein Tausch:</b> ${n} will <span class="nw">${G[w][0]} ${w}</span>, nicht <span class="nw">${G[have][0]} ${have}</span>.`;
+  F.innerHTML = ok ? Lern.t(`<span class="t">✅</span> <b>Getauscht!</b> ${n} nimmt <span class="nw">${G[have][0]} ${have}</span> und gibt dir <b class="nw">${G[h][0]} ${h}</b>.`, `<span class="t">✅</span> <b>Traded!</b> The ${n} takes <span class="nw">${G[have][0]} ${NM(have)}</span> and gives you <b class="nw">${G[h][0]} ${NM(h)}</b>.`)
+    : Lern.t(`<span class="t">❌</span> <b>Kein Tausch:</b> ${n} will <span class="nw">${G[w][0]} ${w}</span>, nicht <span class="nw">${G[have][0]} ${have}</span>.`, `<span class="t">❌</span> <b>No trade:</b> The ${n} wants <span class="nw">${G[w][0]} ${NM(w)}</span>, not <span class="nw">${G[have][0]} ${NM(have)}</span>.`);
   if (ok) have = h;
   draw();
   const nb = $("isle").children[i]; nb.classList.add(ok ? "hit" : "miss"); if (navigator.vibrate) try { navigator.vibrate(ok ? 30 : [20, 40, 20]); } catch(e){}
   if (have === want){ const R = $("res"); R.hidden = false; R.className = "res ok";
-    R.innerHTML = `<strong>Endlich ${want}! Nach ${steps} Versuchen.</strong>Du musstest ${path[0]} gegen ${path[1]}, ${path[1]} gegen ${path[2]} und ${path[2]} gegen ${path[3]} tauschen. Genau dafür wurde <b>Geld</b> erfunden: Ein Gut, das <b>jeder</b> annimmt. Dann verkaufst du einfach, was du hast, und kaufst, was du willst. <button class="btn" type="button" id="again" style="margin-top:10px">🎲 Neue Insel-Runde</button>`;
+    R.innerHTML = Lern.t(`<strong>Endlich ${want}! Nach ${steps} Versuchen.</strong>Du musstest ${path[0]} gegen ${path[1]}, ${path[1]} gegen ${path[2]} und ${path[2]} gegen ${path[3]} tauschen. Genau dafür wurde <b>Geld</b> erfunden: Ein Gut, das <b>jeder</b> annimmt. Dann verkaufst du einfach, was du hast, und kaufst, was du willst. <button class="btn" type="button" id="again" style="margin-top:10px">🎲 Neue Insel-Runde</button>`, `<strong>Finally ${NM(want)}! After ${steps} attempts.</strong>You had to trade ${NM(path[0])} for ${NM(path[1])}, ${NM(path[1])} for ${NM(path[2])} and ${NM(path[2])} for ${NM(path[3])}. This is exactly why <b>money</b> was invented: a good that <b>everyone</b> accepts. Then you simply sell what you have and buy what you want. <button class="btn" type="button" id="again" style="margin-top:10px">🎲 New island round</button>`);
     $("again").onclick = newRound; }
 };
 newRound();
 // Aufgaben zuordnen
-const F = [["Tauschmittel", "Damit bezahlt man."], ["Wertspeicher", "Damit spart man für später."], ["Recheneinheit", "Damit vergleicht man Preise."]];
-const ST = [["Du bezahlst den Bäcker für ein Brot.", 0], ["Du legst Geld für den Urlaub im nächsten Jahr zurück.", 1], ["Auf dem Schild steht: Brot 3 €, Fisch 5 €.", 2], ["Der Schuster nimmt dein Geld, obwohl er keinen Fisch will.", 0], ["Dein Erspartes ist in 10 Jahren hoffentlich noch genauso viel wert.", 1], ["Du rechnest aus, ob ein Auto teurer ist als ein Fahrrad.", 2]];
+const F = [[Lern.t("Tauschmittel", "Medium of exchange"), Lern.t("Damit bezahlt man.", "You pay with it.")], [Lern.t("Wertspeicher", "Store of value"), Lern.t("Damit spart man für später.", "You save with it for later.")], [Lern.t("Recheneinheit", "Unit of account"), Lern.t("Damit vergleicht man Preise.", "You compare prices with it.")]];
+const ST = [[Lern.t("Du bezahlst den Bäcker für ein Brot.", "You pay the baker for a loaf of bread."), 0], [Lern.t("Du legst Geld für den Urlaub im nächsten Jahr zurück.", "You put money aside for next year's holiday."), 1], [Lern.t("Auf dem Schild steht: Brot 3 €, Fisch 5 €.", "The sign says: bread €3, fish €5."), 2], [Lern.t("Der Schuster nimmt dein Geld, obwohl er keinen Fisch will.", "The shoemaker takes your money even though he doesn't want fish."), 0], [Lern.t("Dein Erspartes ist in 10 Jahren hoffentlich noch genauso viel wert.", "Your savings will hopefully still be worth just as much in 10 years."), 1], [Lern.t("Du rechnest aus, ob ein Auto teurer ist als ein Fahrrad.", "You work out whether a car costs more than a bicycle."), 2]];
 let sel = -1, done = 0;
 $("fn").innerHTML = F.map(([t, d], i) => `<div data-f="${i}"><b>${t}</b>${d}</div>`).join("");
 $("st").innerHTML = ST.map(([t], i) => [Math.random(), t, i]).sort((x, y) => x[0] - y[0]).map(([, t, i]) => `<button type="button" data-s="${i}">${t}</button>`).join("");
@@ -147,11 +149,11 @@ $("fn").onclick = e => {
   const d = e.target.closest("div[data-f]"); if (!d || sel < 0) return;
   const ok = ST[sel][1] === +d.dataset.f, b = $("st").querySelector(`[data-s="${sel}"]`);
   if (ok){ d.insertAdjacentHTML("beforeend", `<span class="ok">✓ ${ST[sel][0]}</span>`); b.remove(); done++; if (done === ST.length) Lern.confetti(); }
-  else { b.classList.remove("sel"); Lern.toast("Nicht ganz. Überleg nochmal: bezahlen, sparen oder vergleichen?"); }
+  else { b.classList.remove("sel"); Lern.toast(Lern.t("Nicht ganz. Überleg nochmal: bezahlen, sparen oder vergleichen?", "Not quite. Think again: paying, saving or comparing?")); }
   sel = -1; $("fn").querySelectorAll("div").forEach(x => x.classList.remove("drop"));
 };
 
-const QUIZ = [["Warum ist reiner Tauschhandel so mühsam?", ["Man muss jemanden finden, der genau das will, was man hat", "Weil Tauschen in den meisten Ländern verboten ist", "Weil es viel zu viele verschiedene Waren gibt"], 0, "Ökonomen nennen das die „doppelte Übereinstimmung der Wünsche“."], ["Du sparst für ein Auto in drei Jahren. Welche Aufgabe von Geld nutzt du?", ["Wertspeicher", "Recheneinheit", "Tauschmittel"], 0, "Gutes Geld muss seinen Wert über die Zeit halten."], ["„Ein Brot kostet 3 €.“ Welche Aufgabe erfüllt Geld hier?", ["Recheneinheit", "Wertspeicher", "Tauschmittel"], 0, "Geld macht Preise vergleichbar."]];
+const QUIZ = [[Lern.t("Warum ist reiner Tauschhandel so mühsam?", "Why is pure barter so tedious?"), [Lern.t("Man muss jemanden finden, der genau das will, was man hat", "You have to find someone who wants exactly what you have"), Lern.t("Weil Tauschen in den meisten Ländern verboten ist", "Because barter is forbidden in most countries"), Lern.t("Weil es viel zu viele verschiedene Waren gibt", "Because there are far too many different goods")], 0, Lern.t("Ökonomen nennen das die „doppelte Übereinstimmung der Wünsche“.", "Economists call this the “double coincidence of wants”.")], [Lern.t("Du sparst für ein Auto in drei Jahren. Welche Aufgabe von Geld nutzt du?", "You're saving for a car in three years. Which job of money are you using?"), [Lern.t("Wertspeicher", "Store of value"), Lern.t("Recheneinheit", "Unit of account"), Lern.t("Tauschmittel", "Medium of exchange")], 0, Lern.t("Gutes Geld muss seinen Wert über die Zeit halten.", "Good money must hold its value over time.")], [Lern.t("„Ein Brot kostet 3 €.“ Welche Aufgabe erfüllt Geld hier?", "“A loaf of bread costs €3.” Which job does money do here?"), [Lern.t("Recheneinheit", "Unit of account"), Lern.t("Wertspeicher", "Store of value"), Lern.t("Tauschmittel", "Medium of exchange")], 0, Lern.t("Geld macht Preise vergleichbar.", "Money makes prices comparable.")]];
 Lern.quiz($("quiz"), "geld", QUIZ, "../"); Lern.visit("geld"); Lern.renderNext("geld", "../");
 })();
 </script>

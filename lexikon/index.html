@@ -30,23 +30,24 @@
 .term p{margin:0;padding:0 14px 12px;font-size:15px;line-height:1.55;color:var(--muted)} .term p a{color:var(--gold);font-weight:800}
 .none{margin-top:12px;color:var(--muted)}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=2"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Bitcoin-<span class="btc">Lexikon</span></h1>
-    <p class="lead">Alle wichtigen Begriffe, einfach erklärt. Tipp: In jeder Welt sind diese Wörter <b style="border-bottom:2px dotted var(--gold)">gepunktet unterstrichen</b>. Antippen zeigt die Erklärung.</p>
+    <h1 data-i="k3">Bitcoin-<span class="btc">Lexikon</span></h1>
+    <p data-i="k4" class="lead">Alle wichtigen Begriffe, einfach erklärt. Tipp: In jeder Welt sind diese Wörter <b style="border-bottom:2px dotted var(--gold)">gepunktet unterstrichen</b>. Antippen zeigt die Erklärung.</p>
   </div>
-  <section class="card" aria-label="Lexikon">
-    <input class="search" id="q" type="search" placeholder="🔎 Begriff suchen, z. B. Node" aria-label="Begriff suchen">
-    <nav class="abc" id="abc" aria-label="Buchstaben"></nav>
+  <section data-i="k6" class="card" aria-label="Lexikon">
+    <input data-i="k7" class="search" id="q" type="search" placeholder="🔎 Begriff suchen, z. B. Node" aria-label="Begriff suchen">
+    <nav data-i="k8" class="abc" id="abc" aria-label="Buchstaben"></nav>
     <div id="list"></div>
   </section>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <p data-i="k5" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
-<script src="../lern.js?v=125"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Bitcoin <span class=\"btc\">Glossary<\/span>", "k4": "All the important terms, explained simply. Tip: in every world these words are <b style=\"border-bottom:2px dotted var(--gold)\">underlined with dots<\/b>. Tap them to see the explanation.", "k5": "Entertainment and learning, not investment advice.", "k6@aria-label": "Glossary", "k7@aria-label": "Search term", "k7@placeholder": "🔎 Search a term, e.g. node", "k8@aria-label": "Letters", "_title": "Bitcoin Glossary · Bitcoin Voyage", "_desc": "All the important Bitcoin terms explained simply: node, block, seed, UTXO, halving, mempool and more."}</script>
+<script src="../lern.js?v=126"></script>
 <script>
 /* Lexikon: alle Begriffe aus Lern.GLOSSAR, alphabetisch, mit Suche */
 (() => {
@@ -58,7 +59,7 @@ function draw(q = ""){
   const f = !q ? G : byName.length ? byName : G.filter(g => g[2].toLowerCase().includes(ql)), have = new Set(f.map(g => letter(g[0])));
   $("abc").innerHTML = [..."#ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map(l => `<a href="#L${l}" class="${have.has(l) ? "" : "off"}">${l}</a>`).join("");
   let last = ""; $("list").innerHTML = f.map(([t, , d, w]) => { const l = letter(t), h = l !== last ? `<h2 class="ltr" id="L${l}">${l}</h2>` : ""; last = l;
-    return h + `<details class="term" id="t-${encodeURIComponent(t)}" ${q ? "open" : ""}><summary>${t}</summary><p>${d}${w ? ` <a href="../${w}/">Mehr dazu: ${TITLE[w] || w} →</a>` : ""}</p></details>`; }).join("") || `<p class="none">Nichts gefunden. Versuch es mit einem anderen Wort.</p>`;
+    return h + `<details class="term" id="t-${encodeURIComponent(t)}" ${q ? "open" : ""}><summary>${t}</summary><p>${d}${w ? Lern.t(` <a href="../${w}/">Mehr dazu: ${TITLE[w] || w} →</a>`, ` <a href="../${w}/">More: ${TITLE[w] || w} →</a>`) : ""}</p></details>`; }).join("") || Lern.t(`<p class="none">Nichts gefunden. Versuch es mit einem anderen Wort.</p>`, `<p class="none">Nothing found. Try a different word.</p>`);
 }
 $("q").addEventListener("input", e => draw(e.target.value.trim()));
 draw();
