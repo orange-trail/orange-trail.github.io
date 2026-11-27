@@ -46,85 +46,86 @@
 .nd .sh{display:none}
 @media (max-width:620px){ .mlv{gap:3px} .nd{font-size:11px;padding:5px 1px;border-radius:8px} .nd small{font-size:11px;white-space:normal;line-height:1.15;overflow:visible} .nd .lg{display:none} .nd .sh{display:inline} .nd{overflow:hidden;white-space:nowrap;text-overflow:ellipsis} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Tausende Zahlungen, <span class="btc">ein</span> Hash</h1>
-    <p class="lead">Ein Block enthält oft über 3.000 Zahlungen, aber im kleinen Block-Kopf ist nur Platz für <b>einen</b> Hash. Der Trick: Man hasht die Zahlungen <b>paarweise</b> zusammen, immer wieder, bis nur einer übrig bleibt. Das ergibt einen Baum, der auf dem Kopf steht.</p>
+    <h1 data-i="k3">Tausende Zahlungen, <span class="btc">ein</span> Hash</h1>
+    <p data-i="k4" class="lead">Ein Block enthält oft über 3.000 Zahlungen, aber im kleinen Block-Kopf ist nur Platz für <b>einen</b> Hash. Der Trick: Man hasht die Zahlungen <b>paarweise</b> zusammen, immer wieder, bis nur einer übrig bleibt. Das ergibt einen Baum, der auf dem Kopf steht.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Der Baum aus 8 Zahlungen</h2>
-    <div class="mode2 seg" id="md"><button class="btn" type="button" data-m="fake" aria-pressed="true">😈 Fälschen: Zahlung antippen</button><button class="btn" type="button" data-m="proof">📱 Beweisen: Zahlung antippen</button><button class="btn ghost" type="button" id="rs">↺ Zurücksetzen</button></div>
+    <h2 data-i="k5" id="h1s">1 · Der Baum aus 8 Zahlungen</h2>
+    <div class="mode2 seg" id="md"><button data-i="k6" class="btn" type="button" data-m="fake" aria-pressed="true">😈 Fälschen: Zahlung antippen</button><button data-i="k7" class="btn" type="button" data-m="proof">📱 Beweisen: Zahlung antippen</button><button data-i="k8" class="btn ghost" type="button" id="rs">↺ Zurücksetzen</button></div>
     <div class="tree nogl" id="tree"></div>
     <p class="note" id="tN"></p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Warum das so genial ist</h2>
-    <p class="muted" style="margin:0">Um zu beweisen, dass eine Zahlung im Block steckt, braucht man nicht alle Zahlungen, sondern nur die <b>Geschwister-Hashes</b> auf dem Weg nach oben. Bei doppelt so vielen Zahlungen braucht man nur <b>einen Hash mehr</b>.</p>
-    <div class="ctl"><label class="lbl2" for="nt">Zahlungen im Block</label><div class="row"><input id="nt" type="range" min="1" max="20" value="12"><b id="ntV" class="num"></b></div></div>
+    <h2 data-i="k9" id="h2s">2 · Warum das so genial ist</h2>
+    <p data-i="k10" class="muted" style="margin:0">Um zu beweisen, dass eine Zahlung im Block steckt, braucht man nicht alle Zahlungen, sondern nur die <b>Geschwister-Hashes</b> auf dem Weg nach oben. Bei doppelt so vielen Zahlungen braucht man nur <b>einen Hash mehr</b>.</p>
+    <div class="ctl"><label data-i="k11" class="lbl2" for="nt">Zahlungen im Block</label><div class="row"><input id="nt" type="range" min="1" max="20" value="12"><b id="ntV" class="num"></b></div></div>
     <div class="kv" id="mkv"></div>
-    <p class="note">Genau so prüfen viele Handy-Wallets Zahlungen, ohne die ganze Blockchain zu laden. Satoshi beschrieb das schon im Whitepaper als <b>„vereinfachte Zahlungsprüfung“</b> (SPV).</p>
+    <p data-i="k12" class="note">Genau so prüfen viele Handy-Wallets Zahlungen, ohne die ganze Blockchain zu laden. Satoshi beschrieb das schon im Whitepaper als <b>„vereinfachte Zahlungsprüfung“</b> (SPV).</p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k13" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Paarweise hashen</b><span>Je zwei Hashes werden zusammengehasht, Ebene für Ebene, bis nur die <b>Merkle-Root</b> bleibt.</span></div>
-      <div><b>Root im Block-Kopf</b><span>Die Merkle-Root steht im <b>Block-Kopf</b>. Ändert sich eine Zahlung, ändert sich die Root, und der Block ist ungültig.</span></div>
-      <div><b>Kurzer Beweis</b><span>Für 4.000 Zahlungen reichen <b>12 Hashes</b>, um eine Zahlung zu beweisen.</span></div>
-      <div><b>Ungerade Anzahl</b><span>Fehlt ein Partner, wird der letzte Hash bei Bitcoin einfach <b>verdoppelt</b>.</span></div>
+      <div><b data-i="k14">Paarweise hashen</b><span data-i="k15">Je zwei Hashes werden zusammengehasht, Ebene für Ebene, bis nur die <b>Merkle-Root</b> bleibt.</span></div>
+      <div><b data-i="k16">Root im Block-Kopf</b><span data-i="k17">Die Merkle-Root steht im <b>Block-Kopf</b>. Ändert sich eine Zahlung, ändert sich die Root, und der Block ist ungültig.</span></div>
+      <div><b data-i="k18">Kurzer Beweis</b><span data-i="k19">Für 4.000 Zahlungen reichen <b>12 Hashes</b>, um eine Zahlung zu beweisen.</span></div>
+      <div><b data-i="k20">Ungerade Anzahl</b><span data-i="k21">Fehlt ein Partner, wird der letzte Hash bei Bitcoin einfach <b>verdoppelt</b>.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k22">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Abschnitt 7 und 8</a> · <a href="https://developer.bitcoin.org/reference/block_chain.html#merkle-trees">Bitcoin Developer Reference: Merkle Trees</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k27" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k23">Quellen</summary><p><a data-i="k24" href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Abschnitt 7 und 8</a> · <a data-i="k25" href="https://developer.bitcoin.org/reference/block_chain.html#merkle-trees">Bitcoin Developer Reference: Merkle Trees</a></p></details>
+  <p data-i="k26" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Thousands of payments, <span class=\"btc\">one<\/span> hash", "k4": "A block often contains more than 3,000 payments, but the small block header only has room for <b>one<\/b> hash. The trick: you hash the payments together <b>in pairs<\/b>, again and again, until only one is left. That makes a tree standing upside down.", "k5": "1 · The tree of 8 payments", "k6": "😈 Forge: tap a payment", "k7": "📱 Prove: tap a payment", "k8": "↺ Reset", "k9": "2 · Why this is so brilliant", "k10": "To prove that a payment is in the block, you don't need all payments, only the <b>sibling hashes<\/b> on the way up. With twice as many payments you need only <b>one more hash<\/b>.", "k11": "Payments in the block", "k12": "This is exactly how many phone wallets check payments without downloading the whole blockchain. Satoshi already described it in the whitepaper as <b>“simplified payment verification”<\/b> (SPV).", "k13": "Remember this", "k14": "Hashing in pairs", "k15": "Two hashes at a time are hashed together, level by level, until only the <b>Merkle root<\/b> remains.", "k16": "Root in the block header", "k17": "The Merkle root sits in the <b>block header<\/b>. If a payment changes, the root changes, and the block is invalid.", "k18": "Short proof", "k19": "For 4,000 payments, <b>12 hashes<\/b> are enough to prove a payment.", "k20": "Odd number", "k21": "If a partner is missing, Bitcoin simply <b>duplicates<\/b> the last hash.", "k22": "Test yourself: 3 questions", "k23": "Sources", "k24": "Bitcoin whitepaper, sections 7 and 8", "k25": "Bitcoin Developer Reference: Merkle Trees", "k26": "Entertainment and learning, not investment advice.", "k27@aria-label": "Next", "_title": "Merkle Tree · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Merkle-Bäume. Wie tausende Zahlungen in einen einzigen Hash passen und wie ein Handy mit wenigen Hashes eine Zahlung beweisen kann."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    MERKLE-BAUM – Lernwelt von Bitcoin Voyage
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
-const TX0 = ["Anna → Ben 0,1", "Cem → Dana 0,02", "Eva → Finn 1,5", "Gil → Hana 0,3", "Ida → Jan 0,07", "Kai → Lea 2,0", "Max → Nia 0,01", "Ole → Pia 0,4"];
+const TX0 = [Lern.t("Anna → Ben 0,1", "Anna → Ben 0.1"), Lern.t("Cem → Dana 0,02", "Cem → Dana 0.02"), Lern.t("Eva → Finn 1,5", "Eva → Finn 1.5"), Lern.t("Gil → Hana 0,3", "Gil → Hana 0.3"), Lern.t("Ida → Jan 0,07", "Ida → Jan 0.07"), Lern.t("Kai → Lea 2,0", "Kai → Lea 2.0"), Lern.t("Max → Nia 0,01", "Max → Nia 0.01"), Lern.t("Ole → Pia 0,4", "Ole → Pia 0.4")];
 let TX = TX0.slice(), mode = "fake", sel = -1;
 const H = s => Bit.sha256d(Bit.utf8(s)), sh = u => Bit.hex(u).slice(0, 6);
 let base;
 function build(list){ const L = [list.map(H)]; while (L[L.length - 1].length > 1){ const p = L[L.length - 1], n = []; for (let i = 0; i < p.length; i += 2) n.push(Bit.sha256d(Bit.cat(p[i], p[i + 1] || p[i]))); L.push(n); } return L; }
 function draw(){
-  const L = build(TX), B = base, tags = ["Zahlungen", "Ebene 1", "Ebene 2", "Merkle-Root"];
+  const L = build(TX), B = base, tags = [Lern.t("Zahlungen", "Payments"), Lern.t("Ebene 1", "Level 1"), Lern.t("Ebene 2", "Level 2"), Lern.t("Merkle-Root", "Merkle root")];
   const proof = new Set(); if (mode === "proof" && sel >= 0){ let i = sel; for (let l = 0; l < L.length - 1; l++){ proof.add(l + ":" + (i ^ 1)); i >>= 1; } }
   $("tree").innerHTML = L.slice().reverse().map((lv, ri) => { const l = L.length - 1 - ri;
     return `<div class="mlv" style="grid-template-columns:repeat(${lv.length},minmax(0,1fr))">${lv.map((h, i) => {
       const bad = Bit.hex(h) !== Bit.hex(B[l][i]), cls = ["nd", l === 0 ? "tx" : "", l === L.length - 1 ? "root" : "", bad ? "bad" : "", proof.has(l + ":" + i) ? "proof" : "", mode === "proof" && l === 0 && i === sel ? "sel" : ""].join(" ");
       return `<div class="${cls}" ${l === 0 ? `data-i="${i}" role="button" tabindex="0"` : ""}><small>${l === 0 ? `<span class="lg">${TX[i]}</span><span class="sh">${TX[i].replace(/(\S)\S* → (\S)\S* ([\d,]+)/, "$1→$2<br>$3")}</span>` : tags[l] || ""}</small>${sh(h)}</div>`; }).join("")}</div>`; }).join("");
   const broken = Bit.hex(L[L.length - 1][0]) !== Bit.hex(B[B.length - 1][0]);
-  $("tN").innerHTML = mode === "proof" ? (sel < 0 ? "Tipp eine Zahlung an. Grün leuchten die Hashes, die du für den Beweis brauchst."
-      : `Für „<b>${TX[sel]}</b>“ reichen <b>3 grüne Hashes</b> plus die Root. Damit rechnet man den Weg nach oben nach. Die anderen 5 Zahlungen muss man nicht kennen.`)
-    : broken ? "😱 Eine Zahlung geändert, und die rote Spur läuft <b>bis ganz nach oben</b>. Die Merkle-Root passt nicht mehr zum Block-Kopf, jede Node lehnt den Block ab." : "Tipp eine Zahlung an, um ihren Betrag heimlich zu ändern.";
+  $("tN").innerHTML = mode === "proof" ? (sel < 0 ? Lern.t("Tipp eine Zahlung an. Grün leuchten die Hashes, die du für den Beweis brauchst.", "Tap a payment. The hashes you need for the proof light up green.")
+      : Lern.t(`Für „<b>${TX[sel]}</b>“ reichen <b>3 grüne Hashes</b> plus die Root. Damit rechnet man den Weg nach oben nach. Die anderen 5 Zahlungen muss man nicht kennen.`, `For “<b>${TX[sel]}</b>”, <b>3 green hashes</b> plus the root are enough. With them you recalculate the way up. You don't need to know the other 5 payments.`))
+    : broken ? Lern.t("😱 Eine Zahlung geändert, und die rote Spur läuft <b>bis ganz nach oben</b>. Die Merkle-Root passt nicht mehr zum Block-Kopf, jede Node lehnt den Block ab.", "😱 One payment changed, and the red trail runs <b>all the way up</b>. The Merkle root no longer matches the block header; every node rejects the block.") : Lern.t("Tipp eine Zahlung an, um ihren Betrag heimlich zu ändern.", "Tap a payment to secretly change its amount.");
 }
 $("tree").addEventListener("click", e => { const n = e.target.closest("[data-i]"); if (!n) return; const i = +n.dataset.i;
-  if (mode === "fake"){ TX[i] = TX[i].replace(/[\d,]+$/, v => (parseFloat(v.replace(",", ".")) * 10).toLocaleString("de-DE")); } else sel = i; draw(); });
+  if (mode === "fake"){ TX[i] = TX[i].replace(/[\d,]+$/, v => (parseFloat(v.replace(",", ".")) * 10).toLocaleString(Lern.EN ? "en-US" : "de-DE")); } else sel = i; draw(); });
 $("tree").addEventListener("keydown", e => { if (e.key === "Enter") e.target.click(); });
 $("md").addEventListener("click", e => { const b = e.target.closest("[data-m]"); if (!b) return; mode = b.dataset.m; $("md").querySelectorAll("[data-m]").forEach(x => x.setAttribute("aria-pressed", x === b)); TX = TX0.slice(); sel = -1; draw(); });
 $("rs").onclick = () => { TX = TX0.slice(); sel = -1; draw(); };
 base = build(TX0); draw();
 // Rechner
 function calc(){ const n = 2 ** +$("nt").value, h = Math.ceil(Math.log2(n));
-  $("ntV").textContent = n.toLocaleString("de-DE");
-  $("mkv").innerHTML = `<div>Zahlungen<b>${n.toLocaleString("de-DE")}</b></div><div>Hashes für den Beweis<b class="g">${h}</b></div><div>Beweis-Größe<b>${h * 32} Byte</b></div>`; }
+  $("ntV").textContent = n.toLocaleString(Lern.EN ? "en-US" : "de-DE");
+  $("mkv").innerHTML = Lern.t(`<div>Zahlungen<b>${n.toLocaleString(Lern.EN ? "en-US" : "de-DE")}</b></div><div>Hashes für den Beweis<b class="g">${h}</b></div><div>Beweis-Größe<b>${h * 32} Byte</b></div>`, `<div>Payments<b>${n.toLocaleString(Lern.EN ? "en-US" : "de-DE")}</b></div><div>Hashes for the proof<b class="g">${h}</b></div><div>Proof size<b>${h * 32} bytes</b></div>`); }
 $("nt").oninput = calc; calc();
 
-const QUIZ = [["Was steht im Block-Kopf?", ["Eine Liste aller Zahlungen im Block", "Nur die Merkle-Root, ein einziger Hash über alle Zahlungen", "Die Namen aller Absender und Empfänger", "Gar nichts, was mit Zahlungen zu tun hat"], 1, "Der Block-Kopf enthält die Merkle-Root. Sie fasst alle Zahlungen des Blocks in einem Hash zusammen."], ["Was passiert, wenn jemand eine Zahlung im Block ändert?", ["Nichts, der Block bleibt trotzdem gültig", "Nur der Hash dieser einen Zahlung ändert sich", "Alle Hashes bis zur Root ändern sich, der Block wird ungültig", "Die Zahlung wird dann einfach doppelt gezählt"], 2, "Jede Änderung zieht sich bis zur Merkle-Root durch. Die passt dann nicht mehr zum Block-Kopf."], ["Wie viele Hashes braucht ein Beweis bei etwa 4.000 Zahlungen?", ["4.000", "2.000", "Etwa 12", "1"], 2, "Jede Ebene halbiert die Anzahl. 2 hoch 12 sind 4.096, also reichen 12 Hashes."]];
+const QUIZ = [[Lern.t("Was steht im Block-Kopf?", "What's in the block header?"), [Lern.t("Eine Liste aller Zahlungen im Block", "A list of all payments in the block"), Lern.t("Nur die Merkle-Root, ein einziger Hash über alle Zahlungen", "Only the Merkle root, a single hash over all payments"), Lern.t("Die Namen aller Absender und Empfänger", "The names of all senders and receivers"), Lern.t("Gar nichts, was mit Zahlungen zu tun hat", "Nothing to do with payments at all")], 1, Lern.t("Der Block-Kopf enthält die Merkle-Root. Sie fasst alle Zahlungen des Blocks in einem Hash zusammen.", "The block header contains the Merkle root. It sums up all the block's payments in one hash.")], [Lern.t("Was passiert, wenn jemand eine Zahlung im Block ändert?", "What happens if someone changes a payment in the block?"), [Lern.t("Nichts, der Block bleibt trotzdem gültig", "Nothing, the block stays valid anyway"), Lern.t("Nur der Hash dieser einen Zahlung ändert sich", "Only the hash of that one payment changes"), Lern.t("Alle Hashes bis zur Root ändern sich, der Block wird ungültig", "All hashes up to the root change; the block becomes invalid"), Lern.t("Die Zahlung wird dann einfach doppelt gezählt", "The payment is then simply counted twice")], 2, Lern.t("Jede Änderung zieht sich bis zur Merkle-Root durch. Die passt dann nicht mehr zum Block-Kopf.", "Every change carries through to the Merkle root. It then no longer matches the block header.")], [Lern.t("Wie viele Hashes braucht ein Beweis bei etwa 4.000 Zahlungen?", "How many hashes does a proof need with about 4,000 payments?"), ["4.000", "2.000", Lern.t("Etwa 12", "About 12"), "1"], 2, Lern.t("Jede Ebene halbiert die Anzahl. 2 hoch 12 sind 4.096, also reichen 12 Hashes.", "Every level halves the number. 2 to the power of 12 is 4,096, so 12 hashes are enough.")]];
 Lern.quiz($("quiz"), "merkle", QUIZ, "../"); Lern.visit("merkle"); Lern.renderNext("merkle", "../");
 })();
 </script>

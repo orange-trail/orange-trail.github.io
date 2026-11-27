@@ -64,116 +64,117 @@
 @media (max-width:420px){.pxroute .nd{width:46px}.pxroute .nd span{width:34px;height:34px;font-size:17px}.pxinv{grid-template-columns:1fr}.pxqr{margin:0 auto}}
 @media (max-width:640px){ .kv{grid-template-columns:1fr 1fr 1fr;gap:6px} .kv div{padding:8px} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Lightning</span>-Rennen</h1>
-    <p class="lead">Eine Zahlung direkt in der Blockchain dauert Minuten und kostet Gebühr. Über das Lightning-Netz geht sie in Sekunden und fast gratis. Wie das geht? Erst das Rennen, dann die Erklärung.</p>
+    <h1 data-i="k3"><span class="btc">Lightning</span>-Rennen</h1>
+    <p data-i="k4" class="lead">Eine Zahlung direkt in der Blockchain dauert Minuten und kostet Gebühr. Über das Lightning-Netz geht sie in Sekunden und fast gratis. Wie das geht? Erst das Rennen, dann die Erklärung.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Kaffee bezahlen: 5 € <span class="mode" id="mode">Verbinde …</span></h2>
+    <h2 data-i="k5" id="h1s">Kaffee bezahlen: 5 € <span class="mode" id="mode">Verbinde …</span></h2>
     <div class="race">
-      <div class="lane oc"><div class="hd"><b>⛓ Direkt in der Blockchain</b><span id="ocCost">–</span></div><div class="track"><i id="ocBar"></i><span id="ocRun">☕</span></div><div class="st" id="ocSt">Wartet auf den Start</div></div>
-      <div class="lane ln"><div class="hd"><b>⚡ Lightning</b><span id="lnCost">–</span></div><div class="track"><i id="lnBar"></i><span id="lnRun">☕</span></div><div class="st" id="lnSt">Wartet auf den Start</div></div>
+      <div class="lane oc"><div class="hd"><b data-i="k6">⛓ Direkt in der Blockchain</b><span id="ocCost">–</span></div><div class="track"><i id="ocBar"></i><span id="ocRun">☕</span></div><div data-i="k7" class="st" id="ocSt">Wartet auf den Start</div></div>
+      <div class="lane ln"><div class="hd"><b data-i="k8">⚡ Lightning</b><span id="lnCost">–</span></div><div class="track"><i id="lnBar"></i><span id="lnRun">☕</span></div><div data-i="k9" class="st" id="lnSt">Wartet auf den Start</div></div>
     </div>
-    <div class="payrow"><button class="btn" id="go" type="button">Rennen starten</button></div>
-    <p class="note">Im Rennen sind <b>10 Minuten auf 10 Sekunden</b> verkürzt. Wie lange der nächste Block wirklich dauert, ist jedes Mal Zufall.</p>
+    <div class="payrow"><button data-i="k10" class="btn" id="go" type="button">Rennen starten</button></div>
+    <p data-i="k11" class="note">Im Rennen sind <b>10 Minuten auf 10 Sekunden</b> verkürzt. Wie lange der nächste Block wirklich dauert, ist jedes Mal Zufall.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">So funktioniert ein Kanal</h2>
-    <p class="muted" style="margin:0">Anna und Ben legen einmal in der Blockchain <b>100.000 sats</b> in einen gemeinsamen Kanal. Danach schieben sie sats beliebig oft hin und her, sofort und ohne Block.</p>
+    <h2 data-i="k12" id="h2s">So funktioniert ein Kanal</h2>
+    <p data-i="k13" class="muted" style="margin:0">Anna und Ben legen einmal in der Blockchain <b>100.000 sats</b> in einen gemeinsamen Kanal. Danach schieben sie sats beliebig oft hin und her, sofort und ohne Block.</p>
     <div class="chan">
-      <div class="who"><span aria-hidden="true">👩</span>Anna</div>
+      <div data-i="k14" class="who"><span aria-hidden="true">👩</span>Anna</div>
       <div><div class="pipe"><i class="pa" id="pa"></i><i class="pb" id="pb"></i></div><div class="bal"><span id="ba">–</span><span id="bb">–</span></div></div>
-      <div class="who"><span aria-hidden="true">👨</span>Ben</div>
+      <div data-i="k15" class="who"><span aria-hidden="true">👨</span>Ben</div>
     </div>
-    <div class="payrow"><button class="btn" id="a2b" type="button">Anna zahlt Ben 10.000 sats</button><button class="btn ghost" id="b2a" type="button">Ben zahlt Anna 10.000 sats</button></div>
-    <p class="note" id="chNote">Erst wenn einer den Kanal schließt, landet der Endstand wieder in der Blockchain.</p>
+    <div class="payrow"><button data-i="k16" class="btn" id="a2b" type="button">Anna zahlt Ben 10.000 sats</button><button data-i="k17" class="btn ghost" id="b2a" type="button">Ben zahlt Anna 10.000 sats</button></div>
+    <p data-i="k18" class="note" id="chNote">Erst wenn einer den Kanal schließt, landet der Endstand wieder in der Blockchain.</p>
   </section>
 
   <section class="card" aria-labelledby="hpx" id="uebung">
-    <h2 id="hpx">Probier's aus: Bezahl Planki ⚡</h2>
-    <p class="muted" style="margin:0">Du hast eine Übungs-Wallet mit <b>1.000 Spiel-sats</b>. Kein echtes Geld, alles passiert nur hier im Browser. Planki verkauft Snacks und schickt dir eine <b>Rechnung</b>.</p>
+    <h2 data-i="k19" id="hpx">Probier's aus: Bezahl Planki ⚡</h2>
+    <p data-i="k20" class="muted" style="margin:0">Du hast eine Übungs-Wallet mit <b>1.000 Spiel-sats</b>. Kein echtes Geld, alles passiert nur hier im Browser. Planki verkauft Snacks und schickt dir eine <b>Rechnung</b>.</p>
     <div class="pxw">
-      <div><small>Deine Übungs-Wallet</small><b id="pxMe">1.000</b> <small style="display:inline">Spiel-sats</small></div>
-      <div class="pk"><i id="pxPk"></i><div><small>Plankis Kasse</small><b id="pxPl">0</b> <small style="display:inline">sats</small></div></div>
+      <div><small data-i="k21">Deine Übungs-Wallet</small><b id="pxMe">1.000</b> <small data-i="k22" style="display:inline">Spiel-sats</small></div>
+      <div class="pk"><i id="pxPk"></i><div><small data-i="k23">Plankis Kasse</small><b id="pxPl">0</b> <small data-i="k24" style="display:inline">sats</small></div></div>
     </div>
-    <div class="pxmenu" id="pxMenu" role="group" aria-label="Snack wählen">
-      <button class="btn ghost" type="button" data-a="21" data-t="Algenkeks">🍪 Algenkeks · 21 sats</button>
-      <button class="btn ghost" type="button" data-a="150" data-t="Muschel-Limo">🥤 Muschel-Limo · 150 sats</button>
-      <button class="btn ghost" type="button" data-a="5000" data-t="Riesen-Perle">🔮 Riesen-Perle · 5.000 sats</button>
+    <div data-i="k78" class="pxmenu" id="pxMenu" role="group" aria-label="Snack wählen">
+      <button data-i="k25" class="btn ghost" type="button" data-a="21" data-t="Algenkeks">🍪 Algenkeks · 21 sats</button>
+      <button data-i="k26" class="btn ghost" type="button" data-a="150" data-t="Muschel-Limo">🧃 Muschel-Limo · 150 sats</button>
+      <button data-i="k27" class="btn ghost" type="button" data-a="5000" data-t="Riesen-Perle">🔮 Riesen-Perle · 5.000 sats</button>
     </div>
     <div class="pxinv" id="pxInv" hidden>
       <div class="pxqr" id="pxQr" aria-hidden="true"></div>
-      <div><b id="pxTitle">Rechnung</b>
-        <ul><li>Betrag: <b id="pxAmt">–</b></li><li>Für: <b id="pxFor">–</b></li><li>Gültig: <b>10 Minuten</b></li></ul>
+      <div><b data-i="k28" id="pxTitle">Rechnung</b>
+        <ul><li data-i="k29">Betrag: <b id="pxAmt">–</b></li><li data-i="k30">Für: <b id="pxFor">–</b></li><li data-i="k31">Gültig: <b>10 Minuten</b></li></ul>
         <code id="pxCode"></code>
-        <div class="pxmenu"><button class="btn" id="pxPay" type="button">⚡ Bezahlen</button></div>
+        <div class="pxmenu"><button data-i="k32" class="btn" id="pxPay" type="button">⚡ Bezahlen</button></div>
       </div>
     </div>
     <div class="pxroute" aria-hidden="true">
-      <div class="nd" id="pxN0"><span>🧑</span>Du</div><div class="ln"><i id="pxL0"></i></div>
-      <div class="nd" id="pxN1"><span>🐢</span>Knoten A</div><div class="ln"><i id="pxL1"></i></div>
-      <div class="nd" id="pxN2"><span>🐙</span>Knoten B</div><div class="ln"><i id="pxL2"></i></div>
-      <div class="nd" id="pxN3"><span id="pxN3i"></span>Planki</div>
+      <div data-i="k33" class="nd" id="pxN0"><span>🧑</span>Du</div><div class="ln"><i id="pxL0"></i></div>
+      <div data-i="k34" class="nd" id="pxN1"><span>🐢</span>Knoten A</div><div class="ln"><i id="pxL1"></i></div>
+      <div data-i="k35" class="nd" id="pxN2"><span>🦀</span>Knoten B</div><div class="ln"><i id="pxL2"></i></div>
+      <div data-i="k36" class="nd" id="pxN3"><span id="pxN3i"></span>Planki</div>
     </div>
-    <p class="note pxmsg" id="pxMsg" aria-live="polite">Wähle oben einen Snack, dann bekommst du Plankis Rechnung.</p>
+    <p data-i="k37" class="note pxmsg" id="pxMsg" aria-live="polite">Wähle oben einen Snack, dann bekommst du Plankis Rechnung.</p>
   </section>
 
   <section class="card" aria-labelledby="h3s" id="netCard" hidden>
-    <h2 id="h3s">Das Lightning-Netz in Zahlen</h2>
+    <h2 data-i="k38" id="h3s">Das Lightning-Netz in Zahlen</h2>
     <div class="kv">
-      <div><small>Kapazität</small><b class="num" id="cap">–</b></div>
-      <div><small>Kanäle</small><b class="num" id="chs">–</b></div>
-      <div><small>Knoten</small><b class="num" id="nds">–</b></div>
+      <div><small data-i="k39">Kapazität</small><b class="num" id="cap">–</b></div>
+      <div><small data-i="k40">Kanäle</small><b class="num" id="chs">–</b></div>
+      <div><small data-i="k41">Knoten</small><b class="num" id="nds">–</b></div>
     </div>
-    <p class="note">Kanäle sind wie Straßen: Hat Anna keinen Kanal zu Carla, läuft die Zahlung über Ben, der mit beiden verbunden ist. Ben kann das Geld dabei <b>nicht abzweigen</b>.</p>
-    <p class="note"><b>Grenzen:</b> Auf jeder Straße muss genug Geld in die richtige Richtung liegen (<b>Liquidität</b>). Fehlt es oder ist ein Knoten offline, findet die Wallet manchmal keinen Weg, und die Zahlung scheitert (das Geld bleibt dann bei dir). Lightning ist privater als die Blockchain, aber <b>nicht anonym</b>.</p>
+    <p data-i="k42" class="note">Kanäle sind wie Straßen: Hat Anna keinen Kanal zu Carla, läuft die Zahlung über Ben, der mit beiden verbunden ist. Ben kann das Geld dabei <b>nicht abzweigen</b>.</p>
+    <p data-i="k43" class="note"><b>Grenzen:</b> Auf jeder Straße muss genug Geld in die richtige Richtung liegen (<b>Liquidität</b>). Fehlt es oder ist ein Knoten offline, findet die Wallet manchmal keinen Weg, und die Zahlung scheitert (das Geld bleibt dann bei dir). Lightning ist privater als die Blockchain, aber <b>nicht anonym</b>.</p>
   </section>
 
   <section class="card" aria-labelledby="h5a">
-    <h2 id="h5a">Wo kann ich damit bezahlen?</h2>
+    <h2 data-i="k44" id="h5a">Wo kann ich damit bezahlen?</h2>
     <div class="learn bx">
-      <div><b>🛒 Online</b><span>Manche Shops nehmen Bitcoin, oft per Lightning. Über <b>Gutschein-Dienste</b> zahlst du indirekt auch bei großen Händlern.</span></div>
-      <div><b>☕ Vor Ort</b><span>In Deutschland noch <b>selten</b>: einzelne Cafés, Bars und Läden. Die Karte <b>BTC Map</b> zeigt, wo. In der Schweiz nimmt sogar ein Supermarkt in Zug Lightning.</span></div>
-      <div><b>📲 Selbst annehmen</b><span>Deine Wallet erstellt eine <b>Rechnung als QR-Code</b>, der andere scannt, fertig. Kassen-Apps rechnen Euro automatisch in Sats um.</span></div>
-      <div><b>🤔 Ehrlich gesagt</b><span>Die meisten nutzen Bitcoin heute eher zum <b>Sparen</b> als zum Einkaufen. Bezahlen klappt, ist im Alltag aber noch die Ausnahme.</span></div>
+      <div><b data-i="k45">🛒 Online</b><span data-i="k46">Manche Shops nehmen Bitcoin, oft per Lightning. Über <b>Gutschein-Dienste</b> zahlst du indirekt auch bei großen Händlern.</span></div>
+      <div><b data-i="k47">☕ Vor Ort</b><span data-i="k48">In Deutschland noch <b>selten</b>: einzelne Cafés, Bars und Läden. Die Karte <b>BTC Map</b> zeigt, wo. In der Schweiz nimmt sogar ein Supermarkt in Zug Lightning.</span></div>
+      <div><b data-i="k49">📲 Selbst annehmen</b><span data-i="k50">Deine Wallet erstellt eine <b>Rechnung als QR-Code</b>, der andere scannt, fertig. Kassen-Apps rechnen Euro automatisch in Sats um.</span></div>
+      <div><b data-i="k51">🤔 Ehrlich gesagt</b><span data-i="k52">Die meisten nutzen Bitcoin heute eher zum <b>Sparen</b> als zum Einkaufen. Bezahlen klappt, ist im Alltag aber noch die Ausnahme.</span></div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="h5b">
-    <h2 id="h5b">Wo Lightning noch hakt</h2>
+    <h2 data-i="k53" id="h5b">Wo Lightning noch hakt</h2>
     <div class="learn bx">
-      <div><b>📶 Online sein</b><span>Zum <b>Empfangen</b> muss die Wallet erreichbar sein. Eigene Lightning-Wallets brauchen dafür etwas Technik.</span></div>
-      <div><b>🏦 Bequem heißt oft verwahrt</b><span>Viele einfache Apps <b>verwahren dein Geld für dich</b>. Das ist praktisch, aber dann gehören die Bitcoin nicht wirklich dir. Für kleine Beträge ok, fürs Sparen nicht.</span></div>
-      <div><b>🚧 Große Beträge</b><span>Jede Zahlung braucht einen Weg mit genug Guthaben. Große Summen können deshalb <b>scheitern</b>. Dann hilft die normale Blockchain.</span></div>
-      <div><b>🧪 Noch jung</b><span>Lightning gibt es erst seit 2018 im Alltag. Es wird ständig verbessert, ist aber noch nicht so einfach wie eine Bankkarte.</span></div>
+      <div><b data-i="k54">📶 Online sein</b><span data-i="k55">Zum <b>Empfangen</b> muss die Wallet erreichbar sein. Eigene Lightning-Wallets brauchen dafür etwas Technik.</span></div>
+      <div><b data-i="k56">🏦 Bequem heißt oft verwahrt</b><span data-i="k57">Viele einfache Apps <b>verwahren dein Geld für dich</b>. Das ist praktisch, aber dann gehören die Bitcoin nicht wirklich dir. Für kleine Beträge ok, fürs Sparen nicht.</span></div>
+      <div><b data-i="k58">🚧 Große Beträge</b><span data-i="k59">Jede Zahlung braucht einen Weg mit genug Guthaben. Große Summen können deshalb <b>scheitern</b>. Dann hilft die normale Blockchain.</span></div>
+      <div><b data-i="k60">🧪 Noch jung</b><span data-i="k61">Lightning gibt es erst seit 2018 im Alltag. Es wird ständig verbessert, ist aber noch nicht so einfach wie eine Bankkarte.</span></div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="h4s">
-    <h2 id="h4s">Das solltest du dir merken</h2>
+    <h2 data-i="k62" id="h4s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Zweite Ebene</b><span>Lightning baut <b>auf Bitcoin auf</b>. Nur Öffnen und Schließen eines Kanals kommt in die Blockchain.</span></div>
-      <div><b>Schnell &amp; günstig</b><span>Zahlungen kommen in <b>Sekunden</b> an und kosten oft nur <b>wenige sats</b>, ideal für kleine Beträge.</span></div>
-      <div><b>Nicht für alles</b><span>Für große Summen oder langfristiges Sparen ist die <b>Blockchain direkt</b> die sicherere Wahl.</span></div>
-      <div><b>Wallet wählen</b><span>Es gibt Lightning-Wallets, die du <b>selbst verwahrst</b>, und solche, bei denen ein Anbieter dein Geld hält.</span></div>
+      <div><b data-i="k63">Zweite Ebene</b><span data-i="k64">Lightning baut <b>auf Bitcoin auf</b>. Nur Öffnen und Schließen eines Kanals kommt in die Blockchain.</span></div>
+      <div><b data-i="k65">Schnell &amp; günstig</b><span data-i="k66">Zahlungen kommen in <b>Sekunden</b> an und kosten oft nur <b>wenige sats</b>, ideal für kleine Beträge.</span></div>
+      <div><b data-i="k67">Nicht für alles</b><span data-i="k68">Für große Summen oder langfristiges Sparen ist die <b>Blockchain direkt</b> die sicherere Wahl.</span></div>
+      <div><b data-i="k69">Wallet wählen</b><span data-i="k70">Es gibt Lightning-Wallets, die du <b>selbst verwahrst</b>, und solche, bei denen ein Anbieter dein Geld hält.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k71">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b>Vertiefen:</b> <a href="../lnnetz/">Lightning unter der Haube</a> <span class="muted">(finde selbst eine Route durchs Netz)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Gebühren und Lightning-Zahlen als typische Beispielwerte, Euro-Kurs Stand 15.11.2026. Rechnung für eine typische Überweisung mit 140 vByte. Lightning-Gebühr als typischer Wert von wenigen sats angenommen. Bezahlorte: <a href="https://btcmap.org">BTC Map</a>; Supermarkt in Zug: <a href="https://www.btc-echo.de/schlagzeilen/spar-supermarkt-in-zug-akzeptiert-bitcoin-ueber-lightning-205898">BTC-Echo</a>.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k79" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b data-i="k72">Vertiefen:</b> <a data-i="k73" href="../lnnetz/">Lightning unter der Haube</a> <span data-i="k74" class="muted">(finde selbst eine Route durchs Netz)</span></p></section>
+  <section data-i="k80" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k75">Quellen</summary><p data-i="k76">Gebühren und Lightning-Zahlen als typische Beispielwerte, Euro-Kurs Stand 15.11.2026. Rechnung für eine typische Überweisung mit 140 vByte. Lightning-Gebühr als typischer Wert von wenigen sats angenommen. Bezahlorte: <a href="https://btcmap.org">BTC Map</a>; Supermarkt in Zug: <a href="https://www.btc-echo.de/schlagzeilen/spar-supermarkt-in-zug-akzeptiert-bitcoin-ueber-lightning-205898">BTC-Echo</a>.</p></details>
+  <p data-i="k77" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Lightning<\/span> Race", "k4": "A payment directly on the blockchain takes minutes and costs a fee. Via the Lightning network it takes seconds and is almost free. How does that work? First the race, then the explanation.", "k5": "Paying for a coffee: €5 <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k6": "⛓ Directly on the blockchain", "k7": "Waiting for the start", "k8": "⚡ Lightning", "k9": "Waiting for the start", "k10": "Start the race", "k11": "In the race, <b>10 minutes are shortened to 10 seconds<\/b>. How long the next block really takes is random every time.", "k12": "How a channel works", "k13": "Anna and Ben put <b>100,000 sats<\/b> into a shared channel once, on the blockchain. After that they move sats back and forth as often as they like, instantly and without a block.", "k14": "<span aria-hidden=\"true\">👩<\/span>Anna", "k15": "<span aria-hidden=\"true\">👨<\/span>Ben", "k16": "Anna pays Ben 10,000 sats", "k17": "Ben pays Anna 10,000 sats", "k18": "Only when one of them closes the channel does the final balance land on the blockchain again.", "k19": "Try it: pay Planki ⚡", "k20": "You have a practice wallet with <b>1,000 play sats<\/b>. No real money; everything happens only here in the browser. Planki sells snacks and sends you an <b>invoice<\/b>.", "k21": "Your practice wallet", "k22": "play sats", "k23": "Planki's till", "k24": "sats", "k25": "🍪 Seaweed cookie · 21 sats", "k26": "🧃 Shell lemonade · 150 sats", "k27": "🔮 Giant pearl · 5,000 sats", "k28": "Invoice", "k29": "Amount: <b id=\"pxAmt\">–<\/b>", "k30": "For: <b id=\"pxFor\">–<\/b>", "k31": "Valid: <b>10 minutes<\/b>", "k32": "⚡ Pay", "k33": "<span>🧑<\/span>You", "k34": "<span>🐢<\/span>Node A", "k35": "<span>🦀<\/span>Node B", "k36": "<span id=\"pxN3i\"><\/span>Planki", "k37": "Choose a snack above, then you'll get Planki's invoice.", "k38": "The Lightning network in numbers", "k39": "Capacity", "k40": "Channels", "k41": "Nodes", "k42": "Channels are like roads: if Anna has no channel to Carla, the payment runs via Ben, who is connected to both. Ben <b>can't divert<\/b> the money along the way.", "k43": "<b>Limits:<\/b> on every road there must be enough money in the right direction (<b>liquidity<\/b>). If it's missing or a node is offline, the wallet sometimes finds no route and the payment fails (the money then stays with you). Lightning is more private than the blockchain, but <b>not anonymous<\/b>.", "k44": "Where can I pay with it?", "k45": "🛒 Online", "k46": "Some shops accept bitcoin, often via Lightning. Via <b>voucher services<\/b> you can also pay indirectly at big retailers.", "k47": "☕ In person", "k48": "In Germany still <b>rare<\/b>: individual cafés, bars and shops. The <b>BTC Map<\/b> shows where. In Switzerland even a supermarket in Zug accepts Lightning.", "k49": "📲 Accept it yourself", "k50": "Your wallet creates an <b>invoice as a QR code<\/b>, the other person scans it, done. Point-of-sale apps convert euros into sats automatically.", "k51": "🤔 To be honest", "k52": "Most people today use Bitcoin more for <b>saving<\/b> than for shopping. Paying works, but in everyday life it's still the exception.", "k53": "Where Lightning still struggles", "k54": "📶 Being online", "k55": "To <b>receive<\/b>, the wallet must be reachable. Self-custodial Lightning wallets need a bit of technology for this.", "k56": "🏦 Convenient often means custodial", "k57": "Many simple apps <b>hold your money for you<\/b>. That's practical, but then the bitcoin don't really belong to you. Fine for small amounts, not for saving.", "k58": "🚧 Large amounts", "k59": "Every payment needs a route with enough balance. Large sums can therefore <b>fail<\/b>. Then the normal blockchain helps.", "k60": "🧪 Still young", "k61": "Lightning has only been in everyday use since 2018. It keeps improving, but isn't yet as easy as a bank card.", "k62": "Remember this", "k63": "Second layer", "k64": "Lightning builds <b>on top of Bitcoin<\/b>. Only opening and closing a channel go onto the blockchain.", "k65": "Fast &amp; cheap", "k66": "Payments arrive in <b>seconds<\/b> and often cost only <b>a few sats<\/b>, ideal for small amounts.", "k67": "Not for everything", "k68": "For large sums or long-term saving, the <b>blockchain directly<\/b> is the safer choice.", "k69": "Choosing a wallet", "k70": "There are Lightning wallets you <b>hold yourself<\/b>, and ones where a provider holds your money.", "k71": "Test yourself: 3 questions", "k72": "Go deeper:", "k73": "Lightning under the hood", "k74": "(find a route through the network yourself)", "k75": "Sources", "k76": "Fees and Lightning figures as typical example values, euro price as of 15 Nov 2026. Calculation for a typical transfer with 140 vbytes. Lightning fee assumed as a typical value of a few sats. Places to pay: <a href=\"https://btcmap.org\">BTC Map<\/a>; supermarket in Zug: <a href=\"https://www.btc-echo.de/schlagzeilen/spar-supermarkt-in-zug-akzeptiert-bitcoin-ueber-lightning-205898\">BTC-Echo<\/a>.", "k77": "Entertainment and learning, not investment advice.", "k78@aria-label": "Choose a snack", "k79@aria-label": "Related", "k80@aria-label": "Next", "_title": "Lightning · Bitcoin Voyage", "_desc": "Lernwelt: Warum Lightning-Zahlungen in Sekunden ankommen und fast nichts kosten. Mit Live-Gebühren und Live-Netzwerkdaten."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    LIGHTNING-RENNEN – Lernwelt von Bitcoin Voyage
@@ -182,15 +183,15 @@
 (() => {
 const $ = id => document.getElementById(id);
 const MP = Lern.api("v1/");
-const fmt = n => Math.round(n).toLocaleString("de-DE");
-const eur2 = v => v.toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: v < .1 ? 3 : 2}) + " €";
+const fmt = n => Math.round(n).toLocaleString(Lern.EN ? "en-US" : "de-DE");
+const eur2 = v => Lern.cur(v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {minimumFractionDigits: 2, maximumFractionDigits: v < .1 ? 3 : 2}) + " €");
 let fee = 2, eur = Lern.PRICE.EUR, live = false;
 const LN_SATS = 2;   // typische Lightning-Gebühr für 5 €
 
 function costs(){
   const sats = Math.max(1, fee)*140;
-  $("ocCost").innerHTML = `Gebühr ca. <b>${fmt(sats)} sats</b> ≈ ${eur2(sats/1e8*eur)}`;
-  $("lnCost").innerHTML = `Gebühr ca. <b>${LN_SATS} sats</b> ≈ ${eur2(LN_SATS/1e8*eur)}`;
+  $("ocCost").innerHTML = Lern.t(`Gebühr ca. <b>${fmt(sats)} sats</b> ≈ ${eur2(sats/1e8*eur)}`, `Fee approx. <b>${fmt(sats)} sats</b> ≈ ${eur2(sats/1e8*eur)}`);
+  $("lnCost").innerHTML = Lern.t(`Gebühr ca. <b>${LN_SATS} sats</b> ≈ ${eur2(LN_SATS/1e8*eur)}`, `Fee approx. <b>${LN_SATS} sats</b> ≈ ${eur2(LN_SATS/1e8*eur)}`);
 }
 async function load(){
   try { const f = await (await fetch(MP + "fees/recommended")).json(); if (f.fastestFee > 0){ fee = f.fastestFee; live = true; } } catch(e){}
@@ -199,7 +200,7 @@ async function load(){
     const j = await (await fetch(MP + "lightning/statistics/latest")).json(), l = j.latest || j;
     if (l.total_capacity > 0){ $("cap").textContent = fmt(l.total_capacity/1e8) + " BTC"; $("chs").textContent = fmt(l.channel_count); $("nds").textContent = fmt(l.node_count); $("netCard").hidden = false; live = true; }
   } catch(e){}
-  $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte";
+  $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : Lern.t("Beispielwerte", "Example values");
   costs();
 }
 
@@ -209,14 +210,14 @@ function setRun(k, f){ $(k + "Bar").style.width = (f*100) + "%"; $(k + "Run").st
 $("go").addEventListener("click", () => {
   if (running) return; running = true; $("go").disabled = true;
   const t0 = performance.now(), block = Math.max(2, -Math.log(1 - Math.random())*10);   // Sekunden bis zum Block (zufällig)
-  $("ocSt").textContent = "Wartet im Mempool auf den nächsten Block …"; $("lnSt").textContent = "Unterwegs über den Kanal …";
+  $("ocSt").textContent = Lern.t("Wartet im Mempool auf den nächsten Block …", "Waiting in the mempool for the next block …"); $("lnSt").textContent = Lern.t("Unterwegs über den Kanal …", "On its way through the channel …");
   let lnDone = false;
   const tick = now => {
     const s = (now - t0)/1000;
-    if (!lnDone){ const f = Math.min(1, s/1.5); setRun("ln", f); if (f >= 1){ lnDone = true; $("lnSt").innerHTML = `<b>Angekommen nach ca. 1 Sekunde!</b> Der Kaffee ist bezahlt.`; } }
+    if (!lnDone){ const f = Math.min(1, s/1.5); setRun("ln", f); if (f >= 1){ lnDone = true; $("lnSt").innerHTML = Lern.t(`<b>Angekommen nach ca. 1 Sekunde!</b> Der Kaffee ist bezahlt.`, `<b>Arrived after approx. 1 second!</b> The coffee is paid.`); } }
     const of = Math.min(1, s/block); setRun("oc", of*.97 + (of >= 1 ? .03 : 0));
-    if (of < 1) $("ocSt").textContent = `Wartet im Mempool … ${Math.round(s)} Min (Rennzeit)`;
-    if (of >= 1 && lnDone){ $("ocSt").innerHTML = `<b>Block gefunden nach ca. ${Math.round(block)} Minuten.</b> Für viele Händler sicher erst nach weiteren Bestätigungen.`; running = false; $("go").disabled = false; $("go").textContent = "Nochmal"; return; }
+    if (of < 1) $("ocSt").textContent = Lern.t(`Wartet im Mempool … ${Math.round(s)} Min (Rennzeit)`, `Waiting in the mempool … ${Math.round(s)} min (race time)`);
+    if (of >= 1 && lnDone){ $("ocSt").innerHTML = Lern.t(`<b>Block gefunden nach ca. ${Math.round(block)} Minuten.</b> Für viele Händler sicher erst nach weiteren Bestätigungen.`, `<b>Block found after approx. ${Math.round(block)} minutes.</b> For many merchants only safe after further confirmations.`); running = false; $("go").disabled = false; $("go").textContent = Lern.t("Nochmal", "Again"); return; }
     requestAnimationFrame(tick);
   };
   setRun("oc", 0); setRun("ln", 0); requestAnimationFrame(tick);
@@ -229,8 +230,8 @@ function chan(msg){
   $("ba").textContent = fmt(a) + " sats"; $("bb").textContent = fmt(CAP - a) + " sats";
   if (msg) $("chNote").innerHTML = msg;
 }
-$("a2b").addEventListener("click", () => { if (a < 10000) return chan("<b>Geht nicht:</b> Anna hat auf ihrer Seite nicht mehr genug. Man kann nur ausgeben, was auf der eigenen Seite des Kanals liegt."); a -= 10000; chan("Sofort angekommen, <b>ohne neuen Block</b>. Der Kanal hat sich nur anders aufgeteilt."); });
-$("b2a").addEventListener("click", () => { if (CAP - a < 10000) return chan("<b>Geht nicht:</b> Ben hat auf seiner Seite nicht mehr genug."); a += 10000; chan("Zurück zu Anna, wieder sofort. Insgesamt bleiben es immer <b>100.000 sats</b> im Kanal."); });
+$("a2b").addEventListener("click", () => { if (a < 10000) return chan(Lern.t("<b>Geht nicht:</b> Anna hat auf ihrer Seite nicht mehr genug. Man kann nur ausgeben, was auf der eigenen Seite des Kanals liegt.", "<b>Not possible:</b> Anna doesn't have enough on her side anymore. You can only spend what's on your own side of the channel.")); a -= 10000; chan(Lern.t("Sofort angekommen, <b>ohne neuen Block</b>. Der Kanal hat sich nur anders aufgeteilt.", "Arrived instantly, <b>without a new block</b>. The channel has just been split differently.")); });
+$("b2a").addEventListener("click", () => { if (CAP - a < 10000) return chan(Lern.t("<b>Geht nicht:</b> Ben hat auf seiner Seite nicht mehr genug.", "<b>Not possible:</b> Ben doesn't have enough on his side anymore.")); a += 10000; chan(Lern.t("Zurück zu Anna, wieder sofort. Insgesamt bleiben es immer <b>100.000 sats</b> im Kanal.", "Back to Anna, instantly again. In total there are always <b>100,000 sats</b> in the channel.")); });
 chan();
 
 
@@ -246,21 +247,21 @@ $("pxMenu").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b || busy) return;
   inv = {a: +b.dataset.a, t: b.dataset.t}; pxRoute(0, false);
   $("pxInv").hidden = false; $("pxQr").innerHTML = pxQr(inv.a);
-  $("pxTitle").textContent = "Rechnung von Planki"; $("pxAmt").textContent = fmt(inv.a) + " sats"; $("pxFor").textContent = inv.t;
-  $("pxCode").textContent = "lnbc" + inv.a + "n1p" + Math.random().toString(36).slice(2, 14) + "…  (Übung)";
-  $("pxPay").disabled = false; $("pxMsg").innerHTML = "Das ist eine <b>Rechnung</b> (Invoice): Betrag, Zweck und Ablaufzeit stehen fest drin. Du musst nichts abtippen, nur bestätigen.";
+  $("pxTitle").textContent = Lern.t("Rechnung von Planki", "Invoice from Planki"); $("pxAmt").textContent = fmt(inv.a) + " sats"; $("pxFor").textContent = inv.t;
+  $("pxCode").textContent = "lnbc" + inv.a + "n1p" + Math.random().toString(36).slice(2, 14) + Lern.t("…  (Übung)", "…  (practice)");
+  $("pxPay").disabled = false; $("pxMsg").innerHTML = Lern.t("Das ist eine <b>Rechnung</b> (Invoice): Betrag, Zweck und Ablaufzeit stehen fest drin. Du musst nichts abtippen, nur bestätigen.", "This is an <b>invoice</b>: amount, purpose and expiry time are fixed in it. You don't have to type anything, just confirm.");
   Lern.sfx("click");
 });
 $("pxPay").addEventListener("click", () => {
   if (!inv || busy) return;
-  if (inv.a + PXFEE > me){ $("pxMsg").innerHTML = `<b>Geht nicht:</b> In deiner Wallet sind nur ${fmt(me)} sats. Lightning kann nur ausgeben, was wirklich da ist. Niemand kann ins Minus gehen.`; Lern.sfx("no"); return; }
+  if (inv.a + PXFEE > me){ $("pxMsg").innerHTML = Lern.t(`<b>Geht nicht:</b> In deiner Wallet sind nur ${fmt(me)} sats. Lightning kann nur ausgeben, was wirklich da ist. Niemand kann ins Minus gehen.`, `<b>Not possible:</b> there are only ${fmt(me)} sats in your wallet. Lightning can only spend what's really there. Nobody can go into the red.`); Lern.sfx("no"); return; }
   busy = true; $("pxPay").disabled = true; let k = 0; pxRoute(0, true);
-  $("pxMsg").innerHTML = "Deine Wallet sucht einen <b>Weg</b> durchs Netz …";
+  $("pxMsg").innerHTML = Lern.t("Deine Wallet sucht einen <b>Weg</b> durchs Netz …", "Your wallet is looking for a <b>route</b> through the network …");
   const step = () => {
     k++; pxRoute(k, true);
-    if (k < 3){ $("pxMsg").innerHTML = k === 1 ? "Knoten A leitet weiter. Er sieht nicht, wer am Ende bezahlt wird." : "Knoten B leitet weiter zu Planki …"; return setTimeout(step, 450); }
+    if (k < 3){ $("pxMsg").innerHTML = k === 1 ? Lern.t("Knoten A leitet weiter. Er sieht nicht, wer am Ende bezahlt wird.", "Node A forwards it. It can't see who gets paid at the end.") : Lern.t("Knoten B leitet weiter zu Planki …", "Node B forwards it to Planki …"); return setTimeout(step, 450); }
     me -= inv.a + PXFEE; pl += inv.a; pxShow(); busy = false;
-    $("pxMsg").innerHTML = `<b>Bezahlt in unter 2 Sekunden!</b> Planki hat ${fmt(inv.a)} sats bekommen, die Knoten zusammen <b>${PXFEE} sat</b> Gebühr. Kein Block, keine Wartezeit.`;
+    $("pxMsg").innerHTML = Lern.t(`<b>Bezahlt in unter 2 Sekunden!</b> Planki hat ${fmt(inv.a)} sats bekommen, die Knoten zusammen <b>${PXFEE} sat</b> Gebühr. Kein Block, keine Wartezeit.`, `<b>Paid in under 2 seconds!</b> Planki received ${fmt(inv.a)} sats, the nodes together <b>${PXFEE} sat</b> in fees. No block, no waiting.`);
     Lern.sfx("coin"); inv = null; $("pxInv").hidden = true;
   };
   setTimeout(step, 450);
@@ -268,9 +269,9 @@ $("pxPay").addEventListener("click", () => {
 pxShow();
 
 const QUIZ = [
-  ["Was kommt bei Lightning in die Blockchain?", ["Jede einzelne Zahlung, nur etwas später", "Nur das Öffnen und Schließen eines Kanals", "Gar nichts, Lightning ist ganz getrennt"], 1, "Die vielen Zahlungen dazwischen laufen nur zwischen den Beteiligten. In die Blockchain kommt am Anfang und am Ende jeweils eine Transaktion."],
-  ["Anna hat 20.000 sats auf ihrer Seite des Kanals. Kann sie Ben 50.000 sats schicken?", ["Ja, der Kanal hat ja 100.000", "Nein, nur was auf ihrer Seite liegt", "Ja, wenn sie mehr Gebühr zahlt"], 1, "Man kann nur ausgeben, was auf der eigenen Seite des Kanals liegt. Der Rest gehört Ben."],
-  ["Wofür eignet sich Lightning besonders?", ["Kleine, schnelle Zahlungen wie einen Kaffee", "Das Lebensersparnis langfristig lagern", "Bitcoin schürfen"], 0, "Lightning ist stark bei kleinen, schnellen und günstigen Zahlungen. Für große Summen und langes Sparen ist die Blockchain direkt sicherer."],
+  [Lern.t("Was kommt bei Lightning in die Blockchain?", "What goes onto the blockchain with Lightning?"), [Lern.t("Jede einzelne Zahlung, nur etwas später", "Every single payment, just a bit later"), Lern.t("Nur das Öffnen und Schließen eines Kanals", "Only opening and closing a channel"), Lern.t("Gar nichts, Lightning ist ganz getrennt", "Nothing at all, Lightning is completely separate")], 1, Lern.t("Die vielen Zahlungen dazwischen laufen nur zwischen den Beteiligten. In die Blockchain kommt am Anfang und am Ende jeweils eine Transaktion.", "The many payments in between only run between the participants. One transaction goes onto the blockchain at the start and one at the end.")],
+  [Lern.t("Anna hat 20.000 sats auf ihrer Seite des Kanals. Kann sie Ben 50.000 sats schicken?", "Anna has 20,000 sats on her side of the channel. Can she send Ben 50,000 sats?"), [Lern.t("Ja, der Kanal hat ja 100.000", "Yes, the channel has 100,000"), Lern.t("Nein, nur was auf ihrer Seite liegt", "No, only what's on her side"), Lern.t("Ja, wenn sie mehr Gebühr zahlt", "Yes, if she pays a higher fee")], 1, Lern.t("Man kann nur ausgeben, was auf der eigenen Seite des Kanals liegt. Der Rest gehört Ben.", "You can only spend what's on your own side of the channel. The rest belongs to Ben.")],
+  [Lern.t("Wofür eignet sich Lightning besonders?", "What is Lightning especially good for?"), [Lern.t("Kleine, schnelle Zahlungen wie einen Kaffee", "Small, fast payments like a coffee"), Lern.t("Das Lebensersparnis langfristig lagern", "Storing your life savings long-term"), Lern.t("Bitcoin schürfen", "Mining bitcoin")], 0, Lern.t("Lightning ist stark bei kleinen, schnellen und günstigen Zahlungen. Für große Summen und langes Sparen ist die Blockchain direkt sicherer.", "Lightning is strong for small, fast and cheap payments. For large sums and long-term saving, the blockchain directly is safer.")],
 ];
 Lern.quiz($("quiz"), "lightning", QUIZ, "../"); Lern.visit("lightning"); Lern.renderNext("lightning", "../");
 costs(); load();

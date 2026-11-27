@@ -41,61 +41,62 @@
 .tips div{border:1px solid var(--line);border-radius:12px;padding:10px;font-size:14px;line-height:1.45} .tips b{display:block}
 @media (max-width:620px){ .tips{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Wer kann deine <span class="btc">Zahlungen</span> sehen?</h1>
-    <p class="lead">Jede Bitcoin-Zahlung ist <b>für immer öffentlich</b>. Namen stehen zwar nicht dabei, aber Detektive können Spuren verknüpfen. Werde selbst zum Spuren-Detektiv und lerne, wie du deine Privatsphäre schützt, genau wie du nicht jedem deinen Kontoauszug zeigst.</p>
+    <h1 data-i="k3">Wer kann deine <span class="btc">Zahlungen</span> sehen?</h1>
+    <p data-i="k4" class="lead">Jede Bitcoin-Zahlung ist <b>für immer öffentlich</b>. Namen stehen zwar nicht dabei, aber Detektive können Spuren verknüpfen. Werde selbst zum Spuren-Detektiv und lerne, wie du deine Privatsphäre schützt, genau wie du nicht jedem deinen Kontoauszug zeigst.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Rätsel: Wo ist das Wechselgeld?</h2>
-    <p class="muted" style="margin:0">Eine Zahlung hat oft zwei Ausgänge: einen an den Empfänger und einen als <b>Wechselgeld</b> zurück an den Absender. Analysten raten, welcher was ist. Rate mit!</p>
-    <div class="tx"><div class="box">Eingang<b id="tIn"></b></div><div class="arr">→</div><div class="outs" id="outs"></div></div>
+    <h2 data-i="k5" id="h1s">1 · Rätsel: Wo ist das Wechselgeld?</h2>
+    <p data-i="k6" class="muted" style="margin:0">Eine Zahlung hat oft zwei Ausgänge: einen an den Empfänger und einen als <b>Wechselgeld</b> zurück an den Absender. Analysten raten, welcher was ist. Rate mit!</p>
+    <div class="tx"><div data-i="k7" class="box">Eingang<b id="tIn"></b></div><div class="arr">→</div><div class="outs" id="outs"></div></div>
     <div id="tRes"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Eine Adresse oder viele?</h2>
-    <p class="muted" style="margin:0">Du bekommst Geld von drei Leuten. Schalte um und sieh, was ein Beobachter erkennen kann.</p>
-    <div class="seg" id="mode2"><button class="btn" type="button" data-m="1" aria-pressed="true">Immer dieselbe Adresse</button><button class="btn" type="button" data-m="0">Neue Adresse pro Zahlung</button></div>
+    <h2 data-i="k8" id="h2s">2 · Eine Adresse oder viele?</h2>
+    <p data-i="k9" class="muted" style="margin:0">Du bekommst Geld von drei Leuten. Schalte um und sieh, was ein Beobachter erkennen kann.</p>
+    <div class="seg" id="mode2"><button data-i="k10" class="btn" type="button" data-m="1" aria-pressed="true">Immer dieselbe Adresse</button><button data-i="k11" class="btn" type="button" data-m="0">Neue Adresse pro Zahlung</button></div>
     <div class="graph nogl" id="graph"></div>
     <p class="note" id="gN"></p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · So bleibst du privat</h2>
+    <h2 data-i="k12" id="h3s">3 · So bleibst du privat</h2>
     <div class="tips">
-      <div><b>🔁 Jede Zahlung, neue Adresse</b>Gute Wallets machen das automatisch. Teile alte Adressen nicht erneut.</div>
-      <div><b>🤫 Nicht prahlen</b>Erzähl nicht öffentlich, wie viele Bitcoin du hast. Das schützt auch vor Einbrechern und Erpressern.</div>
-      <div><b>⚡ Lightning nutzen</b>Lightning-Zahlungen landen nicht einzeln in der Blockchain und sind darum privater.</div>
-      <div><b>🖥️ Eigene Node</b>Wer seine Wallet mit einer eigenen Node verbindet, verrät fremden Servern nicht, welche Adressen ihm gehören.</div>
-      <div><b>🏦 Börsen kennen dich</b>Wegen der Ausweis-Pflicht weiß die Börse, wem welche Auszahlung gehört.</div>
-      <div><b>🔀 CoinJoin</b>Für Fortgeschrittene: Viele mischen ihre Zahlungen zu einer gemeinsamen. So sind Spuren schwerer zu verfolgen.</div>
+      <div data-i="k13"><b>🔁 Jede Zahlung, neue Adresse</b>Gute Wallets machen das automatisch. Teile alte Adressen nicht erneut.</div>
+      <div data-i="k14"><b>🤫 Nicht prahlen</b>Erzähl nicht öffentlich, wie viele Bitcoin du hast. Das schützt auch vor Einbrechern und Erpressern.</div>
+      <div data-i="k15"><b>⚡ Lightning nutzen</b>Lightning-Zahlungen landen nicht einzeln in der Blockchain und sind darum privater.</div>
+      <div data-i="k16"><b>🖥️ Eigene Node</b>Wer seine Wallet mit einer eigenen Node verbindet, verrät fremden Servern nicht, welche Adressen ihm gehören.</div>
+      <div data-i="k17"><b>🏦 Börsen kennen dich</b>Wegen der Ausweis-Pflicht weiß die Börse, wem welche Auszahlung gehört.</div>
+      <div data-i="k18"><b>🔀 CoinJoin</b>Für Fortgeschrittene: Viele mischen ihre Zahlungen zu einer gemeinsamen. So sind Spuren schwerer zu verfolgen.</div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k19" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Öffentlich, aber ohne Namen</b><span>Bitcoin ist <b>pseudonym</b>: Jede Zahlung ist für immer sichtbar. Wer eine Adresse einer Person zuordnet, sieht ihre Geschichte.</span></div>
-      <div><b>Wechselgeld verrät viel</b><span>Analysten erkennen Wechselgeld an <b>krummen Beträgen</b> und Adresstypen.</span></div>
-      <div><b>Neue Adresse pro Zahlung</b><span>Erschwert, dass Fremde <b>alle Zahlungen</b> an dich auf einen Blick sehen. Anonym macht sie dich aber nicht: Beträge, Zeitpunkte und Wechselgeld können trotzdem Spuren verraten.</span></div>
-      <div><b>Privat ist normal</b><span>Privatsphäre schützt vor Betrügern und Einbrechern. Sie ist <b>legal</b> wie ein Briefgeheimnis.</span></div>
+      <div><b data-i="k20">Öffentlich, aber ohne Namen</b><span data-i="k21">Bitcoin ist <b>pseudonym</b>: Jede Zahlung ist für immer sichtbar. Wer eine Adresse einer Person zuordnet, sieht ihre Geschichte.</span></div>
+      <div><b data-i="k22">Wechselgeld verrät viel</b><span data-i="k23">Analysten erkennen Wechselgeld an <b>krummen Beträgen</b> und Adresstypen.</span></div>
+      <div><b data-i="k24">Neue Adresse pro Zahlung</b><span data-i="k25">Erschwert, dass Fremde <b>alle Zahlungen</b> an dich auf einen Blick sehen. Anonym macht sie dich aber nicht: Beträge, Zeitpunkte und Wechselgeld können trotzdem Spuren verraten.</span></div>
+      <div><b data-i="k26">Privat ist normal</b><span data-i="k27">Privatsphäre schützt vor Betrügern und Einbrechern. Sie ist <b>legal</b> wie ein Briefgeheimnis.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k28">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b>Nochmal nachlesen:</b> <a href="../utxo/">Wechselgeld-Kasse</a> <span class="muted">(wie Wechselgeld bei Bitcoin funktioniert)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://en.bitcoin.it/wiki/Privacy">Bitcoin Wiki: Privacy</a> · <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Abschnitt 10 (Privacy)</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k36" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b data-i="k29">Nochmal nachlesen:</b> <a data-i="k30" href="../utxo/">Wechselgeld-Kasse</a> <span data-i="k31" class="muted">(wie Wechselgeld bei Bitcoin funktioniert)</span></p></section>
+  <section data-i="k37" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k32">Quellen</summary><p><a data-i="k33" href="https://en.bitcoin.it/wiki/Privacy">Bitcoin Wiki: Privacy</a> · <a data-i="k34" href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Abschnitt 10 (Privacy)</a></p></details>
+  <p data-i="k35" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Who can see your <span class=\"btc\">payments<\/span>?", "k4": "Every bitcoin payment is <b>public forever<\/b>. Names aren't attached, but detectives can link traces. Become a trace detective yourself and learn how to protect your privacy, just as you don't show everyone your bank statement.", "k5": "1 · Puzzle: where's the change?", "k6": "A payment often has two outputs: one to the receiver and one as <b>change<\/b> back to the sender. Analysts guess which is which. Guess along!", "k7": "Input<b id=\"tIn\"><\/b>", "k8": "2 · One address or many?", "k9": "You get money from three people. Switch and see what an observer can tell.", "k10": "Always the same address", "k11": "New address per payment", "k12": "3 · How to stay private", "k13": "<b>🔁 Every payment, a new address<\/b>Good wallets do this automatically. Don't share old addresses again.", "k14": "<b>🤫 Don't brag<\/b>Don't tell people publicly how many bitcoin you have. That also protects against burglars and blackmailers.", "k15": "<b>⚡ Use Lightning<\/b>Lightning payments don't land individually on the blockchain and are therefore more private.", "k16": "<b>🖥️ Your own node<\/b>If you connect your wallet to your own node, you don't reveal to third-party servers which addresses belong to you.", "k17": "<b>🏦 Exchanges know you<\/b>Because of the ID requirement, the exchange knows who each withdrawal belongs to.", "k18": "<b>🔀 CoinJoin<\/b>For advanced users: many people combine their payments into one shared payment. That makes traces harder to follow.", "k19": "Remember this", "k20": "Public, but without names", "k21": "Bitcoin is <b>pseudonymous<\/b>: every payment is visible forever. Whoever links an address to a person sees their history.", "k22": "Change reveals a lot", "k23": "Analysts recognise change by <b>odd amounts<\/b> and address types.", "k24": "New address per payment", "k25": "Makes it harder for strangers to see <b>all payments<\/b> to you at a glance. But it doesn't make you anonymous: amounts, timing and change can still reveal traces.", "k26": "Private is normal", "k27": "Privacy protects against scammers and burglars. It's <b>legal<\/b>, like the privacy of letters.", "k28": "Test yourself: 3 questions", "k29": "Read again:", "k30": "Change Register", "k31": "(how change works in Bitcoin)", "k32": "Sources", "k33": "Bitcoin Wiki: Privacy", "k34": "Bitcoin whitepaper, section 10 (Privacy)", "k35": "Entertainment and learning, not investment advice.", "k36@aria-label": "Related", "k37@aria-label": "Next", "_title": "Trace Detective · Bitcoin Voyage", "_desc": "Lernwelt: Privatsphäre bei Bitcoin. Wie Analysefirmen Zahlungen verknüpfen, das Wechselgeld erraten und wie du deine Spuren klein hältst."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    SPUREN-DETEKTIV – Lernwelt von Bitcoin Voyage
@@ -103,31 +104,31 @@
 (() => {
 const $ = id => document.getElementById(id);
 // Wechselgeld-Rätsel: der krumme Betrag ist meist das Wechselgeld
-const TX = [[0.08431, [[0.05, "pay"], [0.03424, "change"]], "Der Empfänger bekommt meist einen <b>runden Betrag</b> (0,05). Der krumme Rest ist das Wechselgeld."],
-  [0.2117, [[0.01382741, "change"], [0.1975, "pay"]], "Wieder der Klassiker: <b>runde Zahlung</b> plus krummer Rest. Profis zahlen darum manchmal krumme Beträge, um Detektive zu verwirren."],
-  [0.0612, [[0.02, "pay"], [0.04113, "change"]], "Der Rest ist größer als die Zahlung, trotzdem verrät der <b>runde Betrag</b> den Empfänger. Wallets wie Sparrow warnen vor solchen Spuren."]];
+const TX = [[0.08431, [[0.05, "pay"], [0.03424, "change"]], Lern.t("Der Empfänger bekommt meist einen <b>runden Betrag</b> (0,05). Der krumme Rest ist das Wechselgeld.", "The receiver usually gets a <b>round amount</b> (0.05). The odd remainder is the change.")],
+  [0.2117, [[0.01382741, "change"], [0.1975, "pay"]], Lern.t("Wieder der Klassiker: <b>runde Zahlung</b> plus krummer Rest. Profis zahlen darum manchmal krumme Beträge, um Detektive zu verwirren.", "The classic again: a <b>round payment</b> plus an odd remainder. That's why pros sometimes pay odd amounts, to confuse detectives.")],
+  [0.0612, [[0.02, "pay"], [0.04113, "change"]], Lern.t("Der Rest ist größer als die Zahlung, trotzdem verrät der <b>runde Betrag</b> den Empfänger. Wallets wie Sparrow warnen vor solchen Spuren.", "The remainder is bigger than the payment, yet the <b>round amount</b> still gives away the receiver. Wallets like Sparrow warn about such traces.")]];
 let t = 0;
-function tx(){ const [inp, outs] = TX[t]; $("tIn").textContent = inp.toLocaleString("de-DE", {maximumFractionDigits: 8}) + " BTC"; $("tRes").innerHTML = "";
-  $("outs").innerHTML = outs.map(([v, k]) => `<button type="button" data-k="${k}"><small>Ausgang</small><b>${v.toLocaleString("de-DE", {maximumFractionDigits: 8})} BTC</b>Wechselgeld?</button>`).join(""); }
+function tx(){ const [inp, outs] = TX[t]; $("tIn").textContent = inp.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 8}) + " BTC"; $("tRes").innerHTML = "";
+  $("outs").innerHTML = outs.map(([v, k]) => Lern.t(`<button type="button" data-k="${k}"><small>Ausgang</small><b>${v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 8})} BTC</b>Wechselgeld?</button>`, `<button type="button" data-k="${k}"><small>Output</small><b>${v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 8})} BTC</b>Change?</button>`)).join(""); }
 $("outs").onclick = e => { const b = e.target.closest("button"); if (!b || $("tRes").innerHTML) return; const ok = b.dataset.k === "change";
   $("outs").querySelectorAll("button").forEach(x => x.classList.add(x.dataset.k === "change" ? "ok" : "no"));
-  $("tRes").innerHTML = `<div class="res ${ok ? "ok" : "bad"}"><strong>${ok ? "Gut kombiniert, Detektiv!" : "Knapp daneben."}</strong>${TX[t][2]} <button class="btn" type="button" id="tN" style="margin-top:8px">${t < TX.length - 1 ? "Nächstes Rätsel →" : "↺ Von vorn"}</button></div>`;
+  $("tRes").innerHTML = `<div class="res ${ok ? "ok" : "bad"}"><strong>${ok ? Lern.t("Gut kombiniert, Detektiv!", "Well deduced, detective!") : Lern.t("Knapp daneben.", "Close, but no.")}</strong>${TX[t][2]} <button class="btn" type="button" id="tN" style="margin-top:8px">${t < TX.length - 1 ? Lern.t("Nächstes Rätsel →", "Next puzzle →") : Lern.t("↺ Von vorn", "↺ Start over")}</button></div>`;
   $("tN").onclick = () => { t = (t + 1) % TX.length; tx(); }; };
 tx();
 // Adress-Graph
 let same = true;
 function graph(){
-  const P = [["👩 Oma", 50], ["🏢 Arbeit", 150], ["🧑 Kumpel", 250]], A = same ? [150] : [50, 150, 250];
+  const P = [[Lern.t("👩 Oma", "👩 Grandma"), 50], [Lern.t("🏢 Arbeit", "🏢 Work"), 150], [Lern.t("🧑 Kumpel", "🧑 Buddy"), 250]], A = same ? [150] : [50, 150, 250];
   const lines = P.map(([, y], i) => `<line x1="150" y1="${y}" x2="232" y2="${A[same ? 0 : i]}" stroke="#ffc94d" stroke-width="4"/>`).join("");
   $("graph").innerHTML = `<svg viewBox="0 0 400 300" role="img" aria-label="Zahlungen an Adressen">${lines}${P.map(([n, y]) => `<rect x="8" y="${y - 24}" width="142" height="48" rx="12" fill="#232a62" stroke="#3a4070" stroke-width="2"/><text x="79" y="${y + 8}" fill="#eef0ff" font-size="21" text-anchor="middle">${n}</text>`).join("")}
     ${A.map((y, i) => `<rect x="232" y="${y - 26}" width="160" height="52" rx="12" fill="${same ? "#4a1f2c" : "#173a2c"}" stroke="${same ? "#ff5c73" : "#34d982"}" stroke-width="3"/><text x="312" y="${y + 8}" fill="#eef0ff" font-size="20" text-anchor="middle" font-family="monospace">bc1q…${["7k2", "m9x", "c4p"][i]}</text>`).join("")}
-    ${same ? `<text x="312" y="${118 - 10}" fill="#ff5c73" font-size="19" font-weight="900" text-anchor="middle">Alles sichtbar!</text>` : ""}</svg>`;
-  $("gN").innerHTML = same ? "Wer weiß, dass <b>bc1q…7k2</b> dir gehört (zum Beispiel die Oma), sieht auch den Lohn vom Arbeitgeber, das Geld vom Kumpel und deinen <b>Kontostand</b>." : "Für Außenstehende sehen das aus wie <b>drei verschiedene Personen</b>. Deine Wallet kennt trotzdem alle Adressen, dank des einen Seeds.";
+    ${same ? Lern.t(`<text x="312" y="${118 - 10}" fill="#ff5c73" font-size="19" font-weight="900" text-anchor="middle">Alles sichtbar!</text>`, `<text x="312" y="${118 - 10}" fill="#ff5c73" font-size="19" font-weight="900" text-anchor="middle">Everything visible!</text>`) : ""}</svg>`;
+  $("gN").innerHTML = same ? Lern.t("Wer weiß, dass <b>bc1q…7k2</b> dir gehört (zum Beispiel die Oma), sieht auch den Lohn vom Arbeitgeber, das Geld vom Kumpel und deinen <b>Kontostand</b>.", "Whoever knows that <b>bc1q…7k2</b> belongs to you (grandma, for example) also sees the wages from your employer, the money from your buddy and your <b>balance</b>.") : Lern.t("Für Außenstehende sehen das aus wie <b>drei verschiedene Personen</b>. Deine Wallet kennt trotzdem alle Adressen, dank des einen Seeds.", "To outsiders these look like <b>three different people</b>. Your wallet still knows all the addresses, thanks to the one seed.");
 }
 $("mode2").onclick = e => { const b = e.target.closest("[data-m]"); if (!b) return; same = b.dataset.m === "1"; $("mode2").querySelectorAll("[data-m]").forEach(x => x.setAttribute("aria-pressed", x === b)); graph(); };
 graph();
 
-const QUIZ = [["Ist eine Bitcoin-Zahlung geheim?", ["Ja, nur Sender und Empfänger sehen sie", "Nein, sie ist für immer öffentlich, nur ohne Namen", "Nur die Bank sieht sie", "Sie wird nach 10 Minuten gelöscht"], 1, "Alle Zahlungen stehen öffentlich in der Blockchain. Namen stehen nicht dabei, lassen sich aber oft zuordnen."], ["Warum sollte man für jede Zahlung eine neue Adresse nutzen?", ["Weil alte Adressen nach einer Weile ablaufen", "Damit Fremde Zahlungen und Kontostand schwerer verknüpfen können", "Weil jede neue Adresse Gebühren spart", "Weil es gesetzlich so vorgeschrieben ist"], 1, "Mit neuen Adressen sehen Außenstehende nicht auf einen Blick alle Zahlungen an dich. Anonym wirst du dadurch aber nicht, Analysen finden oft trotzdem Muster."], ["Woran erkennen Analysten oft das Wechselgeld?", ["Am krummen Betrag", "An der Farbe", "Am Namen", "Gar nicht"], 0, "Zahlungen sind oft runde Beträge. Der krumme Rest ist dann meist das Wechselgeld."]];
+const QUIZ = [[Lern.t("Ist eine Bitcoin-Zahlung geheim?", "Is a bitcoin payment secret?"), [Lern.t("Ja, nur Sender und Empfänger sehen sie", "Yes, only sender and receiver see it"), Lern.t("Nein, sie ist für immer öffentlich, nur ohne Namen", "No, it's public forever, just without names"), Lern.t("Nur die Bank sieht sie", "Only the bank sees it"), Lern.t("Sie wird nach 10 Minuten gelöscht", "It's deleted after 10 minutes")], 1, Lern.t("Alle Zahlungen stehen öffentlich in der Blockchain. Namen stehen nicht dabei, lassen sich aber oft zuordnen.", "All payments are public on the blockchain. Names aren't attached, but can often be linked.")], [Lern.t("Warum sollte man für jede Zahlung eine neue Adresse nutzen?", "Why should you use a new address for every payment?"), [Lern.t("Weil alte Adressen nach einer Weile ablaufen", "Because old addresses expire after a while"), Lern.t("Damit Fremde Zahlungen und Kontostand schwerer verknüpfen können", "So that strangers find it harder to link payments and balance"), Lern.t("Weil jede neue Adresse Gebühren spart", "Because every new address saves fees"), Lern.t("Weil es gesetzlich so vorgeschrieben ist", "Because the law requires it")], 1, Lern.t("Mit neuen Adressen sehen Außenstehende nicht auf einen Blick alle Zahlungen an dich. Anonym wirst du dadurch aber nicht, Analysen finden oft trotzdem Muster.", "With new addresses, outsiders don't see all payments to you at a glance. But it doesn't make you anonymous; analyses often still find patterns.")], [Lern.t("Woran erkennen Analysten oft das Wechselgeld?", "How do analysts often recognise the change?"), [Lern.t("Am krummen Betrag", "By the odd amount"), Lern.t("An der Farbe", "By the colour"), Lern.t("Am Namen", "By the name"), Lern.t("Gar nicht", "Not at all")], 0, Lern.t("Zahlungen sind oft runde Beträge. Der krumme Rest ist dann meist das Wechselgeld.", "Payments are often round amounts. The odd remainder is then usually the change.")]];
 Lern.quiz($("quiz"), "privatsphaere", QUIZ, "../"); Lern.visit("privatsphaere"); Lern.renderNext("privatsphaere", "../");
 })();
 </script>

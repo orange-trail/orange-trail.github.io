@@ -37,60 +37,61 @@
 .net{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px} .net span{width:26px;height:26px}
 @media (max-width:620px){ .why3{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Warum hat Bitcoin <span class="btc">Wert</span>?</h1>
-    <p class="lead">Bitcoin ist nicht durch Gold oder einen Staat gedeckt. Trotzdem zahlen Menschen viel Geld dafür. Warum? Die kurze Antwort: <b>Begrenztes Angebot trifft auf Nachfrage.</b></p>
+    <h1 data-i="k3">Warum hat Bitcoin <span class="btc">Wert</span>?</h1>
+    <p data-i="k4" class="lead">Bitcoin ist nicht durch Gold oder einen Staat gedeckt. Trotzdem zahlen Menschen viel Geld dafür. Warum? Die kurze Antwort: <b>Begrenztes Angebot trifft auf Nachfrage.</b></p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Die Preis-Waage <span class="mode" id="mode">Verbinde …</span></h2>
-    <div class="idea">Jeden Tag entstehen nur etwa <b>450 neue Bitcoin</b>. Stell ein, wie viel Geld pro Tag Menschen dafür ausgeben wollen, und schau, wohin der Preis kippt.</div>
+    <h2 data-i="k5" id="h1s">Die Preis-Waage <span class="mode" id="mode">Verbinde …</span></h2>
+    <div data-i="k6" class="idea">Jeden Tag entstehen nur etwa <b>450 neue Bitcoin</b>. Stell ein, wie viel Geld pro Tag Menschen dafür ausgeben wollen, und schau, wohin der Preis kippt.</div>
     <div class="scale"><div class="post"></div><div class="beam" id="beam"></div>
-      <div class="pan l" id="panL">Nachfrage<br><span class="num" id="vL"></span><div class="ic" id="icL"></div></div>
-      <div class="pan r" id="panR">Neues Angebot<br><span class="num">ca. 450 BTC/Tag</span><div class="ic" id="icR"></div></div></div>
-    <div class="ctl"><label for="dem">Geld, das täglich neu in Bitcoin fließen will</label><div class="row"><input id="dem" type="range" min="0" max="100" value="50"><b id="demV" class="num">–</b></div></div>
+      <div data-i="k7" class="pan l" id="panL">Nachfrage<br><span class="num" id="vL"></span><div class="ic" id="icL"></div></div>
+      <div data-i="k8" class="pan r" id="panR">Neues Angebot<br><span class="num">ca. 450 BTC/Tag</span><div class="ic" id="icR"></div></div></div>
+    <div class="ctl"><label data-i="k9" for="dem">Geld, das täglich neu in Bitcoin fließen will</label><div class="row"><input id="dem" type="range" min="0" max="100" value="50"><b id="demV" class="num">–</b></div></div>
     <div class="res" data-hold id="res"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Woher kommt die Nachfrage?</h2>
+    <h2 data-i="k10" id="h2s">Woher kommt die Nachfrage?</h2>
     <div class="why3">
-      <div><b>🔒 Knapp und unabhängig</b>Niemand kann mehr Bitcoin drucken. Für viele ist das ein Schutz gegen <a href="../inflation/" style="color:var(--gold)">Inflation</a>.</div>
-      <div><b>🌍 Nützlich</b>Ohne Bank weltweit senden und selbst verwahren. Besonders wertvoll in Ländern mit schwacher Währung.</div>
-      <div><b>📞 Netzwerkeffekt</b>Ein Telefon allein ist nutzlos. Je mehr Menschen Bitcoin nutzen, desto nützlicher wird es für alle.</div>
+      <div data-i="k11"><b>🔒 Knapp und unabhängig</b>Niemand kann mehr Bitcoin drucken. Für viele ist das ein Schutz gegen <a href="../inflation/" style="color:var(--gold)">Inflation</a>.</div>
+      <div data-i="k12"><b>🌍 Nützlich</b>Ohne Bank weltweit senden und selbst verwahren. Besonders wertvoll in Ländern mit schwacher Währung.</div>
+      <div data-i="k13"><b>📞 Netzwerkeffekt</b>Ein Telefon allein ist nutzlos. Je mehr Menschen Bitcoin nutzen, desto nützlicher wird es für alle.</div>
     </div>
     <div class="net" id="net" aria-hidden="true"></div>
-    <p class="note"><b>Wie bei Gold:</b> Auch Gold hat keinen „inneren“ Wert, der seinen Preis erklärt. Sein Wert entsteht, weil viele Menschen es als knapp und verlässlich ansehen. Bei Bitcoin ist das genauso, nur digital und viel jünger.</p>
+    <p data-i="k14" class="note"><b>Wie bei Gold:</b> Auch Gold hat keinen „inneren“ Wert, der seinen Preis erklärt. Sein Wert entsteht, weil viele Menschen es als knapp und verlässlich ansehen. Bei Bitcoin ist das genauso, nur digital und viel jünger.</p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Und warum schwankt der Preis so stark?</h2>
-    <div class="learn bx"><div><b>Festes Angebot</b><span>Es kann nicht auf mehr Nachfrage reagieren. Also muss sich der <b>Preis</b> bewegen.</span></div><div><b>Junger Markt</b><span>Kleiner als Gold oder Aktien. Große Käufe bewegen mehr.</span></div><div><b>Gefühle</b><span>Nachrichten lösen schnell <b style="color:var(--gold)">FOMO und FUD</b> aus <span class="later">(Welt 6)</span>.</span></div></div>
-    <p class="note">Ob Bitcoin seinen Wert behält, weiß niemand sicher. Kritiker sagen, ohne Erträge oder Deckung könne der Preis auch stark fallen. Deshalb: <b>nur investieren, was du lange entbehren kannst.</b></p>
+    <h2 data-i="k15" id="h3s">Und warum schwankt der Preis so stark?</h2>
+    <div class="learn bx"><div><b data-i="k16">Festes Angebot</b><span data-i="k17">Es kann nicht auf mehr Nachfrage reagieren. Also muss sich der <b>Preis</b> bewegen.</span></div><div><b data-i="k18">Junger Markt</b><span data-i="k19">Kleiner als Gold oder Aktien. Große Käufe bewegen mehr.</span></div><div><b data-i="k20">Gefühle</b><span data-i="k21">Nachrichten lösen schnell <b style="color:var(--gold)">FOMO und FUD</b> aus <span class="later">(Welt 6)</span>.</span></div></div>
+    <p data-i="k22" class="note">Ob Bitcoin seinen Wert behält, weiß niemand sicher. Kritiker sagen, ohne Erträge oder Deckung könne der Preis auch stark fallen. Deshalb: <b>nur investieren, was du lange entbehren kannst.</b></p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k23" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Angebot fest</b><span>Die Menge neuer Bitcoin ist im Code festgelegt und <b>sinkt</b> mit jedem Halving.</span></div>
-      <div><b>Preis = Nachfrage</b><span>Weil das Angebot nicht reagiert, bewegt sich der <b>Preis</b>, wenn sich die Nachfrage ändert.</span></div>
-      <div><b>Wert durch Vertrauen</b><span>Wie bei Gold entsteht Wert, weil <b>viele Menschen</b> es als knapp und nützlich ansehen.</span></div>
-      <div><b>Keine Garantie</b><span>Der Preis kann auch stark fallen. Bitcoin ist <b>jung und schwankend</b>.</span></div>
+      <div><b data-i="k24">Angebot fest</b><span data-i="k25">Die Menge neuer Bitcoin ist im Code festgelegt und <b>sinkt</b> mit jedem Halving.</span></div>
+      <div><b data-i="k26">Preis = Nachfrage</b><span data-i="k27">Weil das Angebot nicht reagiert, bewegt sich der <b>Preis</b>, wenn sich die Nachfrage ändert.</span></div>
+      <div><b data-i="k28">Wert durch Vertrauen</b><span data-i="k29">Wie bei Gold entsteht Wert, weil <b>viele Menschen</b> es als knapp und nützlich ansehen.</span></div>
+      <div><b data-i="k30">Keine Garantie</b><span data-i="k31">Der Preis kann auch stark fallen. Bitcoin ist <b>jung und schwankend</b>.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k32">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Kurs: monatlicher Stand (Datum siehe oben). Neue Bitcoin pro Tag: 144 Blöcke × 3,125 BTC ≈ 450 BTC (seit dem Halving 2024). Die Waage ist ein stark vereinfachtes Modell.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k36" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k33">Quellen</summary><p data-i="k34">Kurs: monatlicher Stand (Datum siehe oben). Neue Bitcoin pro Tag: 144 Blöcke × 3,125 BTC ≈ 450 BTC (seit dem Halving 2024). Die Waage ist ein stark vereinfachtes Modell.</p></details>
+  <p data-i="k35" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Why does Bitcoin have <span class=\"btc\">value<\/span>?", "k4": "Bitcoin isn't backed by gold or a state. Yet people pay a lot of money for it. Why? The short answer: <b>limited supply meets demand.<\/b>", "k5": "The Price Scale <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k6": "Only about <b>450 new bitcoin<\/b> are created every day. Set how much money people want to spend on them per day, and see which way the price tips.", "k7": "Demand<br/><span class=\"num\" id=\"vL\"><\/span><div class=\"ic\" id=\"icL\"><\/div>", "k8": "New supply<br/><span class=\"num\">approx. 450 BTC/day<\/span><div class=\"ic\" id=\"icR\"><\/div>", "k9": "Money that wants to flow into Bitcoin each day", "k10": "Where does the demand come from?", "k11": "<b>🔒 Scarce and independent<\/b>Nobody can print more bitcoin. For many, that's protection against <a href=\"../inflation/\" style=\"color:var(--gold)\">inflation<\/a>.", "k12": "<b>🌍 Useful<\/b>Send worldwide without a bank and hold it yourself. Especially valuable in countries with a weak currency.", "k13": "<b>📞 Network effect<\/b>A single telephone is useless. The more people use Bitcoin, the more useful it becomes for everyone.", "k14": "<b>Like gold:<\/b> gold doesn't have an “intrinsic” value that explains its price either. Its value comes from many people seeing it as scarce and reliable. Bitcoin is the same, just digital and much younger.", "k15": "And why does the price swing so much?", "k16": "Fixed supply", "k17": "It can't respond to more demand. So the <b>price<\/b> has to move.", "k18": "Young market", "k19": "Smaller than gold or stocks. Big purchases move it more.", "k20": "Emotions", "k21": "News quickly triggers <b style=\"color:var(--gold)\">FOMO and FUD<\/b> <span class=\"later\">(World 6)<\/span>.", "k22": "Nobody knows for sure whether Bitcoin will keep its value. Critics say that without income or backing, the price could also fall sharply. So: <b>only invest what you can do without for a long time.<\/b>", "k23": "Remember this", "k24": "Fixed supply", "k25": "The amount of new bitcoin is fixed in the code and <b>falls<\/b> with every halving.", "k26": "Price = demand", "k27": "Because supply doesn't respond, the <b>price<\/b> moves when demand changes.", "k28": "Value through trust", "k29": "As with gold, value arises because <b>many people<\/b> see it as scarce and useful.", "k30": "No guarantee", "k31": "The price can also fall sharply. Bitcoin is <b>young and volatile<\/b>.", "k32": "Test yourself: 3 questions", "k33": "Sources", "k34": "Price: monthly snapshot (date see above). New bitcoin per day: 144 blocks × 3.125 BTC ≈ 450 BTC (since the 2024 halving). The scale is a highly simplified model.", "k35": "Entertainment and learning, not investment advice.", "k36@aria-label": "Next", "_title": "Value Scale · Bitcoin Voyage", "_desc": "Lernwelt: Warum hat Bitcoin einen Preis? Angebot, Nachfrage, Knappheit und warum der Kurs schwankt."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    WERT-WAAGE – Lernwelt von Bitcoin Voyage
@@ -100,26 +101,26 @@ const $ = id => document.getElementById(id);
 let price = 0, live = false;
 $("icL").innerHTML = Lern.art("bag"); $("icR").innerHTML = Lern.art("coin");
 for (let i = 0; i < 18; i++) $("net").insertAdjacentHTML("beforeend", `<span style="opacity:${.25 + i/24}">${Lern.art(i % 3 ? "phone" : "hal")}</span>`);
-const usd = v => v >= 1e9 ? (v/1e9).toLocaleString("de-DE", {maximumFractionDigits: 1}) + " Mrd. $" : (v/1e6).toLocaleString("de-DE", {maximumFractionDigits: 0}) + " Mio. $";
+const usd = v => Lern.cur(v >= 1e9 ? (v/1e9).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1}) + Lern.t(" Mrd. $", " billion $") : (v/1e6).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 0}) + Lern.t(" Mio. $", " million $"));
 function calc(){
   const base = price || Lern.PRICE.USD, today = 450*base, v = +$("dem").value, dem = today*Math.pow(4, (v - 50)/50);   // Regler: ein Viertel bis Vierfaches von heute
   const p = dem/450, tilt = Math.max(-14, Math.min(14, Math.log(dem/today)/Math.log(4)*14));
-  $("beam").style.transform = `rotate(${-tilt}deg)`; $("demV").textContent = usd(dem); $("vL").textContent = usd(dem) + "/Tag";
+  $("beam").style.transform = `rotate(${-tilt}deg)`; $("demV").textContent = usd(dem); $("vL").textContent = usd(dem) + Lern.t("/Tag", "/day");
   // Schalen folgen exakt dem Balken: Versatz = Abstand der Schalenmitte zur Mitte (29 % der Breite) × tan(Neigung)
   const dy = .29*$("beam").parentElement.clientWidth*Math.tan(tilt*Math.PI/180);
   $("panL").style.transform = `translateY(${dy}px)`; $("panR").style.transform = `translateY(${-dy}px)`;
   const R = $("res"), up = p > base*1.05, down = p < base*.95;
   R.className = "res " + (up ? "ok" : down ? "bad" : "warn");
-  R.innerHTML = `<strong>${up ? "📈 Der Preis steigt" : down ? "📉 Der Preis fällt" : "⚖️ Gleichgewicht"}: <span style="white-space:nowrap">ca. ${Math.round(p).toLocaleString("de-DE")} $</span></strong>`
-    + (up ? "Mehr Geld will rein, als neue Bitcoin entstehen. Die Käufer überbieten sich gegenseitig." : down ? "Weniger Nachfrage, aber die neuen Bitcoin müssen trotzdem verkauft werden. Die Verkäufer gehen mit dem Preis runter." : `So ungefähr ist es beim Kurs vom ${Lern.DSTAND}: Nachfrage und neues Angebot halten sich die Waage.`)
-    + ` <span class="muted">Stark vereinfacht: Auch bestehende Besitzer kaufen und verkaufen.</span>`;
+  R.innerHTML = Lern.t(`<strong>${up ? Lern.t("📈 Der Preis steigt", "📈 The price rises") : down ? Lern.t("📉 Der Preis fällt", "📉 The price falls") : "⚖️ Gleichgewicht"}: <span style="white-space:nowrap">ca. ${Math.round(p).toLocaleString(Lern.EN ? "en-US" : "de-DE")} $</span></strong>`, `<strong>${up ? Lern.t("📈 Der Preis steigt", "📈 The price rises") : down ? Lern.t("📉 Der Preis fällt", "📉 The price falls") : "⚖️ Balance"}: <span style="white-space:nowrap">approx. $${Math.round(p).toLocaleString("en-US")}</span></strong>`)
+    + (up ? Lern.t("Mehr Geld will rein, als neue Bitcoin entstehen. Die Käufer überbieten sich gegenseitig.", "More money wants in than new bitcoin are created. Buyers outbid each other.") : down ? Lern.t("Weniger Nachfrage, aber die neuen Bitcoin müssen trotzdem verkauft werden. Die Verkäufer gehen mit dem Preis runter.", "Less demand, but the new bitcoin still have to be sold. Sellers lower the price.") : Lern.t(`So ungefähr ist es beim Kurs vom ${Lern.DSTAND}: Nachfrage und neues Angebot halten sich die Waage.`, `That's roughly how it is at the price of ${Lern.DSTAND}: demand and new supply balance each other.`))
+    + Lern.t(` <span class="muted">Stark vereinfacht: Auch bestehende Besitzer kaufen und verkaufen.</span>`, ` <span class="muted">Highly simplified: existing holders also buy and sell.</span>`);
 }
 $("dem").addEventListener("input", calc);
 fetch(Lern.api("price/BTC-USD")).then(r => r.json()).then(j => { price = +j.data.amount || 0; live = price > 0; }).catch(() => {})
-  .finally(() => { $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Schätzung"; calc(); });
+  .finally(() => { $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : Lern.t("Schätzung", "Estimate"); calc(); });
 calc();
 
-const QUIZ = [["Warum steigt der Preis, wenn mehr Menschen Bitcoin kaufen wollen?", ["Weil das Angebot fest ist und nicht mitwachsen kann", "Weil dann mehr Bitcoin gedruckt werden", "Weil die Gebühren steigen"], 0, "Bei festem Angebot muss sich der Preis bewegen."], ["Was meint „Netzwerkeffekt“?", ["Je mehr Menschen es nutzen, desto nützlicher wird es für alle", "Das Internet wird mit mehr Nutzern schneller", "Miner verdienen mehr, je mehr Nodes es gibt"], 0, "Wie beim Telefon: Allein ist es nutzlos."], ["Ist ein steigender Bitcoin-Preis garantiert?", ["Nein, der Preis kann auch stark fallen", "Ja, wegen der 21 Millionen", "Ja, wegen der Halvings"], 0, "Knappheit allein garantiert keinen Preis. Ohne Nachfrage fällt er."]];
+const QUIZ = [[Lern.t("Warum steigt der Preis, wenn mehr Menschen Bitcoin kaufen wollen?", "Why does the price rise when more people want to buy bitcoin?"), [Lern.t("Weil das Angebot fest ist und nicht mitwachsen kann", "Because supply is fixed and can't grow with it"), Lern.t("Weil dann mehr Bitcoin gedruckt werden", "Because more bitcoin are then printed"), Lern.t("Weil die Gebühren steigen", "Because fees rise")], 0, Lern.t("Bei festem Angebot muss sich der Preis bewegen.", "With fixed supply, the price has to move.")], [Lern.t("Was meint „Netzwerkeffekt“?", "What does “network effect” mean?"), [Lern.t("Je mehr Menschen es nutzen, desto nützlicher wird es für alle", "The more people use it, the more useful it becomes for everyone"), Lern.t("Das Internet wird mit mehr Nutzern schneller", "The internet gets faster with more users"), Lern.t("Miner verdienen mehr, je mehr Nodes es gibt", "Miners earn more the more nodes there are")], 0, Lern.t("Wie beim Telefon: Allein ist es nutzlos.", "Like the telephone: on its own it's useless.")], [Lern.t("Ist ein steigender Bitcoin-Preis garantiert?", "Is a rising bitcoin price guaranteed?"), [Lern.t("Nein, der Preis kann auch stark fallen", "No, the price can also fall sharply"), Lern.t("Ja, wegen der 21 Millionen", "Yes, because of the 21 million"), Lern.t("Ja, wegen der Halvings", "Yes, because of the halvings")], 0, Lern.t("Knappheit allein garantiert keinen Preis. Ohne Nachfrage fällt er.", "Scarcity alone guarantees no price. Without demand it falls.")]];
 Lern.quiz($("quiz"), "wert", QUIZ, "../"); Lern.visit("wert"); Lern.renderNext("wert", "../");
 })();
 </script>

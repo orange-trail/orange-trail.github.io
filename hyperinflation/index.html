@@ -43,122 +43,123 @@
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
 @media (max-width:420px){ .sort{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Wenn Geld <span class="btc">verdampft</span></h1>
-    <p class="lead">2 % Inflation im Jahr merkt man kaum. Bei einer <b>Hyperinflation</b> steigen die Preise um mehr als <b>50 % im Monat</b>. Ersparnisse sind dann in wenigen Monaten weg. Drei echte Fälle aus der Akte.</p>
+    <h1 data-i="k3">Wenn Geld <span class="btc">verdampft</span></h1>
+    <p data-i="k4" class="lead">2 % Inflation im Jahr merkt man kaum. Bei einer <b>Hyperinflation</b> steigen die Preise um mehr als <b>50 % im Monat</b>. Ersparnisse sind dann in wenigen Monaten weg. Drei echte Fälle aus der Akte.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Deutschland 1923: der Brot-Zeitraffer</h2>
-    <p class="muted" style="margin:0">Tipp dich durch die Monate oder starte den Zeitraffer. So viel kostete ein Brot:</p>
-    <div class="tl" id="tl" role="tablist" aria-label="Zeitpunkte"></div>
+    <h2 data-i="k5" id="h1s">1 · Deutschland 1923: der Brot-Zeitraffer</h2>
+    <p data-i="k6" class="muted" style="margin:0">Tipp dich durch die Monate oder starte den Zeitraffer. So viel kostete ein Brot:</p>
+    <div data-i="k39" class="tl" id="tl" role="tablist" aria-label="Zeitpunkte"></div>
     <div class="bread"><span class="ic" aria-hidden="true">🍞</span><div><small id="bD">–</small><b id="bP">–</b><em id="bW"></em></div></div>
     <div class="zeros" id="zeros" aria-hidden="true"></div>
     <p class="story" id="bS"></p>
     <p class="save" id="bSv"></p>
-    <div class="acts2"><button class="btn" type="button" id="play">▶ Zeitraffer</button><button class="btn ghost" type="button" id="end">⏭ Wie ging es aus?</button></div>
+    <div class="acts2"><button data-i="k7" class="btn" type="button" id="play">▶ Zeitraffer</button><button data-i="k8" class="btn ghost" type="button" id="end">⏭ Wie ging es aus?</button></div>
     <div class="learn bx" id="fin" hidden style="margin-top:12px">
-      <div><b>🔄 Der Neustart</b><span>Ab 15. November 1923 gibt es die <b>Rentenmark</b>: 1 Rentenmark = 1 Billion Papiermark. Zwölf Nullen weg.</span></div>
-      <div><b>🤝 Vertrauen zurück</b><span>Die neue Menge ist streng begrenzt. Schon im Dezember füllen sich die Läden wieder, die Bauern liefern.</span></div>
-      <div><b>💸 Der Preis</b><span>Ersparnisse sind vernichtet. Der Staat entlässt rund 400.000 Beschäftigte, Löhne sinken. Das Misstrauen bleibt über Generationen.</span></div>
+      <div><b data-i="k9">🔄 Der Neustart</b><span data-i="k10">Ab 15. November 1923 gibt es die <b>Rentenmark</b>: 1 Rentenmark = 1 Billion Papiermark. Zwölf Nullen weg.</span></div>
+      <div><b data-i="k11">🤝 Vertrauen zurück</b><span data-i="k12">Die neue Menge ist streng begrenzt. Schon im Dezember füllen sich die Läden wieder, die Bauern liefern.</span></div>
+      <div><b data-i="k13">💸 Der Preis</b><span data-i="k14">Ersparnisse sind vernichtet. Der Staat entlässt rund 400.000 Beschäftigte, Löhne sinken. Das Misstrauen bleibt über Generationen.</span></div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Wer verliert, wer gewinnt?</h2>
-    <p class="muted" style="margin:0">Hyperinflation trifft nicht alle gleich. Tipp deine Einschätzung an.</p>
+    <h2 data-i="k15" id="h2s">2 · Wer verliert, wer gewinnt?</h2>
+    <p data-i="k16" class="muted" style="margin:0">Hyperinflation trifft nicht alle gleich. Tipp deine Einschätzung an.</p>
     <div class="sort" id="sort"></div>
     <p class="score" id="score" aria-live="polite"></p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Nicht nur Geschichte</h2>
+    <h2 data-i="k17" id="h3s">3 · Nicht nur Geschichte</h2>
     <div class="learn bx">
-      <div><b>🇿🇼 Simbabwe 2008</b><span>Im November 2008 verdoppelten sich die Preise etwa <b>alle 25 Stunden</b>. 2009 kam ein Schein über 100 Billionen Dollar. Danach zahlte man mit US-Dollar.</span></div>
-      <div><b>🇻🇪 Venezuela 2018</b><span>Laut Zentralbank stiegen die Preise 2018 um rund <b>130.000 %</b>. Zweimal wurden Nullen gestrichen (2018 und 2021). Viele flohen in Dollar, manche in Bitcoin.</span></div>
-      <div><b>🔁 Immer das Muster</b><span>Der Staat bezahlt Ausgaben mit <b>neu gedrucktem Geld</b>. Die Menschen verlieren das Vertrauen und tauschen ihr Geld so schnell wie möglich in Waren. Das treibt die Preise noch mehr.</span></div>
-      <div><b>₿ Und Bitcoin?</b><span>Niemand kann zusätzliche Bitcoin drucken. Aber Bitcoin <b>schwankt stark</b>. In Krisenländern nutzen viele deshalb lieber Dollar oder Dollar-Stablecoins.</span></div>
+      <div><b data-i="k18">🇿🇼 Simbabwe 2008</b><span data-i="k19">Im November 2008 verdoppelten sich die Preise etwa <b>alle 25 Stunden</b>. 2009 kam ein Schein über 100 Billionen Dollar. Danach zahlte man mit US-Dollar.</span></div>
+      <div><b data-i="k20">🇻🇪 Venezuela 2018</b><span data-i="k21">Laut Zentralbank stiegen die Preise 2018 um rund <b>130.000 %</b>. Zweimal wurden Nullen gestrichen (2018 und 2021). Viele flohen in Dollar, manche in Bitcoin.</span></div>
+      <div><b data-i="k22">🔁 Immer das Muster</b><span data-i="k23">Der Staat bezahlt Ausgaben mit <b>neu gedrucktem Geld</b>. Die Menschen verlieren das Vertrauen und tauschen ihr Geld so schnell wie möglich in Waren. Das treibt die Preise noch mehr.</span></div>
+      <div><b data-i="k24">₿ Und Bitcoin?</b><span data-i="k25">Niemand kann zusätzliche Bitcoin drucken. Aber Bitcoin <b>schwankt stark</b>. In Krisenländern nutzen viele deshalb lieber Dollar oder Dollar-Stablecoins.</span></div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k26" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Ab 50 % im Monat</b><span>So definieren Ökonomen Hyperinflation. Dann <b>verdoppeln</b> sich die Preise in weniger als zwei Monaten.</span></div>
-      <div><b>Drucken + Misstrauen</b><span>Erst druckt der Staat zu viel, dann will niemand mehr das Geld halten. Beides zusammen lässt die Preise explodieren.</span></div>
-      <div><b>Sparer verlieren</b><span>Wer Geld gespart hatte, verliert alles. Wer <b>Schulden oder Sachwerte</b> hatte, kommt besser weg.</span></div>
-      <div><b>Neustart braucht Vertrauen</b><span>Neue Scheine allein helfen nicht. Es braucht eine <b>glaubwürdige Grenze</b> für die Geldmenge.</span></div>
+      <div><b data-i="k27">Ab 50 % im Monat</b><span data-i="k28">So definieren Ökonomen Hyperinflation. Dann <b>verdoppeln</b> sich die Preise in weniger als zwei Monaten.</span></div>
+      <div><b data-i="k29">Drucken + Misstrauen</b><span data-i="k30">Erst druckt der Staat zu viel, dann will niemand mehr das Geld halten. Beides zusammen lässt die Preise explodieren.</span></div>
+      <div><b data-i="k31">Sparer verlieren</b><span data-i="k32">Wer Geld gespart hatte, verliert alles. Wer <b>Schulden oder Sachwerte</b> hatte, kommt besser weg.</span></div>
+      <div><b data-i="k33">Neustart braucht Vertrauen</b><span data-i="k34">Neue Scheine allein helfen nicht. Es braucht eine <b>glaubwürdige Grenze</b> für die Geldmenge.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k35">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Brotpreise, Dollarkurse und Rentenmark: <a href="https://www.bundestag.de/parlament/geschichte/100-jahre-weimar/hyperinflation-970722">Deutscher Bundestag: Hyperinflation 1923</a> (Dezember 1922 nach gängigen Darstellungen, gerundet) · Definition und Simbabwe: <a href="https://www.cato.org/working-paper/world-hyperinflations">Hanke &amp; Krus: World Hyperinflations (Cato Institute)</a> · Venezuela: <a href="https://www.centralbanking.com/central-banks/economics/4230871/venezuelas-central-bank-finally-admits-economic-collapse">Central Banking: Venezuelas Zentralbank</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k40" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k36">Quellen</summary><p data-i="k37">Brotpreise, Dollarkurse und Rentenmark: <a href="https://www.bundestag.de/parlament/geschichte/100-jahre-weimar/hyperinflation-970722">Deutscher Bundestag: Hyperinflation 1923</a> (Dezember 1922 nach gängigen Darstellungen, gerundet) · Definition und Simbabwe: <a href="https://www.cato.org/working-paper/world-hyperinflations">Hanke &amp; Krus: World Hyperinflations (Cato Institute)</a> · Venezuela: <a href="https://www.centralbanking.com/central-banks/economics/4230871/venezuelas-central-bank-finally-admits-economic-collapse">Central Banking: Venezuelas Zentralbank</a></p></details>
+  <p data-i="k38" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "When money <span class=\"btc\">evaporates<\/span>", "k4": "You hardly notice 2 % inflation a year. In a <b>hyperinflation<\/b>, prices rise by more than <b>50 % a month<\/b>. Savings are then gone within a few months. Three real cases from the file.", "k5": "1 · Germany 1923: the bread time-lapse", "k6": "Tap through the months or start the time-lapse. This is what a loaf of bread cost:", "k7": "▶ Time-lapse", "k8": "⏭ How did it end?", "k9": "🔄 The restart", "k10": "From 15 November 1923 there's the <b>Rentenmark<\/b>: 1 Rentenmark = 1 trillion paper marks. Twelve zeros gone.", "k11": "🤝 Trust returns", "k12": "The new supply is strictly limited. By December the shops are filling up again, and farmers deliver.", "k13": "💸 The price", "k14": "Savings are wiped out. The state lays off about 400,000 employees, wages fall. The mistrust lasts for generations.", "k15": "2 · Who loses, who wins?", "k16": "Hyperinflation doesn't hit everyone equally. Tap your assessment.", "k17": "3 · Not just history", "k18": "🇿🇼 Zimbabwe 2008", "k19": "In November 2008 prices doubled about <b>every 25 hours<\/b>. In 2009 a 100 trillion dollar note came out. After that people paid in US dollars.", "k20": "🇻🇪 Venezuela 2018", "k21": "According to the central bank, prices rose by about <b>130,000 %<\/b> in 2018. Zeros were removed twice (2018 and 2021). Many fled into dollars, some into bitcoin.", "k22": "🔁 Always the pattern", "k23": "The state pays its expenses with <b>newly printed money<\/b>. People lose trust and exchange their money for goods as fast as possible. That drives prices up even more.", "k24": "₿ And Bitcoin?", "k25": "Nobody can print extra bitcoin. But Bitcoin <b>swings a lot<\/b>. That's why many in crisis countries prefer dollars or dollar stablecoins.", "k26": "Remember this", "k27": "From 50 % a month", "k28": "That's how economists define hyperinflation. Prices then <b>double<\/b> in less than two months.", "k29": "Printing + mistrust", "k30": "First the state prints too much, then nobody wants to hold the money anymore. Both together make prices explode.", "k31": "Savers lose", "k32": "Whoever had saved money lost everything. Whoever had <b>debts or real assets<\/b> came off better.", "k33": "A restart needs trust", "k34": "New notes alone don't help. It takes a <b>credible limit<\/b> on the money supply.", "k35": "Test yourself: 3 questions", "k36": "Sources", "k37": "Bread prices, dollar rates and Rentenmark: <a href=\"https://www.bundestag.de/parlament/geschichte/100-jahre-weimar/hyperinflation-970722\">German Bundestag: Hyperinflation 1923<\/a> (December 1922 based on common accounts, rounded) · Definition and Zimbabwe: <a href=\"https://www.cato.org/working-paper/world-hyperinflations\">Hanke &amp; Krus: World Hyperinflations (Cato Institute)<\/a> · Venezuela: <a href=\"https://www.centralbanking.com/central-banks/economics/4230871/venezuelas-central-bank-finally-admits-economic-collapse\">Central Banking: Venezuela's central bank<\/a>", "k38": "Entertainment and learning, not investment advice.", "k39@aria-label": "Points in time", "k40@aria-label": "Next", "_title": "Hyperinflation Files · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Deutschland 1923, Simbabwe, Venezuela. Wie Geld innerhalb von Monaten wertlos wird, wer verliert, wer gewinnt und was danach kommt."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    HYPERINFLATION-AKTE – Lernwelt von Bitcoin Voyage
    ===================================================================== */
 (() => {
-const $ = id => document.getElementById(id), nf = n => n.toLocaleString("de-DE");
+const $ = id => document.getElementById(id), nf = n => n.toLocaleString(Lern.EN ? "en-US" : "de-DE");
 // [Zeitpunkt, Brotpreis in Mark, Geschichte]
 const T = [
-  ["Dez. 1919", 0.8, "Der Krieg ist vorbei, aber der Staat hat riesige Schulden. Er bezahlt vieles mit <b>neu gedrucktem Geld</b>."],
-  ["Dez. 1922", 160, "Die Preise ziehen spürbar an. Wer kann, kauft lieber <b>Dinge</b>, statt zu sparen."],
-  ["Jan. 1923", 250, "Frankreich und Belgien besetzen das Ruhrgebiet. Der Staat bezahlt die streikenden Arbeiter mit <b>frisch gedruckten Scheinen</b>."],
-  ["Aug. 1923", 69000, "Löhne werden täglich ausgezahlt, bald schon mittags. Mit Säcken voller Scheine rennt man <b>sofort</b> in den Laden."],
-  ["Sep. 1923", 1.5e6, "Bis zum Nachmittag verliert das Geld etwa die <b>Hälfte</b> seines Werts. Scheine werden nur noch einseitig bedruckt."],
-  ["Okt. 1923", 1.74e8, "Bauern und Händler halten ihre Waren zurück. Es gibt Streiks, Unruhen und Plünderungen."],
-  ["Nov. 1923", 2.01e11, "Ein Brot kostet <b>201 Milliarden Mark</b>, ein Dollar 4,2 Billionen Mark. Das Geld ist praktisch wertlos."]];
-const word = v => v >= 1e12 ? nf(+(v/1e12).toFixed(1)) + " Billionen" : v >= 1e9 ? nf(Math.round(v/1e9)) + " Milliarden" : v >= 1e6 ? nf(+(v/1e6).toFixed(1)) + " Millionen" : "";
+  [Lern.t("Dez. 1919", "Dec 1919"), 0.8, Lern.t("Der Krieg ist vorbei, aber der Staat hat riesige Schulden. Er bezahlt vieles mit <b>neu gedrucktem Geld</b>.", "The war is over, but the state has huge debts. It pays for a lot with <b>newly printed money</b>.")],
+  [Lern.t("Dez. 1922", "Dec 1922"), 160, Lern.t("Die Preise ziehen spürbar an. Wer kann, kauft lieber <b>Dinge</b>, statt zu sparen.", "Prices rise noticeably. Whoever can prefers to buy <b>things</b> instead of saving.")],
+  [Lern.t("Jan. 1923", "Jan 1923"), 250, Lern.t("Frankreich und Belgien besetzen das Ruhrgebiet. Der Staat bezahlt die streikenden Arbeiter mit <b>frisch gedruckten Scheinen</b>.", "France and Belgium occupy the Ruhr. The state pays the striking workers with <b>freshly printed notes</b>.")],
+  [Lern.t("Aug. 1923", "Aug 1923"), 69000, Lern.t("Löhne werden täglich ausgezahlt, bald schon mittags. Mit Säcken voller Scheine rennt man <b>sofort</b> in den Laden.", "Wages are paid daily, soon even at noon. With sacks full of notes people run to the shop <b>immediately</b>.")],
+  [Lern.t("Sep. 1923", "Sep 1923"), 1.5e6, Lern.t("Bis zum Nachmittag verliert das Geld etwa die <b>Hälfte</b> seines Werts. Scheine werden nur noch einseitig bedruckt.", "By the afternoon the money loses about <b>half</b> of its value. Notes are only printed on one side now.")],
+  [Lern.t("Okt. 1923", "Oct 1923"), 1.74e8, Lern.t("Bauern und Händler halten ihre Waren zurück. Es gibt Streiks, Unruhen und Plünderungen.", "Farmers and traders hold back their goods. There are strikes, riots and looting.")],
+  [Lern.t("Nov. 1923", "Nov 1923"), 2.01e11, Lern.t("Ein Brot kostet <b>201 Milliarden Mark</b>, ein Dollar 4,2 Billionen Mark. Das Geld ist praktisch wertlos.", "A loaf of bread costs <b>201 billion marks</b>, a dollar 4.2 trillion marks. The money is practically worthless.")]];
+const word = v => v >= 1e12 ? nf(+(v/1e12).toFixed(1)) + Lern.t(" Billionen", " trillion") : v >= 1e9 ? nf(Math.round(v/1e9)) + Lern.t(" Milliarden", " billion") : v >= 1e6 ? nf(+(v/1e6).toFixed(1)) + Lern.t(" Millionen", " million") : "";
 let k = 0, timer = 0;
 function show(i){
   k = i; const [d, p, s] = T[i];
   $("tl").innerHTML = T.map((t, j) => `<button type="button" role="tab" data-i="${j}" aria-pressed="${j === i}">${t[0]}</button>`).join("");
-  $("bD").textContent = "Ein Brot, " + d;
-  $("bP").textContent = (p < 1 ? p.toLocaleString("de-DE", {minimumFractionDigits: 2}) : nf(p)) + " Mark";
-  $("bW").textContent = word(p) ? "in Worten: " + word(p) + " Mark" : "";
+  $("bD").textContent = Lern.t("Ein Brot, ", "A loaf of bread, ") + d;
+  $("bP").textContent = (p < 1 ? p.toLocaleString(Lern.EN ? "en-US" : "de-DE", {minimumFractionDigits: 2}) : nf(p)) + Lern.t(" Mark", " marks");
+  $("bW").textContent = word(p) ? Lern.t("in Worten: ", "in words: ") + word(p) + Lern.t(" Mark", " marks") : "";
   const z = p < 1 ? 0 : Math.floor(Math.log10(p)); $("zeros").innerHTML = Array(z).fill("<i></i>").join("");
-  $("zeros").setAttribute("title", z + " Stellen");
+  $("zeros").setAttribute("title", z + Lern.t(" Stellen", " digits"));
   $("bS").innerHTML = s;
   const br = 1000/p;
-  $("bSv").innerHTML = i === 0 ? "💰 Stell dir vor, du hast <b>1.000 Mark</b> gespart. Das reicht jetzt für <b>1.250 Brote</b>." :
-    `💰 Deine 1.000 gesparten Mark reichen jetzt für <b>${br >= 1 ? nf(Math.floor(br)) + (Math.floor(br) === 1 ? " Brot" : " Brote") : br >= 0.04 ? "eine Scheibe Brot" : br >= 0.005 ? "einen Bissen" : "nicht mal einen Krümel"}</b>.`;
+  $("bSv").innerHTML = i === 0 ? Lern.t("💰 Stell dir vor, du hast <b>1.000 Mark</b> gespart. Das reicht jetzt für <b>1.250 Brote</b>.", "💰 Imagine you've saved <b>1,000 marks</b>. That's now enough for <b>1,250 loaves</b>.") :
+    Lern.t(`💰 Deine 1.000 gesparten Mark reichen jetzt für <b>${br >= 1 ? nf(Math.floor(br)) + (Math.floor(br) === 1 ? " Brot" : " Brote") : br >= 0.04 ? "eine Scheibe Brot" : br >= 0.005 ? "einen Bissen" : "nicht mal einen Krümel"}</b>.`, `💰 Your 1,000 saved marks are now enough for <b>${br >= 1 ? nf(Math.floor(br)) + (Math.floor(br) === 1 ? " loaf" : " loaves") : br >= 0.04 ? "a slice of bread" : br >= 0.005 ? "one bite" : "not even a crumb"}</b>.`);
   const b = $("tl").children[i]; if (b && b.scrollIntoView) b.scrollIntoView({block: "nearest", inline: "center"});
 }
-function stop(){ clearInterval(timer); timer = 0; $("play").textContent = "▶ Zeitraffer"; }
+function stop(){ clearInterval(timer); timer = 0; $("play").textContent = Lern.t("▶ Zeitraffer", "▶ Time-lapse"); }
 $("tl").addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b){ stop(); show(+b.dataset.i); } });
-$("play").onclick = () => { if (timer) return stop(); $("play").textContent = "⏸ Anhalten"; if (k === T.length - 1) show(0);
+$("play").onclick = () => { if (timer) return stop(); $("play").textContent = Lern.t("⏸ Anhalten", "⏸ Pause"); if (k === T.length - 1) show(0);
   timer = setInterval(() => { if (k >= T.length - 1){ stop(); $("fin").hidden = false; return; } show(k + 1); }, 1600); };
 $("end").onclick = () => { stop(); show(T.length - 1); $("fin").hidden = false; $("fin").scrollIntoView({behavior: "smooth", block: "nearest"}); };
 show(0);
 
 // Gewinner oder Verlierer? [Gruppe, 1 = gewinnt, Erklärung]
 const G = [
-  ["👵 Sparerin mit 10.000 Mark auf der Bank", 0, "Ihr Erspartes war im Herbst 1923 nicht einmal mehr ein Brot wert."],
-  ["🏭 Unternehmer mit großem Kredit", 1, "Seine Schulden in Mark lösten sich praktisch auf. Manche, wie Hugo Stinnes, bauten so riesige Firmen auf."],
-  ["👷 Arbeiter mit Wochenlohn", 0, "Die Löhne stiegen immer zu spät. Bis zum Einkauf war ein großer Teil schon weg, trotz täglicher Auszahlung."],
-  ["🏛 Der Staat", 1, "Er hatte hohe Schulden bei den eigenen Bürgern. Die waren auf einmal fast nichts mehr wert."],
-  ["🌾 Bauer mit Kartoffeln und Vieh", 1, "Echte Waren behielten ihren Wert. Viele tauschten lieber Ware gegen Ware als gegen Scheine."],
-  ["🧓 Rentner mit fester Rente", 0, "Die Rente war in Mark festgelegt und schrumpfte zur Bedeutungslosigkeit."]];
+  [Lern.t("👵 Sparerin mit 10.000 Mark auf der Bank", "👵 Saver with 10,000 marks in the bank"), 0, Lern.t("Ihr Erspartes war im Herbst 1923 nicht einmal mehr ein Brot wert.", "By autumn 1923 her savings weren't even worth a loaf of bread anymore.")],
+  [Lern.t("🏭 Unternehmer mit großem Kredit", "🏭 Entrepreneur with a big loan"), 1, Lern.t("Seine Schulden in Mark lösten sich praktisch auf. Manche, wie Hugo Stinnes, bauten so riesige Firmen auf.", "His debts in marks practically dissolved. Some, like Hugo Stinnes, built huge companies this way.")],
+  [Lern.t("👷 Arbeiter mit Wochenlohn", "👷 Worker with a weekly wage"), 0, Lern.t("Die Löhne stiegen immer zu spät. Bis zum Einkauf war ein großer Teil schon weg, trotz täglicher Auszahlung.", "Wages always rose too late. By the time of shopping a large part was already gone, despite daily payment.")],
+  [Lern.t("🏛 Der Staat", "🏛 The state"), 1, Lern.t("Er hatte hohe Schulden bei den eigenen Bürgern. Die waren auf einmal fast nichts mehr wert.", "It had high debts to its own citizens. Suddenly they were worth almost nothing.")],
+  [Lern.t("🌾 Bauer mit Kartoffeln und Vieh", "🌾 Farmer with potatoes and livestock"), 1, Lern.t("Echte Waren behielten ihren Wert. Viele tauschten lieber Ware gegen Ware als gegen Scheine.", "Real goods kept their value. Many preferred to trade goods for goods rather than for notes.")],
+  [Lern.t("🧓 Rentner mit fester Rente", "🧓 Pensioner with a fixed pension"), 0, Lern.t("Die Rente war in Mark festgelegt und schrumpfte zur Bedeutungslosigkeit.", "The pension was fixed in marks and shrank into insignificance.")]];
 let pts = 0, n = 0;
-$("sort").innerHTML = G.map(([t], i) => `<div class="it" id="g${i}"><b>${t}</b><div class="row"><button type="button" data-i="${i}" data-v="1">📈 Gewinnt</button><button type="button" data-i="${i}" data-v="0">📉 Verliert</button></div><p hidden></p></div>`).join("");
+$("sort").innerHTML = G.map(([t], i) => Lern.t(`<div class="it" id="g${i}"><b>${t}</b><div class="row"><button type="button" data-i="${i}" data-v="1">📈 Gewinnt</button><button type="button" data-i="${i}" data-v="0">📉 Verliert</button></div><p hidden></p></div>`, `<div class="it" id="g${i}"><b>${t}</b><div class="row"><button type="button" data-i="${i}" data-v="1">📈 Wins</button><button type="button" data-i="${i}" data-v="0">📉 Loses</button></div><p hidden></p></div>`)).join("");
 $("sort").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const i = +b.dataset.i, el = $("g" + i); if (el.dataset.done) return;
   const ok = +b.dataset.v === G[i][1]; el.dataset.done = 1; b.classList.add("pick"); el.classList.add(ok ? "ok" : "no");
-  const p = el.querySelector("p"); p.hidden = false; p.textContent = (G[i][1] ? "Eher Gewinner. " : "Verlierer. ") + G[i][2];
-  n++; if (ok) pts++; if (n === G.length) $("score").textContent = `${pts} von ${G.length} richtig. Faustregel: Wer Geld hatte, verlor. Wer Schulden oder echte Dinge hatte, kam besser weg.`; });
+  const p = el.querySelector("p"); p.hidden = false; p.textContent = (G[i][1] ? Lern.t("Eher Gewinner. ", "Rather a winner. ") : Lern.t("Verlierer. ", "Loser. ")) + G[i][2];
+  n++; if (ok) pts++; if (n === G.length) $("score").textContent = Lern.t(`${pts} von ${G.length} richtig. Faustregel: Wer Geld hatte, verlor. Wer Schulden oder echte Dinge hatte, kam besser weg.`, `${pts} of ${G.length} correct. Rule of thumb: whoever had money lost. Whoever had debts or real things came off better.`); });
 
-const QUIZ = [["Ab wann spricht man von Hyperinflation?", ["Ab 10 % Inflation im Jahr", "Ab etwa 50 % Preissteigerung pro Monat", "Wenn die Zentralbank den Zins erhöht"], 1, "Bei 50 % im Monat verdoppeln sich die Preise in weniger als zwei Monaten."],
-  ["Wer kam in Deutschland 1923 am besten weg?", ["Wer viel Geld gespart hatte", "Wer Schulden oder Sachwerte hatte", "Wer eine feste Rente bekam"], 1, "Schulden in Mark wurden praktisch wertlos, echte Dinge behielten ihren Wert."],
-  ["Was beendete die Hyperinflation 1923?", ["Größere Geldscheine mit vielen Nullen darauf", "Eine neue Währung mit streng begrenzter Menge: die Rentenmark", "Ein strenges Verbot, die Preise zu erhöhen"], 1, "1 Rentenmark ersetzte 1 Billion Papiermark. Entscheidend war das Vertrauen in die neue Grenze."]];
+const QUIZ = [[Lern.t("Ab wann spricht man von Hyperinflation?", "From when do we speak of hyperinflation?"), [Lern.t("Ab 10 % Inflation im Jahr", "From 10 % inflation a year"), Lern.t("Ab etwa 50 % Preissteigerung pro Monat", "From about 50 % price increase per month"), Lern.t("Wenn die Zentralbank den Zins erhöht", "When the central bank raises interest rates")], 1, Lern.t("Bei 50 % im Monat verdoppeln sich die Preise in weniger als zwei Monaten.", "At 50 % a month, prices double in less than two months.")],
+  [Lern.t("Wer kam in Deutschland 1923 am besten weg?", "Who came off best in Germany in 1923?"), [Lern.t("Wer viel Geld gespart hatte", "Whoever had saved a lot of money"), Lern.t("Wer Schulden oder Sachwerte hatte", "Whoever had debts or real assets"), Lern.t("Wer eine feste Rente bekam", "Whoever received a fixed pension")], 1, Lern.t("Schulden in Mark wurden praktisch wertlos, echte Dinge behielten ihren Wert.", "Debts in marks became practically worthless; real things kept their value.")],
+  [Lern.t("Was beendete die Hyperinflation 1923?", "What ended the hyperinflation of 1923?"), [Lern.t("Größere Geldscheine mit vielen Nullen darauf", "Bigger banknotes with lots of zeros on them"), Lern.t("Eine neue Währung mit streng begrenzter Menge: die Rentenmark", "A new currency with a strictly limited supply: the Rentenmark"), Lern.t("Ein strenges Verbot, die Preise zu erhöhen", "A strict ban on raising prices")], 1, Lern.t("1 Rentenmark ersetzte 1 Billion Papiermark. Entscheidend war das Vertrauen in die neue Grenze.", "1 Rentenmark replaced 1 trillion paper marks. What mattered was trust in the new limit.")]];
 Lern.quiz($("quiz"), "hyperinflation", QUIZ, "../"); Lern.visit("hyperinflation"); Lern.renderNext("hyperinflation", "../");
 })();
 </script>

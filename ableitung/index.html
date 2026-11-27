@@ -43,59 +43,60 @@
 .addrs{margin:10px 0 0;padding-left:1.6em;font:600 13px var(--f-code);word-break:break-all;line-height:1.8}
 @media (max-width:620px){ .pexp{grid-template-columns:1fr 1fr} .pexp > div:last-child{grid-column:1/-1} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Vom Seed zur <span class="btc">Adresse</span>, ganz genau</h1>
-    <p class="lead">Deine Wallet rechnet im Hintergrund eine ganze Kette. Hier siehst du jede Station mit <b>echten Werten</b>. Probier die bekannten Test-Wörter: Deine Adressen stimmen exakt mit dem überein, was jede echte Wallet anzeigt.</p>
+    <h1 data-i="k3">Vom Seed zur <span class="btc">Adresse</span>, ganz genau</h1>
+    <p data-i="k4" class="lead">Deine Wallet rechnet im Hintergrund eine ganze Kette. Hier siehst du jede Station mit <b>echten Werten</b>. Probier die bekannten Test-Wörter: Deine Adressen stimmen exakt mit dem überein, was jede echte Wallet anzeigt.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Deine Übungs-Wörter</h2>
-    <div class="row" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="wNew">🎲 Neue Übungs-Wörter</button><button class="btn" type="button" id="wTest">🧪 Test-Wörter „abandon … about“</button></div>
-    <textarea id="wIn" class="inp nogl" rows="3" spellcheck="false" autocapitalize="off" aria-label="12 Wörter"></textarea>
-    <label class="lbl2" for="pw">Passphrase, das optionale „25. Wort“ (leer lassen = keins)</label>
+    <h2 data-i="k5" id="h1s">1 · Deine Übungs-Wörter</h2>
+    <div class="row" style="display:flex;gap:8px;flex-wrap:wrap"><button data-i="k6" class="btn" type="button" id="wNew">🎲 Neue Übungs-Wörter</button><button data-i="k7" class="btn" type="button" id="wTest">🧪 Test-Wörter „abandon … about“</button></div>
+    <textarea data-i="k37" id="wIn" class="inp nogl" rows="3" spellcheck="false" autocapitalize="off" aria-label="12 Wörter"></textarea>
+    <label data-i="k8" class="lbl2" for="pw">Passphrase, das optionale „25. Wort“ (leer lassen = keins)</label>
     <input id="pw" class="inp" autocomplete="off" spellcheck="false">
-    <div class="warnbox"><b>⚠️ Niemals deinen echten Seed hier eingeben!</b> Nicht hier und auf keiner anderen Webseite. Diese Seite ist nur zum Lernen mit Übungs-Wörtern.</div>
+    <div data-i="k9" class="warnbox"><b>⚠️ Niemals deinen echten Seed hier eingeben!</b> Nicht hier und auf keiner anderen Webseite. Diese Seite ist nur zum Lernen mit Übungs-Wörtern.</div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Der Pfad: die Hausnummer deines Schlüssels</h2>
-    <p class="muted" style="margin:0">Aus einem Seed entstehen unendlich viele Schlüssel. Welcher gemeint ist, sagt der <b>Ableitungspfad</b>. Das Häkchen ' heißt „gehärtet“: Dieser Zweig ist extra abgeschottet.</p>
-    <div class="path nogl">m / <select id="pP" aria-label="Zweck"><option value="44">44'</option><option value="49">49'</option><option value="84" selected>84'</option><option value="86">86'</option></select> / 0' / <select id="pA" aria-label="Konto"><option>0</option><option>1</option><option>2</option></select>' / <select id="pC" aria-label="Wechselgeld"><option value="0">0</option><option value="1">1</option></select> / <span>0 … 4</span></div>
-    <div class="pexp"><div><b>Zweck</b><span id="pPx"></span></div><div><b>0' = Bitcoin</b>(1' wäre Testnetz)</div><div><b>Konto</b>wie Unterkonten einer Bank</div><div><b>Empfangen / Wechselgeld</b>0 für Empfang, 1 für Rückgeld an dich selbst</div><div><b>Nummer</b>jede neue Adresse zählt eins hoch</div></div>
+    <h2 data-i="k10" id="h2s">2 · Der Pfad: die Hausnummer deines Schlüssels</h2>
+    <p data-i="k11" class="muted" style="margin:0">Aus einem Seed entstehen unendlich viele Schlüssel. Welcher gemeint ist, sagt der <b>Ableitungspfad</b>. Das Häkchen ' heißt „gehärtet“: Dieser Zweig ist extra abgeschottet.</p>
+    <div class="path nogl">m / <select data-i="k38" id="pP" aria-label="Zweck"><option value="44">44'</option><option value="49">49'</option><option value="84" selected>84'</option><option value="86">86'</option></select> / 0' / <select data-i="k39" id="pA" aria-label="Konto"><option>0</option><option>1</option><option>2</option></select>' / <select data-i="k40" id="pC" aria-label="Wechselgeld"><option value="0">0</option><option value="1">1</option></select> / <span>0 … 4</span></div>
+    <div class="pexp"><div><b data-i="k12">Zweck</b><span id="pPx"></span></div><div data-i="k13"><b>0' = Bitcoin</b>(1' wäre Testnetz)</div><div data-i="k14"><b>Konto</b>wie Unterkonten einer Bank</div><div data-i="k15"><b>Empfangen / Wechselgeld</b>0 für Empfang, 1 für Rückgeld an dich selbst</div><div data-i="k16"><b>Nummer</b>jede neue Adresse zählt eins hoch</div></div>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Die Fabrik bei der Arbeit</h2>
+    <h2 data-i="k17" id="h3s">3 · Die Fabrik bei der Arbeit</h2>
     <div class="pipe nogl" id="pipe"></div>
     <ol class="addrs nogl" id="addrs" start="0"></ol>
     <p class="note" id="aN"></p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k18" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>BIP39</b><span>Macht aus Zufall <b>12 oder 24 Wörter</b> aus einer Liste mit 2048 Wörtern, inklusive Prüfsumme.</span></div>
-      <div><b>2048 Runden</b><span>Aus den Wörtern wird mit <b>2048 Runden</b> HMAC-SHA512 ein 512-Bit-Seed. Das bremst Rate-Angriffe.</span></div>
-      <div><b>BIP32</b><span>Aus dem Seed entsteht ein <b>Hauptschlüssel</b>, daraus ein ganzer Baum an Schlüsseln.</span></div>
-      <div><b>Pfad bestimmt Adresstyp</b><span><b>44</b>′ → 1…, <b>49</b>′ → 3…, <b>84</b>′ → bc1q…, <b>86</b>′ → bc1p…. Gleicher Seed, andere Adressen.</span></div>
+      <div><b data-i="k19">BIP39</b><span data-i="k20">Macht aus Zufall <b>12 oder 24 Wörter</b> aus einer Liste mit 2048 Wörtern, inklusive Prüfsumme.</span></div>
+      <div><b data-i="k21">2048 Runden</b><span data-i="k22">Aus den Wörtern wird mit <b>2048 Runden</b> HMAC-SHA512 ein 512-Bit-Seed. Das bremst Rate-Angriffe.</span></div>
+      <div><b data-i="k23">BIP32</b><span data-i="k24">Aus dem Seed entsteht ein <b>Hauptschlüssel</b>, daraus ein ganzer Baum an Schlüsseln.</span></div>
+      <div><b data-i="k25">Pfad bestimmt Adresstyp</b><span data-i="k26"><b>44</b>′ → 1…, <b>49</b>′ → 3…, <b>84</b>′ → bc1q…, <b>86</b>′ → bc1p…. Gleicher Seed, andere Adressen.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k27">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b>Nochmal nachlesen:</b> <a href="../seed/">Seed-Trainer</a> <span class="muted">(Seed richtig aufschreiben und sicher aufbewahren)</span></p></section>
+  <section data-i="k41" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b data-i="k28">Nochmal nachlesen:</b> <a data-i="k29" href="../seed/">Seed-Trainer</a> <span data-i="k30" class="muted">(Seed richtig aufschreiben und sicher aufbewahren)</span></p></section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP39</a> · <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a> · <a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a> · <a href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k42" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k31">Quellen</summary><p><a data-i="k32" href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP39</a> · <a data-i="k33" href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a> · <a data-i="k34" href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a> · <a data-i="k35" href="https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki">BIP86</a></p></details>
+  <p data-i="k36" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "From seed to <span class=\"btc\">address<\/span>, in detail", "k4": "Your wallet calculates a whole chain in the background. Here you see every stop with <b>real values<\/b>. Try the well-known test words: your addresses match exactly what any real wallet shows.", "k5": "1 · Your practice words", "k6": "🎲 New practice words", "k7": "🧪 Test words “abandon … about”", "k8": "Passphrase, the optional “25th word” (leave empty = none)", "k9": "<b>⚠️ Never enter your real seed here!<\/b> Not here and not on any other website. This page is only for learning with practice words.", "k10": "2 · The path: your key's house number", "k11": "A seed produces infinitely many keys. Which one is meant is given by the <b>derivation path<\/b>. The tick ' means “hardened”: this branch is extra sealed off.", "k12": "Purpose", "k13": "<b>0' = Bitcoin<\/b>(1' would be testnet)", "k14": "<b>Account<\/b>like sub-accounts at a bank", "k15": "<b>Receive / change<\/b>0 for receiving, 1 for change back to yourself", "k16": "<b>Index<\/b>every new address counts up by one", "k17": "3 · The factory at work", "k18": "Remember this", "k19": "BIP39", "k20": "Turns randomness into <b>12 or 24 words<\/b> from a list of 2048 words, including a checksum.", "k21": "2048 rounds", "k22": "With <b>2048 rounds<\/b> of HMAC-SHA512, the words become a 512-bit seed. That slows down guessing attacks.", "k23": "BIP32", "k24": "From the seed comes a <b>master key<\/b>, and from that a whole tree of keys.", "k25": "The path determines the address type", "k26": "<b>44<\/b>′ → 1…, <b>49<\/b>′ → 3…, <b>84<\/b>′ → bc1q…, <b>86<\/b>′ → bc1p…. Same seed, different addresses.", "k27": "Test yourself: 3 questions", "k28": "Read again:", "k29": "Seed Trainer", "k30": "(writing down and safely storing the seed)", "k31": "Sources", "k32": "BIP39", "k33": "BIP32", "k34": "BIP84", "k35": "BIP86", "k36": "Entertainment and learning, not investment advice.", "k37@aria-label": "12 words", "k38@aria-label": "Purpose", "k39@aria-label": "Account", "k40@aria-label": "Change", "k41@aria-label": "Related", "k42@aria-label": "Next", "_title": "Seed Factory · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Vom Seed zur Adresse im Detail. BIP39-Wortliste, PBKDF2, BIP32-Hauptschlüssel und Ableitungspfade, alles echt im Browser gerechnet."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    SEED-FABRIK – Lernwelt von Bitcoin Voyage
@@ -103,7 +104,7 @@
 (() => {
 const $ = id => document.getElementById(id);
 const TEST = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about";
-const PURP = {44: ["1…  (alt, Legacy)", k => Bit.p2pkh(Bit.pubC(Bit.mul(k)))], 49: ["3…  (SegWit verpackt)", k => Bit.p2shP2wpkh(Bit.pubC(Bit.mul(k)))], 84: ["bc1q…  (SegWit)", k => Bit.p2wpkh(Bit.pubC(Bit.mul(k)))], 86: ["bc1p…  (Taproot)", k => Bit.p2tr(Bit.mul(k))]};
+const PURP = {44: [Lern.t("1…  (alt, Legacy)", "1…  (old, legacy)"), k => Bit.p2pkh(Bit.pubC(Bit.mul(k)))], 49: [Lern.t("3…  (SegWit verpackt)", "3…  (wrapped SegWit)"), k => Bit.p2shP2wpkh(Bit.pubC(Bit.mul(k)))], 84: ["bc1q…  (SegWit)", k => Bit.p2wpkh(Bit.pubC(Bit.mul(k)))], 86: ["bc1p…  (Taproot)", k => Bit.p2tr(Bit.mul(k))]};
 const cut = (s, n = 24) => s.length > n * 2 ? s.slice(0, n) + "…" + s.slice(-8) : s;
 let run = 0;
 async function calc(){
@@ -113,36 +114,36 @@ async function calc(){
   const chk = Bit.checkMnemonic(words), st = [];
   const S = (t, d, v) => st.push(`<div><span class="n">${st.length + 1}</span><span><b>${t}</b><small>${d}</small><span class="hx">${v}</span></span></div>`);
   if (!chk.ok){
-    $("pipe").innerHTML = `<div class="res bad"><strong>✗ Diese Wörter ergeben keinen gültigen Seed</strong>${chk.err === "unbekanntes Wort" ? `„${chk.bad}“ steht nicht in der BIP39-Liste.` : chk.err ? "Es müssen 12, 15, 18, 21 oder 24 Wörter sein." : `Die Prüfsumme passt nicht: Das letzte Wort müsste die Bits <b>${chk.want}</b> enthalten, hat aber <b>${chk.have}</b>. So erkennt die Wallet Tippfehler.`}</div>`;
+    $("pipe").innerHTML = Lern.t(`<div class="res bad"><strong>✗ Diese Wörter ergeben keinen gültigen Seed</strong>${chk.err === "unbekanntes Wort" ? `„${chk.bad}“ steht nicht in der BIP39-Liste.` : chk.err ? "Es müssen 12, 15, 18, 21 oder 24 Wörter sein." : `Die Prüfsumme passt nicht: Das letzte Wort müsste die Bits <b>${chk.want}</b> enthalten, hat aber <b>${chk.have}</b>. So erkennt die Wallet Tippfehler.`}</div>`, `<div class="res bad"><strong>✗ These words don't make a valid seed</strong>${chk.err === "unbekanntes Wort" ? `“${chk.bad}” isn't in the BIP39 list.` : chk.err ? "It must be 12, 15, 18, 21 or 24 words." : `The checksum doesn't match: the last word should contain the bits <b>${chk.want}</b>, but has <b>${chk.have}</b>. That's how the wallet catches typos.`}</div>`);
     $("addrs").innerHTML = ""; $("aN").textContent = ""; return;
   }
-  S("Zufall (Entropie)", `${chk.ent.length * 8} Bit, die eigentliche Geheimzahl hinter deinen Wörtern`, Bit.hex(chk.ent));
-  S("Prüfsumme ✓", "Die letzten Bits des letzten Wortes passen zu SHA-256 der Entropie", chk.want);
-  $("pipe").innerHTML = st.join("") + `<div><span class="n">…</span><span><b>Rechne 2048 Runden …</b></span></div>`;
+  S(Lern.t("Zufall (Entropie)", "Randomness (entropy)"), Lern.t(`${chk.ent.length * 8} Bit, die eigentliche Geheimzahl hinter deinen Wörtern`, `${chk.ent.length * 8} bits, the actual secret number behind your words`), Bit.hex(chk.ent));
+  S(Lern.t("Prüfsumme ✓", "Checksum ✓"), Lern.t("Die letzten Bits des letzten Wortes passen zu SHA-256 der Entropie", "The last bits of the last word match SHA-256 of the entropy"), chk.want);
+  $("pipe").innerHTML = st.join("") + Lern.t(`<div><span class="n">…</span><span><b>Rechne 2048 Runden …</b></span></div>`, `<div><span class="n">…</span><span><b>Calculating 2048 rounds …</b></span></div>`);
   const seed = await Bit.seedOf(words, pass); if (id !== run) return;
-  S("Seed (512 Bit)", `PBKDF2: 2048 Runden HMAC-SHA512 über die Wörter, Salz = „mnemonic“${pass ? " + deine Passphrase" : ""}`, cut(Bit.hex(seed)));
+  S(Lern.t("Seed (512 Bit)", "Seed (512 bits)"), Lern.t(`PBKDF2: 2048 Runden HMAC-SHA512 über die Wörter, Salz = „mnemonic“${pass ? " + deine Passphrase" : ""}`, `PBKDF2: 2048 rounds of HMAC-SHA512 over the words, salt = “mnemonic”${pass ? " + your passphrase" : ""}`), cut(Bit.hex(seed)));
   const M = await Bit.master(seed); if (id !== run) return;
-  S("Hauptschlüssel", "HMAC-SHA512 mit dem Schlüssel „Bitcoin seed“: links der Schlüssel, rechts der Kettencode", cut(M.k.toString(16).padStart(64, "0")));
+  S(Lern.t("Hauptschlüssel", "Master key"), Lern.t("HMAC-SHA512 mit dem Schlüssel „Bitcoin seed“: links der Schlüssel, rechts der Kettencode", "HMAC-SHA512 with the key “Bitcoin seed”: on the left the key, on the right the chain code"), cut(M.k.toString(16).padStart(64, "0")));
   const acc = await Bit.derive(seed, path); if (id !== run) return;
-  S(`Zweig ${path}`, "Jeder Schritt im Pfad: wieder HMAC-SHA512 aus dem Eltern-Schlüssel und der Nummer", cut(acc.k.toString(16).padStart(64, "0")));
+  S(Lern.t(`Zweig ${path}`, `Branch ${path}`), Lern.t("Jeder Schritt im Pfad: wieder HMAC-SHA512 aus dem Eltern-Schlüssel und der Nummer", "Every step in the path: HMAC-SHA512 again from the parent key and the index"), cut(acc.k.toString(16).padStart(64, "0")));
   const k0 = (await Bit.child(acc, 0)).k, pub = Bit.pubC(Bit.mul(k0));
-  S(`Privater Schlüssel …/0`, "Der erste Schlüssel in diesem Zweig", cut(k0.toString(16).padStart(64, "0")));
-  S("Öffentlicher Schlüssel", "k × G auf der Kurve secp256k1, als 33 Byte", cut(Bit.hex(pub)));
-  if (pu !== "86") S("Hash160", "RIPEMD-160(SHA-256(öffentlicher Schlüssel)): 20 Byte Fingerabdruck", Bit.hex(Bit.hash160(pub)));
-  else S("Taproot-Schlüssel", "Der öffentliche Schlüssel wird „getweakt“ (verschoben) und steckt direkt in der Adresse", "kein Hash160 nötig");
+  S(Lern.t(`Privater Schlüssel …/0`, `Private key …/0`), Lern.t("Der erste Schlüssel in diesem Zweig", "The first key in this branch"), cut(k0.toString(16).padStart(64, "0")));
+  S(Lern.t("Öffentlicher Schlüssel", "Public key"), Lern.t("k × G auf der Kurve secp256k1, als 33 Byte", "k × G on the curve secp256k1, as 33 bytes"), cut(Bit.hex(pub)));
+  if (pu !== "86") S("Hash160", Lern.t("RIPEMD-160(SHA-256(öffentlicher Schlüssel)): 20 Byte Fingerabdruck", "RIPEMD-160(SHA-256(public key)): 20-byte fingerprint"), Bit.hex(Bit.hash160(pub)));
+  else S(Lern.t("Taproot-Schlüssel", "Taproot key"), Lern.t("Der öffentliche Schlüssel wird „getweakt“ (verschoben) und steckt direkt in der Adresse", "The public key is “tweaked” (shifted) and sits directly in the address"), Lern.t("kein Hash160 nötig", "no Hash160 needed"));
   $("pipe").innerHTML = st.join("");
   const list = []; for (let i = 0; i < 5; i++){ const c = await Bit.child(acc, i); if (id !== run) return; list.push(PURP[pu][1](c.k)); }
   $("addrs").innerHTML = list.map((a, i) => `<li>${path}/${i} → <b style="color:var(--gold)">${a}</b></li>`).join("");
-  $("aN").innerHTML = words.join(" ") === TEST && !pass ? "✓ Das sind die <b>offiziellen Test-Adressen</b> dieser Wörter. Jede seriöse Wallet zeigt bei denselben Wörtern und demselben Pfad exakt dieselben Adressen. Achtung: Diese Wörter kennt die ganze Welt, dort liegt nie Geld sicher!" : pass ? "Mit Passphrase entsteht eine <b>komplett andere Wallet</b>. Ein einziges Zeichen anders, und alle Adressen sind anders." : "Wechsel oben den <b>Zweck</b>: gleicher Seed, aber ganz andere Adressen.";
+  $("aN").innerHTML = words.join(" ") === TEST && !pass ? Lern.t("✓ Das sind die <b>offiziellen Test-Adressen</b> dieser Wörter. Jede seriöse Wallet zeigt bei denselben Wörtern und demselben Pfad exakt dieselben Adressen. Achtung: Diese Wörter kennt die ganze Welt, dort liegt nie Geld sicher!", "✓ These are the <b>official test addresses</b> for these words. Every reputable wallet shows exactly the same addresses for the same words and the same path. Careful: the whole world knows these words, so money is never safe there!") : pass ? Lern.t("Mit Passphrase entsteht eine <b>komplett andere Wallet</b>. Ein einziges Zeichen anders, und alle Adressen sind anders.", "With a passphrase you get a <b>completely different wallet</b>. A single character different, and all addresses are different.") : Lern.t("Wechsel oben den <b>Zweck</b>: gleicher Seed, aber ganz andere Adressen.", "Change the <b>purpose</b> above: same seed, but completely different addresses.");
 }
 $("wNew").onclick = () => { $("wIn").value = Bit.mnemonic(Bit.rand(16)).join(" "); calc(); };
 $("wTest").onclick = () => { $("wIn").value = TEST; $("pw").value = ""; calc(); };
 let deb; const later = () => { clearTimeout(deb); deb = setTimeout(calc, 350); };
 ["wIn", "pw"].forEach(i => $(i).addEventListener("input", later)); ["pP", "pA", "pC"].forEach(i => $(i).addEventListener("change", calc));
-if (!window.crypto || !crypto.subtle) $("pipe").innerHTML = `<div class="res warn"><strong>Dein Browser erlaubt hier keine Krypto-Funktionen.</strong>Öffne die Seite über https.</div>`;
+if (!window.crypto || !crypto.subtle) $("pipe").innerHTML = Lern.t(`<div class="res warn"><strong>Dein Browser erlaubt hier keine Krypto-Funktionen.</strong>Öffne die Seite über https.</div>`, `<div class="res warn"><strong>Your browser doesn't allow crypto functions here.</strong>Open the page via https.</div>`);
 else $("wTest").onclick();
 
-const QUIZ = [["Wofür steht die 84 im Pfad m/84'/0'/0'/0/0?", ["Für das Jahr, in dem der Standard entstand", "Für den Adresstyp SegWit (bc1q…)", "Für die Anzahl der Wörter im Seed", "Für die Nummer deines ersten Kontos"], 1, "Die erste Zahl ist der Zweck: 44 = alte 1…-Adressen, 49 = 3…, 84 = bc1q…, 86 = Taproot bc1p…."], ["Was passiert, wenn du eine Passphrase hinzufügst?", ["Nichts", "Es entsteht eine komplett andere Wallet", "Der Seed wird kürzer", "Die Adressen bekommen ein Passwort"], 1, "Die Passphrase fließt in die Seed-Berechnung ein. Ein anderes Zeichen ergibt eine völlig andere Wallet."], ["Warum rechnet man 2048 Runden, bevor der Seed entsteht?", ["Damit die Wörter leichter zu merken sind", "Um Rate-Angriffe auf Wörter und Passphrase zu bremsen", "Damit die Wallet beim Start schneller lädt", "Weil die Wortliste genau 2048 Wörter hat"], 1, "Die vielen Runden machen jeden einzelnen Rateversuch teurer. Das schützt vor allem schwache Passphrasen."]];
+const QUIZ = [[Lern.t("Wofür steht die 84 im Pfad m/84'/0'/0'/0/0?", "What does the 84 in the path m/84'/0'/0'/0/0 stand for?"), [Lern.t("Für das Jahr, in dem der Standard entstand", "The year the standard was created"), Lern.t("Für den Adresstyp SegWit (bc1q…)", "The SegWit address type (bc1q…)"), Lern.t("Für die Anzahl der Wörter im Seed", "The number of words in the seed"), Lern.t("Für die Nummer deines ersten Kontos", "The number of your first account")], 1, Lern.t("Die erste Zahl ist der Zweck: 44 = alte 1…-Adressen, 49 = 3…, 84 = bc1q…, 86 = Taproot bc1p….", "The first number is the purpose: 44 = old 1… addresses, 49 = 3…, 84 = bc1q…, 86 = Taproot bc1p….")], [Lern.t("Was passiert, wenn du eine Passphrase hinzufügst?", "What happens if you add a passphrase?"), [Lern.t("Nichts", "Nothing"), Lern.t("Es entsteht eine komplett andere Wallet", "A completely different wallet is created"), Lern.t("Der Seed wird kürzer", "The seed gets shorter"), Lern.t("Die Adressen bekommen ein Passwort", "The addresses get a password")], 1, Lern.t("Die Passphrase fließt in die Seed-Berechnung ein. Ein anderes Zeichen ergibt eine völlig andere Wallet.", "The passphrase goes into the seed calculation. A different character gives a completely different wallet.")], [Lern.t("Warum rechnet man 2048 Runden, bevor der Seed entsteht?", "Why are 2048 rounds calculated before the seed is created?"), [Lern.t("Damit die Wörter leichter zu merken sind", "So that the words are easier to remember"), Lern.t("Um Rate-Angriffe auf Wörter und Passphrase zu bremsen", "To slow down guessing attacks on words and passphrase"), Lern.t("Damit die Wallet beim Start schneller lädt", "So that the wallet loads faster at start-up"), Lern.t("Weil die Wortliste genau 2048 Wörter hat", "Because the word list has exactly 2048 words")], 1, Lern.t("Die vielen Runden machen jeden einzelnen Rateversuch teurer. Das schützt vor allem schwache Passphrasen.", "The many rounds make every single guess more expensive. That mainly protects weak passphrases.")]];
 Lern.quiz($("quiz"), "ableitung", QUIZ, "../"); Lern.visit("ableitung"); Lern.renderNext("ableitung", "../");
 })();
 </script>

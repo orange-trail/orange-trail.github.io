@@ -45,70 +45,71 @@
 @keyframes p-shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 @media (max-width:620px){ .route{grid-template-columns:1fr 1fr} .fees div{grid-template-columns:6.5em 1fr 6em} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body data-nogl="Gebühr">
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Dein erster <span class="btc">Bitcoin</span>-Kauf</h1>
-    <p class="lead">Bitcoin kaufen ist heute einfach. Aber es gibt Unterschiede bei <b>Gebühren</b> und bei der Frage, <b>wem die Bitcoin danach wirklich gehören</b>. Hier lernst du den sicheren Weg, Schritt für Schritt.</p>
+    <h1 data-i="k3">Dein erster <span class="btc">Bitcoin</span>-Kauf</h1>
+    <p data-i="k4" class="lead">Bitcoin kaufen ist heute einfach. Aber es gibt Unterschiede bei <b>Gebühren</b> und bei der Frage, <b>wem die Bitcoin danach wirklich gehören</b>. Hier lernst du den sicheren Weg, Schritt für Schritt.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Wo kann man kaufen?</h2>
+    <h2 data-i="k5" id="h1s">1 · Wo kann man kaufen?</h2>
     <div class="route">
-      <div><b>📱 Broker / Neobank</b>Sehr bequem, oft aus der Banking-App. <span class="n">Auszahlen in eigene Wallet oft nicht möglich.</span></div>
-      <div><b>🏦 Krypto-Börse</b>Niedrige Gebühren, großes Angebot. <span class="y">Auszahlen möglich.</span> Viele andere Coins als Ablenkung.</div>
-      <div><b>🟠 Bitcoin-only-Anbieter</b>Nur Bitcoin, meist mit Sparplan und <span class="y">automatischer Auszahlung</span> in deine Wallet.</div>
-      <div><b>🤝 Privat (P2P)</b>Ohne Firma dazwischen, mehr Privatsphäre. <span class="n">Mehr Betrugsrisiko</span>, eher für Fortgeschrittene.</div>
+      <div data-i="k6"><b>📱 Broker / Neobank</b>Sehr bequem, oft aus der Banking-App. <span class="n">Auszahlen in eigene Wallet oft nicht möglich.</span></div>
+      <div data-i="k7"><b>🏦 Krypto-Börse</b>Niedrige Gebühren, großes Angebot. <span class="y">Auszahlen möglich.</span> Viele andere Coins als Ablenkung.</div>
+      <div data-i="k8"><b>🟠 Bitcoin-only-Anbieter</b>Nur Bitcoin, meist mit Sparplan und <span class="y">automatischer Auszahlung</span> in deine Wallet.</div>
+      <div data-i="k9"><b>🤝 Privat (P2P)</b>Ohne Firma dazwischen, mehr Privatsphäre. <span class="n">Mehr Betrugsrisiko</span>, eher für Fortgeschrittene.</div>
     </div>
-    <p class="note">In der EU brauchen Krypto-Dienstleister wie Börsen und Verwahrer seit der Regulierung <b>MiCA</b> eine Lizenz. Kauf nur bei Anbietern, die von der Finanzaufsicht (in Deutschland: <b>BaFin</b>) zugelassen sind.</p>
+    <p data-i="k10" class="note">In der EU brauchen Krypto-Dienstleister wie Börsen und Verwahrer seit der Regulierung <b>MiCA</b> eine Lizenz. Kauf nur bei Anbietern, die von der Finanzaufsicht (in Deutschland: <b>BaFin</b>) zugelassen sind.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Wie viele Sats bekommst du wirklich? <span class="mode" id="mode">Verbinde …</span></h2>
-    <p class="muted" style="margin:0">Neben der sichtbaren Gebühr gibt es oft einen <b>Spread</b>: Du kaufst etwas teurer, als der echte Kurs ist. Das sieht man nicht sofort, kostet aber.</p>
-    <div class="ctl"><label class="lbl2" for="eur">Betrag</label><div class="row"><input id="eur" type="range" min="25" max="1000" step="25" value="100"><b id="eurV" class="num">100 €</b></div></div>
+    <h2 data-i="k11" id="h2s">2 · Wie viele Sats bekommst du wirklich? <span class="mode" id="mode">Verbinde …</span></h2>
+    <p data-i="k12" class="muted" style="margin:0">Neben der sichtbaren Gebühr gibt es oft einen <b>Spread</b>: Du kaufst etwas teurer, als der echte Kurs ist. Das sieht man nicht sofort, kostet aber.</p>
+    <div class="ctl"><label data-i="k13" class="lbl2" for="eur">Betrag</label><div class="row"><input id="eur" type="range" min="25" max="1000" step="25" value="100"><b id="eurV" class="num">100 €</b></div></div>
     <div class="fees" id="fees"></div>
     <p class="note" id="feeN"></p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Bring die Schritte in die richtige Reihenfolge</h2>
-    <p class="muted" style="margin:0">Tipp die Schritte so an, wie du sie machen würdest. Manchmal sind <b>mehrere Reihenfolgen</b> richtig.</p>
+    <h2 data-i="k14" id="h3s">3 · Bring die Schritte in die richtige Reihenfolge</h2>
+    <p data-i="k15" class="muted" style="margin:0">Tipp die Schritte so an, wie du sie machen würdest. Manchmal sind <b>mehrere Reihenfolgen</b> richtig.</p>
     <div class="order" id="order"></div>
     <div id="oRes"></div>
   </section>
 
   <section class="card" aria-labelledby="h4r">
-    <h2 id="h4r">4 · Regeln &amp; Recht: Was gilt?</h2>
+    <h2 data-i="k16" id="h4r">4 · Regeln &amp; Recht: Was gilt?</h2>
     <div class="learn bx">
-      <div><b>✅ Erlaubt</b><span>Bitcoin kaufen, halten und senden ist in Deutschland <b>legal</b>. Es ist aber kein gesetzliches Zahlungsmittel: Kein Laden muss es annehmen.</span></div>
-      <div><b>🪪 Warum der Ausweis?</b><span>Das <b>Geldwäschegesetz</b> verlangt, dass Anbieter wissen, wer du bist (KYC). Seriöse Anbieter fragen immer. Kauf ganz ohne Ausweis? <b>Warnsignal.</b></span></div>
-      <div><b>📜 MiCA-Lizenz</b><span>Seit <b>Juli 2026</b> ist die Übergangsfrist vorbei: Wer in der EU Krypto-Dienstleistungen anbietet (Handel, Verwahrung, Tausch), braucht eine Zulassung. Privatpersonen, die nur Bitcoin kaufen oder halten, brauchen keine. Prüfen kannst du das im Register der EU-Aufsicht ESMA.</span></div>
-      <div><b>📤 Eigene Wallet</b><span>Auszahlen ist erlaubt. Ab <b>1.000 €</b> kann die Börse fragen, ob die Wallet wirklich dir gehört (EU-Geldtransferregeln).</span></div>
+      <div><b data-i="k17">✅ Erlaubt</b><span data-i="k18">Bitcoin kaufen, halten und senden ist in Deutschland <b>legal</b>. Es ist aber kein gesetzliches Zahlungsmittel: Kein Laden muss es annehmen.</span></div>
+      <div><b data-i="k19">🪪 Warum der Ausweis?</b><span data-i="k20">Das <b>Geldwäschegesetz</b> verlangt, dass Anbieter wissen, wer du bist (KYC). Seriöse Anbieter fragen immer. Kauf ganz ohne Ausweis? <b>Warnsignal.</b></span></div>
+      <div><b data-i="k21">📜 MiCA-Lizenz</b><span data-i="k22">Seit <b>Juli 2026</b> ist die Übergangsfrist vorbei: Wer in der EU Krypto-Dienstleistungen anbietet (Handel, Verwahrung, Tausch), braucht eine Zulassung. Privatpersonen, die nur Bitcoin kaufen oder halten, brauchen keine. Prüfen kannst du das im Register der EU-Aufsicht ESMA.</span></div>
+      <div><b data-i="k23">📤 Eigene Wallet</b><span data-i="k24">Auszahlen ist erlaubt. Ab <b>1.000 €</b> kann die Börse fragen, ob die Wallet wirklich dir gehört (EU-Geldtransferregeln).</span></div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k25" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Auf Lizenz achten</b><span>Nur bei Anbietern kaufen, die von der <b>BaFin</b> bzw. nach <b>MiCA</b> zugelassen sind.</span></div>
-      <div><b>Gebühren + Spread</b><span>Achte auf die <b>Gesamtkosten</b>. Ein versteckter Spread kann teurer sein als die Gebühr.</span></div>
-      <div><b>Eigene Wallet</b><span>Bitcoin auf einer Plattform gehören <b>der Plattform</b>, bis du sie in deine Wallet auszahlst.</span></div>
-      <div><b>Erst testen</b><span>Vor der großen Auszahlung immer eine <b>kleine Test-Auszahlung</b>, und die Adresse prüfen.</span></div>
+      <div><b data-i="k26">Auf Lizenz achten</b><span data-i="k27">Nur bei Anbietern kaufen, die von der <b>BaFin</b> bzw. nach <b>MiCA</b> zugelassen sind.</span></div>
+      <div><b data-i="k28">Gebühren + Spread</b><span data-i="k29">Achte auf die <b>Gesamtkosten</b>. Ein versteckter Spread kann teurer sein als die Gebühr.</span></div>
+      <div><b data-i="k30">Eigene Wallet</b><span data-i="k31">Bitcoin auf einer Plattform gehören <b>der Plattform</b>, bis du sie in deine Wallet auszahlst.</span></div>
+      <div><b data-i="k32">Erst testen</b><span data-i="k33">Vor der großen Auszahlung immer eine <b>kleine Test-Auszahlung</b>, und die Adresse prüfen.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k34">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b>Nochmal nachlesen:</b> <a href="../wallets/">Wallet-Check</a> <span class="muted">(welche Wallet zu dir passt)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://www.bafin.de/DE/Aufsicht/MiCAR/MiCAR_node.html">BaFin: MiCAR</a> · <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA: MiCA und Register</a> · <a href="https://eur-lex.europa.eu/eli/reg/2023/1113/oj">EU-Geldtransferverordnung 2023/1113</a> · <a href="https://mempool.space">mempool.space (Kurs)</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k44" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b data-i="k35">Nochmal nachlesen:</b> <a data-i="k36" href="../wallets/">Wallet-Check</a> <span data-i="k37" class="muted">(welche Wallet zu dir passt)</span></p></section>
+  <section data-i="k45" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k38">Quellen</summary><p><a data-i="k39" href="https://www.bafin.de/DE/Aufsicht/MiCAR/MiCAR_node.html">BaFin: MiCAR</a> · <a data-i="k40" href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA: MiCA und Register</a> · <a data-i="k41" href="https://eur-lex.europa.eu/eli/reg/2023/1113/oj">EU-Geldtransferverordnung 2023/1113</a> · <a data-i="k42" href="https://mempool.space">mempool.space (Kurs)</a></p></details>
+  <p data-i="k43" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Your first <span class=\"btc\">bitcoin<\/span> purchase", "k4": "Buying bitcoin is easy today. But there are differences in <b>fees<\/b> and in the question of <b>who the bitcoin really belong to afterwards<\/b>. Here you learn the safe way, step by step.", "k5": "1 · Where can you buy?", "k6": "<b>📱 Broker / neobank<\/b>Very convenient, often right in your banking app. <span class=\"n\">Withdrawing to your own wallet often not possible.<\/span>", "k7": "<b>🏦 Crypto exchange<\/b>Low fees, wide range. <span class=\"y\">Withdrawing possible.<\/span> Lots of other coins as a distraction.", "k8": "<b>🟠 Bitcoin-only provider<\/b>Only bitcoin, usually with a savings plan and <span class=\"y\">automatic withdrawal<\/span> to your wallet.", "k9": "<b>🤝 Private (P2P)<\/b>No company in between, more privacy. <span class=\"n\">Higher risk of scams<\/span>, more for advanced users.", "k10": "In the EU, crypto service providers such as exchanges and custodians need a licence since the <b>MiCA<\/b> regulation. Only buy from providers approved by the financial regulator (in Germany: <b>BaFin<\/b>).", "k11": "2 · How many sats do you really get? <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k12": "Besides the visible fee there's often a <b>spread<\/b>: you buy a bit more expensively than the real price. You don't see it immediately, but it costs.", "k13": "Amount", "k14": "3 · Put the steps in the right order", "k15": "Tap the steps in the order you'd do them. Sometimes <b>several orders<\/b> are correct.", "k16": "4 · Rules &amp; law: what applies?", "k17": "✅ Allowed", "k18": "Buying, holding and sending bitcoin is <b>legal<\/b> in Germany. But it isn't legal tender: no shop has to accept it.", "k19": "🪪 Why the ID?", "k20": "Anti-money-laundering law requires providers to know who you are (KYC). Legitimate providers always ask. Buying with no ID at all? <b>Warning sign.<\/b>", "k21": "📜 MiCA licence", "k22": "Since <b>July 2026<\/b> the transition period is over: anyone offering crypto services in the EU (trading, custody, exchange) needs authorisation. Private individuals who only buy or hold bitcoin don't. You can check this in the register of the EU supervisor ESMA.", "k23": "📤 Your own wallet", "k24": "Withdrawing is allowed. From <b>€1,000<\/b> on, the exchange may ask whether the wallet really belongs to you (EU transfer of funds rules).", "k25": "Remember this", "k26": "Check the licence", "k27": "Only buy from providers approved by <b>BaFin<\/b> or under <b>MiCA<\/b>.", "k28": "Fees + spread", "k29": "Watch the <b>total cost<\/b>. A hidden spread can be more expensive than the fee.", "k30": "Your own wallet", "k31": "Bitcoin on a platform belong to <b>the platform<\/b> until you withdraw them to your wallet.", "k32": "Test first", "k33": "Before the big withdrawal always do a <b>small test withdrawal<\/b>, and check the address.", "k34": "Test yourself: 3 questions", "k35": "Read again:", "k36": "Wallet Check", "k37": "(which wallet suits you)", "k38": "Sources", "k39": "BaFin: MiCAR", "k40": "ESMA: MiCA and register", "k41": "EU Transfer of Funds Regulation 2023/1113", "k42": "mempool.space (price)", "k43": "Entertainment and learning, not investment advice.", "k44@aria-label": "Related", "k45@aria-label": "Next", "_title": "First Purchase · Bitcoin Voyage", "_desc": "Lernwelt: Bitcoin zum ersten Mal kaufen. Anbieter-Arten vergleichen, versteckte Gebühren erkennen und sicher in die eigene Wallet auszahlen."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    ERSTER KAUF – Lernwelt von Bitcoin Voyage
@@ -117,31 +118,31 @@
 const $ = id => document.getElementById(id);
 let eur = 0, live = false;
 async function price(){ try { const j = await (await fetch(Lern.api("v1/prices"))).json(); if (j.EUR > 0){ eur = j.EUR; live = true; } } catch(e){}
-  $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte"; if (!eur) eur = 80000; fees(); }
-const R = [["Bitcoin-only-App", 1.0, 0, "#34d982"], ["Krypto-Börse", 0.3, 0.2, "#7cc4ff"], ["Broker mit Spread", 1.0, 1.5, "#ffc94d"], ["Teurer Anbieter", 2.0, 2.5, "#ff5c73"]];
+  $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : Lern.t("Beispielwerte", "Example values"); if (!eur) eur = 80000; fees(); }
+const R = [[Lern.t("Bitcoin-only-App", "Bitcoin-only app"), 1.0, 0, "#34d982"], [Lern.t("Krypto-Börse", "Crypto exchange"), 0.3, 0.2, "#7cc4ff"], [Lern.t("Broker mit Spread", "Broker with spread"), 1.0, 1.5, "#ffc94d"], [Lern.t("Teurer Anbieter", "Expensive provider"), 2.0, 2.5, "#ff5c73"]];
 function fees(){
-  const a = +$("eur").value, ideal = a / eur * 1e8; $("eurV").textContent = a + " €";
+  const a = +$("eur").value, ideal = a / eur * 1e8; $("eurV").textContent = Lern.cur(a + " €");
   const rows = R.map(([n, fee, spread, c]) => [n, a * (1 - fee / 100) / (eur * (1 + spread / 100)) * 1e8, fee + spread, c]);
-  $("fees").innerHTML = rows.map(([n, s, k, c]) => `<div><span>${n}<br><small class="muted">≈ ${k.toLocaleString("de-DE")} % Kosten</small></span><i><u style="width:${s / ideal * 100}%;background:${c}"></u></i><em>${Math.round(s).toLocaleString("de-DE")} sats</em></div>`).join("");
-  $("feeN").innerHTML = `Ohne jede Gebühr wären es <b>${Math.round(ideal).toLocaleString("de-DE")} sats</b> (Kurs ${Math.round(eur).toLocaleString("de-DE")} €). Bei einem Sparplan über 10 Jahre summieren sich ${(rows[3][2] - rows[0][2]).toLocaleString("de-DE")} Prozentpunkte Unterschied zu einem echten Batzen. Die Prozentwerte sind Beispiele, prüf immer das Preisblatt deines Anbieters.`;
+  $("fees").innerHTML = rows.map(([n, s, k, c]) => Lern.t(`<div><span>${n}<br><small class="muted">≈ ${k.toLocaleString(Lern.EN ? "en-US" : "de-DE")} % Kosten</small></span><i><u style="width:${s / ideal * 100}%;background:${c}"></u></i><em>${Math.round(s).toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</em></div>`, `<div><span>${n}<br><small class="muted">≈ ${k.toLocaleString(Lern.EN ? "en-US" : "de-DE")} % costs</small></span><i><u style="width:${s / ideal * 100}%;background:${c}"></u></i><em>${Math.round(s).toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</em></div>`)).join("");
+  $("feeN").innerHTML = Lern.t(`Ohne jede Gebühr wären es <b>${Math.round(ideal).toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</b> (Kurs ${Math.round(eur).toLocaleString(Lern.EN ? "en-US" : "de-DE")} €). Bei einem Sparplan über 10 Jahre summieren sich ${(rows[3][2] - rows[0][2]).toLocaleString(Lern.EN ? "en-US" : "de-DE")} Prozentpunkte Unterschied zu einem echten Batzen. Die Prozentwerte sind Beispiele, prüf immer das Preisblatt deines Anbieters.`, `Without any fee it would be <b>${Math.round(ideal).toLocaleString("en-US")} sats</b> (price €${Math.round(eur).toLocaleString("en-US")}). In a savings plan over 10 years, a difference of ${(rows[3][2] - rows[0][2]).toLocaleString("en-US")} percentage points adds up to a real chunk. The percentages are examples; always check your provider's price list.`);
 }
 $("eur").oninput = fees; fees(); price();
 // Reihenfolge-Spiel
-const STEPS = ["Lizenzierten Anbieter auswählen", "Konto eröffnen und Ausweis prüfen lassen", "Euro überweisen", "Bitcoin kaufen", "Eigene Wallet einrichten und Seed auf Papier sichern", "Kleine Test-Auszahlung an deine Adresse", "Rest auszahlen, Adresse vorher genau prüfen"];
+const STEPS = [Lern.t("Lizenzierten Anbieter auswählen", "Choose a licensed provider"), Lern.t("Konto eröffnen und Ausweis prüfen lassen", "Open an account and have your ID checked"), Lern.t("Euro überweisen", "Transfer euros"), Lern.t("Bitcoin kaufen", "Buy bitcoin"), Lern.t("Eigene Wallet einrichten und Seed auf Papier sichern", "Set up your own wallet and back up the seed on paper"), Lern.t("Kleine Test-Auszahlung an deine Adresse", "Small test withdrawal to your address"), Lern.t("Rest auszahlen, Adresse vorher genau prüfen", "Withdraw the rest, check the address carefully first")];
 let next = 0, err = 0;
 // Was muss vorher erledigt sein? Mehrere Reihenfolgen sind richtig (z. B. Wallet schon vor dem Kauf einrichten)
 const NEED = [[], [0], [1], [2], [], [3, 4], [5]];
-const WHY = ["", "Erst brauchst du einen Anbieter, bei dem du ein Konto eröffnest.", "Überweisen geht erst, wenn dein Konto eröffnet ist.", "Kaufen geht erst, wenn Euro auf dem Konto sind.", "", "Für die Test-Auszahlung brauchst du gekaufte Bitcoin <b>und</b> eine eigene Wallet.", "Erst testen, dann den Rest auszahlen!"];
+const WHY = ["", Lern.t("Erst brauchst du einen Anbieter, bei dem du ein Konto eröffnest.", "First you need a provider where you open an account."), Lern.t("Überweisen geht erst, wenn dein Konto eröffnet ist.", "You can only transfer once your account is open."), Lern.t("Kaufen geht erst, wenn Euro auf dem Konto sind.", "You can only buy once there are euros in the account."), "", Lern.t("Für die Test-Auszahlung brauchst du gekaufte Bitcoin <b>und</b> eine eigene Wallet.", "For the test withdrawal you need bought bitcoin <b>and</b> your own wallet."), Lern.t("Erst testen, dann den Rest auszahlen!", "Test first, then withdraw the rest!")];
 let done = new Set();
 function order(){ next = 0; err = 0; done = new Set(); $("oRes").innerHTML = "";
   $("order").innerHTML = STEPS.map((t, i) => [Math.random(), i, t]).sort((a, b) => a[0] - b[0]).map(([, i, t]) => `<button type="button" data-i="${i}">${t}</button>`).join(""); }
 $("order").onclick = e => { const b = e.target.closest("button[data-i]"); if (!b || b.classList.contains("ok")) return; const i = +b.dataset.i;
   if (NEED[i].every(k => done.has(k))){ done.add(i); b.classList.remove("no"); b.classList.add("ok"); b.innerHTML = `<i>${next + 1}</i>` + b.textContent; b.style.order = next - 10; next++; $("oRes").innerHTML = "";
-    if (next === STEPS.length){ $("oRes").innerHTML = `<div class="res ${err ? "warn" : "ok"}"><strong>${err ? `Geschafft, mit ${err} Fehlversuch${err > 1 ? "en" : ""}` : "Perfekt, alles richtig!"}</strong>${done && [...done].indexOf(4) < [...done].indexOf(3) ? "Gut: Du hast die Wallet schon vor dem Kauf eingerichtet. Das geht genauso." : "Die Wallet kannst du übrigens auch schon vor dem Kauf einrichten, beide Wege sind richtig."} Wichtig ist nur: <b>Test-Auszahlung vor der großen Auszahlung.</b> <button class="btn" type="button" id="oAgain" style="margin-top:8px">↺ Nochmal</button></div>`; $("oAgain").onclick = order; Lern.confetti && Lern.confetti(); } }
+    if (next === STEPS.length){ $("oRes").innerHTML = Lern.t(`<div class="res ${err ? "warn" : "ok"}"><strong>${err ? `Geschafft, mit ${err} Fehlversuch${err > 1 ? "en" : ""}` : "Perfekt, alles richtig!"}</strong>${done && [...done].indexOf(4) < [...done].indexOf(3) ? "Gut: Du hast die Wallet schon vor dem Kauf eingerichtet. Das geht genauso." : "Die Wallet kannst du übrigens auch schon vor dem Kauf einrichten, beide Wege sind richtig."} Wichtig ist nur: <b>Test-Auszahlung vor der großen Auszahlung.</b> <button class="btn" type="button" id="oAgain" style="margin-top:8px">↺ Nochmal</button></div>`, `<div class="res ${err ? "warn" : "ok"}"><strong>${err ? `Done, with ${err} wrong attempt${err > 1 ? "s" : ""}` : "Perfect, all correct!"}</strong>${done && [...done].indexOf(4) < [...done].indexOf(3) ? "Good: you set up the wallet before buying. That works just as well." : "By the way, you can also set up the wallet before buying; both ways are correct."} The only important thing: <b>a test withdrawal before the big withdrawal.</b> <button class="btn" type="button" id="oAgain" style="margin-top:8px">↺ Again</button></div>`); $("oAgain").onclick = order; Lern.confetti && Lern.confetti(); } }
   else { err++; b.classList.remove("no"); void b.offsetWidth; b.classList.add("no"); $("oRes").innerHTML = `<p class="note">✋ ${WHY[i]}</p>`; } };
 order();
 
-const QUIZ = [["Was ist ein Spread?", ["Eine besondere Art von Hardware-Wallet", "Der Aufschlag auf den echten Kurs, den man beim Kauf zahlt", "Ein Update, das Bitcoin schneller macht", "Die Zinsen, die die Bank auf Bitcoin zahlt"], 1, "Beim Spread kaufst du etwas teurer als der echte Marktpreis. Diese Kosten sieht man oft nicht direkt."], ["Wem gehören Bitcoin, die auf einer Plattform liegen?", ["Immer dir, egal wo sie liegen", "Erstmal der Plattform, du hast nur ein Versprechen", "Dem Staat, bis du sie versteuert hast", "Niemandem, bis du sie verkaufst"], 1, "Auf der Plattform hält der Anbieter die Schlüssel. Erst nach der Auszahlung in deine Wallet gehören sie wirklich dir."], ["Was machst du vor der ersten großen Auszahlung?", ["Nichts", "Eine kleine Test-Auszahlung", "Den Seed fotografieren", "Die Adresse per Hand abtippen"], 1, "Eine kleine Test-Auszahlung zeigt, dass Adresse und Wallet funktionieren. Erst dann den Rest schicken."]];
+const QUIZ = [[Lern.t("Was ist ein Spread?", "What is a spread?"), [Lern.t("Eine besondere Art von Hardware-Wallet", "A special kind of hardware wallet"), Lern.t("Der Aufschlag auf den echten Kurs, den man beim Kauf zahlt", "The markup on the real price that you pay when buying"), Lern.t("Ein Update, das Bitcoin schneller macht", "An update that makes Bitcoin faster"), Lern.t("Die Zinsen, die die Bank auf Bitcoin zahlt", "The interest the bank pays on bitcoin")], 1, Lern.t("Beim Spread kaufst du etwas teurer als der echte Marktpreis. Diese Kosten sieht man oft nicht direkt.", "With a spread you buy a bit more expensively than the real market price. You often don't see this cost directly.")], [Lern.t("Wem gehören Bitcoin, die auf einer Plattform liegen?", "Who do bitcoin on a platform belong to?"), [Lern.t("Immer dir, egal wo sie liegen", "Always to you, no matter where they are"), Lern.t("Erstmal der Plattform, du hast nur ein Versprechen", "To the platform for now; you only have a promise"), Lern.t("Dem Staat, bis du sie versteuert hast", "To the state, until you've paid tax on them"), Lern.t("Niemandem, bis du sie verkaufst", "To nobody, until you sell them")], 1, Lern.t("Auf der Plattform hält der Anbieter die Schlüssel. Erst nach der Auszahlung in deine Wallet gehören sie wirklich dir.", "On the platform, the provider holds the keys. Only after withdrawing to your wallet do they really belong to you.")], [Lern.t("Was machst du vor der ersten großen Auszahlung?", "What do you do before the first big withdrawal?"), [Lern.t("Nichts", "Nothing"), Lern.t("Eine kleine Test-Auszahlung", "A small test withdrawal"), Lern.t("Den Seed fotografieren", "Photograph the seed"), Lern.t("Die Adresse per Hand abtippen", "Type the address by hand")], 1, Lern.t("Eine kleine Test-Auszahlung zeigt, dass Adresse und Wallet funktionieren. Erst dann den Rest schicken.", "A small test withdrawal shows that the address and wallet work. Only then send the rest.")]];
 Lern.quiz($("quiz"), "kaufen", QUIZ, "../"); Lern.visit("kaufen"); Lern.renderNext("kaufen", "../");
 })();
 </script>

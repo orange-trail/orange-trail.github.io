@@ -53,56 +53,57 @@ table.pts{width:100%;border-collapse:separate;border-spacing:0 4px;margin-top:6p
 @media (max-width:620px){ .dg3{grid-template-columns:1fr} }
 @media (max-width:520px){ .four{grid-template-columns:repeat(2,minmax(0,1fr))} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Geld-<span class="btc">Duell</span></h1>
-    <p class="lead">Was macht gutes Geld aus? <b>Muscheln</b>, <b>Gold</b>, <b>Euro</b> und <b>Bitcoin</b> treten in <b>10 Runden</b> gegeneinander an. Jede Runde gibt Punkte. Wer gewinnt am Ende?</p>
+    <h1 data-i="k3">Geld-<span class="btc">Duell</span></h1>
+    <p data-i="k4" class="lead">Was macht gutes Geld aus? <b>Muscheln</b>, <b>Gold</b>, <b>Euro</b> und <b>Bitcoin</b> treten in <b>10 Runden</b> gegeneinander an. Jede Runde gibt Punkte. Wer gewinnt am Ende?</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Das Duell <span class="mode" id="mode">Verbinde …</span></h2>
-    <div class="idea">Gutes Geld braucht bestimmte <b>Eigenschaften</b>. In jeder Runde gibt es <b>0 bis 3 Punkte</b> pro Geld. Rate, wer die <b>meisten</b> oder die <b>wenigsten</b> bekommt, und sieh zu, wie sich die Punktetabelle füllt.</div>
-    <div class="score"><div class="me">Deine Treffer<b class="num" id="sMe">0</b></div><div>Runde<b class="num" id="sR">1/10</b></div></div>
+    <h2 data-i="k5" id="h1s">Das Duell <span class="mode" id="mode">Verbinde …</span></h2>
+    <div data-i="k6" class="idea">Gutes Geld braucht bestimmte <b>Eigenschaften</b>. In jeder Runde gibt es <b>0 bis 3 Punkte</b> pro Geld. Rate, wer die <b>meisten</b> oder die <b>wenigsten</b> bekommt, und sieh zu, wie sich die Punktetabelle füllt.</div>
+    <div class="score"><div data-i="k7" class="me">Deine Treffer<b class="num" id="sMe">0</b></div><div data-i="k8">Runde<b class="num" id="sR">1/10</b></div></div>
     <div id="game"></div>
-    <h3 style="margin:18px 0 0;font:900 16px var(--f-display)">Punktetabelle</h3>
+    <h3 data-i="k9" style="margin:18px 0 0;font:900 16px var(--f-display)">Punktetabelle</h3>
     <table class="pts" id="pts"></table>
     <div class="race" id="race"></div>
-    <div class="idea" style="margin-top:14px"><b>🔭 Blick nach vorn</b><br>Die Punkte zeigen den <b>Stand heute</b>. Zwei Werte können sich ändern:<br><b>Erfahrung</b> wächst mit jedem Jahr von selbst.<br><b>Wertstabilität:</b> Bisher sind die Schwankungen über die Jahre kleiner geworden, je größer der Markt wurde. Ob das so bleibt, weiß niemand. <a href="../kritik/" style="color:var(--gold);font-weight:800">Mehr im Kritik-Check →</a></div>
+    <div data-i="k10" class="idea" style="margin-top:14px"><b>🔭 Blick nach vorn</b><br>Die Punkte zeigen den <b>Stand heute</b>. Zwei Werte können sich ändern:<br><b>Erfahrung</b> wächst mit jedem Jahr von selbst.<br><b>Wertstabilität:</b> Bisher sind die Schwankungen über die Jahre kleiner geworden, je größer der Markt wurde. Ob das so bleibt, weiß niemand. <a href="../kritik/" style="color:var(--gold);font-weight:800">Mehr im Kritik-Check →</a></div>
   </section>
 
   <section class="card" id="digi" aria-labelledby="hDs">
-    <h2 id="hDs">Und die neuen Digitalgelder? <span class="mode demo">Stand Nov. 2026</span></h2>
-    <p class="muted" style="margin:0">Neben Bitcoin gibt es neue digitale Gelder. Sie sehen ähnlich aus, funktionieren aber ganz anders:</p>
+    <h2 data-i="k11" id="hDs">Und die neuen Digitalgelder? <span class="mode demo">Stand Nov. 2026</span></h2>
+    <p data-i="k12" class="muted" style="margin:0">Neben Bitcoin gibt es neue digitale Gelder. Sie sehen ähnlich aus, funktionieren aber ganz anders:</p>
     <div class="dg3">
-      <div><b>📲 Digitaler Euro</b><dl><dt>Wer gibt ihn heraus?</dt><dd>Die Zentralbank (EZB)</dd><dt>Menge</dt><dd>keine feste Höchstmenge, Ausgabe durch das Eurosystem</dd><dt>Wert</dt><dd>immer 1 €</dd><dt>Sperrbar?</dt><dd>möglich, Regeln noch offen; geplante Halte-Obergrenze pro Person</dd></dl></div>
-      <div><b>🪙 Stablecoin</b><dl><dt>Wer gibt ihn heraus?</dt><dd>eine private Firma</dd><dt>Menge</dt><dd>wächst mit Einzahlungen</dd><dt>Wert</dt><dd>meist 1 $ oder 1 €</dd><dt>Sperrbar?</dt><dd><b>ja</b>, die Firma kann einfrieren</dd></dl></div>
-      <div class="me"><b>🟠 Bitcoin</b><dl><dt>Wer gibt ihn heraus?</dt><dd><b>niemand</b>, ein offenes Netz</dd><dt>Menge</dt><dd><b>max. 21 Mio.</b></dd><dt>Wert</dt><dd>schwankt stark</dd><dt>Sperrbar?</dt><dd><b>keine zentrale Sperre</b> im Netz; Börsen können Konten sperren</dd></dl></div>
+      <div><b data-i="k13">📲 Digitaler Euro</b><dl><dt data-i="k14">Wer gibt ihn heraus?</dt><dd data-i="k15">Die Zentralbank (EZB)</dd><dt data-i="k16">Menge</dt><dd data-i="k17">keine feste Höchstmenge, Ausgabe durch das Eurosystem</dd><dt data-i="k18">Wert</dt><dd data-i="k19">immer 1 €</dd><dt data-i="k20">Sperrbar?</dt><dd data-i="k21">möglich, Regeln noch offen; geplante Halte-Obergrenze pro Person</dd></dl></div>
+      <div><b data-i="k22">🪙 Stablecoin</b><dl><dt data-i="k23">Wer gibt ihn heraus?</dt><dd data-i="k24">eine private Firma</dd><dt data-i="k25">Menge</dt><dd data-i="k26">wächst mit Einzahlungen</dd><dt data-i="k27">Wert</dt><dd data-i="k28">meist 1 $ oder 1 €</dd><dt data-i="k29">Sperrbar?</dt><dd data-i="k30"><b>ja</b>, die Firma kann einfrieren</dd></dl></div>
+      <div class="me"><b data-i="k31">🟠 Bitcoin</b><dl><dt data-i="k32">Wer gibt ihn heraus?</dt><dd data-i="k33"><b>niemand</b>, ein offenes Netz</dd><dt data-i="k34">Menge</dt><dd><b data-i="k35">max. 21 Mio.</b></dd><dt data-i="k36">Wert</dt><dd data-i="k37">schwankt stark</dd><dt data-i="k38">Sperrbar?</dt><dd data-i="k39"><b>keine zentrale Sperre</b> im Netz; Börsen können Konten sperren</dd></dl></div>
     </div>
-    <p class="bxh">📅 <b>Digitaler Euro</b></p><div class="learn bx"><div><b>Stand</b><span>Das EU-Parlament verhandelt noch. Pilot-Tests ab Mitte 2027 geplant.</span></div><div><b>Start</b><span>Für alle <b>frühestens 2029</b>, mit Haltegrenze pro Person (diskutiert: rund 3.000 €).</span></div><div><b>Fazit</b><span>Bleibt ein Euro: bequem, aber <b>kein Schutz vor Inflation</b>.</span></div></div>
-    <p class="note">Kurz gesagt: Digitaler Euro und Stablecoins sind <b>stabil, aber vermehrbar</b>. Bitcoin ist <b>knapp, aber schwankt</b>.</p>
+    <p class="bxh">📅 <b data-i="k40">Digitaler Euro</b></p><div class="learn bx"><div><b data-i="k41">Stand</b><span data-i="k42">Das EU-Parlament verhandelt noch. Pilot-Tests ab Mitte 2027 geplant.</span></div><div><b data-i="k43">Start</b><span data-i="k44">Für alle <b>frühestens 2029</b>, mit Haltegrenze pro Person (diskutiert: rund 3.000 €).</span></div><div><b data-i="k45">Fazit</b><span data-i="k46">Bleibt ein Euro: bequem, aber <b>kein Schutz vor Inflation</b>.</span></div></div>
+    <p data-i="k47" class="note">Kurz gesagt: Digitaler Euro und Stablecoins sind <b>stabil, aber vermehrbar</b>. Bitcoin ist <b>knapp, aber schwankt</b>.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Das solltest du dir merken</h2>
+    <h2 data-i="k48" id="h2s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Knapp</b><span>Es wird nie mehr als <b>21 Millionen</b> Bitcoin geben. Niemand kann mehr drucken.</span></div>
-      <div><b>Dezentral</b><span>Kein Chef, keine Bank: <b>Tausende Nodes</b> prüfen die Regeln gemeinsam.</span></div>
-      <div><b>Digital und grenzenlos</b><span>Teilbar in <b>100 Millionen Sats</b>, rund um die Uhr in die ganze Welt.</span></div>
-      <div><b>Aber jung und schwankend</b><span>Bitcoin gibt es erst <b>seit 2009</b>, und der Preis schwankt stark.</span></div>
+      <div><b data-i="k49">Knapp</b><span data-i="k50">Es wird nie mehr als <b>21 Millionen</b> Bitcoin geben. Niemand kann mehr drucken.</span></div>
+      <div><b data-i="k51">Dezentral</b><span data-i="k52">Kein Chef, keine Bank: <b>Tausende Nodes</b> prüfen die Regeln gemeinsam.</span></div>
+      <div><b data-i="k53">Digital und grenzenlos</b><span data-i="k54">Teilbar in <b>100 Millionen Sats</b>, rund um die Uhr in die ganze Welt.</span></div>
+      <div><b data-i="k55">Aber jung und schwankend</b><span data-i="k56">Bitcoin gibt es erst <b>seit 2009</b>, und der Preis schwankt stark.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k57">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Digitaler Euro: <a href="https://netzpolitik.org/2026/alternative-zu-visa-paypal-und-co-eu-abgeordnete-stimmen-fuer-digitalen-euro/">netzpolitik.org (Juni 2026)</a>, <a href="https://de.wikipedia.org/wiki/Digitaler_Euro">Wikipedia</a>. Euro-Kurs von Bitcoin Stand 15.11.2026, gerundet. Gold-Förderung jährlich rund 1,5 bis 2 % des Bestands (gerundet). Die Punkte sind vereinfacht und als Diskussionsgrundlage gedacht.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k61" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k58">Quellen</summary><p data-i="k59">Digitaler Euro: <a href="https://netzpolitik.org/2026/alternative-zu-visa-paypal-und-co-eu-abgeordnete-stimmen-fuer-digitalen-euro/">netzpolitik.org (Juni 2026)</a>, <a href="https://de.wikipedia.org/wiki/Digitaler_Euro">Wikipedia</a>. Euro-Kurs von Bitcoin Stand 15.11.2026, gerundet. Gold-Förderung jährlich rund 1,5 bis 2 % des Bestands (gerundet). Die Punkte sind vereinfacht und als Diskussionsgrundlage gedacht.</p></details>
+  <p data-i="k60" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Money <span class=\"btc\">Duel<\/span>", "k4": "What makes good money? <b>Shells<\/b>, <b>gold<\/b>, the <b>euro<\/b> and <b>Bitcoin<\/b> compete in <b>10 rounds<\/b>. Every round gives points. Who wins in the end?", "k5": "The duel <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k6": "Good money needs certain <b>properties<\/b>. In every round each money gets <b>0 to 3 points<\/b>. Guess who gets the <b>most<\/b> or the <b>fewest<\/b>, and watch the score table fill up.", "k7": "Your hits<b class=\"num\" id=\"sMe\">0<\/b>", "k8": "Round<b class=\"num\" id=\"sR\">1/10<\/b>", "k9": "Score table", "k10": "<b>🔭 Looking ahead<\/b><br/>The points show the <b>situation today<\/b>. Two values can change:<br/><b>Track record<\/b> grows by itself every year.<br/><b>Price stability:<\/b> so far the swings have become smaller over the years as the market grew. Nobody knows whether that will continue. <a href=\"../kritik/\" style=\"color:var(--gold);font-weight:800\">More in the Criticism Check →<\/a>", "k11": "And the new digital monies? <span class=\"mode demo\">As of Nov 2026<\/span>", "k12": "Besides Bitcoin there are new digital monies. They look similar, but work very differently:", "k13": "📲 Digital euro", "k14": "Who issues it?", "k15": "The central bank (ECB)", "k16": "Supply", "k17": "no fixed maximum, issued by the Eurosystem", "k18": "Value", "k19": "always €1", "k20": "Can it be blocked?", "k21": "possible, rules still open; planned holding limit per person", "k22": "🪙 Stablecoin", "k23": "Who issues it?", "k24": "a private company", "k25": "Supply", "k26": "grows with deposits", "k27": "Value", "k28": "usually $1 or €1", "k29": "Can it be blocked?", "k30": "<b>yes<\/b>, the company can freeze it", "k31": "🟠 Bitcoin", "k32": "Who issues it?", "k33": "<b>nobody<\/b>, an open network", "k34": "Supply", "k35": "max. 21 million", "k36": "Value", "k37": "swings a lot", "k38": "Can it be blocked?", "k39": "<b>no central block<\/b> in the network; exchanges can freeze accounts", "k40": "Digital euro", "k41": "Status", "k42": "The EU Parliament is still negotiating. Pilot tests planned from mid-2027.", "k43": "Launch", "k44": "For everyone <b>2029 at the earliest<\/b>, with a holding limit per person (discussed: about €3,000).", "k45": "Bottom line", "k46": "Still a euro: convenient, but <b>no protection against inflation<\/b>.", "k47": "In short: the digital euro and stablecoins are <b>stable but expandable<\/b>. Bitcoin is <b>scarce but volatile<\/b>.", "k48": "Remember this", "k49": "Scarce", "k50": "There will never be more than <b>21 million<\/b> bitcoin. Nobody can print more.", "k51": "Decentralized", "k52": "No boss, no bank: <b>thousands of nodes<\/b> check the rules together.", "k53": "Digital and borderless", "k54": "Divisible into <b>100 million sats<\/b>, around the clock, all over the world.", "k55": "But young and volatile", "k56": "Bitcoin has only existed <b>since 2009<\/b>, and the price swings a lot.", "k57": "Test yourself: 3 questions", "k58": "Sources", "k59": "Digital euro: <a href=\"https://netzpolitik.org/2026/alternative-zu-visa-paypal-und-co-eu-abgeordnete-stimmen-fuer-digitalen-euro/\">netzpolitik.org (June 2026)<\/a>, <a href=\"https://en.wikipedia.org/wiki/Digital_euro\">Wikipedia<\/a>. Bitcoin's euro price as of 15 Nov 2026, rounded. Gold mining each year about 1.5 to 2 % of the stock (rounded). The points are simplified and meant as a basis for discussion.", "k60": "Entertainment and learning, not investment advice.", "k61@aria-label": "Next", "_title": "Money Duel · Bitcoin Voyage", "_desc": "Lernwelt: Was macht Bitcoin aus? Muscheln, Gold, Euro und Bitcoin im Punkte-Duell um zehn Eigenschaften von gutem Geld."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    GELD-DUELL – Lernwelt von Bitcoin Voyage
@@ -111,28 +112,28 @@ table.pts{width:100%;border-collapse:separate;border-spacing:0 4px;margin-top:6p
 (() => {
 const $ = id => document.getElementById(id);
 let eurPrice = 0, r = 0, hits = 0, got = [];
-const M = [["🐚", "Muscheln"], ["🥇", "Gold"], ["💶", "Euro"], ["₿", "Bitcoin"]];
+const M = [["🐚", Lern.t("Muscheln", "Shells")], ["🥇", "Gold"], ["💶", "Euro"], ["₿", "Bitcoin"]];
 // [Eigenschaft, Was heißt das?, Frage (lo = wenigste, hi = meiste Punkte), [[Punkte 0–3, Grund] je Geld], Link, Welt]
 const R = [
-  ["Knappheit", "Kann jemand einfach mehr davon herstellen?", "lo", [[1, "Am Strand sammelbar"], [2, "Wird langsam mehr geschürft"], [0, "Zentralbank kann unbegrenzt schaffen"], [3, "Nie mehr als 21 Millionen"]], "halving/", "Knappheit & Halving"],
-  ["Teilbarkeit", () => "Kann man es in winzige Stücke teilen?" + (eurPrice ? ` (1 Cent sind beim Kurs vom ${Lern.DSTAND} etwa ${Math.round(0.01/eurPrice*1e8).toLocaleString("de-DE")} Sats.)` : ""), "hi", [[1, "Eine Muschel ist eine Muschel"], [1, "Teilen braucht Werkzeug und Waage"], [2, "Bis zum Cent"], [3, "Bis zum Satoshi, 100 Millionen pro Bitcoin"]], "utxo/", "Wechselgeld-Kasse"],
-  ["Transportierbarkeit", "Kann man 1 Million schnell ans andere Ende der Welt bringen?", "lo", [[0, "Ein ganzer LKW voll Muscheln"], [1, "Rund 10 kg Gold, Zoll, Versicherung"], [2, "Überweisung, aber Tage und Gebühren"], [3, "In Minuten, rund um die Uhr"]], "lightning/", "Lightning"],
-  ["Haltbarkeit", "Bleibt es über Jahrhunderte erhalten?", "hi", [[2, "Kann zerbrechen"], [3, "Rostet nie, hält ewig"], [1, "Scheine verschleißen nach wenigen Jahren"], [3, "Nutzt sich nie ab: Die Blockchain vergisst nichts, solange das Netz läuft"]], "seed/", "Seed-Trainer"],
-  ["Fälschungssicherheit", "Wie schwer ist es, Falschgeld herzustellen?", "lo", [[1, "Glas- und Porzellan-Kopien gab es oft"], [2, "Vergoldetes Metall fällt nicht immer auf"], [2, "Gut geschützt, Falschgeld gibt es trotzdem"], [3, "Praktisch nicht fälschbar: Ohne Schlüssel keine gültige Signatur, jede Node prüft"]], "schluessel/", "Schlüssel-Labor"],
-  ["Prüfbarkeit", "Kann jeder schnell prüfen, ob es echt ist?", "lo", [[2, "Sieht man meistens"], [1, "Braucht Säuretest oder Prüfgerät"], [2, "Sicherheitsmerkmale fühlen und sehen"], [3, "Jede Node prüft in Sekunden"]], "blockchain/", "Blockchain"],
-  ["Unabhängigkeit", "Kann eine Bank oder ein Staat es sperren oder kontrollieren?", "lo", [[3, "Niemand kontrolliert Muscheln"], [2, "Gold in der Hand ist schwer zu sperren, Staaten haben Goldbesitz aber schon verboten (USA 1933)"], [0, "Konten können gesperrt werden, Zentralbank steuert"], [3, "Kein Chef, mit eigenen Schlüsseln nicht sperrbar"]], "nodes/", "Node-Wache"],
-  ["Akzeptanz", "Kannst du damit heute im Supermarkt bezahlen?", "hi", [[0, "Nirgends mehr"], [1, "Nur über Händler"], [3, "Überall in der Eurozone"], [1, "Nur in wenigen Läden"]], "inflation/", "Geld & Inflation"],
-  ["Wertstabilität", "Ist es morgen noch etwa gleich viel wert?", "lo", [[1, "Kaum noch Wert"], [2, "Schwankt etwas"], [3, "Kurzfristig sehr stabil"], [0, "Kann an einem Tag 10 % schwanken"]], "fomo/", "Gefühls-Achterbahn"],
-  ["Erfahrung", "Wie lange wird es schon als Geld genutzt?", "lo", [[3, "Seit Jahrtausenden"], [3, "Seit über 5.000 Jahren"], [1, "Seit 1999"], [0, "Erst seit 2009"]], "geschichte/", "Zeitreise"],
+  [Lern.t("Knappheit", "Scarcity"), Lern.t("Kann jemand einfach mehr davon herstellen?", "Can someone simply make more of it?"), "lo", [[1, Lern.t("Am Strand sammelbar", "Can be collected on the beach")], [2, Lern.t("Wird langsam mehr geschürft", "Slowly more is mined")], [0, Lern.t("Zentralbank kann unbegrenzt schaffen", "Central bank can create unlimited amounts")], [3, Lern.t("Nie mehr als 21 Millionen", "Never more than 21 million")]], "halving/", Lern.t("Knappheit & Halving", "Scarcity & halving")],
+  [Lern.t("Teilbarkeit", "Divisibility"), () => Lern.t("Kann man es in winzige Stücke teilen?", "Can it be split into tiny pieces?") + (eurPrice ? Lern.t(` (1 Cent sind beim Kurs vom ${Lern.DSTAND} etwa ${Math.round(0.01/eurPrice*1e8).toLocaleString(Lern.EN ? "en-US" : "de-DE")} Sats.)`, ` (At the price on ${Lern.DSTAND}, 1 cent is about ${Math.round(0.01/eurPrice*1e8).toLocaleString("en-US")} sats.)`) : ""), "hi", [[1, Lern.t("Eine Muschel ist eine Muschel", "A shell is a shell")], [1, Lern.t("Teilen braucht Werkzeug und Waage", "Splitting needs tools and scales")], [2, Lern.t("Bis zum Cent", "Down to the cent")], [3, Lern.t("Bis zum Satoshi, 100 Millionen pro Bitcoin", "Down to the satoshi, 100 million per bitcoin")]], "utxo/", Lern.t("Wechselgeld-Kasse", "Change Register")],
+  [Lern.t("Transportierbarkeit", "Portability"), Lern.t("Kann man 1 Million schnell ans andere Ende der Welt bringen?", "Can you bring 1 million to the other side of the world quickly?"), "lo", [[0, Lern.t("Ein ganzer LKW voll Muscheln", "A whole truck full of shells")], [1, Lern.t("Rund 10 kg Gold, Zoll, Versicherung", "About 10 kg of gold, customs, insurance")], [2, Lern.t("Überweisung, aber Tage und Gebühren", "Bank transfer, but days and fees")], [3, Lern.t("In Minuten, rund um die Uhr", "In minutes, around the clock")]], "lightning/", "Lightning"],
+  [Lern.t("Haltbarkeit", "Durability"), Lern.t("Bleibt es über Jahrhunderte erhalten?", "Does it last for centuries?"), "hi", [[2, Lern.t("Kann zerbrechen", "Can break")], [3, Lern.t("Rostet nie, hält ewig", "Never rusts, lasts forever")], [1, Lern.t("Scheine verschleißen nach wenigen Jahren", "Notes wear out after a few years")], [3, Lern.t("Nutzt sich nie ab: Die Blockchain vergisst nichts, solange das Netz läuft", "Never wears out: the blockchain forgets nothing as long as the network runs")]], "seed/", Lern.t("Seed-Trainer", "Seed Trainer")],
+  [Lern.t("Fälschungssicherheit", "Forgery resistance"), Lern.t("Wie schwer ist es, Falschgeld herzustellen?", "How hard is it to make counterfeit money?"), "lo", [[1, Lern.t("Glas- und Porzellan-Kopien gab es oft", "Glass and porcelain copies were common")], [2, Lern.t("Vergoldetes Metall fällt nicht immer auf", "Gilded metal isn't always noticed")], [2, Lern.t("Gut geschützt, Falschgeld gibt es trotzdem", "Well protected, but counterfeits still exist")], [3, Lern.t("Praktisch nicht fälschbar: Ohne Schlüssel keine gültige Signatur, jede Node prüft", "Practically impossible to forge: no valid signature without the key, every node checks")]], "schluessel/", Lern.t("Schlüssel-Labor", "Key Lab")],
+  [Lern.t("Prüfbarkeit", "Verifiability"), Lern.t("Kann jeder schnell prüfen, ob es echt ist?", "Can anyone quickly check whether it's genuine?"), "lo", [[2, Lern.t("Sieht man meistens", "Usually visible")], [1, Lern.t("Braucht Säuretest oder Prüfgerät", "Needs an acid test or testing device")], [2, Lern.t("Sicherheitsmerkmale fühlen und sehen", "Feel and see security features")], [3, Lern.t("Jede Node prüft in Sekunden", "Every node checks in seconds")]], "blockchain/", "Blockchain"],
+  [Lern.t("Unabhängigkeit", "Independence"), Lern.t("Kann eine Bank oder ein Staat es sperren oder kontrollieren?", "Can a bank or a state block or control it?"), "lo", [[3, Lern.t("Niemand kontrolliert Muscheln", "Nobody controls shells")], [2, Lern.t("Gold in der Hand ist schwer zu sperren, Staaten haben Goldbesitz aber schon verboten (USA 1933)", "Gold in your hand is hard to block, but states have banned gold ownership before (USA 1933)")], [0, Lern.t("Konten können gesperrt werden, Zentralbank steuert", "Accounts can be frozen, the central bank steers")], [3, Lern.t("Kein Chef, mit eigenen Schlüsseln nicht sperrbar", "No boss, can't be blocked with your own keys")]], "nodes/", Lern.t("Node-Wache", "Node Watch")],
+  [Lern.t("Akzeptanz", "Acceptance"), Lern.t("Kannst du damit heute im Supermarkt bezahlen?", "Can you pay with it at the supermarket today?"), "hi", [[0, Lern.t("Nirgends mehr", "Nowhere anymore")], [1, Lern.t("Nur über Händler", "Only via dealers")], [3, Lern.t("Überall in der Eurozone", "Everywhere in the eurozone")], [1, Lern.t("Nur in wenigen Läden", "Only in a few shops")]], "inflation/", Lern.t("Geld & Inflation", "Money & Inflation")],
+  [Lern.t("Wertstabilität", "Price stability"), Lern.t("Ist es morgen noch etwa gleich viel wert?", "Will it be worth about the same tomorrow?"), "lo", [[1, Lern.t("Kaum noch Wert", "Hardly worth anything anymore")], [2, Lern.t("Schwankt etwas", "Fluctuates somewhat")], [3, Lern.t("Kurzfristig sehr stabil", "Very stable in the short term")], [0, Lern.t("Kann an einem Tag 10 % schwanken", "Can swing 10 % in a day")]], "fomo/", Lern.t("Gefühls-Achterbahn", "Emotion Coaster")],
+  [Lern.t("Erfahrung", "Track record"), Lern.t("Wie lange wird es schon als Geld genutzt?", "How long has it been used as money?"), "lo", [[3, Lern.t("Seit Jahrtausenden", "For millennia")], [3, Lern.t("Seit über 5.000 Jahren", "For more than 5,000 years")], [1, Lern.t("Seit 1999", "Since 1999")], [0, Lern.t("Erst seit 2009", "Only since 2009")]], "geschichte/", Lern.t("Zeitreise", "Time Travel")],
 ];
 const dots = n => [0, 1, 2].map(k => `<i class="${k < n ? "on" : ""}"></i>`).join("");
 // Punktetabelle: fertige Runden mit Punkten, offene mit "?"
 function table(){
   const tot = M.map((_, k) => got.reduce((a, g) => a + g[k], 0));
-  $("pts").innerHTML = `<tr><th>Eigenschaft</th>${M.map(m => `<th title="${m[1]}">${m[0]}</th>`).join("")}</tr>`
+  $("pts").innerHTML = Lern.t(`<tr><th>Eigenschaft</th>${M.map(m => `<th title="${m[1]}">${m[0]}</th>`).join("")}</tr>`, `<tr><th>Property</th>${M.map(m => `<th title="${m[1]}">${m[0]}</th>`).join("")}</tr>`)
     + R.map((x, i) => i < got.length ? `<tr class="${i === got.length - 1 ? "new" : ""}"><td>${x[0]}</td>${got[i].map(n => `<td>${dots(n)}</td>`).join("")}</tr>`
       : `<tr class="${i === r ? "cur" : "q"}"><td>${i === r ? x[0] : "?"}</td>${M.map(() => "<td>?</td>").join("")}</tr>`).join("")
-    + `<tr class="tot"><td>Summe</td>${tot.map(t => `<td>${t}</td>`).join("")}</tr>`;
+    + Lern.t(`<tr class="tot"><td>Summe</td>${tot.map(t => `<td>${t}</td>`).join("")}</tr>`, `<tr class="tot"><td>Total</td>${tot.map(t => `<td>${t}</td>`).join("")}</tr>`);
   const max = Math.max(1, ...tot);
   $("race").innerHTML = M.map((m, k) => `<div><span>${m[0]}</span><i style="width:${tot[k]/30*100}%"></i><b>${tot[k]}/30</b></div>`).join("");
   return tot;
@@ -141,10 +142,13 @@ function round(){
   $("sR").textContent = Math.min(r + 1, R.length) + "/" + R.length; table();
   if (r >= R.length) return end();
   const [p, what, dir] = R[r], w = typeof what === "function" ? what() : what;
-  $("game").innerHTML = `<div class="round" id="rd"><span class="k">Runde ${r + 1} von ${R.length}</span><h3>${p}</h3><p class="what">${w}</p>
+  $("game").innerHTML = Lern.t(`<div class="round" id="rd"><span class="k">Runde ${r + 1} von ${R.length}</span><h3>${p}</h3><p class="what">${w}</p>
     <p class="ask">Wer bekommt hier die <em class="${dir}">${dir === "lo" ? "wenigsten" : "meisten"}</em> Punkte?</p>
     <div class="four">${M.map(([ic, n], i) => `<button class="m" type="button" data-i="${i}"><span class="ic">${ic}</span><b>${n}</b><span class="pt"></span></button>`).join("")}</div>
-    <div id="res"></div></div>`;
+    <div id="res"></div></div>`, `<div class="round" id="rd"><span class="k">Round ${r + 1} of ${R.length}</span><h3>${p}</h3><p class="what">${w}</p>
+    <p class="ask">Who gets the <em class="${dir}">${dir === "lo" ? "fewest" : "most"}</em> points here?</p>
+    <div class="four">${M.map(([ic, n], i) => `<button class="m" type="button" data-i="${i}"><span class="ic">${ic}</span><b>${n}</b><span class="pt"></span></button>`).join("")}</div>
+    <div id="res"></div></div>`);
   $("rd").onclick = e => { const b = e.target.closest(".m"); if (b && !b.disabled) pick(+b.dataset.i); };
 }
 function pick(i){
@@ -154,29 +158,32 @@ function pick(i){
   [...$("rd").querySelectorAll(".m")].forEach((b, k) => { b.disabled = true; b.querySelector(".pt").innerHTML = dots(pts[k]) + " " + pts[k];
     if (pts[k] === goal) b.classList.add("win"); if (k === i) b.classList.add("pick", ok ? "x" : "wrong"); });
   $("res").innerHTML = `<ul class="why">${M.map((m, k) => `<li>${m[0]} <b>${pts[k]} P.</b> ${v[k][1]}</li>`).join("")}</ul>
-    <p class="out">${ok ? "✓ <b>Richtig!</b>" : "✗ <b>Daneben.</b>"} ${(() => { const id = link.replace("/", ""), i = Lern.PATH.findIndex(x => x[0] === id), me = Lern.PATH.findIndex(x => x[0] === "eigenschaften"); return i > me ? `<span class="later">Genauer in „${name}“ (Welt ${Lern.chapterOf(id) + 1})</span>` : `<a href="../${link}">Mehr dazu: ${name} →</a>`; })()}</p>
-    <div class="nav"><button class="btn" id="go" type="button">${r === R.length - 1 ? "Ergebnis ansehen 🏆" : "Nächste Runde →"}</button></div>`;
+    <p class="out">${ok ? Lern.t("✓ <b>Richtig!</b>", "✓ <b>Correct!</b>") : Lern.t("✗ <b>Daneben.</b>", "✗ <b>Missed.</b>")} ${(() => { const id = link.replace("/", ""), i = Lern.PATH.findIndex(x => x[0] === id), me = Lern.PATH.findIndex(x => x[0] === "eigenschaften"); return i > me ? Lern.t(`<span class="later">Genauer in „${name}“ (Welt ${Lern.chapterOf(id) + 1})</span>`, `<span class="later">More in “${name}” (World ${Lern.chapterOf(id) + 1})</span>`) : Lern.t(`<a href="../${link}">Mehr dazu: ${name} →</a>`, `<a href="../${link}">More: ${name} →</a>`); })()}</p>
+    <div class="nav"><button class="btn" id="go" type="button">${r === R.length - 1 ? Lern.t("Ergebnis ansehen 🏆", "See the result 🏆") : Lern.t("Nächste Runde →", "Next round →")}</button></div>`;
   table();
   $("go").onclick = () => { r++; round(); $("game").scrollIntoView({behavior: "smooth", block: "start"}); };
 }
 function end(){
   const tot = table(), order = M.map((m, k) => [m, tot[k]]).sort((a, b) => b[1] - a[1]), medal = ["🥇", "🥈", "🥉", "4."];
-  $("game").innerHTML = `<div class="round"><span class="k">Ergebnis</span><h3>🏆 ${order[0][0][0]} ${order[0][0][1]} gewinnt knapp</h3>
+  $("game").innerHTML = Lern.t(`<div class="round"><span class="k">Ergebnis</span><h3>🏆 ${order[0][0][0]} ${order[0][0][1]} gewinnt knapp</h3>
     <p class="what" style="color:var(--ink)">${order.map((o, k) => `${medal[k]} ${o[0][0]} ${o[0][1]} <b>${o[1]}</b>`).join(" · ")}</p>
     <p class="what" style="margin-top:8px">Bitcoin holt fast überall volle Punkte: knapp, teilbar, schnell, prüfbar und ohne Chef. Verloren hat er bei <b>Akzeptanz</b>, <b>Wertstabilität</b> und <b>Erfahrung</b>. Gold ist der stärkste Gegner. Du hast <b>${hits} von ${R.length}</b> richtig geraten.</p>
-    <div class="nav"><button class="btn ghost" id="again" type="button">↺ Nochmal spielen</button></div></div>`;
+    <div class="nav"><button class="btn ghost" id="again" type="button">↺ Nochmal spielen</button></div></div>`, `<div class="round"><span class="k">Result</span><h3>🏆 ${order[0][0][0]} ${order[0][0][1]} wins narrowly</h3>
+    <p class="what" style="color:var(--ink)">${order.map((o, k) => `${medal[k]} ${o[0][0]} ${o[0][1]} <b>${o[1]}</b>`).join(" · ")}</p>
+    <p class="what" style="margin-top:8px">Bitcoin gets full points almost everywhere: scarce, divisible, fast, verifiable and without a boss. It lost on <b>acceptance</b>, <b>price stability</b> and <b>track record</b>. Gold is the strongest opponent. You guessed <b>${hits} of ${R.length}</b> correctly.</p>
+    <div class="nav"><button class="btn ghost" id="again" type="button">↺ Play again</button></div></div>`);
   $("again").onclick = () => { r = 0; hits = 0; got = []; $("sMe").textContent = 0; round(); };
   if (hits >= 7) Lern.confetti();
 }
 
 fetch(Lern.api("price/BTC-EUR")).then(x => x.json()).then(j => { eurPrice = +j.data.amount || 0; }).catch(() => {})
-  .finally(() => { $("mode").className = "mode " + (eurPrice ? "live" : "demo"); $("mode").textContent = eurPrice ? "Live" : "Beispielwerte"; });
+  .finally(() => { $("mode").className = "mode " + (eurPrice ? "live" : "demo"); $("mode").textContent = eurPrice ? "Live" : Lern.t("Beispielwerte", "Example values"); });
 
 const QUIZ = [
-  ["Welche Eigenschaft hat Bitcoin, die Euro nicht hat?", ["Einen Preis, der kaum schwankt", "Eine feste Obergrenze, die niemand ändern kann", "Eine längere Geschichte als Geld"], 1, "Die Menge von 21 Millionen steht fest. Eine Zentralbank kann dagegen neues Geld schaffen."],
-  ["Wo schneidet Gold besser ab als Bitcoin?", ["Bei der Erfahrung: seit Jahrtausenden Geld", "Beim schnellen Verschicken weltweit", "Bei der Teilbarkeit in kleine Stücke"], 0, "Gold ist seit Jahrtausenden Geld. Bitcoin gibt es erst seit 2009."],
-  ["Was unterscheidet einen Stablecoin von Bitcoin?", ["Stablecoins gibt eine Firma heraus und kann sie einfrieren", "Stablecoins sind auf 21 Millionen begrenzt", "Es gibt keinen Unterschied"], 0, "Hinter einem Stablecoin steht eine Firma. Sie hält den Wert stabil, kann Guthaben aber auch sperren."],
-  ["Was heißt „dezentral“ bei Bitcoin?", ["Jedes Land hat einen eigenen Bitcoin-Chef", "Kein Einzelner bestimmt, tausende Nodes prüfen gemeinsam", "Alle Daten liegen auf einem großen Server"], 1, "Es gibt keine Firma und keine Zentralbank. Die Regeln werden von allen Nodes gemeinsam durchgesetzt."],
+  [Lern.t("Welche Eigenschaft hat Bitcoin, die Euro nicht hat?", "Which property does Bitcoin have that the euro doesn't?"), [Lern.t("Einen Preis, der kaum schwankt", "A price that hardly fluctuates"), Lern.t("Eine feste Obergrenze, die niemand ändern kann", "A fixed cap that nobody can change"), Lern.t("Eine längere Geschichte als Geld", "A longer history as money")], 1, Lern.t("Die Menge von 21 Millionen steht fest. Eine Zentralbank kann dagegen neues Geld schaffen.", "The supply of 21 million is fixed. A central bank, by contrast, can create new money.")],
+  [Lern.t("Wo schneidet Gold besser ab als Bitcoin?", "Where does gold do better than Bitcoin?"), [Lern.t("Bei der Erfahrung: seit Jahrtausenden Geld", "Track record: money for millennia"), Lern.t("Beim schnellen Verschicken weltweit", "Sending quickly worldwide"), Lern.t("Bei der Teilbarkeit in kleine Stücke", "Dividing into small pieces")], 0, Lern.t("Gold ist seit Jahrtausenden Geld. Bitcoin gibt es erst seit 2009.", "Gold has been money for millennia. Bitcoin has only existed since 2009.")],
+  [Lern.t("Was unterscheidet einen Stablecoin von Bitcoin?", "What distinguishes a stablecoin from Bitcoin?"), [Lern.t("Stablecoins gibt eine Firma heraus und kann sie einfrieren", "A company issues stablecoins and can freeze them"), Lern.t("Stablecoins sind auf 21 Millionen begrenzt", "Stablecoins are capped at 21 million"), Lern.t("Es gibt keinen Unterschied", "There is no difference")], 0, Lern.t("Hinter einem Stablecoin steht eine Firma. Sie hält den Wert stabil, kann Guthaben aber auch sperren.", "Behind a stablecoin there is a company. It keeps the value stable, but can also freeze balances.")],
+  [Lern.t("Was heißt „dezentral“ bei Bitcoin?", "What does “decentralized” mean for Bitcoin?"), [Lern.t("Jedes Land hat einen eigenen Bitcoin-Chef", "Every country has its own Bitcoin boss"), Lern.t("Kein Einzelner bestimmt, tausende Nodes prüfen gemeinsam", "No single party decides; thousands of nodes check together"), Lern.t("Alle Daten liegen auf einem großen Server", "All data sits on one big server")], 1, Lern.t("Es gibt keine Firma und keine Zentralbank. Die Regeln werden von allen Nodes gemeinsam durchgesetzt.", "There is no company and no central bank. The rules are enforced by all nodes together.")],
 ];
 Lern.quiz($("quiz"), "eigenschaften", QUIZ, "../"); Lern.visit("eigenschaften"); Lern.renderNext("eigenschaften", "../");
 round();

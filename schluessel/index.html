@@ -63,92 +63,93 @@
 .big b{display:block;font:600 19px var(--f-num);color:var(--ink)}
 @media (max-width:700px){ .keys,.big{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Schlüssel</span>-Labor</h1>
-    <p class="lead">Bitcoin gehört nicht dem, der ein Passwort kennt, sondern dem, der <b>unterschreiben</b> kann. Probier es mit echter Kryptografie direkt in deinem Browser.</p>
+    <h1 data-i="k3"><span class="btc">Schlüssel</span>-Labor</h1>
+    <p data-i="k4" class="lead">Bitcoin gehört nicht dem, der ein Passwort kennt, sondern dem, der <b>unterschreiben</b> kann. Probier es mit echter Kryptografie direkt in deinem Browser.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Unterschreiben und prüfen</h2>
-    <p class="muted" style="margin:0">Eine Zahlung ist nur gültig, wenn <b>drei Teile zusammenpassen</b>: der Text, die Signatur und dein öffentlicher Schlüssel.</p>
+    <h2 data-i="k5" id="h1s">Unterschreiben und prüfen</h2>
+    <p data-i="k6" class="muted" style="margin:0">Eine Zahlung ist nur gültig, wenn <b>drei Teile zusammenpassen</b>: der Text, die Signatur und dein öffentlicher Schlüssel.</p>
 
-    <p class="step"><span>1.</span> Deine zwei Schlüssel</p>
+    <p data-i="k7" class="step"><span>1.</span> Deine zwei Schlüssel</p>
     <div class="keys">
-      <div class="priv"><small>🔒 Privat · geheim, damit unterschreibst du</small><code id="kPriv">…</code></div>
-      <div class="pub"><small>🔓 Öffentlich · für alle, damit wird geprüft</small><code id="kPub">…</code></div>
+      <div class="priv"><small data-i="k8">🔒 Privat · geheim, damit unterschreibst du</small><code id="kPriv">…</code></div>
+      <div class="pub"><small data-i="k9">🔓 Öffentlich · für alle, damit wird geprüft</small><code id="kPub">…</code></div>
     </div>
 
-    <p class="step"><span>2.</span> Zahlung schreiben und unterschreiben</p>
-    <div class="sign"><input class="msg" id="msg" value="Zahle 0,01 BTC an Anna" aria-label="Zahlung"><button class="btn" id="sign" type="button">✍️ Unterschreiben</button></div>
+    <p data-i="k10" class="step"><span>2.</span> Zahlung schreiben und unterschreiben</p>
+    <div class="sign"><input data-i="k56" class="msg" id="msg" value="Zahle 0,01 BTC an Anna" aria-label="Zahlung"><button data-i="k11" class="btn" id="sign" type="button">✍️ Unterschreiben</button></div>
 
-    <p class="step"><span>3.</span> Die Node prüft. Wähle einen Fall:</p>
+    <p data-i="k12" class="step"><span>3.</span> Die Node prüft. Wähle einen Fall:</p>
     <div class="tabs" id="tabs">
-      <button class="btn ghost" data-c="ok" type="button" disabled>✅ Echt</button>
-      <button class="btn ghost" data-c="tamper" type="button" disabled>✏️ Text geändert</button>
-      <button class="btn ghost" data-c="thief" type="button" disabled>🦹 Dieb</button>
+      <button data-i="k13" class="btn ghost" data-c="ok" type="button" disabled>✅ Echt</button>
+      <button data-i="k14" class="btn ghost" data-c="tamper" type="button" disabled>✏️ Text geändert</button>
+      <button data-i="k15" class="btn ghost" data-c="thief" type="button" disabled>🦹 Dieb</button>
     </div>
     <div class="eq" id="eq" hidden>
-      <div class="part" id="pT"><small>📝 Text</small><b id="pTv"></b><em id="pTe"></em></div><span class="op">+</span>
-      <div class="part" id="pS"><small>✍️ Signatur</small><b id="pSv"></b><em id="pSe"></em></div><span class="op">+</span>
-      <div class="part y"><small>🔓 Öffentlicher Schlüssel</small><b>deiner</b></div>
+      <div class="part" id="pT"><small data-i="k16">📝 Text</small><b id="pTv"></b><em id="pTe"></em></div><span class="op">+</span>
+      <div class="part" id="pS"><small data-i="k17">✍️ Signatur</small><b id="pSv"></b><em id="pSe"></em></div><span class="op">+</span>
+      <div class="part y"><small data-i="k18">🔓 Öffentlicher Schlüssel</small><b data-i="k19">deiner</b></div>
     </div>
-    <div class="res" id="res" aria-live="polite">Erst bei Schritt 2 unterschreiben.</div>
+    <div data-i="k20" class="res" id="res" aria-live="polite">Erst bei Schritt 2 unterschreiben.</div>
 
-    <p class="how"><a href="#h5s">Wie rechnet die Node das genau? Schritt für Schritt ↓</a></p>
+    <p class="how"><a data-i="k21" href="#h5s">Wie rechnet die Node das genau? Schritt für Schritt ↓</a></p>
   </section>
 
   <section class="card" aria-labelledby="h5s">
-    <h2 id="h5s">Die Rechnung dahinter, mit kleinen Zahlen</h2>
-    <p class="muted" style="margin:0">Bitcoin nutzt eine <b>Einbahn-Maschine</b>: Eine Zahl rein, eine andere raus. Vorwärts geht das blitzschnell, <b>rückwärts unmöglich</b>. Damit du mitrechnen kannst, ist unsere Maschine hier ganz einfach: <b>mal 7</b>.</p>
+    <h2 data-i="k22" id="h5s">Die Rechnung dahinter, mit kleinen Zahlen</h2>
+    <p data-i="k23" class="muted" style="margin:0">Bitcoin nutzt eine <b>Einbahn-Maschine</b>: Eine Zahl rein, eine andere raus. Vorwärts geht das blitzschnell, <b>rückwärts unmöglich</b>. Damit du mitrechnen kannst, ist unsere Maschine hier ganz einfach: <b>mal 7</b>.</p>
     <ol class="calc" id="calc"></ol>
-    <div class="acts"><button class="btn" id="cNext" type="button">Nächster Schritt →</button><button class="btn ghost" id="cAgain" type="button" hidden>↺ Neue Zahlen</button></div>
+    <div class="acts"><button data-i="k24" class="btn" id="cNext" type="button">Nächster Schritt →</button><button data-i="k25" class="btn ghost" id="cAgain" type="button" hidden>↺ Neue Zahlen</button></div>
     <div class="tabs" id="cTabs" hidden>
-      <button class="btn ghost" data-t="ok" type="button">✅ Echt</button>
-      <button class="btn ghost" data-t="tamper" type="button">✏️ Text geändert</button>
-      <button class="btn ghost" data-t="thief" type="button">🦹 Dieb rät</button>
+      <button data-i="k26" class="btn ghost" data-t="ok" type="button">✅ Echt</button>
+      <button data-i="k27" class="btn ghost" data-t="tamper" type="button">✏️ Text geändert</button>
+      <button data-i="k28" class="btn ghost" data-t="thief" type="button">🦹 Dieb rät</button>
     </div>
     <div class="cmp2" id="cmp2" hidden></div>
-    <div class="tip" id="cTip" hidden><b>Kurz erklärt:</b> Die Node rechnet <b>dieselbe Zahl auf zwei Wegen</b> aus. Links mit der Signatur s, rechts nur mit öffentlichen Zahlen (R, e, P). Die rechte Seite ist nur die linke, umsortiert. Weil in s die Geheimzahl k steckt, kommen beide Wege nur bei einer <b>echten Signatur</b> auf dieselbe Zahl. Ändert sich der Text (anderes e) oder rät jemand s, passt es nicht mehr.</div>
-    <p class="ex" style="margin-top:10px"><b>Ehrlicher Hinweis:</b> „Mal 7“ könnte man natürlich durch 7 teilen. Die echte Maschine ist eine Rechnung auf einer elliptischen Kurve mit 78-stelligen Zahlen, und dort gibt es kein Zurück.</p>
+    <div data-i="k29" class="tip" id="cTip" hidden><b>Kurz erklärt:</b> Die Node rechnet <b>dieselbe Zahl auf zwei Wegen</b> aus. Links mit der Signatur s, rechts nur mit öffentlichen Zahlen (R, e, P). Die rechte Seite ist nur die linke, umsortiert. Weil in s die Geheimzahl k steckt, kommen beide Wege nur bei einer <b>echten Signatur</b> auf dieselbe Zahl. Ändert sich der Text (anderes e) oder rät jemand s, passt es nicht mehr.</div>
+    <p data-i="k30" class="ex" style="margin-top:10px"><b>Ehrlicher Hinweis:</b> „Mal 7“ könnte man natürlich durch 7 teilen. Die echte Maschine ist eine Rechnung auf einer elliptischen Kurve mit 78-stelligen Zahlen, und dort gibt es kein Zurück.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Warum niemand deinen Schlüssel errät</h2>
-    <p class="muted" style="margin:0">Ein privater Schlüssel ist eine Zufallszahl mit 256 Bit. Raten ist hoffnungslos:</p>
+    <h2 data-i="k31" id="h2s">Warum niemand deinen Schlüssel errät</h2>
+    <p data-i="k32" class="muted" style="margin:0">Ein privater Schlüssel ist eine Zufallszahl mit 256 Bit. Raten ist hoffnungslos:</p>
     <div class="big">
-      <div><b class="num">≈ 1,2 × 10⁷⁷</b>mögliche Schlüssel</div>
-      <div><b class="num">≈ 10⁵⁰</b>Atome, aus denen die ganze Erde besteht</div>
-      <div><b class="num" id="myRate">–</b>Schlüssel pro Sekunde schafft dein Gerät</div>
-      <div><b class="num" id="myTime">–</b>bräuchtest du im Schnitt, um einen bestimmten zu treffen</div>
+      <div data-i="k33"><b class="num">≈ 1,2 × 10⁷⁷</b>mögliche Schlüssel</div>
+      <div data-i="k34"><b class="num">≈ 10⁵⁰</b>Atome, aus denen die ganze Erde besteht</div>
+      <div data-i="k35"><b class="num" id="myRate">–</b>Schlüssel pro Sekunde schafft dein Gerät</div>
+      <div data-i="k36"><b class="num" id="myTime">–</b>bräuchtest du im Schnitt, um einen bestimmten zu treffen</div>
     </div>
-    <p class="qz2">Wie lang ist das? Zähl die Ziffern:</p>
+    <p data-i="k37" class="qz2">Wie lang ist das? Zähl die Ziffern:</p>
     <div class="zz" id="zz"></div>
     <p class="note" id="zzN"></p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Das solltest du dir merken</h2>
+    <h2 data-i="k38" id="h3s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Privat = Besitz</b><span>Wer den <b>privaten Schlüssel</b> hat, kann die Coins ausgeben. Verlierst du ihn, sind sie weg.</span></div>
-      <div><b>Öffentlich = Prüfen</b><span>Mit dem öffentlichen Schlüssel kann jeder prüfen, aber <b>niemand unterschreiben</b>.</span></div>
-      <div><b>Fälschung fällt auf</b><span>Ändert jemand auch nur ein Zeichen, passt die Signatur <b>nicht mehr</b>.</span></div>
-      <div><b>Seed = alle Schlüssel</b><span>Deine 12 oder 24 Wörter sind die Quelle <b>aller</b> deiner privaten Schlüssel. Deshalb niemals teilen.</span></div>
+      <div><b data-i="k39">Privat = Besitz</b><span data-i="k40">Wer den <b>privaten Schlüssel</b> hat, kann die Coins ausgeben. Verlierst du ihn, sind sie weg.</span></div>
+      <div><b data-i="k41">Öffentlich = Prüfen</b><span data-i="k42">Mit dem öffentlichen Schlüssel kann jeder prüfen, aber <b>niemand unterschreiben</b>.</span></div>
+      <div><b data-i="k43">Fälschung fällt auf</b><span data-i="k44">Ändert jemand auch nur ein Zeichen, passt die Signatur <b>nicht mehr</b>.</span></div>
+      <div><b data-i="k45">Seed = alle Schlüssel</b><span data-i="k46">Deine 12 oder 24 Wörter sind die Quelle <b>aller</b> deiner privaten Schlüssel. Deshalb niemals teilen.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k47">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b>Vertiefen:</b> <a href="../kurven/">Kurven-Labor</a> <span class="muted">(die Mathematik dahinter)</span> · <a href="../signaturen/">Signatur-Duell</a> <span class="muted">(ECDSA gegen Schnorr)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Signaturen werden echt mit der Web-Crypto-Schnittstelle deines Browsers erzeugt (ECDSA, Kurve P-256). Bitcoin nutzt das gleiche Verfahren mit der Kurve secp256k1 und zusätzlich Schnorr-Signaturen (Taproot). Die Schlüssel hier sind nur zum Üben und werden nirgends gespeichert.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung. Niemals echte Schlüssel oder Seed-Wörter auf Webseiten eingeben.</p>
+  <section data-i="k57" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b data-i="k48">Vertiefen:</b> <a data-i="k49" href="../kurven/">Kurven-Labor</a> <span data-i="k50" class="muted">(die Mathematik dahinter)</span> · <a data-i="k51" href="../signaturen/">Signatur-Duell</a> <span data-i="k52" class="muted">(ECDSA gegen Schnorr)</span></p></section>
+  <section data-i="k58" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k53">Quellen</summary><p data-i="k54">Signaturen werden echt mit der Web-Crypto-Schnittstelle deines Browsers erzeugt (ECDSA, Kurve P-256). Bitcoin nutzt das gleiche Verfahren mit der Kurve secp256k1 und zusätzlich Schnorr-Signaturen (Taproot). Die Schlüssel hier sind nur zum Üben und werden nirgends gespeichert.</p></details>
+  <p data-i="k55" class="foot">Lernen und Unterhaltung, keine Anlageberatung. Niemals echte Schlüssel oder Seed-Wörter auf Webseiten eingeben.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Key<\/span> Lab", "k4": "Bitcoin doesn't belong to whoever knows a password, but to whoever can <b>sign<\/b>. Try it with real cryptography right in your browser.", "k5": "Sign and verify", "k6": "A payment is only valid if <b>three parts fit together<\/b>: the text, the signature and your public key.", "k7": "<span>1.<\/span> Your two keys", "k8": "🔒 Private · secret, you sign with it", "k9": "🔓 Public · for everyone, used for checking", "k10": "<span>2.<\/span> Write and sign a payment", "k11": "✍️ Sign", "k12": "<span>3.<\/span> The node checks. Choose a case:", "k13": "✅ Genuine", "k14": "✏️ Text changed", "k15": "🦹 Thief", "k16": "📝 Text", "k17": "✍️ Signature", "k18": "🔓 Public key", "k19": "yours", "k20": "Sign in step 2 first.", "k21": "How exactly does the node calculate this? Step by step ↓", "k22": "The maths behind it, with small numbers", "k23": "Bitcoin uses a <b>one-way machine<\/b>: one number in, another out. Forwards it's lightning fast, <b>backwards impossible<\/b>. So you can calculate along, our machine here is very simple: <b>times 7<\/b>.", "k24": "Next step →", "k25": "↺ New numbers", "k26": "✅ Genuine", "k27": "✏️ Text changed", "k28": "🦹 Thief guesses", "k29": "<b>In short:<\/b> the node calculates <b>the same number in two ways<\/b>. On the left with the signature s, on the right only with public numbers (R, e, P). The right side is just the left side, rearranged. Because the secret number k is inside s, both ways only give the same number for a <b>genuine signature<\/b>. If the text changes (different e) or someone guesses s, it no longer fits.", "k30": "<b>Honest note:<\/b> “times 7” could of course be undone by dividing by 7. The real machine is a calculation on an elliptic curve with 78-digit numbers, and there's no way back there.", "k31": "Why nobody guesses your key", "k32": "A private key is a random number with 256 bits. Guessing is hopeless:", "k33": "<b class=\"num\">≈ 1.2 × 10⁷⁷<\/b>possible keys", "k34": "<b class=\"num\">≈ 10⁵⁰<\/b>atoms make up the whole Earth", "k35": "<b class=\"num\" id=\"myRate\">–<\/b>keys per second your device manages", "k36": "<b class=\"num\" id=\"myTime\">–<\/b>you'd need on average to hit a specific one", "k37": "How long is that? Count the digits:", "k38": "Remember this", "k39": "Private = ownership", "k40": "Whoever has the <b>private key<\/b> can spend the coins. If you lose it, they're gone.", "k41": "Public = checking", "k42": "With the public key anyone can check, but <b>nobody can sign<\/b>.", "k43": "Forgery stands out", "k44": "If someone changes even one character, the signature <b>no longer fits<\/b>.", "k45": "Seed = all keys", "k46": "Your 12 or 24 words are the source of <b>all<\/b> your private keys. That's why you never share them.", "k47": "Test yourself: 3 questions", "k48": "Go deeper:", "k49": "Curve Lab", "k50": "(the maths behind it)", "k51": "Signature Duel", "k52": "(ECDSA vs. Schnorr)", "k53": "Sources", "k54": "Signatures are really created with your browser's Web Crypto interface (ECDSA, curve P-256). Bitcoin uses the same method with the curve secp256k1 and additionally Schnorr signatures (Taproot). The keys here are only for practice and are not stored anywhere.", "k55": "Entertainment and learning, not investment advice. Never enter real keys or seed words on websites.", "k56@aria-label": "Payment", "k57@aria-label": "Related", "k58@aria-label": "Next", "_title": "Key Lab · Bitcoin Voyage", "_desc": "Lernwelt: Privater Schlüssel, öffentlicher Schlüssel und digitale Signatur. Selbst unterschreiben, fälschen versuchen und prüfen."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    SCHLÜSSEL-LABOR – Lernwelt von Bitcoin Voyage
@@ -174,37 +175,37 @@ const check = (msg, s) => C.verify(SIG, pair.publicKey, s, enc(msg));   // echte
 const part = (id, ok, val, err) => { $(id).className = "part " + (ok ? "y" : "n"); $(id + "v").textContent = val; $(id + "e").textContent = ok ? "" : err; };
 
 $("sign").onclick = async () => {
-  signedMsg = $("msg").value.trim() || "Zahle 0,01 BTC an Anna"; $("msg").value = signedMsg;
+  signedMsg = $("msg").value.trim() || Lern.t("Zahle 0,01 BTC an Anna", "Pay 0.01 BTC to Anna"); $("msg").value = signedMsg;
   sig = await C.sign(SIG, pair.privateKey, enc(signedMsg));
   [...$("tabs").children].forEach(b => b.disabled = false);
   run("ok");
 };
-$("msg").addEventListener("input", () => { if (sig && $("msg").value !== signedMsg) $("res").textContent = "Text geändert. Neu unterschreiben, damit die Signatur wieder passt."; });
+$("msg").addEventListener("input", () => { if (sig && $("msg").value !== signedMsg) $("res").textContent = Lern.t("Text geändert. Neu unterschreiben, damit die Signatur wieder passt.", "Text changed. Sign again so the signature fits again."); });
 
 // Drei Fälle: echt, Text nachträglich geändert, Dieb mit eigenem Schlüssel
 async function run(c){
   [...$("tabs").children].forEach(b => b.setAttribute("aria-pressed", b.dataset.c === c));
   let text = signedMsg, s = sig, valid, why;
   if (c === "tamper"){ const r = signedMsg.replace(/\d+([,.]\d+)?/, "100"); text = r === signedMsg ? signedMsg + "!" : r; }
-  if (c === "thief"){ const t = await C.generateKey(ALG, false, ["sign", "verify"]); text = "Zahle alles an den Dieb"; s = await C.sign(SIG, t.privateKey, enc(text)); }
+  if (c === "thief"){ const t = await C.generateKey(ALG, false, ["sign", "verify"]); text = Lern.t("Zahle alles an den Dieb", "Pay everything to the thief"); s = await C.sign(SIG, t.privateKey, enc(text)); }
   valid = await check(text, s);
   $("eq").hidden = false;
-  part("pT", c !== "tamper", "„" + text + "“", "nachträglich geändert");
-  part("pS", c !== "thief", c === "thief" ? "vom Dieb, " + short(hex(s)).slice(0, 12) + "…" : "von dir, " + short(hex(s)).slice(0, 12) + "…", "mit fremdem Schlüssel erstellt");
-  if (c === "ok") why = "Alle drei Teile passen zusammen. Die Zahlung kommt nachweislich von dir und wurde nicht verändert.";
-  if (c === "tamper") why = `Die Signatur wurde für den alten Text erstellt. Der geänderte Text hat einen anderen Fingerabdruck:<br><code>alt ${fp(signedMsg)}</code><br><code>neu <i>${fp(text)}</i></code>`;
-  if (c === "thief") why = "Der Dieb kann unterschreiben, aber nur mit seinem eigenen Schlüssel. Geprüft wird mit deinem öffentlichen Schlüssel, und der passt nur zu deinem privaten.";
+  part("pT", c !== "tamper", "„" + text + "“", Lern.t("nachträglich geändert", "changed afterwards"));
+  part("pS", c !== "thief", c === "thief" ? Lern.t("vom Dieb, ", "from the thief, ") + short(hex(s)).slice(0, 12) + "…" : Lern.t("von dir, ", "from you, ") + short(hex(s)).slice(0, 12) + "…", Lern.t("mit fremdem Schlüssel erstellt", "created with someone else's key"));
+  if (c === "ok") why = Lern.t("Alle drei Teile passen zusammen. Die Zahlung kommt nachweislich von dir und wurde nicht verändert.", "All three parts fit together. The payment provably comes from you and wasn't changed.");
+  if (c === "tamper") why = Lern.t(`Die Signatur wurde für den alten Text erstellt. Der geänderte Text hat einen anderen Fingerabdruck:<br><code>alt ${fp(signedMsg)}</code><br><code>neu <i>${fp(text)}</i></code>`, `The signature was created for the old text. The changed text has a different fingerprint:<br><code>old ${fp(signedMsg)}</code><br><code>new <i>${fp(text)}</i></code>`);
+  if (c === "thief") why = Lern.t("Der Dieb kann unterschreiben, aber nur mit seinem eigenen Schlüssel. Geprüft wird mit deinem öffentlichen Schlüssel, und der passt nur zu deinem privaten.", "The thief can sign, but only with his own key. The check uses your public key, and that only fits your private one.");
   $("res").className = "res " + (valid ? "ok" : "bad");
-  $("res").innerHTML = `<strong>${valid ? "✓ Gültig" : "✗ Ungültig"}</strong>${why}`;
+  $("res").innerHTML = `<strong>${valid ? Lern.t("✓ Gültig", "✓ Valid") : Lern.t("✗ Ungültig", "✗ Invalid")}</strong>${why}`;
 }
 $("tabs").addEventListener("click", e => { const b = e.target.closest("button"); if (b && !b.disabled) run(b.dataset.c); });
 
 // ---------- Die Rechnung dahinter (Schnorr-Prinzip mit "mal 7" als Spielzeug-Maschine) ----------
 const M = x => 7*x;   // Einbahn-Maschine (hier umkehrbar, in echt nicht)
-const TXT = "Zahle 0,01 BTC an Anna", FAKE = "Zahle 100 BTC an Anna";
+const TXT = Lern.t("Zahle 0,01 BTC an Anna", "Pay 0.01 BTC to Anna"), FAKE = Lern.t("Zahle 100 BTC an Anna", "Pay 100 BTC to Anna");
 const E = t => parseInt(Lern.sha256(t).slice(0, 4), 16) % 9 + 2;   // kleiner Fingerabdruck 2–10
 const rnd = (a, b) => a + Math.floor(Math.random()*(b - a + 1));
-const n = v => v.toLocaleString("de-DE");
+const n = v => v.toLocaleString(Lern.EN ? "en-US" : "de-DE");
 let T = {}, stepN = 0;
 function fresh(){
   const k = rnd(11, 49), r = rnd(11, 49), e = E(TXT);
@@ -212,12 +213,12 @@ function fresh(){
   stepN = 0; $("calc").innerHTML = ""; $("cTabs").hidden = $("cmp2").hidden = $("cTip").hidden = true; $("cNext").hidden = false; $("cAgain").hidden = true;
 }
 const STEPS = [
-  () => ["🔒", "Wallet: Geheimzahl würfeln", `Privater Schlüssel <code class="sec">k = ${T.k}</code>. Den kennt nur deine Wallet.`],
-  () => ["🔓", "Öffentlichen Schlüssel berechnen", `Maschine(${T.k}) = 7 × ${T.k} = <code class="pub">P = ${T.P}</code>. Diese Zahl darf jeder sehen.`],
-  () => ["🎲", "Wallet: Einmal-Zahl würfeln", `Für jede Zahlung neu: <code class="sec">r = ${T.r}</code>, daraus Maschine(${T.r}) = <code class="pub">R = ${T.R}</code>.`],
-  () => ["🧾", "Fingerabdruck des Textes", `Aus „${TXT}“ wird per Hash eine Zahl: <code>e = ${T.e}</code>. Anderer Text, andere Zahl.`],
-  () => ["✍️", "Signatur berechnen", `s = r + e × k = ${T.r} + ${T.e} × ${T.k} = <code>s = ${n(T.s)}</code>. Gesendet werden nur <b>R = ${T.R}</b> und <b>s = ${n(T.s)}</b>, nie k.`],
-  () => ["🖥", "Node prüft", `Die Node kennt nur Text, P, R und s. Sie rechnet zwei Seiten aus. Sind beide gleich, ist die Signatur echt.`],
+  () => ["🔒", Lern.t("Wallet: Geheimzahl würfeln", "Wallet: roll a secret number"), Lern.t(`Privater Schlüssel <code class="sec">k = ${T.k}</code>. Den kennt nur deine Wallet.`, `Private key <code class="sec">k = ${T.k}</code>. Only your wallet knows it.`)],
+  () => ["🔓", Lern.t("Öffentlichen Schlüssel berechnen", "Calculate the public key"), Lern.t(`Maschine(${T.k}) = 7 × ${T.k} = <code class="pub">P = ${T.P}</code>. Diese Zahl darf jeder sehen.`, `Machine(${T.k}) = 7 × ${T.k} = <code class="pub">P = ${T.P}</code>. Anyone may see this number.`)],
+  () => ["🎲", Lern.t("Wallet: Einmal-Zahl würfeln", "Wallet: roll a one-time number"), Lern.t(`Für jede Zahlung neu: <code class="sec">r = ${T.r}</code>, daraus Maschine(${T.r}) = <code class="pub">R = ${T.R}</code>.`, `New for every payment: <code class="sec">r = ${T.r}</code>, from it Machine(${T.r}) = <code class="pub">R = ${T.R}</code>.`)],
+  () => ["🧾", Lern.t("Fingerabdruck des Textes", "Fingerprint of the text"), Lern.t(`Aus „${TXT}“ wird per Hash eine Zahl: <code>e = ${T.e}</code>. Anderer Text, andere Zahl.`, `“${TXT}” is turned into a number by hashing: <code>e = ${T.e}</code>. Different text, different number.`)],
+  () => ["✍️", Lern.t("Signatur berechnen", "Calculate the signature"), Lern.t(`s = r + e × k = ${T.r} + ${T.e} × ${T.k} = <code>s = ${n(T.s)}</code>. Gesendet werden nur <b>R = ${T.R}</b> und <b>s = ${n(T.s)}</b>, nie k.`, `s = r + e × k = ${T.r} + ${T.e} × ${T.k} = <code>s = ${n(T.s)}</code>. Only <b>R = ${T.R}</b> and <b>s = ${n(T.s)}</b> are sent, never k.`)],
+  () => ["🖥", Lern.t("Node prüft", "Node checks"), Lern.t(`Die Node kennt nur Text, P, R und s. Sie rechnet zwei Seiten aus. Sind beide gleich, ist die Signatur echt.`, `The node only knows the text, P, R and s. It calculates two sides. If both are equal, the signature is genuine.`)],
 ];
 $("cNext").onclick = () => {
   const [w, t, d] = STEPS[stepN++]();
@@ -229,17 +230,23 @@ function test(c){
   [...$("cTabs").children].forEach(b => b.setAttribute("aria-pressed", b.dataset.t === c));
   const txt = c === "tamper" ? FAKE : TXT, e = E(txt), s = c === "thief" ? T.s + rnd(1, 40) : T.s;
   const L = M(s), Rr = T.R + e*T.P, ok = L === Rr;
-  const why = c === "ok" ? `Warum sind beide Seiten gleich? So setzt sich die linke Seite zusammen:</p>
+  const why = c === "ok" ? Lern.t(`Warum sind beide Seiten gleich? So setzt sich die linke Seite zusammen:</p>
     <table class="der"><tr><td>Links</td><td>7 × s</td><td>7 × ${n(T.s)}</td><td></td></tr>
     <tr><td>=</td><td>7 × (r + e × k)</td><td>7 × (${T.r} + ${T.e} × ${T.k})</td><td>s ist ja r + e × k</td></tr>
     <tr><td>=</td><td>7 × r + e × (7 × k)</td><td>7 × ${T.r} + ${T.e} × (7 × ${T.k})</td><td>die 7 auf beide Teile verteilt</td></tr>
     <tr><td>=</td><td><b class="pub">R</b> + e × <b class="pub">P</b></td><td>${T.R} + ${T.e} × ${T.P}</td><td>7 × r ist R, 7 × k ist P</td></tr>
     <tr><td>=</td><td colspan="3"><b>Rechts ✓</b></td></tr></table>
-    <p style="margin-top:6px">Die Node kennt k und r nicht. Sie braucht sie aber auch nicht: Links steht nur s, rechts nur die öffentlichen Zahlen R, e und P. Weil in s die Geheimzahl k steckt, geht die Rechnung nur auf, wenn wirklich der Besitzer von k unterschrieben hat.`
-    : c === "tamper" ? `Der Text „${FAKE}“ hat den Fingerabdruck e = ${e} statt ${T.e}. Die Signatur passt nur zum alten Text.`
-    : `Der Dieb kennt k nicht und rät s = ${n(s)}. Ohne k trifft er die richtige Zahl nicht.`;
+    <p style="margin-top:6px">Die Node kennt k und r nicht. Sie braucht sie aber auch nicht: Links steht nur s, rechts nur die öffentlichen Zahlen R, e und P. Weil in s die Geheimzahl k steckt, geht die Rechnung nur auf, wenn wirklich der Besitzer von k unterschrieben hat.`, `Why are both sides equal? This is how the left side is made up:</p>
+    <table class="der"><tr><td>Left</td><td>7 × s</td><td>7 × ${n(T.s)}</td><td></td></tr>
+    <tr><td>=</td><td>7 × (r + e × k)</td><td>7 × (${T.r} + ${T.e} × ${T.k})</td><td>s is r + e × k</td></tr>
+    <tr><td>=</td><td>7 × r + e × (7 × k)</td><td>7 × ${T.r} + ${T.e} × (7 × ${T.k})</td><td>the 7 spread over both parts</td></tr>
+    <tr><td>=</td><td><b class="pub">R</b> + e × <b class="pub">P</b></td><td>${T.R} + ${T.e} × ${T.P}</td><td>7 × r is R, 7 × k is P</td></tr>
+    <tr><td>=</td><td colspan="3"><b>Right ✓</b></td></tr></table>
+    <p style="margin-top:6px">The node doesn't know k and r. But it doesn't need them either: the left only has s, the right only the public numbers R, e and P. Because the secret number k is inside s, the calculation only works out if the owner of k really signed.`)
+    : c === "tamper" ? Lern.t(`Der Text „${FAKE}“ hat den Fingerabdruck e = ${e} statt ${T.e}. Die Signatur passt nur zum alten Text.`, `The text “${FAKE}” has the fingerprint e = ${e} instead of ${T.e}. The signature only fits the old text.`)
+    : Lern.t(`Der Dieb kennt k nicht und rät s = ${n(s)}. Ohne k trifft er die richtige Zahl nicht.`, `The thief doesn't know k and guesses s = ${n(s)}. Without k he doesn't hit the right number.`);
   const C2 = $("cmp2"); C2.hidden = false; C2.className = "cmp2 " + (ok ? "ok" : "bad");
-  C2.innerHTML = `<div>Links: Maschine(s)<code>${n(L)}</code>7 × ${n(s)}</div><span class="eqs">${ok ? "=" : "≠"}</span><div>Rechts: R + e × P<code>${n(Rr)}</code>${T.R} + ${e} × ${T.P}</div><p><b>${ok ? "✓ Gültig." : "✗ Ungültig."}</b> ${why}</p>`;
+  C2.innerHTML = Lern.t(`<div>Links: Maschine(s)<code>${n(L)}</code>7 × ${n(s)}</div><span class="eqs">${ok ? "=" : "≠"}</span><div>Rechts: R + e × P<code>${n(Rr)}</code>${T.R} + ${e} × ${T.P}</div><p><b>${ok ? "✓ Gültig." : "✗ Ungültig."}</b> ${why}</p>`, `<div>Left: Machine(s)<code>${n(L)}</code>7 × ${n(s)}</div><span class="eqs">${ok ? "=" : "≠"}</span><div>Right: R + e × P<code>${n(Rr)}</code>${T.R} + ${e} × ${T.P}</div><p><b>${ok ? "✓ Valid." : "✗ Invalid."}</b> ${why}</p>`);
 }
 $("cTabs").addEventListener("click", ev => { const b = ev.target.closest("button"); if (b) test(b.dataset.t); });
 fresh();
@@ -249,21 +256,21 @@ function rate(){
   const buf = new Uint8Array(32), t0 = performance.now(); let n = 0;
   while (performance.now() - t0 < 300){ for (let i = 0; i < 1000; i++) crypto.getRandomValues(buf); n += 1000; }
   const r = n/((performance.now() - t0)/1000), yrs = 1.16e77/2/r/3.156e7;
-  $("myRate").textContent = Math.round(r).toLocaleString("de-DE");
+  $("myRate").textContent = Math.round(r).toLocaleString(Lern.EN ? "en-US" : "de-DE");
   const e = Math.floor(Math.log10(yrs)), sup = String(e).split("").map(d => "⁰¹²³⁴⁵⁶⁷⁸⁹"[d]).join("");
-  $("myTime").textContent = `≈ 10${sup} Jahre`;
+  $("myTime").textContent = Lern.t(`≈ 10${sup} Jahre`, `≈ 10${sup} years`);
   const dg = n => "1" + "0".repeat(n), grp = t => t.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  $("zz").innerHTML = [["🧑 Ein Menschenleben", "80"], ["🏛️ Seit den Pyramiden", "4.500"], ["🦖 Seit den Dinosauriern", "66.000.000"], ["🌌 Alter des Universums", "13.800.000.000"]].map(([t, v]) => `<div>${t}<code>${v} Jahre</code></div>`).join("") + `<div class="me">🔑 Deinen Schlüssel erraten<code>${grp(dg(e))} Jahre</code></div>`;
-  $("zzN").innerHTML = `Das Universum ist ein <b>11-stelliges</b> Alter. Fürs Raten bräuchtest du eine Zahl mit <b>${e + 1} Stellen</b>. Selbst wenn jeder der 8 Milliarden Menschen eine Milliarde solcher Geräte hätte, blieben es noch rund 10${String(Math.max(0, e - 19)).split("").map(d => "⁰¹²³⁴⁵⁶⁷⁸⁹"[d]).join("")} Jahre.`;
+  $("zz").innerHTML = [[Lern.t("🧑 Ein Menschenleben", "🧑 A human lifetime"), "80"], [Lern.t("🏛️ Seit den Pyramiden", "🏛️ Since the pyramids"), "4.500"], [Lern.t("🦖 Seit den Dinosauriern", "🦖 Since the dinosaurs"), "66.000.000"], [Lern.t("🌌 Alter des Universums", "🌌 Age of the universe"), "13.800.000.000"]].map(([t, v]) => Lern.t(`<div>${t}<code>${v} Jahre</code></div>`, `<div>${t}<code>${v} years</code></div>`)).join("") + Lern.t(`<div class="me">🔑 Deinen Schlüssel erraten<code>${grp(dg(e))} Jahre</code></div>`, `<div class="me">🔑 Guessing your key<code>${grp(dg(e))} years</code></div>`);
+  $("zzN").innerHTML = Lern.t(`Das Universum ist ein <b>11-stelliges</b> Alter. Fürs Raten bräuchtest du eine Zahl mit <b>${e + 1} Stellen</b>. Selbst wenn jeder der 8 Milliarden Menschen eine Milliarde solcher Geräte hätte, blieben es noch rund 10${String(Math.max(0, e - 19)).split("").map(d => "⁰¹²³⁴⁵⁶⁷⁸⁹"[d]).join("")} Jahre.`, `The universe's age has <b>11 digits</b>. For guessing you'd need a number with <b>${e + 1} digits</b>. Even if each of the 8 billion people had a billion such devices, it would still be about 10${String(Math.max(0, e - 19)).split("").map(d => "⁰¹²³⁴⁵⁶⁷⁸⁹"[d]).join("")} years.`);
 }
 
-newKey().catch(() => { $("res").textContent = "Dein Browser unterstützt Web Crypto hier nicht. Öffne die Seite über https."; });
+newKey().catch(() => { $("res").textContent = Lern.t("Dein Browser unterstützt Web Crypto hier nicht. Öffne die Seite über https.", "Your browser doesn't support Web Crypto here. Open the page via https."); });
 setTimeout(rate, 400);
 
 const QUIZ = [
-  ["Was darfst du anderen zeigen?", ["Den privaten Schlüssel", "Den öffentlichen Schlüssel", "Die Seed-Wörter"], 1, "Der öffentliche Schlüssel (bzw. die Adresse daraus) ist zum Teilen da. Privater Schlüssel und Seed bleiben geheim."],
-  ["Jemand ändert in einer unterschriebenen Zahlung den Betrag. Was passiert?", ["Die Zahlung geht mit dem neuen Betrag durch", "Die Signatur passt nicht mehr, alle Nodes lehnen ab", "Nur große Beträge fallen auf"], 1, "Die Signatur gilt nur für genau diese Nachricht. Jede Änderung macht sie ungültig."],
-  ["Warum kann niemand deinen privaten Schlüssel erraten?", ["Weil er in der Wallet verschlüsselt gespeichert ist", "Weil es mehr mögliche Schlüssel gibt als Atome auf der Erde", "Weil das Raten von Schlüsseln gesetzlich verboten ist"], 1, "2²⁵⁶ Möglichkeiten sind so viele, dass alle Computer der Welt zusammen keine Chance hätten."],
+  [Lern.t("Was darfst du anderen zeigen?", "What may you show others?"), [Lern.t("Den privaten Schlüssel", "The private key"), Lern.t("Den öffentlichen Schlüssel", "The public key"), Lern.t("Die Seed-Wörter", "The seed words")], 1, Lern.t("Der öffentliche Schlüssel (bzw. die Adresse daraus) ist zum Teilen da. Privater Schlüssel und Seed bleiben geheim.", "The public key (or the address derived from it) is meant for sharing. The private key and seed stay secret.")],
+  [Lern.t("Jemand ändert in einer unterschriebenen Zahlung den Betrag. Was passiert?", "Someone changes the amount in a signed payment. What happens?"), [Lern.t("Die Zahlung geht mit dem neuen Betrag durch", "The payment goes through with the new amount"), Lern.t("Die Signatur passt nicht mehr, alle Nodes lehnen ab", "The signature no longer fits; all nodes reject it"), Lern.t("Nur große Beträge fallen auf", "Only large amounts stand out")], 1, Lern.t("Die Signatur gilt nur für genau diese Nachricht. Jede Änderung macht sie ungültig.", "The signature only applies to exactly this message. Any change makes it invalid.")],
+  [Lern.t("Warum kann niemand deinen privaten Schlüssel erraten?", "Why can nobody guess your private key?"), [Lern.t("Weil er in der Wallet verschlüsselt gespeichert ist", "Because it's stored encrypted in the wallet"), Lern.t("Weil es mehr mögliche Schlüssel gibt als Atome auf der Erde", "Because there are more possible keys than atoms on Earth"), Lern.t("Weil das Raten von Schlüsseln gesetzlich verboten ist", "Because guessing keys is illegal")], 1, Lern.t("2²⁵⁶ Möglichkeiten sind so viele, dass alle Computer der Welt zusammen keine Chance hätten.", "2²⁵⁶ possibilities are so many that all the computers in the world together wouldn't stand a chance.")],
 ];
 Lern.quiz($("quiz"), "schluessel", QUIZ, "../"); Lern.visit("schluessel"); Lern.renderNext("schluessel", "../");
 })();

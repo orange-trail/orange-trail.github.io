@@ -53,58 +53,59 @@
 .fall .ft{display:block;font:900 15px var(--f-display);color:var(--ink);margin-bottom:4px}
 @media (max-width:620px){ .fall{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Bitcoin <span class="btc">senden</span> &amp; empfangen</h1>
-    <p class="lead">Die erste eigene Überweisung macht vielen Angst: Was, wenn etwas schiefgeht? Hier übst du beides ohne Risiko, mit <b>Übungsdaten</b>. Danach weißt du genau, worauf du achten musst.</p>
+    <h1 data-i="k3">Bitcoin <span class="btc">senden</span> &amp; empfangen</h1>
+    <p data-i="k4" class="lead">Die erste eigene Überweisung macht vielen Angst: Was, wenn etwas schiefgeht? Hier übst du beides ohne Risiko, mit <b>Übungsdaten</b>. Danach weißt du genau, worauf du achten musst.</p>
   </div>
 
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Empfangen</h2>
-    <p class="muted" style="margin:0">Um Bitcoin zu bekommen, zeigst du in deiner Wallet auf <b>„Empfangen“</b>. Dort steht deine Adresse, auch als QR-Code. Die schickst du dem Absender. Warum es jedes Mal eine neue Adresse gibt, steht im Level Privatsphäre <span class="later">(gleich in dieser Welt)</span>.</p>
-    <div class="phone"><small>Deine Wallet · Empfangen (Übung)</small><div class="qr" id="qr"></div><div class="adr" id="myAdr"></div></div>
-    <p class="muted" style="margin:14px 0 0">Kommt eine Zahlung rein, zeigt die Wallet sie sofort an, erst als <b>unbestätigt</b>. Steht sie in einem Block, hat sie die <b>erste Bestätigung</b>. Mit jedem weiteren Block wird sie sicherer. Dass ein Block später noch ersetzt wird (Reorg), ist selten und betrifft fast nur die jüngsten Blöcke. Wie das genau abläuft, siehst du im Mempool-Bahnhof <span class="later">(nächstes Level)</span>.</p>
+    <h2 data-i="k5" id="h1s">1 · Empfangen</h2>
+    <p data-i="k6" class="muted" style="margin:0">Um Bitcoin zu bekommen, zeigst du in deiner Wallet auf <b>„Empfangen“</b>. Dort steht deine Adresse, auch als QR-Code. Die schickst du dem Absender. Warum es jedes Mal eine neue Adresse gibt, steht im Level Privatsphäre <span class="later">(gleich in dieser Welt)</span>.</p>
+    <div class="phone"><small data-i="k7">Deine Wallet · Empfangen (Übung)</small><div class="qr" id="qr"></div><div class="adr" id="myAdr"></div></div>
+    <p data-i="k8" class="muted" style="margin:14px 0 0">Kommt eine Zahlung rein, zeigt die Wallet sie sofort an, erst als <b>unbestätigt</b>. Steht sie in einem Block, hat sie die <b>erste Bestätigung</b>. Mit jedem weiteren Block wird sie sicherer. Dass ein Block später noch ersetzt wird (Reorg), ist selten und betrifft fast nur die jüngsten Blöcke. Wie das genau abläuft, siehst du im Mempool-Bahnhof <span class="later">(nächstes Level)</span>.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Senden, Schritt für Schritt</h2>
-    <p class="muted" style="margin:0">Du willst Anna Bitcoin schicken. Sie hat dir ihre Adresse geschickt. Spiel die Überweisung durch:</p>
+    <h2 data-i="k9" id="h2s">2 · Senden, Schritt für Schritt</h2>
+    <p data-i="k10" class="muted" style="margin:0">Du willst Anna Bitcoin schicken. Sie hat dir ihre Adresse geschickt. Spiel die Überweisung durch:</p>
     <div class="st" id="st"></div>
     <div id="snd"></div>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Typische Fallen</h2>
+    <h2 data-i="k11" id="h3s">3 · Typische Fallen</h2>
     <div class="fall">
-      <div><b class="ft">🦠 Vertauschte Adresse</b>Schadsoftware kann kopierte Adressen heimlich austauschen. Darum vor dem Senden immer <b>Anfang und Ende</b> vergleichen.</div>
-      <div><b class="ft">🔀 Falsches Netzwerk</b>Börsen bieten manchmal mehrere Netzwerke an. Für echte Bitcoin brauchst du das <b>Bitcoin-Netzwerk</b> (oder Lightning, wenn beide Seiten es können). Im falschen Netzwerk kann das Geld verloren sein.</div>
-      <div><b class="ft">🐌 Gebühr zu niedrig</b>Dann wartet die Zahlung lange im Warteraum. Viele Wallets können die Gebühr nachträglich erhöhen. Mehr dazu im Mempool-Bahnhof <span class="later">(nächstes Level)</span>.</div>
-      <div><b class="ft">⌨️ Tippfehler</b>Bitcoin-Adressen haben eine eingebaute <b>Prüfsumme</b>. Ein einzelner Tippfehler fällt fast immer auf, die Wallet lehnt die Adresse dann ab. Trotzdem: kopieren statt abtippen.</div>
+      <div data-i="k12"><b class="ft">🦠 Vertauschte Adresse</b>Schadsoftware kann kopierte Adressen heimlich austauschen. Darum vor dem Senden immer <b>Anfang und Ende</b> vergleichen.</div>
+      <div data-i="k13"><b class="ft">🔀 Falsches Netzwerk</b>Börsen bieten manchmal mehrere Netzwerke an. Für echte Bitcoin brauchst du das <b>Bitcoin-Netzwerk</b> (oder Lightning, wenn beide Seiten es können). Im falschen Netzwerk kann das Geld verloren sein.</div>
+      <div data-i="k14"><b class="ft">🐌 Gebühr zu niedrig</b>Dann wartet die Zahlung lange im Warteraum. Viele Wallets können die Gebühr nachträglich erhöhen. Mehr dazu im Mempool-Bahnhof <span class="later">(nächstes Level)</span>.</div>
+      <div data-i="k15"><b class="ft">⌨️ Tippfehler</b>Bitcoin-Adressen haben eine eingebaute <b>Prüfsumme</b>. Ein einzelner Tippfehler fällt fast immer auf, die Wallet lehnt die Adresse dann ab. Trotzdem: kopieren statt abtippen.</div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k16" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Adresse prüfen</b><span>Vor dem Senden die ersten und letzten Zeichen vergleichen. Eine falsche Adresse kann niemand rückgängig machen.</span></div>
-      <div><b>Erst testen</b><span>Beim ersten Mal an eine neue Adresse: einen kleinen Testbetrag schicken, dann den Rest.</span></div>
-      <div><b>Richtiges Netzwerk</b><span>Für Bitcoin immer das Bitcoin-Netzwerk wählen (oder Lightning, wenn beide Seiten es können).</span></div>
-      <div><b>Kein Zurück</b><span>Es gibt keine Bank, die eine Bitcoin-Zahlung zurückholt. Genauigkeit ist deine Versicherung.</span></div>
+      <div><b data-i="k17">Adresse prüfen</b><span data-i="k18">Vor dem Senden die ersten und letzten Zeichen vergleichen. Eine falsche Adresse kann niemand rückgängig machen.</span></div>
+      <div><b data-i="k19">Erst testen</b><span data-i="k20">Beim ersten Mal an eine neue Adresse: einen kleinen Testbetrag schicken, dann den Rest.</span></div>
+      <div><b data-i="k21">Richtiges Netzwerk</b><span data-i="k22">Für Bitcoin immer das Bitcoin-Netzwerk wählen (oder Lightning, wenn beide Seiten es können).</span></div>
+      <div><b data-i="k23">Kein Zurück</b><span data-i="k24">Es gibt keine Bank, die eine Bitcoin-Zahlung zurückholt. Genauigkeit ist deine Versicherung.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k25">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://en.bitcoin.it/wiki/Confirmation">Bitcoin Wiki: Confirmation</a>; <a href="https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki">BIP 173: Bech32-Adressen mit Prüfsumme</a>; <a href="https://mempool.space">mempool.space: aktuelle Gebühren</a>. Alle Adressen auf dieser Seite sind Übungsadressen.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k29" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k26">Quellen</summary><p data-i="k27"><a href="https://en.bitcoin.it/wiki/Confirmation">Bitcoin Wiki: Confirmation</a>; <a href="https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki">BIP 173: Bech32-Adressen mit Prüfsumme</a>; <a href="https://mempool.space">mempool.space: aktuelle Gebühren</a>. Alle Adressen auf dieser Seite sind Übungsadressen.</p></details>
+  <p data-i="k28" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Sending<\/span> &amp; receiving bitcoin", "k4": "Many people are afraid of their first own transfer: what if something goes wrong? Here you practise both without risk, with <b>practice data<\/b>. Afterwards you'll know exactly what to watch out for.", "k5": "1 · Receiving", "k6": "To get bitcoin, you tap <b>“Receive”<\/b> in your wallet. Your address is shown there, also as a QR code. You send it to the sender. Why there's a new address every time is explained in the Privacy level <span class=\"later\">(later in this world)<\/span>.", "k7": "Your wallet · Receive (practice)", "k8": "When a payment comes in, the wallet shows it immediately, first as <b>unconfirmed<\/b>. Once it's in a block, it has its <b>first confirmation<\/b>. With every further block it becomes safer. A block being replaced later (reorg) is rare and almost only affects the newest blocks. You'll see exactly how it works in the Mempool Station <span class=\"later\">(next level)<\/span>.", "k9": "2 · Sending, step by step", "k10": "You want to send Anna bitcoin. She has sent you her address. Play through the transfer:", "k11": "3 · Typical traps", "k12": "<b class=\"ft\">🦠 Swapped address<\/b>Malware can secretly swap copied addresses. That's why you should always compare the <b>start and end<\/b> before sending.", "k13": "<b class=\"ft\">🔀 Wrong network<\/b>Exchanges sometimes offer several networks. For real bitcoin you need the <b>Bitcoin network<\/b> (or Lightning, if both sides support it). On the wrong network the money can be lost.", "k14": "<b class=\"ft\">🐌 Fee too low<\/b>Then the payment waits a long time in the waiting room. Many wallets can raise the fee afterwards. More in the Mempool Station <span class=\"later\">(next level)<\/span>.", "k15": "<b class=\"ft\">⌨️ Typo<\/b>Bitcoin addresses have a built-in <b>checksum<\/b>. A single typo is almost always caught, and the wallet then rejects the address. Still: copy rather than type.", "k16": "Remember this", "k17": "Check the address", "k18": "Before sending, compare the first and last characters. Nobody can undo a wrong address.", "k19": "Test first", "k20": "The first time to a new address: send a small test amount, then the rest.", "k21": "Right network", "k22": "For bitcoin, always choose the Bitcoin network (or Lightning, if both sides support it).", "k23": "No way back", "k24": "There's no bank that can reverse a bitcoin payment. Accuracy is your insurance.", "k25": "Test yourself: 3 questions", "k26": "Sources", "k27": "<a href=\"https://en.bitcoin.it/wiki/Confirmation\">Bitcoin Wiki: Confirmation<\/a>; <a href=\"https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki\">BIP 173: Bech32 addresses with checksum<\/a>; <a href=\"https://mempool.space\">mempool.space: current fees<\/a>. All addresses on this page are practice addresses.", "k28": "Entertainment and learning, not investment advice.", "k29@aria-label": "Next", "_title": "Send & Receive · Bitcoin Voyage", "_desc": "Lernwelt: Bitcoin empfangen und senden. Adresse prüfen, Testbetrag, Gebühr wählen und typische Fallen vermeiden."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    SENDEN & EMPFANGEN – Lernwelt von Bitcoin Voyage
@@ -125,53 +126,58 @@ $("myAdr").innerHTML = hl(MY);
 
 
 // Senden: 4 Schritte
-const STEPS = ["Adresse", "Betrag", "Gebühr", "Senden"];
+const STEPS = [Lern.t("Adresse", "Address"), Lern.t("Betrag", "Amount"), Lern.t("Gebühr", "Fee"), Lern.t("Senden", "Send")];
 let s = 0, swap = false, amt = 0, fee = 0, mist = 0, gen = 0;
 const step = () => { $("st").innerHTML = STEPS.map((t, i) => `<span class="${i === s ? "on" : ""}">${i + 1} · ${t}</span>`).join(""); };
 function view(){
   step(); const B = $("snd"), g = ++gen;
   if (s === 0){ swap = Math.random() < .5;
-    B.innerHTML = `<div class="sbox"><h3>Adresse einfügen und prüfen</h3><p class="muted" style="margin:0">Du hast Annas Adresse kopiert und fügst sie ein. Vergleiche <b>Anfang und Ende</b> mit dem, was Anna dir geschickt hat:</p>
+    B.innerHTML = Lern.t(`<div class="sbox"><h3>Adresse einfügen und prüfen</h3><p class="muted" style="margin:0">Du hast Annas Adresse kopiert und fügst sie ein. Vergleiche <b>Anfang und Ende</b> mit dem, was Anna dir geschickt hat:</p>
       <div class="cmp"><div><small>Von Anna geschickt</small><span class="adr" style="display:block">${hl(ANNA)}</span></div><div><small>Eingefügt in deiner Wallet</small><span class="adr" style="display:block">${hl(swap ? SWAP : ANNA)}</span></div></div>
-      <div class="ch"><button class="btn ghost" type="button" data-a="1">✓ Stimmt überein, weiter</button><button class="btn ghost" type="button" data-a="0">✗ Stimmt nicht, abbrechen</button></div><p class="note" id="sN"></p></div>`;
+      <div class="ch"><button class="btn ghost" type="button" data-a="1">✓ Stimmt überein, weiter</button><button class="btn ghost" type="button" data-a="0">✗ Stimmt nicht, abbrechen</button></div><p class="note" id="sN"></p></div>`, `<div class="sbox"><h3>Paste and check the address</h3><p class="muted" style="margin:0">You copied Anna's address and paste it in. Compare the <b>start and end</b> with what Anna sent you:</p>
+      <div class="cmp"><div><small>Sent by Anna</small><span class="adr" style="display:block">${hl(ANNA)}</span></div><div><small>Pasted into your wallet</small><span class="adr" style="display:block">${hl(swap ? SWAP : ANNA)}</span></div></div>
+      <div class="ch"><button class="btn ghost" type="button" data-a="1">✓ Matches, continue</button><button class="btn ghost" type="button" data-a="0">✗ Doesn't match, cancel</button></div><p class="note" id="sN"></p></div>`);
     B.querySelector(".ch").onclick = e => { const b = e.target.closest("[data-a]"); if (!b) return; const same = b.dataset.a === "1";
-      if (same === !swap){ Lern.sfx && Lern.sfx("ok"); if (swap){ $("sN").innerHTML = "<b>Gut aufgepasst!</b> Das Ende war anders. Hier hätte Schadsoftware die Adresse ausgetauscht. Neuer Versuch:"; B.querySelectorAll(".ch button").forEach(x => x.disabled = true); setTimeout(() => g === gen && view(), 2200); } else { s = 1; view(); } }
-      else { mist++; Lern.sfx && Lern.sfx("no"); $("sN").innerHTML = swap ? "<b>Achtung!</b> Schau aufs Ende: Die Adressen sind <b>verschieden</b>. Das Geld wäre beim Betrüger gelandet." : "Schau nochmal genau hin: Anfang und Ende sind <b>gleich</b>."; } };
+      if (same === !swap){ Lern.sfx && Lern.sfx("ok"); if (swap){ $("sN").innerHTML = Lern.t("<b>Gut aufgepasst!</b> Das Ende war anders. Hier hätte Schadsoftware die Adresse ausgetauscht. Neuer Versuch:", "<b>Well spotted!</b> The end was different. Malware would have swapped the address here. New attempt:"); B.querySelectorAll(".ch button").forEach(x => x.disabled = true); setTimeout(() => g === gen && view(), 2200); } else { s = 1; view(); } }
+      else { mist++; Lern.sfx && Lern.sfx("no"); $("sN").innerHTML = swap ? Lern.t("<b>Achtung!</b> Schau aufs Ende: Die Adressen sind <b>verschieden</b>. Das Geld wäre beim Betrüger gelandet.", "<b>Watch out!</b> Look at the end: the addresses are <b>different</b>. The money would have ended up with the scammer.") : Lern.t("Schau nochmal genau hin: Anfang und Ende sind <b>gleich</b>.", "Look closely again: the start and end are <b>the same</b>."); } };
   }
   else if (s === 1){
-    B.innerHTML = `<div class="sbox"><h3>Wie viel?</h3><p class="muted" style="margin:0">Du willst Anna 0,01 BTC schicken. Es ist das erste Mal an diese Adresse.</p>
-      <div class="ch"><button class="btn ghost" type="button" data-v="test">🧪 Erst ein Testbetrag: 0,0001 BTC</button><button class="btn ghost" type="button" data-v="all">💸 Gleich alles: 0,01 BTC</button></div><p class="note" id="sN"></p></div>`;
+    B.innerHTML = Lern.t(`<div class="sbox"><h3>Wie viel?</h3><p class="muted" style="margin:0">Du willst Anna 0,01 BTC schicken. Es ist das erste Mal an diese Adresse.</p>
+      <div class="ch"><button class="btn ghost" type="button" data-v="test">🧪 Erst ein Testbetrag: 0,0001 BTC</button><button class="btn ghost" type="button" data-v="all">💸 Gleich alles: 0,01 BTC</button></div><p class="note" id="sN"></p></div>`, `<div class="sbox"><h3>How much?</h3><p class="muted" style="margin:0">You want to send Anna 0.01 BTC. It's the first time to this address.</p>
+      <div class="ch"><button class="btn ghost" type="button" data-v="test">🧪 A test amount first: 0.0001 BTC</button><button class="btn ghost" type="button" data-v="all">💸 Everything at once: 0.01 BTC</button></div><p class="note" id="sN"></p></div>`);
     B.querySelector(".ch").onclick = e => { const b = e.target.closest("[data-v]"); if (!b) return; amt = b.dataset.v === "test" ? .0001 : .01;
-      if (amt < .01){ Lern.sfx && Lern.sfx("ok"); s = 2; view(); } else { $("sN").innerHTML = "Geht auch, aber beim <b>ersten Mal</b> ist ein kleiner Test schlauer: Kommt er an, schickst du den Rest. So kostet ein Fehler fast nichts. <a href='#' id='tst'>Doch lieber testen</a> · <a href='#' id='nxt'>Trotzdem weiter</a>";
+      if (amt < .01){ Lern.sfx && Lern.sfx("ok"); s = 2; view(); } else { $("sN").innerHTML = Lern.t("Geht auch, aber beim <b>ersten Mal</b> ist ein kleiner Test schlauer: Kommt er an, schickst du den Rest. So kostet ein Fehler fast nichts. <a href='#' id='tst'>Doch lieber testen</a> · <a href='#' id='nxt'>Trotzdem weiter</a>", "That works too, but the <b>first time</b> a small test is smarter: if it arrives, you send the rest. That way a mistake costs almost nothing. <a href='#' id='tst'>Test after all</a> · <a href='#' id='nxt'>Continue anyway</a>");
         $("tst").onclick = ev => { ev.preventDefault(); amt = .0001; s = 2; view(); }; $("nxt").onclick = ev => { ev.preventDefault(); s = 2; view(); }; } };
   }
   else if (s === 2){
-    const F = [["🐢 Langsam", 2, "ca. 1 Std."], ["🚶 Normal", 6, "ca. 30 Min."], ["🚀 Schnell", 15, "nächster Block, ca. 10 Min."]];
-    B.innerHTML = `<div class="sbox"><h3>Gebühr wählen</h3><p class="muted" style="margin:0">Die Gebühr hängt <b>nicht vom Betrag</b> ab, sondern davon, wie eilig es ist (Beispielwerte):</p>
-      <div class="ch">${F.map(([t, v, z], i) => `<button class="btn ghost" type="button" data-i="${i}">${t} · ${v} sat/vB · ${z} · ≈ ${(v * 140).toLocaleString("de-DE")} sats</button>`).join("")}</div></div>`;
+    const F = [[Lern.t("🐢 Langsam", "🐢 Slow"), 2, Lern.t("ca. 1 Std.", "approx. 1 h")], [Lern.t("🚶 Normal", "🚶 Normal"), 6, Lern.t("ca. 30 Min.", "approx. 30 min")], [Lern.t("🚀 Schnell", "🚀 Fast"), 15, Lern.t("nächster Block, ca. 10 Min.", "next block, approx. 10 min")]];
+    B.innerHTML = Lern.t(`<div class="sbox"><h3>Gebühr wählen</h3><p class="muted" style="margin:0">Die Gebühr hängt <b>nicht vom Betrag</b> ab, sondern davon, wie eilig es ist (Beispielwerte):</p>
+      <div class="ch">${F.map(([t, v, z], i) => `<button class="btn ghost" type="button" data-i="${i}">${t} · ${v} sat/vB · ${z} · ≈ ${(v * 140).toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</button>`).join("")}</div></div>`, `<div class="sbox"><h3>Choose a fee</h3><p class="muted" style="margin:0">The fee does <b>not depend on the amount</b>, but on how urgent it is (example values):</p>
+      <div class="ch">${F.map(([t, v, z], i) => `<button class="btn ghost" type="button" data-i="${i}">${t} · ${v} sat/vB · ${z} · ≈ ${(v * 140).toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</button>`).join("")}</div></div>`);
     B.querySelector(".ch").onclick = e => { const b = e.target.closest("[data-i]"); if (!b) return; fee = F[+b.dataset.i]; Lern.sfx && Lern.sfx("click"); s = 3; view(); };
   }
   else if (s === 3){
-    B.innerHTML = `<div class="sbox"><h3>Nochmal prüfen, dann senden</h3><div class="sum"><span>An</span><b class="adr" style="padding:2px 6px">${hl(ANNA)}</b><span>Betrag</span><b>${amt.toLocaleString("de-DE",{maximumFractionDigits:8})} BTC</b><span>Gebühr</span><b>${fee[0]} · ${fee[1]} sat/vB</b><span>Dauer</span><b>${fee[2]}</b></div>
-      <div class="row" style="margin-top:12px"><button class="btn" type="button" id="go">📤 Jetzt senden</button></div><div class="mine" id="mine" hidden><div class="mp"><small>Warteraum</small><div class="mq" id="mq"></div></div><div class="bks" id="bks"></div><p class="lg"><span><i class="me"></i> deine Zahlung</span><span><i></i> Zahlungen anderer Leute</span></p></div><p class="note" id="sN"></p></div>`;
+    B.innerHTML = Lern.t(`<div class="sbox"><h3>Nochmal prüfen, dann senden</h3><div class="sum"><span>An</span><b class="adr" style="padding:2px 6px">${hl(ANNA)}</b><span>Betrag</span><b>${amt.toLocaleString(Lern.EN ? "en-US" : "de-DE",{maximumFractionDigits:8})} BTC</b><span>Gebühr</span><b>${fee[0]} · ${fee[1]} sat/vB</b><span>Dauer</span><b>${fee[2]}</b></div>
+      <div class="row" style="margin-top:12px"><button class="btn" type="button" id="go">📤 Jetzt senden</button></div><div class="mine" id="mine" hidden><div class="mp"><small>Warteraum</small><div class="mq" id="mq"></div></div><div class="bks" id="bks"></div><p class="lg"><span><i class="me"></i> deine Zahlung</span><span><i></i> Zahlungen anderer Leute</span></p></div><p class="note" id="sN"></p></div>`, `<div class="sbox"><h3>Check again, then send</h3><div class="sum"><span>To</span><b class="adr" style="padding:2px 6px">${hl(ANNA)}</b><span>Amount</span><b>${amt.toLocaleString(Lern.EN ? "en-US" : "de-DE",{maximumFractionDigits:8})} BTC</b><span>Fee</span><b>${fee[0]} · ${fee[1]} sat/vB</b><span>Duration</span><b>${fee[2]}</b></div>
+      <div class="row" style="margin-top:12px"><button class="btn" type="button" id="go">📤 Send now</button></div><div class="mine" id="mine" hidden><div class="mp"><small>Waiting room</small><div class="mq" id="mq"></div></div><div class="bks" id="bks"></div><p class="lg"><span><i class="me"></i> your payment</span><span><i></i> other people's payments</span></p></div><p class="note" id="sN"></p></div>`);
     $("go").onclick = () => { $("go").disabled = true; Lern.sfx && Lern.sfx("coin"); $("mine").hidden = false;
       // Mindestgebühr pro Block sinkt, je leerer der Warteraum wird (Zeitraffer: 1 Block ≈ 10 Min.)
       const MIN = [12, 9, 5, 4, 3, 2], CAP = 8, Q = 10; let k = 0;   // Block fasst 8, Warteraum hat immer 10 andere
       const wait = (q, nw = 0) => { $("mq").innerHTML = '<i class="me"></i>' + "<i></i>".repeat(q - nw) + '<i class="nw"></i>'.repeat(nw); };
-      wait(Q); $("sN").innerHTML = "📤 Gesendet! Deine Zahlung (gold) wartet im Warteraum. Miner nehmen die mit der höchsten Gebühr zuerst …";
+      wait(Q); $("sN").innerHTML = Lern.t("📤 Gesendet! Deine Zahlung (gold) wartet im Warteraum. Miner nehmen die mit der höchsten Gebühr zuerst …", "📤 Sent! Your payment (gold) waits in the waiting room. Miners take the ones with the highest fee first …");
       const next = () => { if (g !== gen) return; const m = MIN[k], in_ = fee[1] >= m, d = document.createElement("div");
-        d.className = "bk" + (in_ ? " hit" : ""); d.innerHTML = `<b>Block ${k + 1}</b><div>${in_ ? '<i class="me"></i>' + "<i></i>".repeat(CAP - 1) : "<i></i>".repeat(CAP)}</div><small>ab ${m} sat/vB</small>`;
+        d.className = "bk" + (in_ ? " hit" : ""); d.innerHTML = Lern.t(`<b>Block ${k + 1}</b><div>${in_ ? '<i class="me"></i>' + "<i></i>".repeat(CAP - 1) : "<i></i>".repeat(CAP)}</div><small>ab ${m} sat/vB</small>`, `<b>Block ${k + 1}</b><div>${in_ ? '<i class="me"></i>' + "<i></i>".repeat(CAP - 1) : "<i></i>".repeat(CAP)}</div><small>from ${m} sat/vB</small>`);
         $("bks").prepend(d); k++; Lern.sfx && Lern.sfx(in_ ? "lvl" : "hit");
-        if (!in_){ wait(Q - CAP); setTimeout(() => g === gen && wait(Q, CAP), 450); $("sN").innerHTML = `⛏️ Block ${k} gefunden: Die ${CAP} Zahlungen mit der höchsten Gebühr (ab ${m} sat/vB) sind eingestiegen, ${CAP} neue kommen nach. Deine ${fee[1]} sat/vB reichen noch nicht …`; setTimeout(next, 2200); return; }
+        if (!in_){ wait(Q - CAP); setTimeout(() => g === gen && wait(Q, CAP), 450); $("sN").innerHTML = Lern.t(`⛏️ Block ${k} gefunden: Die ${CAP} Zahlungen mit der höchsten Gebühr (ab ${m} sat/vB) sind eingestiegen, ${CAP} neue kommen nach. Deine ${fee[1]} sat/vB reichen noch nicht …`, `⛏️ Block ${k} found: the ${CAP} payments with the highest fee (from ${m} sat/vB) got in, ${CAP} new ones arrive. Your ${fee[1]} sat/vB aren't enough yet …`); setTimeout(next, 2200); return; }
         wait(Q - CAP + 1); $("mq").firstChild.remove();
-        $("sN").innerHTML = `<b>✅ In Block ${k}, also nach ca. ${k * 10} Min. angekommen!</b> ${amt < .01 ? "Der Test hat geklappt. Jetzt kannst du den Rest beruhigt schicken." : "Geschafft."} ${mist ? `(${mist} Fehler unterwegs, beim nächsten Mal genauer hinschauen.)` : "Alles richtig gemacht!"} <button class="btn ghost" type="button" id="again" style="margin-top:8px">↺ Nochmal üben</button>`;
+        $("sN").innerHTML = Lern.t(`<b>✅ In Block ${k}, also nach ca. ${k * 10} Min. angekommen!</b> ${amt < .01 ? "Der Test hat geklappt. Jetzt kannst du den Rest beruhigt schicken." : "Geschafft."} ${mist ? `(${mist} Fehler unterwegs, beim nächsten Mal genauer hinschauen.)` : "Alles richtig gemacht!"} <button class="btn ghost" type="button" id="again" style="margin-top:8px">↺ Nochmal üben</button>`, `<b>✅ In block ${k}, so arrived after approx. ${k * 10} min!</b> ${amt < .01 ? "The test worked. Now you can send the rest with peace of mind." : "Done."} ${mist ? `(${mist} mistake${mist > 1 ? "s" : ""} along the way, look more closely next time.)` : "You did everything right!"} <button class="btn ghost" type="button" id="again" style="margin-top:8px">↺ Practise again</button>`);
         $("again").onclick = () => { s = 0; mist = 0; view(); }; };
       setTimeout(next, 1600); };
   }
 }
 view();
 
-const QUIZ = [["Was solltest du vor dem Senden immer prüfen?", ["Anfang und Ende der Empfänger-Adresse", "Nur die Länge der Adresse", "Ob die Adresse schön aussieht"], 0, "Schadsoftware kann kopierte Adressen austauschen. Ein Blick auf Anfang und Ende entlarvt das."], ["Wovon hängt die Bitcoin-Gebühr ab?", ["Wie eilig es ist und wie groß die Transaktion in Daten ist", "Vom Betrag in Euro, den du an jemanden überweist", "Von der Uhrzeit und dem Wochentag, an dem du sendest"], 0, "Auch eine Million Euro kann wenig Gebühr kosten. Es zählt der Platz im Block."], ["Die Börse bietet beim Abheben mehrere Netzwerke an. Was wählst du für echte Bitcoin?", ["Das Bitcoin-Netzwerk", "Irgendeins, Hauptsache billig", "Das mit dem schönsten Logo"], 0, "Im falschen Netzwerk kann das Geld verloren sein. Für Bitcoin: Bitcoin-Netzwerk oder Lightning."]];
+const QUIZ = [[Lern.t("Was solltest du vor dem Senden immer prüfen?", "What should you always check before sending?"), [Lern.t("Anfang und Ende der Empfänger-Adresse", "The start and end of the receiver's address"), Lern.t("Nur die Länge der Adresse", "Only the length of the address"), Lern.t("Ob die Adresse schön aussieht", "Whether the address looks nice")], 0, Lern.t("Schadsoftware kann kopierte Adressen austauschen. Ein Blick auf Anfang und Ende entlarvt das.", "Malware can swap copied addresses. A look at the start and end exposes it.")], [Lern.t("Wovon hängt die Bitcoin-Gebühr ab?", "What does the bitcoin fee depend on?"), [Lern.t("Wie eilig es ist und wie groß die Transaktion in Daten ist", "How urgent it is and how big the transaction is in data"), Lern.t("Vom Betrag in Euro, den du an jemanden überweist", "On the amount in euros you transfer to someone"), Lern.t("Von der Uhrzeit und dem Wochentag, an dem du sendest", "On the time and day of the week you send")], 0, Lern.t("Auch eine Million Euro kann wenig Gebühr kosten. Es zählt der Platz im Block.", "Even a million euros can cost little in fees. What counts is the space in the block.")], [Lern.t("Die Börse bietet beim Abheben mehrere Netzwerke an. Was wählst du für echte Bitcoin?", "The exchange offers several networks for withdrawing. What do you choose for real bitcoin?"), [Lern.t("Das Bitcoin-Netzwerk", "The Bitcoin network"), Lern.t("Irgendeins, Hauptsache billig", "Any, as long as it's cheap"), Lern.t("Das mit dem schönsten Logo", "The one with the nicest logo")], 0, Lern.t("Im falschen Netzwerk kann das Geld verloren sein. Für Bitcoin: Bitcoin-Netzwerk oder Lightning.", "On the wrong network the money can be lost. For bitcoin: the Bitcoin network or Lightning.")]];
 Lern.quiz($("quiz"), "senden", QUIZ, "../"); Lern.visit("senden"); Lern.renderNext("senden", "../");
 })();
 </script>

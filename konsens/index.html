@@ -54,64 +54,64 @@
 @keyframes cfDrop{from{transform:translateY(-24px) rotate(-10deg);opacity:0}}
 .wstat2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px} .wstat2 div{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:12px;color:var(--muted)} .wstat2 b{display:block;font:800 17px var(--f-num);color:var(--ink)}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Wie sich alle <span class="btc">einigen</span></h1>
-    <p class="lead">Tausende Computer, die sich nicht kennen und nicht vertrauen, einigen sich auf <b>ein</b> Kassenbuch. Ohne Chef, ohne Abstimmung. Das galt jahrzehntelang als unlösbar. Hier siehst du, wie Bitcoin es schafft.</p>
+    <h1 data-i="k3">Wie sich alle <span class="btc">einigen</span></h1>
+    <p data-i="k4" class="lead">Tausende Computer, die sich nicht kennen und nicht vertrauen, einigen sich auf <b>ein</b> Kassenbuch. Ohne Chef, ohne Abstimmung. Das galt jahrzehntelang als unlösbar. Hier siehst du, wie Bitcoin es schafft.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Das Problem der Generäle</h2>
-    <p class="muted" style="margin:0">Fünf Generäle umzingeln eine Stadt. Greifen <b>alle</b> gleichzeitig an, siegen sie. Greifen nur einige an, verlieren sie. Sie können nur über Boten reden, und <b>einer ist ein Verräter</b>, der jedem etwas anderes erzählt.</p>
+    <h2 data-i="k5" id="h1s">1 · Das Problem der Generäle</h2>
+    <p data-i="k6" class="muted" style="margin:0">Fünf Generäle umzingeln eine Stadt. Greifen <b>alle</b> gleichzeitig an, siegen sie. Greifen nur einige an, verlieren sie. Sie können nur über Boten reden, und <b>einer ist ein Verräter</b>, der jedem etwas anderes erzählt.</p>
     <div class="chart camp nogl" id="camp"></div>
-    <div class="seg2"><button class="btn" type="button" id="gA">📨 Ohne Bitcoin abstimmen</button><button class="btn" type="button" id="gB">⛏️ Mit Proof of Work</button></div>
+    <div class="seg2"><button data-i="k7" class="btn" type="button" id="gA">📨 Ohne Bitcoin abstimmen</button><button data-i="k8" class="btn" type="button" id="gB">⛏️ Mit Proof of Work</button></div>
     <p class="note" id="gN"></p>
-    <div class="acts" id="gS" hidden><button class="btn ghost" type="button" id="gP">◀ Zurück</button><button class="btn" type="button" id="gW">Weiter ▶</button></div>
+    <div class="acts" id="gS" hidden><button data-i="k9" class="btn ghost" type="button" id="gP">◀ Zurück</button><button data-i="k10" class="btn" type="button" id="gW">Weiter ▶</button></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Zwei Blöcke gleichzeitig: Welche Kette gilt?</h2>
-    <div class="learn bx"><div><b>Gleichstand</b><span>Zwei Miner finden fast zeitgleich einen Block. Kurz gibt es zwei Versionen.</span></div><div><b>Die Regel</b><span><b>Es gilt die gültige Kette mit der meisten Arbeit.</b> Ungültige Blöcke zählen nie.</span></div><div><b>Aufgelöst</b><span>Findet eine Seite den nächsten Block, wechseln alle dorthin.</span></div></div>
+    <h2 data-i="k11" id="h2s">2 · Zwei Blöcke gleichzeitig: Welche Kette gilt?</h2>
+    <div class="learn bx"><div><b data-i="k12">Gleichstand</b><span data-i="k13">Zwei Miner finden fast zeitgleich einen Block. Kurz gibt es zwei Versionen.</span></div><div><b data-i="k14">Die Regel</b><span data-i="k15"><b>Es gilt die gültige Kette mit der meisten Arbeit.</b> Ungültige Blöcke zählen nie.</span></div><div><b data-i="k16">Aufgelöst</b><span data-i="k17">Findet eine Seite den nächsten Block, wechseln alle dorthin.</span></div></div>
     <div class="race nogl" id="race"></div>
-    <div class="seg2"><button class="btn" type="button" id="rS">⚡ Zwei Blöcke gleichzeitig!</button><button class="btn" type="button" id="rN" disabled>⛏️ Nächster Block</button></div>
+    <div class="seg2"><button data-i="k18" class="btn" type="button" id="rS">⚡ Zwei Blöcke gleichzeitig!</button><button data-i="k19" class="btn" type="button" id="rN" disabled>⛏️ Nächster Block</button></div>
     <p class="note" id="rT"></p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Kann ein Betrüger aufholen?</h2>
-    <p class="muted" style="margin:0">Ein Angreifer will eine bezahlte Zahlung rückgängig machen. Dafür muss er heimlich eine längere Kette bauen. Satoshi hat im Whitepaper ausgerechnet, wie wahrscheinlich das ist.</p>
-    <div class="ctl"><label class="lbl2" for="aq">Anteil des Angreifers an der Rechenleistung</label><div class="row"><input id="aq" type="range" min="1" max="49" value="10"><b id="aqV" class="num">10 %</b></div></div>
+    <h2 data-i="k20" id="h3s">3 · Kann ein Betrüger aufholen?</h2>
+    <p data-i="k21" class="muted" style="margin:0">Ein Angreifer will eine bezahlte Zahlung rückgängig machen. Dafür muss er heimlich eine längere Kette bauen. Satoshi hat im Whitepaper ausgerechnet, wie wahrscheinlich das ist.</p>
+    <div class="ctl"><label data-i="k22" class="lbl2" for="aq">Anteil des Angreifers an der Rechenleistung</label><div class="row"><input id="aq" type="range" min="1" max="49" value="10"><b id="aqV" class="num">10 %</b></div></div>
     <table class="tbl nogl" id="atk"></table>
-    <p class="note">Darum warten Händler bei großen Beträgen auf <b>6 Bestätigungen</b> (etwa eine Stunde). Ab 50 % könnte ein Angreifer irgendwann immer aufholen, das wäre der <b>51-%-Angriff</b>.</p>
-    <p class="bxh">⚔️ <b>Spiel den Angriff selbst</b></p>
-    <p class="muted" style="margin:0">Du bist der Betrüger: Du hast bei einem Händler bezahlt und baust heimlich eine Kette, in der deine Zahlung fehlt. Der Händler liefert nach <b id="rZt">3</b> Bestätigungen. Holst du die ehrliche Kette danach noch ein?</p>
-    <div class="seg" id="rZ" style="margin-top:10px"><button class="btn" type="button" data-z="1" aria-pressed="false">1 Bestätigung</button><button class="btn" type="button" data-z="3" aria-pressed="true">3</button><button class="btn" type="button" data-z="6" aria-pressed="false">6</button></div>
+    <p data-i="k23" class="note">Darum warten Händler bei großen Beträgen auf <b>6 Bestätigungen</b> (etwa eine Stunde). Ab 50 % könnte ein Angreifer irgendwann immer aufholen, das wäre der <b>51-%-Angriff</b>.</p>
+    <p class="bxh">⚔️ <b data-i="k24">Spiel den Angriff selbst</b></p>
+    <p data-i="k25" class="muted" style="margin:0">Du bist der Betrüger: Du hast bei einem Händler bezahlt und baust heimlich eine Kette, in der deine Zahlung fehlt. Der Händler liefert nach <b id="rZt">3</b> Bestätigungen. Holst du die ehrliche Kette danach noch ein?</p>
+    <div class="seg" id="rZ" style="margin-top:10px"><button data-i="k26" class="btn" type="button" data-z="1" aria-pressed="false">1 Bestätigung</button><button class="btn" type="button" data-z="3" aria-pressed="true">3</button><button class="btn" type="button" data-z="6" aria-pressed="false">6</button></div>
     <div class="race" aria-live="polite">
-      <div class="rl"><span class="rn">Ehrliche Kette</span><div class="rc" id="rH"></div></div>
-      <div class="rl"><span class="rn ev">Deine Kette (<b id="rQ">10 %</b>)</span><div class="rc" id="rA"></div></div>
+      <div class="rl"><span data-i="k27" class="rn">Ehrliche Kette</span><div class="rc" id="rH"></div></div>
+      <div class="rl"><span data-i="k28" class="rn ev">Deine Kette (<b id="rQ">10 %</b>)</span><div class="rc" id="rA"></div></div>
     </div>
-    <div class="wstat2"><div><small>Strom verbrannt (ca.)</small><b class="num" id="rCost">0 $</b></div><div><small>Stand</small><b class="num" id="rState">–</b></div></div>
-    <div class="row" style="margin-top:10px"><button class="btn" id="rGo" type="button">▶ Angriff starten</button></div>
+    <div class="wstat2"><div><small data-i="k29">Strom verbrannt (ca.)</small><b class="num" id="rCost">0 $</b></div><div><small data-i="k30">Stand</small><b class="num" id="rState">–</b></div></div>
+    <div class="row" style="margin-top:10px"><button data-i="k31" class="btn" id="rGo" type="button">▶ Angriff starten</button></div>
     <p class="res" id="rRes" hidden></p>
   </section>
 
   <section class="card" aria-labelledby="h4s">
-    <h2 id="h4s">4 · Warum Ehrlichkeit sich lohnt</h2>
+    <h2 data-i="k32" id="h4s">4 · Warum Ehrlichkeit sich lohnt</h2>
     <div class="pay">
-      <div class="h"><b>⛏️ Ehrlich minen</b>Jeder gefundene Block bringt <b>3,125 BTC</b> plus Gebühren. Planbar und legal. Was die Belohnung in Euro wert ist, hängt vom Bitcoin-Kurs ab.</div>
-      <div class="pa"><b>😈 Betrügen</b>Braucht über die Hälfte der weltweiten Rechenleistung: Milliarden für Geräte und Strom. Selbst wenn es klappt, bricht das Vertrauen und damit der <b>Wert</b> deiner eigenen Bitcoin und Geräte ein.</div>
+      <div data-i="k33" class="h"><b>⛏️ Ehrlich minen</b>Jeder gefundene Block bringt <b>3,125 BTC</b> plus Gebühren. Planbar und legal. Was die Belohnung in Euro wert ist, hängt vom Bitcoin-Kurs ab.</div>
+      <div data-i="k34" class="pa"><b>😈 Betrügen</b>Braucht über die Hälfte der weltweiten Rechenleistung: Milliarden für Geräte und Strom. Selbst wenn es klappt, bricht das Vertrauen und damit der <b>Wert</b> deiner eigenen Bitcoin und Geräte ein.</div>
     </div>
-    <p class="note">Das ist der eigentliche Trick von Bitcoin: Die Regeln sind so gebaut, dass <b>Ehrlichkeit mehr Gewinn bringt als Betrug</b>. Man muss den Minern nicht vertrauen, sie handeln aus Eigennutz richtig. Fachleute nennen das <b>Spieltheorie</b>.</p>
+    <p data-i="k35" class="note">Das ist der eigentliche Trick von Bitcoin: Die Regeln sind so gebaut, dass <b>Ehrlichkeit mehr Gewinn bringt als Betrug</b>. Man muss den Minern nicht vertrauen, sie handeln aus Eigennutz richtig. Fachleute nennen das <b>Spieltheorie</b>.</p>
   </section>
 
   <section class="card" aria-labelledby="h5s">
-    <h2 id="h5s">5 · Immer 10 Minuten: die Difficulty-Anpassung <span class="mode" id="mode">Verbinde …</span></h2>
-    <p class="muted" style="margin:0">Kommen mehr Miner dazu, würden Blöcke schneller gefunden. Darum passt Bitcoin alle <b>2.016 Blöcke</b> (etwa 2 Wochen) die Schwierigkeit an. Probier es aus:</p>
-    <div class="seg2"><button class="btn" type="button" data-h="2">🚀 Doppelt so viele Miner</button><button class="btn" type="button" data-h="0.5">📉 Hälfte der Miner fällt aus</button><button class="btn ghost" type="button" data-h="0">↺ Neu</button></div>
+    <h2 data-i="k36" id="h5s">5 · Immer 10 Minuten: die Difficulty-Anpassung <span class="mode" id="mode">Verbinde …</span></h2>
+    <p data-i="k37" class="muted" style="margin:0">Kommen mehr Miner dazu, würden Blöcke schneller gefunden. Darum passt Bitcoin alle <b>2.016 Blöcke</b> (etwa 2 Wochen) die Schwierigkeit an. Probier es aus:</p>
+    <div class="seg2"><button data-i="k38" class="btn" type="button" data-h="2">🚀 Doppelt so viele Miner</button><button data-i="k39" class="btn" type="button" data-h="0.5">📉 Hälfte der Miner fällt aus</button><button data-i="k40" class="btn ghost" type="button" data-h="0">↺ Neu</button></div>
     <div class="dst" id="dst"></div>
     <p class="note" id="dcap" aria-live="polite"></p>
     <div class="chart nogl" id="diff"></div>
@@ -119,29 +119,31 @@
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k41" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Byzantinische Generäle</b><span>Das alte Problem: Wie einigen sich Fremde, wenn manche <b>lügen</b>? Bitcoin löst es mit Arbeit statt Abstimmung.</span></div>
-      <div><b>Meiste Arbeit gewinnt</b><span>Bei zwei Versionen gilt die Kette mit der <b>meisten Rechenarbeit</b>. Der andere Block verwaist.</span></div>
-      <div><b>Ehrlichkeit lohnt sich</b><span>Betrug kostet Milliarden und zerstört den eigenen Gewinn. Darum handeln Miner aus <b>Eigennutz</b> ehrlich.</span></div>
-      <div><b>Alle 2.016 Blöcke</b><span>Die Schwierigkeit passt sich an, damit ein Block im Schnitt <b>10 Minuten</b> dauert.</span></div>
+      <div><b data-i="k42">Byzantinische Generäle</b><span data-i="k43">Das alte Problem: Wie einigen sich Fremde, wenn manche <b>lügen</b>? Bitcoin löst es mit Arbeit statt Abstimmung.</span></div>
+      <div><b data-i="k44">Meiste Arbeit gewinnt</b><span data-i="k45">Bei zwei Versionen gilt die Kette mit der <b>meisten Rechenarbeit</b>. Der andere Block verwaist.</span></div>
+      <div><b data-i="k46">Ehrlichkeit lohnt sich</b><span data-i="k47">Betrug kostet Milliarden und zerstört den eigenen Gewinn. Darum handeln Miner aus <b>Eigennutz</b> ehrlich.</span></div>
+      <div><b data-i="k48">Alle 2.016 Blöcke</b><span data-i="k49">Die Schwierigkeit passt sich an, damit ein Block im Schnitt <b>10 Minuten</b> dauert.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k50">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b>Nochmal nachlesen:</b> <a href="../mining/">Mining-Werkstatt</a> <span class="muted">(selbst minen)</span> · <a href="../nodes/">Node-Wache</a> <span class="muted">(wer die Regeln durchsetzt)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Abschnitte 4, 5 und 11</a> · <a href="https://lamport.azurewebsites.net/pubs/byz.pdf">Lamport u. a.: The Byzantine Generals Problem (1982)</a> · <a href="https://mempool.space/de/mining">mempool.space (echte Werte)</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k61" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b data-i="k51">Nochmal nachlesen:</b> <a data-i="k52" href="../mining/">Mining-Werkstatt</a> <span data-i="k53" class="muted">(selbst minen)</span> · <a data-i="k54" href="../nodes/">Node-Wache</a> <span data-i="k55" class="muted">(wer die Regeln durchsetzt)</span></p></section>
+  <section data-i="k62" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k56">Quellen</summary><p><a data-i="k57" href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Abschnitte 4, 5 und 11</a> · <a data-i="k58" href="https://lamport.azurewebsites.net/pubs/byz.pdf">Lamport u. a.: The Byzantine Generals Problem (1982)</a> · <a data-i="k59" href="https://mempool.space/de/mining">mempool.space (echte Werte)</a></p></details>
+  <p data-i="k60" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "How everyone <span class=\"btc\">agrees<\/span>", "k4": "Thousands of computers that don't know or trust each other agree on <b>one<\/b> ledger. Without a boss, without a vote. For decades this was considered unsolvable. Here you'll see how Bitcoin does it.", "k5": "1 · The generals problem", "k6": "Five generals surround a city. If <b>all<\/b> attack at once, they win. If only some attack, they lose. They can only talk via messengers, and <b>one is a traitor<\/b> who tells everyone something different.", "k7": "📨 Vote without Bitcoin", "k8": "⛏️ With proof of work", "k9": "◀ Back", "k10": "Next ▶", "k11": "2 · Two blocks at once: which chain counts?", "k12": "A tie", "k13": "Two miners find a block almost at the same time. Briefly there are two versions.", "k14": "The rule", "k15": "<b>The valid chain with the most work counts.<\/b> Invalid blocks never count.", "k16": "Resolved", "k17": "When one side finds the next block, everyone switches there.", "k18": "⚡ Two blocks at once!", "k19": "⛏️ Next block", "k20": "3 · Can a fraudster catch up?", "k21": "An attacker wants to reverse a payment he made. To do that he has to secretly build a longer chain. Satoshi calculated in the whitepaper how likely that is.", "k22": "Attacker's share of the computing power", "k23": "That's why merchants wait for <b>6 confirmations<\/b> (about an hour) for large amounts. From 50 % on, an attacker could always catch up eventually; that would be the <b>51% attack<\/b>.", "k24": "Play the attack yourself", "k25": "You're the fraudster: you paid a merchant and are secretly building a chain without your payment. The merchant delivers after <b id=\"rZt\">3<\/b> confirmations. Can you still catch up with the honest chain afterwards?", "k26": "1 confirmation", "k27": "Honest chain", "k28": "Your chain (<b id=\"rQ\">10 %<\/b>)", "k29": "Electricity burned (approx.)", "k30": "Status", "k31": "▶ Start attack", "k32": "4 · Why honesty pays", "k33": "<b>⛏️ Mine honestly<\/b>Every block found brings <b>3.125 BTC<\/b> plus fees. Predictable and legal. What the reward is worth in euros depends on the bitcoin price.", "k34": "<b>😈 Cheat<\/b>Needs more than half of the world's computing power: billions for devices and electricity. Even if it works, trust breaks down, and with it the <b>value<\/b> of your own bitcoin and devices.", "k35": "That's Bitcoin's real trick: the rules are built so that <b>honesty earns more than fraud<\/b>. You don't have to trust the miners; they act correctly out of self-interest. Experts call this <b>game theory<\/b>.", "k36": "5 · Always 10 minutes: the difficulty adjustment <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k37": "If more miners join, blocks would be found faster. That's why Bitcoin adjusts the difficulty every <b>2,016 blocks<\/b> (about 2 weeks). Try it:", "k38": "🚀 Twice as many miners", "k39": "📉 Half of the miners drop out", "k40": "↺ Reset", "k41": "Remember this", "k42": "Byzantine generals", "k43": "The old problem: how do strangers agree when some <b>lie<\/b>? Bitcoin solves it with work instead of voting.", "k44": "Most work wins", "k45": "With two versions, the chain with the <b>most computing work<\/b> counts. The other block is orphaned.", "k46": "Honesty pays", "k47": "Fraud costs billions and destroys your own profit. That's why miners act honestly out of <b>self-interest<\/b>.", "k48": "Every 2,016 blocks", "k49": "The difficulty adjusts so that a block takes <b>10 minutes<\/b> on average.", "k50": "Test yourself: 3 questions", "k51": "Read again:", "k52": "Mining Workshop", "k53": "(mine yourself)", "k54": "Node Watch", "k55": "(who enforces the rules)", "k56": "Sources", "k57": "Bitcoin whitepaper, sections 4, 5 and 11", "k58": "Lamport et al.: The Byzantine Generals Problem (1982)", "k59": "mempool.space (real values)", "k60": "Entertainment and learning, not investment advice.", "k61@aria-label": "Related", "k62@aria-label": "Next", "_title": "Agreement Lab · Bitcoin Voyage", "_desc": "Lernwelt: Wie sich Bitcoin-Nodes ohne Chef einigen. Das Problem der byzantinischen Generäle, die längste Kette, Anreize für ehrliche Miner und die Difficulty-Anpassung, mit Live-Daten."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    EINIGUNGS-LABOR – Lernwelt von Bitcoin Voyage
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
+if (Lern.EN) $("rCost").textContent = "$0";
 // 1) Generäle
 const POS = [[200, 50], [345, 150], [290, 300], [110, 300], [55, 150]];
 let traitor = 0;
@@ -157,36 +159,36 @@ const castle = (x, y, win) => { const K = 'stroke="#0d1230" stroke-width="3" str
 function frame(mode, st){
   const tr = POS[traitor], C = [200, 178];
   // Schritt 1: Die Botschaft des Verräters erscheint als Zettel genau dort, wo später die Meinung steht (nichts überlappt)
-  const pill = i => { if (mode !== 1 || st !== 1 || i === traitor) return ""; const [x, y] = POS[i], m = i % 2 ? "Angriff!" : "Rückzug!";
+  const pill = i => { if (mode !== 1 || st !== 1 || i === traitor) return ""; const [x, y] = POS[i], m = i % 2 ? Lern.t("Angriff!", "Attack!") : Lern.t("Rückzug!", "Retreat!");
     return `<g class="pop"><rect x="${x - 46}" y="${y + 38}" width="92" height="26" rx="13" fill="#fff" stroke="#0d1230" stroke-width="2.5"/><text x="${x}" y="${y + 56}" font-size="14" font-weight="900" text-anchor="middle" fill="${i % 2 ? "#d0304a" : "#2a6fd0"}">📨 ${m}</text></g>`; };
   const T = POS.map((p, i) => { let txt = "?", col = "#3a4070";
     if (i === traitor && mode) { txt = mode === 2 && st >= 3 ? "😈 allein" : "😈"; col = "#b26bff"; }
-    else if (mode === 1 && st >= 2){ txt = i % 2 ? "Angriff" : "Rückzug"; col = i % 2 ? "#ff5c73" : "#7cc4ff"; }
-    else if (mode === 2){ txt = st >= 1 ? "Angriff" : "⛏️ rechnet"; col = st >= 1 ? "#34d982" : "#3a4070"; }
+    else if (mode === 1 && st >= 2){ txt = i % 2 ? Lern.t("Angriff", "Attack") : Lern.t("Rückzug", "Retreat"); col = i % 2 ? "#ff5c73" : "#7cc4ff"; }
+    else if (mode === 2){ txt = st >= 1 ? Lern.t("Angriff", "Attack") : "⛏️ rechnet"; col = st >= 1 ? "#34d982" : "#3a4070"; }
     return `<g><circle cx="${p[0]}" cy="${p[1]}" r="34" fill="${col}" stroke="#0d1230" stroke-width="4" style="transition:fill .4s"/><text x="${p[0]}" y="${p[1] - 2}" font-size="26" text-anchor="middle">⛺</text>${pill(i) || `<text x="${p[0]}" y="${p[1] + 54}" fill="#eef0ff" font-size="17" font-weight="800" text-anchor="middle">${txt}</text>`}</g>`; }).join("");
   let mid = mode ? "" : castle(C[0], C[1], false);
   if (mode === 1){
     mid = castle(C[0], C[1], st >= 3);
     if (st >= 1) mid = POS.map((p, i) => i === traitor ? "" : `<line class="msg" x1="${tr[0]}" y1="${tr[1]}" x2="${p[0]}" y2="${p[1]}" stroke="#b26bff" stroke-width="3" stroke-dasharray="6 6" opacity="${st >= 3 ? .35 : 1}"/>`).join("") + mid;
-    if (st >= 3) mid += `<g class="pop"><rect x="${C[0] - 62}" y="${C[1] + 44}" width="124" height="28" rx="14" fill="#ff5c73" stroke="#0d1230" stroke-width="3"/><text x="${C[0]}" y="${C[1] + 63}" font-size="15" font-weight="900" text-anchor="middle" fill="#fff">Stadt gewinnt!</text></g>`;
+    if (st >= 3) mid += Lern.t(`<g class="pop"><rect x="${C[0] - 62}" y="${C[1] + 44}" width="124" height="28" rx="14" fill="#ff5c73" stroke="#0d1230" stroke-width="3"/><text x="${C[0]}" y="${C[1] + 63}" font-size="15" font-weight="900" text-anchor="middle" fill="#fff">Stadt gewinnt!</text></g>`, `<g class="pop"><rect x="${C[0] - 62}" y="${C[1] + 44}" width="124" height="28" rx="14" fill="#ff5c73" stroke="#0d1230" stroke-width="3"/><text x="${C[0]}" y="${C[1] + 63}" font-size="15" font-weight="900" text-anchor="middle" fill="#fff">City wins!</text></g>`);
   } else if (mode === 2){
     const n = st === 0 ? 0 : st === 1 ? 1 : 3, w = 30, gap = 6, x0 = C[0] - (n * (w + gap) - gap) / 2;
     if (st >= 1) mid += POS.map((p, i) => i === traitor ? "" : `<line x1="${C[0]}" y1="${C[1]}" x2="${p[0]}" y2="${p[1]}" stroke="#34d982" stroke-width="2.5" opacity=".55"/>`).join("");
-    mid += `<rect x="${C[0] - 70}" y="${C[1] - 24}" width="140" height="48" rx="12" fill="#0d1230" opacity=".85"/>` + Array.from({length: n}, (_, k) => `<g class="pop" style="animation-delay:${k * .25}s"><rect x="${x0 + k * (w + gap)}" y="${C[1] - 12}" width="${w}" height="24" rx="5" fill="#ffc94d" stroke="#0d1230" stroke-width="3"/><text x="${x0 + k * (w + gap) + w / 2}" y="${C[1] + 5}" font-size="13" text-anchor="middle">⛏️</text></g>`).join("") + (n ? "" : `<text x="${C[0]}" y="${C[1] + 5}" fill="#9aa2d6" font-size="13" text-anchor="middle">gemeinsame Kette</text>`);
+    mid += `<rect x="${C[0] - 70}" y="${C[1] - 24}" width="140" height="48" rx="12" fill="#0d1230" opacity=".85"/>` + Array.from({length: n}, (_, k) => `<g class="pop" style="animation-delay:${k * .25}s"><rect x="${x0 + k * (w + gap)}" y="${C[1] - 12}" width="${w}" height="24" rx="5" fill="#ffc94d" stroke="#0d1230" stroke-width="3"/><text x="${x0 + k * (w + gap) + w / 2}" y="${C[1] + 5}" font-size="13" text-anchor="middle">⛏️</text></g>`).join("") + (n ? "" : Lern.t(`<text x="${C[0]}" y="${C[1] + 5}" fill="#9aa2d6" font-size="13" text-anchor="middle">gemeinsame Kette</text>`, `<text x="${C[0]}" y="${C[1] + 5}" fill="#9aa2d6" font-size="13" text-anchor="middle">shared chain</text>`));
     if (st >= 2){ const k = Math.abs(tr[0] - C[0]) > 100 ? .4 : .62, fx = tr[0] + (C[0] - tr[0]) * k - 15, fy = tr[1] + (C[1] - tr[1]) * k - 12;   // gefälschter Block (😈), ohne Extra-Schild: nichts überlappt
       mid += `<g class="pop"><rect x="${fx}" y="${fy}" width="30" height="24" rx="5" fill="#ff5c73" stroke="#0d1230" stroke-width="3"/>${st >= 3 ? `<text x="${fx + 15}" y="${fy + 19}" font-size="20" font-weight="900" text-anchor="middle" fill="#fff">✗</text>` : `<text x="${fx + 15}" y="${fy + 17}" font-size="13" text-anchor="middle">😈</text>`}</g>`; }
   }
   return `<svg viewBox="0 0 400 390" role="img" aria-label="Fünf Generäle um eine Stadt">${mid}${T}</svg>`;
 }
-const STEPS = {1: ["Ohne gemeinsames Kassenbuch: Die Generäle schicken sich Boten.", "Der Verräter 😈 schickt Boten los und erzählt <b>jedem etwas anderes</b>.", "Jetzt glauben manche an <b>Angriff</b>, andere an <b>Rückzug</b>. Keiner kann prüfen, wer lügt.", "<b>Chaos: Nur ein Teil greift an, die Stadt gewinnt.</b> Genau so könnte bei digitalem Geld jemand dem einen „bezahlt“ und dem anderen „nicht bezahlt“ erzählen."],
-  2: ["Neue Regel: Ein Befehl zählt nur, wenn er in einem <b>Block</b> steht. Jeder Block kostet viel <b>Rechenarbeit</b> ⛏️. Alle hängen an <b>eine gemeinsame Kette</b> an.", "Ein ehrlicher General findet den ersten Block: <b>„Angriff“</b>. Alle sehen dieselbe Kette.", "Der Verräter rechnet <b>allein</b> an einer Fälschung „Rückzug“. Die Ehrlichen rechnen <b>zusammen</b>, ihre Kette wächst viel schneller.", "Alle folgen der Kette mit der <b>meisten Arbeit</b>. Die Fälschung ist kürzer und wird ignoriert. <b>Gemeinsamer Angriff, Sieg!</b> Der Verräter bleibt allein."]};
+const STEPS = {1: [Lern.t("Ohne gemeinsames Kassenbuch: Die Generäle schicken sich Boten.", "Without a shared ledger: the generals send each other messengers."), Lern.t("Der Verräter 😈 schickt Boten los und erzählt <b>jedem etwas anderes</b>.", "The traitor 😈 sends out messengers and tells <b>everyone something different</b>."), Lern.t("Jetzt glauben manche an <b>Angriff</b>, andere an <b>Rückzug</b>. Keiner kann prüfen, wer lügt.", "Now some believe in <b>attack</b>, others in <b>retreat</b>. Nobody can check who's lying."), Lern.t("<b>Chaos: Nur ein Teil greift an, die Stadt gewinnt.</b> Genau so könnte bei digitalem Geld jemand dem einen „bezahlt“ und dem anderen „nicht bezahlt“ erzählen.", "<b>Chaos: only some attack, the city wins.</b> In exactly this way, with digital money someone could tell one person “paid” and another “not paid”.")],
+  2: [Lern.t("Neue Regel: Ein Befehl zählt nur, wenn er in einem <b>Block</b> steht. Jeder Block kostet viel <b>Rechenarbeit</b> ⛏️. Alle hängen an <b>eine gemeinsame Kette</b> an.", "New rule: an order only counts if it's in a <b>block</b>. Every block costs a lot of <b>computing work</b> ⛏️. Everyone appends to <b>one shared chain</b>."), Lern.t("Ein ehrlicher General findet den ersten Block: <b>„Angriff“</b>. Alle sehen dieselbe Kette.", "An honest general finds the first block: <b>“Attack”</b>. Everyone sees the same chain."), Lern.t("Der Verräter rechnet <b>allein</b> an einer Fälschung „Rückzug“. Die Ehrlichen rechnen <b>zusammen</b>, ihre Kette wächst viel schneller.", "The traitor computes <b>alone</b> on a forgery “Retreat”. The honest ones compute <b>together</b>, so their chain grows much faster."), Lern.t("Alle folgen der Kette mit der <b>meisten Arbeit</b>. Die Fälschung ist kürzer und wird ignoriert. <b>Gemeinsamer Angriff, Sieg!</b> Der Verräter bleibt allein.", "Everyone follows the chain with the <b>most work</b>. The forgery is shorter and is ignored. <b>Joint attack, victory!</b> The traitor stays alone.")]};
 // Schritte selbst weiterklicken (oder aufs Bild tippen), damit man in Ruhe lesen kann
 let gMode = 0, gSt = 0;
 function camp(mode){ gMode = mode; gSt = 0; go(); }
 function go(){ const mode = gMode, st = gSt;
   $("camp").innerHTML = frame(mode, st); $("gS").hidden = !mode;
-  $("gN").innerHTML = mode ? `<small class="stp">Schritt ${st + 1} von 4</small>${STEPS[mode][st]}` : "Wähle oben, wie die Generäle sich abstimmen. Dann klickst du dich Schritt für Schritt durch.";
-  $("gP").disabled = st === 0; $("gW").textContent = st < 3 ? "Weiter ▶" : "🔄 Nochmal"; }
+  $("gN").innerHTML = mode ? Lern.t(`<small class="stp">Schritt ${st + 1} von 4</small>${STEPS[mode][st]}`, `<small class="stp">Step ${st + 1} of 4</small>${STEPS[mode][st]}`) : Lern.t("Wähle oben, wie die Generäle sich abstimmen. Dann klickst du dich Schritt für Schritt durch.", "Choose above how the generals coordinate. Then click through step by step.");
+  $("gP").disabled = st === 0; $("gW").textContent = st < 3 ? Lern.t("Weiter ▶", "Next ▶") : Lern.t("🔄 Nochmal", "🔄 Again"); }
 $("gW").onclick = () => { gSt = gSt < 3 ? gSt + 1 : 0; go(); };
 $("gP").onclick = () => { if (gSt > 0){ gSt--; go(); } };
 $("camp").onclick = () => { if (gMode && gSt < 3){ gSt++; go(); } };
@@ -197,48 +199,49 @@ camp(0);
 let A = [], B = [], fork = false;
 const base = [880, 881, 882];
 function race(){ const L = (lb, arr, cls) => `<div class="lane"><span class="lb">${lb}</span>${base.map(n => `<span class="blk">${n}</span>`).join("")}${arr.map(([n, c]) => `<span class="blk ${c}">${n}</span>`).join("")}</div>`;
-  $("race").innerHTML = L("Kette A", A, "") + (fork || B.length ? L("Kette B", B, "b") : ""); }
+  $("race").innerHTML = L(Lern.t("Kette A", "Chain A"), A, "") + (fork || B.length ? L(Lern.t("Kette B", "Chain B"), B, "b") : ""); }
 $("rS").onclick = () => { A = [[883, ""]]; B = [[883, "b"]]; fork = true; $("rN").disabled = false; $("rS").disabled = true; race();
-  $("rT").innerHTML = "Zwei Miner haben gleichzeitig Block 883 gefunden. Die Hälfte der Nodes arbeitet an <b>A</b>, die andere an <b>B</b>. Wer findet den nächsten?"; };
+  $("rT").innerHTML = Lern.t("Zwei Miner haben gleichzeitig Block 883 gefunden. Die Hälfte der Nodes arbeitet an <b>A</b>, die andere an <b>B</b>. Wer findet den nächsten?", "Two miners found block 883 at the same time. Half of the nodes work on <b>A</b>, the other half on <b>B</b>. Who finds the next one?"); };
 $("rN").onclick = () => { const winA = Math.random() < .5; (winA ? A : B).push([884, winA ? "" : "b"]); const lose = winA ? B : A; lose.forEach(x => x[1] = "dead");
   race(); $("rN").disabled = true; $("rS").disabled = false; fork = false;
-  $("rT").innerHTML = `Kette <b>${winA ? "A" : "B"}</b> hat Block 884 zuerst gefunden und ist jetzt länger. Alle Nodes wechseln sofort dorthin. Der andere Block 883 <b>verwaist</b>: Seine Zahlungen kommen zurück in den Mempool und landen in einem späteren Block. Das passiert ab und zu und ist völlig normal.`; };
+  $("rT").innerHTML = Lern.t(`Kette <b>${winA ? "A" : "B"}</b> hat Block 884 zuerst gefunden und ist jetzt länger. Alle Nodes wechseln sofort dorthin. Der andere Block 883 <b>verwaist</b>: Seine Zahlungen kommen zurück in den Mempool und landen in einem späteren Block. Das passiert ab und zu und ist völlig normal.`, `Chain <b>${winA ? "A" : "B"}</b> found block 884 first and is now longer. All nodes switch there immediately. The other block 883 is <b>orphaned</b>: its payments go back to the mempool and end up in a later block. This happens now and then and is completely normal.`); };
 race();
 // 3) Satoshis Formel (Whitepaper, Abschnitt 11)
 function prob(q, z){ const p = 1 - q, l = z * q / p; let s = 1; for (let k = 0; k <= z; k++){ let po = Math.exp(-l); for (let i = 1; i <= k; i++) po *= l / i; s -= po * (1 - Math.pow(q / p, z - k)); } return Math.max(0, s); }
 function atk(){ const q = +$("aq").value / 100; $("aqV").textContent = Math.round(q * 100) + " %";
-  const f = v => v >= 0.995 ? "fast sicher" : v < 1e-6 ? "< 1 zu 1 Mio." : v < 0.001 ? "1 zu " + Math.round(1 / v).toLocaleString("de-DE") : (v * 100).toLocaleString("de-DE", {maximumFractionDigits: 1}) + " %";
-  $("atk").innerHTML = `<tr><th>Bestätigungen</th><th>Chance des Angreifers</th></tr>` + [1, 2, 3, 6, 10].map(z => `<tr><td>${z}${z === 6 ? " ⭐" : ""}</td><td>${f(prob(q, z))}</td></tr>`).join(""); }
+  const f = v => v >= 0.995 ? Lern.t("fast sicher", "almost certain") : v < 1e-6 ? Lern.t("< 1 zu 1 Mio.", "< 1 in 1 million") : v < 0.001 ? Lern.t("1 zu ", "1 in ") + Math.round(1 / v).toLocaleString(Lern.EN ? "en-US" : "de-DE") : (v * 100).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1}) + " %";
+  $("atk").innerHTML = Lern.t(`<tr><th>Bestätigungen</th><th>Chance des Angreifers</th></tr>`, `<tr><th>Confirmations</th><th>Attacker's chance</th></tr>`) + [1, 2, 3, 6, 10].map(z => `<tr><td>${z}${z === 6 ? " ⭐" : ""}</td><td>${f(prob(q, z))}</td></tr>`).join(""); }
 $("aq").oninput = atk; atk();
 // 5) Difficulty-Simulation: 6 Perioden à 2.016 Blöcke
 // Schritt für Schritt: Miner ändern sich → Blockzeit weicht ab → Anpassung → wieder 10 Min.
 let hM = 1, dM = 1, bars = [[10, "Start"]], dT = 0;
-const fx = v => (v >= 1 ? "×" + v.toLocaleString("de-DE", {maximumFractionDigits: 2}) : "÷" + (1 / v).toLocaleString("de-DE", {maximumFractionDigits: 2}));
+const fx = v => (v >= 1 ? "×" + v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 2}) : "÷" + (1 / v).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 2}));
 function diffSim(cap, hi){
   const W = 640, H = 250, n = Math.max(6, bars.length), x = i => 60 + i * (W - 90) / (n - 1), y = m => H - 50 - Math.min(m, 21) / 21 * (H - 90), t = 10 * dM / hM;
-  $("dst").innerHTML = [["⛏️", "Miner", fx(hM), hi === 0], ["🧩", "Schwierigkeit", fx(dM), hi === 1], ["⏱️", "Ein Block dauert", t.toLocaleString("de-DE", {maximumFractionDigits: 1}) + " Min.", hi === 2, Math.abs(t - 10) < .5 ? "ok" : "bad"]]
+  $("dst").innerHTML = [["⛏️", "Miner", fx(hM), hi === 0], ["🧩", Lern.t("Schwierigkeit", "Difficulty"), fx(dM), hi === 1], ["⏱️", Lern.t("Ein Block dauert", "A block takes"), t.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1}) + Lern.t(" Min.", " min"), hi === 2, Math.abs(t - 10) < .5 ? "ok" : "bad"]]
     .map(([e, l, v, h, c]) => `<div class="${h ? "hi" : ""} ${c || ""}"><span>${e}</span><small>${l}</small><b>${v}</b></div>`).join("");
-  $("dcap").innerHTML = cap || "Tippe oben, was passieren soll. Dann siehst du Schritt für Schritt, wie Bitcoin reagiert.";
-  $("diff").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Blockzeit pro Periode"><line x1="30" x2="${W - 20}" y1="${y(10)}" y2="${y(10)}" stroke="#34d982" stroke-dasharray="6 6"/><text x="${W - 22}" y="${y(10) - 8}" fill="#34d982" font-size="22" font-weight="800" text-anchor="end">Ziel: 10 Min.</text>
-    ${bars.map(([m, l], i) => `<g class="pop"><rect x="${x(i) - 30}" y="${y(m)}" width="60" height="${H - 50 - y(m)}" rx="8" fill="${Math.abs(m - 10) < 0.5 ? "#34d982" : m < 10 ? "#ffc94d" : "#ff5c73"}"/><text x="${x(i)}" y="${y(m) - 8}" fill="#eef0ff" font-size="24" font-weight="900" text-anchor="middle">${m.toLocaleString("de-DE", {maximumFractionDigits: 1})}</text></g><text x="${x(i)}" y="${H - 22}" fill="#aab2d8" font-size="20" font-weight="700" text-anchor="middle">${l}</text><text x="${x(i)}" y="${H - 3}" fill="#8890b8" font-size="19" text-anchor="middle">2 Wochen</text>`).join("")}</svg>`;
+  $("dcap").innerHTML = cap || Lern.t("Tippe oben, was passieren soll. Dann siehst du Schritt für Schritt, wie Bitcoin reagiert.", "Tap above what should happen. Then you'll see step by step how Bitcoin reacts.");
+  $("diff").innerHTML = Lern.t(`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Blockzeit pro Periode"><line x1="30" x2="${W - 20}" y1="${y(10)}" y2="${y(10)}" stroke="#34d982" stroke-dasharray="6 6"/><text x="${W - 22}" y="${y(10) - 8}" fill="#34d982" font-size="22" font-weight="800" text-anchor="end">Ziel: 10 Min.</text>
+    ${bars.map(([m, l], i) => `<g class="pop"><rect x="${x(i) - 30}" y="${y(m)}" width="60" height="${H - 50 - y(m)}" rx="8" fill="${Math.abs(m - 10) < 0.5 ? "#34d982" : m < 10 ? "#ffc94d" : "#ff5c73"}"/><text x="${x(i)}" y="${y(m) - 8}" fill="#eef0ff" font-size="24" font-weight="900" text-anchor="middle">${m.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1})}</text></g><text x="${x(i)}" y="${H - 22}" fill="#aab2d8" font-size="20" font-weight="700" text-anchor="middle">${l}</text><text x="${x(i)}" y="${H - 3}" fill="#8890b8" font-size="19" text-anchor="middle">2 Wochen</text>`).join("")}</svg>`, `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Block time per period"><line x1="30" x2="${W - 20}" y1="${y(10)}" y2="${y(10)}" stroke="#34d982" stroke-dasharray="6 6"/><text x="${W - 22}" y="${y(10) - 8}" fill="#34d982" font-size="22" font-weight="800" text-anchor="end">Target: 10 min</text>
+    ${bars.map(([m, l], i) => `<g class="pop"><rect x="${x(i) - 30}" y="${y(m)}" width="60" height="${H - 50 - y(m)}" rx="8" fill="${Math.abs(m - 10) < 0.5 ? "#34d982" : m < 10 ? "#ffc94d" : "#ff5c73"}"/><text x="${x(i)}" y="${y(m) - 8}" fill="#eef0ff" font-size="24" font-weight="900" text-anchor="middle">${m.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1})}</text></g><text x="${x(i)}" y="${H - 22}" fill="#aab2d8" font-size="20" font-weight="700" text-anchor="middle">${l}</text><text x="${x(i)}" y="${H - 3}" fill="#8890b8" font-size="19" text-anchor="middle">2 weeks</text>`).join("")}</svg>`);
 }
 document.querySelectorAll("[data-h]").forEach(b => b.onclick = () => { const f = +b.dataset.h; clearTimeout(dT);
   if (!f){ hM = dM = 1; bars = [[10, "Start"]]; diffSim(); return; }
   if (bars.length >= 6) bars = bars.slice(-2);
   document.querySelectorAll("[data-h]").forEach(x => x.disabled = true);
-  hM *= f; const t = 10 * dM / hM; bars.push([t, f > 1 ? "mehr Miner" : "Miner weg"]);
-  diffSim(f > 1 ? `<small class="stp">Schritt 1 von 3</small>Mehr Miner = mehr Versuche pro Sekunde. Blöcke kommen jetzt alle <b>${t.toLocaleString("de-DE")} Minuten</b>. Zu schnell!` : `<small class="stp">Schritt 1 von 3</small>Weniger Miner = weniger Versuche. Blöcke dauern jetzt <b>${t.toLocaleString("de-DE")} Minuten</b>. Zu langsam!`, 2);
+  hM *= f; const t = 10 * dM / hM; bars.push([t, f > 1 ? Lern.t("mehr Miner", "more miners") : Lern.t("Miner weg", "miners gone")]);
+  diffSim(f > 1 ? Lern.t(`<small class="stp">Schritt 1 von 3</small>Mehr Miner = mehr Versuche pro Sekunde. Blöcke kommen jetzt alle <b>${t.toLocaleString(Lern.EN ? "en-US" : "de-DE")} Minuten</b>. Zu schnell!`, `<small class="stp">Step 1 of 3</small>More miners = more attempts per second. Blocks now come every <b>${t.toLocaleString(Lern.EN ? "en-US" : "de-DE")} minutes</b>. Too fast!`) : Lern.t(`<small class="stp">Schritt 1 von 3</small>Weniger Miner = weniger Versuche. Blöcke dauern jetzt <b>${t.toLocaleString(Lern.EN ? "en-US" : "de-DE")} Minuten</b>. Zu langsam!`, `<small class="stp">Step 1 of 3</small>Fewer miners = fewer attempts. Blocks now take <b>${t.toLocaleString(Lern.EN ? "en-US" : "de-DE")} minutes</b>. Too slow!`), 2);
   dT = setTimeout(() => { const adj = Math.min(4, Math.max(.25, hM / dM)); dM *= adj;
-    diffSim(`<small class="stp">Schritt 2 von 3</small>Nach 2.016 Blöcken schaut <b>jede Node</b> auf die Uhr und passt das Rätsel an: <b>${fx(adj)}</b> so schwer. Niemand muss das entscheiden, es ist eine feste Regel.`, 1);
+    diffSim(Lern.t(`<small class="stp">Schritt 2 von 3</small>Nach 2.016 Blöcken schaut <b>jede Node</b> auf die Uhr und passt das Rätsel an: <b>${fx(adj)}</b> so schwer. Niemand muss das entscheiden, es ist eine feste Regel.`, `<small class="stp">Step 2 of 3</small>After 2,016 blocks <b>every node</b> looks at the clock and adjusts the puzzle: <b>${fx(adj)}</b> as hard. Nobody has to decide this; it's a fixed rule.`), 1);
     dT = setTimeout(() => { bars.push([10 * dM / hM, "angepasst"]);
-      diffSim(`<small class="stp">Schritt 3 von 3</small>Wieder <b>10 Minuten</b> pro Block. Egal wie viele Miner kommen oder gehen: Bitcoin hält seinen Takt.`, 2);
+      diffSim(Lern.t(`<small class="stp">Schritt 3 von 3</small>Wieder <b>10 Minuten</b> pro Block. Egal wie viele Miner kommen oder gehen: Bitcoin hält seinen Takt.`, `<small class="stp">Step 3 of 3</small>Back to <b>10 minutes</b> per block. No matter how many miners come or go: Bitcoin keeps its rhythm.`), 2);
       document.querySelectorAll("[data-h]").forEach(x => x.disabled = false); }, 2600); }, 2600);
 });
 diffSim();
 async function live(){ let d = null; try { d = await (await fetch(Lern.api("v1/difficulty-adjustment"))).json(); } catch(e){}
-  $("mode").className = "mode " + (d ? "live" : "demo"); $("mode").textContent = d ? "Live" : "Beispielwerte";
-  $("dkv").innerHTML = d ? `<div>Fortschritt der Periode<b>${Math.round(d.progressPercent)} %</b></div><div>Schnitt Blockzeit<b>${(d.timeAvg / 60000).toLocaleString("de-DE", {maximumFractionDigits: 1})} Min.</b></div><div>Nächste Anpassung<b class="g">${d.difficultyChange > 0 ? "+" : ""}${d.difficultyChange.toLocaleString("de-DE", {maximumFractionDigits: 1})} %</b></div>`
-    : `<div>Periode<b>2.016 Blöcke</b></div><div>Ziel<b>10 Min.</b></div><div>Max. Änderung<b class="g">×4 / ÷4</b></div>`; }
+  $("mode").className = "mode " + (d ? "live" : "demo"); $("mode").textContent = d ? "Live" : Lern.t("Beispielwerte", "Example values");
+  $("dkv").innerHTML = d ? Lern.t(`<div>Fortschritt der Periode<b>${Math.round(d.progressPercent)} %</b></div><div>Schnitt Blockzeit<b>${(d.timeAvg / 60000).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1})} Min.</b></div><div>Nächste Anpassung<b class="g">${d.difficultyChange > 0 ? "+" : ""}${d.difficultyChange.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1})} %</b></div>`, `<div>Progress of the period<b>${Math.round(d.progressPercent)} %</b></div><div>Average block time<b>${(d.timeAvg / 60000).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1})} min</b></div><div>Next adjustment<b class="g">${d.difficultyChange > 0 ? "+" : ""}${d.difficultyChange.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1})} %</b></div>`)
+    : Lern.t(`<div>Periode<b>2.016 Blöcke</b></div><div>Ziel<b>10 Min.</b></div><div>Max. Änderung<b class="g">×4 / ÷4</b></div>`, `<div>Period<b>2,016 blocks</b></div><div>Target<b>10 min</b></div><div>Max. change<b class="g">×4 / ÷4</b></div>`); }
 live();
 
 
@@ -246,7 +249,7 @@ live();
 (() => {
   const SK = 'stroke="#0d1230" stroke-width="6" stroke-linejoin="round"';
   const cube = (side, top) => `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10l36 19v42L50 90 14 71V29z" fill="${side}" ${SK}/><path d="M14 29l36 19 36-19M50 48v42" fill="none" ${SK}/><path d="M50 10l36 19-36 19-36-19z" fill="${top}" ${SK}/></svg>`;
-  const usd = v => v >= 1e6 ? (v/1e6).toLocaleString("de-DE", {maximumFractionDigits: 1}) + " Mio. $" : Math.round(v).toLocaleString("de-DE") + " $";
+  const usd = v => Lern.cur(v >= 1e6 ? (v/1e6).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1}) + Lern.t(" Mio. $", " million $") : Math.round(v).toLocaleString(Lern.EN ? "en-US" : "de-DE") + " $");
   const PER = 3.125*Lern.PRICE.USD;   // ein Block kostet ungefähr so viel Strom, wie er Belohnung bringt
   let Z = 3, run = 0;
   $("rZ").onclick = e => { const b = e.target.closest("button"); if (!b || run) return; Z = +b.dataset.z; $("rZt").textContent = Z; [...$("rZ").children].forEach(x => x.setAttribute("aria-pressed", x === b)); };
@@ -254,22 +257,22 @@ live();
   $("rGo").onclick = () => {
     if (run){ clearInterval(run); run = 0; }
     const q = +$("aq").value/100; let h = 0, a = 0, n = 0, paid = false;
-    $("rH").innerHTML = ""; $("rA").innerHTML = ""; $("rRes").hidden = true; $("rGo").textContent = "⏸ läuft …"; $("rGo").disabled = true;
-    const end = (win, msg) => { clearInterval(run); run = 0; $("rGo").disabled = false; $("rGo").textContent = "↻ Nochmal"; const r = $("rRes"); r.hidden = false; r.className = "res " + (win ? "bad" : "ok"); r.innerHTML = msg; };
+    $("rH").innerHTML = ""; $("rA").innerHTML = ""; $("rRes").hidden = true; $("rGo").textContent = Lern.t("⏸ läuft …", "⏸ running …"); $("rGo").disabled = true;
+    const end = (win, msg) => { clearInterval(run); run = 0; $("rGo").disabled = false; $("rGo").textContent = Lern.t("↻ Nochmal", "↻ Again"); const r = $("rRes"); r.hidden = false; r.className = "res " + (win ? "bad" : "ok"); r.innerHTML = msg; };
     run = setInterval(() => {
       n++;
       if (Math.random() < q){ a++; $("rA").insertAdjacentHTML("beforeend", cube("#c0392b", "#ff6b5b")); }
       else { h++; $("rH").insertAdjacentHTML("beforeend", h === 1 ? cube("#22b866", "#5ff0a0").replace("<svg", '<svg class="pay"') : cube("#f7931a", "#ffb04a")); }
       if (h >= Z) paid = true;
       $("rCost").textContent = usd(a*PER);
-      $("rState").textContent = !paid ? `Händler wartet (${h}/${Z})` : a > h ? "Du führst!" : `${h - a} Block${h - a === 1 ? "" : "e"} zurück`;
-      if (paid && a > h) return end(true, `<strong>😈 Angriff geglückt</strong>Deine Kette ist länger, alle Nodes wechseln zu ihr. Die Zahlung an den Händler ist verschwunden. ${q < .3 ? "Mit so wenig Rechenleistung war das <b>großes Glück</b>." : `Mit ${Math.round(q*100)} % Rechenleistung klappt so etwas öfter.`} Darum warten Händler bei großen Beträgen auf <b>mehr Bestätigungen</b>: Stell oben 6 ein und versuch es nochmal.<span class="calm"><b>🛡️ Warum das in echt kaum passiert:</b> Du kannst nur <b>deine eigene</b> Zahlung zurückholen, fremde Bitcoin stehlen geht so nicht. Dafür hast du hier rund <b>${usd(a*PER)}</b> Strom verbrannt, oft mehr, als die Zahlung wert war. Und echte Angreifer bräuchten Rechenleistung in der Größe ganzer Länder. Bei kleinen Beträgen reicht deshalb 1 Bestätigung, bei großen warten Händler einfach länger.</span>`);
-      if (h - a >= 8 || n >= 60) return end(false, `<strong>🛡️ Angriff gescheitert</strong>Die ehrliche Kette ist dir davongezogen. Du hast rund <b>${usd(a*PER)}</b> für Strom ausgegeben und bekommst nichts dafür. ${q < .3 ? "Mit weniger als einem Drittel der Rechenleistung ist das fast immer so." : "Selbst mit viel Rechenleistung ist es ein teures Glücksspiel."}`);
+      $("rState").textContent = !paid ? Lern.t(`Händler wartet (${h}/${Z})`, `Merchant waits (${h}/${Z})`) : a > h ? Lern.t("Du führst!", "You're ahead!") : Lern.t(`${h - a} Block${h - a === 1 ? "" : "e"} zurück`, `${h - a} block${h - a === 1 ? "" : "s"} behind`);
+      if (paid && a > h) return end(true, Lern.t(`<strong>😈 Angriff geglückt</strong>Deine Kette ist länger, alle Nodes wechseln zu ihr. Die Zahlung an den Händler ist verschwunden. ${q < .3 ? "Mit so wenig Rechenleistung war das <b>großes Glück</b>." : `Mit ${Math.round(q*100)} % Rechenleistung klappt so etwas öfter.`} Darum warten Händler bei großen Beträgen auf <b>mehr Bestätigungen</b>: Stell oben 6 ein und versuch es nochmal.<span class="calm"><b>🛡️ Warum das in echt kaum passiert:</b> Du kannst nur <b>deine eigene</b> Zahlung zurückholen, fremde Bitcoin stehlen geht so nicht. Dafür hast du hier rund <b>${usd(a*PER)}</b> Strom verbrannt, oft mehr, als die Zahlung wert war. Und echte Angreifer bräuchten Rechenleistung in der Größe ganzer Länder. Bei kleinen Beträgen reicht deshalb 1 Bestätigung, bei großen warten Händler einfach länger.</span>`, `<strong>😈 Attack succeeded</strong>Your chain is longer, all nodes switch to it. The payment to the merchant has disappeared. ${q < .3 ? "With so little computing power that was <b>great luck</b>." : `With ${Math.round(q*100)} % of the computing power this works more often.`} That's why merchants wait for <b>more confirmations</b> for large amounts: set 6 above and try again.<span class="calm"><b>🛡️ Why this hardly ever happens in reality:</b> you can only reverse <b>your own</b> payment; you can't steal other people's bitcoin this way. And you burned about <b>${usd(a*PER)}</b> of electricity here, often more than the payment was worth. Real attackers would need computing power the size of whole countries. That's why 1 confirmation is enough for small amounts, and merchants simply wait longer for big ones.</span>`));
+      if (h - a >= 8 || n >= 60) return end(false, Lern.t(`<strong>🛡️ Angriff gescheitert</strong>Die ehrliche Kette ist dir davongezogen. Du hast rund <b>${usd(a*PER)}</b> für Strom ausgegeben und bekommst nichts dafür. ${q < .3 ? "Mit weniger als einem Drittel der Rechenleistung ist das fast immer so." : "Selbst mit viel Rechenleistung ist es ein teures Glücksspiel."}`, `<strong>🛡️ Attack failed</strong>The honest chain pulled away from you. You spent about <b>${usd(a*PER)}</b> on electricity and get nothing for it. ${q < .3 ? "With less than a third of the computing power, that's almost always the case." : "Even with a lot of computing power it's an expensive gamble."}`));
     }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 60 : 380);
   };
 })();
 
-const QUIZ = [["Welche Kette gilt, wenn es zwei Versionen gibt?", ["Die ältere", "Die mit der meisten Rechenarbeit", "Die von Satoshi", "Die mit den meisten Zahlungen"], 1, "Nodes folgen immer der gültigen Kette mit der meisten Arbeit. Der andere Block verwaist."], ["Warum lohnt sich Betrug für Miner meist nicht?", ["Weil Betrug unter Minern gesetzlich verboten ist und hart bestraft wird", "Weil er Milliarden kostet und den Wert der eigenen Bitcoin zerstören würde", "Weil Satoshi bis heute alle neuen Blöcke persönlich prüft und freigibt", "Er lohnt sich sogar sehr, deshalb versuchen es ständig viele Miner"], 1, "Ehrliches Minen bringt sichere Belohnung. Ein Angriff würde das Vertrauen und damit den eigenen Gewinn vernichten."], ["Wie oft passt Bitcoin die Schwierigkeit an?", ["Bei jedem einzelnen neuen Block", "Alle 2.016 Blöcke, etwa alle 2 Wochen", "Einmal im Jahr, immer am 3. Januar", "Nie, sie ist seit 2009 gleich"], 1, "Alle 2.016 Blöcke, damit ein Block im Schnitt 10 Minuten dauert."]];
+const QUIZ = [[Lern.t("Welche Kette gilt, wenn es zwei Versionen gibt?", "Which chain counts when there are two versions?"), [Lern.t("Die ältere", "The older one"), Lern.t("Die mit der meisten Rechenarbeit", "The one with the most computing work"), Lern.t("Die von Satoshi", "Satoshi's"), Lern.t("Die mit den meisten Zahlungen", "The one with the most payments")], 1, Lern.t("Nodes folgen immer der gültigen Kette mit der meisten Arbeit. Der andere Block verwaist.", "Nodes always follow the valid chain with the most work. The other block is orphaned.")], [Lern.t("Warum lohnt sich Betrug für Miner meist nicht?", "Why does fraud usually not pay for miners?"), [Lern.t("Weil Betrug unter Minern gesetzlich verboten ist und hart bestraft wird", "Because fraud among miners is illegal and severely punished"), Lern.t("Weil er Milliarden kostet und den Wert der eigenen Bitcoin zerstören würde", "Because it costs billions and would destroy the value of their own bitcoin"), Lern.t("Weil Satoshi bis heute alle neuen Blöcke persönlich prüft und freigibt", "Because Satoshi still personally checks and approves all new blocks"), Lern.t("Er lohnt sich sogar sehr, deshalb versuchen es ständig viele Miner", "It pays very well, which is why many miners try it constantly")], 1, Lern.t("Ehrliches Minen bringt sichere Belohnung. Ein Angriff würde das Vertrauen und damit den eigenen Gewinn vernichten.", "Honest mining brings a safe reward. An attack would destroy trust and with it their own profit.")], [Lern.t("Wie oft passt Bitcoin die Schwierigkeit an?", "How often does Bitcoin adjust the difficulty?"), [Lern.t("Bei jedem einzelnen neuen Block", "With every single new block"), Lern.t("Alle 2.016 Blöcke, etwa alle 2 Wochen", "Every 2,016 blocks, about every 2 weeks"), Lern.t("Einmal im Jahr, immer am 3. Januar", "Once a year, always on 3 January"), Lern.t("Nie, sie ist seit 2009 gleich", "Never, it has been the same since 2009")], 1, Lern.t("Alle 2.016 Blöcke, damit ein Block im Schnitt 10 Minuten dauert.", "Every 2,016 blocks, so that a block takes 10 minutes on average.")]];
 Lern.quiz($("quiz"), "konsens", QUIZ, "../"); Lern.visit("konsens"); Lern.renderNext("konsens", "../");
 })();
 </script>

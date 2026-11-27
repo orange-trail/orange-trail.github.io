@@ -44,48 +44,49 @@
 .ctlr{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 @media (max-width:620px){ .lab{grid-template-columns:1fr} .stack{min-height:120px} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Jede Zahlung ist ein kleines <span class="btc">Programm</span></h1>
-    <p class="lead">Bitcoin hat keine Konten. Stattdessen hängt an jedem Betrag ein kleines Schloss aus Code, das <b>Script</b>. Wer ausgeben will, liefert den passenden Schlüssel. Die Nodes rechnen beides auf einem <b>Stapel</b> durch: Steht am Ende „wahr“ oben, ist die Zahlung gültig.</p>
+    <h1 data-i="k3">Jede Zahlung ist ein kleines <span class="btc">Programm</span></h1>
+    <p data-i="k4" class="lead">Bitcoin hat keine Konten. Stattdessen hängt an jedem Betrag ein kleines Schloss aus Code, das <b>Script</b>. Wer ausgeben will, liefert den passenden Schlüssel. Die Nodes rechnen beides auf einem <b>Stapel</b> durch: Steht am Ende „wahr“ oben, ist die Zahlung gültig.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Wähle ein Schloss und führe es aus</h2>
-    <div class="seg" id="kind"><button class="btn" type="button" data-s="p2pkh" aria-pressed="true">🔑 Normale Zahlung</button><button class="btn" type="button" data-s="multi">👥 2-von-3 Multisig</button><button class="btn" type="button" data-s="time">⏰ Zeitschloss</button></div>
+    <h2 data-i="k5" id="h1s">Wähle ein Schloss und führe es aus</h2>
+    <div class="seg" id="kind"><button data-i="k6" class="btn" type="button" data-s="p2pkh" aria-pressed="true">🔑 Normale Zahlung</button><button data-i="k7" class="btn" type="button" data-s="multi">👥 2-von-3 Multisig</button><button data-i="k8" class="btn" type="button" data-s="time">⏰ Zeitschloss</button></div>
     <p class="note" id="desc"></p>
-    <div class="ctlr"><button class="btn" type="button" id="st">▶ Nächster Schritt</button><button class="btn ghost" type="button" id="all">⏩ Alles ausführen</button><button class="btn ghost" type="button" id="bad">😈 Falscher Schlüssel</button><button class="btn ghost" type="button" id="rs">↺ Neu</button></div>
+    <div class="ctlr"><button data-i="k9" class="btn" type="button" id="st">▶ Nächster Schritt</button><button data-i="k10" class="btn ghost" type="button" id="all">⏩ Alles ausführen</button><button data-i="k11" class="btn ghost" type="button" id="bad">😈 Falscher Schlüssel</button><button data-i="k12" class="btn ghost" type="button" id="rs">↺ Neu</button></div>
     <div class="lab nogl"><div class="code" id="code"></div><div class="stack" id="stack"></div></div>
     <div id="sRes"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Warum so einfach?</h2>
-    <div class="learn bx"><div><b>Absichtlich simpel</b><span><b>Keine Schleifen</b>, nichts aus dem Internet.</span></div><div><b>Darum sicher</b><span>Jede Node prüft jedes Schloss in Millisekunden. Endlos-Programme haben keine Chance.</span></div><div><b>Reicht trotzdem für</b><span><b>Mehrfach-Unterschriften, Zeitschlösser, Erbschafts-Lösungen und Lightning</b>.</span></div></div>
+    <h2 data-i="k13" id="h2s">Warum so einfach?</h2>
+    <div class="learn bx"><div><b data-i="k14">Absichtlich simpel</b><span data-i="k15"><b>Keine Schleifen</b>, nichts aus dem Internet.</span></div><div><b data-i="k16">Darum sicher</b><span data-i="k17">Jede Node prüft jedes Schloss in Millisekunden. Endlos-Programme haben keine Chance.</span></div><div><b data-i="k18">Reicht trotzdem für</b><span><b data-i="k19">Mehrfach-Unterschriften, Zeitschlösser, Erbschafts-Lösungen und Lightning</b>.</span></div></div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k20" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Schloss + Schlüssel</b><span>Jeder Betrag hat ein <b>Schloss-Script</b>. Zum Ausgeben liefert man das passende <b>Schlüssel-Script</b>.</span></div>
-      <div><b>Der Stapel</b><span>Werte werden <b>oben draufgelegt</b> und Befehle nehmen sich die obersten. Am Ende muss „wahr“ oben liegen.</span></div>
-      <div><b>Multisig</b><span><b>2 von 3</b> Schlüsseln müssen unterschreiben. Ideal für Familien, Firmen und Erbschaft.</span></div>
-      <div><b>Zeitschloss</b><span>Geld kann erst <b>ab einem bestimmten Block</b> ausgegeben werden. Wichtig für Lightning und Erbschaft.</span></div>
+      <div><b data-i="k21">Schloss + Schlüssel</b><span data-i="k22">Jeder Betrag hat ein <b>Schloss-Script</b>. Zum Ausgeben liefert man das passende <b>Schlüssel-Script</b>.</span></div>
+      <div><b data-i="k23">Der Stapel</b><span data-i="k24">Werte werden <b>oben draufgelegt</b> und Befehle nehmen sich die obersten. Am Ende muss „wahr“ oben liegen.</span></div>
+      <div><b data-i="k25">Multisig</b><span data-i="k26"><b>2 von 3</b> Schlüsseln müssen unterschreiben. Ideal für Familien, Firmen und Erbschaft.</span></div>
+      <div><b data-i="k27">Zeitschloss</b><span data-i="k28">Geld kann erst <b>ab einem bestimmten Block</b> ausgegeben werden. Wichtig für Lightning und Erbschaft.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k29">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://en.bitcoin.it/wiki/Script">Bitcoin Wiki: Script</a> · <a href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki">BIP65 (CHECKLOCKTIMEVERIFY)</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k34" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k30">Quellen</summary><p><a data-i="k31" href="https://en.bitcoin.it/wiki/Script">Bitcoin Wiki: Script</a> · <a data-i="k32" href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki">BIP65 (CHECKLOCKTIMEVERIFY)</a></p></details>
+  <p data-i="k33" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Every payment is a little <span class=\"btc\">program<\/span>", "k4": "Bitcoin has no accounts. Instead, every amount has a little lock made of code attached: the <b>script<\/b>. Whoever wants to spend provides the matching key. The nodes work through both on a <b>stack<\/b>: if “true” is on top at the end, the payment is valid.", "k5": "Choose a lock and run it", "k6": "🔑 Normal payment", "k7": "👥 2-of-3 multisig", "k8": "⏰ Timelock", "k9": "▶ Next step", "k10": "⏩ Run everything", "k11": "😈 Wrong key", "k12": "↺ Reset", "k13": "Why so simple?", "k14": "Deliberately simple", "k15": "<b>No loops<\/b>, nothing from the internet.", "k16": "That's why it's secure", "k17": "Every node checks every lock in milliseconds. Endless programs don't stand a chance.", "k18": "Still enough for", "k19": "Multi-signatures, timelocks, inheritance solutions and Lightning", "k20": "Remember this", "k21": "Lock + key", "k22": "Every amount has a <b>locking script<\/b>. To spend it, you provide the matching <b>unlocking script<\/b>.", "k23": "The stack", "k24": "Values are <b>placed on top<\/b>, and commands take the topmost ones. At the end “true” must be on top.", "k25": "Multisig", "k26": "<b>2 of 3<\/b> keys must sign. Ideal for families, companies and inheritance.", "k27": "Timelock", "k28": "Money can only be spent <b>from a certain block<\/b> on. Important for Lightning and inheritance.", "k29": "Test yourself: 3 questions", "k30": "Sources", "k31": "Bitcoin Wiki: Script", "k32": "BIP65 (CHECKLOCKTIMEVERIFY)", "k33": "Entertainment and learning, not investment advice.", "k34@aria-label": "Next", "_title": "Script Lab · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Bitcoin Script. Die kleine Programmiersprache in jeder Zahlung, Schritt für Schritt auf dem Stapel ausgeführt: Unterschrift, Multisig und Zeitschloss."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    SCRIPT-LABOR – Lernwelt von Bitcoin Voyage
@@ -97,18 +98,18 @@ const keys = [1, 2, 3].map(() => Bit.mod(Bit.big(Bit.rand(32)), Bit.N)), pubs = 
 const HEIGHT = Math.round(Lern.height()/1000)*1000, LOCK = HEIGHT - 1000;   // Beispielhöhen passend zur heutigen Blockhöhe
 let kind = "p2pkh", wrong = false, prog = [], pc = 0, stack = [], fail = "";
 const D = {
-  p2pkh: "Das Standard-Schloss: „Zeig einen öffentlichen Schlüssel, dessen Fingerabdruck passt, und eine gültige Unterschrift dazu.“",
-  multi: "Ein Gemeinschafts-Schloss: Von drei Schlüsseln müssen <b>zwei</b> unterschreiben. Eine verlorene Karte ist kein Drama.",
-  time: `Ein Zeitschloss: Ausgeben erst ab Block <b>${LOCK.toLocaleString("de-DE")}</b>. Die Kette ist im Beispiel bei Block ${HEIGHT.toLocaleString("de-DE")}.`
+  p2pkh: Lern.t("Das Standard-Schloss: „Zeig einen öffentlichen Schlüssel, dessen Fingerabdruck passt, und eine gültige Unterschrift dazu.“", "The standard lock: “Show a public key whose fingerprint matches, and a valid signature for it.”"),
+  multi: Lern.t("Ein Gemeinschafts-Schloss: Von drei Schlüsseln müssen <b>zwei</b> unterschreiben. Eine verlorene Karte ist kein Drama.", "A shared lock: of three keys, <b>two</b> must sign. A lost card is no drama."),
+  time: Lern.t(`Ein Zeitschloss: Ausgeben erst ab Block <b>${LOCK.toLocaleString(Lern.EN ? "en-US" : "de-DE")}</b>. Die Kette ist im Beispiel bei Block ${HEIGHT.toLocaleString(Lern.EN ? "en-US" : "de-DE")}.`, `A timelock: spending only from block <b>${LOCK.toLocaleString(Lern.EN ? "en-US" : "de-DE")}</b>. In the example the chain is at block ${HEIGHT.toLocaleString(Lern.EN ? "en-US" : "de-DE")}.`)
 };
 function build(){
   const sig = n => ["sig", wrong && n === 0 ? "falsch" : "ok", n];
-  if (kind === "p2pkh") prog = [[sig(0), "u", "Unterschrift", "<Unterschrift A>"], [["push", hx(pubs[wrong ? 1 : 0])], "u", "Öffentlicher Schlüssel", "<PubKey>"], [["DUP"], "k", "verdoppelt das oberste Element", "OP_DUP"], [["HASH160"], "k", "SHA-256, dann RIPEMD-160", "OP_HASH160"], [["push", PKH], "k", "Fingerabdruck aus dem Schloss", "<" + short(PKH) + ">"], [["EQUALVERIFY"], "k", "beide gleich? sonst Abbruch", "OP_EQUALVERIFY"], [["CHECKSIG"], "k", "Unterschrift zum Schlüssel gültig?", "OP_CHECKSIG"]];
-  if (kind === "multi") prog = [[["push", "0"], "u", "Platzhalter (historischer Bug)", "OP_0"], [sig(0), "u", "Unterschrift A", "<Unterschrift A>"], [["sig", "ok", 2], "u", "Unterschrift C", "<Unterschrift C>"], [["push", "2"], "k", "so viele müssen unterschreiben", "OP_2"], ...pubs.map((p, i) => [["push", hx(p)], "k", "Schlüssel " + "ABC"[i], "<PubKey " + "ABC"[i] + ">"]), [["push", "3"], "k", "so viele Schlüssel gibt es", "OP_3"], [["CHECKMULTISIG"], "k", "2 gültige Unterschriften von den 3?", "OP_CHECKMULTISIG"]];
-  if (kind === "time") prog = [[sig(0), "u", "Unterschrift", "<Unterschrift A>"], [["push", String(wrong ? HEIGHT + 1000 : LOCK)], "k", "frühester Block", "<" + (wrong ? HEIGHT + 1000 : LOCK) + ">"], [["CLTV"], "k", "ist dieser Block schon erreicht?", "OP_CHECKLOCKTIMEVERIFY"], [["DROP"], "k", "Zahl wieder wegwerfen", "OP_DROP"], [["push", hx(pubs[0])], "k", "Schlüssel des Besitzers", "<PubKey A>"], [["CHECKSIG"], "k", "Unterschrift gültig?", "OP_CHECKSIG"]];
-  pc = 0; stack = []; fail = ""; $("desc").innerHTML = D[kind] + (wrong ? " <b style='color:var(--bear)'>😈 Jetzt mit falschem Schlüssel!</b>" : ""); draw();
+  if (kind === "p2pkh") prog = [[sig(0), "u", Lern.t("Unterschrift", "Signature"), "<Unterschrift A>"], [["push", hx(pubs[wrong ? 1 : 0])], "u", Lern.t("Öffentlicher Schlüssel", "Public key"), "<PubKey>"], [["DUP"], "k", Lern.t("verdoppelt das oberste Element", "duplicates the top element"), "OP_DUP"], [["HASH160"], "k", Lern.t("SHA-256, dann RIPEMD-160", "SHA-256, then RIPEMD-160"), "OP_HASH160"], [["push", PKH], "k", Lern.t("Fingerabdruck aus dem Schloss", "fingerprint from the lock"), "<" + short(PKH) + ">"], [["EQUALVERIFY"], "k", Lern.t("beide gleich? sonst Abbruch", "both equal? otherwise abort"), "OP_EQUALVERIFY"], [["CHECKSIG"], "k", Lern.t("Unterschrift zum Schlüssel gültig?", "signature valid for the key?"), "OP_CHECKSIG"]];
+  if (kind === "multi") prog = [[["push", "0"], "u", Lern.t("Platzhalter (historischer Bug)", "placeholder (historic bug)"), "OP_0"], [sig(0), "u", Lern.t("Unterschrift A", "Signature A"), "<Unterschrift A>"], [["sig", "ok", 2], "u", Lern.t("Unterschrift C", "Signature C"), "<Unterschrift C>"], [["push", "2"], "k", Lern.t("so viele müssen unterschreiben", "this many must sign"), "OP_2"], ...pubs.map((p, i) => [["push", hx(p)], "k", Lern.t("Schlüssel ", "Key ") + "ABC"[i], "<PubKey " + "ABC"[i] + ">"]), [["push", "3"], "k", Lern.t("so viele Schlüssel gibt es", "this many keys exist"), "OP_3"], [["CHECKMULTISIG"], "k", Lern.t("2 gültige Unterschriften von den 3?", "2 valid signatures from the 3?"), "OP_CHECKMULTISIG"]];
+  if (kind === "time") prog = [[sig(0), "u", Lern.t("Unterschrift", "Signature"), "<Unterschrift A>"], [["push", String(wrong ? HEIGHT + 1000 : LOCK)], "k", Lern.t("frühester Block", "earliest block"), "<" + (wrong ? HEIGHT + 1000 : LOCK) + ">"], [["CLTV"], "k", Lern.t("ist dieser Block schon erreicht?", "has this block been reached yet?"), "OP_CHECKLOCKTIMEVERIFY"], [["DROP"], "k", Lern.t("Zahl wieder wegwerfen", "throw the number away again"), "OP_DROP"], [["push", hx(pubs[0])], "k", Lern.t("Schlüssel des Besitzers", "owner's key"), "<PubKey A>"], [["CHECKSIG"], "k", Lern.t("Unterschrift gültig?", "signature valid?"), "OP_CHECKSIG"]];
+  pc = 0; stack = []; fail = ""; $("desc").innerHTML = D[kind] + (wrong ? Lern.t(" <b style='color:var(--bear)'>😈 Jetzt mit falschem Schlüssel!</b>", " <b style='color:var(--bear)'>😈 Now with the wrong key!</b>") : ""); draw();
 }
-const label = v => v.t === "sig" ? (v.ok ? "✍️ Unterschrift " + "ABC"[v.n] : "✍️ falsche Unterschrift") : v.t === "bool" ? (v.v ? "WAHR" : "FALSCH") : short(v.v);
+const label = v => v.t === "sig" ? (v.ok ? Lern.t("✍️ Unterschrift ", "✍️ Signature ") + "ABC"[v.n] : Lern.t("✍️ falsche Unterschrift", "✍️ wrong signature")) : v.t === "bool" ? (v.v ? "WAHR" : "FALSCH") : short(v.v);
 function exec(){
   if (fail || pc >= prog.length) return;
   const [op] = prog[pc]; pc++;
@@ -117,21 +118,21 @@ function exec(){
   else if (op[0] === "push") stack.push({t: "d", v: op[1]});
   else if (op[0] === "DUP") stack.push(Object.assign({}, stack[stack.length - 1]));
   else if (op[0] === "HASH160"){ const a = pop(); stack.push({t: "d", v: hx(Bit.hash160(Bit.unhex(a.v)))}); }
-  else if (op[0] === "EQUALVERIFY"){ const a = pop(), b = pop(); if (a.v !== b.v) fail = "Der Fingerabdruck passt nicht: Das ist nicht der Schlüssel, für den das Schloss gemacht wurde."; }
-  else if (op[0] === "CHECKSIG"){ const pk = pop(), s = pop(); const ok = s.ok && pk.v === hx(pubs[s.n]); stack.push({t: "bool", v: ok}); if (!ok) fail = "Die Unterschrift passt nicht zum Schlüssel."; }
+  else if (op[0] === "EQUALVERIFY"){ const a = pop(), b = pop(); if (a.v !== b.v) fail = Lern.t("Der Fingerabdruck passt nicht: Das ist nicht der Schlüssel, für den das Schloss gemacht wurde.", "The fingerprint doesn't match: this isn't the key the lock was made for."); }
+  else if (op[0] === "CHECKSIG"){ const pk = pop(), s = pop(); const ok = s.ok && pk.v === hx(pubs[s.n]); stack.push({t: "bool", v: ok}); if (!ok) fail = Lern.t("Die Unterschrift passt nicht zum Schlüssel.", "The signature doesn't match the key."); }
   else if (op[0] === "CHECKMULTISIG"){ const n = +pop().v, pk = []; for (let i = 0; i < n; i++) pk.unshift(pop().v); const m = +pop().v, sg = []; for (let i = 0; i < m; i++) sg.unshift(pop()); pop();
     let j = 0, good = 0; for (const s of sg){ while (j < pk.length && !(s.ok && pk[j] === hx(pubs[s.n]))) j++; if (j < pk.length){ good++; j++; } }
-    const ok = good >= m; stack.push({t: "bool", v: ok}); if (!ok) fail = "Nicht genug gültige Unterschriften: Eine der beiden passt zu keinem Schlüssel."; }
-  else if (op[0] === "CLTV"){ const a = stack[stack.length - 1]; if (HEIGHT < +a.v) fail = `Zu früh! Erst ab Block ${(+a.v).toLocaleString("de-DE")} erlaubt, wir sind bei ${HEIGHT.toLocaleString("de-DE")}.`; }
+    const ok = good >= m; stack.push({t: "bool", v: ok}); if (!ok) fail = Lern.t("Nicht genug gültige Unterschriften: Eine der beiden passt zu keinem Schlüssel.", "Not enough valid signatures: one of the two doesn't match any key."); }
+  else if (op[0] === "CLTV"){ const a = stack[stack.length - 1]; if (HEIGHT < +a.v) fail = Lern.t(`Zu früh! Erst ab Block ${(+a.v).toLocaleString(Lern.EN ? "en-US" : "de-DE")} erlaubt, wir sind bei ${HEIGHT.toLocaleString(Lern.EN ? "en-US" : "de-DE")}.`, `Too early! Only allowed from block ${(+a.v).toLocaleString(Lern.EN ? "en-US" : "de-DE")}, we're at ${HEIGHT.toLocaleString(Lern.EN ? "en-US" : "de-DE")}.`); }
   else if (op[0] === "DROP") pop();
   draw();
 }
 function draw(){
-  $("code").innerHTML = `<small>🔓 Schlüssel (vom Ausgebenden) · 🔒 Schloss (im Betrag)</small>` + prog.map(([, c, why, txt], i) => `<div class="${c} ${i < pc ? "done" : i === pc && !fail ? "cur" : ""}">${c === "u" ? "🔓" : "🔒"} ${txt.replace(/</g, "&lt;")}<small>${why}</small></div>`).join("");
-  $("stack").innerHTML = `<div class="lb">⬆ oben · STAPEL</div>` + stack.map(v => `<div class="${v.t === "bool" ? (v.v ? "t" : "f") : ""}">${label(v)}</div>`).join("");
+  $("code").innerHTML = Lern.t(`<small>🔓 Schlüssel (vom Ausgebenden) · 🔒 Schloss (im Betrag)</small>`, `<small>🔓 Key (from the spender) · 🔒 Lock (in the amount)</small>`) + prog.map(([, c, why, txt], i) => `<div class="${c} ${i < pc ? "done" : i === pc && !fail ? "cur" : ""}">${c === "u" ? "🔓" : "🔒"} ${txt.replace(/</g, "&lt;")}<small>${why}</small></div>`).join("");
+  $("stack").innerHTML = Lern.t(`<div class="lb">⬆ oben · STAPEL</div>`, `<div class="lb">⬆ top · STACK</div>`) + stack.map(v => `<div class="${v.t === "bool" ? (v.v ? "t" : "f") : ""}">${label(v)}</div>`).join("");
   const end = pc >= prog.length;
-  $("sRes").innerHTML = fail ? `<div class="res bad"><strong>❌ Abgelehnt</strong>${fail} Jede Node auf der Welt würde diese Zahlung verwerfen.</div>`
-    : end ? `<div class="res ok"><strong>✅ Gültig! Oben liegt WAHR.</strong>Die Zahlung darf ausgegeben werden.</div>` : "";
+  $("sRes").innerHTML = fail ? Lern.t(`<div class="res bad"><strong>❌ Abgelehnt</strong>${fail} Jede Node auf der Welt würde diese Zahlung verwerfen.</div>`, `<div class="res bad"><strong>❌ Rejected</strong>${fail} Every node in the world would discard this payment.</div>`)
+    : end ? Lern.t(`<div class="res ok"><strong>✅ Gültig! Oben liegt WAHR.</strong>Die Zahlung darf ausgegeben werden.</div>`, `<div class="res ok"><strong>✅ Valid! TRUE is on top.</strong>The payment may be spent.</div>`) : "";
   if (end && !fail && !wrong) Lern.confetti && Lern.confetti();
 }
 $("st").onclick = exec; $("all").onclick = () => { const t = setInterval(() => { if (fail || pc >= prog.length) return clearInterval(t); exec(); }, 350); };
@@ -139,7 +140,7 @@ $("bad").onclick = () => { wrong = true; build(); }; $("rs").onclick = () => { w
 $("kind").onclick = e => { const b = e.target.closest("[data-s]"); if (!b) return; kind = b.dataset.s; wrong = false; $("kind").querySelectorAll("[data-s]").forEach(x => x.setAttribute("aria-pressed", x === b)); build(); };
 build();
 
-const QUIZ = [["Was liegt am Ende einer gültigen Script-Ausführung oben auf dem Stapel?", ["Nichts", "WAHR", "Der private Schlüssel", "Die Adresse"], 1, "Ein Script ist erfüllt, wenn am Ende WAHR oben auf dem Stapel liegt."], ["Was bedeutet 2-von-3 Multisig?", ["Zwei Bitcoin für drei Personen", "Von drei Schlüsseln müssen zwei unterschreiben", "Die Zahlung dauert 2 bis 3 Blöcke", "Drei Adressen, zwei Seeds"], 1, "Bei 2-von-3 gibt es drei Schlüssel, zwei Unterschriften reichen zum Ausgeben."], ["Warum kann Script keine Schleifen?", ["Weil man das bei der Entwicklung einfach vergessen hat", "Damit jede Node jedes Script schnell und sicher prüfen kann", "Weil Satoshi Schleifen für unnötig hielt", "Kann es doch, nur werden sie selten genutzt"], 1, "Ohne Schleifen endet jedes Script sicher und schnell. So kann niemand das Netz mit Endlos-Programmen lahmlegen."]];
+const QUIZ = [[Lern.t("Was liegt am Ende einer gültigen Script-Ausführung oben auf dem Stapel?", "What's on top of the stack at the end of a valid script execution?"), [Lern.t("Nichts", "Nothing"), "WAHR", Lern.t("Der private Schlüssel", "The private key"), Lern.t("Die Adresse", "The address")], 1, Lern.t("Ein Script ist erfüllt, wenn am Ende WAHR oben auf dem Stapel liegt.", "A script is satisfied if TRUE is on top of the stack at the end.")], [Lern.t("Was bedeutet 2-von-3 Multisig?", "What does 2-of-3 multisig mean?"), [Lern.t("Zwei Bitcoin für drei Personen", "Two bitcoin for three people"), Lern.t("Von drei Schlüsseln müssen zwei unterschreiben", "Of three keys, two must sign"), Lern.t("Die Zahlung dauert 2 bis 3 Blöcke", "The payment takes 2 to 3 blocks"), Lern.t("Drei Adressen, zwei Seeds", "Three addresses, two seeds")], 1, Lern.t("Bei 2-von-3 gibt es drei Schlüssel, zwei Unterschriften reichen zum Ausgeben.", "With 2-of-3 there are three keys; two signatures are enough to spend.")], [Lern.t("Warum kann Script keine Schleifen?", "Why can't Script do loops?"), [Lern.t("Weil man das bei der Entwicklung einfach vergessen hat", "Because it was simply forgotten during development"), Lern.t("Damit jede Node jedes Script schnell und sicher prüfen kann", "So that every node can check every script quickly and safely"), Lern.t("Weil Satoshi Schleifen für unnötig hielt", "Because Satoshi considered loops unnecessary"), Lern.t("Kann es doch, nur werden sie selten genutzt", "It can, they're just rarely used")], 1, Lern.t("Ohne Schleifen endet jedes Script sicher und schnell. So kann niemand das Netz mit Endlos-Programmen lahmlegen.", "Without loops every script ends safely and quickly. That way nobody can paralyse the network with endless programs.")]];
 Lern.quiz($("quiz"), "script", QUIZ, "../"); Lern.visit("script"); Lern.renderNext("script", "../");
 })();
 </script>

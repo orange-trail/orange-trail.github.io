@@ -38,51 +38,52 @@
 .acts2{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .fb{margin:10px 0 0;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.45;background:rgba(255,255,255,.04);border:1px solid var(--line)}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Bitcoin ohne <span class="btc">Internet</span></h1>
-    <p class="lead">Stell dir vor, dein Land schaltet das Internet ab. Ist Bitcoin dann tot? Erstaunlich oft nicht: Eine Bitcoin-Zahlung ist nur ein <b>kurzer, unterschriebener Text</b>. Und Text kommt auf vielen Wegen ans Ziel.</p>
+    <h1 data-i="k3">Bitcoin ohne <span class="btc">Internet</span></h1>
+    <p data-i="k4" class="lead">Stell dir vor, dein Land schaltet das Internet ab. Ist Bitcoin dann tot? Erstaunlich oft nicht: Eine Bitcoin-Zahlung ist nur ein <b>kurzer, unterschriebener Text</b>. Und Text kommt auf vielen Wegen ans Ziel.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Echt oder erfunden?</h2>
-    <p class="muted" style="margin:0">Sechs Wege, Bitcoin ohne normales Internet zu nutzen. Was davon gibt es wirklich?</p>
+    <h2 data-i="k5" id="h1s">1 · Echt oder erfunden?</h2>
+    <p data-i="k6" class="muted" style="margin:0">Sechs Wege, Bitcoin ohne normales Internet zu nutzen. Was davon gibt es wirklich?</p>
     <div class="ways" id="ways"></div>
     <p class="score" id="score" aria-live="polite"></p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Das Netz zerreißt</h2>
-    <p class="muted" style="margin:0">Was, wenn ein Land komplett abgeschnitten ist und beide Seiten einfach weiter Blöcke bauen? Probier es aus.</p>
+    <h2 data-i="k7" id="h2s">2 · Das Netz zerreißt</h2>
+    <p data-i="k8" class="muted" style="margin:0">Was, wenn ein Land komplett abgeschnitten ist und beide Seiten einfach weiter Blöcke bauen? Probier es aus.</p>
     <div class="net">
-      <div class="lane" id="lA"><span>🌍 Rest der Welt</span><div class="blocks" id="bA"></div></div>
-      <div class="lane" id="lB"><span>🏝 Abgeschnittenes Land</span><div class="blocks" id="bB"></div></div>
+      <div class="lane" id="lA"><span data-i="k9">🌍 Rest der Welt</span><div class="blocks" id="bA"></div></div>
+      <div class="lane" id="lB"><span data-i="k10">🏝 Abgeschnittenes Land</span><div class="blocks" id="bB"></div></div>
     </div>
-    <div class="acts2"><button class="btn" type="button" id="cut">✂️ Internet kappen</button><button class="btn ghost" type="button" id="join" disabled>🔌 Wieder verbinden</button></div>
-    <p class="fb" id="nf" aria-live="polite">Noch ist alles verbunden: Alle teilen dieselbe Kette.</p>
+    <div class="acts2"><button data-i="k11" class="btn" type="button" id="cut">✂️ Internet kappen</button><button data-i="k12" class="btn ghost" type="button" id="join" disabled>🔌 Wieder verbinden</button></div>
+    <p data-i="k13" class="fb" id="nf" aria-live="polite">Noch ist alles verbunden: Alle teilen dieselbe Kette.</p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k14" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Zahlung = Text</b><span>Eine unterschriebene Zahlung ist nur ein paar hundert Zeichen lang. Sie kann per <b>Funk, SMS oder Papier</b> reisen.</span></div>
-      <div><b>Blöcke aus dem All</b><span>Satelliten senden die Blockchain seit 2017 rund um die Welt. Empfangen geht mit einer kleinen Schüssel.</span></div>
-      <div><b>Spaltung heilt sich</b><span>Nach einer Trennung gilt die Kette mit der <b>meisten Arbeit</b>. Zahlungen aus der kürzeren kommen zurück in den Warteraum.</span></div>
-      <div><b>Nicht ohne Grenzen</b><span>Ganz ohne Strom und Gerät geht es nicht. Und im abgeschnittenen Teil sollte man mit großen Beträgen <b>warten</b>.</span></div>
+      <div><b data-i="k15">Zahlung = Text</b><span data-i="k16">Eine unterschriebene Zahlung ist nur ein paar hundert Zeichen lang. Sie kann per <b>Funk, SMS oder Papier</b> reisen.</span></div>
+      <div><b data-i="k17">Blöcke aus dem All</b><span data-i="k18">Satelliten senden die Blockchain seit 2017 rund um die Welt. Empfangen geht mit einer kleinen Schüssel.</span></div>
+      <div><b data-i="k19">Spaltung heilt sich</b><span data-i="k20">Nach einer Trennung gilt die Kette mit der <b>meisten Arbeit</b>. Zahlungen aus der kürzeren kommen zurück in den Warteraum.</span></div>
+      <div><b data-i="k21">Nicht ohne Grenzen</b><span data-i="k22">Ganz ohne Strom und Gerät geht es nicht. Und im abgeschnittenen Teil sollte man mit großen Beträgen <b>warten</b>.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k23">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Satellit: <a href="https://blockstream.com/satellite/">Blockstream Satellite</a> · Kurzwellenfunk 2019: <a href="https://hotfix.coindesk.com/markets/2019/03/04/bitcoin-coders-send-international-lightning-payment-over-ham-radio">CoinDesk</a> · Mesh-Funk: <a href="https://coincenter.org/decentralizing-bitcoins-last-mile-with-mobile-mesh-networks/">Coin Center</a> · Überblick: <a href="https://diyhpl.us/wiki/transcripts/magicalcryptoconference/2019/bitcoin-without-internet">„Bitcoin without internet“ (2019)</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k27" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k24">Quellen</summary><p data-i="k25">Satellit: <a href="https://blockstream.com/satellite/">Blockstream Satellite</a> · Kurzwellenfunk 2019: <a href="https://hotfix.coindesk.com/markets/2019/03/04/bitcoin-coders-send-international-lightning-payment-over-ham-radio">CoinDesk</a> · Mesh-Funk: <a href="https://coincenter.org/decentralizing-bitcoins-last-mile-with-mobile-mesh-networks/">Coin Center</a> · Überblick: <a href="https://diyhpl.us/wiki/transcripts/magicalcryptoconference/2019/bitcoin-without-internet">„Bitcoin without internet“ (2019)</a></p></details>
+  <p data-i="k26" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Bitcoin without the <span class=\"btc\">internet<\/span>", "k4": "Imagine your country switches off the internet. Is Bitcoin dead then? Surprisingly often not: a bitcoin payment is just a <b>short, signed text<\/b>. And text can reach its destination in many ways.", "k5": "1 · Real or made up?", "k6": "Six ways to use Bitcoin without the normal internet. Which of them really exist?", "k7": "2 · The network tears apart", "k8": "What if a country is completely cut off and both sides simply keep building blocks? Try it.", "k9": "🌍 Rest of the world", "k10": "🏝 Cut-off country", "k11": "✂️ Cut the internet", "k12": "🔌 Reconnect", "k13": "Still everything is connected: everyone shares the same chain.", "k14": "Remember this", "k15": "Payment = text", "k16": "A signed payment is only a few hundred characters long. It can travel by <b>radio, SMS or paper<\/b>.", "k17": "Blocks from space", "k18": "Satellites have been broadcasting the blockchain around the world since 2017. You can receive it with a small dish.", "k19": "A split heals itself", "k20": "After a separation the chain with the <b>most work<\/b> counts. Payments from the shorter one go back to the waiting room.", "k21": "Not without limits", "k22": "It doesn't work completely without electricity and a device. And in the cut-off part you should <b>wait<\/b> with large amounts.", "k23": "Test yourself: 3 questions", "k24": "Sources", "k25": "Satellite: <a href=\"https://blockstream.com/satellite/\">Blockstream Satellite<\/a> · Shortwave radio 2019: <a href=\"https://hotfix.coindesk.com/markets/2019/03/04/bitcoin-coders-send-international-lightning-payment-over-ham-radio\">CoinDesk<\/a> · Mesh radio: <a href=\"https://coincenter.org/decentralizing-bitcoins-last-mile-with-mobile-mesh-networks/\">Coin Center<\/a> · Overview: <a href=\"https://diyhpl.us/wiki/transcripts/magicalcryptoconference/2019/bitcoin-without-internet\">“Bitcoin without internet” (2019)<\/a>", "k26": "Entertainment and learning, not investment advice.", "k27@aria-label": "Next", "_title": "Bitcoin Without Internet · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Blöcke aus dem All, Zahlungen per Funk und Tastenhandy. Warum sich Bitcoin kaum abschalten lässt und was passiert, wenn das Netz zerreißt."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    BITCOIN OHNE INTERNET – Lernwelt von Bitcoin Voyage
@@ -90,40 +91,40 @@
 (() => {
 const $ = id => document.getElementById(id);
 // [Emoji, Titel, Beschreibung, echt?, Auflösung]
-const W = [["🛰", "Blöcke aus dem All", "Satelliten senden die Blockchain zur Erde. Mit einer kleinen Schüssel empfängst du neue Blöcke, ganz ohne Internet.", 1, "<b>Echt.</b> Seit 2017 sendet ein Satelliten-Netz die Bitcoin-Blockchain über fast die ganze Welt. Empfangen ist kostenlos."],
-  ["📻", "Zahlung per Kurzwellenfunk", "Ein Funkamateur schickt eine Bitcoin-Zahlung als Funksignal über Hunderte Kilometer.", 1, "<b>Echt.</b> 2019 ging eine Zahlung per Funk von Kanada in die USA. Dort brachte sie jemand mit Internet ins Netz."],
-  ["📡", "Von Handy zu Handy", "Handys mit kleinen Funkgeräten reichen eine Zahlung weiter, bis eins davon Internet hat.", 1, "<b>Echt.</b> Solche Mesh-Netze wurden 2018 mit Bitcoin getestet. Die Zahlung hüpft von Gerät zu Gerät."],
-  ["📟", "Mit dem Tastenhandy", "Ohne Smartphone, nur per Kurzwahl-Menü wie beim Guthaben-Abfragen.", 1, "<b>Echt,</b> zum Beispiel in Afrika. Aber: Meist hält dabei ein Anbieter die Bitcoin, du vertraust ihm."],
-  ["🕊", "Per Brieftaube", "Die Zahlung wird als QR-Code ausgedruckt, eine Taube trägt den Zettel zu jemandem mit Internet.", 1, "<b>Funktioniert tatsächlich!</b> Die Zahlung ist schon unterschrieben, unterwegs kann sie niemand verändern. Ob Taube, Post oder USB-Stick ist egal. Nur schnell ist es nicht."],
-  ["🕯", "Ganz ohne Strom und Gerät", "Bitcoin verschicken nur mit Stift und Papier, ohne jedes elektronische Gerät.", 0, "<b>Erfunden.</b> Zum Unterschreiben braucht es ein Gerät, und irgendwo muss eine Node laufen. Aufbewahren geht aber ohne Strom: deine Seed-Wörter auf Papier."]];
+const W = [["🛰", Lern.t("Blöcke aus dem All", "Blocks from space"), Lern.t("Satelliten senden die Blockchain zur Erde. Mit einer kleinen Schüssel empfängst du neue Blöcke, ganz ohne Internet.", "Satellites broadcast the blockchain to Earth. With a small dish you receive new blocks, entirely without the internet."), 1, Lern.t("<b>Echt.</b> Seit 2017 sendet ein Satelliten-Netz die Bitcoin-Blockchain über fast die ganze Welt. Empfangen ist kostenlos.", "<b>Real.</b> Since 2017 a satellite network has been broadcasting the Bitcoin blockchain over almost the whole world. Receiving is free.")],
+  ["📻", Lern.t("Zahlung per Kurzwellenfunk", "Payment via shortwave radio"), Lern.t("Ein Funkamateur schickt eine Bitcoin-Zahlung als Funksignal über Hunderte Kilometer.", "A radio amateur sends a bitcoin payment as a radio signal over hundreds of kilometres."), 1, Lern.t("<b>Echt.</b> 2019 ging eine Zahlung per Funk von Kanada in die USA. Dort brachte sie jemand mit Internet ins Netz.", "<b>Real.</b> In 2019 a payment went by radio from Canada to the USA. There someone with internet brought it into the network.")],
+  ["📡", Lern.t("Von Handy zu Handy", "From phone to phone"), Lern.t("Handys mit kleinen Funkgeräten reichen eine Zahlung weiter, bis eins davon Internet hat.", "Phones with small radio devices pass a payment on until one of them has internet."), 1, Lern.t("<b>Echt.</b> Solche Mesh-Netze wurden 2018 mit Bitcoin getestet. Die Zahlung hüpft von Gerät zu Gerät.", "<b>Real.</b> Such mesh networks were tested with Bitcoin in 2018. The payment hops from device to device.")],
+  ["📟", Lern.t("Mit dem Tastenhandy", "With a basic phone"), Lern.t("Ohne Smartphone, nur per Kurzwahl-Menü wie beim Guthaben-Abfragen.", "Without a smartphone, just via a short-code menu like checking your credit."), 1, Lern.t("<b>Echt,</b> zum Beispiel in Afrika. Aber: Meist hält dabei ein Anbieter die Bitcoin, du vertraust ihm.", "<b>Real,</b> for example in Africa. But: usually a provider holds the bitcoin, and you trust it.")],
+  ["🕊", Lern.t("Per Brieftaube", "By carrier pigeon"), Lern.t("Die Zahlung wird als QR-Code ausgedruckt, eine Taube trägt den Zettel zu jemandem mit Internet.", "The payment is printed as a QR code, and a pigeon carries the note to someone with internet."), 1, Lern.t("<b>Funktioniert tatsächlich!</b> Die Zahlung ist schon unterschrieben, unterwegs kann sie niemand verändern. Ob Taube, Post oder USB-Stick ist egal. Nur schnell ist es nicht.", "<b>It actually works!</b> The payment is already signed; nobody can change it along the way. Pigeon, post or USB stick doesn't matter. It just isn't fast.")],
+  ["🕯", Lern.t("Ganz ohne Strom und Gerät", "Entirely without electricity or a device"), Lern.t("Bitcoin verschicken nur mit Stift und Papier, ohne jedes elektronische Gerät.", "Sending bitcoin with just pen and paper, without any electronic device."), 0, Lern.t("<b>Erfunden.</b> Zum Unterschreiben braucht es ein Gerät, und irgendwo muss eine Node laufen. Aufbewahren geht aber ohne Strom: deine Seed-Wörter auf Papier.", "<b>Made up.</b> Signing needs a device, and a node has to run somewhere. But storing works without electricity: your seed words on paper.")]];
 let pts = 0, n = 0;
-$("ways").innerHTML = W.map(([e, t, d], i) => `<div class="way" id="w${i}"><div class="wt"><span aria-hidden="true">${e}</span><b>${t}</b></div><p>${d}</p><div class="row"><button type="button" data-i="${i}" data-v="1">✅ Echt</button><button type="button" data-i="${i}" data-v="0">🧢 Erfunden</button></div><div class="wa"></div></div>`).join("");
+$("ways").innerHTML = W.map(([e, t, d], i) => Lern.t(`<div class="way" id="w${i}"><div class="wt"><span aria-hidden="true">${e}</span><b>${t}</b></div><p>${d}</p><div class="row"><button type="button" data-i="${i}" data-v="1">✅ Echt</button><button type="button" data-i="${i}" data-v="0">🧢 Erfunden</button></div><div class="wa"></div></div>`, `<div class="way" id="w${i}"><div class="wt"><span aria-hidden="true">${e}</span><b>${t}</b></div><p>${d}</p><div class="row"><button type="button" data-i="${i}" data-v="1">✅ Real</button><button type="button" data-i="${i}" data-v="0">🧢 Made up</button></div><div class="wa"></div></div>`)).join("");
 $("ways").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const i = +b.dataset.i, el = $("w" + i); if (el.classList.contains("done")) return;
   const ok = +b.dataset.v === W[i][3]; el.classList.add("done", ok ? "rt" : "wr"); b.classList.add("pick");
   el.querySelector(".wa").innerHTML = (ok ? "✅ " : "❌ ") + W[i][4]; n++; if (ok) pts++;
-  if (n === W.length) $("score").textContent = `${pts} von ${W.length} richtig. Fünf Wege sind echt, nur ganz ohne Strom geht es nicht.`; });
+  if (n === W.length) $("score").textContent = Lern.t(`${pts} von ${W.length} richtig. Fünf Wege sind echt, nur ganz ohne Strom geht es nicht.`, `${pts} of ${W.length} correct. Five ways are real; only entirely without electricity doesn't work.`); });
 
 // Netz-Spaltung: zwei Seiten bauen getrennt weiter, danach gilt die Kette mit mehr Arbeit
 let base = 3, A = [], B = [], tA = 0, tB = 0, state = 0;
 const draw = () => {
   const old = Array.from({length: base}, (_, k) => `<i class="o">${k + 1}</i>`).join("");
   $("bA").innerHTML = old + A.map((x, k) => `<i>${base + k + 1}</i>`).join("");
-  $("bB").innerHTML = state ? old + B.map((x, k) => `<i class="${state === 2 ? "x" : "b"}">${base + k + 1}</i>`).join("") : "<span class=\"muted\" style=\"font-size:13px\">nutzt dieselbe Kette</span>";
+  $("bB").innerHTML = state ? old + B.map((x, k) => `<i class="${state === 2 ? "x" : "b"}">${base + k + 1}</i>`).join("") : Lern.t("<span class=\"muted\" style=\"font-size:13px\">nutzt dieselbe Kette</span>", "<span class=\"muted\" style=\"font-size:13px\">uses the same chain</span>");
 };
 function stopT(){ clearInterval(tA); clearInterval(tB); }
 $("cut").onclick = () => { stopT(); A = []; B = []; state = 1; $("lB").classList.remove("lost"); draw();
   $("cut").disabled = true; $("join").disabled = false;
-  $("nf").textContent = "✂️ Getrennt! Beide Seiten bauen weiter. Die Welt hat viel mehr Miner, ihre Kette wächst schneller. Im abgeschnittenen Land sieht alles normal aus …";
+  $("nf").textContent = Lern.t("✂️ Getrennt! Beide Seiten bauen weiter. Die Welt hat viel mehr Miner, ihre Kette wächst schneller. Im abgeschnittenen Land sieht alles normal aus …", "✂️ Separated! Both sides keep building. The world has far more miners, so its chain grows faster. In the cut-off country everything looks normal …");
   tA = setInterval(() => { if (A.length < 8){ A.push(1); draw(); } }, 700);
   tB = setInterval(() => { if (B.length < 4){ B.push(1); draw(); } }, 1900); };
-$("join").onclick = () => { stopT(); state = 2; draw(); $("lB").classList.add("lost"); $("join").disabled = true; $("cut").disabled = false; $("cut").textContent = "✂️ Nochmal kappen";
-  $("nf").innerHTML = `🔌 Wieder verbunden. Die Kette der Welt hat <b>mehr Arbeit</b> (${A.length} gegen ${B.length} neue Blöcke) und gilt. Die ${B.length} Blöcke des Landes werden verworfen, ihre Zahlungen kommen zurück in den Warteraum und landen meist in den nächsten Blöcken. Deshalb gilt: Bei großen Beträgen auf mehrere Bestätigungen warten.`;
+$("join").onclick = () => { stopT(); state = 2; draw(); $("lB").classList.add("lost"); $("join").disabled = true; $("cut").disabled = false; $("cut").textContent = Lern.t("✂️ Nochmal kappen", "✂️ Cut again");
+  $("nf").innerHTML = Lern.t(`🔌 Wieder verbunden. Die Kette der Welt hat <b>mehr Arbeit</b> (${A.length} gegen ${B.length} neue Blöcke) und gilt. Die ${B.length} Blöcke des Landes werden verworfen, ihre Zahlungen kommen zurück in den Warteraum und landen meist in den nächsten Blöcken. Deshalb gilt: Bei großen Beträgen auf mehrere Bestätigungen warten.`, `🔌 Reconnected. The world's chain has <b>more work</b> (${A.length} vs. ${B.length} new blocks) and counts. The country's ${B.length} blocks are discarded; their payments go back to the waiting room and usually land in the next blocks. That's why: for large amounts, wait for several confirmations.`);
   base += A.length; A = []; B = []; setTimeout(() => { state = 0; $("lB").classList.remove("lost"); draw(); }, 6000); };
 draw();
 
-const QUIZ = [["Warum kann eine Bitcoin-Zahlung sogar per Funk oder Zettel reisen?", ["Weil sie nur ein kurzer, unterschriebener Text ist", "Weil Bitcoin aus Papier ist", "Weil Funk schneller als Internet ist"], 0, "Unterwegs kann niemand die unterschriebene Zahlung verändern. Der Weg ist egal."],
-  ["Wie bekommt man neue Blöcke ganz ohne Internet?", ["Gar nicht, ohne Internet geht nichts", "Per Satellit mit einer kleinen Schüssel", "Per Radio, aber nur für Profis"], 1, "Satelliten senden die Blockchain seit 2017 über fast die ganze Welt."],
-  ["Was passiert, wenn zwei getrennte Teile wieder verbunden werden?", ["Beide Ketten gelten weiter nebeneinander", "Die Kette mit der meisten Arbeit gilt, die andere wird verworfen", "Bitcoin startet neu, alle Blöcke werden gelöscht"], 1, "Die Zahlungen aus der verworfenen Kette kommen zurück in den Warteraum."]];
+const QUIZ = [[Lern.t("Warum kann eine Bitcoin-Zahlung sogar per Funk oder Zettel reisen?", "Why can a bitcoin payment even travel by radio or on a note?"), [Lern.t("Weil sie nur ein kurzer, unterschriebener Text ist", "Because it's just a short, signed text"), Lern.t("Weil Bitcoin aus Papier ist", "Because bitcoin is made of paper"), Lern.t("Weil Funk schneller als Internet ist", "Because radio is faster than the internet")], 0, Lern.t("Unterwegs kann niemand die unterschriebene Zahlung verändern. Der Weg ist egal.", "Nobody can change the signed payment along the way. The route doesn't matter.")],
+  [Lern.t("Wie bekommt man neue Blöcke ganz ohne Internet?", "How do you get new blocks entirely without the internet?"), [Lern.t("Gar nicht, ohne Internet geht nichts", "Not at all, nothing works without the internet"), Lern.t("Per Satellit mit einer kleinen Schüssel", "Via satellite with a small dish"), Lern.t("Per Radio, aber nur für Profis", "Via radio, but only for professionals")], 1, Lern.t("Satelliten senden die Blockchain seit 2017 über fast die ganze Welt.", "Satellites have been broadcasting the blockchain over almost the whole world since 2017.")],
+  [Lern.t("Was passiert, wenn zwei getrennte Teile wieder verbunden werden?", "What happens when two separated parts are reconnected?"), [Lern.t("Beide Ketten gelten weiter nebeneinander", "Both chains continue to be valid side by side"), Lern.t("Die Kette mit der meisten Arbeit gilt, die andere wird verworfen", "The chain with the most work counts, the other is discarded"), Lern.t("Bitcoin startet neu, alle Blöcke werden gelöscht", "Bitcoin restarts, all blocks are deleted")], 1, Lern.t("Die Zahlungen aus der verworfenen Kette kommen zurück in den Warteraum.", "The payments from the discarded chain go back to the waiting room.")]];
 Lern.quiz($("quiz"), "offline", QUIZ, "../"); Lern.visit("offline"); Lern.renderNext("offline", "../");
 })();
 </script>

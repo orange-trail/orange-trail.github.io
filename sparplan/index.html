@@ -36,51 +36,52 @@ svg.ch{width:100%;height:220px;display:block}
 @media (max-width:700px){ .ctl,.cmp{grid-template-columns:1fr} .kpi{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body data-nogl="Gebühr">
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Spar</span>plan</h1>
-    <p class="lead">Jeden Monat den gleichen Betrag, egal ob der Kurs hoch oder tief steht. Was wäre daraus geworden, und wie holprig war der Weg?</p>
+    <h1 data-i="k3"><span class="btc">Spar</span>plan</h1>
+    <p data-i="k4" class="lead">Jeden Monat den gleichen Betrag, egal ob der Kurs hoch oder tief steht. Was wäre daraus geworden, und wie holprig war der Weg?</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Dein Sparplan in der Vergangenheit</h2>
-    <p class="muted" style="margin:0 0 10px"><small class="usd">💵 Beträge in US-Dollar, denn darin wird Bitcoin weltweit gehandelt.</small></p>
+    <h2 data-i="k5" id="h1s">Dein Sparplan in der Vergangenheit</h2>
+    <p class="muted" style="margin:0 0 10px"><small data-i="k6" class="usd">💵 Beträge in US-Dollar, denn darin wird Bitcoin weltweit gehandelt.</small></p>
     <div class="ctl">
-      <div><label for="amt">Betrag pro Monat</label><div class="row"><input id="amt" type="range" min="10" max="500" step="10" value="50"><b id="amtV" class="num">50 $</b></div></div>
-      <div><label for="yr">Start im Januar</label><div class="row"><input id="yr" type="range" min="2014" max="2025" value="2018"><b id="yrV" class="num">2018</b></div></div>
+      <div><label data-i="k7" for="amt">Betrag pro Monat</label><div class="row"><input id="amt" type="range" min="10" max="500" step="10" value="50"><b id="amtV" class="num">50 $</b></div></div>
+      <div><label data-i="k8" for="yr">Start im Januar</label><div class="row"><input id="yr" type="range" min="2014" max="2025" value="2018"><b id="yrV" class="num">2018</b></div></div>
     </div>
     <div class="kpi">
-      <div><small>Eingezahlt</small><b class="num" id="kIn">–</b></div>
-      <div><small>Heute wert (ca.)</small><b class="num" id="kNow">–</b></div>
-      <div><small>Gesammelt</small><b class="num" data-hold id="kBtc">–</b></div>
-      <div><small>Tiefster Punkt</small><b class="num dn" id="kLow" data-hold>–</b></div>
+      <div><small data-i="k9">Eingezahlt</small><b class="num" id="kIn">–</b></div>
+      <div><small data-i="k10">Heute wert (ca.)</small><b class="num" id="kNow">–</b></div>
+      <div><small data-i="k11">Gesammelt</small><b class="num" data-hold id="kBtc">–</b></div>
+      <div><small data-i="k12">Tiefster Punkt</small><b class="num dn" id="kLow" data-hold>–</b></div>
     </div>
     <svg class="ch" id="ch" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true"></svg>
-    <div class="leg"><span><i style="background:#f7931a"></i>Wert des Sparplans</span><span><i style="background:#9aa2d6"></i>Eingezahlt</span></div>
+    <div class="leg"><span data-i="k13"><i style="background:#f7931a"></i>Wert des Sparplans</span><span data-i="k14"><i style="background:#9aa2d6"></i>Eingezahlt</span></div>
     <div class="cmp" data-hold id="cmp"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Das solltest du dir merken</h2>
+    <h2 data-i="k15" id="h2s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Kein Timing nötig</b><span>Beim Sparplan kaufst du <b>mal teuer, mal günstig</b>. Du musst nicht den perfekten Moment erwischen.</span></div>
-      <div><b>Durststrecken</b><span>Auch ein Sparplan kann <b>lange im Minus</b> liegen. Wer dann aufhört oder verkauft, macht Verluste fest.</span></div>
-      <div><b>Vergangenheit ≠ Zukunft</b><span>Die Zahlen zeigen, was <b>gewesen wäre</b>. Ob es so weitergeht, weiß niemand.</span></div>
-      <div><b>Nur was du entbehren kannst</b><span>Spare nur Geld, das du <b>lange nicht brauchst</b>, und achte auf niedrige Gebühren beim Kauf.</span></div>
+      <div><b data-i="k16">Kein Timing nötig</b><span data-i="k17">Beim Sparplan kaufst du <b>mal teuer, mal günstig</b>. Du musst nicht den perfekten Moment erwischen.</span></div>
+      <div><b data-i="k18">Durststrecken</b><span data-i="k19">Auch ein Sparplan kann <b>lange im Minus</b> liegen. Wer dann aufhört oder verkauft, macht Verluste fest.</span></div>
+      <div><b data-i="k20">Vergangenheit ≠ Zukunft</b><span data-i="k21">Die Zahlen zeigen, was <b>gewesen wäre</b>. Ob es so weitergeht, weiß niemand.</span></div>
+      <div><b data-i="k22">Nur was du entbehren kannst</b><span data-i="k23">Spare nur Geld, das du <b>lange nicht brauchst</b>, und achte auf niedrige Gebühren beim Kauf.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k24">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Ungefähre Bitcoin-Kurse in US-Dollar aus gerundeten Monatswerten (zwischen den Stützpunkten geglättet), aktueller Kurs Stand 15.11.2026, gerundet. Ohne Gebühren, Spread und Steuern. Ergebnisse sind Näherungen. <b>Vergangene Renditen sind keine Prognose.</b></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung. Vergangene Entwicklungen sind kein Hinweis auf die Zukunft.</p>
+  <section data-i="k28" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k25">Quellen</summary><p data-i="k26">Ungefähre Bitcoin-Kurse in US-Dollar aus gerundeten Monatswerten (zwischen den Stützpunkten geglättet), aktueller Kurs Stand 15.11.2026, gerundet. Ohne Gebühren, Spread und Steuern. Ergebnisse sind Näherungen. <b>Vergangene Renditen sind keine Prognose.</b></p></details>
+  <p data-i="k27" class="foot">Lernen und Unterhaltung, keine Anlageberatung. Vergangene Entwicklungen sind kein Hinweis auf die Zukunft.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Savings<\/span> plan", "k4": "The same amount every month, whether the price is high or low. What would have come of it, and how bumpy was the road?", "k5": "Your savings plan in the past", "k6": "💵 Amounts in US dollars, because that's what bitcoin is traded in worldwide.", "k7": "Amount per month", "k8": "Start in January", "k9": "Paid in", "k10": "Worth today (approx.)", "k11": "Collected", "k12": "Lowest point", "k13": "<i style=\"background:#f7931a\"><\/i>Value of the savings plan", "k14": "<i style=\"background:#9aa2d6\"><\/i>Paid in", "k15": "Remember this", "k16": "No timing needed", "k17": "With a savings plan you buy <b>sometimes expensively, sometimes cheaply<\/b>. You don't have to catch the perfect moment.", "k18": "Dry spells", "k19": "A savings plan can also be <b>in the red for a long time<\/b>. Whoever stops or sells then locks in losses.", "k20": "Past ≠ future", "k21": "The numbers show what <b>would have happened<\/b>. Nobody knows whether it will continue.", "k22": "Only what you can spare", "k23": "Only save money you <b>won't need for a long time<\/b>, and watch out for low fees when buying.", "k24": "Test yourself: 3 questions", "k25": "Sources", "k26": "Approximate bitcoin prices in US dollars from rounded monthly values (smoothed between data points), current price as of 15 Nov 2026, rounded. Without fees, spread and taxes. Results are approximations. <b>Past returns are not a forecast.<\/b>", "k27": "Entertainment and learning, not investment advice. Past performance is no indication of the future.", "k28@aria-label": "Next", "_title": "Savings Plan · Bitcoin Voyage", "_desc": "Lernwelt: Was wäre aus einem monatlichen Bitcoin-Sparplan geworden? Mit ungefährer Kurshistorie, inklusive der Durststrecken."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    SPARPLAN – Lernwelt von Bitcoin Voyage
@@ -100,8 +101,8 @@ function priceAt(m){
   for (let i = 1; i < pts.length; i++) if (m <= pts[i][0]){ const [a, pa] = pts[i - 1], [b, pb] = pts[i]; return pa*Math.pow(pb/pa, (m - a)/(b - a)); }
   return pts[pts.length - 1][1];
 }
-const usd = v => Math.round(v).toLocaleString("de-DE") + " $";
-const MON = ["Jan.","Feb.","März","Apr.","Mai","Juni","Juli","Aug.","Sep.","Okt.","Nov.","Dez."];
+const usd = v => Lern.cur(Math.round(v).toLocaleString(Lern.EN ? "en-US" : "de-DE") + " $");
+const MON = [Lern.t("Jan.", "Jan"),Lern.t("Feb.", "Feb"),Lern.t("März", "Mar"),Lern.t("Apr.", "Apr"),Lern.t("Mai", "May"),Lern.t("Juni", "Jun"),Lern.t("Juli", "Jul"),Lern.t("Aug.", "Aug"),Lern.t("Sep.", "Sep"),Lern.t("Okt.", "Oct"),Lern.t("Nov.", "Nov"),Lern.t("Dez.", "Dec")];
 const mLabel = m => `${MON[m % 12]} ${Math.floor(m/12)}`;
 
 function calc(amt, y0){
@@ -122,17 +123,18 @@ function draw(r){
 }
 function update(){
   const amt = +$("amt").value, y0 = +$("yr").value;
-  $("amtV").textContent = amt + " $"; $("yrV").textContent = y0;
+  $("amtV").textContent = Lern.cur(amt + " $"); $("yrV").textContent = y0;
   const r = calc(amt, y0), gain = r.now/r.paid - 1;
   $("kIn").textContent = usd(r.paid);
   $("kNow").textContent = usd(r.now); $("kNow").className = "num " + (gain >= 0 ? "up" : "dn");
-  $("kBtc").textContent = r.btc >= .1 ? r.btc.toLocaleString("de-DE", {maximumFractionDigits: 3}) + " BTC" : Math.round(r.btc*1e8).toLocaleString("de-DE") + " sats";
-  $("kLow").textContent = r.worst < 0 ? Math.round(r.worst*100) + " %" : "nie im Minus";
+  $("kBtc").textContent = r.btc >= .1 ? r.btc.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 3}) + " BTC" : Math.round(r.btc*1e8).toLocaleString(Lern.EN ? "en-US" : "de-DE") + " sats";
+  $("kLow").textContent = r.worst < 0 ? Math.round(r.worst*100) + " %" : Lern.t("nie im Minus", "never in the red");
   draw(r);
   // Vergleich: alles auf einmal am Anfang
   const lump = r.paid/priceAt(y0*12)*priceAt(NOW);
-  $("cmp").innerHTML = `<div><b>Sparplan:</b> ${usd(r.paid)} eingezahlt, heute ca. <b>${usd(r.now)}</b> (${gain >= 0 ? "+" : ""}${Math.round(gain*100).toLocaleString("de-DE")} %).${r.worst < 0 ? ` Am schlechtesten stand er im <b>${mLabel(r.worstM)}</b> mit ${Math.round(r.worst*100)} %.` : ""}</div>
-    <div><b>Alles auf einmal</b> im Januar ${y0} wäre heute ca. <b>${usd(lump)}</b>. Dafür hättest du das ganze Geld sofort gebraucht und den Startzeitpunkt richtig treffen müssen.</div>`;
+  $("cmp").innerHTML = Lern.t(`<div><b>Sparplan:</b> ${usd(r.paid)} eingezahlt, heute ca. <b>${usd(r.now)}</b> (${gain >= 0 ? "+" : ""}${Math.round(gain*100).toLocaleString(Lern.EN ? "en-US" : "de-DE")} %).${r.worst < 0 ? ` Am schlechtesten stand er im <b>${mLabel(r.worstM)}</b> mit ${Math.round(r.worst*100)} %.` : ""}</div>
+    <div><b>Alles auf einmal</b> im Januar ${y0} wäre heute ca. <b>${usd(lump)}</b>. Dafür hättest du das ganze Geld sofort gebraucht und den Startzeitpunkt richtig treffen müssen.</div>`, `<div><b>Savings plan:</b> ${usd(r.paid)} paid in, today approx. <b>${usd(r.now)}</b> (${gain >= 0 ? "+" : ""}${Math.round(gain*100).toLocaleString("en-US")} %).${r.worst < 0 ? ` It was at its worst in <b>${mLabel(r.worstM)}</b> at ${Math.round(r.worst*100)} %.` : ""}</div>
+    <div><b>Everything at once</b> in January ${y0} would be approx. <b>${usd(lump)}</b> today. For that you'd have needed all the money at once and to hit the start date just right.</div>`);
 }
 $("amt").addEventListener("input", update); $("yr").addEventListener("input", update);
 fetch(Lern.api("price/BTC-USD")).then(r => r.json()).then(j => { const p = +j.data.amount; if (p > 0){ live = p; update(); } }).catch(() => {});
@@ -141,9 +143,9 @@ update();
 
 
 const QUIZ = [
-  ["Was ist der größte Vorteil eines Sparplans?", ["Er garantiert am Ende einen Gewinn", "Man muss nicht den perfekten Kaufzeitpunkt treffen", "Gewinne daraus sind immer steuerfrei"], 1, "Man kauft regelmäßig, mal teuer, mal günstig. Das nimmt den Druck, den richtigen Moment zu erwischen. Gewinn ist damit nicht garantiert."],
-  ["Dein Sparplan liegt seit einem Jahr 40 % im Minus. Was zeigt die Vergangenheit?", ["Solche Phasen gab es oft", "Das passiert nie", "Dann ist alles verloren"], 0, "Bitcoin hatte mehrere lange Minus-Phasen, etwa 2018 und 2022. Wer durchhielt, kam in der Vergangenheit wieder heraus. Eine Garantie für die Zukunft ist das nicht."],
-  ["Welches Geld gehört in einen Bitcoin-Sparplan?", ["Der Notgroschen für Reparaturen", "Geld, das du lange nicht brauchst", "Ein Kredit mit niedrigen Zinsen"], 1, "Nur Geld, auf das du jahrelang verzichten kannst. Sonst musst du womöglich genau im Minus verkaufen."],
+  [Lern.t("Was ist der größte Vorteil eines Sparplans?", "What's the biggest advantage of a savings plan?"), [Lern.t("Er garantiert am Ende einen Gewinn", "It guarantees a profit in the end"), Lern.t("Man muss nicht den perfekten Kaufzeitpunkt treffen", "You don't have to hit the perfect time to buy"), Lern.t("Gewinne daraus sind immer steuerfrei", "Profits from it are always tax-free")], 1, Lern.t("Man kauft regelmäßig, mal teuer, mal günstig. Das nimmt den Druck, den richtigen Moment zu erwischen. Gewinn ist damit nicht garantiert.", "You buy regularly, sometimes expensively, sometimes cheaply. That takes away the pressure of catching the right moment. A profit isn't guaranteed, though.")],
+  [Lern.t("Dein Sparplan liegt seit einem Jahr 40 % im Minus. Was zeigt die Vergangenheit?", "Your savings plan has been 40 % in the red for a year. What does the past show?"), [Lern.t("Solche Phasen gab es oft", "There have often been phases like this"), Lern.t("Das passiert nie", "That never happens"), Lern.t("Dann ist alles verloren", "Then everything is lost")], 0, Lern.t("Bitcoin hatte mehrere lange Minus-Phasen, etwa 2018 und 2022. Wer durchhielt, kam in der Vergangenheit wieder heraus. Eine Garantie für die Zukunft ist das nicht.", "Bitcoin has had several long phases in the red, for example 2018 and 2022. Those who held on came out of them in the past. That's no guarantee for the future.")],
+  [Lern.t("Welches Geld gehört in einen Bitcoin-Sparplan?", "What money belongs in a bitcoin savings plan?"), [Lern.t("Der Notgroschen für Reparaturen", "The emergency fund for repairs"), Lern.t("Geld, das du lange nicht brauchst", "Money you won't need for a long time"), Lern.t("Ein Kredit mit niedrigen Zinsen", "A loan with low interest")], 1, Lern.t("Nur Geld, auf das du jahrelang verzichten kannst. Sonst musst du womöglich genau im Minus verkaufen.", "Only money you can do without for years. Otherwise you may have to sell exactly when you're in the red.")],
 ];
 Lern.quiz($("quiz"), "sparplan", QUIZ, "../"); Lern.visit("sparplan"); Lern.renderNext("sparplan", "../");
 })();

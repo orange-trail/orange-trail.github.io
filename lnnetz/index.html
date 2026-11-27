@@ -48,77 +48,78 @@
 .lstep{margin:10px 0 0;font-size:15px;line-height:1.55;min-height:6.2em}
 .cheat{margin-top:12px;padding:12px 14px;border-radius:14px;border:2px solid var(--bear);background:rgba(255,92,115,.08);font-size:14px;line-height:1.55}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Lightning unter der <span class="btc">Haube</span></h1>
-    <p class="lead">Du hast nicht mit jedem einen Kanal. Trotzdem kannst du jeden bezahlen: Die Zahlung <b>springt über andere</b>, bis sie ankommt. Aber nur, wenn unterwegs in jedem Kanal genug Geld auf der richtigen Seite liegt. Finde selbst den Weg.</p>
+    <h1 data-i="k3">Lightning unter der <span class="btc">Haube</span></h1>
+    <p data-i="k4" class="lead">Du hast nicht mit jedem einen Kanal. Trotzdem kannst du jeden bezahlen: Die Zahlung <b>springt über andere</b>, bis sie ankommt. Aber nur, wenn unterwegs in jedem Kanal genug Geld auf der richtigen Seite liegt. Finde selbst den Weg.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Finde die Route</h2>
-    <div class="rt2" id="rt" role="tablist" aria-label="Aufgaben"></div>
+    <h2 data-i="k5" id="h1s">1 · Finde die Route</h2>
+    <div data-i="k36" class="rt2" id="rt" role="tablist" aria-label="Aufgaben"></div>
     <div class="task" id="task"></div>
     <div class="map" id="map"></div>
     <div class="hops" id="hops"></div>
-    <div class="sum"><span>Gebühren unterwegs</span><b id="fee">0 sat</b></div>
-    <div class="acts2"><button class="btn" type="button" id="send" disabled>⚡ Senden</button><button class="btn ghost" type="button" id="undo" disabled>↩ Schritt zurück</button></div>
+    <div class="sum"><span data-i="k6">Gebühren unterwegs</span><b data-i="k7" id="fee">0 sat</b></div>
+    <div class="acts2"><button data-i="k8" class="btn" type="button" id="send" disabled>⚡ Senden</button><button data-i="k9" class="btn ghost" type="button" id="undo" disabled>↩ Schritt zurück</button></div>
     <div class="res" id="res" hidden aria-live="polite"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Warum unterwegs keiner klauen kann</h2>
+    <h2 data-i="k10" id="h2s">2 · Warum unterwegs keiner klauen kann</h2>
     <p class="muted" style="margin:0" id="lI"></p>
     <div class="lx" id="lk"></div>
     <p class="lstep" id="ls" aria-live="polite"></p>
-    <div class="acts2"><button class="btn ghost" type="button" id="lb">◀ Zurück</button><button class="btn" type="button" id="lw">Weiter ▶</button><button class="btn ghost" type="button" id="lc" hidden>😈 Schummel-Test</button></div>
+    <div class="acts2"><button data-i="k11" class="btn ghost" type="button" id="lb">◀ Zurück</button><button data-i="k12" class="btn" type="button" id="lw">Weiter ▶</button><button data-i="k13" class="btn ghost" type="button" id="lc" hidden>😈 Schummel-Test</button></div>
     <div class="cheat" id="lch" hidden></div>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Gut zu wissen</h2>
+    <h2 data-i="k14" id="h3s">3 · Gut zu wissen</h2>
     <div class="learn bx">
-      <div><b>🧅 Zwiebel-Prinzip</b><span>Jede Station kennt nur ihren <b>Vorgänger und Nachfolger</b>. Wer wen bezahlt, sieht unterwegs niemand.</span></div>
-      <div><b>📥 Empfangen braucht Platz</b><span>Um Geld zu bekommen, muss im Kanal Platz auf <b>deiner</b> Seite sein. Neue Wallets regeln das meist automatisch.</span></div>
-      <div><b>👀 Wachen gegen Schummler</b><span>Versucht jemand, einen alten Kanal-Stand einzureichen, kann die Gegenseite ihn bestrafen. Dafür muss sie aber wachsam sein, oder ein Wachdienst (Watchtower) schaut für sie zu.</span></div>
-      <div><b>💸 Auf und zu kostet</b><span>Kanal öffnen und schließen sind normale Blockchain-Zahlungen mit normalen Gebühren. Dazwischen ist alles fast gratis.</span></div>
+      <div><b data-i="k15">🧅 Zwiebel-Prinzip</b><span data-i="k16">Jede Station kennt nur ihren <b>Vorgänger und Nachfolger</b>. Wer wen bezahlt, sieht unterwegs niemand.</span></div>
+      <div><b data-i="k17">📥 Empfangen braucht Platz</b><span data-i="k18">Um Geld zu bekommen, muss im Kanal Platz auf <b>deiner</b> Seite sein. Neue Wallets regeln das meist automatisch.</span></div>
+      <div><b data-i="k19">👀 Wachen gegen Schummler</b><span data-i="k20">Versucht jemand, einen alten Kanal-Stand einzureichen, kann die Gegenseite ihn bestrafen. Dafür muss sie aber wachsam sein, oder ein Wachdienst (Watchtower) schaut für sie zu.</span></div>
+      <div><b data-i="k21">💸 Auf und zu kostet</b><span data-i="k22">Kanal öffnen und schließen sind normale Blockchain-Zahlungen mit normalen Gebühren. Dazwischen ist alles fast gratis.</span></div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k23" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Zahlungen springen</b><span>Lightning findet eine <b>Route über andere Kanäle</b>. Jede Station verdient ein paar sats Gebühr.</span></div>
-      <div><b>Geld muss auf der richtigen Seite liegen</b><span>Ein Kanal kann nur so viel weiterleiten, wie auf der <b>sendenden Seite</b> liegt.</span></div>
-      <div><b>Alles oder nichts</b><span>Dank Schloss und Geheimnis kommt die Zahlung entweder <b>ganz an</b> oder gar nicht. Unterwegs kann niemand sie behalten.</span></div>
-      <div><b>Die Wallet sucht für dich</b><span>Im Alltag macht deine Wallet das alles automatisch, in Sekundenbruchteilen.</span></div>
+      <div><b data-i="k24">Zahlungen springen</b><span data-i="k25">Lightning findet eine <b>Route über andere Kanäle</b>. Jede Station verdient ein paar sats Gebühr.</span></div>
+      <div><b data-i="k26">Geld muss auf der richtigen Seite liegen</b><span data-i="k27">Ein Kanal kann nur so viel weiterleiten, wie auf der <b>sendenden Seite</b> liegt.</span></div>
+      <div><b data-i="k28">Alles oder nichts</b><span data-i="k29">Dank Schloss und Geheimnis kommt die Zahlung entweder <b>ganz an</b> oder gar nicht. Unterwegs kann niemand sie behalten.</span></div>
+      <div><b data-i="k30">Die Wallet sucht für dich</b><span data-i="k31">Im Alltag macht deine Wallet das alles automatisch, in Sekundenbruchteilen.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k32">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Vereinfachtes Modell mit festen Gebühren pro Station, echte Knoten rechnen zusätzlich einen kleinen Prozentsatz. <a href="https://lightning.network/lightning-network-paper.pdf">Lightning-Network-Paper (Poon &amp; Dryja)</a> · <a href="https://bitcoinops.org/en/topics/htlc/">Bitcoin Optech: HTLC</a> · <a href="https://bitcoinops.org/en/topics/watchtowers/">Bitcoin Optech: Watchtowers</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k37" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k33">Quellen</summary><p data-i="k34">Vereinfachtes Modell mit festen Gebühren pro Station, echte Knoten rechnen zusätzlich einen kleinen Prozentsatz. <a href="https://lightning.network/lightning-network-paper.pdf">Lightning-Network-Paper (Poon &amp; Dryja)</a> · <a href="https://bitcoinops.org/en/topics/htlc/">Bitcoin Optech: HTLC</a> · <a href="https://bitcoinops.org/en/topics/watchtowers/">Bitcoin Optech: Watchtowers</a></p></details>
+  <p data-i="k35" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Lightning under the <span class=\"btc\">hood<\/span>", "k4": "You don't have a channel with everyone. Still, you can pay anyone: the payment <b>hops via others<\/b> until it arrives. But only if there's enough money on the right side in every channel along the way. Find the route yourself.", "k5": "1 · Find the route", "k6": "Fees along the way", "k7": "0 sat", "k8": "⚡ Send", "k9": "↩ Step back", "k10": "2 · Why nobody along the way can steal", "k11": "◀ Back", "k12": "Next ▶", "k13": "😈 Cheat test", "k14": "3 · Good to know", "k15": "🧅 Onion principle", "k16": "Every stop only knows its <b>predecessor and successor<\/b>. Nobody along the way sees who's paying whom.", "k17": "📥 Receiving needs room", "k18": "To receive money, there must be room on <b>your<\/b> side of the channel. New wallets usually handle this automatically.", "k19": "👀 Guards against cheaters", "k20": "If someone tries to submit an old channel state, the other side can punish them. But for that it must be watchful, or a watch service (watchtower) watches for it.", "k21": "💸 Opening and closing cost", "k22": "Opening and closing a channel are normal blockchain payments with normal fees. In between, everything is almost free.", "k23": "Remember this", "k24": "Payments hop", "k25": "Lightning finds a <b>route via other channels<\/b>. Every stop earns a few sats in fees.", "k26": "Money must be on the right side", "k27": "A channel can only forward as much as is on the <b>sending side<\/b>.", "k28": "All or nothing", "k29": "Thanks to lock and secret, the payment either <b>arrives completely<\/b> or not at all. Nobody can keep it along the way.", "k30": "Your wallet searches for you", "k31": "In everyday life your wallet does all this automatically, in fractions of a second.", "k32": "Test yourself: 3 questions", "k33": "Sources", "k34": "Simplified model with fixed fees per stop; real nodes also charge a small percentage. <a href=\"https://lightning.network/lightning-network-paper.pdf\">Lightning Network paper (Poon &amp; Dryja)<\/a> · <a href=\"https://bitcoinops.org/en/topics/htlc/\">Bitcoin Optech: HTLC<\/a> · <a href=\"https://bitcoinops.org/en/topics/watchtowers/\">Bitcoin Optech: Watchtowers<\/a>", "k35": "Entertainment and learning, not investment advice.", "k36@aria-label": "Tasks", "k37@aria-label": "Next", "_title": "Lightning Under the Hood · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Finde selbst eine Route durchs Lightning-Netz, erlebe, warum Kanäle leerlaufen, und warum unterwegs niemand dein Geld klauen kann."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    LIGHTNING UNTER DER HAUBE – Lernwelt von Bitcoin Voyage
    ===================================================================== */
 (() => {
-const $ = id => document.getElementById(id), nf = n => n.toLocaleString("de-DE");
+const $ = id => document.getElementById(id), nf = n => n.toLocaleString(Lern.EN ? "en-US" : "de-DE");
 // Knoten: id → [Name, Emoji, x, y, Gebühr fürs Weiterleiten]
-const N = {du: ["Du", "🙂", 46, 130, 0], alex: ["Alex", "🧑", 140, 52, 4], berta: ["Berta", "👩", 140, 210, 2], hub: ["Hub", "🏢", 214, 130, 3], carl: ["Carl", "🧔", 300, 52, 1], cafe: ["Café", "☕", 312, 210, 0]};
+const N = {du: [Lern.t("Du", "You"), "🙂", 46, 130, 0], alex: ["Alex", "🧑", 140, 52, 4], berta: ["Berta", "👩", 140, 210, 2], hub: ["Hub", "🏢", 214, 130, 3], carl: ["Carl", "🧔", 300, 52, 1], cafe: ["Café", "☕", 312, 210, 0]};
 // Kanäle: [a, b, Guthaben bei a, Guthaben bei b]
 const CH = [["du", "alex", 50000, 50000], ["du", "berta", 80000, 20000], ["alex", "carl", 10000, 90000], ["alex", "hub", 60000, 40000], ["berta", "hub", 70000, 30000], ["hub", "cafe", 50000, 50000], ["carl", "cafe", 60000, 40000], ["hub", "carl", 45000, 55000]];
 const TASKS = [
-  {t: "Kaffee-Rechnung", amt: 30000, txt: "Bezahl dem <b>Café 30.000 sats</b>. Tipp nacheinander die Stationen an, von dir bis zum Café. Tipp: Der kürzeste Weg ist nicht immer offen.", goal: "any"},
-  {t: "Am günstigsten", amt: 20000, txt: "Jetzt <b>20.000 sats</b> ans Café, aber so <b>günstig</b> wie möglich. Jede Station verlangt eine kleine Gebühr. Finde die billigste Route.", goal: "cheap"},
-  {t: "Zu groß?", amt: 90000, txt: "Und jetzt <b>90.000 sats</b> ans Café. Probier es. Schaffst du das?", goal: "none"}];
+  {t: Lern.t("Kaffee-Rechnung", "Coffee bill"), amt: 30000, txt: Lern.t("Bezahl dem <b>Café 30.000 sats</b>. Tipp nacheinander die Stationen an, von dir bis zum Café. Tipp: Der kürzeste Weg ist nicht immer offen.", "Pay the <b>café 30,000 sats</b>. Tap the stops one after another, from you to the café. Tip: the shortest route isn't always open."), goal: "any"},
+  {t: Lern.t("Am günstigsten", "The cheapest"), amt: 20000, txt: Lern.t("Jetzt <b>20.000 sats</b> ans Café, aber so <b>günstig</b> wie möglich. Jede Station verlangt eine kleine Gebühr. Finde die billigste Route.", "Now <b>20,000 sats</b> to the café, but as <b>cheaply</b> as possible. Every stop charges a small fee. Find the cheapest route."), goal: "cheap"},
+  {t: Lern.t("Zu groß?", "Too big?"), amt: 90000, txt: Lern.t("Und jetzt <b>90.000 sats</b> ans Café. Probier es. Schaffst du das?", "And now <b>90,000 sats</b> to the café. Try it. Can you do it?"), goal: "none"}];
 let T = 0, path = ["du"], won = new Set(), bal, last = {p: ["du", "alex", "hub", "cafe"], amt: 30000}, lk = 0;
 const reset = () => { bal = {}; CH.forEach(([a, b, x, y]) => { bal[a + ">" + b] = x; bal[b + ">" + a] = y; }); };
 const has = (a, b) => (a + ">" + b) in bal;
@@ -142,15 +143,15 @@ function draw(badHop){
     s += `<g class="n${path.includes(k) ? " on" : ""}${nxt ? " next" : ""}${k === "cafe" ? " end" : ""}" data-n="${k}" tabindex="0" role="button" aria-label="${nm}"><circle cx="${x}" cy="${y}" r="24"/><text class="e" x="${x}" y="${y + 6}">${e}</text><text x="${x}" y="${y < 100 ? y - 32 : y + 40}">${nm}${N[k][4] ? " · " + N[k][4] + " sat" : ""}</text></g>`; });
   $("map").innerHTML = s + "</svg>";
   const amt = TASKS[T].amt, fl = flows(path, amt);
-  $("hops").innerHTML = path.length < 2 ? `<div class="hop"><span>Start bei <b style="font-family:var(--f-body)">Du</b>. Tipp eine gestrichelte Station an.</span></div>` :
+  $("hops").innerHTML = path.length < 2 ? Lern.t(`<div class="hop"><span>Start bei <b style="font-family:var(--f-body)">Du</b>. Tipp eine gestrichelte Station an.</span></div>`, `<div class="hop"><span>Start at <b style="font-family:var(--f-body)">You</b>. Tap a dashed stop.</span></div>`) :
     fl.map((f, i) => { const a = path[i], b = path[i + 1], av = bal[a + ">" + b], ok = av >= f;
-      return `<div class="hop${badHop === i ? " bad" : badHop !== undefined && i < badHop ? " good" : ""}"><span>${N[a][0]} → ${N[b][0]}<small>muss ${nf(f)} sats weiterleiten</small></span><b>${nf(av)} sats ${a === "du" ? "bei dir" : "bei " + N[a][0]}</b></div>`; }).join("");
+      return Lern.t(`<div class="hop${badHop === i ? " bad" : badHop !== undefined && i < badHop ? " good" : ""}"><span>${N[a][0]} → ${N[b][0]}<small>muss ${nf(f)} sats weiterleiten</small></span><b>${nf(av)} sats ${a === "du" ? "bei dir" : "bei " + N[a][0]}</b></div>`, `<div class="hop${badHop === i ? " bad" : badHop !== undefined && i < badHop ? " good" : ""}"><span>${N[a][0]} → ${N[b][0]}<small>must forward ${nf(f)} sats</small></span><b>${nf(av)} sats ${a === "du" ? "with you" : "with " + N[a][0]}</b></div>`); }).join("");
   $("fee").textContent = nf(feeOf(path.length > 2 ? path : ["du"])) + " sat";
   $("send").disabled = !done; $("undo").disabled = path.length < 2;
 }
 function res(cls, html){ const r = $("res"); r.hidden = false; r.className = "res " + cls; r.innerHTML = html; }
 $("map").addEventListener("click", e => { const g = e.target.closest("g.n"); if (!g) return; const k = g.dataset.n, last = path[path.length - 1];
-  if (last === "cafe" || path.includes(k)) return; if (!has(last, k)){ res("warn", `<strong>Kein Kanal</strong>${N[last][0]} hat keinen Kanal zu ${N[k][0]}. Nimm eine gestrichelte Station.`); return; }
+  if (last === "cafe" || path.includes(k)) return; if (!has(last, k)){ res("warn", Lern.t(`<strong>Kein Kanal</strong>${N[last][0]} hat keinen Kanal zu ${N[k][0]}. Nimm eine gestrichelte Station.`, `<strong>No channel</strong>${N[last][0]} has no channel to ${N[k][0]}. Take a dashed stop.`)); return; }
   $("res").hidden = true; path.push(k); draw(); });
 $("map").addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); e.target.closest("g.n") && e.target.closest("g.n").dispatchEvent(new MouseEvent("click", {bubbles: true})); } });
 $("undo").onclick = () => { path.pop(); $("res").hidden = true; draw(); };
@@ -159,32 +160,32 @@ $("send").onclick = () => {
   const amt = TASKS[T].amt, fl = flows(path, amt), bad = fl.findIndex((f, i) => bal[path[i] + ">" + path[i + 1]] < f), fee = feeOf(path);
   if (bad >= 0){ draw(bad); const a = path[bad], b = path[bad + 1];
     const any = routes().some(p => works(p, amt));
-    res("bad", `<strong>❌ Zahlung gescheitert, aber nichts verloren</strong>Im Kanal ${N[a][0]} → ${N[b][0]} liegen nur <b>${nf(bal[a + ">" + b])} sats</b> auf ${a === "du" ? "deiner Seite" : "der Seite von " + N[a][0]}, gebraucht werden ${nf(fl[bad])}. Dank Schloss und Geheimnis (siehe unten) kommt das Geld komplett zurück.${any ? " Versuch einen anderen Weg!" : ""}`
-      + (T === 2 && !any ? `<div class="acts2"><button class="btn" type="button" data-a="split">💡 Lösung zeigen</button></div>` : `<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ Neuer Versuch</button></div>`));
+    res("bad", Lern.t(`<strong>❌ Zahlung gescheitert, aber nichts verloren</strong>Im Kanal ${N[a][0]} → ${N[b][0]} liegen nur <b>${nf(bal[a + ">" + b])} sats</b> auf ${a === "du" ? "deiner Seite" : "der Seite von " + N[a][0]}, gebraucht werden ${nf(fl[bad])}. Dank Schloss und Geheimnis (siehe unten) kommt das Geld komplett zurück.${any ? " Versuch einen anderen Weg!" : ""}`, `<strong>❌ Payment failed, but nothing lost</strong>In the channel ${N[a][0]} → ${N[b][0]} there are only <b>${nf(bal[a + ">" + b])} sats</b> on ${a === "du" ? "your side" : N[a][0] + "'s side"}, but ${nf(fl[bad])} are needed. Thanks to lock and secret (see below) the money comes back completely.${any ? " Try another route!" : ""}`)
+      + (T === 2 && !any ? Lern.t(`<div class="acts2"><button class="btn" type="button" data-a="split">💡 Lösung zeigen</button></div>`, `<div class="acts2"><button class="btn" type="button" data-a="split">💡 Show the solution</button></div>`) : Lern.t(`<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ Neuer Versuch</button></div>`, `<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ New attempt</button></div>`)));
     return; }
   draw(-1);
   const best = routes().filter(p => works(p, amt)).reduce((m, p) => Math.min(m, feeOf(p)), 1e9);
-  if (TASKS[T].goal === "cheap" && fee > best){ res("warn", `<strong>⚡ Angekommen, aber nicht am günstigsten</strong>Du hast <b>${fee} sat</b> Gebühr gezahlt. Es geht auch mit <b>${best} sat</b>. Die Gebühren stehen unter jeder Station.<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ Neuer Versuch</button></div>`); return; }
+  if (TASKS[T].goal === "cheap" && fee > best){ res("warn", Lern.t(`<strong>⚡ Angekommen, aber nicht am günstigsten</strong>Du hast <b>${fee} sat</b> Gebühr gezahlt. Es geht auch mit <b>${best} sat</b>. Die Gebühren stehen unter jeder Station.<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ Neuer Versuch</button></div>`, `<strong>⚡ Arrived, but not the cheapest</strong>You paid <b>${fee} sat</b> in fees. It also works with <b>${best} sat</b>. The fees are shown under each stop.<div class="acts2"><button class="btn ghost" type="button" data-a="again">↺ New attempt</button></div>`)); return; }
   won.add(T); last = {p: path.slice(), amt}; lk = 0; lock(); try { Lern.sfx && Lern.sfx("win"); } catch(e){}
-  res("ok", `<strong>⚡ Bezahlt in Sekundenbruchteilen!</strong>${nf(amt)} sats sind beim Café, unterwegs hast du <b>${fee} sat</b> Gebühr gezahlt.${T === 0 ? (path.join() === "du,alex,carl,cafe" ? "" : " Übrigens: Der kürzere Weg über Alex direkt zu Carl wäre gescheitert. Alex hat in diesem Kanal nur 10.000 sats auf seiner Seite.") + " Unten in Teil 2 siehst du, was dabei mit deiner Route passiert ist." : " Das ist die günstigste Route. Deine Wallet sucht so etwas im Alltag automatisch."}<div class="acts2">${T < 2 ? `<button class="btn" type="button" data-a="next">Weiter zu Aufgabe ${T + 2} →</button>` : ""}</div>`);
+  res("ok", Lern.t(`<strong>⚡ Bezahlt in Sekundenbruchteilen!</strong>${nf(amt)} sats sind beim Café, unterwegs hast du <b>${fee} sat</b> Gebühr gezahlt.${T === 0 ? (path.join() === "du,alex,carl,cafe" ? "" : " Übrigens: Der kürzere Weg über Alex direkt zu Carl wäre gescheitert. Alex hat in diesem Kanal nur 10.000 sats auf seiner Seite.") + " Unten in Teil 2 siehst du, was dabei mit deiner Route passiert ist." : " Das ist die günstigste Route. Deine Wallet sucht so etwas im Alltag automatisch."}<div class="acts2">${T < 2 ? `<button class="btn" type="button" data-a="next">Weiter zu Aufgabe ${T + 2} →</button>` : ""}</div>`, `<strong>⚡ Paid in fractions of a second!</strong>${nf(amt)} sats are at the café; along the way you paid <b>${fee} sat</b> in fees.${T === 0 ? (path.join() === "du,alex,carl,cafe" ? "" : " By the way: the shorter route via Alex directly to Carl would have failed. Alex only has 10,000 sats on his side of that channel.") + " Below in part 2 you'll see what happened with your route." : " That's the cheapest route. Your wallet finds something like this automatically in everyday life."}<div class="acts2">${T < 2 ? `<button class="btn" type="button" data-a="next">On to task ${T + 2} →</button>` : ""}</div>`));
   draw(); tabsWon();
 };
 function tabsWon(){ $("rt").querySelectorAll("[data-t]").forEach(b => b.classList.toggle("won", won.has(+b.dataset.t))); }
 $("res").addEventListener("click", e => { const a = (e.target.closest("[data-a]") || {}).dataset?.a; if (!a) return;
   if (a === "again"){ path = ["du"]; $("res").hidden = true; draw(); }
   if (a === "next"){ T++; path = ["du"]; $("res").hidden = true; reset(); draw(); }
-  if (a === "split"){ won.add(2); tabsWon(); res("ok", `<strong>💡 Der Trick: aufteilen</strong>Kein einzelner Weg schafft 90.000 sats. Moderne Wallets <b>teilen</b> große Zahlungen deshalb auf mehrere Wege auf, zum Beispiel 50.000 über Berta und den Hub und 40.000 über Alex, den Hub und Carl. Beim Café setzen sich die Teile wieder zusammen. Und wenn das auch nicht reicht, bezahlt man direkt in der Blockchain.`); } });
+  if (a === "split"){ won.add(2); tabsWon(); res("ok", Lern.t(`<strong>💡 Der Trick: aufteilen</strong>Kein einzelner Weg schafft 90.000 sats. Moderne Wallets <b>teilen</b> große Zahlungen deshalb auf mehrere Wege auf, zum Beispiel 50.000 über Berta und den Hub und 40.000 über Alex, den Hub und Carl. Beim Café setzen sich die Teile wieder zusammen. Und wenn das auch nicht reicht, bezahlt man direkt in der Blockchain.`, `<strong>💡 The trick: splitting</strong>No single route can handle 90,000 sats. That's why modern wallets <b>split</b> large payments across several routes, for example 50,000 via Berta and the hub and 40,000 via Alex, the hub and Carl. At the café the parts come back together. And if even that isn't enough, you pay directly on the blockchain.`)); } });
 reset(); draw();
 
 // Schloss mit Geheimnis (HTLC), Schritt für Schritt, mit deiner zuletzt geschickten Route
-const who = k => k === "du" ? "dir" : k === "hub" ? "dem Hub" : k === "cafe" ? "dem Café" : N[k][0];
-const whoA = k => k === "du" ? "dich" : k === "hub" ? "den Hub" : k === "cafe" ? "das Café" : N[k][0];
-const bei = k => k === "du" ? "bei dir" : k === "hub" ? "beim Hub" : "bei " + N[k][0];
-const Who = k => k === "du" ? "Du" : k === "hub" ? "Der Hub" : k === "cafe" ? "Das Café" : N[k][0];
+const who = k => Lern.EN ? (k === "du" ? "you" : k === "hub" ? "the hub" : k === "cafe" ? "the café" : N[k][0]) : k === "du" ? "dir" : k === "hub" ? "dem Hub" : k === "cafe" ? "dem Café" : N[k][0];
+const whoA = k => Lern.EN ? who(k) : k === "du" ? "dich" : k === "hub" ? "den Hub" : k === "cafe" ? "das Café" : N[k][0];
+const bei = k => Lern.EN ? "from " + who(k) : k === "du" ? "bei dir" : k === "hub" ? "beim Hub" : "bei " + N[k][0];
+const Who = k => Lern.EN ? (k === "du" ? "You" : k === "hub" ? "The hub" : k === "cafe" ? "The café" : N[k][0]) : k === "du" ? "Du" : k === "hub" ? "Der Hub" : k === "cafe" ? "Das Café" : N[k][0];
 function lock(){
   const P = last.p, h = P.length - 1, fl = flows(P, last.amt), max = 2*h; lk = Math.min(lk, max);
   const mids = P.slice(1, -1).map(k => N[k][0]);
-  $("lI").innerHTML = `Deine Route: ${P.map(k => N[k][0]).join(" → ")}. ${mids.length > 1 ? mids.slice(0, -1).join(", ") + " und " + mids[mids.length - 1] + " leiten" : mids[0] + " leitet"} dein Geld weiter. Was hindert sie daran, es einfach zu behalten? Ein <b style="color:var(--ink)">Schloss mit Geheimnis</b>.`;
+  $("lI").innerHTML = Lern.t(`Deine Route: ${P.map(k => N[k][0]).join(" → ")}. ${mids.length > 1 ? mids.slice(0, -1).join(", ") + " und " + mids[mids.length - 1] + " leiten" : mids[0] + " leitet"} dein Geld weiter. Was hindert sie daran, es einfach zu behalten? Ein <b style="color:var(--ink)">Schloss mit Geheimnis</b>.`, `Your route: ${P.map(k => N[k][0]).join(" → ")}. ${mids.length > 1 ? mids.slice(0, -1).join(", ") + " and " + mids[mids.length - 1] + " forward" : mids[0] + " forwards"} your money. What stops them from simply keeping it? A <b style="color:var(--ink)">lock with a secret</b>.`);
   // Zustand jedes Kanals: 0 leer, 1 reserviert, 2 bezahlt
   const ch = fl.map((f, i) => lk === 0 ? 0 : lk <= h ? (i < lk ? 1 : 0) : (i >= h - (lk - h) ? 2 : 1));
   const keyAt = k => { const i = P.indexOf(k); if (i === h) return "🔑"; if (lk > h && i >= h - (lk - h)) return i === 0 ? "🧾" : "🔑"; return ""; };
@@ -192,30 +193,30 @@ function lock(){
   let s = "";
   P.forEach((k, i) => { const fee = N[k][4], got = i > 0 && i < h && lk > h && i >= h - (lk - h) + 1;
     s += `<div class="lx-n${i === act || (lk <= h && lk && i === lk) ? " hl" : ""}"><span class="e" aria-hidden="true">${N[k][1]}</span><b>${N[k][0]}</b>${got && fee ? `<span class="earn">+${fee} sat</span>` : ""}<span class="key">${keyAt(k)}</span></div>`;
-    if (i < h) s += `<div class="lx-c${ch[i] === 1 ? " lxr" : ch[i] === 2 ? " paid" : ""}${(lk <= h && i === lk - 1) || (lk > h && i === h - (lk - h)) ? " now" : ""}">${ch[i] === 0 ? "·" : ch[i] === 1 ? `🔒 ${nf(fl[i])} sats reserviert` : `✅ ${nf(fl[i])} sats bezahlt`}</div>`; });
+    if (i < h) s += `<div class="lx-c${ch[i] === 1 ? " lxr" : ch[i] === 2 ? " paid" : ""}${(lk <= h && i === lk - 1) || (lk > h && i === h - (lk - h)) ? " now" : ""}">${ch[i] === 0 ? "·" : ch[i] === 1 ? Lern.t(`🔒 ${nf(fl[i])} sats reserviert`, `🔒 ${nf(fl[i])} sats reserved`) : Lern.t(`✅ ${nf(fl[i])} sats bezahlt`, `✅ ${nf(fl[i])} sats paid`)}</div>`; });
   $("lk").innerHTML = s;
   let t;
-  if (lk === 0) t = `Das Café denkt sich ein <b>Geheimnis</b> 🔑 aus. In die Rechnung an dich packt es nur ein passendes <b>Schloss</b> 🔒 (einen Hash). Aus dem Schloss lässt sich das Geheimnis nicht erraten.`;
+  if (lk === 0) t = Lern.t(`Das Café denkt sich ein <b>Geheimnis</b> 🔑 aus. In die Rechnung an dich packt es nur ein passendes <b>Schloss</b> 🔒 (einen Hash). Aus dem Schloss lässt sich das Geheimnis nicht erraten.`, `The café thinks up a <b>secret</b> 🔑. In the invoice to you it only puts a matching <b>lock</b> 🔒 (a hash). The secret can't be guessed from the lock.`);
   else if (lk <= h){ const a = P[lk - 1], b = P[lk];
-    t = lk === 1 ? `${Who(a)} reservierst ${nf(fl[0])} sats für ${whoA(b)}, mit dem Schloss: <b>„Gehört dir, sobald du das Geheimnis zeigst.“</b> Ohne Geheimnis kommt ${N[b][0] === "Hub" ? "der Hub" : N[b][0]} nicht an das Geld.`
-      : `${Who(a)} reserviert ${nf(fl[lk - 1])} sats für ${whoA(b)}, mit <b>demselben Schloss</b>. ${N[a][4] ? `Die Differenz von ${N[a][4]} sat ist ${a === "hub" ? "seine" : "ihre"} Gebühr.` : ""}`; }
+    t = lk === 1 ? Lern.t(`${Who(a)} reservierst ${nf(fl[0])} sats für ${whoA(b)}, mit dem Schloss: <b>„Gehört dir, sobald du das Geheimnis zeigst.“</b> Ohne Geheimnis kommt ${N[b][0] === "Hub" ? "der Hub" : N[b][0]} nicht an das Geld.`, `${Who(a)} reserve ${nf(fl[0])} sats for ${whoA(b)}, with the lock: <b>“Yours as soon as you show the secret.”</b> Without the secret ${N[b][0] === "Hub" ? "the hub" : N[b][0]} can't get the money.`)
+      : Lern.t(`${Who(a)} reserviert ${nf(fl[lk - 1])} sats für ${whoA(b)}, mit <b>demselben Schloss</b>. ${N[a][4] ? `Die Differenz von ${N[a][4]} sat ist ${a === "hub" ? "seine" : "ihre"} Gebühr.` : ""}`, `${Who(a)} reserves ${nf(fl[lk - 1])} sats for ${whoA(b)}, with <b>the same lock</b>. ${N[a][4] ? `The difference of ${N[a][4]} sat is ${a === "hub" ? "its" : "their"} fee.` : ""}`); }
   else { const j = h - (lk - h), a = P[j], b = P[j + 1];
-    t = b === "cafe" ? `Das Café zeigt ${who(a)} das Geheimnis 🔑 und bekommt dafür die ${nf(fl[j])} sats. Jetzt <b>kennt ${a === "hub" ? "der Hub" : N[a][0]}</b> das Geheimnis …`
-      : a === "du" ? `… und ${N[b][0] === "Hub" ? "der Hub" : N[b][0]} holt sich damit die ${nf(fl[j])} sats bei <b>dir</b>${N[b][4] ? ` (Gewinn: ${N[b][4]} sat)` : ""}. Fertig! Für dich ist das Geheimnis jetzt die <b>Quittung</b> 🧾: Das Café wurde bezahlt. Alle oder keiner, in Sekundenbruchteilen.`
-      : `… und holt sich damit die ${nf(fl[j])} sats ${bei(a)}. Gewinn: ${N[b][4]} sat. Jetzt kennt auch ${a === "hub" ? "der Hub" : N[a][0]} das Geheimnis …`; }
+    t = b === "cafe" ? Lern.t(`Das Café zeigt ${who(a)} das Geheimnis 🔑 und bekommt dafür die ${nf(fl[j])} sats. Jetzt <b>kennt ${a === "hub" ? "der Hub" : N[a][0]}</b> das Geheimnis …`, `The café shows ${who(a)} the secret 🔑 and gets the ${nf(fl[j])} sats for it. Now <b>${a === "hub" ? "the hub" : N[a][0]} knows</b> the secret …`)
+      : a === "du" ? Lern.t(`… und ${N[b][0] === "Hub" ? "der Hub" : N[b][0]} holt sich damit die ${nf(fl[j])} sats bei <b>dir</b>${N[b][4] ? ` (Gewinn: ${N[b][4]} sat)` : ""}. Fertig! Für dich ist das Geheimnis jetzt die <b>Quittung</b> 🧾: Das Café wurde bezahlt. Alle oder keiner, in Sekundenbruchteilen.`, `… and ${N[b][0] === "Hub" ? "the hub" : N[b][0]} uses it to collect the ${nf(fl[j])} sats from <b>you</b>${N[b][4] ? ` (profit: ${N[b][4]} sat)` : ""}. Done! For you the secret is now the <b>receipt</b> 🧾: the café has been paid. All or nobody, in fractions of a second.`)
+      : Lern.t(`… und holt sich damit die ${nf(fl[j])} sats ${bei(a)}. Gewinn: ${N[b][4]} sat. Jetzt kennt auch ${a === "hub" ? "der Hub" : N[a][0]} das Geheimnis …`, `… and uses it to collect the ${nf(fl[j])} sats ${bei(a)}. Profit: ${N[b][4]} sat. Now ${a === "hub" ? "the hub" : N[a][0]} also knows the secret …`); }
   $("ls").innerHTML = `<b>${lk + 1}/${max + 1}</b> · ${t}`;
-  $("lb").disabled = lk === 0; $("lw").textContent = lk < max ? "Weiter ▶" : "🔄 Nochmal"; $("lc").hidden = lk < max; if (lk < max) $("lch").hidden = true;
+  $("lb").disabled = lk === 0; $("lw").textContent = lk < max ? Lern.t("Weiter ▶", "Next ▶") : Lern.t("🔄 Nochmal", "🔄 Again"); $("lc").hidden = lk < max; if (lk < max) $("lch").hidden = true;
 }
 $("lw").onclick = () => { const max = 2*(last.p.length - 1); lk = lk < max ? lk + 1 : 0; lock(); };
 $("lb").onclick = () => { if (lk) lk--; lock(); };
-$("lc").onclick = () => { const P = last.p, m = P[P.length - 2], pre = P[P.length - 3], M = m === "hub" ? "der Hub" : N[m][0];
+$("lc").onclick = () => { const P = last.p, m = P[P.length - 2], pre = P[P.length - 3], M = m === "hub" ? Lern.t("der Hub", "the hub") : N[m][0];
   const C = $("lch"); C.hidden = false;
-  C.innerHTML = `<b>😈 Was, wenn ${M} schummeln will?</b><br>• <b>Geld behalten, Café nicht bezahlen:</b> Geht nicht. Das Geld ${pre === "du" ? "von dir" : "von " + (pre === "hub" ? "dem Hub" : N[pre][0])} bekommt ${M} nur mit dem Geheimnis, und das gibt es erst, wenn das Café bezahlt ist.<br>• <b>Café bezahlen, dann Geheimnis verschweigen:</b> Schadet nur ${m === "hub" ? "ihm" : "ihr"} selbst. ${M[0].toUpperCase() + M.slice(1)} hat bezahlt, holt sich aber nichts zurück.<br>• <b>Einfach nicht weiterleiten:</b> Dann läuft die Reservierung nach einer Frist ab und das Geld fließt zurück zu dir. Deine Wallet probiert einen anderen Weg.`; };
+  C.innerHTML = Lern.t(`<b>😈 Was, wenn ${M} schummeln will?</b><br>• <b>Geld behalten, Café nicht bezahlen:</b> Geht nicht. Das Geld ${pre === "du" ? "von dir" : "von " + (pre === "hub" ? "dem Hub" : N[pre][0])} bekommt ${M} nur mit dem Geheimnis, und das gibt es erst, wenn das Café bezahlt ist.<br>• <b>Café bezahlen, dann Geheimnis verschweigen:</b> Schadet nur ${m === "hub" ? "ihm" : "ihr"} selbst. ${M[0].toUpperCase() + M.slice(1)} hat bezahlt, holt sich aber nichts zurück.<br>• <b>Einfach nicht weiterleiten:</b> Dann läuft die Reservierung nach einer Frist ab und das Geld fließt zurück zu dir. Deine Wallet probiert einen anderen Weg.`, `<b>😈 What if ${M} wants to cheat?</b><br>• <b>Keep the money, don't pay the café:</b> impossible. ${M} only gets the money ${pre === "du" ? "from you" : "from " + (pre === "hub" ? "the hub" : N[pre][0])} with the secret, and that only exists once the café has been paid.<br>• <b>Pay the café, then keep the secret quiet:</b> only hurts ${m === "hub" ? "itself" : "themselves"}. ${M[0].toUpperCase() + M.slice(1)} has paid but gets nothing back.<br>• <b>Simply not forward:</b> then the reservation expires after a deadline and the money flows back to you. Your wallet tries another route.`); };
 lock();
 
-const QUIZ = [["Warum scheitert eine Lightning-Zahlung manchmal?", ["Weil das mobile Internet unterwegs für Lightning meistens zu langsam ist", "Weil in einem Kanal unterwegs nicht genug Geld auf der sendenden Seite liegt", "Weil die Blockchain gerade voll ist und keine Lightning-Zahlungen annimmt"], 1, "Dann sucht die Wallet einen anderen Weg. Verloren geht dabei nichts."],
-  ["Was verhindert, dass eine Station unterwegs dein Geld behält?", ["Ein Schloss, das sich nur mit dem Geheimnis des Empfängers öffnet", "Eine Bank, die jede einzelne Station unterwegs genau überwacht", "Nichts, man muss den Stationen unterwegs einfach vertrauen"], 0, "Wer weiterleitet, bekommt sein Geld nur, wenn er das Geheimnis weitergibt. Alle oder keiner."],
-  ["Was machen moderne Wallets mit sehr großen Zahlungen?", ["Sie lehnen sie immer ab", "Sie teilen sie auf mehrere Wege auf", "Sie schicken sie per E-Mail"], 1, "Mehrere Teilzahlungen setzen sich beim Empfänger wieder zusammen."]];
+const QUIZ = [[Lern.t("Warum scheitert eine Lightning-Zahlung manchmal?", "Why does a Lightning payment sometimes fail?"), [Lern.t("Weil das mobile Internet unterwegs für Lightning meistens zu langsam ist", "Because mobile internet on the go is usually too slow for Lightning"), Lern.t("Weil in einem Kanal unterwegs nicht genug Geld auf der sendenden Seite liegt", "Because a channel along the way doesn't have enough money on the sending side"), Lern.t("Weil die Blockchain gerade voll ist und keine Lightning-Zahlungen annimmt", "Because the blockchain is full right now and doesn't accept Lightning payments")], 1, Lern.t("Dann sucht die Wallet einen anderen Weg. Verloren geht dabei nichts.", "Then the wallet looks for another route. Nothing is lost.")],
+  [Lern.t("Was verhindert, dass eine Station unterwegs dein Geld behält?", "What stops a stop along the way from keeping your money?"), [Lern.t("Ein Schloss, das sich nur mit dem Geheimnis des Empfängers öffnet", "A lock that only opens with the receiver's secret"), Lern.t("Eine Bank, die jede einzelne Station unterwegs genau überwacht", "A bank that closely monitors every single stop along the way"), Lern.t("Nichts, man muss den Stationen unterwegs einfach vertrauen", "Nothing, you simply have to trust the stops along the way")], 0, Lern.t("Wer weiterleitet, bekommt sein Geld nur, wenn er das Geheimnis weitergibt. Alle oder keiner.", "Whoever forwards only gets their money if they pass on the secret. All or nobody.")],
+  [Lern.t("Was machen moderne Wallets mit sehr großen Zahlungen?", "What do modern wallets do with very large payments?"), [Lern.t("Sie lehnen sie immer ab", "They always reject them"), Lern.t("Sie teilen sie auf mehrere Wege auf", "They split them across several routes"), Lern.t("Sie schicken sie per E-Mail", "They send them by email")], 1, Lern.t("Mehrere Teilzahlungen setzen sich beim Empfänger wieder zusammen.", "Several partial payments come back together at the receiver.")]];
 Lern.quiz($("quiz"), "lnnetz", QUIZ, "../"); Lern.visit("lnnetz"); Lern.renderNext("lnnetz", "../");
 })();
 </script>

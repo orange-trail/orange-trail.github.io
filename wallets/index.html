@@ -43,76 +43,77 @@
 @media (max-width:620px){ .hwg{grid-template-columns:1fr} }
 .con{color:#ffb3a6}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Wallet</span>-Check</h1>
-    <p class="lead">Eine Wallet speichert keine Bitcoin, sondern deine <b>Schlüssel</b>. Die entscheidende Frage ist: <b>Wer hat sie, und was kann ihnen passieren?</b></p>
+    <h1 data-i="k3"><span class="btc">Wallet</span>-Check</h1>
+    <p data-i="k4" class="lead">Eine Wallet speichert keine Bitcoin, sondern deine <b>Schlüssel</b>. Die entscheidende Frage ist: <b>Wer hat sie, und was kann ihnen passieren?</b></p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Was passiert, wenn …?</h2>
-    <div class="idea">Wähle eine Gefahr. Die vier Wallet-Arten zeigen dann, ob dein Geld <b style="color:var(--bull)">sicher</b> ist oder <b style="color:var(--bear)">in Gefahr</b>.</div>
+    <h2 data-i="k5" id="h1s">Was passiert, wenn …?</h2>
+    <div data-i="k6" class="idea">Wähle eine Gefahr. Die vier Wallet-Arten zeigen dann, ob dein Geld <b style="color:var(--bull)">sicher</b> ist oder <b style="color:var(--bear)">in Gefahr</b>.</div>
     <div class="pick" id="threats"></div>
     <div class="wl" id="wl1"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Welche Wallet passt zu dir?</h2>
-    <p class="qlbl">Wie viel willst du aufbewahren?</p>
+    <h2 data-i="k7" id="h2s">Welche Wallet passt zu dir?</h2>
+    <p data-i="k8" class="qlbl">Wie viel willst du aufbewahren?</p>
     <div class="pick" id="amt"></div>
-    <p class="qlbl">Wofür?</p>
+    <p data-i="k9" class="qlbl">Wofür?</p>
     <div class="pick" id="use"></div>
     <div class="rec-box" id="rec"></div>
     <div class="wl" id="wl2"></div>
   </section>
 
   <section class="card" aria-labelledby="hHw">
-    <h2 id="hHw">Hardware-Wallets im Vergleich</h2>
-    <p class="muted" style="margin:0">Ab größeren Beträgen lohnt sich ein eigenes Gerät. Zwei bewährte, quelloffene Modelle, beide auch als <b>Bitcoin&#8209;only</b>&#8209;Edition:</p>
+    <h2 data-i="k10" id="hHw">Hardware-Wallets im Vergleich</h2>
+    <p data-i="k11" class="muted" style="margin:0">Ab größeren Beträgen lohnt sich ein eigenes Gerät. Zwei bewährte, quelloffene Modelle, beide auch als <b>Bitcoin&#8209;only</b>&#8209;Edition:</p>
     <div class="hwg">
       <div class="hwc top">
-        <span class="hwb">⭐ Unsere Empfehlung</span>
-        <h3>BitBox02 Nova</h3>
-        <span class="fit">Passt, wenn du es einfach willst. Für Einsteiger unser Favorit.</span>
-        <ul><li>App führt Schritt für Schritt, auch auf Deutsch</li><li>Backup auf mitgelieferter microSD-Karte</li><li>Sicherheitschip, Touch-Tasten, USB-C</li><li>Hergestellt in der Schweiz</li>
-<li class="con">Nachteil: teurer als einfache Einstiegsgeräte</li></ul>
-        <span class="pr">ca. 175 €</span>
-        <a class="btn" data-hw="bitbox" href="https://bitbox.swiss/bitbox02/" target="_blank" rel="sponsored noopener">Zum Hersteller ↗</a>
+        <span data-i="k12" class="hwb">⭐ Unsere Empfehlung</span>
+        <h3 data-i="k13">BitBox02 Nova</h3>
+        <span data-i="k14" class="fit">Passt, wenn du es einfach willst. Für Einsteiger unser Favorit.</span>
+        <ul><li data-i="k15">App führt Schritt für Schritt, auch auf Deutsch</li><li data-i="k16">Backup auf mitgelieferter microSD-Karte</li><li data-i="k17">Sicherheitschip, Touch-Tasten, USB-C</li><li data-i="k18">Hergestellt in der Schweiz</li>
+<li data-i="k19" class="con">Nachteil: teurer als einfache Einstiegsgeräte</li></ul>
+        <span data-i="k20" class="pr">ca. 175 €</span>
+        <a data-i="k21" class="btn" data-hw="bitbox" href="https://bitbox.swiss/bitbox02/" target="_blank" rel="sponsored noopener">Zum Hersteller ↗</a>
       </div>
       <div class="hwc">
-        <h3>Trezor Safe 3</h3>
-        <span class="fit">Passt, wenn du günstig starten willst</span>
-        <ul><li>Bestätigen über zwei Tasten am Gerät</li><li>Backup mit 12, 20 oder 24 Wörtern</li><li>Sicherheitschip, USB-C</li><li>Hersteller aus Tschechien, seit 2014</li>
-<li class="con">Nachteil: kleines Display, Bedienung nur über zwei Tasten</li></ul>
-        <span class="pr">ca. 80 €</span>
-        <a class="btn" data-hw="trezor" href="https://trezor.io/trezor-safe-3-bitcoin-only" target="_blank" rel="sponsored noopener">Zum Hersteller ↗</a>
+        <h3 data-i="k22">Trezor Safe 3</h3>
+        <span data-i="k23" class="fit">Passt, wenn du günstig starten willst</span>
+        <ul><li data-i="k24">Bestätigen über zwei Tasten am Gerät</li><li data-i="k25">Backup mit 12, 20 oder 24 Wörtern</li><li data-i="k26">Sicherheitschip, USB-C</li><li data-i="k27">Hersteller aus Tschechien, seit 2014</li>
+<li data-i="k28" class="con">Nachteil: kleines Display, Bedienung nur über zwei Tasten</li></ul>
+        <span data-i="k29" class="pr">ca. 80 €</span>
+        <a data-i="k30" class="btn" data-hw="trezor" href="https://trezor.io/trezor-safe-3-bitcoin-only" target="_blank" rel="sponsored noopener">Zum Hersteller ↗</a>
       </div>
     </div>
-    <p class="hwn">🛡️ Kaufe nur <b>direkt beim Hersteller</b>, nie gebraucht. Ein echtes Gerät kommt <b>ohne</b> vorgedruckte Wörter. Preise gerundet, Stand Herbst 2026.<span id="hwAd"></span></p>
+    <p data-i="k31" class="hwn">🛡️ Kaufe nur <b>direkt beim Hersteller</b>, nie gebraucht. Ein echtes Gerät kommt <b>ohne</b> vorgedruckte Wörter. Preise gerundet, Stand Herbst 2026.<span id="hwAd"></span></p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Das solltest du dir merken</h2>
+    <h2 data-i="k32" id="h3s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Nicht deine Schlüssel …</b><span>… nicht deine Bitcoin. Auf einer Börse gehören die Schlüssel <b>der Börse</b>, du hast nur ein Versprechen.</span></div>
-      <div><b>Hot vs. Cold</b><span>Handy-Wallets sind <b>online</b> und praktisch. Hardware-Wallets halten den Schlüssel <b>offline</b>, Viren kommen schwer ran. Gegen Phishing hilft nur: jede Zahlung auf dem Gerät prüfen.</span></div>
-      <div><b>Seed ist das Backup</b><span>Gerät weg? Mit den <b>12 oder 24 Wörtern</b> holst du alles zurück. Ohne sie ist alles verloren.</span></div>
-      <div><b>Wie Geldbörse und Tresor</b><span>Kleingeld fürs Bezahlen aufs Handy, <b>Erspartes auf die Hardware-Wallet</b>. Viele nutzen beides.</span></div>
+      <div><b data-i="k33">Nicht deine Schlüssel …</b><span data-i="k34">… nicht deine Bitcoin. Auf einer Börse gehören die Schlüssel <b>der Börse</b>, du hast nur ein Versprechen.</span></div>
+      <div><b data-i="k35">Hot vs. Cold</b><span data-i="k36">Handy-Wallets sind <b>online</b> und praktisch. Hardware-Wallets halten den Schlüssel <b>offline</b>, Viren kommen schwer ran. Gegen Phishing hilft nur: jede Zahlung auf dem Gerät prüfen.</span></div>
+      <div><b data-i="k37">Seed ist das Backup</b><span data-i="k38">Gerät weg? Mit den <b>12 oder 24 Wörtern</b> holst du alles zurück. Ohne sie ist alles verloren.</span></div>
+      <div><b data-i="k39">Wie Geldbörse und Tresor</b><span data-i="k40">Kleingeld fürs Bezahlen aufs Handy, <b>Erspartes auf die Hardware-Wallet</b>. Viele nutzen beides.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k41">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
   
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Einordnung der Wallet-Arten. Die genannten Geräte sind Beispiele nach unseren Kriterien (Sicherheit, offener Code, Einsteigerfreundlichkeit), Stand November 2026. Keine Anlageberatung. Partnerlinks sind als Werbung gekennzeichnet. Bekannte Fälle von Börsen-Pleiten: Mt. Gox (2014), FTX (2022). Beträge als grobe Orientierung, jeder sollte selbst abwägen.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k45" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k42">Quellen</summary><p data-i="k43">Einordnung der Wallet-Arten. Die genannten Geräte sind Beispiele nach unseren Kriterien (Sicherheit, offener Code, Einsteigerfreundlichkeit), Stand November 2026. Keine Anlageberatung. Partnerlinks sind als Werbung gekennzeichnet. Bekannte Fälle von Börsen-Pleiten: Mt. Gox (2014), FTX (2022). Beträge als grobe Orientierung, jeder sollte selbst abwägen.</p></details>
+  <p data-i="k44" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Wallet<\/span> Check", "k4": "A wallet doesn't store bitcoin, but your <b>keys<\/b>. The crucial question is: <b>who has them, and what can happen to them?<\/b>", "k5": "What happens if …?", "k6": "Choose a threat. The four wallet types then show whether your money is <b style=\"color:var(--bull)\">safe<\/b> or <b style=\"color:var(--bear)\">in danger<\/b>.", "k7": "Which wallet suits you?", "k8": "How much do you want to keep?", "k9": "For what?", "k10": "Hardware wallets compared", "k11": "From larger amounts on, a dedicated device is worth it. Two proven, open-source models, both also available as a <b>Bitcoin‑only<\/b> edition:", "k12": "⭐ Our recommendation", "k13": "BitBox02 Nova", "k14": "A good fit if you want it simple. Our favourite for beginners.", "k15": "The app guides you step by step", "k16": "Backup on the included microSD card", "k17": "Secure chip, touch buttons, USB-C", "k18": "Made in Switzerland", "k19": "Drawback: more expensive than simple entry-level devices", "k20": "approx. €175", "k21": "To the manufacturer ↗", "k22": "Trezor Safe 3", "k23": "A good fit if you want to start cheaply", "k24": "Confirm with two buttons on the device", "k25": "Backup with 12, 20 or 24 words", "k26": "Secure chip, USB-C", "k27": "Manufacturer from the Czech Republic, since 2014", "k28": "Drawback: small display, operation only via two buttons", "k29": "approx. €80", "k30": "To the manufacturer ↗", "k31": "🛡️ Only buy <b>directly from the manufacturer<\/b>, never second-hand. A genuine device comes <b>without<\/b> pre-printed words. Prices rounded, as of autumn 2026.<span id=\"hwAd\"><\/span>", "k32": "Remember this", "k33": "Not your keys …", "k34": "… not your bitcoin. On an exchange the keys belong to <b>the exchange<\/b>; you only have a promise.", "k35": "Hot vs. cold", "k36": "Phone wallets are <b>online<\/b> and convenient. Hardware wallets keep the key <b>offline<\/b>, so viruses can hardly get to it. Against phishing only one thing helps: check every payment on the device.", "k37": "The seed is the backup", "k38": "Device gone? With the <b>12 or 24 words<\/b> you get everything back. Without them, everything is lost.", "k39": "Like a purse and a safe", "k40": "Small change for paying on your phone, <b>savings on the hardware wallet<\/b>. Many people use both.", "k41": "Test yourself: 3 questions", "k42": "Sources", "k43": "Classification of the wallet types. The devices named are examples by our criteria (security, open code, beginner-friendliness), as of November 2026. Not investment advice. Partner links are marked as ads. Known exchange collapses: Mt. Gox (2014), FTX (2022). Amounts as rough guidance; everyone should weigh things up themselves.", "k44": "Entertainment and learning, not investment advice.", "k45@aria-label": "Next", "_title": "Wallet Check · Bitcoin Voyage", "_desc": "Lernwelt: Börse, Handy-Wallet, Hardware-Wallet und Multisig im Vergleich. Welche Wallet schützt wovor?"}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    WALLET-CHECK – Lernwelt von Bitcoin Voyage
@@ -122,14 +123,14 @@
 (() => {
 const $ = id => document.getElementById(id);
 // Wallet-Arten: [Symbol, Name, Kurzbeschreibung]
-const W = [["🏦", "Börse", "Die Börse hat deine Schlüssel"], ["📱", "Handy-Wallet", "Schlüssel auf dem Handy, online"], ["🔐", "Hardware-Wallet", "Schlüssel auf eigenem Gerät, offline"], ["🗝", "Multisig 2 von 3", "3 Schlüssel an 3 Orten, 2 nötig"]];
+const W = [["🏦", Lern.t("Börse", "Exchange"), Lern.t("Die Börse hat deine Schlüssel", "The exchange has your keys")], ["📱", Lern.t("Handy-Wallet", "Phone wallet"), Lern.t("Schlüssel auf dem Handy, online", "Keys on the phone, online")], ["🔐", Lern.t("Hardware-Wallet", "Hardware wallet"), Lern.t("Schlüssel auf eigenem Gerät, offline", "Keys on your own device, offline")], ["🗝", Lern.t("Multisig 2 von 3", "Multisig 2 of 3"), Lern.t("3 Schlüssel an 3 Orten, 2 nötig", "3 keys in 3 places, 2 needed")]];
 // Gefahren: [Knopf, je Wallet: [sicher?, Grund]]
 const T = [
-  ["🏚 Börse geht pleite", [[0, "Geld weg oder jahrelang eingefroren, wie bei FTX 2022."], [1, "Nicht betroffen, du hast die Schlüssel selbst."], [1, "Nicht betroffen, du hast die Schlüssel selbst."], [1, "Nicht betroffen, du hast die Schlüssel selbst."]]],
-  ["🦠 Virus auf dem Handy", [[0, "Kann deine Login-Daten abgreifen, wenn keine gute 2-Faktor-Sicherung aktiv ist."], [0, "Ein Virus kann den Schlüssel stehlen, weil er auf dem Handy liegt."], [1, "Der Schlüssel verlässt nie das Gerät. Jede Zahlung bestätigst du am Gerät selbst."], [1, "Selbst mit einem gestohlenen Schlüssel fehlt noch der zweite."]]],
-  ["📵 Gerät verloren", [[1, "Neu einloggen, das Geld liegt bei der Börse."], [1, "Sicher, wenn du die Seed-Wörter notiert hast. Damit holst du alles zurück."], [1, "Sicher dank PIN und Seed-Wörtern. Der Finder kommt nicht rein."], [1, "Ein Schlüssel weg? Die anderen zwei reichen."]]],
-  ["📝 Jemand findet den Seed-Zettel", [[1, "Nicht betroffen, es gibt keinen eigenen Seed."], [0, "Mit den Wörtern kann er alles sofort abräumen."], [0, "Mit den Wörtern kann er alles sofort abräumen, außer du nutzt zusätzlich eine Passphrase."], [1, "Ein Zettel allein reicht nicht, er braucht 2 von 3."]]],
-  ["🔥 Feuer zu Hause", [[1, "Nicht betroffen, alles liegt bei der Börse."], [0, "Brennen Handy und Seed-Zettel zusammen, ist alles weg."], [0, "Brennen Gerät und Seed-Zettel zusammen, ist alles weg. Tipp: Seed in Metall stanzen oder woanders lagern."], [1, "Die anderen zwei Schlüssel liegen an anderen Orten."]]],
+  [Lern.t("🏚 Börse geht pleite", "🏚 Exchange goes bankrupt"), [[0, Lern.t("Geld weg oder jahrelang eingefroren, wie bei FTX 2022.", "Money gone or frozen for years, like with FTX in 2022.")], [1, Lern.t("Nicht betroffen, du hast die Schlüssel selbst.", "Not affected, you hold the keys yourself.")], [1, Lern.t("Nicht betroffen, du hast die Schlüssel selbst.", "Not affected, you hold the keys yourself.")], [1, Lern.t("Nicht betroffen, du hast die Schlüssel selbst.", "Not affected, you hold the keys yourself.")]]],
+  [Lern.t("🦠 Virus auf dem Handy", "🦠 Virus on the phone"), [[0, Lern.t("Kann deine Login-Daten abgreifen, wenn keine gute 2-Faktor-Sicherung aktiv ist.", "Can steal your login data if no good two-factor protection is active.")], [0, Lern.t("Ein Virus kann den Schlüssel stehlen, weil er auf dem Handy liegt.", "A virus can steal the key because it's on the phone.")], [1, Lern.t("Der Schlüssel verlässt nie das Gerät. Jede Zahlung bestätigst du am Gerät selbst.", "The key never leaves the device. You confirm every payment on the device itself.")], [1, Lern.t("Selbst mit einem gestohlenen Schlüssel fehlt noch der zweite.", "Even with one stolen key, the second is still missing.")]]],
+  [Lern.t("📵 Gerät verloren", "📵 Device lost"), [[1, Lern.t("Neu einloggen, das Geld liegt bei der Börse.", "Log in again, the money is at the exchange.")], [1, Lern.t("Sicher, wenn du die Seed-Wörter notiert hast. Damit holst du alles zurück.", "Safe if you wrote down the seed words. With them you get everything back.")], [1, Lern.t("Sicher dank PIN und Seed-Wörtern. Der Finder kommt nicht rein.", "Safe thanks to PIN and seed words. The finder can't get in.")], [1, Lern.t("Ein Schlüssel weg? Die anderen zwei reichen.", "One key gone? The other two are enough.")]]],
+  [Lern.t("📝 Jemand findet den Seed-Zettel", "📝 Someone finds the seed note"), [[1, Lern.t("Nicht betroffen, es gibt keinen eigenen Seed.", "Not affected, there's no seed of your own.")], [0, Lern.t("Mit den Wörtern kann er alles sofort abräumen.", "With the words they can clear out everything immediately.")], [0, Lern.t("Mit den Wörtern kann er alles sofort abräumen, außer du nutzt zusätzlich eine Passphrase.", "With the words they can clear out everything immediately, unless you also use a passphrase.")], [1, Lern.t("Ein Zettel allein reicht nicht, er braucht 2 von 3.", "One note alone isn't enough; they need 2 of 3.")]]],
+  [Lern.t("🔥 Feuer zu Hause", "🔥 Fire at home"), [[1, Lern.t("Nicht betroffen, alles liegt bei der Börse.", "Not affected, everything is at the exchange.")], [0, Lern.t("Brennen Handy und Seed-Zettel zusammen, ist alles weg.", "If phone and seed note burn together, everything is gone.")], [0, Lern.t("Brennen Gerät und Seed-Zettel zusammen, ist alles weg. Tipp: Seed in Metall stanzen oder woanders lagern.", "If device and seed note burn together, everything is gone. Tip: stamp the seed into metal or store it elsewhere.")], [1, Lern.t("Die anderen zwei Schlüssel liegen an anderen Orten.", "The other two keys are in other places.")]]],
 ];
 const card = (i, cls, head, txt) => `<div class="w ${cls}"><span class="ic">${W[i][0]}</span><b>${W[i][1]}</b><small>${W[i][2]}</small><div class="v">${head ? `<strong>${head}</strong>` : ""}${txt}</div></div>`;
 function buttons(box, list, onPick, sel){
@@ -138,28 +139,28 @@ function buttons(box, list, onPick, sel){
 }
 
 // 1) Gefahren-Test
-function threat(t){ $("wl1").innerHTML = T[t][1].map(([ok, why], i) => card(i, ok ? "y" : "n", ok ? "✓ Sicher" : "✗ In Gefahr", why)).join(""); }
+function threat(t){ $("wl1").innerHTML = T[t][1].map(([ok, why], i) => card(i, ok ? "y" : "n", ok ? Lern.t("✓ Sicher", "✓ Safe") : Lern.t("✗ In Gefahr", "✗ In danger"), why)).join(""); }
 buttons("threats", T.map(t => t[0]), threat, 0); threat(0);
 
 // 2) Wallet-Finder: Empfehlung nach Betrag und Zweck
-const AMT = ["bis 100 €", "bis 2.000 €", "bis 20.000 €", "mehr"], USE = ["🛒 Bezahlen", "🐷 Langfristig sparen"];
+const AMT = [Lern.t("bis 100 €", "up to €100"), Lern.t("bis 2.000 €", "up to €2,000"), Lern.t("bis 20.000 €", "up to €20,000"), Lern.t("mehr", "more")], USE = [Lern.t("🛒 Bezahlen", "🛒 Paying"), Lern.t("🐷 Langfristig sparen", "🐷 Long-term saving")];
 let a = 1, u = 1;
 function rec(){
   let r, why;
-  if (u === 0 && a === 0){ r = 1; why = "Für kleine Beträge zum Bezahlen ist eine Handy-Wallet ideal, gerne mit Lightning. Seed-Wörter trotzdem notieren."; }
-  else if (u === 0){ r = 1; why = "Zum Bezahlen eine Handy-Wallet, aber nur mit dem, was du bald ausgibst. Faustregel: Aufs Handy nur so viel wie ins Portemonnaie. Alles darüber besser auf eine Hardware-Wallet."; }
-  else if (a === 0){ r = 1; why = "Für den Anfang reicht eine Handy-Wallet. Wichtig: Seed-Wörter auf Papier notieren und sicher aufbewahren."; }
-  else if (a <= 2){ r = 2; why = "Fürs Sparen ist eine Hardware-Wallet der Standard. Sie kostet etwa 60 bis 200 € und hält den Schlüssel offline. Trotzdem: jede Zahlung auf dem Gerät prüfen, nur beim Hersteller kaufen und die Wörter sicher aufbewahren."; }
-  else { r = 3; why = "Bei großen Beträgen lohnt sich Multisig oder eine Hardware-Wallet mit Passphrase. So gibt es keinen einzelnen Schwachpunkt. Lass dir beim Einrichten Zeit."; }
-  $("rec").innerHTML = `<strong>${W[r][0]} Empfehlung: ${W[r][1]}</strong>${why} <span class="muted">Die Börse nur zum Kaufen, danach abheben.</span>`;
-  $("wl2").innerHTML = W.map((w, i) => card(i, i === r ? "rec" : "", "", ["Bequem, aber du vertraust der Börse.", "Bequem und kostenlos, aber online.", "Sehr sicher, etwas Aufwand.", "Am sichersten, aber kompliziert."][i])).join("");
+  if (u === 0 && a === 0){ r = 1; why = Lern.t("Für kleine Beträge zum Bezahlen ist eine Handy-Wallet ideal, gerne mit Lightning. Seed-Wörter trotzdem notieren.", "For small amounts for paying, a phone wallet is ideal, ideally with Lightning. Still write down the seed words."); }
+  else if (u === 0){ r = 1; why = Lern.t("Zum Bezahlen eine Handy-Wallet, aber nur mit dem, was du bald ausgibst. Faustregel: Aufs Handy nur so viel wie ins Portemonnaie. Alles darüber besser auf eine Hardware-Wallet.", "For paying, a phone wallet, but only with what you'll spend soon. Rule of thumb: only as much on your phone as in your wallet. Everything above that is better on a hardware wallet."); }
+  else if (a === 0){ r = 1; why = Lern.t("Für den Anfang reicht eine Handy-Wallet. Wichtig: Seed-Wörter auf Papier notieren und sicher aufbewahren.", "A phone wallet is enough to start. Important: write the seed words on paper and store them safely."); }
+  else if (a <= 2){ r = 2; why = Lern.t("Fürs Sparen ist eine Hardware-Wallet der Standard. Sie kostet etwa 60 bis 200 € und hält den Schlüssel offline. Trotzdem: jede Zahlung auf dem Gerät prüfen, nur beim Hersteller kaufen und die Wörter sicher aufbewahren.", "For saving, a hardware wallet is the standard. It costs about €60 to €200 and keeps the key offline. Still: check every payment on the device, only buy from the manufacturer and store the words safely."); }
+  else { r = 3; why = Lern.t("Bei großen Beträgen lohnt sich Multisig oder eine Hardware-Wallet mit Passphrase. So gibt es keinen einzelnen Schwachpunkt. Lass dir beim Einrichten Zeit.", "For large amounts, multisig or a hardware wallet with a passphrase is worth it. That way there's no single weak point. Take your time setting it up."); }
+  $("rec").innerHTML = Lern.t(`<strong>${W[r][0]} Empfehlung: ${W[r][1]}</strong>${why} <span class="muted">Die Börse nur zum Kaufen, danach abheben.</span>`, `<strong>${W[r][0]} Recommendation: ${W[r][1]}</strong>${why} <span class="muted">Use the exchange only for buying, then withdraw.</span>`);
+  $("wl2").innerHTML = W.map((w, i) => card(i, i === r ? "rec" : "", "", [Lern.t("Bequem, aber du vertraust der Börse.", "Convenient, but you trust the exchange."), Lern.t("Bequem und kostenlos, aber online.", "Convenient and free, but online."), Lern.t("Sehr sicher, etwas Aufwand.", "Very secure, some effort."), Lern.t("Am sichersten, aber kompliziert.", "The most secure, but complicated.")][i])).join("");
 }
 buttons("amt", AMT, i => { a = i; rec(); }, a); buttons("use", USE, i => { u = i; rec(); }, u); rec();
 
 const QUIZ = [
-  ["Was speichert eine Wallet eigentlich?", ["Die Bitcoin selbst als kleine Dateien", "Die Schlüssel, mit denen du deine Bitcoin bewegen kannst", "Deinen Kontostand bei einer Bitcoin-Bank"], 1, "Die Bitcoin liegen in der Blockchain. Die Wallet verwahrt nur die Schlüssel, die beweisen, dass sie dir gehören."],
-  ["Deine Börse geht pleite. Wer ist sicher?", ["Nur wer seine Bitcoin auf der Börse lässt", "Wer seine Bitcoin in einer eigenen Wallet hat", "Niemand"], 1, "Wer die Schlüssel selbst hat, ist von einer Börsenpleite nicht betroffen. Auf der Börse hast du nur ein Versprechen."],
-  ["Deine Hardware-Wallet geht kaputt. Was brauchst du?", ["Nichts mehr, die Bitcoin sind dann weg", "Deine Seed-Wörter, damit stellst du alles wieder her", "Den Kaufbeleg des Geräts für den Hersteller"], 1, "Mit den 12 oder 24 Seed-Wörtern stellst du die Schlüssel auf einem neuen Gerät wieder her."],
+  [Lern.t("Was speichert eine Wallet eigentlich?", "What does a wallet actually store?"), [Lern.t("Die Bitcoin selbst als kleine Dateien", "The bitcoin themselves as small files"), Lern.t("Die Schlüssel, mit denen du deine Bitcoin bewegen kannst", "The keys you can move your bitcoin with"), Lern.t("Deinen Kontostand bei einer Bitcoin-Bank", "Your balance at a Bitcoin bank")], 1, Lern.t("Die Bitcoin liegen in der Blockchain. Die Wallet verwahrt nur die Schlüssel, die beweisen, dass sie dir gehören.", "The bitcoin are on the blockchain. The wallet only keeps the keys that prove they belong to you.")],
+  [Lern.t("Deine Börse geht pleite. Wer ist sicher?", "Your exchange goes bankrupt. Who is safe?"), [Lern.t("Nur wer seine Bitcoin auf der Börse lässt", "Only those who leave their bitcoin on the exchange"), Lern.t("Wer seine Bitcoin in einer eigenen Wallet hat", "Those who have their bitcoin in their own wallet"), Lern.t("Niemand", "Nobody")], 1, Lern.t("Wer die Schlüssel selbst hat, ist von einer Börsenpleite nicht betroffen. Auf der Börse hast du nur ein Versprechen.", "Whoever holds the keys themselves isn't affected by an exchange collapse. On the exchange you only have a promise.")],
+  [Lern.t("Deine Hardware-Wallet geht kaputt. Was brauchst du?", "Your hardware wallet breaks. What do you need?"), [Lern.t("Nichts mehr, die Bitcoin sind dann weg", "Nothing, the bitcoin are gone then"), Lern.t("Deine Seed-Wörter, damit stellst du alles wieder her", "Your seed words, with which you restore everything"), Lern.t("Den Kaufbeleg des Geräts für den Hersteller", "The device's receipt for the manufacturer")], 1, Lern.t("Mit den 12 oder 24 Seed-Wörtern stellst du die Schlüssel auf einem neuen Gerät wieder her.", "With the 12 or 24 seed words you restore the keys on a new device.")],
 ];
 Lern.quiz($("quiz"), "wallets", QUIZ, "../"); Lern.visit("wallets"); Lern.renderNext("wallets", "../");
 })();

@@ -39,42 +39,43 @@
 .ans{margin-top:12px} .ans .res{animation:flipin .3s}
 .score{display:flex;gap:4px;margin-top:12px;flex-wrap:wrap} .score i{width:22px;height:8px;border-radius:4px;background:rgba(255,255,255,.1)} .score i.ok{background:var(--bull)} .score i.no{background:var(--bear)}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Mythos oder <span class="btc">Wahrheit</span>?</h1>
-    <p class="lead">Über Bitcoin hört man viel, Gutes wie Schlechtes. Teste dich: Ist die Aussage ein <b>Mythos</b> oder <b>stimmt sie</b>? Zu jeder Antwort gibt es die Fakten, ehrlich auch dort, wo Kritik berechtigt ist.</p>
+    <h1 data-i="k3">Mythos oder <span class="btc">Wahrheit</span>?</h1>
+    <p data-i="k4" class="lead">Über Bitcoin hört man viel, Gutes wie Schlechtes. Teste dich: Ist die Aussage ein <b>Mythos</b> oder <b>stimmt sie</b>? Zu jeder Antwort gibt es die Fakten, ehrlich auch dort, wo Kritik berechtigt ist.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Der Faktencheck</h2>
+    <h2 data-i="k5" id="h1s">Der Faktencheck</h2>
     <div class="myth" id="card" aria-live="polite"></div>
-    <div class="pick" id="pick"><button class="btn" type="button" data-a="m">❌ Mythos</button><button class="btn" type="button" data-a="t">⚖️ Teils</button><button class="btn" type="button" data-a="w">✅ Stimmt</button></div>
+    <div class="pick" id="pick"><button data-i="k6" class="btn" type="button" data-a="m">❌ Mythos</button><button data-i="k7" class="btn" type="button" data-a="t">⚖️ Teils</button><button data-i="k8" class="btn" type="button" data-a="w">✅ Stimmt</button></div>
     <div class="ans" id="ans"></div>
     <div class="score" id="score"></div>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k9" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Kriminalität</b><span>Laut Chainalysis lag der illegale Anteil aller Krypto-Zahlungen 2025 <b>unter 1 %</b>.</span></div>
-      <div><b>Auch Satoshi nicht</b><span>Nicht einmal der Erfinder kann die Regeln ändern. Jede <b>Node</b> prüft sie selbst.</span></div>
-      <div><b>Kein Schneeball</b><span>Niemand verspricht Renditen, es gibt keinen Betreiber. Aber der <b>Preis schwankt stark</b>.</span></div>
-      <div><b>Pseudonym</b><span>Bitcoin ist <b>nicht anonym</b>: Alle Zahlungen sind öffentlich, nur ohne Namen.</span></div>
+      <div><b data-i="k10">Kriminalität</b><span data-i="k11">Laut Chainalysis lag der illegale Anteil aller Krypto-Zahlungen 2025 <b>unter 1 %</b>.</span></div>
+      <div><b data-i="k12">Auch Satoshi nicht</b><span data-i="k13">Nicht einmal der Erfinder kann die Regeln ändern. Jede <b>Node</b> prüft sie selbst.</span></div>
+      <div><b data-i="k14">Kein Schneeball</b><span data-i="k15">Niemand verspricht Renditen, es gibt keinen Betreiber. Aber der <b>Preis schwankt stark</b>.</span></div>
+      <div><b data-i="k16">Pseudonym</b><span data-i="k17">Bitcoin ist <b>nicht anonym</b>: Alle Zahlungen sind öffentlich, nur ohne Namen.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k18">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
   
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://www.unodc.org/unodc/en/money-laundering/overview.html">UNODC: Money Laundering (Schätzung 2–5 % des globalen BIP)</a>; <a href="https://www.theblock.co/post/384753/crypto-crime-150-billion-usd-2025-state-actors-scale-onchain-chainalysis">The Block zu Chainalysis 2026</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k23" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k19">Quellen</summary><p><a data-i="k20" href="https://www.unodc.org/unodc/en/money-laundering/overview.html">UNODC: Money Laundering (Schätzung 2–5 % des globalen BIP)</a>; <a data-i="k21" href="https://www.theblock.co/post/384753/crypto-crime-150-billion-usd-2025-state-actors-scale-onchain-chainalysis">The Block zu Chainalysis 2026</a></p></details>
+  <p data-i="k22" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Myth or <span class=\"btc\">truth<\/span>?", "k4": "You hear a lot about Bitcoin, good and bad. Test yourself: is the statement a <b>myth<\/b> or <b>true<\/b>? Every answer comes with the facts, honestly also where criticism is justified.", "k5": "The fact check", "k6": "❌ Myth", "k7": "⚖️ Partly", "k8": "✅ True", "k9": "Remember this", "k10": "Crime", "k11": "According to Chainalysis, the illegal share of all crypto payments in 2025 was <b>below 1 %<\/b>.", "k12": "Not even Satoshi", "k13": "Not even the inventor can change the rules. Every <b>node<\/b> checks them itself.", "k14": "Not a Ponzi scheme", "k15": "Nobody promises returns, there's no operator. But the <b>price swings a lot<\/b>.", "k16": "Pseudonymous", "k17": "Bitcoin is <b>not anonymous<\/b>: all payments are public, just without names.", "k18": "Test yourself: 3 questions", "k19": "Sources", "k20": "UNODC: Money Laundering (estimate 2–5 % of global GDP)", "k21": "The Block on Chainalysis 2026", "k22": "Entertainment and learning, not investment advice.", "k23@aria-label": "Next", "_title": "Myth Check · Bitcoin Voyage", "_desc": "Lernwelt: Die häufigsten Bitcoin-Mythen im Faktencheck. Kriminalität, Schneeballsystem, Anonymität, Quantencomputer und mehr, mit Quellen."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    MYTHEN-CHECK – Lernwelt von Bitcoin Voyage
@@ -82,34 +83,34 @@
 (() => {
 const $ = id => document.getElementById(id);
 const M = [
-  ["Bitcoin wird vor allem für Kriminalität benutzt.", "m", "Laut dem Krypto-Kriminalitätsbericht 2026 von Chainalysis lag der Anteil illegaler Zahlungen 2025 bei <b>unter 1 %</b> aller Krypto-Zahlungen, und der größte Teil davon lief über Stablecoins, nicht über Bitcoin. <b>Zum Vergleich:</b> Bei Euro, Dollar und Co. schätzen die Vereinten Nationen (UNODC), dass jedes Jahr Geld im Wert von <b>2 bis 5 %</b> der gesamten Weltwirtschaft gewaschen wird, oft in bar. Und weil bei Bitcoin alles öffentlich ist, wurden schon viele Täter gefasst."],
-  ["Quantencomputer knacken Bitcoin bald.", "t", "Große Quantencomputer könnten in Zukunft bestimmte Signaturen knacken. Heutige Chips sind dafür aber <b>viel zu klein und zu fehleranfällig</b>. Fachleute arbeiten schon an quantensicheren Verfahren, die Bitcoin per Update übernehmen kann."],
-  ["Bitcoin ist ein Schneeballsystem.", "m", "Ein Schneeballsystem hat einen Betreiber, der Renditen verspricht und mit neuem Geld alte Anleger bezahlt. Bei Bitcoin gibt es <b>keinen Betreiber und keine versprochene Rendite</b>. Wohl aber starke Kursschwankungen: Wer teuer kauft, kann verlieren."],
-  ["Man muss einen ganzen Bitcoin kaufen.", "m", "Ein Bitcoin hat <b>100 Millionen Satoshis</b>. Man kann schon für wenige Euro einsteigen."],
-  ["Bitcoin ist anonym.", "m", "Bitcoin ist <b>pseudonym</b>: Jede Zahlung ist für immer öffentlich, nur stehen keine Namen dabei. Über Börsen mit Ausweis-Pflicht lassen sich Adressen oft Personen zuordnen."],
-  ["Bitcoin selbst wurde schon gehackt.", "m", "Die Regeln von Bitcoin wurden seit 2009 <b>nie geknackt</b>. Einen schweren Software-Fehler gab es 2010: Er erzeugte aus dem Nichts Milliarden Bitcoin und wurde in wenigen Stunden behoben. Gehackt wurden vor allem Börsen und schlecht gesicherte Wallets. Darum: eigene Wallet, Seed offline."],
-  ["Satoshi, der Erfinder, kann Bitcoin kontrollieren.", "m", "Satoshi Nakamoto ist seit 2011 verschwunden. Die Regeln prüft <b>jede Node selbst</b>. Auch der Erfinder könnte sie nicht allein ändern."],
-  ["Es wird nie mehr als 21 Millionen Bitcoin geben.", "w", "Die Grenze ist in den Regeln festgeschrieben, die jede Node prüft. Ändern ließe sie sich nur, wenn fast alle Nutzer freiwillig mitmachen, und das will praktisch niemand."],
-  ["Bitcoin ist dasselbe wie jede andere Kryptowährung.", "m", "Es gibt tausende Coins, viele mit Firma oder Gründern, die sich vorab Coins gesichert haben. Bitcoin hat <b>keinen Chef und keine Vorab-Verteilung</b> und das älteste, größte Netzwerk. Mehr im Krypto-Check."],
-  ["Wer Bitcoin kopiert, hat ein gleich gutes Geld.", "m", "Den Code kann jeder kopieren, und tausende haben es getan. Nicht kopieren kann man das <b>Netzwerk</b>: die Nodes, Miner, Nutzer und die 17 Jahre Vertrauen."]
+  [Lern.t("Bitcoin wird vor allem für Kriminalität benutzt.", "Bitcoin is mainly used for crime."), "m", Lern.t("Laut dem Krypto-Kriminalitätsbericht 2026 von Chainalysis lag der Anteil illegaler Zahlungen 2025 bei <b>unter 1 %</b> aller Krypto-Zahlungen, und der größte Teil davon lief über Stablecoins, nicht über Bitcoin. <b>Zum Vergleich:</b> Bei Euro, Dollar und Co. schätzen die Vereinten Nationen (UNODC), dass jedes Jahr Geld im Wert von <b>2 bis 5 %</b> der gesamten Weltwirtschaft gewaschen wird, oft in bar. Und weil bei Bitcoin alles öffentlich ist, wurden schon viele Täter gefasst.", "According to Chainalysis' 2026 crypto crime report, illegal payments in 2025 made up <b>below 1 %</b> of all crypto payments, and most of that ran through stablecoins, not Bitcoin. <b>For comparison:</b> for the euro, the dollar and co., the United Nations (UNODC) estimates that money worth <b>2 to 5 %</b> of the entire world economy is laundered every year, often in cash. And because everything is public with Bitcoin, many criminals have already been caught.")],
+  [Lern.t("Quantencomputer knacken Bitcoin bald.", "Quantum computers will soon crack Bitcoin."), "t", Lern.t("Große Quantencomputer könnten in Zukunft bestimmte Signaturen knacken. Heutige Chips sind dafür aber <b>viel zu klein und zu fehleranfällig</b>. Fachleute arbeiten schon an quantensicheren Verfahren, die Bitcoin per Update übernehmen kann.", "Large quantum computers could crack certain signatures in the future. But today's chips are <b>far too small and error-prone</b> for that. Experts are already working on quantum-safe methods that Bitcoin can adopt via an update.")],
+  [Lern.t("Bitcoin ist ein Schneeballsystem.", "Bitcoin is a Ponzi scheme."), "m", Lern.t("Ein Schneeballsystem hat einen Betreiber, der Renditen verspricht und mit neuem Geld alte Anleger bezahlt. Bei Bitcoin gibt es <b>keinen Betreiber und keine versprochene Rendite</b>. Wohl aber starke Kursschwankungen: Wer teuer kauft, kann verlieren.", "A Ponzi scheme has an operator who promises returns and pays old investors with new money. Bitcoin has <b>no operator and no promised return</b>. It does have strong price swings, though: whoever buys high can lose.")],
+  [Lern.t("Man muss einen ganzen Bitcoin kaufen.", "You have to buy a whole bitcoin."), "m", Lern.t("Ein Bitcoin hat <b>100 Millionen Satoshis</b>. Man kann schon für wenige Euro einsteigen.", "One bitcoin has <b>100 million satoshis</b>. You can get started with just a few euros.")],
+  [Lern.t("Bitcoin ist anonym.", "Bitcoin is anonymous."), "m", Lern.t("Bitcoin ist <b>pseudonym</b>: Jede Zahlung ist für immer öffentlich, nur stehen keine Namen dabei. Über Börsen mit Ausweis-Pflicht lassen sich Adressen oft Personen zuordnen.", "Bitcoin is <b>pseudonymous</b>: every payment is public forever, just without names attached. Via exchanges with ID requirements, addresses can often be linked to people.")],
+  [Lern.t("Bitcoin selbst wurde schon gehackt.", "Bitcoin itself has already been hacked."), "m", Lern.t("Die Regeln von Bitcoin wurden seit 2009 <b>nie geknackt</b>. Einen schweren Software-Fehler gab es 2010: Er erzeugte aus dem Nichts Milliarden Bitcoin und wurde in wenigen Stunden behoben. Gehackt wurden vor allem Börsen und schlecht gesicherte Wallets. Darum: eigene Wallet, Seed offline.", "Bitcoin's rules have <b>never been broken</b> since 2009. There was one serious software bug in 2010: it created billions of bitcoin out of nothing and was fixed within a few hours. What got hacked were mainly exchanges and poorly secured wallets. So: your own wallet, seed offline.")],
+  [Lern.t("Satoshi, der Erfinder, kann Bitcoin kontrollieren.", "Satoshi, the inventor, can control Bitcoin."), "m", Lern.t("Satoshi Nakamoto ist seit 2011 verschwunden. Die Regeln prüft <b>jede Node selbst</b>. Auch der Erfinder könnte sie nicht allein ändern.", "Satoshi Nakamoto has been gone since 2011. <b>Every node checks</b> the rules itself. Not even the inventor could change them alone.")],
+  [Lern.t("Es wird nie mehr als 21 Millionen Bitcoin geben.", "There will never be more than 21 million bitcoin."), "w", Lern.t("Die Grenze ist in den Regeln festgeschrieben, die jede Node prüft. Ändern ließe sie sich nur, wenn fast alle Nutzer freiwillig mitmachen, und das will praktisch niemand.", "The limit is written into the rules that every node checks. It could only be changed if almost all users voluntarily went along, and practically nobody wants that.")],
+  [Lern.t("Bitcoin ist dasselbe wie jede andere Kryptowährung.", "Bitcoin is the same as any other cryptocurrency."), "m", Lern.t("Es gibt tausende Coins, viele mit Firma oder Gründern, die sich vorab Coins gesichert haben. Bitcoin hat <b>keinen Chef und keine Vorab-Verteilung</b> und das älteste, größte Netzwerk. Mehr im Krypto-Check.", "There are thousands of coins, many with a company or founders who secured coins in advance. Bitcoin has <b>no boss and no pre-distribution</b>, and the oldest, largest network. More in the Coin Check.")],
+  [Lern.t("Wer Bitcoin kopiert, hat ein gleich gutes Geld.", "Whoever copies Bitcoin has an equally good money."), "m", Lern.t("Den Code kann jeder kopieren, und tausende haben es getan. Nicht kopieren kann man das <b>Netzwerk</b>: die Nodes, Miner, Nutzer und die 17 Jahre Vertrauen.", "Anyone can copy the code, and thousands have. What you can't copy is the <b>network</b>: the nodes, miners, users and 17 years of trust.")]
 ];
-const L = {m: "Mythos", t: "Teils richtig", w: "Stimmt"};
+const L = {m: Lern.t("Mythos", "Myth"), t: Lern.t("Teils richtig", "Partly true"), w: Lern.t("Stimmt", "True")};
 let i = 0, res = [];
 function card(){
   if (i >= M.length){ const r = res.filter(Boolean).length;
-    $("card").innerHTML = `<span class="k">ERGEBNIS</span><p>${r} von ${M.length} richtig ${r >= 8 ? "🏆" : r >= 5 ? "👍" : "📚"}</p>`; $("card").classList.remove("in"); void $("card").offsetWidth; $("card").classList.add("in");
-    $("pick").hidden = true; $("ans").innerHTML = `<button class="btn" type="button" id="again">↺ Nochmal</button>`; $("again").onclick = () => { i = 0; res = []; $("pick").hidden = false; card(); }; if (r >= 8) Lern.confetti && Lern.confetti(); score(); return; }
-  $("card").innerHTML = `<span class="k">AUSSAGE ${i + 1} VON ${M.length}</span><p>„${M[i][0]}“</p>`; $("card").classList.remove("in"); void $("card").offsetWidth; $("card").classList.add("in");
+    $("card").innerHTML = Lern.t(`<span class="k">ERGEBNIS</span><p>${r} von ${M.length} richtig ${r >= 8 ? "🏆" : r >= 5 ? "👍" : "📚"}</p>`, `<span class="k">RESULT</span><p>${r} of ${M.length} correct ${r >= 8 ? "🏆" : r >= 5 ? "👍" : "📚"}</p>`); $("card").classList.remove("in"); void $("card").offsetWidth; $("card").classList.add("in");
+    $("pick").hidden = true; $("ans").innerHTML = Lern.t(`<button class="btn" type="button" id="again">↺ Nochmal</button>`, `<button class="btn" type="button" id="again">↺ Again</button>`); $("again").onclick = () => { i = 0; res = []; $("pick").hidden = false; card(); }; if (r >= 8) Lern.confetti && Lern.confetti(); score(); return; }
+  $("card").innerHTML = Lern.t(`<span class="k">AUSSAGE ${i + 1} VON ${M.length}</span><p>„${M[i][0]}“</p>`, `<span class="k">STATEMENT ${i + 1} OF ${M.length}</span><p>“${M[i][0]}”</p>`); $("card").classList.remove("in"); void $("card").offsetWidth; $("card").classList.add("in");
   $("ans").innerHTML = ""; $("pick").querySelectorAll("button").forEach(b => b.disabled = false); score();
 }
 function score(){ $("score").innerHTML = M.map((_, k) => `<i class="${k < res.length ? (res[k] ? "ok" : "no") : ""}"></i>`).join(""); }
 $("pick").onclick = e => { const b = e.target.closest("[data-a]"); if (!b || i >= M.length || res.length > i) return;
   const ok = b.dataset.a === M[i][1]; res.push(ok); $("pick").querySelectorAll("button").forEach(x => x.disabled = true);
-  $("ans").innerHTML = `<div class="res ${ok ? "ok" : "bad"}"><strong>${ok ? "Richtig!" : "Nicht ganz."} Antwort: ${L[M[i][1]]}</strong>${M[i][2]}<br><button class="btn" type="button" id="nx" style="margin-top:10px">Weiter →</button></div>`;
+  $("ans").innerHTML = Lern.t(`<div class="res ${ok ? "ok" : "bad"}"><strong>${ok ? "Richtig!" : "Nicht ganz."} Antwort: ${L[M[i][1]]}</strong>${M[i][2]}<br><button class="btn" type="button" id="nx" style="margin-top:10px">Weiter →</button></div>`, `<div class="res ${ok ? "ok" : "bad"}"><strong>${ok ? "Correct!" : "Not quite."} Answer: ${L[M[i][1]]}</strong>${M[i][2]}<br><button class="btn" type="button" id="nx" style="margin-top:10px">Next →</button></div>`);
   $("nx").onclick = () => { i++; card(); }; score(); };
 card();
 
-const QUIZ = [["Wie hoch war laut Chainalysis 2025 der Anteil illegaler Krypto-Zahlungen?", ["Etwa 50 %", "Etwa 25 %", "Unter 1 %", "Genau 10 %"], 2, "Laut Chainalysis lag der illegale Anteil 2025 bei unter 1 % aller Krypto-Zahlungen."], ["Ist Bitcoin anonym?", ["Ja, niemand kann Zahlungen jemals einer Person zuordnen", "Nein, pseudonym: alle Zahlungen sind öffentlich, nur ohne Namen", "Nur wenn man Bitcoin über eine Börse kauft", "Nur wenn man ausschließlich Lightning nutzt"], 1, "Jede Zahlung steht öffentlich in der Blockchain. Namen stehen nicht dabei, lassen sich aber oft herausfinden."], ["Wurde das Bitcoin-Netzwerk selbst schon gehackt?", ["Ja, mehrmals, deshalb gibt es so viele Updates", "Nein, gehackt wurden Börsen und schlecht gesicherte Wallets", "Ja, 2021 hat China das Netzwerk übernommen", "Ja, aber jedes Mal nur für wenige Minuten"], 1, "Die Regeln wurden nie geknackt, ein Software-Fehler 2010 war in wenigen Stunden behoben. Verluste entstanden vor allem bei Börsen und unsicheren Wallets."]];
+const QUIZ = [[Lern.t("Wie hoch war laut Chainalysis 2025 der Anteil illegaler Krypto-Zahlungen?", "According to Chainalysis, how high was the share of illegal crypto payments in 2025?"), [Lern.t("Etwa 50 %", "About 50 %"), Lern.t("Etwa 25 %", "About 25 %"), Lern.t("Unter 1 %", "Below 1 %"), Lern.t("Genau 10 %", "Exactly 10 %")], 2, Lern.t("Laut Chainalysis lag der illegale Anteil 2025 bei unter 1 % aller Krypto-Zahlungen.", "According to Chainalysis, the illegal share in 2025 was below 1 % of all crypto payments.")], [Lern.t("Ist Bitcoin anonym?", "Is Bitcoin anonymous?"), [Lern.t("Ja, niemand kann Zahlungen jemals einer Person zuordnen", "Yes, nobody can ever link payments to a person"), Lern.t("Nein, pseudonym: alle Zahlungen sind öffentlich, nur ohne Namen", "No, pseudonymous: all payments are public, just without names"), Lern.t("Nur wenn man Bitcoin über eine Börse kauft", "Only if you buy bitcoin via an exchange"), Lern.t("Nur wenn man ausschließlich Lightning nutzt", "Only if you use Lightning exclusively")], 1, Lern.t("Jede Zahlung steht öffentlich in der Blockchain. Namen stehen nicht dabei, lassen sich aber oft herausfinden.", "Every payment is public on the blockchain. Names aren't attached, but can often be found out.")], [Lern.t("Wurde das Bitcoin-Netzwerk selbst schon gehackt?", "Has the Bitcoin network itself ever been hacked?"), [Lern.t("Ja, mehrmals, deshalb gibt es so viele Updates", "Yes, several times, that's why there are so many updates"), Lern.t("Nein, gehackt wurden Börsen und schlecht gesicherte Wallets", "No, what got hacked were exchanges and poorly secured wallets"), Lern.t("Ja, 2021 hat China das Netzwerk übernommen", "Yes, in 2021 China took over the network"), Lern.t("Ja, aber jedes Mal nur für wenige Minuten", "Yes, but only for a few minutes each time")], 1, Lern.t("Die Regeln wurden nie geknackt, ein Software-Fehler 2010 war in wenigen Stunden behoben. Verluste entstanden vor allem bei Börsen und unsicheren Wallets.", "The rules have never been broken; a software bug in 2010 was fixed within a few hours. Losses mainly occurred at exchanges and insecure wallets.")]];
 Lern.quiz($("quiz"), "mythen", QUIZ, "../"); Lern.visit("mythen"); Lern.renderNext("mythen", "../");
 })();
 </script>

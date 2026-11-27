@@ -34,52 +34,53 @@
 .crit{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .crit div{border:2px solid var(--line);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.5} .crit .p{border-color:rgba(52,217,130,.5)} .crit .c{border-color:rgba(255,92,115,.5)} .crit div > b:first-child{display:block;margin-bottom:4px;font-family:var(--f-display)}
 @media (max-width:620px){ .crit{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Wie knapp ist <span class="btc">Bitcoin</span>?</h1>
-    <p class="lead">Knappheit kann man messen: Wie viel gibt es schon, und wie viel kommt jedes Jahr dazu? Diese Zahl heißt <b>Stock-to-Flow</b>. Sie zeigt, wie schwer es ist, ein Gut zu verwässern.</p>
+    <h1 data-i="k3">Wie knapp ist <span class="btc">Bitcoin</span>?</h1>
+    <p data-i="k4" class="lead">Knappheit kann man messen: Wie viel gibt es schon, und wie viel kommt jedes Jahr dazu? Diese Zahl heißt <b>Stock-to-Flow</b>. Sie zeigt, wie schwer es ist, ein Gut zu verwässern.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Der Knappheits-Messer <span class="mode" id="mode">Verbinde …</span></h2>
-    <div class="formula">Stock-to-Flow = <span style="color:var(--gold)">Bestand</span> ÷ <span style="color:var(--bull)">neue Menge pro Jahr</span></div>
-    <p class="note">Bedeutung: So viele <b>Jahre</b> müsste man produzieren, um den heutigen Bestand noch einmal zu erzeugen. Je höher, desto knapper.</p>
-    <div class="ctl"><label for="yr">Jahr</label><div class="row"><input id="yr" type="range" min="2010" max="2040" value="2026"><b id="yrV" class="num">2026</b></div></div>
+    <h2 data-i="k5" id="h1s">Der Knappheits-Messer <span class="mode" id="mode">Verbinde …</span></h2>
+    <div data-i="k6" class="formula">Stock-to-Flow = <span style="color:var(--gold)">Bestand</span> ÷ <span style="color:var(--bull)">neue Menge pro Jahr</span></div>
+    <p data-i="k7" class="note">Bedeutung: So viele <b>Jahre</b> müsste man produzieren, um den heutigen Bestand noch einmal zu erzeugen. Je höher, desto knapper.</p>
+    <div class="ctl"><label data-i="k8" for="yr">Jahr</label><div class="row"><input id="yr" type="range" min="2010" max="2040" value="2026"><b id="yrV" class="num">2026</b></div></div>
     <div class="sf" data-hold id="sf"></div>
     <div class="kv" id="kv" data-hold></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Kann man damit den Preis vorhersagen?</h2>
-    <p class="muted" style="margin:0">2019 wurde ein bekanntes <b>Stock-to-Flow-Modell</b> veröffentlicht <span class="mk mk2">umstritten</span>. Es behauptete: Steigt die Knappheit nach jedem Halving, steigt der Preis nach einer festen Formel mit. Es wurde sehr populär, und dann ziemlich falsch.</p>
+    <h2 data-i="k9" id="h2s">Kann man damit den Preis vorhersagen?</h2>
+    <p data-i="k10" class="muted" style="margin:0">2019 wurde ein bekanntes <b>Stock-to-Flow-Modell</b> veröffentlicht <span class="mk mk2">umstritten</span>. Es behauptete: Steigt die Knappheit nach jedem Halving, steigt der Preis nach einer festen Formel mit. Es wurde sehr populär, und dann ziemlich falsch.</p>
     <div class="crit">
-      <div class="p"><b>👍 Was stimmt</b>Bitcoin wird mit jedem Halving messbar knapper. Seit dem Halving 2024 ist er nach dieser Rechnung knapper als Gold. Knappheit ist eine Voraussetzung für Wert.</div>
-      <div class="c"><b>👎 Was nicht stimmt</b>Knappheit allein macht keinen Preis, es braucht auch <b>Nachfrage</b>. Bekannte Prognosen des Modells, etwa 100.000 $ bis Ende 2021, trafen nicht ein. Ein Zusammenhang in der Vergangenheit ist keine Garantie.</div>
+      <div data-i="k11" class="p"><b>👍 Was stimmt</b>Bitcoin wird mit jedem Halving messbar knapper. Seit dem Halving 2024 ist er nach dieser Rechnung knapper als Gold. Knappheit ist eine Voraussetzung für Wert.</div>
+      <div data-i="k12" class="c"><b>👎 Was nicht stimmt</b>Knappheit allein macht keinen Preis, es braucht auch <b>Nachfrage</b>. Bekannte Prognosen des Modells, etwa 100.000 $ bis Ende 2021, trafen nicht ein. Ein Zusammenhang in der Vergangenheit ist keine Garantie.</div>
     </div>
-    <p class="note">Merke: Modelle sind Werkzeuge zum Nachdenken, keine Kristallkugel. Mehr zum Preis in der Welt <a href="../wert/">Warum hat Bitcoin Wert?</a></p>
+    <p data-i="k13" class="note">Merke: Modelle sind Werkzeuge zum Nachdenken, keine Kristallkugel. Mehr zum Preis in der Welt <a href="../wert/">Warum hat Bitcoin Wert?</a></p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k14" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Stock-to-Flow</b><span><b>Bestand ÷ neue Menge pro Jahr</b>. Je höher, desto schwerer lässt sich das Gut verwässern.</span></div>
-      <div><b>Halving verdoppelt</b><span>Jedes Halving <b>verdoppelt</b> die Knappheit von Bitcoin ungefähr.</span></div>
-      <div><b>Knapper als Gold</b><span>Seit dem Halving <b>2024</b> ist Bitcoin nach dieser Rechnung knapper als Gold.</span></div>
-      <div><b>Kein Preisorakel</b><span>Knappheit ohne Nachfrage macht keinen Preis. Das Modell lag mit Prognosen <b>daneben</b>.</span></div>
+      <div><b data-i="k15">Stock-to-Flow</b><span data-i="k16"><b>Bestand ÷ neue Menge pro Jahr</b>. Je höher, desto schwerer lässt sich das Gut verwässern.</span></div>
+      <div><b data-i="k17">Halving verdoppelt</b><span data-i="k18">Jedes Halving <b>verdoppelt</b> die Knappheit von Bitcoin ungefähr.</span></div>
+      <div><b data-i="k19">Knapper als Gold</b><span data-i="k20">Seit dem Halving <b>2024</b> ist Bitcoin nach dieser Rechnung knapper als Gold.</span></div>
+      <div><b data-i="k21">Kein Preisorakel</b><span data-i="k22">Knappheit ohne Nachfrage macht keinen Preis. Das Modell lag mit Prognosen <b>daneben</b>.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k23">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Bitcoin-Bestand aus den Bitcoin-Regeln berechnet (Blockhöhe geschätzt mit 1 Block alle 10 Minuten), zukünftige Jahre geschätzt mit rund 52.560 Blöcken pro Jahr. Gold gerundet: Bestand rund 216.000 t (Ende 2024), Förderung rund 3.600 t pro Jahr (World Gold Council); andere Jahre mit gleichbleibender Förderung hochgerechnet. Stock-to-Flow-Modell: PlanB, 2019.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k27" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k24">Quellen</summary><p data-i="k25">Bitcoin-Bestand aus den Bitcoin-Regeln berechnet (Blockhöhe geschätzt mit 1 Block alle 10 Minuten), zukünftige Jahre geschätzt mit rund 52.560 Blöcken pro Jahr. Gold gerundet: Bestand rund 216.000 t (Ende 2024), Förderung rund 3.600 t pro Jahr (World Gold Council); andere Jahre mit gleichbleibender Förderung hochgerechnet. Stock-to-Flow-Modell: PlanB, 2019.</p></details>
+  <p data-i="k26" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "How scarce is <span class=\"btc\">Bitcoin<\/span>?", "k4": "Scarcity can be measured: how much already exists, and how much is added each year? This number is called <b>stock-to-flow<\/b>. It shows how hard it is to dilute a good.", "k5": "The Scarcity Meter <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k6": "Stock-to-flow = <span style=\"color:var(--gold)\">stock<\/span> ÷ <span style=\"color:var(--bull)\">new supply per year<\/span>", "k7": "Meaning: this many <b>years<\/b> of production would be needed to create today's stock again. The higher, the scarcer.", "k8": "Year", "k9": "Can it predict the price?", "k10": "In 2019 a well-known <b>stock-to-flow model<\/b> was published <span class=\"mk mk2\">disputed<\/span>. It claimed that as scarcity rises after every halving, the price rises with it by a fixed formula. It became very popular, and then pretty wrong.", "k11": "<b>👍 What's true<\/b>Bitcoin becomes measurably scarcer with every halving. Since the 2024 halving it is scarcer than gold by this calculation. Scarcity is a precondition for value.", "k12": "<b>👎 What's not true<\/b>Scarcity alone doesn't make a price; it also takes <b>demand<\/b>. Well-known forecasts of the model, such as $100,000 by the end of 2021, did not come true. A correlation in the past is no guarantee.", "k13": "Remember: models are tools for thinking, not a crystal ball. More about the price in the world <a href=\"../wert/\">Why does Bitcoin have value?<\/a>", "k14": "Remember this", "k15": "Stock-to-flow", "k16": "<b>Stock ÷ new supply per year<\/b>. The higher, the harder the good is to dilute.", "k17": "Halving doubles", "k18": "Every halving roughly <b>doubles<\/b> Bitcoin's scarcity.", "k19": "Scarcer than gold", "k20": "Since the <b>2024<\/b> halving, Bitcoin is scarcer than gold by this calculation.", "k21": "No price oracle", "k22": "Scarcity without demand makes no price. The model's forecasts were <b>off<\/b>.", "k23": "Test yourself: 3 questions", "k24": "Sources", "k25": "Bitcoin stock calculated from the Bitcoin rules (block height estimated at 1 block every 10 minutes), future years estimated at about 52,560 blocks per year. Gold rounded: stock about 216,000 t (end of 2024), mining about 3,600 t per year (World Gold Council); other years extrapolated with constant mining. Stock-to-flow model: PlanB, 2019.", "k26": "Entertainment and learning, not investment advice.", "k27@aria-label": "Next", "_title": "Scarcity Meter · Bitcoin Voyage", "_desc": "Lernwelt: Stock-to-Flow erklärt. Wie knapp ist Bitcoin im Vergleich zu Gold, und was taugen Knappheitsmodelle für Preisprognosen?"}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    KNAPPHEITS-MESSER – Lernwelt von Bitcoin Voyage
@@ -97,17 +98,17 @@ function draw(){
   const y = +$("yr").value, h = hAt(y), st = supplyAt(h), fl = supplyAt(h + 52560) - st, sfB = st/fl, sfG = (GOLD.stock + GOLD.flow*(y - GOLD.y0))/GOLD.flow;
   $("yrV").textContent = y;
   // Skala: der längere Balken füllt fast alles, so sieht man das Verhältnis direkt
-  const max = Math.max(sfB, sfG)*1.05, r = sfB/sfG, rt = r.toLocaleString("de-DE", {maximumFractionDigits: r < 10 ? 1 : 0});
-  $("sf").innerHTML = `<span class="cap">Wie viele Jahre Produktion stecken schon im Bestand? Länger = knapper.</span>` + [["🥇 Gold", sfG, "#ffc94d"], ["₿ Bitcoin " + y, sfB, "#f7931a"]].map(([n, v, c]) => `<div><span>${n}</span><i><u style="width:${Math.min(100, v/max*100)}%;background:${c}"></u></i><b>${Math.round(v).toLocaleString("de-DE")} Jahre</b></div>`).join("")
-    + `<span class="vd">${r >= 1.05 ? `Bitcoin ist ${y} etwa <b>${rt}× so knapp</b> wie Gold.` : r > .95 ? `Bitcoin ist ${y} etwa <b>gleich knapp</b> wie Gold.` : `Gold ist ${y} noch etwa <b>${(1/r).toLocaleString("de-DE", {maximumFractionDigits: 1})}× so knapp</b> wie Bitcoin.`}</span>`;
-  $("kv").innerHTML = `<div>Bitcoin-Bestand Anfang ${y}<b class="num">${(st/1e6).toLocaleString("de-DE", {maximumFractionDigits: 2})} Mio.</b></div><div>Neu pro Jahr<b class="num">${Math.round(fl).toLocaleString("de-DE")} BTC</b></div><div>Knapper als Gold?<b class="num ${sfB > sfG ? "g" : ""}">${sfB > sfG ? "Ja ✓" : "Noch nicht"}</b></div><div>Gold neu pro Jahr<b class="num">ca. 3.600 t</b></div>`;
+  const max = Math.max(sfB, sfG)*1.05, r = sfB/sfG, rt = r.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: r < 10 ? 1 : 0});
+  $("sf").innerHTML = Lern.t(`<span class="cap">Wie viele Jahre Produktion stecken schon im Bestand? Länger = knapper.</span>`, `<span class="cap">How many years of production are already in the stock? Longer = scarcer.</span>`) + [["🥇 Gold", sfG, "#ffc94d"], ["₿ Bitcoin " + y, sfB, "#f7931a"]].map(([n, v, c]) => Lern.t(`<div><span>${n}</span><i><u style="width:${Math.min(100, v/max*100)}%;background:${c}"></u></i><b>${Math.round(v).toLocaleString(Lern.EN ? "en-US" : "de-DE")} Jahre</b></div>`, `<div><span>${n}</span><i><u style="width:${Math.min(100, v/max*100)}%;background:${c}"></u></i><b>${Math.round(v).toLocaleString("en-US")} years</b></div>`)).join("")
+    + `<span class="vd">${r >= 1.05 ? Lern.t(`Bitcoin ist ${y} etwa <b>${rt}× so knapp</b> wie Gold.`, `In ${y}, Bitcoin is about <b>${rt}× as scarce</b> as gold.`) : r > .95 ? Lern.t(`Bitcoin ist ${y} etwa <b>gleich knapp</b> wie Gold.`, `In ${y}, Bitcoin is about <b>as scarce</b> as gold.`) : Lern.t(`Gold ist ${y} noch etwa <b>${(1/r).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1})}× so knapp</b> wie Bitcoin.`, `In ${y}, gold is still about <b>${(1/r).toLocaleString("en-US", {maximumFractionDigits: 1})}× as scarce</b> as Bitcoin.`)}</span>`;
+  $("kv").innerHTML = Lern.t(`<div>Bitcoin-Bestand Anfang ${y}<b class="num">${(st/1e6).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 2})} Mio.</b></div><div>Neu pro Jahr<b class="num">${Math.round(fl).toLocaleString(Lern.EN ? "en-US" : "de-DE")} BTC</b></div><div>Knapper als Gold?<b class="num ${sfB > sfG ? "g" : ""}">${sfB > sfG ? "Ja ✓" : "Noch nicht"}</b></div><div>Gold neu pro Jahr<b class="num">ca. 3.600 t</b></div>`, `<div>Bitcoin stock at the start of ${y}<b class="num">${(st/1e6).toLocaleString("en-US", {maximumFractionDigits: 2})} million</b></div><div>New per year<b class="num">${Math.round(fl).toLocaleString("en-US")} BTC</b></div><div>Scarcer than gold?<b class="num ${sfB > sfG ? "g" : ""}">${sfB > sfG ? "Yes ✓" : "Not yet"}</b></div><div>New gold per year<b class="num">approx. 3,600 t</b></div>`);
 }
 $("yr").addEventListener("input", draw);
 fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { height = +t || 0; live = height > 0; }).catch(() => {})
-  .finally(() => { const lv = live && Lern.DATA; $("mode").className = "mode " + (lv ? "live" : "demo"); $("mode").textContent = lv ? "Live" : "Schätzung"; draw(); });
+  .finally(() => { const lv = live && Lern.DATA; $("mode").className = "mode " + (lv ? "live" : "demo"); $("mode").textContent = lv ? "Live" : Lern.t("Schätzung", "Estimate"); draw(); });
 draw();
 
-const QUIZ = [["Was misst Stock-to-Flow?", ["Bestand geteilt durch die neue Menge pro Jahr", "Den Preis pro Gramm im Vergleich zu Gold", "Die Zahl der Nutzer im Verhältnis zur Menge"], 0, "Je höher die Zahl, desto schwerer ist das Gut zu verwässern."], ["Was passiert mit der Knappheit von Bitcoin bei jedem Halving?", ["Sie verdoppelt sich ungefähr", "Sie halbiert sich ungefähr", "Sie bleibt genau gleich"], 0, "Die neue Menge pro Jahr halbiert sich, der Bestand bleibt fast gleich."], ["Hat das Stock-to-Flow-Modell den Preis zuverlässig vorhergesagt?", ["Nein, bekannte Prognosen trafen nicht ein", "Ja, die Prognosen stimmten fast genau", "Ja, aber nur für Gold, nicht für Bitcoin"], 0, "Knappheit allein macht keinen Preis, es braucht Nachfrage."]];
+const QUIZ = [[Lern.t("Was misst Stock-to-Flow?", "What does stock-to-flow measure?"), [Lern.t("Bestand geteilt durch die neue Menge pro Jahr", "Stock divided by the new supply per year"), Lern.t("Den Preis pro Gramm im Vergleich zu Gold", "The price per gram compared with gold"), Lern.t("Die Zahl der Nutzer im Verhältnis zur Menge", "The number of users relative to the supply")], 0, Lern.t("Je höher die Zahl, desto schwerer ist das Gut zu verwässern.", "The higher the number, the harder the good is to dilute.")], [Lern.t("Was passiert mit der Knappheit von Bitcoin bei jedem Halving?", "What happens to Bitcoin's scarcity at every halving?"), [Lern.t("Sie verdoppelt sich ungefähr", "It roughly doubles"), Lern.t("Sie halbiert sich ungefähr", "It roughly halves"), Lern.t("Sie bleibt genau gleich", "It stays exactly the same")], 0, Lern.t("Die neue Menge pro Jahr halbiert sich, der Bestand bleibt fast gleich.", "The new supply per year halves, the stock stays almost the same.")], [Lern.t("Hat das Stock-to-Flow-Modell den Preis zuverlässig vorhergesagt?", "Did the stock-to-flow model reliably predict the price?"), [Lern.t("Nein, bekannte Prognosen trafen nicht ein", "No, well-known forecasts did not come true"), Lern.t("Ja, die Prognosen stimmten fast genau", "Yes, the forecasts were almost exact"), Lern.t("Ja, aber nur für Gold, nicht für Bitcoin", "Yes, but only for gold, not for Bitcoin")], 0, Lern.t("Knappheit allein macht keinen Preis, es braucht Nachfrage.", "Scarcity alone doesn't make a price; it takes demand.")]];
 Lern.quiz($("quiz"), "knappheit", QUIZ, "../"); Lern.visit("knappheit"); Lern.renderNext("knappheit", "../");
 })();
 </script>

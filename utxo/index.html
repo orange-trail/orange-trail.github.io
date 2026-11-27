@@ -48,56 +48,57 @@
 @keyframes p-pop{from{transform:scale(.3);opacity:0}} .otag{display:block;margin:1px 0 0 26px;font:600 12px var(--f-body);color:var(--muted)} @keyframes p-swap{from{opacity:0;transform:translateY(6px)}}
 @media (max-width:620px){ .tx,.real{grid-template-columns:1fr} .tx .arr,.real .arr{justify-self:center;transform:rotate(90deg)} .coin{width:80px;height:80px;font-size:13px} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Wechselgeld</span>-Kasse</h1>
-    <p class="lead">In deiner Wallet liegt kein Kontostand, sondern lauter einzelne <b>Bitcoin-Beträge</b>, wie Scheine im Portemonnaie. Bezahlen funktioniert fast wie mit Bargeld.</p>
+    <h1 data-i="k3"><span class="btc">Wechselgeld</span>-Kasse</h1>
+    <p data-i="k4" class="lead">In deiner Wallet liegt kein Kontostand, sondern lauter einzelne <b>Bitcoin-Beträge</b>, wie Scheine im Portemonnaie. Bezahlen funktioniert fast wie mit Bargeld.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Bezahl mit deinen Bitcoin <span class="mode" id="mode">Verbinde …</span></h2>
-    <div class="idea">Wie an der Kasse: Du zahlst 15 € mit einem <b>20-€-Schein</b>. Zerreißen kannst du ihn nicht, also gibst du ihn <b>ganz</b> hin und bekommst <b>5 € zurück</b>. Bei Bitcoin ist es genauso.</div>
-    <div class="learn bx"><div><b>💵 Rein</b><span>Ganze Beträge aus deiner Wallet, wie Scheine. Fachwort: <b>UTXO</b>.</span></div><div><b>👤 Raus</b><span>Die Zahlung an den Empfänger, plus dein <b>Wechselgeld</b> als neuer Betrag an dich.</span></div><div><b>⛏ Rest</b><span>Was übrig bleibt, ist die <b>Gebühr</b> für die Miner.</span></div></div>
+    <h2 data-i="k5" id="h1s">Bezahl mit deinen Bitcoin <span class="mode" id="mode">Verbinde …</span></h2>
+    <div data-i="k6" class="idea">Wie an der Kasse: Du zahlst 15 € mit einem <b>20-€-Schein</b>. Zerreißen kannst du ihn nicht, also gibst du ihn <b>ganz</b> hin und bekommst <b>5 € zurück</b>. Bei Bitcoin ist es genauso.</div>
+    <div class="learn bx"><div><b data-i="k7">💵 Rein</b><span data-i="k8">Ganze Beträge aus deiner Wallet, wie Scheine. Fachwort: <b>UTXO</b>.</span></div><div><b data-i="k9">👤 Raus</b><span data-i="k10">Die Zahlung an den Empfänger, plus dein <b>Wechselgeld</b> als neuer Betrag an dich.</span></div><div><b data-i="k11">⛏ Rest</b><span data-i="k12">Was übrig bleibt, ist die <b>Gebühr</b> für die Miner.</span></div></div>
     <p class="task" id="task"></p>
-    <p class="hint">Tippe auf deine Bitcoin, bis es reicht. Dann auf „Senden“.</p>
-    <div class="wlt"><div class="wlh"><span class="wi">👛</span><span><b>Deine Wallet</b><small>Guthaben = alle Beträge zusammen</small></span><em id="bal">–</em></div><div class="coins" id="coins"></div></div>
+    <p data-i="k13" class="hint">Tippe auf deine Bitcoin, bis es reicht. Dann auf „Senden“.</p>
+    <div class="wlt"><div class="wlh"><span class="wi">👛</span><span><b data-i="k14">Deine Wallet</b><small data-i="k15">Guthaben = alle Beträge zusammen</small></span><em id="bal">–</em></div><div class="coins" id="coins"></div></div>
     <div class="tx">
-      <div class="col"><h3>Rein: diese Bitcoin gibst du aus</h3><ul id="ins"></ul></div>
+      <div class="col"><h3 data-i="k16">Rein: diese Bitcoin gibst du aus</h3><ul id="ins"></ul></div>
       <span class="arr" aria-hidden="true">→</span>
-      <div class="col"><h3>Raus: daraus werden neue Beträge</h3><ul id="outs"></ul></div>
+      <div class="col"><h3 data-i="k17">Raus: daraus werden neue Beträge</h3><ul id="outs"></ul></div>
     </div>
     <div class="st" id="st" aria-live="polite"></div>
-    <div class="acts"><button class="btn" id="send" type="button" disabled>📤 Senden</button><button class="btn ghost" id="reset" type="button">↺ Von vorn</button></div>
+    <div class="acts"><button data-i="k18" class="btn" id="send" type="button" disabled>📤 Senden</button><button data-i="k19" class="btn ghost" id="reset" type="button">↺ Von vorn</button></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">So ist eine Zahlung aufgebaut <span class="mode" id="mode2">Verbinde …</span></h2>
-    <p class="muted" style="margin:0">Genau wie oben: ganze Beträge rein, Zahlung und Wechselgeld raus, der Rest ist Gebühr.</p>
-    <div class="real" id="real"><p class="muted">Lade …</p></div>
-    <div class="acts"><button class="btn ghost" id="again" type="button">🔄 Andere Zahlung</button></div>
+    <h2 data-i="k20" id="h2s">So ist eine Zahlung aufgebaut <span class="mode" id="mode2">Verbinde …</span></h2>
+    <p data-i="k21" class="muted" style="margin:0">Genau wie oben: ganze Beträge rein, Zahlung und Wechselgeld raus, der Rest ist Gebühr.</p>
+    <div class="real" id="real"><p data-i="k22" class="muted">Lade …</p></div>
+    <div class="acts"><button data-i="k23" class="btn ghost" id="again" type="button">🔄 Andere Zahlung</button></div>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Das solltest du dir merken</h2>
+    <h2 data-i="k24" id="h3s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Beträge statt Kontostand</b><span>Dein „Guthaben“ ist nur die <b>Summe deiner Bitcoin-Beträge</b>. Die Wallet zählt sie für dich zusammen.</span></div>
-      <div><b>Ganz oder gar nicht</b><span>Ein Betrag wird immer <b>komplett</b> ausgegeben. Der Rest kommt als Wechselgeld zurück.</span></div>
-      <div><b>Gebühr nach Größe</b><span>Die Gebühr hängt nicht vom Betrag ab, sondern davon, <b>wie viele Beträge</b> du einsetzt. Viele kleine Beträge machen es teurer.</span></div>
-      <div><b>Wechselgeld-Adresse</b><span>Gute Wallets schicken das Wechselgeld an eine <b>neue Adresse</b> von dir. Das schützt deine Privatsphäre.</span></div>
+      <div><b data-i="k25">Beträge statt Kontostand</b><span data-i="k26">Dein „Guthaben“ ist nur die <b>Summe deiner Bitcoin-Beträge</b>. Die Wallet zählt sie für dich zusammen.</span></div>
+      <div><b data-i="k27">Ganz oder gar nicht</b><span data-i="k28">Ein Betrag wird immer <b>komplett</b> ausgegeben. Der Rest kommt als Wechselgeld zurück.</span></div>
+      <div><b data-i="k29">Gebühr nach Größe</b><span data-i="k30">Die Gebühr hängt nicht vom Betrag ab, sondern davon, <b>wie viele Beträge</b> du einsetzt. Viele kleine Beträge machen es teurer.</span></div>
+      <div><b data-i="k31">Wechselgeld-Adresse</b><span data-i="k32">Gute Wallets schicken das Wechselgeld an eine <b>neue Adresse</b> von dir. Das schützt deine Privatsphäre.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k33">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Gebühren-Satz und Transaktion sind Beispiele; echte Transaktionen kannst du z. B. auf <a href="https://mempool.space">mempool.space</a> ansehen. Die Gebühr in der Übung ist geschätzt: etwa 68 vByte pro Betrag rein, 31 vByte pro Betrag raus, plus 11 vByte Grundgröße (typisch für moderne Adressen).</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k37" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k34">Quellen</summary><p data-i="k35">Gebühren-Satz und Transaktion sind Beispiele; echte Transaktionen kannst du z. B. auf <a href="https://mempool.space">mempool.space</a> ansehen. Die Gebühr in der Übung ist geschätzt: etwa 68 vByte pro Betrag rein, 31 vByte pro Betrag raus, plus 11 vByte Grundgröße (typisch für moderne Adressen).</p></details>
+  <p data-i="k36" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Change<\/span> Register", "k4": "Your wallet doesn't hold a balance, but lots of individual <b>bitcoin amounts<\/b>, like notes in a purse. Paying works almost like with cash.", "k5": "Pay with your bitcoin <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k6": "Like at the checkout: you pay €15 with a <b>€20 note<\/b>. You can't tear it, so you hand it over <b>whole<\/b> and get <b>€5 back<\/b>. Bitcoin works the same way.", "k7": "💵 In", "k8": "Whole amounts from your wallet, like notes. Technical term: <b>UTXO<\/b>.", "k9": "👤 Out", "k10": "The payment to the receiver, plus your <b>change<\/b> as a new amount to you.", "k11": "⛏ Rest", "k12": "Whatever is left over is the <b>fee<\/b> for the miners.", "k13": "Tap your bitcoin until it's enough. Then on “Send”.", "k14": "Your wallet", "k15": "Balance = all amounts together", "k16": "In: you spend these bitcoin", "k17": "Out: these become new amounts", "k18": "📤 Send", "k19": "↺ Start over", "k20": "How a payment is built <span class=\"mode\" id=\"mode2\">Connecting …<\/span>", "k21": "Exactly like above: whole amounts in, payment and change out, the rest is the fee.", "k22": "Loading …", "k23": "🔄 Another payment", "k24": "Remember this", "k25": "Amounts instead of a balance", "k26": "Your “balance” is just the <b>sum of your bitcoin amounts<\/b>. The wallet adds them up for you.", "k27": "All or nothing", "k28": "An amount is always spent <b>completely<\/b>. The rest comes back as change.", "k29": "Fee by size", "k30": "The fee doesn't depend on the amount, but on <b>how many amounts<\/b> you use. Many small amounts make it more expensive.", "k31": "Change address", "k32": "Good wallets send the change to a <b>new address<\/b> of yours. That protects your privacy.", "k33": "Test yourself: 3 questions", "k34": "Sources", "k35": "Fee rate and transaction are examples; you can look at real transactions e.g. on <a href=\"https://mempool.space\">mempool.space<\/a>. The fee in the exercise is estimated: about 68 vbytes per amount in, 31 vbytes per amount out, plus 11 vbytes base size (typical for modern addresses).", "k36": "Entertainment and learning, not investment advice.", "k37@aria-label": "Next", "_title": "Change Register · Bitcoin Voyage", "_desc": "Lernwelt: Wie Bitcoin in einer Wallet liegt (UTXO), warum es Wechselgeld gibt und wovon die Gebühr abhängt."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    WECHSELGELD-KASSE – Lernwelt von Bitcoin Voyage
@@ -107,9 +108,9 @@
 (() => {
 const $ = id => document.getElementById(id);
 const MP = Lern.api("");
-const btc = s => (s/1e8).toLocaleString("de-DE", {maximumFractionDigits: 8}) + " BTC";
+const btc = s => (s/1e8).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 8}) + " BTC";
 const START = [5000000, 2000000, 1000000, 300000];           // Startmünzen in sats
-const TASKS = [["Anna", 1500000], ["den Bäcker", 250000], ["Ben", 4000000], ["den Laden", 700000], ["Clara", 6000000]];
+const TASKS = [["Anna", 1500000], [Lern.t("den Bäcker", "the baker"), 250000], ["Ben", 4000000], [Lern.t("den Laden", "the shop"), 700000], ["Clara", 6000000]];
 let rate = 5, live = false, coins = [], sel = new Set(), t = 0, uid = 0;
 
 const vbytes = (nIn, nOut) => 11 + 68*nIn + 31*nOut;
@@ -117,11 +118,11 @@ function reset(){ coins = START.map(v => ({id: ++uid, v, tag: "erhalten"})); sel
 
 function draw(){
   const [who, amt] = TASKS[t % TASKS.length];
-  $("task").innerHTML = `Aufgabe: Zahle <span>${btc(amt)}</span> an ${who}`;
+  $("task").innerHTML = Lern.t(`Aufgabe: Zahle <span>${btc(amt)}</span> an ${who}`, `Task: pay <span>${btc(amt)}</span> to ${who}`);
   $("coins").innerHTML = "";
   coins.forEach(c => {
     const b = document.createElement("button"); b.type = "button"; b.className = "coin" + (c.fresh ? " new" : "");
-    b.setAttribute("aria-pressed", sel.has(c.id)); b.innerHTML = `${(c.v/1e8).toLocaleString("de-DE", {maximumFractionDigits: 5})}<small>BTC</small><small>${c.tag}</small>`; b.title = btc(c.v);
+    b.setAttribute("aria-pressed", sel.has(c.id)); b.innerHTML = `${(c.v/1e8).toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 5})}<small>BTC</small><small>${c.tag}</small>`; b.title = btc(c.v);
     b.onclick = () => { sel.has(c.id) ? sel.delete(c.id) : sel.add(c.id); draw(); };
     $("coins").appendChild(b); c.fresh = false;
   });
@@ -138,36 +139,37 @@ function plan(){
 }
 function calc(){
   const p = plan(), who = TASKS[t % TASKS.length][0];
-  $("ins").innerHTML = p.use.length ? p.use.map(c => `<li><span>🟠 Bitcoin</span><b>${btc(c.v)}</b></li>`).join("") + `<li class="sum"><span>Summe</span><b>${btc(p.sum)}</b></li>` : `<li class="muted">noch nichts gewählt</li>`;
-  $("outs").innerHTML = p.ok ? `<li><span>👤 an ${who}</span><b>${btc(p.amt)}</b></li>` + (p.chg > 0 ? `<li class="chg"><span>↩️ Wechselgeld an dich</span><b>${btc(p.chg)}</b></li>` : "") + `<li class="fee"><span>⛏ Gebühr an Miner</span><b>${p.fee.toLocaleString("de-DE")} sats</b></li>` : `<li class="muted">reicht noch nicht</li>`;
+  $("ins").innerHTML = p.use.length ? p.use.map(c => `<li><span>🟠 Bitcoin</span><b>${btc(c.v)}</b></li>`).join("") + Lern.t(`<li class="sum"><span>Summe</span><b>${btc(p.sum)}</b></li>`, `<li class="sum"><span>Total</span><b>${btc(p.sum)}</b></li>`) : Lern.t(`<li class="muted">noch nichts gewählt</li>`, `<li class="muted">nothing chosen yet</li>`);
+  $("outs").innerHTML = p.ok ? `<li><span>👤 an ${who}</span><b>${btc(p.amt)}</b></li>` + (p.chg > 0 ? Lern.t(`<li class="chg"><span>↩️ Wechselgeld an dich</span><b>${btc(p.chg)}</b></li>`, `<li class="chg"><span>↩️ Change to you</span><b>${btc(p.chg)}</b></li>`) : "") + Lern.t(`<li class="fee"><span>⛏ Gebühr an Miner</span><b>${p.fee.toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</b></li>`, `<li class="fee"><span>⛏ Fee to miners</span><b>${p.fee.toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</b></li>`) : Lern.t(`<li class="muted">reicht noch nicht</li>`, `<li class="muted">not enough yet</li>`);
   const st = $("st");
-  if (!p.use.length){ st.className = "st"; st.textContent = "Wähle Bitcoin aus, die zusammen mindestens den Betrag ergeben."; }
-  else if (!p.ok){ st.className = "st bad"; const miss = p.amt - p.sum; st.textContent = miss > 0 ? `Es fehlen noch ${btc(miss)} (plus Gebühr). Nimm noch einen Betrag dazu.` : "Der Betrag ist erreicht, aber für die Gebühr reicht es nicht. Nimm noch einen Betrag dazu."; }
-  else { st.className = "st ok"; st.innerHTML = `Passt! ${p.use.length} Betr${p.use.length > 1 ? "äge" : "ag"} = <b>${vbytes(p.use.length, p.chg > 0 ? 2 : 1)} vByte</b> × ${rate.toLocaleString("de-DE")} sat/vB = Gebühr.${p.use.length > 1 ? " Jeder zusätzliche Betrag macht die Zahlung größer und damit teurer." : ""}`; }
+  if (!p.use.length){ st.className = "st"; st.textContent = Lern.t("Wähle Bitcoin aus, die zusammen mindestens den Betrag ergeben.", "Choose bitcoin that together add up to at least the amount."); }
+  else if (!p.ok){ st.className = "st bad"; const miss = p.amt - p.sum; st.textContent = miss > 0 ? Lern.t(`Es fehlen noch ${btc(miss)} (plus Gebühr). Nimm noch einen Betrag dazu.`, `Still missing ${btc(miss)} (plus fee). Add another amount.`) : Lern.t("Der Betrag ist erreicht, aber für die Gebühr reicht es nicht. Nimm noch einen Betrag dazu.", "The amount is reached, but it's not enough for the fee. Add another amount."); }
+  else { st.className = "st ok"; st.innerHTML = Lern.t(`Passt! ${p.use.length} Betr${p.use.length > 1 ? "äge" : "ag"} = <b>${vbytes(p.use.length, p.chg > 0 ? 2 : 1)} vByte</b> × ${rate.toLocaleString(Lern.EN ? "en-US" : "de-DE")} sat/vB = Gebühr.${p.use.length > 1 ? " Jeder zusätzliche Betrag macht die Zahlung größer und damit teurer." : ""}`, `Fits! ${p.use.length} amount${p.use.length > 1 ? "s" : ""} = <b>${vbytes(p.use.length, p.chg > 0 ? 2 : 1)} vbytes</b> × ${rate.toLocaleString(Lern.EN ? "en-US" : "de-DE")} sat/vB = fee.${p.use.length > 1 ? " Every extra amount makes the payment bigger and therefore more expensive." : ""}`); }
   $("send").disabled = !p.ok;
 }
 $("send").onclick = () => {
   const p = plan(); if (!p.ok) return;
   coins = coins.filter(c => !sel.has(c.id));
-  if (p.chg > 0) coins.push({id: ++uid, v: p.chg, tag: "↩ Rückgeld", fresh: true});
+  if (p.chg > 0) coins.push({id: ++uid, v: p.chg, tag: Lern.t("↩ Rückgeld", "↩ Change"), fresh: true});
   sel.clear(); t++;
   const left = coins.reduce((a, c) => a + c.v, 0), need = TASKS[t % TASKS.length][1];
   draw();
   $("st").className = "st ok";
-  $("st").innerHTML = `✓ Gesendet. Die ausgegebenen Bitcoin sind jetzt <b>komplett weg</b>${p.chg > 0 ? `, dafür hast du einen <b>neuen Betrag</b> über ${btc(p.chg)} als Wechselgeld (an eine neue Adresse von dir)` : ""}.` + (left < need ? ` Für die nächste Aufgabe reicht dein Geld nicht mehr. Tippe „Von vorn“.` : "");
+  $("st").innerHTML = Lern.t(`✓ Gesendet. Die ausgegebenen Bitcoin sind jetzt <b>komplett weg</b>${p.chg > 0 ? `, dafür hast du einen <b>neuen Betrag</b> über ${btc(p.chg)} als Wechselgeld (an eine neue Adresse von dir)` : ""}.`, `✓ Sent. The bitcoin you spent are now <b>completely gone</b>${p.chg > 0 ? `; instead you have a <b>new amount</b> of ${btc(p.chg)} as change (to a new address of yours)` : ""}.`) + (left < need ? Lern.t(` Für die nächste Aufgabe reicht dein Geld nicht mehr. Tippe „Von vorn“.`, ` Your money isn't enough for the next task. Tap “Start over”.`) : "");
 };
 $("reset").onclick = reset;
 
 // Live: aktueller Gebühren-Satz
 fetch(MP + "v1/fees/recommended").then(r => r.json()).then(j => { if (j.halfHourFee > 0){ rate = j.halfHourFee; live = true; } }).catch(() => {})
-  .finally(() => { $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte"; calc(); });
+  .finally(() => { $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : Lern.t("Beispielwerte", "Example values"); calc(); });
 
 // Live: eine echte Transaktion von gerade eben
 const re = el => { el.style.animation = "none"; void el.offsetWidth; el.style.animation = "p-swap .35s"; };
 async function real(){
-  const li = (a, t) => a.slice(0, 6).map((v, i) => `<li>🪙 ${btc(v)}${t && t[i] ? `<small class="otag">${t[i]}</small>` : ""}</li>`).join("") + (a.length > 6 ? `<li class="muted">… und ${a.length - 6} weitere</li>` : "");
-  const show = (ins, outs, fee, link, tags) => { $("real").innerHTML = `<div class="col"><b>Rein: ${ins.length} Betr${ins.length > 1 ? "äge" : "ag"} aus der Wallet</b><ul>${li(ins)}</ul></div><span class="arr" aria-hidden="true">→</span><div class="col"><b>Raus: ${outs.length} Betr${outs.length > 1 ? "äge" : "ag"}</b><ul>${li(outs, tags)}</ul></div>
-      <p class="note" style="grid-column:1/-1">Gebühr: <b>${fee.toLocaleString("de-DE")} sats</b> = alles, was rein ging, minus alles, was raus geht.${link ? ` <a href="https://mempool.space/tx/${link}" rel="noopener">Auf mempool.space ansehen</a>` : ""}</p>`; };
+  const li = (a, t) => a.slice(0, 6).map((v, i) => `<li>🪙 ${btc(v)}${t && t[i] ? `<small class="otag">${t[i]}</small>` : ""}</li>`).join("") + (a.length > 6 ? Lern.t(`<li class="muted">… und ${a.length - 6} weitere</li>`, `<li class="muted">… and ${a.length - 6} more</li>`) : "");
+  const show = (ins, outs, fee, link, tags) => { $("real").innerHTML = Lern.t(`<div class="col"><b>Rein: ${ins.length} Betr${ins.length > 1 ? "äge" : "ag"} aus der Wallet</b><ul>${li(ins)}</ul></div><span class="arr" aria-hidden="true">→</span><div class="col"><b>Raus: ${outs.length} Betr${outs.length > 1 ? "äge" : "ag"}</b><ul>${li(outs, tags)}</ul></div>
+      <p class="note" style="grid-column:1/-1">Gebühr: <b>${fee.toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</b> = alles, was rein ging, minus alles, was raus geht.${link ? ` <a href="https://mempool.space/tx/${link}" rel="noopener">Auf mempool.space ansehen</a>` : ""}</p>`, `<div class="col"><b>In: ${ins.length} amount${ins.length > 1 ? "s" : ""} from the wallet</b><ul>${li(ins)}</ul></div><span class="arr" aria-hidden="true">→</span><div class="col"><b>Out: ${outs.length} amount${outs.length > 1 ? "s" : ""}</b><ul>${li(outs, tags)}</ul></div>
+      <p class="note" style="grid-column:1/-1">Fee: <b>${fee.toLocaleString(Lern.EN ? "en-US" : "de-DE")} sats</b> = everything that went in, minus everything that goes out.${link ? ` <a href="https://mempool.space/tx/${link}" rel="noopener">View on mempool.space</a>` : ""}</p>`); };
   try {
     const rec = await (await fetch(MP + "mempool/recent")).json();
     const pick = rec.filter(x => x.vsize < 1000)[Math.floor(Math.random()*Math.min(10, rec.length))] || rec[0];
@@ -179,8 +181,8 @@ async function real(){
     const ins = Array.from({length: n}, () => r(5, 400) * 10000 + r(0, 9) * 1000), sum = ins.reduce((x, y) => x + y, 0);
     const fee = r(3, 30) * 100, pay = Math.max(10000, Math.round(sum * r(30, 85) / 100 / 50000) * 50000);
     const outs = pay + fee < sum ? [pay, sum - pay - fee] : [sum - fee];
-    show(ins, outs, fee, "", ["→ an den Empfänger", "↩ Wechselgeld an dich"]); re($("real"));
-    $("mode2").className = "mode demo"; $("mode2").textContent = "Beispiel";
+    show(ins, outs, fee, "", [Lern.t("→ an den Empfänger", "→ to the receiver"), Lern.t("↩ Wechselgeld an dich", "↩ Change to you")]); re($("real"));
+    $("mode2").className = "mode demo"; $("mode2").textContent = Lern.t("Beispiel", "Example");
   }
 }
 
@@ -188,9 +190,9 @@ $("again").onclick = real; real();
 reset();
 
 const QUIZ = [
-  ["Du hast einen Bitcoin-Betrag über 0,05 BTC und zahlst 0,01 BTC. Was passiert?", ["Vom Betrag werden einfach 0,01 BTC abgezogen, der Rest bleibt liegen", "Der ganze Betrag wird ausgegeben, etwa 0,04 BTC kommen als Wechselgeld zurück", "Das geht nicht, man kann nur ganze Beträge genau passend zahlen"], 1, "Beträge (UTXOs) werden immer ganz ausgegeben. Der Rest kommt als neuer Betrag zu dir zurück, minus Gebühr."],
-  ["Wovon hängt die Gebühr vor allem ab?", ["Vom Betrag, den du verschickst, also wie viel Euro es wert ist", "Von der Größe der Transaktion, also wie viele Beträge rein und raus gehen", "Von der Uhrzeit, zu der du sendest, und wie weit der Empfänger weg ist"], 1, "Miner werden pro vByte bezahlt. Mehr Beträge bedeuten mehr Daten und damit eine höhere Gebühr, egal wie groß der Betrag ist."],
-  ["Wohin schickt eine gute Wallet das Wechselgeld?", ["An den Empfänger als Trinkgeld", "An eine neue Adresse, die dir gehört", "An die Miner als Gebühr"], 1, "Eine neue Adresse macht es schwerer, deine Zahlungen miteinander zu verbinden. Das schützt deine Privatsphäre."],
+  [Lern.t("Du hast einen Bitcoin-Betrag über 0,05 BTC und zahlst 0,01 BTC. Was passiert?", "You have a bitcoin amount of 0.05 BTC and pay 0.01 BTC. What happens?"), [Lern.t("Vom Betrag werden einfach 0,01 BTC abgezogen, der Rest bleibt liegen", "0.01 BTC is simply deducted from the amount, the rest stays put"), Lern.t("Der ganze Betrag wird ausgegeben, etwa 0,04 BTC kommen als Wechselgeld zurück", "The whole amount is spent, about 0.04 BTC comes back as change"), Lern.t("Das geht nicht, man kann nur ganze Beträge genau passend zahlen", "That's not possible, you can only pay with exactly matching amounts")], 1, Lern.t("Beträge (UTXOs) werden immer ganz ausgegeben. Der Rest kommt als neuer Betrag zu dir zurück, minus Gebühr.", "Amounts (UTXOs) are always spent in full. The rest comes back to you as a new amount, minus the fee.")],
+  [Lern.t("Wovon hängt die Gebühr vor allem ab?", "What does the fee mainly depend on?"), [Lern.t("Vom Betrag, den du verschickst, also wie viel Euro es wert ist", "On the amount you send, i.e. how many euros it's worth"), Lern.t("Von der Größe der Transaktion, also wie viele Beträge rein und raus gehen", "On the size of the transaction, i.e. how many amounts go in and out"), Lern.t("Von der Uhrzeit, zu der du sendest, und wie weit der Empfänger weg ist", "On the time you send and how far away the receiver is")], 1, Lern.t("Miner werden pro vByte bezahlt. Mehr Beträge bedeuten mehr Daten und damit eine höhere Gebühr, egal wie groß der Betrag ist.", "Miners are paid per vbyte. More amounts mean more data and therefore a higher fee, no matter how big the amount is.")],
+  [Lern.t("Wohin schickt eine gute Wallet das Wechselgeld?", "Where does a good wallet send the change?"), [Lern.t("An den Empfänger als Trinkgeld", "To the receiver as a tip"), Lern.t("An eine neue Adresse, die dir gehört", "To a new address that belongs to you"), Lern.t("An die Miner als Gebühr", "To the miners as a fee")], 1, Lern.t("Eine neue Adresse macht es schwerer, deine Zahlungen miteinander zu verbinden. Das schützt deine Privatsphäre.", "A new address makes it harder to link your payments together. That protects your privacy.")],
 ];
 Lern.quiz($("quiz"), "utxo", QUIZ, "../"); Lern.visit("utxo"); Lern.renderNext("utxo", "../");
 })();

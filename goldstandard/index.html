@@ -46,106 +46,107 @@
 .score{margin:10px 0 0;font-weight:800}
 @media (max-width:420px){ .v .ans{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Vom Gold zum <span class="btc">Papier</span></h1>
-    <p class="lead">Über Jahrzehnte war Geld ein Versprechen auf Gold. Doch immer wenn es eng wurde, haben Staaten die Regeln geändert. Hier siehst du, was das für dein Geld bedeutet, und was Bitcoin anders macht.</p>
+    <h1 data-i="k3">Vom Gold zum <span class="btc">Papier</span></h1>
+    <p data-i="k4" class="lead">Über Jahrzehnte war Geld ein Versprechen auf Gold. Doch immer wenn es eng wurde, haben Staaten die Regeln geändert. Hier siehst du, was das für dein Geld bedeutet, und was Bitcoin anders macht.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Was kaufen 100 Dollar an Gold?</h2>
-    <p class="muted" style="margin:0">Tipp ein Jahr an. Der Goldbarren zeigt, wie viel Gold du für 100 Dollar bekommen hast.</p>
-    <div class="yrs" id="yrs" role="tablist" aria-label="Jahre"></div>
+    <h2 data-i="k5" id="h1s">1 · Was kaufen 100 Dollar an Gold?</h2>
+    <p data-i="k6" class="muted" style="margin:0">Tipp ein Jahr an. Der Goldbarren zeigt, wie viel Gold du für 100 Dollar bekommen hast.</p>
+    <div data-i="k25" class="yrs" id="yrs" role="tablist" aria-label="Jahre"></div>
     <div class="gbox"><small id="gY">–</small><b class="g" id="gG">–</b><div class="bar2"><i id="gB"></i></div><p id="gT"></p></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Wenn es eng wird, ändern sich die Regeln</h2>
-    <p class="muted" style="margin:0">Dreimal wurde das Gold-Versprechen gebrochen. Tipp eine Akte an.</p>
+    <h2 data-i="k7" id="h2s">2 · Wenn es eng wird, ändern sich die Regeln</h2>
+    <p data-i="k8" class="muted" style="margin:0">Dreimal wurde das Gold-Versprechen gebrochen. Tipp eine Akte an.</p>
     <div class="eras" id="eras"></div>
-    <p class="note" style="margin-top:10px;font-size:14px;color:var(--muted)">Den Überblick von Muschelgeld bis Euro gibt es in der <a href="../geldgeschichte/" style="color:var(--gold)">Geld-Zeitreise</a>.</p>
+    <p data-i="k9" class="note" style="margin-top:10px;font-size:14px;color:var(--muted)">Den Überblick von Muschelgeld bis Euro gibt es in der <a href="../geldgeschichte/" style="color:var(--gold)">Geld-Zeitreise</a>.</p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Gold oder Bitcoin?</h2>
-    <p class="muted" style="margin:0">Beide gelten als „hartes Geld“, das niemand beliebig vermehren kann. Wer hat bei welcher Eigenschaft die Nase vorn? Tipp deine Wahl an.</p>
+    <h2 data-i="k10" id="h3s">3 · Gold oder Bitcoin?</h2>
+    <p data-i="k11" class="muted" style="margin:0">Beide gelten als „hartes Geld“, das niemand beliebig vermehren kann. Wer hat bei welcher Eigenschaft die Nase vorn? Tipp deine Wahl an.</p>
     <div class="vs" id="vs"></div>
     <p class="score" id="score" aria-live="polite"></p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k12" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Versprechen auf Gold</b><span>Scheine waren ein <b>Anspruch auf Gold</b>. Wie viel, legte der Staat fest, und er konnte es ändern.</span></div>
-      <div><b>Regeln in der Krise</b><span>1914, 1933 und 1971: Immer wenn Geld knapp wurde, haben Staaten <b>die Regeln geändert</b>.</span></div>
-      <div><b>Gold hat Schwächen</b><span>Schwer zu prüfen, teuer zu bewegen, leicht zu beschlagnahmen, wenn es im Tresor liegt.</span></div>
-      <div><b>Bitcoin: Regel im Code</b><span>Die Höchstmenge prüft <b>jede Node</b>. Dafür ist Bitcoin jung und schwankt stark.</span></div>
+      <div><b data-i="k13">Versprechen auf Gold</b><span data-i="k14">Scheine waren ein <b>Anspruch auf Gold</b>. Wie viel, legte der Staat fest, und er konnte es ändern.</span></div>
+      <div><b data-i="k15">Regeln in der Krise</b><span data-i="k16">1914, 1933 und 1971: Immer wenn Geld knapp wurde, haben Staaten <b>die Regeln geändert</b>.</span></div>
+      <div><b data-i="k17">Gold hat Schwächen</b><span data-i="k18">Schwer zu prüfen, teuer zu bewegen, leicht zu beschlagnahmen, wenn es im Tresor liegt.</span></div>
+      <div><b data-i="k19">Bitcoin: Regel im Code</b><span data-i="k20">Die Höchstmenge prüft <b>jede Node</b>. Dafür ist Bitcoin jung und schwankt stark.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k21">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Goldpreise als gerundete Jahresdurchschnitte, 2026 Stand November (rund 4.000 $): <a href="https://www.gold.org/goldhub/data/gold-prices">World Gold Council: Goldpreise</a> · 1933: <a href="https://www.federalreservehistory.org/essays/roosevelts-gold-program">Federal Reserve History: Roosevelt's Gold Program</a> · 1971: <a href="https://www.federalreservehistory.org/essays/gold-convertibility-ends">Federal Reserve History: Gold Convertibility Ends</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k26" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k22">Quellen</summary><p data-i="k23">Goldpreise als gerundete Jahresdurchschnitte, 2026 Stand November (rund 4.000 $): <a href="https://www.gold.org/goldhub/data/gold-prices">World Gold Council: Goldpreise</a> · 1933: <a href="https://www.federalreservehistory.org/essays/roosevelts-gold-program">Federal Reserve History: Roosevelt's Gold Program</a> · 1971: <a href="https://www.federalreservehistory.org/essays/gold-convertibility-ends">Federal Reserve History: Gold Convertibility Ends</a></p></details>
+  <p data-i="k24" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "From gold to <span class=\"btc\">paper<\/span>", "k4": "For decades, money was a promise of gold. But whenever things got tight, states changed the rules. Here you'll see what that means for your money, and what Bitcoin does differently.", "k5": "1 · What do 100 dollars buy in gold?", "k6": "Tap a year. The gold bar shows how much gold you got for 100 dollars.", "k7": "2 · When things get tight, the rules change", "k8": "The gold promise was broken three times. Tap a file.", "k9": "The overview from shell money to the euro is in <a href=\"../geldgeschichte/\" style=\"color:var(--gold)\">Money Time Travel<\/a>.", "k10": "3 · Gold or Bitcoin?", "k11": "Both are considered “hard money” that nobody can multiply at will. Who's ahead on which property? Tap your choice.", "k12": "Remember this", "k13": "A promise of gold", "k14": "Notes were a <b>claim to gold<\/b>. How much was set by the state, and it could change that.", "k15": "Rules in a crisis", "k16": "1914, 1933 and 1971: whenever money got tight, states <b>changed the rules<\/b>.", "k17": "Gold has weaknesses", "k18": "Hard to verify, expensive to move, easy to confiscate when it's in a vault.", "k19": "Bitcoin: a rule in code", "k20": "<b>Every node<\/b> checks the maximum supply. In return, Bitcoin is young and swings a lot.", "k21": "Test yourself: 3 questions", "k22": "Sources", "k23": "Gold prices as rounded annual averages, 2026 as of November (about $4,000): <a href=\"https://www.gold.org/goldhub/data/gold-prices\">World Gold Council: gold prices<\/a> · 1933: <a href=\"https://www.federalreservehistory.org/essays/roosevelts-gold-program\">Federal Reserve History: Roosevelt's Gold Program<\/a> · 1971: <a href=\"https://www.federalreservehistory.org/essays/gold-convertibility-ends\">Federal Reserve History: Gold Convertibility Ends<\/a>", "k24": "Entertainment and learning, not investment advice.", "k25@aria-label": "Years", "k26@aria-label": "Next", "_title": "From Gold to Paper · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Was 100 Dollar an Gold kauften, wie Staaten die Gold-Regeln brachen (1914, 1933, 1971) und was Gold und Bitcoin unterscheidet."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    VOM GOLD ZUM PAPIER – Lernwelt von Bitcoin Voyage
    ===================================================================== */
 (() => {
-const $ = id => document.getElementById(id), nf = (n, d = 0) => n.toLocaleString("de-DE", {maximumFractionDigits: d});
+const $ = id => document.getElementById(id), nf = (n, d = 0) => n.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: d});
 // [Jahr, Dollar je Unze, Text]
-const Y = [[1900, 20.67, "Der Preis ist <b>gesetzlich festgelegt</b>: 20,67 $ je Unze. Jeder Schein kann gegen Gold getauscht werden."],
-  [1934, 35, "Neuer Festpreis 35 $. Für dieselben 100 Dollar gibt es auf einen Schlag <b>rund 40 % weniger</b> Gold. Mehr dazu in Akte 1933."],
-  [1971, 35, "Immer noch 35 $, aber nur auf dem Papier: Im August beendet Präsident Nixon den Tausch in Gold."],
-  [1980, 615, "Ohne Festpreis steigt Gold. Hohe Inflation treibt die Menschen in Gold."],
-  [2000, 279, "Gold fällt wieder. Auch Gold kann jahrelang an Wert verlieren."],
-  [2010, 1225, "Nach der Finanzkrise kaufen viele Gold als sicheren Hafen."],
-  [2020, 1770, "Corona: Zentralbanken schaffen Geld in Rekordmengen."],
-  [2026, 4000, "Heute, Stand November 2026: rund 4.000 $ je Unze."]];
+const Y = [[1900, 20.67, Lern.t("Der Preis ist <b>gesetzlich festgelegt</b>: 20,67 $ je Unze. Jeder Schein kann gegen Gold getauscht werden.", "The price is <b>fixed by law</b>: $20.67 per ounce. Every note can be exchanged for gold.")],
+  [1934, 35, Lern.t("Neuer Festpreis 35 $. Für dieselben 100 Dollar gibt es auf einen Schlag <b>rund 40 % weniger</b> Gold. Mehr dazu in Akte 1933.", "New fixed price $35. For the same 100 dollars you suddenly get <b>about 40 % less</b> gold. More in the 1933 file.")],
+  [1971, 35, Lern.t("Immer noch 35 $, aber nur auf dem Papier: Im August beendet Präsident Nixon den Tausch in Gold.", "Still $35, but only on paper: in August President Nixon ends the exchange for gold.")],
+  [1980, 615, Lern.t("Ohne Festpreis steigt Gold. Hohe Inflation treibt die Menschen in Gold.", "Without a fixed price, gold rises. High inflation drives people into gold.")],
+  [2000, 279, Lern.t("Gold fällt wieder. Auch Gold kann jahrelang an Wert verlieren.", "Gold falls again. Gold can also lose value for years.")],
+  [2010, 1225, Lern.t("Nach der Finanzkrise kaufen viele Gold als sicheren Hafen.", "After the financial crisis many buy gold as a safe haven.")],
+  [2020, 1770, Lern.t("Corona: Zentralbanken schaffen Geld in Rekordmengen.", "Corona: central banks create money in record amounts.")],
+  [2026, 4000, Lern.t("Heute, Stand November 2026: rund 4.000 $ je Unze.", "Today, as of November 2026: about $4,000 per ounce.")]];
 const G = u => 100/u*31.1035;   // Gramm Gold für 100 $
 function yr(i){
   const [y, u, t] = Y[i], g = G(u);
   $("yrs").innerHTML = Y.map((x, j) => `<button type="button" role="tab" data-i="${j}" aria-pressed="${j === i}">${x[0]}</button>`).join("");
-  $("gY").textContent = `${y}: 100 Dollar kaufen`;
+  $("gY").textContent = Lern.t(`${y}: 100 Dollar kaufen`, `${y}: 100 dollars buy`);
   $("gG").textContent = (g < 10 ? nf(g, 1) : nf(g)) + " g Gold";
   $("gB").style.width = Math.max(1, g/G(20.67)*100) + "%";
-  $("gT").innerHTML = t + (i ? ` Das ist <b>${nf(G(u)/G(20.67)*100, 1)} %</b> der Menge von 1900.` : "");
+  $("gT").innerHTML = t + (i ? Lern.t(` Das ist <b>${nf(G(u)/G(20.67)*100, 1)} %</b> der Menge von 1900.`, ` That's <b>${nf(G(u)/G(20.67)*100, 1)} %</b> of the amount in 1900.`) : "");
 }
 $("yrs").addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) yr(+b.dataset.i); });
 yr(0);
 
 // Akten: [Jahr, Titel, Kurzinfo, Details]
-const E = [["1914", "Krieg: Einlösen gestoppt", "Erster Weltkrieg",
-  "Mit Kriegsbeginn stoppen die meisten Länder den Tausch von Scheinen in Gold. Das Deutsche Reich auch. So kann es den Krieg mit <strong>gedrucktem Geld</strong> bezahlen. Am Ende stehen Schulden und, in Deutschland, die Hyperinflation 1923."],
- ["1933", "USA: Gold muss abgegeben werden", "Wirtschaftskrise",
-  "Im April 1933 müssen Amerikaner ihr Gold bei den Banken abgeben, für 20,67 $ je Unze. Wer es behält, dem drohen Strafen. Im Januar 1934 legt der Staat den Preis neu fest: <strong>35 $</strong>. Das Gold der Bürger liegt jetzt beim Staat, und jeder Dollar ist auf einen Schlag rund 40 % weniger Gold wert. Privat Gold besitzen dürfen Amerikaner erst wieder ab 1975."],
- ["1971", "Das Gold-Fenster schließt", "Bretton Woods endet",
-  "Die USA haben mehr Dollar ausgegeben, als sie Gold besitzen. Frankreich und andere tauschen Dollar in Gold und holen es heim. Die Goldreserven der USA schrumpfen auf <strong>weniger als die Hälfte</strong>. Am 15. August 1971 stoppt Nixon den Tausch, „vorübergehend“. Er wurde nie wieder aufgenommen."]];
+const E = [["1914", Lern.t("Krieg: Einlösen gestoppt", "War: redemption stopped"), Lern.t("Erster Weltkrieg", "First World War"),
+  Lern.t("Mit Kriegsbeginn stoppen die meisten Länder den Tausch von Scheinen in Gold. Das Deutsche Reich auch. So kann es den Krieg mit <strong>gedrucktem Geld</strong> bezahlen. Am Ende stehen Schulden und, in Deutschland, die Hyperinflation 1923.", "When the war begins, most countries stop exchanging notes for gold. So does the German Reich. That way it can pay for the war with <strong>printed money</strong>. In the end come debts and, in Germany, the hyperinflation of 1923.")],
+ ["1933", Lern.t("USA: Gold muss abgegeben werden", "USA: gold must be handed in"), Lern.t("Wirtschaftskrise", "Economic crisis"),
+  Lern.t("Im April 1933 müssen Amerikaner ihr Gold bei den Banken abgeben, für 20,67 $ je Unze. Wer es behält, dem drohen Strafen. Im Januar 1934 legt der Staat den Preis neu fest: <strong>35 $</strong>. Das Gold der Bürger liegt jetzt beim Staat, und jeder Dollar ist auf einen Schlag rund 40 % weniger Gold wert. Privat Gold besitzen dürfen Amerikaner erst wieder ab 1975.", "In April 1933 Americans must hand in their gold at the banks, for $20.67 per ounce. Whoever keeps it faces penalties. In January 1934 the state sets the price anew: <strong>$35</strong>. The citizens' gold now lies with the state, and every dollar is suddenly worth about 40 % less gold. Americans were only allowed to own gold privately again from 1975.")],
+ ["1971", Lern.t("Das Gold-Fenster schließt", "The gold window closes"), Lern.t("Bretton Woods endet", "Bretton Woods ends"),
+  Lern.t("Die USA haben mehr Dollar ausgegeben, als sie Gold besitzen. Frankreich und andere tauschen Dollar in Gold und holen es heim. Die Goldreserven der USA schrumpfen auf <strong>weniger als die Hälfte</strong>. Am 15. August 1971 stoppt Nixon den Tausch, „vorübergehend“. Er wurde nie wieder aufgenommen.", "The USA has issued more dollars than it owns gold. France and others exchange dollars for gold and bring it home. US gold reserves shrink to <strong>less than half</strong>. On 15 August 1971 Nixon stops the exchange, “temporarily”. It was never resumed.")]];
 $("eras").innerHTML = E.map(([y, t, h, d], i) => `<button type="button" class="era" aria-expanded="false" data-i="${i}"><b>${t}<span>${y}</span></b><span class="h">${h} · antippen</span><span class="d">${d}</span></button>`).join("");
 $("eras").addEventListener("click", e => { const b = e.target.closest(".era"); if (b) b.setAttribute("aria-expanded", b.getAttribute("aria-expanded") !== "true"); });
 
 // Vergleich: [Eigenschaft, Sieger: g / b / u, Gold, Bitcoin]
-const V = [["🔢 Feste Menge", "b", "Wächst jedes Jahr um etwa 1,5 bis 2 %. Wie viel es insgesamt gibt, weiß niemand genau.", "Höchstens 21 Millionen. Jeder kann es mit einer eigenen Node nachzählen."],
-  ["🔍 Echtheit prüfen", "b", "Braucht Fachleute oder ein Labor. Vergoldetes Wolfram sieht echt aus.", "Jede Node prüft jede Zahlung in Sekunden, ganz automatisch."],
-  ["✈️ Verschicken", "b", "Schwer, teuer, braucht Transport und Versicherung.", "In Minuten um die ganze Welt, egal welcher Betrag."],
-  ["🏛 Bewährt", "g", "Seit über 5.000 Jahren als Wert anerkannt.", "Erst seit 2009, mit starken Kursschwankungen."],
-  ["🔌 Ohne Technik nutzbar", "g", "Funktioniert ohne Strom und Internet.", "Braucht Strom, Internet und Geräte."]];
+const V = [[Lern.t("🔢 Feste Menge", "🔢 Fixed supply"), "b", Lern.t("Wächst jedes Jahr um etwa 1,5 bis 2 %. Wie viel es insgesamt gibt, weiß niemand genau.", "Grows by about 1.5 to 2 % every year. Nobody knows exactly how much there is in total."), Lern.t("Höchstens 21 Millionen. Jeder kann es mit einer eigenen Node nachzählen.", "At most 21 million. Anyone can count it with their own node.")],
+  [Lern.t("🔍 Echtheit prüfen", "🔍 Checking authenticity"), "b", Lern.t("Braucht Fachleute oder ein Labor. Vergoldetes Wolfram sieht echt aus.", "Needs experts or a lab. Gold-plated tungsten looks real."), Lern.t("Jede Node prüft jede Zahlung in Sekunden, ganz automatisch.", "Every node checks every payment in seconds, completely automatically.")],
+  [Lern.t("✈️ Verschicken", "✈️ Sending"), "b", Lern.t("Schwer, teuer, braucht Transport und Versicherung.", "Heavy, expensive, needs transport and insurance."), Lern.t("In Minuten um die ganze Welt, egal welcher Betrag.", "Around the world in minutes, no matter the amount.")],
+  [Lern.t("🏛 Bewährt", "🏛 Proven"), "g", Lern.t("Seit über 5.000 Jahren als Wert anerkannt.", "Recognised as valuable for more than 5,000 years."), Lern.t("Erst seit 2009, mit starken Kursschwankungen.", "Only since 2009, with strong price swings.")],
+  [Lern.t("🔌 Ohne Technik nutzbar", "🔌 Usable without technology"), "g", Lern.t("Funktioniert ohne Strom und Internet.", "Works without electricity and internet."), Lern.t("Braucht Strom, Internet und Geräte.", "Needs electricity, internet and devices.")]];
 let pts = 0, n = 0;
-$("vs").innerHTML = V.map(([t, w, g, b], i) => `<div class="v" id="v${i}"><b>${t}</b><div class="row"><button type="button" data-i="${i}" data-v="g">🥇 Gold</button><button type="button" data-i="${i}" data-v="b">₿ Bitcoin</button></div><div class="ans"><div class="${w === "g" ? "w" : ""}"><strong>🥇 Gold</strong>${g}</div><div class="${w === "b" ? "w" : ""}"><strong>₿ Bitcoin</strong>${b}</div></div></div>`).join("");
+$("vs").innerHTML = V.map(([t, w, g, b], i) => Lern.t(`<div class="v" id="v${i}"><b>${t}</b><div class="row"><button type="button" data-i="${i}" data-v="g">🥇 Gold</button><button type="button" data-i="${i}" data-v="b">₿ Bitcoin</button></div><div class="ans"><div class="${w === "g" ? "w" : ""}"><strong>🥇 Gold</strong>${g}</div><div class="${w === "b" ? "w" : ""}"><strong>₿ Bitcoin</strong>${b}</div></div></div>`, `<div class="v" id="v${i}"><b>${t}</b><div class="row"><button type="button" data-i="${i}" data-v="g">🥇 Gold</button><button type="button" data-i="${i}" data-v="b">₿ Bitcoin</button></div><div class="ans"><div class="${w === "g" ? "w" : ""}"><strong>🥇 Gold</strong>${g}</div><div class="${w === "b" ? "w" : ""}"><strong>₿ Bitcoin</strong>${b}</div></div></div>`)).join("");
 $("vs").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const i = +b.dataset.i, el = $("v" + i); if (el.classList.contains("done")) return;
   el.classList.add("done"); b.classList.add("pick"); n++; if (b.dataset.v === V[i][1]) pts++;
-  if (n === V.length) $("score").textContent = `${pts} von ${V.length} getroffen. Fazit: Bitcoin ist bei den Regeln stärker, Gold bei Erfahrung und Robustheit.`; });
+  if (n === V.length) $("score").textContent = Lern.t(`${pts} von ${V.length} getroffen. Fazit: Bitcoin ist bei den Regeln stärker, Gold bei Erfahrung und Robustheit.`, `${pts} of ${V.length} correct. Conclusion: Bitcoin is stronger on rules, gold on track record and robustness.`); });
 
-const QUIZ = [["Was passierte 1933 in den USA?", ["Die Förderung von Gold wurde komplett verboten, der Goldpreis fiel stark", "Bürger mussten ihr Gold abgeben, danach wurde der Goldpreis von 20,67 $ auf 35 $ angehoben", "Der Dollar wurde abgeschafft und durch reine Goldmünzen ersetzt"], 1, "So verloren Dollar-Besitzer auf einen Schlag rund 40 % ihrer Goldmenge."],
-  ["Warum endete der Gold-Tausch 1971?", ["Es gab plötzlich viel zu viel Gold auf der Welt", "Die USA hatten mehr Dollar ausgegeben, als sie Gold besaßen", "Gold war nach einem Börsencrash nichts mehr wert"], 1, "Andere Länder tauschten Dollar in Gold, die Reserven schrumpften stark."],
-  ["Wo ist Gold Bitcoin klar überlegen?", ["Beim Verschicken", "Bei der Echtheitsprüfung", "Bei der Erfahrung über Jahrtausende"], 2, "Gold ist seit über 5.000 Jahren als Wert anerkannt, Bitcoin erst seit 2009."]];
+const QUIZ = [[Lern.t("Was passierte 1933 in den USA?", "What happened in the USA in 1933?"), [Lern.t("Die Förderung von Gold wurde komplett verboten, der Goldpreis fiel stark", "Gold mining was banned completely, and the gold price fell sharply"), Lern.t("Bürger mussten ihr Gold abgeben, danach wurde der Goldpreis von 20,67 $ auf 35 $ angehoben", "Citizens had to hand in their gold, then the gold price was raised from $20.67 to $35"), Lern.t("Der Dollar wurde abgeschafft und durch reine Goldmünzen ersetzt", "The dollar was abolished and replaced by pure gold coins")], 1, Lern.t("So verloren Dollar-Besitzer auf einen Schlag rund 40 % ihrer Goldmenge.", "Dollar holders lost about 40 % of their amount of gold in one go.")],
+  [Lern.t("Warum endete der Gold-Tausch 1971?", "Why did the gold exchange end in 1971?"), [Lern.t("Es gab plötzlich viel zu viel Gold auf der Welt", "Suddenly there was far too much gold in the world"), Lern.t("Die USA hatten mehr Dollar ausgegeben, als sie Gold besaßen", "The USA had issued more dollars than it owned gold"), Lern.t("Gold war nach einem Börsencrash nichts mehr wert", "Gold was worthless after a stock market crash")], 1, Lern.t("Andere Länder tauschten Dollar in Gold, die Reserven schrumpften stark.", "Other countries exchanged dollars for gold, and the reserves shrank sharply.")],
+  [Lern.t("Wo ist Gold Bitcoin klar überlegen?", "Where is gold clearly superior to Bitcoin?"), [Lern.t("Beim Verschicken", "Sending"), Lern.t("Bei der Echtheitsprüfung", "Checking authenticity"), Lern.t("Bei der Erfahrung über Jahrtausende", "Track record over millennia")], 2, Lern.t("Gold ist seit über 5.000 Jahren als Wert anerkannt, Bitcoin erst seit 2009.", "Gold has been recognised as valuable for more than 5,000 years, Bitcoin only since 2009.")]];
 Lern.quiz($("quiz"), "goldstandard", QUIZ, "../"); Lern.visit("goldstandard"); Lern.renderNext("goldstandard", "../");
 })();
 </script>

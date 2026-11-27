@@ -35,47 +35,48 @@
 .note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5} .note b{color:var(--ink)} .note a{color:var(--gold)}
 @media (max-width:420px){ .slots{grid-template-columns:1fr 1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Die <span class="btc">Vorläufer</span></h1>
-    <p class="lead">Bitcoin kam 2008 nicht aus dem Nichts. Seit den 80ern versuchten Forscher, digitales Geld zu bauen. Jeder Versuch löste ein Teil des Problems, und jeder scheiterte an etwas anderem. Satoshi hat die Teile <b>zusammengesetzt</b> und das letzte fehlende ergänzt.</p>
+    <h1 data-i="k3">Die <span class="btc">Vorläufer</span></h1>
+    <p data-i="k4" class="lead">Bitcoin kam 2008 nicht aus dem Nichts. Seit den 80ern versuchten Forscher, digitales Geld zu bauen. Jeder Versuch löste ein Teil des Problems, und jeder scheiterte an etwas anderem. Satoshi hat die Teile <b>zusammengesetzt</b> und das letzte fehlende ergänzt.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Die Versuche vor Bitcoin</h2>
-    <p class="muted" style="margin:0">Tipp eine Karte an: Was brachte die Idee, und woran hakte es?</p>
+    <h2 data-i="k5" id="h1s">1 · Die Versuche vor Bitcoin</h2>
+    <p data-i="k6" class="muted" style="margin:0">Tipp eine Karte an: Was brachte die Idee, und woran hakte es?</p>
     <div class="pre" id="pre"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Puzzle: Bau Bitcoin zusammen</h2>
-    <p class="muted" style="margin:0">Bitcoin braucht <b>sechs Bausteine</b>. Fünf gab es schon. Tipp die richtigen an, aber Vorsicht: Zwei Teile hätten Bitcoin kaputtgemacht.</p>
+    <h2 data-i="k7" id="h2s">2 · Puzzle: Bau Bitcoin zusammen</h2>
+    <p data-i="k8" class="muted" style="margin:0">Bitcoin braucht <b>sechs Bausteine</b>. Fünf gab es schon. Tipp die richtigen an, aber Vorsicht: Zwei Teile hätten Bitcoin kaputtgemacht.</p>
     <div class="slots" id="slots"></div>
     <div class="pieces" id="pieces"></div>
     <p class="fb" id="fb" aria-live="polite" hidden></p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k9" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Jahrzehnte Vorarbeit</b><span>Unterschriften, Arbeitsnachweis, Zeitstempel-Ketten: Die Bausteine gab es <b>vor</b> Bitcoin.</span></div>
-      <div><b>Das Chef-Problem</b><span>Frühe Versuche brauchten eine <b>Firma oder einen Server</b>. Fiel der weg, war das Geld weg.</span></div>
-      <div><b>Satoshis Beitrag</b><span>Die <b>Kette mit der meisten Arbeit</b> gilt. So einigen sich alle ohne Chef, wer zuerst bezahlt hat.</span></div>
-      <div><b>Im Whitepaper zitiert</b><span>b-money, Hashcash und die Zeitstempel-Kette stehen in Satoshis <b>Quellenliste</b>.</span></div>
+      <div><b data-i="k10">Jahrzehnte Vorarbeit</b><span data-i="k11">Unterschriften, Arbeitsnachweis, Zeitstempel-Ketten: Die Bausteine gab es <b>vor</b> Bitcoin.</span></div>
+      <div><b data-i="k12">Das Chef-Problem</b><span data-i="k13">Frühe Versuche brauchten eine <b>Firma oder einen Server</b>. Fiel der weg, war das Geld weg.</span></div>
+      <div><b data-i="k14">Satoshis Beitrag</b><span data-i="k15">Die <b>Kette mit der meisten Arbeit</b> gilt. So einigen sich alle ohne Chef, wer zuerst bezahlt hat.</span></div>
+      <div><b data-i="k16">Im Whitepaper zitiert</b><span data-i="k17">b-money, Hashcash und die Zeitstempel-Kette stehen in Satoshis <b>Quellenliste</b>.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k18">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Quellenliste</a> · <a href="http://www.hashcash.org/papers/hashcash.pdf">Adam Back: Hashcash</a> · <a href="http://www.weidai.com/bmoney.txt">Wei Dai: b-money</a> · <a href="https://unenumerated.blogspot.com/2005/12/bit-gold.html">Nick Szabo: Bit Gold</a> · <a href="https://nakamotoinstitute.org/finney/rpow/">Hal Finney: RPOW</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k26" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k19">Quellen</summary><p><a data-i="k20" href="https://bitcoin.org/bitcoin.pdf">Bitcoin-Whitepaper, Quellenliste</a> · <a data-i="k21" href="http://www.hashcash.org/papers/hashcash.pdf">Adam Back: Hashcash</a> · <a data-i="k22" href="http://www.weidai.com/bmoney.txt">Wei Dai: b-money</a> · <a data-i="k23" href="https://unenumerated.blogspot.com/2005/12/bit-gold.html">Nick Szabo: Bit Gold</a> · <a data-i="k24" href="https://nakamotoinstitute.org/finney/rpow/">Hal Finney: RPOW</a></p></details>
+  <p data-i="k25" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "The <span class=\"btc\">Precursors<\/span>", "k4": "Bitcoin didn't come out of nowhere in 2008. Since the 80s researchers had tried to build digital money. Each attempt solved part of the problem, and each failed on something else. Satoshi <b>put the pieces together<\/b> and added the last missing one.", "k5": "1 · The attempts before Bitcoin", "k6": "Tap a card: what did the idea bring, and where did it get stuck?", "k7": "2 · Puzzle: build Bitcoin", "k8": "Bitcoin needs <b>six building blocks<\/b>. Five already existed. Tap the right ones, but careful: two pieces would have broken Bitcoin.", "k9": "Remember this", "k10": "Decades of groundwork", "k11": "Signatures, proof of work, timestamp chains: the building blocks existed <b>before<\/b> Bitcoin.", "k12": "The boss problem", "k13": "Early attempts needed a <b>company or a server<\/b>. If it disappeared, the money was gone.", "k14": "Satoshi's contribution", "k15": "The <b>chain with the most work<\/b> counts. That's how everyone agrees without a boss on who paid first.", "k16": "Cited in the whitepaper", "k17": "b-money, Hashcash and the timestamp chain are in Satoshi's <b>list of references<\/b>.", "k18": "Test yourself: 3 questions", "k19": "Sources", "k20": "Bitcoin whitepaper, references", "k21": "Adam Back: Hashcash", "k22": "Wei Dai: b-money", "k23": "Nick Szabo: Bit Gold", "k24": "Hal Finney: RPOW", "k25": "Entertainment and learning, not investment advice.", "k26@aria-label": "Next", "_title": "The Forerunners · Bitcoin Voyage", "_desc": "Profi-Vertiefung: DigiCash, Hashcash, b-money, Bit Gold und RPOW. Woran digitales Geld vor Bitcoin scheiterte und welches Puzzleteil Satoshi ergänzt hat."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    DIE VORLÄUFER – Lernwelt von Bitcoin Voyage
@@ -84,35 +85,35 @@
 const $ = id => document.getElementById(id);
 // [Jahr, Name, Person, Idee, Problem]
 const P = [["1982", "eCash / DigiCash", "David Chaum",
-  "Digitales Bargeld mit <strong>cleverer Kryptografie</strong>: Die Bank kann Zahlungen bestätigen, ohne zu sehen, wer was bezahlt.", "Ohne die Firma DigiCash ging nichts. Sie fand zu wenig Partner und ging <strong>1998 pleite</strong>, und mit ihr das System."],
- ["1991", "Zeitstempel-Kette", "Stuart Haber &amp; Scott Stornetta",
-  "Dokumente bekommen einen Zeitstempel, und jeder Stempel enthält den <strong>Hash des vorherigen</strong>. Nachträglich ändern fällt sofort auf.", "Kein Geld, sondern ein digitaler Notar für Dokumente."],
+  Lern.t("Digitales Bargeld mit <strong>cleverer Kryptografie</strong>: Die Bank kann Zahlungen bestätigen, ohne zu sehen, wer was bezahlt.", "Digital cash with <strong>clever cryptography</strong>: the bank can confirm payments without seeing who paid what."), Lern.t("Ohne die Firma DigiCash ging nichts. Sie fand zu wenig Partner und ging <strong>1998 pleite</strong>, und mit ihr das System.", "Nothing worked without the company DigiCash. It found too few partners and <strong>went bankrupt in 1998</strong>, and the system with it.")],
+ ["1991", Lern.t("Zeitstempel-Kette", "Timestamp chain"), "Stuart Haber &amp; Scott Stornetta",
+  Lern.t("Dokumente bekommen einen Zeitstempel, und jeder Stempel enthält den <strong>Hash des vorherigen</strong>. Nachträglich ändern fällt sofort auf.", "Documents get a timestamp, and every stamp contains the <strong>hash of the previous one</strong>. Changing things afterwards is noticed immediately."), Lern.t("Kein Geld, sondern ein digitaler Notar für Dokumente.", "Not money, but a digital notary for documents.")],
  ["1997", "Hashcash", "Adam Back",
-  "Ein <strong>Arbeitsnachweis</strong> gegen Spam: Jede E-Mail kostet ein bisschen Rechenarbeit. Für einen Brief egal, für Millionen Spam-Mails teuer.", "Eine Briefmarke, kein Geld: Man konnte die Arbeit nicht weitergeben oder sparen."],
+  Lern.t("Ein <strong>Arbeitsnachweis</strong> gegen Spam: Jede E-Mail kostet ein bisschen Rechenarbeit. Für einen Brief egal, für Millionen Spam-Mails teuer.", "A <strong>proof of work</strong> against spam: every email costs a little computing work. Irrelevant for one letter, expensive for millions of spam mails."), Lern.t("Eine Briefmarke, kein Geld: Man konnte die Arbeit nicht weitergeben oder sparen.", "A stamp, not money: you couldn't pass the work on or save it.")],
  ["1998", "b-money", "Wei Dai",
-  "Alle Teilnehmer führen <strong>gemeinsam ein Kassenbuch</strong>. Neues Geld entsteht durch Rechenarbeit.", "Blieb eine Idee auf dem Papier. Wie sich alle ohne Chef auf <strong>einen</strong> Stand einigen, war nicht gelöst."],
+  Lern.t("Alle Teilnehmer führen <strong>gemeinsam ein Kassenbuch</strong>. Neues Geld entsteht durch Rechenarbeit.", "All participants <strong>keep a ledger together</strong>. New money is created through computing work."), Lern.t("Blieb eine Idee auf dem Papier. Wie sich alle ohne Chef auf <strong>einen</strong> Stand einigen, war nicht gelöst.", "Remained an idea on paper. How everyone agrees on <strong>one</strong> state without a boss wasn't solved.")],
  ["1998", "Bit Gold", "Nick Szabo",
-  "Digitales Gold: Wertvoll, weil es <strong>Rechenarbeit kostet</strong>, so wie Gold Arbeit in der Mine kostet.", "Auch nie gebaut. Wem welches Stück gehört, sollte ein gemeinsames Register festhalten. Wie sich alle darauf einigen, ohne dass Betrüger mit vielen falschen Stimmen gewinnen, blieb offen."],
+  Lern.t("Digitales Gold: Wertvoll, weil es <strong>Rechenarbeit kostet</strong>, so wie Gold Arbeit in der Mine kostet.", "Digital gold: valuable because it <strong>costs computing work</strong>, just as gold costs work in the mine."), Lern.t("Auch nie gebaut. Wem welches Stück gehört, sollte ein gemeinsames Register festhalten. Wie sich alle darauf einigen, ohne dass Betrüger mit vielen falschen Stimmen gewinnen, blieb offen.", "Never built either. A shared register was supposed to record who owns which piece. How everyone agrees on it without cheaters winning with many fake votes remained open.")],
  ["2004", "RPOW", "Hal Finney",
-  "Arbeitsnachweise, die man <strong>weitergeben</strong> kann wie Münzen. Finney baute es wirklich.", "Ein Server prüfte alles. Er lief auf spezieller Hardware, die man prüfen konnte. Wer ihn abschaltet, beendet das System."]];
+  Lern.t("Arbeitsnachweise, die man <strong>weitergeben</strong> kann wie Münzen. Finney baute es wirklich.", "Proofs of work that can be <strong>passed on</strong> like coins. Finney actually built it."), Lern.t("Ein Server prüfte alles. Er lief auf spezieller Hardware, die man prüfen konnte. Wer ihn abschaltet, beendet das System.", "A server checked everything. It ran on special hardware that could be verified. Whoever switches it off ends the system.")]];
 $("pre").innerHTML = P.map(([y, n, w, i, p], k) => `<button type="button" class="pc" aria-expanded="false" data-i="${k}"><span class="y">${y}</span><b>${n}</b><small>${w}</small><span class="h">antippen</span><span class="d"><span>💡 ${i}</span><span>⚠️ ${p}</span></span></button>`).join("");
 $("pre").addEventListener("click", e => { const b = e.target.closest(".pc"); if (b) b.setAttribute("aria-expanded", b.getAttribute("aria-expanded") !== "true"); });
 
 // Puzzle: [Text, Herkunft oder null = falsch, Erklärung]
-const Z = [["✍️ Digitale Unterschriften", "Kryptografie, u. a. Chaum", "Nur wer den Schlüssel hat, kann ausgeben."],
-  ["⛏ Arbeitsnachweis", "Hashcash, 1997", "Neue Blöcke kosten echte Rechenarbeit."],
-  ["⛓ Kette aus Zeitstempeln", "Haber &amp; Stornetta, 1991", "Jeder Block enthält den Hash des vorherigen."],
-  ["🏦 Eine Firma, die alles prüft", null, "Genau daran ist DigiCash gescheitert. Mit Chef wäre Bitcoin abschaltbar."],
-  ["📒 Kassenbuch bei allen", "b-money, 1998", "Jeder hat eine Kopie, niemand allein bestimmt."],
-  ["🖥 Ein vertrauenswürdiger Server", null, "So arbeitete RPOW. Wer den Server kontrolliert, kontrolliert das Geld."],
-  ["💎 Knappheit durch Arbeit", "Bit Gold, 1998", "Neue Coins gibt es nur gegen Rechenarbeit, nach fester Regel."]];
-const SAT = ["🧩 Die Kette mit der meisten Arbeit gilt", "Satoshi, 2008", "Das fehlende Teil: So einigen sich alle ohne Chef auf eine Reihenfolge, und Doppelausgaben fallen auf."];
+const Z = [[Lern.t("✍️ Digitale Unterschriften", "✍️ Digital signatures"), Lern.t("Kryptografie, u. a. Chaum", "Cryptography, incl. Chaum"), Lern.t("Nur wer den Schlüssel hat, kann ausgeben.", "Only whoever has the key can spend.")],
+  [Lern.t("⛏ Arbeitsnachweis", "⛏ Proof of work"), "Hashcash, 1997", Lern.t("Neue Blöcke kosten echte Rechenarbeit.", "New blocks cost real computing work.")],
+  [Lern.t("⛓ Kette aus Zeitstempeln", "⛓ Chain of timestamps"), "Haber &amp; Stornetta, 1991", Lern.t("Jeder Block enthält den Hash des vorherigen.", "Every block contains the hash of the previous one.")],
+  [Lern.t("🏦 Eine Firma, die alles prüft", "🏦 A company that checks everything"), null, Lern.t("Genau daran ist DigiCash gescheitert. Mit Chef wäre Bitcoin abschaltbar.", "That's exactly what DigiCash failed on. With a boss, Bitcoin could be switched off.")],
+  [Lern.t("📒 Kassenbuch bei allen", "📒 A ledger with everyone"), "b-money, 1998", Lern.t("Jeder hat eine Kopie, niemand allein bestimmt.", "Everyone has a copy, nobody decides alone.")],
+  [Lern.t("🖥 Ein vertrauenswürdiger Server", "🖥 A trusted server"), null, Lern.t("So arbeitete RPOW. Wer den Server kontrolliert, kontrolliert das Geld.", "That's how RPOW worked. Whoever controls the server controls the money.")],
+  [Lern.t("💎 Knappheit durch Arbeit", "💎 Scarcity through work"), "Bit Gold, 1998", Lern.t("Neue Coins gibt es nur gegen Rechenarbeit, nach fester Regel.", "New coins only in exchange for computing work, by a fixed rule.")]];
+const SAT = [Lern.t("🧩 Die Kette mit der meisten Arbeit gilt", "🧩 The chain with the most work counts"), "Satoshi, 2008", Lern.t("Das fehlende Teil: So einigen sich alle ohne Chef auf eine Reihenfolge, und Doppelausgaben fallen auf.", "The missing piece: this is how everyone agrees on an order without a boss, and double spends get caught.")];
 let got = [];
 function draw(){
   const all = got.map(i => Z[i]).concat(got.length === 5 ? [SAT] : []);
-  $("slots").innerHTML = Array.from({length: 6}, (_, k) => all[k] ? `<div class="slot on${k === 5 ? " sat" : ""}"><span><b>${all[k][0]}</b><small>${all[k][1]}</small></span></div>` : `<div class="slot">${k === 5 ? "❓ Das letzte Teil" : "Baustein " + (k + 1)}</div>`).join("");
+  $("slots").innerHTML = Array.from({length: 6}, (_, k) => all[k] ? `<div class="slot on${k === 5 ? " sat" : ""}"><span><b>${all[k][0]}</b><small>${all[k][1]}</small></span></div>` : `<div class="slot">${k === 5 ? Lern.t("❓ Das letzte Teil", "❓ The last piece") : Lern.t("Baustein ", "Building block ") + (k + 1)}</div>`).join("");
   $("pieces").innerHTML = Z.map(([t, o], i) => `<button type="button" class="pz${got.includes(i) ? " used" : ""}" data-i="${i}">${t}</button>`).join("")
-    + (got.length === 5 ? "" : "") + (got.length >= 5 ? `<button type="button" class="pz" id="again">↺ Nochmal</button>` : "");
+    + (got.length === 5 ? "" : "") + (got.length >= 5 ? Lern.t(`<button type="button" class="pz" id="again">↺ Nochmal</button>`, `<button type="button" class="pz" id="again">↺ Again</button>`) : "");
 }
 function fb(c, h){ const F = $("fb"); F.hidden = false; F.className = "fb " + c; F.innerHTML = h; }
 $("pieces").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return;
@@ -121,13 +122,13 @@ $("pieces").addEventListener("click", e => { const b = e.target.closest("button"
   if (!z[1]){ fb("no", `❌ <b>${z[0]}</b>: ${z[2]}`); draw(); const nb = $("pieces").querySelector(`[data-i="${i}"]`); nb && nb.classList.add("no"); return; }
   got.push(i); draw();
   if (got.length < 5) fb("ok", `✅ <b>${z[0]}</b> (${z[1]}): ${z[2]}`);
-  else { fb("gold", `🎉 Alle fünf Vorläufer-Teile sitzen. Das sechste brachte <b>Satoshi</b>: <b>${SAT[0].slice(3)}</b>. ${SAT[2]} Daraus wurde 2008 Bitcoin.`); try { Lern.confetti && Lern.confetti(); } catch(e){} }
+  else { fb("gold", Lern.t(`🎉 Alle fünf Vorläufer-Teile sitzen. Das sechste brachte <b>Satoshi</b>: <b>${SAT[0].slice(3)}</b>. ${SAT[2]} Daraus wurde 2008 Bitcoin.`, `🎉 All five precursor pieces are in place. The sixth was brought by <b>Satoshi</b>: <b>${SAT[0].slice(3)}</b>. ${SAT[2]} In 2008 this became Bitcoin.`)); try { Lern.confetti && Lern.confetti(); } catch(e){} }
 });
 draw();
 
-const QUIZ = [["Woran scheiterte DigiCash?", ["Die Technik dahinter funktionierte nie richtig", "Es hing an einer Firma, und die ging 1998 pleite", "Es war für die damaligen Computer zu langsam"], 1, "Ohne die Firma ging nichts. Genau dieses Risiko vermeidet Bitcoin."],
-  ["Wofür war Hashcash ursprünglich gedacht?", ["Gegen Spam-Mails", "Als Ersatz für den Euro", "Für Online-Spiele"], 0, "Jede Mail kostet etwas Rechenarbeit. Bitcoin nutzt die Idee als Arbeitsnachweis."],
-  ["Welches Teil hat Satoshi neu hinzugefügt?", ["Digitale Unterschriften für Zahlungen", "Die Regel: Die Kette mit der meisten Arbeit gilt", "Das Internet als Netz zwischen Rechnern"], 1, "Damit einigen sich alle ohne Chef auf eine Reihenfolge der Zahlungen."]];
+const QUIZ = [[Lern.t("Woran scheiterte DigiCash?", "What did DigiCash fail on?"), [Lern.t("Die Technik dahinter funktionierte nie richtig", "The technology behind it never really worked"), Lern.t("Es hing an einer Firma, und die ging 1998 pleite", "It depended on one company, and that went bankrupt in 1998"), Lern.t("Es war für die damaligen Computer zu langsam", "It was too slow for the computers of the time")], 1, Lern.t("Ohne die Firma ging nichts. Genau dieses Risiko vermeidet Bitcoin.", "Nothing worked without the company. That's exactly the risk Bitcoin avoids.")],
+  [Lern.t("Wofür war Hashcash ursprünglich gedacht?", "What was Hashcash originally intended for?"), [Lern.t("Gegen Spam-Mails", "Against spam emails"), Lern.t("Als Ersatz für den Euro", "As a replacement for the euro"), Lern.t("Für Online-Spiele", "For online games")], 0, Lern.t("Jede Mail kostet etwas Rechenarbeit. Bitcoin nutzt die Idee als Arbeitsnachweis.", "Every email costs some computing work. Bitcoin uses the idea as proof of work.")],
+  [Lern.t("Welches Teil hat Satoshi neu hinzugefügt?", "Which piece did Satoshi add new?"), [Lern.t("Digitale Unterschriften für Zahlungen", "Digital signatures for payments"), Lern.t("Die Regel: Die Kette mit der meisten Arbeit gilt", "The rule: the chain with the most work counts"), Lern.t("Das Internet als Netz zwischen Rechnern", "The internet as a network between computers")], 1, Lern.t("Damit einigen sich alle ohne Chef auf eine Reihenfolge der Zahlungen.", "With it, everyone agrees on an order of payments without a boss.")]];
 Lern.quiz($("quiz"), "vorlaeufer", QUIZ, "../"); Lern.visit("vorlaeufer"); Lern.renderNext("vorlaeufer", "../");
 })();
 </script>

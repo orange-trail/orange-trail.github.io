@@ -38,66 +38,67 @@ table.t{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
 .stopg div{border-radius:14px;border:1px solid rgba(255,92,115,.35);background:rgba(0,0,0,.18);padding:12px;font-size:14px;color:var(--muted);line-height:1.5} .stopg div > b:first-child{display:block;font:900 15px var(--f-display);color:#ff9aa8;margin-bottom:4px} .stopg a{color:var(--gold)}
 @media (max-width:620px){ .stopg{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body data-nogl="Gebühr">
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Hebel</span>-Falle</h1>
-    <p class="lead">Mit <b>Hebel</b> wettest du mit geliehenem Geld. Gewinne werden größer, aber schon eine kleine Bewegung in die falsche Richtung, und dein Einsatz ist <b>komplett weg</b>.</p>
+    <h1 data-i="k3"><span class="btc">Hebel</span>-Falle</h1>
+    <p data-i="k4" class="lead">Mit <b>Hebel</b> wettest du mit geliehenem Geld. Gewinne werden größer, aber schon eine kleine Bewegung in die falsche Richtung, und dein Einsatz ist <b>komplett weg</b>.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Teste eine Wette <span class="mode" id="mode">Beispielverlauf</span></h2>
-    <div class="idea">Du setzt <b>100 $</b>. Mit Hebel 10 wettest du so, als hättest du 1.000 $. Fällt der Kurs aber um knapp <b>10 %</b>, ist dein Einsatz fast aufgebraucht. Die Börse schließt die Wette dann sofort, meist schon etwas vorher: <b>Liquidation</b>. <small class="usd">💵 Beträge in US-Dollar, denn darin wird Bitcoin weltweit gehandelt.</small></div>
+    <h2 data-i="k5" id="h1s">Teste eine Wette <span class="mode" id="mode">Beispielverlauf</span></h2>
+    <div data-i="k6" class="idea">Du setzt <b>100 $</b>. Mit Hebel 10 wettest du so, als hättest du 1.000 $. Fällt der Kurs aber um knapp <b>10 %</b>, ist dein Einsatz fast aufgebraucht. Die Börse schließt die Wette dann sofort, meist schon etwas vorher: <b>Liquidation</b>. <small class="usd">💵 Beträge in US-Dollar, denn darin wird Bitcoin weltweit gehandelt.</small></div>
     <div class="ctl">
-      <div><label for="lev">Hebel</label><div class="row"><input id="lev" type="range" min="1" max="100" value="10"><b id="levV" class="num">10×</b></div></div>
-      <div><label>Du wettest, dass Bitcoin …</label><div class="seg" id="dir"><button class="btn ghost" data-d="1" type="button" aria-pressed="true">📈 steigt (Long)</button><button class="btn ghost" data-d="-1" type="button" aria-pressed="false">📉 fällt (Short)</button></div></div>
+      <div><label data-i="k7" for="lev">Hebel</label><div class="row"><input id="lev" type="range" min="1" max="100" value="10"><b id="levV" class="num">10×</b></div></div>
+      <div><label data-i="k8">Du wettest, dass Bitcoin …</label><div class="seg" id="dir"><button data-i="k9" class="btn ghost" data-d="1" type="button" aria-pressed="true">📈 steigt (Long)</button><button data-i="k10" class="btn ghost" data-d="-1" type="button" aria-pressed="false">📉 fällt (Short)</button></div></div>
     </div>
     <div class="facts">
-      <div>Du setzt<b class="num">100 $</b></div>
-      <div>Du bewegst<b class="num" data-hold id="fPos">–</b></div>
-      <div class="liq">Weg bei<b class="num" data-hold id="fLiq">–</b></div>
+      <div data-i="k11">Du setzt<b class="num">100 $</b></div>
+      <div data-i="k12">Du bewegst<b class="num" data-hold id="fPos">–</b></div>
+      <div data-i="k13" class="liq">Weg bei<b class="num" data-hold id="fLiq">–</b></div>
     </div>
-    <div class="acts"><button class="btn" id="go" type="button">▶ Wette starten</button></div>
+    <div class="acts"><button data-i="k14" class="btn" id="go" type="button">▶ Wette starten</button></div>
     <svg class="ch" id="ch" viewBox="0 0 500 200" aria-hidden="true"></svg>
     <div class="res" id="res" aria-live="polite"></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Wie viel Bewegung verträgt welcher Hebel?</h2>
-    <p class="muted" style="margin:0" id="swing">Bitcoin schwankt stark. Zeilen in Rot wären schon bei der Schwankung eines ganz normalen Tages <b>liquidiert</b> worden.</p>
+    <h2 data-i="k15" id="h2s">Wie viel Bewegung verträgt welcher Hebel?</h2>
+    <p data-i="k16" class="muted" style="margin:0" id="swing">Bitcoin schwankt stark. Zeilen in Rot wären schon bei der Schwankung eines ganz normalen Tages <b>liquidiert</b> worden.</p>
     <table class="t" id="tab"></table>
   </section>
 
   <section class="card stop" aria-labelledby="hXs">
-    <h2 id="hXs">🛑 Unser klarer Rat: Finger weg!</h2>
+    <h2 data-i="k17" id="hXs">🛑 Unser klarer Rat: Finger weg!</h2>
     <div class="stopg">
-      <div><b>Die meisten verlieren</b>Anbieter von Hebel-Produkten (CFDs) müssen in der EU offenlegen, wie viele Kunden Geld verlieren: meist <b>70 bis 80 %</b> und mehr.</div>
-      <div><b>Die Börse gewinnt immer</b>Sie verdient an Gebühren und Zinsen, oft auch an <b>Liquidationen</b>. Je mehr du handelst, desto mehr verdient sie.</div>
-      <div><b>Bitcoin schwankt zu stark</b>Bewegungen von 10 % an einem Tag sind normal. Bei Hebel 10 ist dein Geld dann <b>komplett weg</b>, auch wenn der Kurs danach wieder steigt.</div>
-      <div><b>Besser so</b>Kauf echte Bitcoin, zahl sie in deine eigene Wallet aus und spare regelmäßig, zum Beispiel mit einem <a href="../sparplan/">Sparplan</a>. Ohne Hebel kannst du nie mehr verlieren als deinen Einsatz, und du kannst warten.</div>
+      <div data-i="k18"><b>Die meisten verlieren</b>Anbieter von Hebel-Produkten (CFDs) müssen in der EU offenlegen, wie viele Kunden Geld verlieren: meist <b>70 bis 80 %</b> und mehr.</div>
+      <div data-i="k19"><b>Die Börse gewinnt immer</b>Sie verdient an Gebühren und Zinsen, oft auch an <b>Liquidationen</b>. Je mehr du handelst, desto mehr verdient sie.</div>
+      <div data-i="k20"><b>Bitcoin schwankt zu stark</b>Bewegungen von 10 % an einem Tag sind normal. Bei Hebel 10 ist dein Geld dann <b>komplett weg</b>, auch wenn der Kurs danach wieder steigt.</div>
+      <div data-i="k21"><b>Besser so</b>Kauf echte Bitcoin, zahl sie in deine eigene Wallet aus und spare regelmäßig, zum Beispiel mit einem <a href="../sparplan/">Sparplan</a>. Ohne Hebel kannst du nie mehr verlieren als deinen Einsatz, und du kannst warten.</div>
     </div>
   </section>
 
 <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Das solltest du dir merken</h2>
+    <h2 data-i="k22" id="h3s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Hebel = Lupe</b><span>Hebel vergrößert <b>Gewinne und Verluste</b>. Bei 10× reichen schon gut 9 % Minus: alles weg.</span></div>
-      <div><b>Liquidation</b><span>Ist dein Einsatz aufgebraucht, verkauft die Börse <b>automatisch</b>. Kein Warten auf Erholung.</span></div>
-      <div><b>Gebühren fressen mit</b><span>Gehebelte Positionen kosten <b>laufend Zinsen</b> (Funding). Das Halten wird teuer.</span></div>
-      <div><b>Die meisten verlieren</b><span>Ein Großteil der Hebel-Händler verliert Geld. Bitcoin <b>ohne Hebel</b> kann nie liquidiert werden.</span></div>
+      <div><b data-i="k23">Hebel = Lupe</b><span data-i="k24">Hebel vergrößert <b>Gewinne und Verluste</b>. Bei 10× reichen schon gut 9 % Minus: alles weg.</span></div>
+      <div><b data-i="k25">Liquidation</b><span data-i="k26">Ist dein Einsatz aufgebraucht, verkauft die Börse <b>automatisch</b>. Kein Warten auf Erholung.</span></div>
+      <div><b data-i="k27">Gebühren fressen mit</b><span data-i="k28">Gehebelte Positionen kosten <b>laufend Zinsen</b> (Funding). Das Halten wird teuer.</span></div>
+      <div><b data-i="k29">Die meisten verlieren</b><span data-i="k30">Ein Großteil der Hebel-Händler verliert Geld. Bitcoin <b>ohne Hebel</b> kann nie liquidiert werden.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k31">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://www.esma.europa.eu/press-news/esma-news/esma-agrees-prohibit-binary-options-and-restrict-cfds-protect-retail-investors">ESMA: Beschränkung von CFDs (Pflicht-Warnhinweis mit Verlustquote)</a>; Der Kursverlauf ist ein Beispiel über 3 Tage mit einem Rutsch nach unten und einem nach oben, wie er bei Bitcoin immer wieder vorkommt. Vereinfachte Rechnung: Liquidation, wenn vom Einsatz nur noch ein Mindestpuffer von 0,5 % der Position übrig ist (Maintenance Margin). Gebühren und Funding sind nicht eingerechnet. Jede Börse hat eigene Regeln, mit Gebühren wird oft noch früher liquidiert.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung. Hebel-Handel kann zum Totalverlust führen.</p>
+  <section data-i="k35" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k32">Quellen</summary><p data-i="k33"><a href="https://www.esma.europa.eu/press-news/esma-news/esma-agrees-prohibit-binary-options-and-restrict-cfds-protect-retail-investors">ESMA: Beschränkung von CFDs (Pflicht-Warnhinweis mit Verlustquote)</a>; Der Kursverlauf ist ein Beispiel über 3 Tage mit einem Rutsch nach unten und einem nach oben, wie er bei Bitcoin immer wieder vorkommt. Vereinfachte Rechnung: Liquidation, wenn vom Einsatz nur noch ein Mindestpuffer von 0,5 % der Position übrig ist (Maintenance Margin). Gebühren und Funding sind nicht eingerechnet. Jede Börse hat eigene Regeln, mit Gebühren wird oft noch früher liquidiert.</p></details>
+  <p data-i="k34" class="foot">Lernen und Unterhaltung, keine Anlageberatung. Hebel-Handel kann zum Totalverlust führen.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Leverage<\/span> Trap", "k4": "With <b>leverage<\/b> you bet with borrowed money. Gains get bigger, but even a small move in the wrong direction and your stake is <b>completely gone<\/b>.", "k5": "Test a bet <span class=\"mode\" id=\"mode\">Example path<\/span>", "k6": "You stake <b>$100<\/b>. With 10x leverage you bet as if you had $1,000. But if the price falls by just under <b>10 %<\/b>, your stake is almost used up. The exchange then closes the bet immediately, usually a little earlier: <b>liquidation<\/b>. <small class=\"usd\">💵 Amounts in US dollars, because that's what bitcoin is traded in worldwide.<\/small>", "k7": "Leverage", "k8": "You bet that bitcoin …", "k9": "📈 rises (long)", "k10": "📉 falls (short)", "k11": "Your stake<b class=\"num\">$100<\/b>", "k12": "You move<b class=\"num\" data-hold=\"\" id=\"fPos\">–<\/b>", "k13": "Gone at<b class=\"num\" data-hold=\"\" id=\"fLiq\">–<\/b>", "k14": "▶ Start the bet", "k15": "How much movement can which leverage take?", "k16": "Bitcoin swings a lot. Rows in red would already have been <b>liquidated<\/b> by the swing of a perfectly normal day.", "k17": "🛑 Our clear advice: hands off!", "k18": "<b>Most people lose<\/b>Providers of leveraged products (CFDs) in the EU must disclose how many customers lose money: usually <b>70 to 80 %<\/b> and more.", "k19": "<b>The exchange always wins<\/b>It earns from fees and interest, often also from <b>liquidations<\/b>. The more you trade, the more it earns.", "k20": "<b>Bitcoin swings too much<\/b>Moves of 10 % in a day are normal. With 10x leverage your money is then <b>completely gone<\/b>, even if the price rises again afterwards.", "k21": "<b>Better this way<\/b>Buy real bitcoin, withdraw it to your own wallet and save regularly, for example with a <a href=\"../sparplan/\">savings plan<\/a>. Without leverage you can never lose more than your stake, and you can wait.", "k22": "Remember this", "k23": "Leverage = magnifying glass", "k24": "Leverage magnifies <b>gains and losses<\/b>. At 10× a drop of just over 9 % is enough: everything gone.", "k25": "Liquidation", "k26": "Once your stake is used up, the exchange sells <b>automatically<\/b>. No waiting for a recovery.", "k27": "Fees eat into it", "k28": "Leveraged positions cost <b>ongoing interest<\/b> (funding). Holding gets expensive.", "k29": "Most people lose", "k30": "A large share of leverage traders lose money. Bitcoin <b>without leverage<\/b> can never be liquidated.", "k31": "Test yourself: 3 questions", "k32": "Sources", "k33": "<a href=\"https://www.esma.europa.eu/press-news/esma-news/esma-agrees-prohibit-binary-options-and-restrict-cfds-protect-retail-investors\">ESMA: restriction of CFDs (mandatory warning with loss rate)<\/a>; the price path is an example over 3 days with one slide down and one up, as happens with Bitcoin again and again. Simplified calculation: liquidation when only a minimum buffer of 0.5 % of the position is left of the stake (maintenance margin). Fees and funding are not included. Every exchange has its own rules; with fees, liquidation often happens even earlier.", "k34": "Entertainment and learning, not investment advice. Leveraged trading can lead to a total loss.", "k35@aria-label": "Next", "_title": "Leverage Trap · Bitcoin Voyage", "_desc": "Lernwelt: Hebel und Liquidation. Teste an einem typischen Kursverlauf, wie schnell eine gehebelte Wette alles verliert."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    HEBEL-FALLE – Lernwelt von Bitcoin Voyage
@@ -105,8 +106,8 @@ table.t{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
-const usd = v => Math.round(v).toLocaleString("de-DE") + " $";
-const pct = v => v.toLocaleString("de-DE", {maximumFractionDigits: 1}) + " %";
+const usd = v => Lern.cur(Math.round(v).toLocaleString(Lern.EN ? "en-US" : "de-DE") + " $");
+const pct = v => v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 1}) + " %";
 let C = [], live = false, lev = 10, dir = 1, timer = 0;   // C: [Tief, Hoch, Schluss] je Stunde, älteste zuerst
 
 // Liquidations-Kurs: Die Börse schließt schon, bevor der Einsatz ganz weg ist (Mindestpuffer „Maintenance Margin“, hier 0,5 % der Position)
@@ -130,16 +131,16 @@ $("go").onclick = () => {
   clearInterval(timer);
   const entry = C[0][2], liq = lev === 1 && dir === 1 ? 0 : liqAt(entry, lev, dir);
   let k = 0;
-  $("res").className = "res"; $("res").textContent = "Läuft …";
+  $("res").className = "res"; $("res").textContent = Lern.t("Läuft …", "Running …");
   timer = setInterval(() => {
     k++; const [l, h, c] = C[k], hit = liq > 0 && (dir === 1 ? l <= liq : h >= liq);
     chart(k, entry, liq);
     const pnl = 100*lev*dir*(c - entry)/entry;
-    if (hit){ clearInterval(timer); $("res").className = "res bad"; $("res").innerHTML = `<strong>💥 Liquidiert nach ${k} Stunde${k > 1 ? "n" : ""}</strong>Der Kurs hat die rote Linie berührt. Deine 100 $ sind weg, auch wenn er sich danach vielleicht erholt hat.`; return; }
-    $("res").innerHTML = `Stunde ${k} von ${C.length - 1}: Wert deiner Wette <b class="num">${usd(100 + pnl)}</b>`;
+    if (hit){ clearInterval(timer); $("res").className = "res bad"; $("res").innerHTML = Lern.t(`<strong>💥 Liquidiert nach ${k} Stunde${k > 1 ? "n" : ""}</strong>Der Kurs hat die rote Linie berührt. Deine 100 $ sind weg, auch wenn er sich danach vielleicht erholt hat.`, `<strong>💥 Liquidated after ${k} hour${k > 1 ? "s" : ""}</strong>The price touched the red line. Your $100 is gone, even if it may have recovered afterwards.`); return; }
+    $("res").innerHTML = Lern.t(`Stunde ${k} von ${C.length - 1}: Wert deiner Wette <b class="num">${usd(100 + pnl)}</b>`, `Hour ${k} of ${C.length - 1}: value of your bet <b class="num">${usd(100 + pnl)}</b>`);
     if (k >= C.length - 1){ clearInterval(timer); const ok = pnl >= 0;
       $("res").className = "res " + (ok ? "ok" : "bad");
-      $("res").innerHTML = `<strong>${ok ? "Überlebt: " + usd(100 + pnl) : "Überlebt, aber im Minus: " + usd(100 + pnl)}</strong>${ok ? "Glück gehabt. Probier einen höheren Hebel oder die andere Richtung." : "Nicht liquidiert, aber Geld verloren."} ${lev > 1 ? `Ohne Hebel hättest du ${usd(100 + 100*dir*(c - entry)/entry)}.` : "Ohne Hebel schwankt dein Geld nur so stark wie Bitcoin selbst."}`; }
+      $("res").innerHTML = `<strong>${ok ? Lern.t("Überlebt: ", "Survived: ") + usd(100 + pnl) : Lern.t("Überlebt, aber im Minus: ", "Survived, but in the red: ") + usd(100 + pnl)}</strong>${ok ? Lern.t("Glück gehabt. Probier einen höheren Hebel oder die andere Richtung.", "Lucky. Try a higher leverage or the other direction.") : Lern.t("Nicht liquidiert, aber Geld verloren.", "Not liquidated, but money lost.")} ${lev > 1 ? Lern.t(`Ohne Hebel hättest du ${usd(100 + 100*dir*(c - entry)/entry)}.`, `Without leverage you'd have ${usd(100 + 100*dir*(c - entry)/entry)}.`) : Lern.t("Ohne Hebel schwankt dein Geld nur so stark wie Bitcoin selbst.", "Without leverage your money only swings as much as Bitcoin itself.")}`; }
   }, 2400/C.length);
 };
 
@@ -147,9 +148,9 @@ $("go").onclick = () => {
 function table(){
   // Live: echte letzte 24 Stunden. Beispiel: ein typischer ruhiger Tag (rund 3,5 % Spanne), nicht die Achterbahn oben
   const d = C.slice(-25), P = C[C.length - 1][2], hi = live ? Math.max(...d.map(c => c[1])) : P*1.015, lo = live ? Math.min(...d.map(c => c[0])) : P*.98, sw = (hi - lo)/lo*100;
-  $("swing").innerHTML = `${live ? "In den letzten 24 Stunden lag Bitcoin" : "An einem typischen Tag (Beispiel) liegt Bitcoin"} zwischen ${usd(lo)} und ${usd(hi)}, also <b>${pct(sw)}</b> Schwankung. Die roten Hebel ${live ? "wären dabei schon" : "würden dabei schon"} <b>liquidiert</b>${live ? " worden" : ""}.`;
-  $("tab").innerHTML = `<tr><th>Hebel</th><th>Aus 100 $ werden</th><th>Alles weg bei</th></tr>` + [1, 2, 5, 10, 25, 50, 100].map(l =>
-    `<tr class="${l > 1 && 100*mv(l) <= sw ? "x" : ""}"><td><b>${l}×</b></td><td>${usd(100*l)} Wette</td><td>${l === 1 ? "nie" : pct(100*mv(l)) + " Bewegung"}</td></tr>`).join("");
+  $("swing").innerHTML = Lern.t(`${live ? "In den letzten 24 Stunden lag Bitcoin" : "An einem typischen Tag (Beispiel) liegt Bitcoin"} zwischen ${usd(lo)} und ${usd(hi)}, also <b>${pct(sw)}</b> Schwankung. Die roten Hebel ${live ? "wären dabei schon" : "würden dabei schon"} <b>liquidiert</b>${live ? " worden" : ""}.`, `${live ? "In the last 24 hours Bitcoin was" : "On a typical day (example) Bitcoin is"} between ${usd(lo)} and ${usd(hi)}, i.e. a swing of <b>${pct(sw)}</b>. The red leverage levels ${live ? "would already have been" : "would already be"} <b>liquidated</b>.`);
+  $("tab").innerHTML = Lern.t(`<tr><th>Hebel</th><th>Aus 100 $ werden</th><th>Alles weg bei</th></tr>`, `<tr><th>Leverage</th><th>$100 becomes</th><th>All gone at</th></tr>`) + [1, 2, 5, 10, 25, 50, 100].map(l =>
+    Lern.t(`<tr class="${l > 1 && 100*mv(l) <= sw ? "x" : ""}"><td><b>${l}×</b></td><td>${usd(100*l)} Wette</td><td>${l === 1 ? "nie" : pct(100*mv(l)) + " Bewegung"}</td></tr>`, `<tr class="${l > 1 && 100*mv(l) <= sw ? "x" : ""}"><td><b>${l}×</b></td><td>${usd(100*l)} bet</td><td>${l === 1 ? "never" : pct(100*mv(l)) + " move"}</td></tr>`)).join("");
 }
 
 // Echte Stundenkurse von Coinbase, sonst ein Beispielverlauf
@@ -168,7 +169,7 @@ async function load(){
     for (let k = 0; k < 73; k++){ const c = k ? at(k)*(1 + (rnd() - .5)*.004) : 1; C.push([Math.min(p, c)*(1 - rnd()*.002), Math.max(p, c)*(1 + rnd()*.002), c]); p = c; }
     const f = Lern.PRICE.USD/p; C = C.map(c => c.map(v => v*f));
   }
-  $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte";
+  $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : Lern.t("Beispielwerte", "Example values");
   facts(); chart(0, C[0][2], 0); table();
 }
 $("lev").addEventListener("input", facts);
@@ -176,9 +177,9 @@ $("dir").onclick = e => { const b = e.target.closest("button"); if (!b) return; 
 load();
 
 const QUIZ = [
-  ["Du setzt 100 $ mit Hebel 20 auf steigende Kurse. Ab welchem Minus ist ungefähr alles weg?", ["20 %", "5 %", "50 %"], 1, "100 % geteilt durch 20 = 5 %. Wegen des Mindestpuffers schließt die Börse sogar schon etwas früher. Ein normaler Tag kann so eine Bewegung bringen."],
-  ["Was passiert bei einer Liquidation?", ["Die Börse wartet, bis der Kurs sich erholt", "Die Börse schließt die Wette automatisch, dein Einsatz ist weg", "Du bekommst eine Mahnung"], 1, "Ist der Einsatz aufgebraucht, schließt die Börse sofort. Eine spätere Erholung hilft dir nicht mehr."],
-  ["Wer kann nie liquidiert werden?", ["Wer nur mit einem kleinen Hebel von 2 handelt", "Wer Bitcoin ohne Hebel kauft und selbst verwahrt", "Wer immer einen Stop-Loss bei der Börse setzt"], 1, "Ohne geliehenes Geld gibt es nichts zu liquidieren. Der Kurs kann fallen, aber deine Bitcoin bleiben deine."],
+  [Lern.t("Du setzt 100 $ mit Hebel 20 auf steigende Kurse. Ab welchem Minus ist ungefähr alles weg?", "You stake $100 with 20x leverage on rising prices. At roughly what loss is everything gone?"), ["20 %", "5 %", "50 %"], 1, Lern.t("100 % geteilt durch 20 = 5 %. Wegen des Mindestpuffers schließt die Börse sogar schon etwas früher. Ein normaler Tag kann so eine Bewegung bringen.", "100 % divided by 20 = 5 %. Because of the minimum buffer, the exchange even closes a little earlier. A normal day can bring a move like that.")],
+  [Lern.t("Was passiert bei einer Liquidation?", "What happens in a liquidation?"), [Lern.t("Die Börse wartet, bis der Kurs sich erholt", "The exchange waits until the price recovers"), Lern.t("Die Börse schließt die Wette automatisch, dein Einsatz ist weg", "The exchange closes the bet automatically; your stake is gone"), Lern.t("Du bekommst eine Mahnung", "You get a reminder letter")], 1, Lern.t("Ist der Einsatz aufgebraucht, schließt die Börse sofort. Eine spätere Erholung hilft dir nicht mehr.", "Once the stake is used up, the exchange closes immediately. A later recovery doesn't help you anymore.")],
+  [Lern.t("Wer kann nie liquidiert werden?", "Who can never be liquidated?"), [Lern.t("Wer nur mit einem kleinen Hebel von 2 handelt", "Whoever only trades with a small leverage of 2"), Lern.t("Wer Bitcoin ohne Hebel kauft und selbst verwahrt", "Whoever buys bitcoin without leverage and holds it themselves"), Lern.t("Wer immer einen Stop-Loss bei der Börse setzt", "Whoever always sets a stop-loss at the exchange")], 1, Lern.t("Ohne geliehenes Geld gibt es nichts zu liquidieren. Der Kurs kann fallen, aber deine Bitcoin bleiben deine.", "Without borrowed money there's nothing to liquidate. The price can fall, but your bitcoin stay yours.")],
 ];
 Lern.quiz($("quiz"), "hebel", QUIZ, "../"); Lern.visit("hebel"); Lern.renderNext("hebel", "../");
 })();

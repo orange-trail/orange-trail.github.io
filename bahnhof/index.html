@@ -59,74 +59,75 @@ canvas{display:block;width:100%;height:clamp(300px,52vw,430px)} @media (max-widt
 @media (max-width:420px){ .steps{grid-template-columns:1fr} }
 @media (prefers-reduced-motion:reduce){ .mode.live::before{animation:none} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
   <div class="top">
-    <a class="back" href="../">← Voyage</a>
-    <a class="back" href="../lexikon/">📖 Lexikon</a>
+    <a data-i="k1" class="back" href="../">← Voyage</a>
+    <a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a>
   </div>
   <div>
-    <h1>Mempool-<span class="btc">Bahnhof</span></h1>
-    <p class="lead">So kommt eine Bitcoin-Überweisung in einen Block: Jede Transaktion ist ein Fahrgast, jeder Block ein Zug. Wer mehr Gebühr zahlt, darf zuerst einsteigen.</p>
+    <h1 data-i="k3">Mempool-<span class="btc">Bahnhof</span></h1>
+    <p data-i="k4" class="lead">So kommt eine Bitcoin-Überweisung in einen Block: Jede Transaktion ist ein Fahrgast, jeder Block ein Zug. Wer mehr Gebühr zahlt, darf zuerst einsteigen.</p>
   </div>
 
   <section class="card" aria-labelledby="hNetz">
-    <h2 id="hNetz" class="nh">📡 Das Bitcoin-Netz <span class="mode" id="mode">…</span></h2>
+    <h2 data-i="k5" id="hNetz" class="nh">📡 Das Bitcoin-Netz <span class="mode" id="mode">…</span></h2>
     <div class="stats">
-      <div class="stat"><small>Wartende Zahlungen</small><b id="sWait">–</b></div>
-      <div class="stat"><small>Günstigste Gebühr</small><b id="sMin">–</b></div>
-      <div class="stat"><small id="lAgo">Ein Block alle</small><b id="sAgo">–</b></div>
-      <div class="stat"><small>Nächster Block</small><b id="sNext">–</b></div>
+      <div class="stat"><small data-i="k6">Wartende Zahlungen</small><b id="sWait">–</b></div>
+      <div class="stat"><small data-i="k7">Günstigste Gebühr</small><b id="sMin">–</b></div>
+      <div class="stat"><small data-i="k8" id="lAgo">Ein Block alle</small><b id="sAgo">–</b></div>
+      <div class="stat"><small data-i="k9">Nächster Block</small><b id="sNext">–</b></div>
     </div>
   </section>
 
-  <p class="muted" style="margin:0 0 8px;font-size:14px">🎮 <b>Spiel-Bahnhof</b> (Beispiel mit viel Andrang, damit du jeden Platz ausprobieren kannst):</p>
-  <section class="stage"><canvas id="cv" role="img" aria-label="Bahnhof: Fahrgäste (Transaktionen) warten auf Züge (Blöcke). Vorne die mit der höchsten Gebühr."></canvas></section>
-  <section class="card you" aria-label="Deine Übungs-Überweisung" style="margin-top:10px">
+  <p data-i="k10" class="muted" style="margin:0 0 8px;font-size:14px">🎮 <b>Spiel-Bahnhof</b> (Beispiel mit viel Andrang, damit du jeden Platz ausprobieren kannst):</p>
+  <section class="stage"><canvas data-i="k39" id="cv" role="img" aria-label="Bahnhof: Fahrgäste (Transaktionen) warten auf Züge (Blöcke). Vorne die mit der höchsten Gebühr."></canvas></section>
+  <section data-i="k40" class="card you" aria-label="Deine Übungs-Überweisung" style="margin-top:10px">
     <div>
-      <h2>🎫 Deine Übungs-Überweisung</h2>
-      <p>Gebühr wählen, Fahrgast losschicken. Es wird <b>kein echtes Bitcoin</b> bewegt.</p>
+      <h2 data-i="k11">🎫 Deine Übungs-Überweisung</h2>
+      <p data-i="k12">Gebühr wählen, Fahrgast losschicken. Es wird <b>kein echtes Bitcoin</b> bewegt.</p>
     </div>
     <div class="ctrl">
-      <div class="feeRow"><div class="zsel"><input id="fee" type="range" min="1" max="3" step="1" value="1" aria-label="Welchen Zug willst du nehmen?" aria-valuetext="Zug 1"><div class="zt" aria-hidden="true"><span>Zug 1<small>~10 Min.</small></span><span>Zug 2<small>~20 Min.</small></span><span>Zug 3<small>~30 Min.</small></span></div></div><span class="feeVal" id="feeVal">–</span></div>
+      <div class="feeRow"><div class="zsel"><input data-i="k41" id="fee" type="range" min="1" max="3" step="1" value="1" aria-label="Welchen Zug willst du nehmen?" aria-valuetext="Zug 1"><div class="zt" aria-hidden="true"><span data-i="k13">Zug 1<small>~10 Min.</small></span><span data-i="k14">Zug 2<small>~20 Min.</small></span><span data-i="k15">Zug 3<small>~30 Min.</small></span></div></div><span class="feeVal" id="feeVal">–</span></div>
       <div class="out" data-hold id="out">–</div>
-      <div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" id="send" type="button">Fahrgast losschicken</button><button class="btn ghost" type="button" id="simB">⛏️ Block gefunden</button></div>
-      <div class="conf" id="conf" hidden aria-label="Bestätigungen"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="row" style="gap:8px;flex-wrap:wrap"><button data-i="k16" class="btn" id="send" type="button">Fahrgast losschicken</button><button data-i="k17" class="btn ghost" type="button" id="simB">⛏️ Block gefunden</button></div>
+      <div data-i="k42" class="conf" id="conf" hidden aria-label="Bestätigungen"><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
   </section>
-  <p class="news" id="news" aria-live="polite">Der Bahnhof öffnet …</p>
+  <p data-i="k18" class="news" id="news" aria-live="polite">Der Bahnhof öffnet …</p>
 
-  <section class="card how" aria-label="So funktioniert es">
-    <h2>So funktioniert's</h2>
+  <section data-i="k43" class="card how" aria-label="So funktioniert es">
+    <h2 data-i="k19">So funktioniert's</h2>
     <div class="steps">
-      <div class="step"><b>1 · Abschicken</b><span>Deine Überweisung landet erst im <b>Mempool</b>, dem Wartesaal aller unbestätigten Transaktionen.</span></div>
-      <div class="step"><b>2 · Gebühr bieten</b><span>Miner nehmen zuerst die mit der höchsten Gebühr pro Platz (<b>sat/vB</b>). Ein Block hat nur begrenzt Platz.</span></div>
-      <div class="step"><b>3 · Zug fährt ab</b><span>Im Schnitt alle <b>10 Minuten</b> findet ein Miner einen Block. Das ist Zufall, manchmal 1 Minute, manchmal 40.</span></div>
-      <div class="step"><b>4 · Bestätigt</b><span>Jeder weitere Block obendrauf ist eine <b>Bestätigung</b>. Nach 6 gilt eine Zahlung als sicher, eine verbreitete Faustregel.</span></div>
+      <div class="step"><b data-i="k20">1 · Abschicken</b><span data-i="k21">Deine Überweisung landet erst im <b>Mempool</b>, dem Wartesaal aller unbestätigten Transaktionen.</span></div>
+      <div class="step"><b data-i="k22">2 · Gebühr bieten</b><span data-i="k23">Miner nehmen zuerst die mit der höchsten Gebühr pro Platz (<b>sat/vB</b>). Ein Block hat nur begrenzt Platz.</span></div>
+      <div class="step"><b data-i="k24">3 · Zug fährt ab</b><span data-i="k25">Im Schnitt alle <b>10 Minuten</b> findet ein Miner einen Block. Das ist Zufall, manchmal 1 Minute, manchmal 40.</span></div>
+      <div class="step"><b data-i="k26">4 · Bestätigt</b><span data-i="k27">Jeder weitere Block obendrauf ist eine <b>Bestätigung</b>. Nach 6 gilt eine Zahlung als sicher, eine verbreitete Faustregel.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k28">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
   <section class="card" aria-labelledby="hCs">
-    <h2 id="hCs" style="margin:0 0 6px;font:900 18px var(--f-display)">Wann ist meine Zahlung sicher?</h2>
-    <p class="muted" style="margin:0;font-size:14px">Ist deine Zahlung in einem Block, hat sie <b>1 Bestätigung</b>. Jeder weitere Block obendrauf ist eine weitere. Schieb den Regler und sieh, wie sicher sie wird.</p>
-    <div class="cfRow"><input id="cf" type="range" min="0" max="6" value="0" aria-label="Bestätigungen"><b id="cfV" class="num">0</b></div>
+    <h2 data-i="k29" id="hCs" style="margin:0 0 6px;font:900 18px var(--f-display)">Wann ist meine Zahlung sicher?</h2>
+    <p data-i="k30" class="muted" style="margin:0;font-size:14px">Ist deine Zahlung in einem Block, hat sie <b>1 Bestätigung</b>. Jeder weitere Block obendrauf ist eine weitere. Schieb den Regler und sieh, wie sicher sie wird.</p>
+    <div class="cfRow"><input data-i="k44" id="cf" type="range" min="0" max="6" value="0" aria-label="Bestätigungen"><b id="cfV" class="num">0</b></div>
     <div class="cfBlocks" id="cfB"></div>
     <p class="cfT" data-hold id="cfT"></p>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b>Vertiefen:</b> <a href="../blockbau/">Bau deinen Block</a> <span class="muted">(du bist der Miner: welche Zahlungen packst du ein?)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <p class="foot">Realistische Beispielwerte. Unterhaltung und Lernen, keine Anlageberatung.</p>
-  <details class="foot priv"><summary>Datenschutz</summary>
-    <p>Keine Cookies, kein Tracking, keine Werbenetzwerke. Für die Live-Daten verbindet sich dein Browser direkt mit mempool.space, das dabei, wie bei jedem Seitenaufruf, deine IP-Adresse sieht. Die Seite liegt bei GitHub Pages (GitHub Inc.).</p>
+  <section data-i="k45" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b data-i="k31">Vertiefen:</b> <a data-i="k32" href="../blockbau/">Bau deinen Block</a> <span data-i="k33" class="muted">(du bist der Miner: welche Zahlungen packst du ein?)</span></p></section>
+  <section data-i="k46" class="card next" id="next" aria-label="Weiter"></section>
+  <p data-i="k34" class="foot">Realistische Beispielwerte. Unterhaltung und Lernen, keine Anlageberatung.</p>
+  <details class="foot priv"><summary data-i="k35">Datenschutz</summary>
+    <p data-i="k36">Keine Cookies, kein Tracking, keine Werbenetzwerke. Für die Live-Daten verbindet sich dein Browser direkt mit mempool.space, das dabei, wie bei jedem Seitenaufruf, deine IP-Adresse sieht. Die Seite liegt bei GitHub Pages (GitHub Inc.).</p>
   </details>
 </div>
 
-<details class="foot"><summary>Quellen</summary><p>Warteraum, Gebühren und Blöcke als realistische Beispielwerte (echte Werte z. B. auf <a href="https://mempool.space">mempool.space</a>); <a href="https://en.bitcoin.it/wiki/Transaction_fees">Bitcoin Wiki: Transaction fees</a>. Das Spiel ist eine Simulation mit vereinfachten Zahlen.</p></details>
-<script src="../lern.js?v=126"></script>
+<details class="foot"><summary data-i="k37">Quellen</summary><p data-i="k38">Warteraum, Gebühren und Blöcke als realistische Beispielwerte (echte Werte z. B. auf <a href="https://mempool.space">mempool.space</a>); <a href="https://en.bitcoin.it/wiki/Transaction_fees">Bitcoin Wiki: Transaction fees</a>. Das Spiel ist eine Simulation mit vereinfachten Zahlen.</p></details>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Mempool <span class=\"btc\">Station<\/span>", "k4": "This is how a bitcoin transfer gets into a block: every transaction is a passenger, every block a train. Whoever pays a higher fee gets to board first.", "k5": "📡 The Bitcoin network <span class=\"mode\" id=\"mode\">…<\/span>", "k6": "Waiting payments", "k7": "Cheapest fee", "k8": "One block every", "k9": "Next block", "k10": "🎮 <b>Game station<\/b> (example with lots of crowding, so you can try every spot):", "k11": "🎫 Your practice transfer", "k12": "Choose a fee, send off the passenger. <b>No real bitcoin<\/b> is moved.", "k13": "Train 1<small>~10 min<\/small>", "k14": "Train 2<small>~20 min<\/small>", "k15": "Train 3<small>~30 min<\/small>", "k16": "Send off passenger", "k17": "⛏️ Block found", "k18": "The station is opening …", "k19": "How it works", "k20": "1 · Send", "k21": "Your transfer first lands in the <b>mempool<\/b>, the waiting hall of all unconfirmed transactions.", "k22": "2 · Offer a fee", "k23": "Miners take the ones with the highest fee per space (<b>sat/vB<\/b>) first. A block has only limited space.", "k24": "3 · The train departs", "k25": "On average a miner finds a block every <b>10 minutes<\/b>. It's random: sometimes 1 minute, sometimes 40.", "k26": "4 · Confirmed", "k27": "Every further block on top is a <b>confirmation<\/b>. After 6 a payment is considered safe, a common rule of thumb.", "k28": "Test yourself: 3 questions", "k29": "When is my payment safe?", "k30": "Once your payment is in a block, it has <b>1 confirmation<\/b>. Every further block on top adds another. Move the slider and see how safe it gets.", "k31": "Go deeper:", "k32": "Build your block", "k33": "(you're the miner: which payments do you pack in?)", "k34": "Realistic example values. Entertainment and learning, not investment advice.", "k35": "Privacy", "k36": "No cookies, no tracking, no ad networks. For live data your browser connects directly to mempool.space, which, as with any page visit, sees your IP address. The site is hosted on GitHub Pages (GitHub Inc.).", "k37": "Sources", "k38": "Waiting room, fees and blocks as realistic example values (real values e.g. on <a href=\"https://mempool.space\">mempool.space<\/a>); <a href=\"https://en.bitcoin.it/wiki/Transaction_fees\">Bitcoin Wiki: Transaction fees<\/a>. The game is a simulation with simplified numbers.", "k39@aria-label": "Station: passengers (transactions) wait for trains (blocks). In front, those with the highest fee.", "k40@aria-label": "Your practice transfer", "k41@aria-label": "Which train do you want to take?", "k42@aria-label": "Confirmations", "k43@aria-label": "How it works", "k44@aria-label": "Confirmations", "k45@aria-label": "Related", "k46@aria-label": "Next", "_title": "Mempool Station · Bitcoin Voyage", "_desc": "Lernwelt: So kommt deine Bitcoin-Überweisung in einen Block. Der Mempool als Bahnhof zum Ausprobieren."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    MEMPOOL-BAHNHOF – Lernwelt von Bitcoin Voyage
@@ -141,8 +142,8 @@ const $ = id => document.getElementById(id);
 const cv = $("cv"), ctx = cv.getContext("2d");
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const INK = "#0d1230", TAU = Math.PI*2;
-const fmt = n => Math.round(n).toLocaleString("de-DE");
-const fmtFee = v => v.toLocaleString("de-DE", {maximumFractionDigits: v < 10 ? 1 : 0});
+const fmt = n => Math.round(n).toLocaleString(Lern.EN ? "en-US" : "de-DE");
+const fmtFee = v => v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: v < 10 ? 1 : 0});
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const rnd = (a, b) => a + Math.random()*(b - a);
 const VBYTES = 140;   // Größe einer typischen Überweisung (1 Eingang, 2 Ausgänge)
@@ -187,7 +188,7 @@ const nextDemo = () => Math.min(120, Math.max(20, -30*Math.log(1 - Math.random()
 function startDemo(){
   mode = "demo"; tip = {h: LV.tip.h || Lern.height(), ts: Date.now()/1000 - rnd(4, 15)}; waiting = 42000; if (!eur) eur = Lern.PRICE.EUR;
   demoBlocks(true);
-  say("<b>Spiel-Bahnhof:</b> Schick unten einen Übungs-Fahrgast los und schau zu, wie er aufrückt. Die Zeit läuft 20-mal schneller: Im Schnitt fährt alle 30 Sekunden ein Zug. Oder tippe auf „Block gefunden“.");
+  say(Lern.t("<b>Spiel-Bahnhof:</b> Schick unten einen Übungs-Fahrgast los und schau zu, wie er aufrückt. Die Zeit läuft 20-mal schneller: Im Schnitt fährt alle 30 Sekunden ein Zug. Oder tippe auf „Block gefunden“.", "<b>Game station:</b> send off a practice passenger below and watch it move up. Time runs 20 times faster: on average a train leaves every 30 seconds. Or tap “Block found”."));
 }
 function demoBlocks(hi){
   const base = hi ? rnd(18, 30) : rnd(2, 8); mblocks = [];
@@ -207,13 +208,13 @@ function newBlock(b){
   const minFee = (b.extras && b.extras.feeRange && b.extras.feeRange[0]) || (mblocks && mblocks[0] && mblocks[0].feeRange[0]) || 1;
   tip = {h: b.height, ts: b.timestamp || Date.now()/1000};
   anim = {t0: t, h: b.height, pool: (b.extras && b.extras.pool && b.extras.pool.name) || "", n: b.tx_count || 0};
-  const pool = anim.pool ? ` von ${anim.pool}` : "";
-  say(`<b>Zug ${fmt(b.height)} fährt ab!</b> ${fmt(anim.n)} Fahrgäste an Bord, gefunden${pool}. Mitgenommen wurde ab ca. ${fmtFee(minFee)} sat/vB.`);
+  const pool = anim.pool ? Lern.t(` von ${anim.pool}`, ` by ${anim.pool}`) : "";
+  say(Lern.t(`<b>Zug ${fmt(b.height)} fährt ab!</b> ${fmt(anim.n)} Fahrgäste an Bord, gefunden${pool}. Mitgenommen wurde ab ca. ${fmtFee(minFee)} sat/vB.`, `<b>Train ${fmt(b.height)} departs!</b> ${fmt(anim.n)} passengers on board, found${pool}. Fees from approx. ${fmtFee(minFee)} sat/vB were taken along.`));
   // Übungs-Fahrgast: mitgekommen? Bestätigungen zählen
   if (mine){
-    if (mine.state === "wait" && mine.fee >= minFee){ mine.state = "in"; mine.h = b.height; mine.conf = 1; say(`<b>Du bist eingestiegen!</b> Deine Übungs-Überweisung ist in Block ${fmt(b.height)}: 1 Bestätigung.`); }
-    else if (mine.state === "in"){ mine.conf = b.height - mine.h + 1; if (mine.conf === 6) say("<b>6 Bestätigungen!</b> Nach der gängigen Faustregel gilt deine Übungs-Überweisung jetzt als sicher."); }
-    else if (mine.state === "wait") say(`Zug ${fmt(b.height)} ist voll, dein Fahrgast mit ${fmtFee(mine.fee)} sat/vB wartet noch. Andere haben mehr geboten. Gleich rückt er einen Zug auf.`);
+    if (mine.state === "wait" && mine.fee >= minFee){ mine.state = "in"; mine.h = b.height; mine.conf = 1; say(Lern.t(`<b>Du bist eingestiegen!</b> Deine Übungs-Überweisung ist in Block ${fmt(b.height)}: 1 Bestätigung.`, `<b>You're on board!</b> Your practice transfer is in block ${fmt(b.height)}: 1 confirmation.`)); }
+    else if (mine.state === "in"){ mine.conf = b.height - mine.h + 1; if (mine.conf === 6) say(Lern.t("<b>6 Bestätigungen!</b> Nach der gängigen Faustregel gilt deine Übungs-Überweisung jetzt als sicher.", "<b>6 confirmations!</b> By the common rule of thumb, your practice transfer is now considered safe.")); }
+    else if (mine.state === "wait") say(Lern.t(`Zug ${fmt(b.height)} ist voll, dein Fahrgast mit ${fmtFee(mine.fee)} sat/vB wartet noch. Andere haben mehr geboten. Gleich rückt er einen Zug auf.`, `Train ${fmt(b.height)} is full; your passenger with ${fmtFee(mine.fee)} sat/vB is still waiting. Others bid more. He'll move up one train soon.`));
   }
   renderYou();
 }
@@ -221,7 +222,7 @@ function newBlock(b){
 // Vorschau: Block sofort "finden", damit man nicht 10 Minuten warten muss (ändert keine echten Daten)
 // Ein Klick = genau ein Zug: danach startet der Countdown für den automatischen Zug neu (mind. 45 s)
 $("simB").onclick = () => { if (!mblocks || (anim && t - anim.t0 < 5.2)) return; demoIn = 45 + nextDemo();
-  newBlock({height: tip.h + 1, timestamp: Date.now()/1000, tx_count: mblocks[0].nTx, extras: {feeRange: mblocks[0].feeRange, pool: {name: "einem Miner"}}}); };
+  newBlock({height: tip.h + 1, timestamp: Date.now()/1000, tx_count: mblocks[0].nTx, extras: {feeRange: mblocks[0].feeRange, pool: {name: Lern.t("einem Miner", "a miner")}}}); };
 
 // Nach der Abfahrt rücken alle einen Abschnitt nach vorne
 let shiftT = -9;
@@ -275,33 +276,33 @@ function renderYou(){
     const m0 = mblocks[0], cheap = m0.feeRange[0];
     if (zi === 0){
       const more = Math.round(100 - pctBelow(fee, m0));
-      place = `<b class="z1">Nächster Zug</b>, in ca. 10 Minuten bestätigt. ` + (more <= 0 ? "Du zahlst mit am meisten im ganzen Zug." : `Im Zug zahlen ca. ${more} % mehr als du.`);
-      if (fee > cheap*1.5) tip2 = `<br><b class="z2">Spartipp:</b> Gerade reichen schon <b>${fmtFee(cheap)} sat/vB</b> für den nächsten Zug. Mehr zu zahlen macht dich nicht schneller, nur teurer.`;
+      place = Lern.t(`<b class="z1">Nächster Zug</b>, in ca. 10 Minuten bestätigt. `, `<b class="z1">Next train</b>, confirmed in approx. 10 minutes. `) + (more <= 0 ? Lern.t("Du zahlst mit am meisten im ganzen Zug.", "You're paying among the most in the whole train.") : Lern.t(`Im Zug zahlen ca. ${more} % mehr als du.`, `In the train, approx. ${more} % pay more than you.`));
+      if (fee > cheap*1.5) tip2 = Lern.t(`<br><b class="z2">Spartipp:</b> Gerade reichen schon <b>${fmtFee(cheap)} sat/vB</b> für den nächsten Zug. Mehr zu zahlen macht dich nicht schneller, nur teurer.`, `<br><b class="z2">Saving tip:</b> right now <b>${fmtFee(cheap)} sat/vB</b> is already enough for the next train. Paying more doesn't make you faster, only more expensive.`);
     }
-    else if (zi < mblocks.length - 1) place = `<b class="z2">Zug ${zi + 1}</b>, in ca. ${(zi + 1)*10} Minuten bestätigt`;
-    else place = `<b class="z3">Ganz hinten</b>, eher Stunden. Vielleicht wartet er sogar, bis der Andrang nachlässt`;
+    else if (zi < mblocks.length - 1) place = Lern.t(`<b class="z2">Zug ${zi + 1}</b>, in ca. ${(zi + 1)*10} Minuten bestätigt`, `<b class="z2">Train ${zi + 1}</b>, confirmed in approx. ${(zi + 1)*10} minutes`);
+    else place = Lern.t(`<b class="z3">Ganz hinten</b>, eher Stunden. Vielleicht wartet er sogar, bis der Andrang nachlässt`, `<b class="z3">At the very back</b>, more like hours. Maybe it even waits until the crowd thins out`);
   }
-  const cost = `Kosten: <b>${fmt(sats)} sats</b>${euro ? ` ≈ <b>${euro.toLocaleString("de-DE", {maximumFractionDigits: 2, minimumFractionDigits: 2})} €</b>` : ""} für eine typische Überweisung`;
+  const cost = Lern.t(`Kosten: <b>${fmt(sats)} sats</b>${euro ? ` ≈ <b>${euro.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 2, minimumFractionDigits: 2})} €</b>` : ""} für eine typische Überweisung`, `Cost: <b>${fmt(sats)} sats</b>${euro ? ` ≈ <b>€${euro.toLocaleString("en-US", {maximumFractionDigits: 2, minimumFractionDigits: 2})}</b>` : ""} for a typical transfer`);
   let st = "";
   if (mine){
-    st = mine.state === "wait" ? `<br>Dein Fahrgast (${fmtFee(mine.fee)} sat/vB) <b>wartet</b> auf den nächsten Zug …`
-       : `<br>Dein Fahrgast ist <b>in Block ${fmt(mine.h)}</b>: ${Math.min(6, mine.conf)} von 6 Bestätigungen${mine.conf >= 6 ? " – final!" : ""}`;
+    st = mine.state === "wait" ? Lern.t(`<br>Dein Fahrgast (${fmtFee(mine.fee)} sat/vB) <b>wartet</b> auf den nächsten Zug …`, `<br>Your passenger (${fmtFee(mine.fee)} sat/vB) is <b>waiting</b> for the next train …`)
+       : Lern.t(`<br>Dein Fahrgast ist <b>in Block ${fmt(mine.h)}</b>: ${Math.min(6, mine.conf)} von 6 Bestätigungen${mine.conf >= 6 ? " – final!" : ""}`, `<br>Your passenger is <b>in block ${fmt(mine.h)}</b>: ${Math.min(6, mine.conf)} of 6 confirmations${mine.conf >= 6 ? " – final!" : ""}`);
   }
-  if (zi !== null && cheap0() <= .2 && fee <= cheap0()*1.5) tip2 = `<br>Gerade ist <b>wenig los</b> im Netzwerk: Fast jede Gebühr passt in den nächsten Zug. Bei viel Andrang sieht das ganz anders aus.`;
-  $("out").innerHTML = `${cost}<br>Platz: ${place}${tip2}${st}`;
+  if (zi !== null && cheap0() <= .2 && fee <= cheap0()*1.5) tip2 = Lern.t(`<br>Gerade ist <b>wenig los</b> im Netzwerk: Fast jede Gebühr passt in den nächsten Zug. Bei viel Andrang sieht das ganz anders aus.`, `<br>Right now there's <b>little going on</b> in the network: almost any fee fits into the next train. With a big crowd it looks very different.`);
+  $("out").innerHTML = Lern.t(`${cost}<br>Platz: ${place}${tip2}${st}`, `${cost}<br>Spot: ${place}${tip2}${st}`);
   $("conf").hidden = !mine || mine.state !== "in";
   [...$("conf").children].forEach((c, i) => c.classList.toggle("on", !!mine && mine.state === "in" && i < mine.conf));
-  $("send").textContent = mine ? "Neuen Fahrgast losschicken" : "Fahrgast losschicken";
+  $("send").textContent = mine ? Lern.t("Neuen Fahrgast losschicken", "Send off a new passenger") : Lern.t("Fahrgast losschicken", "Send off passenger");
 }
-$("fee").addEventListener("input", () => { $("fee").setAttribute("aria-valuetext", "Zug " + $("fee").value); renderYou(); });
+$("fee").addEventListener("input", () => { $("fee").setAttribute("aria-valuetext", Lern.t("Zug ", "Train ") + $("fee").value); renderYou(); });
 $("send").addEventListener("click", () => {
   const fee = feeFromSlider(+$("fee").value);
   mine = {fee, state: "wait", h: 0, conf: 0, t0: t};
   const zi = zoneFor(fee);
   const top = zi === 0 ? Math.round(100 - pctBelow(fee, mblocks[0])) : 0;
-  say(zi === 0 ? (top <= 10 ? `<b>Fahrgast unterwegs!</b> Mit ${fmtFee(fee)} sat/vB stehst du ganz vorne im nächsten Zug.`
-                            : `<b>Fahrgast unterwegs!</b> Mit ${fmtFee(fee)} sat/vB passt du in den nächsten Zug, ca. ${top} % zahlen aber mehr als du. Wird es voller, rutschst du nach hinten.`)
-               : `<b>Fahrgast unterwegs!</b> Mit ${fmtFee(fee)} sat/vB passt du nicht in den nächsten Zug und stellst dich weiter hinten an.`);
+  say(zi === 0 ? (top <= 10 ? Lern.t(`<b>Fahrgast unterwegs!</b> Mit ${fmtFee(fee)} sat/vB stehst du ganz vorne im nächsten Zug.`, `<b>Passenger on the way!</b> With ${fmtFee(fee)} sat/vB you're right at the front of the next train.`)
+                            : Lern.t(`<b>Fahrgast unterwegs!</b> Mit ${fmtFee(fee)} sat/vB passt du in den nächsten Zug, ca. ${top} % zahlen aber mehr als du. Wird es voller, rutschst du nach hinten.`, `<b>Passenger on the way!</b> With ${fmtFee(fee)} sat/vB you fit into the next train, but approx. ${top} % pay more than you. If it gets fuller, you slide back.`))
+               : Lern.t(`<b>Fahrgast unterwegs!</b> Mit ${fmtFee(fee)} sat/vB passt du nicht in den nächsten Zug und stellst dich weiter hinten an.`, `<b>Passenger on the way!</b> With ${fmtFee(fee)} sat/vB you don't fit into the next train and queue further back.`));
   renderYou();
 });
 
@@ -344,7 +345,7 @@ function draw(){
   ctx.strokeStyle = "rgba(124,196,255,.12)"; ctx.lineWidth = 3;
   for (let i = 0; i < 6; i++){ const cx = (i + .5)*W/5.5; ctx.beginPath(); ctx.arc(cx, H*.62, W/5.5*.75, Math.PI*1.08, Math.PI*1.92); ctx.stroke(); }
   // Oben rechts: „Letzter Zug: vor X Min“ (im Spiel in Spielzeit, 20-mal schneller)
-  { const ago = tip.ts ? Math.max(0, Date.now()/1000 - tip.ts)*(mode === "demo" ? 20 : 1) : 0, a = "Letzter Zug: ", b = `vor ${Math.floor(ago/60)} Min`;
+  { const ago = tip.ts ? Math.max(0, Date.now()/1000 - tip.ts)*(mode === "demo" ? 20 : 1) : 0, a = Lern.t("Letzter Zug: ", "Last train: "), b = Lern.t(`vor ${Math.floor(ago/60)} Min`, `${Math.floor(ago/60)} min ago`);
     const fs = Math.max(12, Math.round(9*k + 4)); ctx.font = `700 ${fs}px system-ui,sans-serif`; const wa = ctx.measureText(a).width; ctx.font = `900 ${fs}px system-ui,sans-serif`; const wb = ctx.measureText(b).width;
     const ph = fs + 14, pw = wa + wb + 24, px = W - 12 - pw, py = 12;
     ctx.fillStyle = "rgba(11,15,42,.85)"; ctx.strokeStyle = "rgba(255,255,255,.14)"; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.roundRect(px, py, pw, ph, ph/2); ctx.fill(); ctx.stroke();
@@ -359,8 +360,8 @@ function draw(){
     for (let i = 0; i < rows; i++){
       const mb = mblocks[i], y = by + 30*k + i*lh + 11*k;
       ctx.fillStyle = i === 0 ? "#34d982" : "#cfd4ff";
-      ctx.fillText(`${i < 3 ? "~" + (i + 1)*10 + " Min" : "später"}`, bx + 10*k, y);
-      ctx.fillText(`ab ${fmtFee(mb.feeRange[0])} sat/vB`, bx + bw*.36, y);
+      ctx.fillText(`${i < 3 ? "~" + (i + 1)*10 + Lern.t(" Min", " min") : Lern.t("später", "later")}`, bx + 10*k, y);
+      ctx.fillText(Lern.t(`ab ${fmtFee(mb.feeRange[0])} sat/vB`, `from ${fmtFee(mb.feeRange[0])} sat/vB`), bx + bw*.36, y);
       ctx.textAlign = "right"; ctx.fillText(`${fmt(mb.nTx)} Tx`, bx + bw - 10*k, y); ctx.textAlign = "left";
     }
   }
@@ -389,7 +390,7 @@ function draw(){
   if (mblocks){
     // gleiche Namen wie am Regler: Zug 1, Zug 2, Zug 3 (+ alle danach)
     const ab = i => mblocks[i] ? ` · ab ${fmtFee(mblocks[i].feeRange[0])}` : "";
-    const labels = [`Zug 1${ab(0)}`, `Zug 2${ab(1)}`, `Zug 3+${ab(2)}`];   // überall gleich, Einheit (sat/vB) steht am Regler
+    const labels = [Lern.t(`Zug 1${ab(0)}`, `Train 1${ab(0)}`), Lern.t(`Zug 2${ab(1)}`, `Train 2${ab(1)}`), Lern.t(`Zug 3+${ab(2)}`, `Train 3+${ab(2)}`)];   // überall gleich, Einheit (sat/vB) steht am Regler
     for (let zi = 0; zi < 3; zi++){
       const zr = zoneRect(zi), list = crowd[zi] || [];
       ctx.fillStyle = "rgba(255,255,255,.05)"; rr(zr.x, plY - 118*k, zr.w, 118*k, 10); ctx.fill();
@@ -415,13 +416,13 @@ function draw(){
       const rank = zi === 0 && mblocks[0] ? pctBelow(mine.fee, mblocks[0])/100 : zi === 2 ? 1 - Math.min(1, (zn - 2)/6) : .5;
       const tx2 = zr.x + 16*k + (1 - rank)*(zr.w - 32*k);
       mine.px = mine.px == null ? tx2 : mine.px + (tx2 - mine.px)*.06;   // weich aufrücken statt springen
-      const yx = mine.px, yy = plY + H*.05, lab = zn >= mblocks.length ? `DU · Zug ${mblocks.length + 1}+` : `DU · Zug ${zn + 1}`;
+      const yx = mine.px, yy = plY + H*.05, lab = zn >= mblocks.length ? Lern.t(`DU · Zug ${mblocks.length + 1}+`, `YOU · train ${mblocks.length + 1}+`) : Lern.t(`DU · Zug ${zn + 1}`, `YOU · train ${zn + 1}`);
       passenger(yx, yy, k*1.7, "#ffc94d", 0, true);
       ctx.font = `900 ${Math.round(9*k + 3)}px Arial`; ctx.textAlign = "center"; ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.strokeText(lab, yx, yy - 40*k); ctx.fillStyle = "#ffc94d"; ctx.fillText(lab, yx, yy - 40*k);
     }
-    ctx.fillStyle = "#9aa2d6"; ctx.font = `600 ${Math.round(9*k + 2)}px ui-monospace,monospace`; ctx.textAlign = "left"; ctx.fillText(`1 Figur ≈ ${perFig} Tx`, 10, H - 8);
+    ctx.fillStyle = "#9aa2d6"; ctx.font = `600 ${Math.round(9*k + 2)}px ui-monospace,monospace`; ctx.textAlign = "left"; ctx.fillText(Lern.t(`1 Figur ≈ ${perFig} Tx`, `1 figure ≈ ${perFig} tx`), 10, H - 8);
   } else {
-    ctx.fillStyle = "#9aa2d6"; ctx.font = "600 14px system-ui"; ctx.textAlign = "center"; ctx.fillText("Verbinde mit dem Mempool …", W*.62, H*.5);
+    ctx.fillStyle = "#9aa2d6"; ctx.font = "600 14px system-ui"; ctx.textAlign = "center"; ctx.fillText(Lern.t("Verbinde mit dem Mempool …", "Connecting to the mempool …"), W*.62, H*.5);
   }
 }
 let puffs = [];
@@ -430,16 +431,16 @@ const easeOut = x => 1 - Math.pow(1 - clamp(x, 0, 1), 3);
 // ---------- Werte oben ----------
 function renderStats(){
   if (!Lern.DATA){   // ohne eigene Node: typische Werte (Stand Nov. 2026) statt Live-Zahlen
-    $("sWait").innerHTML = "30–60<small>Tsd.</small>"; $("sMin").innerHTML = "1–5<small>sat/vB</small>";
-    $("sAgo").innerHTML = "~10<small>Min.</small>"; $("sNext").textContent = "~" + fmt(Math.round(Lern.height()/100)*100); $("sNext").previousElementSibling.textContent = "Blockhöhe";   // geschätzt: auf 100 gerundet
-    $("mode").className = "mode demo"; $("mode").textContent = "Typischer Tag"; return; }
-  $("lAgo").textContent = "Letzter Block vor";
+    $("sWait").innerHTML = Lern.t("30–60<small>Tsd.</small>", "30–60<small>thousand</small>"); $("sMin").innerHTML = "1–5<small>sat/vB</small>";
+    $("sAgo").innerHTML = Lern.t("~10<small>Min.</small>", "~10<small>min</small>"); $("sNext").textContent = "~" + fmt(Math.round(Lern.height()/100)*100); $("sNext").previousElementSibling.textContent = Lern.t("Blockhöhe", "Block height");   // geschätzt: auf 100 gerundet
+    $("mode").className = "mode demo"; $("mode").textContent = Lern.t("Typischer Tag", "Typical day"); return; }
+  $("lAgo").textContent = Lern.t("Letzter Block vor", "Last block");
   const no = !LV.ok && t > 6 ? "offline" : "–";   // echtes Netz nicht erreichbar: ehrlich sagen statt ewig Striche
   $("sWait").textContent = LV.waiting ? fmt(LV.waiting) : no;
   $("sMin").innerHTML = LV.min ? `${fmtFee(LV.min)}<small>sat/vB</small>` : no;
-  $("sAgo").innerHTML = LV.tip.ts ? `${Math.floor(Math.max(0, Date.now()/1000 - LV.tip.ts)/60)}<small>Min.</small>` : no;
-  $("sNext").textContent = LV.tip.h ? fmt(LV.tip.h + 1) : no; $("sNext").previousElementSibling.textContent = "Nächster Block";
-  if (!LV.ok && t > 6 && $("mode").textContent.startsWith("Verbinde")){ $("mode").className = "mode demo"; $("mode").textContent = "Beispielwerte"; }
+  $("sAgo").innerHTML = LV.tip.ts ? Lern.t(`${Math.floor(Math.max(0, Date.now()/1000 - LV.tip.ts)/60)}<small>Min.</small>`, `${Math.floor(Math.max(0, Date.now()/1000 - LV.tip.ts)/60)}<small>min ago</small>`) : no;
+  $("sNext").textContent = LV.tip.h ? fmt(LV.tip.h + 1) : no; $("sNext").previousElementSibling.textContent = Lern.t("Nächster Block", "Next block");
+  if (!LV.ok && t > 6 && $("mode").textContent.startsWith(Lern.t("Verbinde", "Connecting"))){ $("mode").className = "mode demo"; $("mode").textContent = Lern.t("Beispielwerte", "Example values"); }
 }
 
 // ---------- Schleife ----------
@@ -454,13 +455,13 @@ function frame(now){
 let cvOn = true; if ("IntersectionObserver" in window) new IntersectionObserver(e => { cvOn = e[0].isIntersecting; }).observe(cv);
 // Bestätigungen: wie sicher ist die Zahlung nach n Blöcken?
 {
-  const T = ["⏳ <b>0 Bestätigungen:</b> Die Zahlung wartet noch in der Mempool. Theoretisch könnte sie noch durch eine andere ersetzt werden. Für einen Kaffee oft okay, für ein Auto nicht.",
-    "✅ <b>1 Bestätigung:</b> Die Zahlung steht in einem Block. Für kleine Beträge reicht das meist.",
-    "✅ <b>2 Bestätigungen:</b> Ein Block liegt schon obendrauf. Eine Umkehr wäre extrem teuer.",
-    "✅ <b>3 Bestätigungen:</b> Viele Händler sind jetzt zufrieden.",
-    "✅ <b>4 Bestätigungen:</b> Ein Angreifer müsste 4 Blöcke neu rechnen und schneller als alle anderen sein.",
-    "✅ <b>5 Bestätigungen:</b> Fast geschafft.",
-    "🛡️ <b>6 Bestätigungen (ca. 1 Stunde):</b> Eine <b>Faustregel</b>, keine mathematische Garantie. Je größer der Betrag, desto länger warten viele, Börsen oft so lange."];
+  const T = [Lern.t("⏳ <b>0 Bestätigungen:</b> Die Zahlung wartet noch in der Mempool. Theoretisch könnte sie noch durch eine andere ersetzt werden. Für einen Kaffee oft okay, für ein Auto nicht.", "⏳ <b>0 confirmations:</b> the payment is still waiting in the mempool. In theory it could still be replaced by another one. Often okay for a coffee, not for a car."),
+    Lern.t("✅ <b>1 Bestätigung:</b> Die Zahlung steht in einem Block. Für kleine Beträge reicht das meist.", "✅ <b>1 confirmation:</b> the payment is in a block. For small amounts that's usually enough."),
+    Lern.t("✅ <b>2 Bestätigungen:</b> Ein Block liegt schon obendrauf. Eine Umkehr wäre extrem teuer.", "✅ <b>2 confirmations:</b> one block already sits on top. A reversal would be extremely expensive."),
+    Lern.t("✅ <b>3 Bestätigungen:</b> Viele Händler sind jetzt zufrieden.", "✅ <b>3 confirmations:</b> many merchants are satisfied now."),
+    Lern.t("✅ <b>4 Bestätigungen:</b> Ein Angreifer müsste 4 Blöcke neu rechnen und schneller als alle anderen sein.", "✅ <b>4 confirmations:</b> an attacker would have to recompute 4 blocks and be faster than everyone else."),
+    Lern.t("✅ <b>5 Bestätigungen:</b> Fast geschafft.", "✅ <b>5 confirmations:</b> almost there."),
+    Lern.t("🛡️ <b>6 Bestätigungen (ca. 1 Stunde):</b> Eine <b>Faustregel</b>, keine mathematische Garantie. Je größer der Betrag, desto länger warten viele, Börsen oft so lange.", "🛡️ <b>6 confirmations (approx. 1 hour):</b> a <b>rule of thumb</b>, not a mathematical guarantee. The bigger the amount, the longer many wait; exchanges often this long.")];
   // Blöcke als kleine 3D-Würfel mit Kettengliedern; nur neue fallen herein, bestehende bleiben stehen
   const SK = 'stroke="#0d1230" stroke-width="5" stroke-linejoin="round"';
   const cube = (side, top) => `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10l36 19v42L50 90 14 71V29z" fill="${side}" ${SK}/><path d="M14 29l36 19 36-19M50 48v42" fill="none" ${SK}/><path d="M50 10l36 19-36 19-36-19z" fill="${top}" ${SK}/><text x="32" y="74" font-size="22" font-weight="900" text-anchor="middle" fill="#fff" font-family="Arial">₿</text></svg>`;
@@ -475,14 +476,14 @@ let cvOn = true; if ("IntersectionObserver" in window) new IntersectionObserver(
   };
   const draw = () => { const v = +document.getElementById("cf").value; document.getElementById("cfV").textContent = v;
     blocks(v);
-    document.getElementById("cfT").innerHTML = T[v] + (v ? ' <span class="muted">Warum? Wer eine bestätigte Zahlung rückgängig machen will, müsste alle Blöcke danach neu minen und das ehrliche Netz überholen.</span>' : ""); };
+    document.getElementById("cfT").innerHTML = T[v] + (v ? Lern.t(' <span class="muted">Warum? Wer eine bestätigte Zahlung rückgängig machen will, müsste alle Blöcke danach neu minen und das ehrliche Netz überholen.</span>', ' <span class="muted">Why? Anyone who wants to reverse a confirmed payment would have to re-mine all the blocks after it and overtake the honest network.</span>') : ""); };
   document.getElementById("cf").addEventListener("input", draw); draw();
 }
 
 const QUIZ = [
-  ["Wovon hängt ab, wie schnell deine Überweisung bestätigt wird?", ["Von der Höhe des Betrags, den du überweist", "Von der Gebühr pro Platz (sat/vB), wenn viel los ist", "Von der Uhrzeit, zu der du sie abschickst"], 1, "Miner füllen jeden Block zuerst mit den Transaktionen, die pro vByte am meisten zahlen. Der Betrag selbst spielt keine Rolle."],
-  ["Wie oft kommt im Schnitt ein neuer Block?", ["Jede Minute", "Etwa alle 10 Minuten", "Einmal pro Stunde"], 1, "Im Schnitt alle 10 Minuten, aber das ist Zufall: Manchmal kommen zwei Blöcke in einer Minute, manchmal dauert es eine halbe Stunde."],
-  ["Ab wann gilt eine Bitcoin-Zahlung nach der Faustregel als sicher?", ["Sofort beim Abschicken", "Nach etwa 6 Bestätigungen", "Nach 30 Tagen"], 1, "Mit jedem weiteren Block obendrauf wird es schwerer, die Zahlung rückgängig zu machen. Nach 6 Blöcken gilt sie als sicher."],
+  [Lern.t("Wovon hängt ab, wie schnell deine Überweisung bestätigt wird?", "What determines how fast your transfer is confirmed?"), [Lern.t("Von der Höhe des Betrags, den du überweist", "The size of the amount you transfer"), Lern.t("Von der Gebühr pro Platz (sat/vB), wenn viel los ist", "The fee per space (sat/vB), when it's busy"), Lern.t("Von der Uhrzeit, zu der du sie abschickst", "The time you send it")], 1, Lern.t("Miner füllen jeden Block zuerst mit den Transaktionen, die pro vByte am meisten zahlen. Der Betrag selbst spielt keine Rolle.", "Miners fill every block first with the transactions that pay the most per vbyte. The amount itself doesn't matter.")],
+  [Lern.t("Wie oft kommt im Schnitt ein neuer Block?", "How often does a new block come on average?"), [Lern.t("Jede Minute", "Every minute"), Lern.t("Etwa alle 10 Minuten", "About every 10 minutes"), Lern.t("Einmal pro Stunde", "Once an hour")], 1, Lern.t("Im Schnitt alle 10 Minuten, aber das ist Zufall: Manchmal kommen zwei Blöcke in einer Minute, manchmal dauert es eine halbe Stunde.", "Every 10 minutes on average, but it's random: sometimes two blocks come within a minute, sometimes it takes half an hour.")],
+  [Lern.t("Ab wann gilt eine Bitcoin-Zahlung nach der Faustregel als sicher?", "By the rule of thumb, from when is a bitcoin payment considered safe?"), [Lern.t("Sofort beim Abschicken", "Immediately when sent"), Lern.t("Nach etwa 6 Bestätigungen", "After about 6 confirmations"), Lern.t("Nach 30 Tagen", "After 30 days")], 1, Lern.t("Mit jedem weiteren Block obendrauf wird es schwerer, die Zahlung rückgängig zu machen. Nach 6 Blöcken gilt sie als sicher.", "With every further block on top, it gets harder to reverse the payment. After 6 blocks it's considered safe.")],
 ];
 Lern.quiz($("quiz"), "bahnhof", QUIZ, "../"); Lern.visit("bahnhof"); Lern.renderNext("bahnhof", "../");
 resize(); startDemo(); connect(); loadPrice(); setInterval(loadPrice, 5*60*1000);

@@ -42,57 +42,58 @@
 .two2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .two2 > div{border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);padding:12px;font-size:14px;color:var(--muted);line-height:1.5} .two2 > div > b:first-child{display:block;font:900 15px var(--f-display);color:var(--ink);margin-bottom:4px}
 @media (max-width:620px){ .two2{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Wem gehört eigentlich <span class="btc">Bitcoin</span>?</h1>
-    <p class="lead">Es gibt nur 21 Millionen Bitcoin, und über 20 Millionen davon sind schon geschürft. Aber wer hat sie? Ein Teil liegt bei großen Fonds, Firmen und Staaten, ein großer Teil ist <b>für immer verloren</b>. Und der Rest verteilt sich auf Millionen Menschen.</p>
+    <h1 data-i="k3">Wem gehört eigentlich <span class="btc">Bitcoin</span>?</h1>
+    <p data-i="k4" class="lead">Es gibt nur 21 Millionen Bitcoin, und über 20 Millionen davon sind schon geschürft. Aber wer hat sie? Ein Teil liegt bei großen Fonds, Firmen und Staaten, ein großer Teil ist <b>für immer verloren</b>. Und der Rest verteilt sich auf Millionen Menschen.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Die große Verteilung <span class="mode" id="mode">Verbinde …</span></h2>
+    <h2 data-i="k5" id="h1s">1 · Die große Verteilung <span class="mode" id="mode">Verbinde …</span></h2>
     <div class="bars nogl" id="bars"></div>
-    <p class="note">Alle Zahlen sind gerundete Schätzungen aus öffentlichen Daten und haben unterschiedliche Stichtage. Verlorene Coins kann niemand genau zählen. Auch Börsen verwahren Millionen Bitcoin für ihre Kunden, sie sind hier in „Alle anderen“ enthalten.</p>
+    <p data-i="k6" class="note">Alle Zahlen sind gerundete Schätzungen aus öffentlichen Daten und haben unterschiedliche Stichtage. Verlorene Coins kann niemand genau zählen. Auch Börsen verwahren Millionen Bitcoin für ihre Kunden, sie sind hier in „Alle anderen“ enthalten.</p>
     <div class="two2">
-      <div><b>💀 Warum gehen Bitcoin verloren?</b>Wer seine Seed-Wörter verliert, kommt <b>nie wieder</b> an seine Bitcoin. Es gibt keine Bank und keinen Support, der sie zurückholt. Viele frühe Nutzer haben alte Festplatten weggeworfen, als ein Bitcoin nur ein paar Cent wert war. Die Coins stehen weiter in der Blockchain, nur kann sie niemand mehr bewegen. Alle anderen werden dadurch ein Stück knapper.</div>
-      <div><b>🌍 Und „alle anderen“?</b>Das ist der <b>größte Teil</b>: Millionen ganz normale Menschen auf der ganzen Welt. Bitcoin ist also <b>verteilt</b>. Und selbst wer sehr viele Coins hat, kann die <b>Regeln nicht ändern</b>. Darüber entscheiden die Nodes, also alle, die mitmachen.</div>
+      <div data-i="k7"><b>💀 Warum gehen Bitcoin verloren?</b>Wer seine Seed-Wörter verliert, kommt <b>nie wieder</b> an seine Bitcoin. Es gibt keine Bank und keinen Support, der sie zurückholt. Viele frühe Nutzer haben alte Festplatten weggeworfen, als ein Bitcoin nur ein paar Cent wert war. Die Coins stehen weiter in der Blockchain, nur kann sie niemand mehr bewegen. Alle anderen werden dadurch ein Stück knapper.</div>
+      <div data-i="k8"><b>🌍 Und „alle anderen“?</b>Das ist der <b>größte Teil</b>: Millionen ganz normale Menschen auf der ganzen Welt. Bitcoin ist also <b>verteilt</b>. Und selbst wer sehr viele Coins hat, kann die <b>Regeln nicht ändern</b>. Darüber entscheiden die Nodes, also alle, die mitmachen.</div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Wer hat mehr?</h2>
+    <h2 data-i="k9" id="h2s">2 · Wer hat mehr?</h2>
     <div class="vs" id="vs"></div>
     <p class="note" id="vsN"></p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Wenn jeder Mensch gleich viel hätte</h2>
-    <p class="muted" style="margin:0">Kleine Erinnerung: Ein Bitcoin lässt sich in <b>100 Millionen Sats</b> (Satoshis) teilen. Niemand muss einen ganzen kaufen.</p>
+    <h2 data-i="k10" id="h3s">3 · Wenn jeder Mensch gleich viel hätte</h2>
+    <p data-i="k11" class="muted" style="margin:0">Kleine Erinnerung: Ein Bitcoin lässt sich in <b>100 Millionen Sats</b> (Satoshis) teilen. Niemand muss einen ganzen kaufen.</p>
     <div class="kv" id="pkv"></div>
-    <p class="note">Rund <b>8,2 Milliarden</b> Menschen teilen sich höchstens 21 Millionen Bitcoin. Pro Kopf ist das weniger als <b>0,003 BTC</b>. Wer heute ein paar hunderttausend Sats besitzt, hat also schon mehr als seinen „fairen Anteil“.</p>
+    <p data-i="k12" class="note">Rund <b>8,2 Milliarden</b> Menschen teilen sich höchstens 21 Millionen Bitcoin. Pro Kopf ist das weniger als <b>0,003 BTC</b>. Wer heute ein paar hunderttausend Sats besitzt, hat also schon mehr als seinen „fairen Anteil“.</p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k13" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Fast alle schon da</b><span>Über <b>20 Millionen</b> sind schon geschürft. Der Rest kommt bis etwa 2140.</span></div>
-      <div><b>Verloren</b><span>Geschätzt <b>3 bis 4 Millionen</b> Bitcoin sind für immer weg, etwa durch verlorene Seeds.</span></div>
-      <div><b>Große Halter</b><span><b>ETFs, Firmen und Staaten</b> halten zusammen über 3 Millionen Bitcoin.</span></div>
-      <div><b>Satoshi</b><span>Satoshi Nakamoto hat geschätzt <b>1,1 Millionen</b> Bitcoin, die sich nie bewegt haben.</span></div>
+      <div><b data-i="k14">Fast alle schon da</b><span data-i="k15">Über <b>20 Millionen</b> sind schon geschürft. Der Rest kommt bis etwa 2140.</span></div>
+      <div><b data-i="k16">Verloren</b><span data-i="k17">Geschätzt <b>3 bis 4 Millionen</b> Bitcoin sind für immer weg, etwa durch verlorene Seeds.</span></div>
+      <div><b data-i="k18">Große Halter</b><span data-i="k19"><b>ETFs, Firmen und Staaten</b> halten zusammen über 3 Millionen Bitcoin.</span></div>
+      <div><b data-i="k20">Satoshi</b><span data-i="k21">Satoshi Nakamoto hat geschätzt <b>1,1 Millionen</b> Bitcoin, die sich nie bewegt haben.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k22">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b>Nochmal nachlesen:</b> <a href="../knappheit/">Knappheits-Messer</a> <span class="muted">(wie knapp Bitcoin wirklich ist)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://www.bit.com/knowledge-hub/bitcoin-ownership-distribution">bit.com: Bitcoin Ownership Map (2026)</a> · <a href="https://trinityinsights.io/en/bitcoin-treasuries">Trinity Insights: Bitcoin Treasuries (Nov. 2026)</a> · Blockhöhe: mempool.space</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k29" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔁 <b data-i="k23">Nochmal nachlesen:</b> <a data-i="k24" href="../knappheit/">Knappheits-Messer</a> <span data-i="k25" class="muted">(wie knapp Bitcoin wirklich ist)</span></p></section>
+  <section data-i="k30" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k26">Quellen</summary><p data-i="k27"><a href="https://www.bit.com/knowledge-hub/bitcoin-ownership-distribution">bit.com: Bitcoin Ownership Map (2026)</a> · <a href="https://trinityinsights.io/en/bitcoin-treasuries">Trinity Insights: Bitcoin Treasuries (Nov. 2026)</a> · Blockhöhe: mempool.space</p></details>
+  <p data-i="k28" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Who actually owns <span class=\"btc\">Bitcoin<\/span>?", "k4": "There are only 21 million bitcoin, and more than 20 million of them have already been mined. But who has them? Some are with big funds, companies and states, a large part is <b>lost forever<\/b>. And the rest is spread across millions of people.", "k5": "1 · The big distribution <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k6": "All numbers are rounded estimates from public data with different reference dates. Nobody can count lost coins exactly. Exchanges also hold millions of bitcoin for their customers; they're included in “Everyone else” here.", "k7": "<b>💀 Why do bitcoin get lost?<\/b>Whoever loses their seed words can <b>never again<\/b> get to their bitcoin. There's no bank and no support to get them back. Many early users threw away old hard drives when a bitcoin was worth only a few cents. The coins are still on the blockchain, but nobody can move them anymore. Everyone else's become a bit scarcer as a result.", "k8": "<b>🌍 And “everyone else”?<\/b>That's the <b>largest part<\/b>: millions of perfectly normal people all over the world. So Bitcoin is <b>distributed<\/b>. And even whoever has very many coins <b>can't change the rules<\/b>. That's decided by the nodes, i.e. everyone who takes part.", "k9": "2 · Who has more?", "k10": "3 · If every person had the same amount", "k11": "A little reminder: one bitcoin can be split into <b>100 million sats<\/b> (satoshis). Nobody has to buy a whole one.", "k12": "About <b>8.2 billion<\/b> people share at most 21 million bitcoin. Per person that's less than <b>0.003 BTC<\/b>. So whoever owns a few hundred thousand sats today already has more than their “fair share”.", "k13": "Remember this", "k14": "Almost all already here", "k15": "More than <b>20 million<\/b> have already been mined. The rest will come by about 2140.", "k16": "Lost", "k17": "An estimated <b>3 to 4 million<\/b> bitcoin are gone forever, e.g. through lost seeds.", "k18": "Big holders", "k19": "<b>ETFs, companies and states<\/b> together hold more than 3 million bitcoin.", "k20": "Satoshi", "k21": "Satoshi Nakamoto has an estimated <b>1.1 million<\/b> bitcoin that have never moved.", "k22": "Test yourself: 3 questions", "k23": "Read again:", "k24": "Scarcity Meter", "k25": "(how scarce Bitcoin really is)", "k26": "Sources", "k27": "<a href=\"https://www.bit.com/knowledge-hub/bitcoin-ownership-distribution\">bit.com: Bitcoin Ownership Map (2026)<\/a> · <a href=\"https://trinityinsights.io/en/bitcoin-treasuries\">Trinity Insights: Bitcoin Treasuries (Nov 2026)<\/a> · Block height: mempool.space", "k28": "Entertainment and learning, not investment advice.", "k29@aria-label": "Related", "k30@aria-label": "Next", "_title": "Who Owns Bitcoin? · Bitcoin Voyage", "_desc": "Lernwelt: Wer besitzt Bitcoin? Satoshi, ETFs, Firmen, Staaten und verlorene Coins im Überblick, und wie viel für jeden Menschen übrig bleibt."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    WEM GEHÖRT BITCOIN? – Lernwelt von Bitcoin Voyage
@@ -102,30 +103,30 @@ const $ = id => document.getElementById(id);
 let height = Lern.height(), live = false;
 const supply = h => { let s = 0, r = 50, b = h + 1; while (b > 0 && r > 1e-8){ const n = Math.min(b, 210000); s += n * r; b -= n; r /= 2; } return s / 1e6; };
 async function load(){ try { const h = +(await (await fetch(Lern.api("blocks/tip/height"))).text()); if (h > 900000){ height = h; live = true; } } catch(e){}
-  const lv = live && Lern.DATA; $("mode").className = "mode " + (lv ? "live" : "demo"); $("mode").textContent = lv ? "Live" : "Schätzung"; bars(); }
+  const lv = live && Lern.DATA; $("mode").className = "mode " + (lv ? "live" : "demo"); $("mode").textContent = lv ? "Live" : Lern.t("Schätzung", "Estimate"); bars(); }
 function bars(){
-  const mined = supply(height), big = [["🕵️ Satoshi", 1.1, "#ffc94d"], ["💀 Verloren (Schätzung)", 3.5, "#9aa2b8"], ["🏢 Firmen", 1.3, "#7cc4ff"], ["📈 US-ETFs", 1.2, "#b26bff"], ["🏛️ Staaten", 0.6, "#ff9a6a"]];
+  const mined = supply(height), big = [["🕵️ Satoshi", 1.1, "#ffc94d"], [Lern.t("💀 Verloren (Schätzung)", "💀 Lost (estimate)"), 3.5, "#9aa2b8"], [Lern.t("🏢 Firmen", "🏢 Companies"), 1.3, "#7cc4ff"], [Lern.t("📈 US-ETFs", "📈 US ETFs"), 1.2, "#b26bff"], [Lern.t("🏛️ Staaten", "🏛️ States"), 0.6, "#ff9a6a"]];
   const rest = mined - big.reduce((n, b) => n + b[1], 0);
-  const rows = [...big, ["🙋 Alle anderen", rest, "#34d982"], ["⛏️ Noch nicht geschürft", 21 - mined, "#3a4070"]];
-  $("bars").innerHTML = rows.map(([n, v, c]) => `<div><span>${n}</span><i><u style="background:${c}" data-w="${v / 21 * 100}"></u></i><em>${v.toLocaleString("de-DE", {maximumFractionDigits: 2})} Mio.</em></div>`).join("");
+  const rows = [...big, [Lern.t("🙋 Alle anderen", "🙋 Everyone else"), rest, "#34d982"], [Lern.t("⛏️ Noch nicht geschürft", "⛏️ Not yet mined"), 21 - mined, "#3a4070"]];
+  $("bars").innerHTML = rows.map(([n, v, c]) => Lern.t(`<div><span>${n}</span><i><u style="background:${c}" data-w="${v / 21 * 100}"></u></i><em>${v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 2})} Mio.</em></div>`, `<div><span>${n}</span><i><u style="background:${c}" data-w="${v / 21 * 100}"></u></i><em>${v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 2})} million</em></div>`)).join("");
   setTimeout(() => document.querySelectorAll("#bars u").forEach(u => u.style.width = u.dataset.w + "%"), 100);
   const per = 21e6 / 8.2e9;
-  $("pkv").innerHTML = `<div>Pro Mensch (max.)<b class="g">${per.toFixed(4).replace(".", ",")} BTC</b></div><div>In Sats<b>${Math.round(per * 1e8).toLocaleString("de-DE")}</b></div><div>Schon geschürft<b>${mined.toLocaleString("de-DE", {maximumFractionDigits: 2})} Mio.</b></div>`;
+  $("pkv").innerHTML = Lern.t(`<div>Pro Mensch (max.)<b class="g">${per.toFixed(4).replace(".", ",")} BTC</b></div><div>In Sats<b>${Math.round(per * 1e8).toLocaleString(Lern.EN ? "en-US" : "de-DE")}</b></div><div>Schon geschürft<b>${mined.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 2})} Mio.</b></div>`, `<div>Per person (max.)<b class="g">${per.toFixed(4)} BTC</b></div><div>In sats<b>${Math.round(per * 1e8).toLocaleString(Lern.EN ? "en-US" : "de-DE")}</b></div><div>Already mined<b>${mined.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: 2})} million</b></div>`);
 }
 load(); bars();
-const VS = [["Satoshi allein", "Alle Firmen zusammen", 1, "Alle börsennotierten Firmen zusammen haben rund <b>1,3 Mio.</b> Bitcoin (Nov. 2026), davon allein die US-Firma <b>Strategy rund 850.000</b>. Satoshi hat geschätzt 1,1 Mio."],
-  ["Verlorene Bitcoin", "US-ETFs", 0, "Geschätzt <b>3 bis 4 Mio.</b> Bitcoin sind verloren, deutlich mehr als die rund <b>1,2 Mio.</b> in den US-ETFs (Juli 2026)."],
-  ["Alle Staaten zusammen", "Satoshi allein", 1, "Staaten halten zusammen gut <b>600.000</b> Bitcoin, meist aus Beschlagnahmungen. Satoshi hat fast doppelt so viele."]];
+const VS = [[Lern.t("Satoshi allein", "Satoshi alone"), Lern.t("Alle Firmen zusammen", "All companies together"), 1, Lern.t("Alle börsennotierten Firmen zusammen haben rund <b>1,3 Mio.</b> Bitcoin (Nov. 2026), davon allein die US-Firma <b>Strategy rund 850.000</b>. Satoshi hat geschätzt 1,1 Mio.", "All listed companies together have about <b>1.3 million</b> bitcoin (Nov 2026), of which the US company <b>Strategy alone has about 850,000</b>. Satoshi has an estimated 1.1 million.")],
+  [Lern.t("Verlorene Bitcoin", "Lost bitcoin"), "US-ETFs", 0, Lern.t("Geschätzt <b>3 bis 4 Mio.</b> Bitcoin sind verloren, deutlich mehr als die rund <b>1,2 Mio.</b> in den US-ETFs (Juli 2026).", "An estimated <b>3 to 4 million</b> bitcoin are lost, far more than the roughly <b>1.2 million</b> in the US ETFs (July 2026).")],
+  [Lern.t("Alle Staaten zusammen", "All states together"), Lern.t("Satoshi allein", "Satoshi alone"), 1, Lern.t("Staaten halten zusammen gut <b>600.000</b> Bitcoin, meist aus Beschlagnahmungen. Satoshi hat fast doppelt so viele.", "States together hold a good <b>600,000</b> bitcoin, mostly from seizures. Satoshi has almost twice as many.")]];
 let v = 0;
 function vs(){ const [a, b] = VS[v]; $("vsN").innerHTML = "";
   $("vs").innerHTML = `<button type="button" data-i="0">${a}</button><span>vs</span><button type="button" data-i="1">${b}</button>`; }
 $("vs").onclick = e => { const b = e.target.closest("[data-i]"); if (!b || $("vsN").innerHTML) return; const ok = +b.dataset.i === VS[v][2];
   $("vs").querySelectorAll("button").forEach(x => x.classList.add(+x.dataset.i === VS[v][2] ? "ok" : "no"));
-  $("vsN").innerHTML = `${ok ? "✅ Richtig! " : "❌ Daneben. "}${VS[v][3]} <button class="btn" type="button" id="vN" style="margin-top:8px">${v < VS.length - 1 ? "Nächste Runde →" : "↺ Von vorn"}</button>`;
+  $("vsN").innerHTML = `${ok ? Lern.t("✅ Richtig! ", "✅ Correct! ") : Lern.t("❌ Daneben. ", "❌ Missed. ")}${VS[v][3]} <button class="btn" type="button" id="vN" style="margin-top:8px">${v < VS.length - 1 ? Lern.t("Nächste Runde →", "Next round →") : Lern.t("↺ Von vorn", "↺ Start over")}</button>`;
   $("vN").onclick = () => { v = (v + 1) % VS.length; vs(); }; };
 vs();
 
-const QUIZ = [["Wie viele Bitcoin wird es höchstens geben?", ["21 Millionen", "100 Millionen", "Unbegrenzt", "1 Milliarde"], 0, "Die Obergrenze liegt bei 21 Millionen. Über 20 Millionen sind schon geschürft."], ["Wie viele Bitcoin gelten als verloren?", ["Fast keine, alle sind noch erreichbar", "Etwa 3 bis 4 Millionen", "Genau 1.000 Stück", "Rund die Hälfte aller Coins"], 1, "Schätzungen gehen von 3 bis 4 Millionen verlorenen Bitcoin aus, etwa durch verlorene Seeds oder alte Festplatten."], ["Wer hat mehr Bitcoin: Satoshi oder alle Staaten zusammen?", ["Alle Staaten", "Satoshi", "Gleich viel", "Keiner hat welche"], 1, "Satoshi hat geschätzt 1,1 Millionen Bitcoin, alle Staaten zusammen gut 600.000."]];
+const QUIZ = [[Lern.t("Wie viele Bitcoin wird es höchstens geben?", "What's the maximum number of bitcoin there will ever be?"), [Lern.t("21 Millionen", "21 million"), Lern.t("100 Millionen", "100 million"), Lern.t("Unbegrenzt", "Unlimited"), Lern.t("1 Milliarde", "1 billion")], 0, Lern.t("Die Obergrenze liegt bei 21 Millionen. Über 20 Millionen sind schon geschürft.", "The cap is 21 million. More than 20 million have already been mined.")], [Lern.t("Wie viele Bitcoin gelten als verloren?", "How many bitcoin are considered lost?"), [Lern.t("Fast keine, alle sind noch erreichbar", "Almost none, all are still reachable"), Lern.t("Etwa 3 bis 4 Millionen", "About 3 to 4 million"), Lern.t("Genau 1.000 Stück", "Exactly 1,000"), Lern.t("Rund die Hälfte aller Coins", "About half of all coins")], 1, Lern.t("Schätzungen gehen von 3 bis 4 Millionen verlorenen Bitcoin aus, etwa durch verlorene Seeds oder alte Festplatten.", "Estimates assume 3 to 4 million lost bitcoin, e.g. through lost seeds or old hard drives.")], [Lern.t("Wer hat mehr Bitcoin: Satoshi oder alle Staaten zusammen?", "Who has more bitcoin: Satoshi or all states together?"), [Lern.t("Alle Staaten", "All states"), "Satoshi", Lern.t("Gleich viel", "The same"), Lern.t("Keiner hat welche", "Neither has any")], 1, Lern.t("Satoshi hat geschätzt 1,1 Millionen Bitcoin, alle Staaten zusammen gut 600.000.", "Satoshi has an estimated 1.1 million bitcoin, all states together a good 600,000.")]];
 Lern.quiz($("quiz"), "besitzer", QUIZ, "../"); Lern.visit("besitzer"); Lern.renderNext("besitzer", "../");
 })();
 </script>

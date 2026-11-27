@@ -37,58 +37,59 @@
 .nodes{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:10px} .nodes span{aspect-ratio:1;border-radius:6px;background:#2b3478;display:grid;place-items:center;font-size:10px;font-weight:900}
 .nodes span.y{background:rgba(52,217,130,.3);color:var(--bull)} .nodes span.n{background:rgba(255,92,115,.3);color:var(--bear)}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Das <span class="btc">Kopier</span>-Problem</h1>
-    <p class="lead">Ein Foto kannst du so oft kopieren, wie du willst. Wäre Geld eine einfache Datei, könntest du es auch kopieren und <b>zweimal ausgeben</b>. Genau dieses Problem musste Bitcoin lösen.</p>
+    <h1 data-i="k3">Das <span class="btc">Kopier</span>-Problem</h1>
+    <p data-i="k4" class="lead">Ein Foto kannst du so oft kopieren, wie du willst. Wäre Geld eine einfache Datei, könntest du es auch kopieren und <b>zweimal ausgeben</b>. Genau dieses Problem musste Bitcoin lösen.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Versuch, eine Münze zweimal auszugeben</h2>
-    <div class="idea">Du hast <b>1 digitale Münze</b>. Du schickst sie gleichzeitig an <b>Anna</b> und an <b>Ben</b>. Wähle, wer aufpasst:</div>
+    <h2 data-i="k5" id="h1s">Versuch, eine Münze zweimal auszugeben</h2>
+    <div data-i="k6" class="idea">Du hast <b>1 digitale Münze</b>. Du schickst sie gleichzeitig an <b>Anna</b> und an <b>Ben</b>. Wähle, wer aufpasst:</div>
     <div class="seg" id="mode">
-      <button class="btn ghost" data-m="0" type="button" aria-pressed="true">📁 Niemand (nur eine Datei)</button>
-      <button class="btn ghost" data-m="1" type="button" aria-pressed="false">🏦 Eine Bank</button>
-      <button class="btn ghost" data-m="2" type="button" aria-pressed="false">₿ Bitcoin</button>
+      <button data-i="k7" class="btn ghost" data-m="0" type="button" aria-pressed="true">📁 Niemand (nur eine Datei)</button>
+      <button data-i="k8" class="btn ghost" data-m="1" type="button" aria-pressed="false">🏦 Eine Bank</button>
+      <button data-i="k9" class="btn ghost" data-m="2" type="button" aria-pressed="false">₿ Bitcoin</button>
     </div>
     <div class="who" id="who"></div>
-    <div class="acts" style="display:flex;margin-top:12px"><button class="btn" id="go" type="button">💸 An beide gleichzeitig senden</button></div>
+    <div class="acts" style="display:flex;margin-top:12px"><button data-i="k10" class="btn" id="go" type="button">💸 An beide gleichzeitig senden</button></div>
     <div id="ledger"></div>
     <div class="res" id="res" hidden></div>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Die Lösung in einem Satz <span class="mode" id="lmode">Verbinde …</span></h2>
-    <div class="learn bx"><div><b>Kassenbuch</b><span>Statt einer Bank führen <b>Tausende Computer dasselbe Kassenbuch</b> und prüfen jede Zahlung.</span></div><div><b>Reihenfolge</b><span>Miner legen fest, welche Zahlung <b>zuerst</b> kam, indem sie Zahlungen in <b>Blöcke</b> packen. Die frühere gilt.</span></div><div><b>Doppelt?</b><span>Die zweite Ausgabe derselben Münze lehnt jeder ab.</span></div></div>
+    <h2 data-i="k11" id="h2s">Die Lösung in einem Satz <span class="mode" id="lmode">Verbinde …</span></h2>
+    <div class="learn bx"><div><b data-i="k12">Kassenbuch</b><span data-i="k13">Statt einer Bank führen <b>Tausende Computer dasselbe Kassenbuch</b> und prüfen jede Zahlung.</span></div><div><b data-i="k14">Reihenfolge</b><span data-i="k15">Miner legen fest, welche Zahlung <b>zuerst</b> kam, indem sie Zahlungen in <b>Blöcke</b> packen. Die frühere gilt.</span></div><div><b data-i="k16">Doppelt?</b><span data-i="k17">Die zweite Ausgabe derselben Münze lehnt jeder ab.</span></div></div>
     <div class="kv">
-      <div>In einem Block geprüft<b class="num g" id="kTx">–</b></div>
-      <div>Blöcke seit 2009<b class="num" id="kH">–</b></div>
-      <div>Kassenbuch-Kopien weltweit<b class="num">ca. 20.000+</b></div>
+      <div data-i="k18">In einem Block geprüft<b class="num g" id="kTx">–</b></div>
+      <div data-i="k19">Blöcke seit 2009<b class="num" id="kH">–</b></div>
+      <div data-i="k20">Kassenbuch-Kopien weltweit<b class="num">ca. 20.000+</b></div>
     </div>
-    <p class="note">Deshalb gibt es die Blockchain (das gemeinsame Kassenbuch), Mining (legt fest, welche Zahlung zuerst kam) und Nodes (die Prüfer). Wie das genau funktioniert, lernst du in <span class="later">Welt 3</span>. Alles andere baut darauf auf.</p>
+    <p data-i="k21" class="note">Deshalb gibt es die Blockchain (das gemeinsame Kassenbuch), Mining (legt fest, welche Zahlung zuerst kam) und Nodes (die Prüfer). Wie das genau funktioniert, lernst du in <span class="later">Welt 3</span>. Alles andere baut darauf auf.</p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k22" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Kopieren ist das Problem</b><span>Digitale Dinge lassen sich <b>beliebig kopieren</b>. Geld darf man aber nur einmal ausgeben.</span></div>
-      <div><b>Bank als Aufpasser</b><span>Bisher löste das eine <b>Bank</b>. Sie führt das Kassenbuch, kann aber auch sperren oder Fehler machen.</span></div>
-      <div><b>Ein Kassenbuch für alle</b><span>Bei Bitcoin hat <b>jede Node eine Kopie</b> und prüft jede Zahlung selbst.</span></div>
-      <div><b>Was im Block steht, zählt</b><span>Zwei widersprüchliche Zahlungen können kurz gleichzeitig im Netz sein. Gültig wird die, die ein Miner in einen <b>Block</b> packt. Mit jedem weiteren Block wird das sicherer.</span></div>
+      <div><b data-i="k23">Kopieren ist das Problem</b><span data-i="k24">Digitale Dinge lassen sich <b>beliebig kopieren</b>. Geld darf man aber nur einmal ausgeben.</span></div>
+      <div><b data-i="k25">Bank als Aufpasser</b><span data-i="k26">Bisher löste das eine <b>Bank</b>. Sie führt das Kassenbuch, kann aber auch sperren oder Fehler machen.</span></div>
+      <div><b data-i="k27">Ein Kassenbuch für alle</b><span data-i="k28">Bei Bitcoin hat <b>jede Node eine Kopie</b> und prüft jede Zahlung selbst.</span></div>
+      <div><b data-i="k29">Was im Block steht, zählt</b><span data-i="k30">Zwei widersprüchliche Zahlungen können kurz gleichzeitig im Netz sein. Gültig wird die, die ein Miner in einen <b>Block</b> packt. Mit jedem weiteren Block wird das sicherer.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k31">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Blockhöhe nach den Bitcoin-Regeln geschätzt (1 Block alle 10 Minuten). Die Zahl der Nodes ist eine grobe Schätzung erreichbarer Nodes. Das Doppelausgabe-Problem beschreibt Satoshi Nakamoto im Bitcoin-Whitepaper (2008).</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k35" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k32">Quellen</summary><p data-i="k33">Blockhöhe nach den Bitcoin-Regeln geschätzt (1 Block alle 10 Minuten). Die Zahl der Nodes ist eine grobe Schätzung erreichbarer Nodes. Das Doppelausgabe-Problem beschreibt Satoshi Nakamoto im Bitcoin-Whitepaper (2008).</p></details>
+  <p data-i="k34" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "The <span class=\"btc\">copy<\/span> problem", "k4": "You can copy a photo as often as you like. If money were a simple file, you could copy it too and <b>spend it twice<\/b>. That's exactly the problem Bitcoin had to solve.", "k5": "Try to spend a coin twice", "k6": "You have <b>1 digital coin<\/b>. You send it to <b>Anna<\/b> and <b>Ben<\/b> at the same time. Choose who keeps watch:", "k7": "📁 Nobody (just a file)", "k8": "🏦 A bank", "k9": "₿ Bitcoin", "k10": "💸 Send to both at once", "k11": "The solution in one sentence <span class=\"mode\" id=\"lmode\">Connecting …<\/span>", "k12": "Ledger", "k13": "Instead of a bank, <b>thousands of computers keep the same ledger<\/b> and check every payment.", "k14": "Order", "k15": "Miners decide which payment came <b>first<\/b> by packing payments into <b>blocks<\/b>. The earlier one counts.", "k16": "Twice?", "k17": "Everyone rejects the second spend of the same coin.", "k18": "Checked in one block<b class=\"num g\" id=\"kTx\">–<\/b>", "k19": "Blocks since 2009<b class=\"num\" id=\"kH\">–<\/b>", "k20": "Ledger copies worldwide<b class=\"num\">approx. 20,000+<\/b>", "k21": "That's why there is the blockchain (the shared ledger), mining (decides which payment came first) and nodes (the checkers). You'll learn exactly how it works in <span class=\"later\">World 3<\/span>. Everything else builds on it.", "k22": "Remember this", "k23": "Copying is the problem", "k24": "Digital things can be <b>copied endlessly<\/b>. But money may only be spent once.", "k25": "A bank as the guard", "k26": "Until now a <b>bank<\/b> solved this. It keeps the ledger, but it can also block you or make mistakes.", "k27": "One ledger for everyone", "k28": "With Bitcoin, <b>every node has a copy<\/b> and checks every payment itself.", "k29": "What's in the block counts", "k30": "Two conflicting payments can be in the network briefly at the same time. The one a miner packs into a <b>block<\/b> becomes valid. With every further block this gets safer.", "k31": "Test yourself: 3 questions", "k32": "Sources", "k33": "Block height estimated by the Bitcoin rules (1 block every 10 minutes). The number of nodes is a rough estimate of reachable nodes. Satoshi Nakamoto describes the double-spending problem in the Bitcoin whitepaper (2008).", "k34": "Entertainment and learning, not investment advice.", "k35@aria-label": "Next", "_title": "Copy Problem · Bitcoin Voyage", "_desc": "Lernwelt: Warum digitales Geld so schwer ist. Das Doppelausgabe-Problem und wie Bitcoin es ohne Bank löst."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    KOPIER-PROBLEM – Lernwelt von Bitcoin Voyage
@@ -97,7 +98,7 @@
 const $ = id => document.getElementById(id);
 const P = [["satoshi", "Du"], ["hal", "Anna"], ["phisher", "Ben"]];
 let mode = 0, busy = false;
-function who(bal){ $("who").innerHTML = P.map(([a, n], i) => `<div data-i="${i}"><div class="p">${Lern.art(a)}</div><b>${n}</b><span class="bal">${bal[i]} Münze${bal[i] === 1 ? "" : "n"}</span></div>`).join(""); }
+function who(bal){ $("who").innerHTML = P.map(([a, n], i) => Lern.t(`<div data-i="${i}"><div class="p">${Lern.art(a)}</div><b>${n}</b><span class="bal">${bal[i]} Münze${bal[i] === 1 ? "" : "n"}</span></div>`, `<div data-i="${i}"><div class="p">${Lern.art(a)}</div><b>${n}</b><span class="bal">${bal[i]} coin${bal[i] === 1 ? "" : "s"}</span></div>`)).join(""); }
 function reset(){ document.querySelectorAll(".coinfly").forEach(c => c.remove()); who([1, 0, 0]); $("res").hidden = true; $("ledger").innerHTML = ""; busy = false; $("go").disabled = false; }
 $("mode").onclick = e => { const b = e.target.closest("button"); if (!b) return; mode = +b.dataset.m; [...$("mode").children].forEach(x => x.setAttribute("aria-pressed", x === b)); reset(); };
 $("go").onclick = () => {
@@ -108,24 +109,24 @@ $("go").onclick = () => {
   setTimeout(() => {
     const R = $("res"); R.hidden = false;
     if (mode === 0){ who([1, 1, 1]); R.className = "res bad";
-      R.innerHTML = `<strong>✗ Beide haben eine Münze, und du hast deine auch noch!</strong>Aus 1 Münze wurden 3. Niemand hat aufgepasst, die Datei wurde einfach kopiert. So wäre das Geld nach kurzer Zeit wertlos.`; }
+      R.innerHTML = Lern.t(`<strong>✗ Beide haben eine Münze, und du hast deine auch noch!</strong>Aus 1 Münze wurden 3. Niemand hat aufgepasst, die Datei wurde einfach kopiert. So wäre das Geld nach kurzer Zeit wertlos.`, `<strong>✗ Both have a coin, and you still have yours too!</strong>1 coin became 3. Nobody kept watch, the file was simply copied. Money like that would soon be worthless.`); }
     else if (mode === 1){ who([0, 1, 0]);
-      $("ledger").innerHTML = `<div class="ledger"><b>🏦 Kassenbuch der Bank</b><br><span class="ok">10:00:01 Du → Anna: 1 Münze ✓</span><br><span class="x">10:00:01 Du → Ben: 1 Münze</span> ✗ (schon ausgegeben)</div>`;
-      R.className = "res warn"; R.innerHTML = `<strong>✓ Die Bank verhindert es, aber …</strong>… du musst der Bank <b>vertrauen</b>. Sie kann Konten sperren, Fehler machen oder pleitegehen. Und sie sieht alle deine Zahlungen.`; }
+      $("ledger").innerHTML = Lern.t(`<div class="ledger"><b>🏦 Kassenbuch der Bank</b><br><span class="ok">10:00:01 Du → Anna: 1 Münze ✓</span><br><span class="x">10:00:01 Du → Ben: 1 Münze</span> ✗ (schon ausgegeben)</div>`, `<div class="ledger"><b>🏦 The bank's ledger</b><br><span class="ok">10:00:01 You → Anna: 1 coin ✓</span><br><span class="x">10:00:01 You → Ben: 1 coin</span> ✗ (already spent)</div>`);
+      R.className = "res warn"; R.innerHTML = Lern.t(`<strong>✓ Die Bank verhindert es, aber …</strong>… du musst der Bank <b>vertrauen</b>. Sie kann Konten sperren, Fehler machen oder pleitegehen. Und sie sieht alle deine Zahlungen.`, `<strong>✓ The bank prevents it, but …</strong>… you have to <b>trust</b> the bank. It can block accounts, make mistakes or go bankrupt. And it sees all your payments.`); }
     else { who([0, 1, 0]);
-      $("ledger").innerHTML = `<div class="ledger"><b>₿ Block 1 (für alle gleich)</b><br><span class="ok">Du → Anna: 1 Münze ✓</span><br><span class="x">Du → Ben: 1 Münze</span> (Münze schon im Block ausgegeben)</div><div class="nodes" id="nd"></div>`;
+      $("ledger").innerHTML = Lern.t(`<div class="ledger"><b>₿ Block 1 (für alle gleich)</b><br><span class="ok">Du → Anna: 1 Münze ✓</span><br><span class="x">Du → Ben: 1 Münze</span> (Münze schon im Block ausgegeben)</div><div class="nodes" id="nd"></div>`, `<div class="ledger"><b>₿ Block 1 (the same for everyone)</b><br><span class="ok">You → Anna: 1 coin ✓</span><br><span class="x">You → Ben: 1 coin</span> (coin already spent in the block)</div><div class="nodes" id="nd"></div>`);
       const nd = $("nd"); for (let i = 0; i < 24; i++) nd.insertAdjacentHTML("beforeend", `<span style="animation:pop .3s both ${i*.04}s">✓</span>`);
       setTimeout(() => nd.querySelectorAll("span").forEach(s => s.className = "y"), 300);
-      R.className = "res ok"; R.innerHTML = `<strong>✓ Ohne Bank verhindert!</strong>Tausende Nodes haben dasselbe Kassenbuch. Die Zahlung an Anna steht zuerst im Block. Die an Ben lehnt <b>jede Node</b> ab. Mit jedem weiteren Block wird das noch sicherer. Niemand muss einer einzelnen Firma vertrauen.`; }
+      R.className = "res ok"; R.innerHTML = Lern.t(`<strong>✓ Ohne Bank verhindert!</strong>Tausende Nodes haben dasselbe Kassenbuch. Die Zahlung an Anna steht zuerst im Block. Die an Ben lehnt <b>jede Node</b> ab. Mit jedem weiteren Block wird das noch sicherer. Niemand muss einer einzelnen Firma vertrauen.`, `<strong>✓ Prevented without a bank!</strong>Thousands of nodes have the same ledger. The payment to Anna is first in the block. <b>Every node</b> rejects the one to Ben. With every further block it gets even safer. Nobody has to trust a single company.`); }
   }, mode ? 1700 : 1100);
 };
 reset();
 Promise.all([fetch(Lern.api("v1/blocks")).then(r => r.json()), fetch(Lern.api("blocks/tip/height")).then(r => r.text())]).then(([bl, h]) => {
-  $("kTx").textContent = (bl[0].tx_count || 0).toLocaleString("de-DE") + " Zahlungen"; $("kH").textContent = (+h).toLocaleString("de-DE");
+  $("kTx").textContent = (bl[0].tx_count || 0).toLocaleString(Lern.EN ? "en-US" : "de-DE") + Lern.t(" Zahlungen", " payments"); $("kH").textContent = (+h).toLocaleString(Lern.EN ? "en-US" : "de-DE");
   $("lmode").className = "mode live"; $("lmode").textContent = "Live";
-}).catch(() => { $("kTx").textContent = "rund 3.000 Zahlungen"; $("kH").textContent = "~" + (Math.round(Lern.height()/100)*100).toLocaleString("de-DE"); $("lmode").className = "mode demo"; $("lmode").textContent = "Schätzung"; });
+}).catch(() => { $("kTx").textContent = Lern.t("rund 3.000 Zahlungen", "about 3,000 payments"); $("kH").textContent = "~" + (Math.round(Lern.height()/100)*100).toLocaleString(Lern.EN ? "en-US" : "de-DE"); $("lmode").className = "mode demo"; $("lmode").textContent = Lern.t("Schätzung", "Estimate"); });
 
-const QUIZ = [["Warum ist digitales Geld schwer zu bauen?", ["Weil man Dateien beliebig kopieren kann", "Weil Computer zu langsam sind", "Weil es zu teuer ist"], 0, "Ohne Aufpasser könnte man dieselbe Münze mehrmals ausgeben."], ["Wer verhindert bei Bitcoin, dass eine Münze zweimal ausgegeben wird?", ["Tausende Nodes mit demselben Kassenbuch", "Eine zentrale Bitcoin-Bank", "Der Erfinder Satoshi persönlich"], 0, "Jede Node prüft jede Zahlung. Die zweite Ausgabe ist ungültig."], ["Was ist der Nachteil, wenn eine Bank aufpasst?", ["Man muss ihr vertrauen, sie kann sperren oder Fehler machen", "Es funktioniert technisch überhaupt nicht", "Die Überweisungen gehen dadurch viel zu schnell"], 0, "Bitcoin ersetzt dieses Vertrauen durch Regeln, die alle prüfen."]];
+const QUIZ = [[Lern.t("Warum ist digitales Geld schwer zu bauen?", "Why is digital money hard to build?"), [Lern.t("Weil man Dateien beliebig kopieren kann", "Because files can be copied endlessly"), Lern.t("Weil Computer zu langsam sind", "Because computers are too slow"), Lern.t("Weil es zu teuer ist", "Because it's too expensive")], 0, Lern.t("Ohne Aufpasser könnte man dieselbe Münze mehrmals ausgeben.", "Without a guard you could spend the same coin several times.")], [Lern.t("Wer verhindert bei Bitcoin, dass eine Münze zweimal ausgegeben wird?", "Who prevents a coin from being spent twice in Bitcoin?"), [Lern.t("Tausende Nodes mit demselben Kassenbuch", "Thousands of nodes with the same ledger"), Lern.t("Eine zentrale Bitcoin-Bank", "A central Bitcoin bank"), Lern.t("Der Erfinder Satoshi persönlich", "The inventor Satoshi in person")], 0, Lern.t("Jede Node prüft jede Zahlung. Die zweite Ausgabe ist ungültig.", "Every node checks every payment. The second spend is invalid.")], [Lern.t("Was ist der Nachteil, wenn eine Bank aufpasst?", "What's the downside of a bank keeping watch?"), [Lern.t("Man muss ihr vertrauen, sie kann sperren oder Fehler machen", "You have to trust it; it can block you or make mistakes"), Lern.t("Es funktioniert technisch überhaupt nicht", "It doesn't work technically at all"), Lern.t("Die Überweisungen gehen dadurch viel zu schnell", "Transfers become far too fast")], 0, Lern.t("Bitcoin ersetzt dieses Vertrauen durch Regeln, die alle prüfen.", "Bitcoin replaces this trust with rules that everyone checks.")]];
 Lern.quiz($("quiz"), "doppelt", QUIZ, "../"); Lern.visit("doppelt"); Lern.renderNext("doppelt", "../");
 })();
 </script>

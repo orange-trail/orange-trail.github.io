@@ -56,28 +56,28 @@
 @media (max-width:440px){ .tools .sl{display:none} .tools .btn{font-size:12px;padding:3px 4px} }
 @media (max-width:420px){ .mp{grid-template-columns:1fr 1fr;gap:6px} .mtx{padding:8px} .mtx b{font-size:13px} .lohn .row2{grid-template-columns:6.2em 1fr 5.6em;font-size:13px} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Bau deinen <span class="btc">Block</span></h1>
-    <p class="lead">Jetzt bist <b>du</b> der Miner. Im Warteraum (Mempool) stehen Zahlungen, jede mit Größe und Gebühr. Dein Block hat aber nur begrenzt Platz. Welche nimmst du mit? In vier Runden lernst du, wie Miner wirklich denken.</p>
+    <h1 data-i="k3">Bau deinen <span class="btc">Block</span></h1>
+    <p data-i="k4" class="lead">Jetzt bist <b>du</b> der Miner. Im Warteraum (Mempool) stehen Zahlungen, jede mit Größe und Gebühr. Dein Block hat aber nur begrenzt Platz. Welche nimmst du mit? In vier Runden lernst du, wie Miner wirklich denken.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Das Spiel</h2>
-    <div class="rt" id="rt" role="tablist" aria-label="Runden"></div>
+    <h2 data-i="k5" id="h1s">Das Spiel</h2>
+    <div data-i="k28" class="rt" id="rt" role="tablist" aria-label="Runden"></div>
     <div class="idea" id="intro" style="margin-top:12px"></div>
     <div id="game">
       <div class="bar" id="bar">
-        <div class="fill"><i id="fi"></i><span><span id="fv">0 / 1.000 vB</span><span id="ff">0 sat</span></span></div>
-        <div class="tools"><span class="sl">Sortieren</span><button class="btn ghost" type="button" data-s="0" aria-pressed="true">Warteraum</button><button class="btn ghost" type="button" data-s="1" aria-pressed="false">Gebühr</button><button class="btn ghost" type="button" data-s="2" aria-pressed="false">sat/vB</button></div>
+        <div class="fill"><i id="fi"></i><span><span data-i="k6" id="fv">0 / 1.000 vB</span><span data-i="k7" id="ff">0 sat</span></span></div>
+        <div class="tools"><span data-i="k8" class="sl">Sortieren</span><button data-i="k9" class="btn ghost" type="button" data-s="0" aria-pressed="true">Warteraum</button><button data-i="k10" class="btn ghost" type="button" data-s="1" aria-pressed="false">Gebühr</button><button data-i="k11" class="btn ghost" type="button" data-s="2" aria-pressed="false">sat/vB</button></div>
       </div>
       <p class="fb" id="fb" aria-live="polite" hidden></p>
       <div class="mp" id="mp"></div>
-      <div class="seg"><button class="btn" type="button" id="go">⛏ Block abschicken</button><button class="btn ghost" type="button" id="chk" hidden>🔍 Wie eine Node prüfen</button><button class="btn ghost" type="button" id="clr">↺ Leeren</button></div>
+      <div class="seg"><button data-i="k12" class="btn" type="button" id="go">⛏ Block abschicken</button><button data-i="k13" class="btn ghost" type="button" id="chk" hidden>🔍 Wie eine Node prüfen</button><button data-i="k14" class="btn ghost" type="button" id="clr">↺ Leeren</button></div>
       <div class="res" id="res" hidden aria-live="polite"></div>
     </div>
     <div id="pay" hidden>
@@ -88,38 +88,39 @@
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k15" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Gebühr pro Platz</b><span>Miner rechnen in <b>sat/vB</b>, nicht in der Gesamtgebühr. Eine kleine Zahlung kann mehr wert sein als eine große.</span></div>
-      <div><b>Eltern &amp; Kind</b><span>Hängt deine Zahlung fest, kann eine <b>Folgezahlung mit hoher Gebühr</b> sie mitziehen. Fachbegriff: CPFP.</span></div>
-      <div><b>Ein Fehler, alles weg</b><span>Steckt <b>eine</b> ungültige Zahlung im Block, lehnen alle Nodes den ganzen Block ab. Der Miner bekommt nichts.</span></div>
-      <div><b>Gebühren sind die Zukunft</b><span>Die neuen Bitcoin pro Block halbieren sich alle vier Jahre. Langfristig müssen <b>Gebühren</b> die Miner bezahlen.</span></div>
+      <div><b data-i="k16">Gebühr pro Platz</b><span data-i="k17">Miner rechnen in <b>sat/vB</b>, nicht in der Gesamtgebühr. Eine kleine Zahlung kann mehr wert sein als eine große.</span></div>
+      <div><b data-i="k18">Eltern &amp; Kind</b><span data-i="k19">Hängt deine Zahlung fest, kann eine <b>Folgezahlung mit hoher Gebühr</b> sie mitziehen. Fachbegriff: CPFP.</span></div>
+      <div><b data-i="k20">Ein Fehler, alles weg</b><span data-i="k21">Steckt <b>eine</b> ungültige Zahlung im Block, lehnen alle Nodes den ganzen Block ab. Der Miner bekommt nichts.</span></div>
+      <div><b data-i="k22">Gebühren sind die Zukunft</b><span data-i="k23">Die neuen Bitcoin pro Block halbieren sich alle vier Jahre. Langfristig müssen <b>Gebühren</b> die Miner bezahlen.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k24">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Vereinfachtes Spiel: Ein echter Block fasst bis zu rund 1.000.000 vB, also etwa 1.000-mal so viel wie hier, und enthält meist 3.000 bis 4.000 Zahlungen. Gebührenanteil am Miner-Lohn zuletzt unter 1 %: <a href="https://cointelegraph.com/news/bitcoin-miners-earn-under-07-of-revenue-from-fees-in-new-10-year-low">Cointelegraph, August 2026</a> · <a href="https://bitcoinops.org/en/topics/cpfp/">Bitcoin Optech: CPFP</a> · <a href="https://developer.bitcoin.org/devguide/block_chain.html">Bitcoin Developer Guide: Block Chain</a></p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k29" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k25">Quellen</summary><p data-i="k26">Vereinfachtes Spiel: Ein echter Block fasst bis zu rund 1.000.000 vB, also etwa 1.000-mal so viel wie hier, und enthält meist 3.000 bis 4.000 Zahlungen. Gebührenanteil am Miner-Lohn zuletzt unter 1 %: <a href="https://cointelegraph.com/news/bitcoin-miners-earn-under-07-of-revenue-from-fees-in-new-10-year-low">Cointelegraph, August 2026</a> · <a href="https://bitcoinops.org/en/topics/cpfp/">Bitcoin Optech: CPFP</a> · <a href="https://developer.bitcoin.org/devguide/block_chain.html">Bitcoin Developer Guide: Block Chain</a></p></details>
+  <p data-i="k27" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Build your <span class=\"btc\">block<\/span>", "k4": "Now <b>you<\/b> are the miner. Payments wait in the waiting room (mempool), each with a size and a fee. But your block only has limited space. Which ones do you take? In four rounds you'll learn how miners really think.", "k5": "The game", "k6": "0 / 1,000 vB", "k7": "0 sat", "k8": "Sort", "k9": "Waiting room", "k10": "Fee", "k11": "sat/vB", "k12": "⛏ Submit block", "k13": "🔍 Check like a node", "k14": "↺ Clear", "k15": "Remember this", "k16": "Fee per space", "k17": "Miners calculate in <b>sat/vB<\/b>, not in the total fee. A small payment can be worth more than a big one.", "k18": "Parent &amp; child", "k19": "If your payment is stuck, a <b>follow-up payment with a high fee<\/b> can pull it along. Technical term: CPFP.", "k20": "One mistake, everything gone", "k21": "If <b>one<\/b> invalid payment is in the block, all nodes reject the whole block. The miner gets nothing.", "k22": "Fees are the future", "k23": "The new bitcoin per block halve every four years. In the long run, <b>fees<\/b> must pay the miners.", "k24": "Test yourself: 3 questions", "k25": "Sources", "k26": "Simplified game: a real block holds up to about 1,000,000 vB, i.e. about 1,000 times as much as here, and usually contains 3,000 to 4,000 payments. Fee share of miner pay most recently below 1 %: <a href=\"https://cointelegraph.com/news/bitcoin-miners-earn-under-07-of-revenue-from-fees-in-new-10-year-low\">Cointelegraph, August 2026<\/a> · <a href=\"https://bitcoinops.org/en/topics/cpfp/\">Bitcoin Optech: CPFP<\/a> · <a href=\"https://developer.bitcoin.org/devguide/block_chain.html\">Bitcoin Developer Guide: Block Chain<\/a>", "k27": "Entertainment and learning, not investment advice.", "k28@aria-label": "Rounds", "k29@aria-label": "Next", "_title": "Build Your Block · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Du bist Miner. Pack die besten Zahlungen in deinen Block, rette eine festhängende Zahlung, erkenn Betrug und sieh, wovon Miner in Zukunft leben."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    BAU DEINEN BLOCK – Lernwelt von Bitcoin Voyage
    Spielblock: 1.000 vB (echt: bis ca. 1.000.000 vB)
    ===================================================================== */
 (() => {
-const $ = id => document.getElementById(id), nf = n => n.toLocaleString("de-DE");
+const $ = id => document.getElementById(id), nf = n => n.toLocaleString(Lern.EN ? "en-US" : "de-DE");
 // Zahlung: [Name, vB, Gebühr in sat, Extra]  Extra: {p:Eltern-Index} | {coin:"…"} | {sig:0}
 const ROUNDS = [
-  {t: "Voll machen", cap: 1000, intro: "<b>Runde 1:</b> Hol so viele Gebühren wie möglich in deinen Block. Tipp eine Zahlung an, um sie einzupacken, nochmal, um sie herauszunehmen.",
-   tx: [["Anna → Ben", 140, 2800], ["Cem → Dana", 220, 3300], ["Börse → 40 Kunden", 600, 7200], ["Finn → Gil", 110, 3850], ["Hana → Ida", 250, 2500], ["Jan → Kai", 180, 5400], ["Lea → Max", 140, 700], ["Nia → Ole", 300, 7500], ["Pia → Quinn", 160, 4000], ["Rio → Sam", 200, 1000]]},
-  {t: "Eltern & Kind", cap: 1000, intro: "<b>Runde 2:</b> Tom hat zu wenig Gebühr gezahlt, seine Zahlung hängt seit Tagen fest. Uwe will das Geld sofort weiterschicken und zahlt dafür <b>extra viel</b>. Seine Zahlung gilt aber nur, wenn Toms Zahlung auch im Block ist.",
+  {t: Lern.t("Voll machen", "Fill it up"), cap: 1000, intro: Lern.t("<b>Runde 1:</b> Hol so viele Gebühren wie möglich in deinen Block. Tipp eine Zahlung an, um sie einzupacken, nochmal, um sie herauszunehmen.", "<b>Round 1:</b> get as many fees as possible into your block. Tap a payment to pack it, tap again to take it out."),
+   tx: [["Anna → Ben", 140, 2800], ["Cem → Dana", 220, 3300], [Lern.t("Börse → 40 Kunden", "Exchange → 40 customers"), 600, 7200], ["Finn → Gil", 110, 3850], ["Hana → Ida", 250, 2500], ["Jan → Kai", 180, 5400], ["Lea → Max", 140, 700], ["Nia → Ole", 300, 7500], ["Pia → Quinn", 160, 4000], ["Rio → Sam", 200, 1000]]},
+  {t: Lern.t("Eltern & Kind", "Parent & child"), cap: 1000, intro: Lern.t("<b>Runde 2:</b> Tom hat zu wenig Gebühr gezahlt, seine Zahlung hängt seit Tagen fest. Uwe will das Geld sofort weiterschicken und zahlt dafür <b>extra viel</b>. Seine Zahlung gilt aber nur, wenn Toms Zahlung auch im Block ist.", "<b>Round 2:</b> Tom paid too little fee; his payment has been stuck for days. Uwe wants to send the money on immediately and pays <b>extra much</b> for it. But his payment only counts if Tom's payment is also in the block."),
    tx: [["Tom → Uwe", 200, 400, {stuck: 1}], ["Uwe → Vera", 150, 8350, {p: 0}], ["Ali → Bea", 200, 3000], ["Carl → Doro", 150, 3000], ["Emil → Fay", 300, 6000], ["Gina → Hugo", 120, 1800], ["Ivo → Jule", 250, 5000], ["Karl → Lina", 100, 1200]]},
-  {t: "Schummel-Check", cap: 1000, intro: "<b>Runde 3:</b> Normalerweise fischen Nodes Betrug schon im Warteraum heraus. Aber zwei Zahlungen hat dir jemand <b>direkt geschickt, an den Nodes vorbei</b>, mit verdächtig hohen Gebühren. Jede Zahlung nennt die Münze (Coin), die sie ausgibt. Mit „🔍 Wie eine Node prüfen“ siehst du, was jede Node prüft.",
-   tx: [["Lea → Shop", 200, 6000, {coin: "#7"}], ["Mia → Nils", 180, 3600, {coin: "#2"}], ["??? → Rio", 150, 12000, {coin: "#9", sig: 0, dm: 1}], ["Otto → Pam", 220, 4400, {coin: "#4"}], ["Lea → eigene Wallet", 200, 9000, {coin: "#7", dm: 1}], ["Quirin → Ria", 150, 2250, {coin: "#5"}], ["Sven → Tara", 250, 5000, {coin: "#1"}], ["Udo → Vio", 120, 3000, {coin: "#8"}], ["Wim → Xena", 200, 2000, {coin: "#3"}]]},
-  {t: "Dein Lohn"}
+  {t: Lern.t("Schummel-Check", "Cheat check"), cap: 1000, intro: Lern.t("<b>Runde 3:</b> Normalerweise fischen Nodes Betrug schon im Warteraum heraus. Aber zwei Zahlungen hat dir jemand <b>direkt geschickt, an den Nodes vorbei</b>, mit verdächtig hohen Gebühren. Jede Zahlung nennt die Münze (Coin), die sie ausgibt. Mit „🔍 Wie eine Node prüfen“ siehst du, was jede Node prüft.", "<b>Round 3:</b> normally nodes fish out fraud already in the waiting room. But someone sent you two payments <b>directly, bypassing the nodes</b>, with suspiciously high fees. Every payment names the coin it spends. With “🔍 Check like a node” you see what every node checks."),
+   tx: [[Lern.t("Lea → Shop", "Lea → shop"), 200, 6000, {coin: "#7"}], ["Mia → Nils", 180, 3600, {coin: "#2"}], ["??? → Rio", 150, 12000, {coin: "#9", sig: 0, dm: 1}], ["Otto → Pam", 220, 4400, {coin: "#4"}], [Lern.t("Lea → eigene Wallet", "Lea → own wallet"), 200, 9000, {coin: "#7", dm: 1}], ["Quirin → Ria", 150, 2250, {coin: "#5"}], ["Sven → Tara", 250, 5000, {coin: "#1"}], ["Udo → Vio", 120, 3000, {coin: "#8"}], ["Wim → Xena", 200, 2000, {coin: "#3"}]]},
+  {t: Lern.t("Dein Lohn", "Your pay")}
 ];
 let R = 0, sort = 0, checked = false, won = new Set();
 const sel = ROUNDS.map(() => new Set());
@@ -148,18 +149,18 @@ function tabs(){
   $("rt").innerHTML = ROUNDS.map((x, i) => `<button type="button" role="tab" data-r="${i}" aria-pressed="${i === R}" class="${won.has(i) ? "won" : ""}">${i + 1}<small>${x.t}</small></button>`).join("");
 }
 function draw(bestIds){
-  tabs(); const Q = ROUNDS[R]; $("intro").innerHTML = Q.intro || "<b>Runde 4:</b> Wovon lebt ein Miner? Sein Lohn besteht aus <b>neuen Bitcoin</b> plus den <b>Gebühren</b>. Tipp ein Jahr an und sieh, wie sich das verschiebt.";
+  tabs(); const Q = ROUNDS[R]; $("intro").innerHTML = Q.intro || Lern.t("<b>Runde 4:</b> Wovon lebt ein Miner? Sein Lohn besteht aus <b>neuen Bitcoin</b> plus den <b>Gebühren</b>. Tipp ein Jahr an und sieh, wie sich das verschiebt.", "<b>Round 4:</b> what does a miner live on? His pay consists of <b>new bitcoin</b> plus the <b>fees</b>. Tap a year and see how it shifts.");
   $("game").hidden = R === 3; $("pay").hidden = R !== 3; if (R === 3) return pay(2024);
   const S = sel[R], u = used(S), f = fees(S), full = Q.cap - u < Math.min(...Q.tx.filter((t, i) => !S.has(i)).map(t => t[1]).concat([1e9]));
   $("fi").style.width = u/Q.cap*100 + "%"; $("fi").classList.toggle("full", full);
   $("fv").textContent = `${nf(u)} / ${nf(Q.cap)} vB`; $("ff").textContent = `${nf(f)} sat`;
-  $("chk").hidden = R !== 2; $("chk").textContent = checked ? "🙈 Prüfung ausblenden" : "🔍 Wie eine Node prüfen";
+  $("chk").hidden = R !== 2; $("chk").textContent = checked ? Lern.t("🙈 Prüfung ausblenden", "🙈 Hide check") : Lern.t("🔍 Wie eine Node prüfen", "🔍 Check like a node");
   const coins = {}; Q.tx.forEach(t => { const c = (t[3] || {}).coin; if (c) coins[c] = (coins[c] || 0) + 1; });
   const order = Q.tx.map((t, i) => i); if (sort === 1) order.sort((a, b) => Q.tx[b][2] - Q.tx[a][2]); if (sort === 2) order.sort((a, b) => rate(Q.tx[b]) - rate(Q.tx[a]));
   $("mp").innerHTML = order.map(i => { const t = Q.tx[i], e = t[3] || {}, r = rate(t); let x = "";
-    if (e.stuck) x = `<span class="x w">⏳ hängt seit Tagen fest</span>`;
-    if (e.p !== undefined) x = `<span class="x w">🔗 braucht „${Q.tx[e.p][0]}“ · zusammen ${nf(Math.round((t[2] + Q.tx[e.p][2])/(t[1] + Q.tx[e.p][1])))} sat/vB</span>`;
-    if (e.coin) x = (e.dm ? `<span class="x w">📨 direkt an dich geschickt</span>` : "") + `<span class="x">🪙 zahlt mit Coin ${e.coin}</span>` + (checked ? (e.sig === 0 ? `<span class="x bad">✍️ Unterschrift falsch ✗</span>` : coins[e.coin] > 1 ? `<span class="x bad">⚠ Coin ${e.coin} steckt in 2 Zahlungen, nur eine darf in den Block</span>` : `<span class="x ok">✓ Unterschrift und Coin ok</span>`) : "");
+    if (e.stuck) x = Lern.t(`<span class="x w">⏳ hängt seit Tagen fest</span>`, `<span class="x w">⏳ stuck for days</span>`);
+    if (e.p !== undefined) x = Lern.t(`<span class="x w">🔗 braucht „${Q.tx[e.p][0]}“ · zusammen ${nf(Math.round((t[2] + Q.tx[e.p][2])/(t[1] + Q.tx[e.p][1])))} sat/vB</span>`, `<span class="x w">🔗 needs “${Q.tx[e.p][0]}” · together ${nf(Math.round((t[2] + Q.tx[e.p][2])/(t[1] + Q.tx[e.p][1])))} sat/vB</span>`);
+    if (e.coin) x = (e.dm ? Lern.t(`<span class="x w">📨 direkt an dich geschickt</span>`, `<span class="x w">📨 sent directly to you</span>`) : "") + Lern.t(`<span class="x">🪙 zahlt mit Coin ${e.coin}</span>`, `<span class="x">🪙 pays with coin ${e.coin}</span>`) + (checked ? (e.sig === 0 ? Lern.t(`<span class="x bad">✍️ Unterschrift falsch ✗</span>`, `<span class="x bad">✍️ Signature wrong ✗</span>`) : coins[e.coin] > 1 ? Lern.t(`<span class="x bad">⚠ Coin ${e.coin} steckt in 2 Zahlungen, nur eine darf in den Block</span>`, `<span class="x bad">⚠ Coin ${e.coin} is in 2 payments, only one may go into the block</span>`) : Lern.t(`<span class="x ok">✓ Unterschrift und Coin ok</span>`, `<span class="x ok">✓ Signature and coin ok</span>`)) : "");
     return `<button type="button" class="mtx${S.has(i) ? " in" : ""}${bestIds && bestIds.includes(i) ? " best" : ""}" data-i="${i}" aria-pressed="${S.has(i)}"><b>${t[0]}</b><span class="m"><span>${nf(t[1])} vB</span><span>${nf(t[2])} sat</span></span><span class="r" style="background:${rateCol(r)}">${nf(Math.round(r))} sat/vB</span>${x}</button>`; }).join("");
   $("rt").querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", +b.dataset.r === R));
 }
@@ -168,45 +169,46 @@ function tap(i){
   $("res").hidden = true;
   if (S.has(i)){ S.delete(i); const kids = Q.tx.map((u, j) => (u[3] || {}).p === i && S.has(j) ? j : -1).filter(j => j >= 0);
     kids.forEach(k => S.delete(k));
-    fb(true, kids.length ? `↩ „${t[0]}“ herausgenommen. „${Q.tx[kids[0]][0]}“ muss mit raus, ohne Eltern ist das Kind ungültig.` : `↩ „${t[0]}“ wieder in den Warteraum gelegt.`); }
-  else if (e.p !== undefined && !S.has(e.p)){ ok = false; fb(false, `🔗 <b>Geht nicht allein:</b> „${t[0]}“ gibt Geld aus, das erst mit „${Q.tx[e.p][0]}“ ankommt. Pack zuerst die Eltern ein.`); }
-  else if (used(S) + t[1] > Q.cap){ ok = false; fb(false, `📦 <b>Passt nicht mehr:</b> noch ${nf(Q.cap - used(S))} vB frei, diese Zahlung braucht ${nf(t[1])} vB.`); }
-  else { S.add(i); fb(true, `✅ „${t[0]}“ eingepackt: <b>+${nf(t[2])} sat</b>` + (e.stuck ? ". Allein lohnt sie sich kaum, aber schau dir mal ihr Kind an …" : "")); }
+    fb(true, kids.length ? Lern.t(`↩ „${t[0]}“ herausgenommen. „${Q.tx[kids[0]][0]}“ muss mit raus, ohne Eltern ist das Kind ungültig.`, `↩ “${t[0]}” taken out. “${Q.tx[kids[0]][0]}” has to go too; without its parent the child is invalid.`) : Lern.t(`↩ „${t[0]}“ wieder in den Warteraum gelegt.`, `↩ “${t[0]}” put back in the waiting room.`)); }
+  else if (e.p !== undefined && !S.has(e.p)){ ok = false; fb(false, Lern.t(`🔗 <b>Geht nicht allein:</b> „${t[0]}“ gibt Geld aus, das erst mit „${Q.tx[e.p][0]}“ ankommt. Pack zuerst die Eltern ein.`, `🔗 <b>Doesn't work alone:</b> “${t[0]}” spends money that only arrives with “${Q.tx[e.p][0]}”. Pack the parent first.`)); }
+  else if (used(S) + t[1] > Q.cap){ ok = false; fb(false, Lern.t(`📦 <b>Passt nicht mehr:</b> noch ${nf(Q.cap - used(S))} vB frei, diese Zahlung braucht ${nf(t[1])} vB.`, `📦 <b>Doesn't fit anymore:</b> ${nf(Q.cap - used(S))} vB still free, this payment needs ${nf(t[1])} vB.`)); }
+  else { S.add(i); fb(true, Lern.t(`✅ „${t[0]}“ eingepackt: <b>+${nf(t[2])} sat</b>`, `✅ “${t[0]}” packed: <b>+${nf(t[2])} sat</b>`) + (e.stuck ? Lern.t(". Allein lohnt sie sich kaum, aber schau dir mal ihr Kind an …", ". On its own it's hardly worth it, but take a look at its child …") : "")); }
   draw(); const b = $("mp").querySelector(`[data-i="${i}"]`); if (!ok && b){ b.classList.add("no"); if (navigator.vibrate) try { navigator.vibrate([20, 40, 20]); } catch(e){} }
 }
 function finish(){
   const Q = ROUNDS[R], S = sel[R], B = best(R), f = fees(S), el = $("res"); el.hidden = false;
-  if (!S.size){ el.className = "res warn"; el.innerHTML = "<strong>Leerer Block?</strong>Geht tatsächlich, aber dann bekommst du nur die neuen Bitcoin und keine einzige Gebühr. Pack erst ein paar Zahlungen ein."; return; }
+  if (!S.size){ el.className = "res warn"; el.innerHTML = Lern.t("<strong>Leerer Block?</strong>Geht tatsächlich, aber dann bekommst du nur die neuen Bitcoin und keine einzige Gebühr. Pack erst ein paar Zahlungen ein.", "<strong>Empty block?</strong>That actually works, but then you only get the new bitcoin and not a single fee. Pack a few payments first."); return; }
   if (R === 2){ const T = Q.tx, c = {}; let why = "";
-    [...S].forEach(i => { const e = T[i][3] || {}; if (e.sig === 0) why = `„${T[i][0]}“ hat eine <b>gefälschte Unterschrift</b>. Wer den Schlüssel nicht hat, kann keine gültige erzeugen.`; c[e.coin] = (c[e.coin] || 0) + 1; });
-    const dbl = Object.keys(c).find(k => c[k] > 1); if (!why && dbl) why = `Coin ${dbl} wird <b>zweimal ausgegeben</b>. Das ist genau der Betrug, den Bitcoin verhindern soll.`;
-    if (why){ el.className = "res bad"; el.innerHTML = `<strong>❌ Block abgelehnt! Lohn: 0</strong>${why} Jede Node prüft jede Zahlung <b>zweimal</b>: wenn sie im Warteraum ankommt und nochmal im fertigen Block. Ein einziger Fehler, und der ganze Block mit Strom und Arbeit ist wertlos.<div class="acts"><button class="btn ghost" type="button" data-a="chk">🔍 Wie eine Node prüfen</button></div>`; return; } }
-  if (R === 2 && [...S].some(i => (Q.tx[i][3] || {}).dm)){ el.className = "res warn"; el.innerHTML = `<strong>⚠️ Gültig, aber du hast beim Betrug geholfen</strong>Lea hat den Shop schon bezahlt und schickt dieselbe Münze jetzt heimlich an sich selbst zurück. Packst du das ein, ist der Block zwar gültig, aber der Shop geht leer aus. Genau deshalb warten Händler bei großen Beträgen ein paar <b>Bestätigungen</b> ab.<div class="acts"><button class="btn ghost" type="button" data-a="best">💡 Faire Bestlösung zeigen</button></div>`; return; }
+    [...S].forEach(i => { const e = T[i][3] || {}; if (e.sig === 0) why = Lern.t(`„${T[i][0]}“ hat eine <b>gefälschte Unterschrift</b>. Wer den Schlüssel nicht hat, kann keine gültige erzeugen.`, `“${T[i][0]}” has a <b>forged signature</b>. Whoever doesn't have the key can't create a valid one.`); c[e.coin] = (c[e.coin] || 0) + 1; });
+    const dbl = Object.keys(c).find(k => c[k] > 1); if (!why && dbl) why = Lern.t(`Coin ${dbl} wird <b>zweimal ausgegeben</b>. Das ist genau der Betrug, den Bitcoin verhindern soll.`, `Coin ${dbl} is <b>spent twice</b>. That's exactly the fraud Bitcoin is meant to prevent.`);
+    if (why){ el.className = "res bad"; el.innerHTML = Lern.t(`<strong>❌ Block abgelehnt! Lohn: 0</strong>${why} Jede Node prüft jede Zahlung <b>zweimal</b>: wenn sie im Warteraum ankommt und nochmal im fertigen Block. Ein einziger Fehler, und der ganze Block mit Strom und Arbeit ist wertlos.<div class="acts"><button class="btn ghost" type="button" data-a="chk">🔍 Wie eine Node prüfen</button></div>`, `<strong>❌ Block rejected! Pay: 0</strong>${why} Every node checks every payment <b>twice</b>: when it arrives in the waiting room and again in the finished block. A single mistake, and the whole block with its electricity and work is worthless.<div class="acts"><button class="btn ghost" type="button" data-a="chk">🔍 Check like a node</button></div>`); return; } }
+  if (R === 2 && [...S].some(i => (Q.tx[i][3] || {}).dm)){ el.className = "res warn"; el.innerHTML = Lern.t(`<strong>⚠️ Gültig, aber du hast beim Betrug geholfen</strong>Lea hat den Shop schon bezahlt und schickt dieselbe Münze jetzt heimlich an sich selbst zurück. Packst du das ein, ist der Block zwar gültig, aber der Shop geht leer aus. Genau deshalb warten Händler bei großen Beträgen ein paar <b>Bestätigungen</b> ab.<div class="acts"><button class="btn ghost" type="button" data-a="best">💡 Faire Bestlösung zeigen</button></div>`, `<strong>⚠️ Valid, but you helped with fraud</strong>Lea has already paid the shop and is now secretly sending the same coin back to herself. If you pack it, the block is valid, but the shop gets nothing. That's exactly why merchants wait for a few <b>confirmations</b> for large amounts.<div class="acts"><button class="btn ghost" type="button" data-a="best">💡 Show the fair best solution</button></div>`); return; }
   const p = Math.round(f/B.f*100), top = f >= B.f;
   if (top){ won.add(R); try { Lern.sfx && Lern.sfx("win"); } catch(e){} if (won.size === 3) try { Lern.confetti && Lern.confetti(); } catch(e){} }
-  const tip = R === 0 ? "Sortier mal nach <b>sat/vB</b>: Die 600-vB-Sammelzahlung hat die höchste Gebühr, frisst aber über die Hälfte des Platzes."
-    : R === 1 ? "Tom allein zahlt fast nichts. Zusammen mit Uwes Zahlung sind beide aber ein <b>Paket mit 25 sat/vB</b>, und das lohnt sich."
-    : "Gültige Zahlungen mit gutem sat/vB, keine doppelte Münze, keine falsche Unterschrift.";
-  const lesson = R === 0 ? "Miner sortieren nach <b>Gebühr pro vB</b>, nicht nach der Gesamtgebühr. So holen sie aus dem knappen Platz am meisten heraus."
-    : R === 1 ? "So rettet man eine festhängende Zahlung: Der Empfänger (oder du über dein Wechselgeld) schickt eine Folgezahlung mit hoher Gebühr. Fachbegriff: <b>CPFP</b>, Child Pays For Parent."
-    : "Du hast Betrug erkannt. Nodes prüfen zweimal: jede Zahlung, wenn sie ankommt, und jeden Block, bevor sie ihn annehmen. Deshalb lohnt sich Ehrlichkeit für Miner.";
+  const tip = R === 0 ? Lern.t("Sortier mal nach <b>sat/vB</b>: Die 600-vB-Sammelzahlung hat die höchste Gebühr, frisst aber über die Hälfte des Platzes.", "Try sorting by <b>sat/vB</b>: the 600 vB batch payment has the highest fee, but eats up more than half of the space.")
+    : R === 1 ? Lern.t("Tom allein zahlt fast nichts. Zusammen mit Uwes Zahlung sind beide aber ein <b>Paket mit 25 sat/vB</b>, und das lohnt sich.", "Tom alone pays almost nothing. But together with Uwe's payment both are a <b>package at 25 sat/vB</b>, and that's worth it.")
+    : Lern.t("Gültige Zahlungen mit gutem sat/vB, keine doppelte Münze, keine falsche Unterschrift.", "Valid payments with good sat/vB, no double coin, no wrong signature.");
+  const lesson = R === 0 ? Lern.t("Miner sortieren nach <b>Gebühr pro vB</b>, nicht nach der Gesamtgebühr. So holen sie aus dem knappen Platz am meisten heraus.", "Miners sort by <b>fee per vB</b>, not by the total fee. That's how they get the most out of the scarce space.")
+    : R === 1 ? Lern.t("So rettet man eine festhängende Zahlung: Der Empfänger (oder du über dein Wechselgeld) schickt eine Folgezahlung mit hoher Gebühr. Fachbegriff: <b>CPFP</b>, Child Pays For Parent.", "This is how you rescue a stuck payment: the receiver (or you via your change) sends a follow-up payment with a high fee. Technical term: <b>CPFP</b>, child pays for parent.")
+    : Lern.t("Du hast Betrug erkannt. Nodes prüfen zweimal: jede Zahlung, wenn sie ankommt, und jeden Block, bevor sie ihn annehmen. Deshalb lohnt sich Ehrlichkeit für Miner.", "You spotted fraud. Nodes check twice: every payment when it arrives, and every block before they accept it. That's why honesty pays for miners.");
   el.className = "res " + (top ? "ok" : p >= 80 ? "warn" : "bad");
-  el.innerHTML = `<strong>${top ? "🏆 Bestmögliche Ausbeute!" : `${p} % der besten Lösung`}</strong>Du: <b>${nf(f)} sat</b> · Bestmöglich: <b>${nf(B.f)} sat</b><br>${top ? lesson : tip}<div class="acts">${top ? (R < 3 ? `<button class="btn" type="button" data-a="next">Weiter zu Runde ${R + 2} →</button>` : "") : `<button class="btn ghost" type="button" data-a="best">💡 Beste Lösung zeigen</button>`}</div>`;
+  el.innerHTML = Lern.t(`<strong>${top ? "🏆 Bestmögliche Ausbeute!" : `${p} % der besten Lösung`}</strong>Du: <b>${nf(f)} sat</b> · Bestmöglich: <b>${nf(B.f)} sat</b><br>${top ? lesson : tip}<div class="acts">${top ? (R < 3 ? `<button class="btn" type="button" data-a="next">Weiter zu Runde ${R + 2} →</button>` : "") : `<button class="btn ghost" type="button" data-a="best">💡 Beste Lösung zeigen</button>`}</div>`, `<strong>${top ? "🏆 Best possible yield!" : `${p} % of the best solution`}</strong>You: <b>${nf(f)} sat</b> · Best possible: <b>${nf(B.f)} sat</b><br>${top ? lesson : tip}<div class="acts">${top ? (R < 3 ? `<button class="btn" type="button" data-a="next">On to round ${R + 2} →</button>` : "") : `<button class="btn ghost" type="button" data-a="best">💡 Show the best solution</button>`}</div>`);
   tabs();
 }
 // Runde 4: Lohn nach Halvings (Gebühren bleiben auf heutigem Niveau, zuletzt unter 1 % des Lohns)
 const FEE = 0.022, YRS = [2024, 2028, 2032, 2036, 2040, 2060, 2100, 2140];
 const sub = y => y >= 2140 ? 0 : 50/2 ** Math.floor((y - 2008)/4);   // Halving etwa alle 4 Jahre, 2024: 3,125 BTC
 function pay(y){
-  $("yrs").innerHTML = YRS.map(v => `<button class="btn ghost" type="button" data-y="${v}" aria-pressed="${v === y}">${v === 2024 ? "Heute" : v}</button>`).join("");
-  const s = sub(y), tot = s + FEE, sh = FEE/tot*100, mx = 3.125 + FEE, f4 = v => v.toLocaleString("de-DE", {maximumFractionDigits: v < .01 ? 4 : 3});
-  $("lohn").innerHTML = `<div class="row2"><span>⛏ Neue Bitcoin</span><div class="tr"><i style="width:${s/mx*100}%;background:#f7931a"></i></div><b>${f4(s)} BTC</b></div>
-    <div class="row2"><span>🧾 Gebühren</span><div class="tr"><i style="width:${Math.max(FEE/mx*100, .8)}%;background:#34d982"></i></div><b>${f4(FEE)} BTC</b></div>`;
+  $("yrs").innerHTML = YRS.map(v => `<button class="btn ghost" type="button" data-y="${v}" aria-pressed="${v === y}">${v === 2024 ? Lern.t("Heute", "Today") : v}</button>`).join("");
+  const s = sub(y), tot = s + FEE, sh = FEE/tot*100, mx = 3.125 + FEE, f4 = v => v.toLocaleString(Lern.EN ? "en-US" : "de-DE", {maximumFractionDigits: v < .01 ? 4 : 3});
+  $("lohn").innerHTML = Lern.t(`<div class="row2"><span>⛏ Neue Bitcoin</span><div class="tr"><i style="width:${s/mx*100}%;background:#f7931a"></i></div><b>${f4(s)} BTC</b></div>
+    <div class="row2"><span>🧾 Gebühren</span><div class="tr"><i style="width:${Math.max(FEE/mx*100, .8)}%;background:#34d982"></i></div><b>${f4(FEE)} BTC</b></div>`, `<div class="row2"><span>⛏ New bitcoin</span><div class="tr"><i style="width:${s/mx*100}%;background:#f7931a"></i></div><b>${f4(s)} BTC</b></div>
+    <div class="row2"><span>🧾 Fees</span><div class="tr"><i style="width:${Math.max(FEE/mx*100, .8)}%;background:#34d982"></i></div><b>${f4(FEE)} BTC</b></div>`);
   $("payTxt").className = "res " + (y >= 2140 ? "bad" : y >= 2040 ? "warn" : "ok");
-  $("payTxt").innerHTML = `<div class="pie"><span class="big2">${sh < 1 ? "<1" : nf(Math.round(sh))} %</span><span>des Lohns kommen ${y === 2024 ? "heute" : "dann"} aus <b>Gebühren</b>${y > 2024 && y < 2140 ? ", wenn die Gebühren so niedrig bleiben wie 2026" : ""}.</span></div>`
-    + (y >= 2140 ? "<p class=\"note\" style=\"margin-top:8px\">Ab etwa 2140 gibt es <b>keine neuen Bitcoin</b> mehr. Dann bezahlen nur noch Gebühren die Miner und damit die Sicherheit des Netzes. Ob das reicht, ist unter Fachleuten <b>offen</b>: Steigen Kurs, Nutzung oder Gebühren, kann es klappen.</p>"
-      : y === 2024 ? "<p class=\"note\" style=\"margin-top:8px\">Bisher bezahlen fast nur die <b>neuen Bitcoin</b> die Miner. Gebühren sind ein kleines Extra, nur in vollen Zeiten werden sie wichtig.</p>"
-      : "<p class=\"note\" style=\"margin-top:8px\">Mit jedem Halving schrumpfen die neuen Bitcoin. Damit Mining sich lohnt, muss der Rest aus <b>Gebühren</b> oder einem höheren Kurs kommen.</p>");
+  $("payTxt").innerHTML = Lern.t(`<div class="pie"><span class="big2">${sh < 1 ? "<1" : nf(Math.round(sh))} %</span><span>des Lohns kommen ${y === 2024 ? "heute" : "dann"} aus <b>Gebühren</b>${y > 2024 && y < 2140 ? ", wenn die Gebühren so niedrig bleiben wie 2026" : ""}.</span></div>`, `<div class="pie"><span class="big2">${sh < 1 ? "<1" : nf(Math.round(sh))} %</span><span>of the pay comes ${y === 2024 ? "today" : "then"} from <b>fees</b>${y > 2024 && y < 2140 ? ", if fees stay as low as in 2026" : ""}.</span></div>`)
+    + (y >= 2140 ? Lern.t("<p class=\"note\" style=\"margin-top:8px\">Ab etwa 2140 gibt es <b>keine neuen Bitcoin</b> mehr. Dann bezahlen nur noch Gebühren die Miner und damit die Sicherheit des Netzes. Ob das reicht, ist unter Fachleuten <b>offen</b>: Steigen Kurs, Nutzung oder Gebühren, kann es klappen.</p>", "<p class=\"note\" style=\"margin-top:8px\">From about 2140 there will be <b>no new bitcoin</b>. Then only fees pay the miners, and with them the security of the network. Whether that's enough is <b>open</b> among experts: if price, usage or fees rise, it can work.</p>")
+      : y === 2024 ? Lern.t("<p class=\"note\" style=\"margin-top:8px\">Bisher bezahlen fast nur die <b>neuen Bitcoin</b> die Miner. Gebühren sind ein kleines Extra, nur in vollen Zeiten werden sie wichtig.</p>", "<p class=\"note\" style=\"margin-top:8px\">So far almost only the <b>new bitcoin</b> pay the miners. Fees are a small extra; they only become important in busy times.</p>")
+      : Lern.t("<p class=\"note\" style=\"margin-top:8px\">Mit jedem Halving schrumpfen die neuen Bitcoin. Damit Mining sich lohnt, muss der Rest aus <b>Gebühren</b> oder einem höheren Kurs kommen.</p>", "<p class=\"note\" style=\"margin-top:8px\">With every halving the new bitcoin shrink. For mining to pay off, the rest must come from <b>fees</b> or a higher price.</p>"));
 }
 $("rt").addEventListener("click", e => { const b = e.target.closest("[data-r]"); if (!b) return; R = +b.dataset.r; $("fb").hidden = true; $("res").hidden = true; draw(); });
 $("mp").addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) tap(+b.dataset.i); });
@@ -217,13 +219,13 @@ $("clr").onclick = () => { sel[R].clear(); $("fb").hidden = true; $("res").hidde
 $("res").addEventListener("click", e => { const a = (e.target.closest("[data-a]") || {}).dataset?.a; if (!a) return;
   if (a === "next"){ R++; $("fb").hidden = true; $("res").hidden = true; draw(); $("h1s").scrollIntoView({behavior: "smooth"}); }
   if (a === "chk"){ checked = true; draw(); }
-  if (a === "best"){ const B = best(R); sel[R] = new Set(B.ids); draw(B.ids); fb(true, "💡 Grün gestrichelt: die bestmögliche Auswahl. Schick den Block ab, um sie zu prüfen."); $("res").hidden = true; } });
+  if (a === "best"){ const B = best(R); sel[R] = new Set(B.ids); draw(B.ids); fb(true, Lern.t("💡 Grün gestrichelt: die bestmögliche Auswahl. Schick den Block ab, um sie zu prüfen.", "💡 Green dashed: the best possible selection. Submit the block to check it.")); $("res").hidden = true; } });
 $("yrs").addEventListener("click", e => { const b = e.target.closest("[data-y]"); if (b) pay(+b.dataset.y); });
 draw();
 
-const QUIZ = [["Zwei Zahlungen: 600 vB mit 7.200 sat und 110 vB mit 3.850 sat. Welche ist für den Miner pro Platz wertvoller?", ["Die große, sie zahlt mehr", "Die kleine: 35 sat/vB statt 12 sat/vB", "Beide gleich"], 1, "Platz im Block ist knapp. Darum zählt die Gebühr pro vByte, nicht die Gesamtgebühr."],
-  ["Deine Zahlung hängt wegen zu niedriger Gebühr fest. Was kann helfen?", ["Eine Folgezahlung mit hoher Gebühr, die sie mitzieht (CPFP)", "Die gleiche Zahlung einfach nochmal senden", "Nichts, die Zahlung ist für immer verloren"], 0, "Miner schauen auf das Paket aus Eltern und Kind. Zahlt das Kind genug, lohnt sich beides zusammen."],
-  ["Ein Miner packt eine Zahlung mit gefälschter Unterschrift in seinen Block. Was passiert?", ["Nur diese eine Zahlung wird aus dem Block gestrichen", "Alle Nodes lehnen den ganzen Block ab, der Miner bekommt nichts", "Der Block gilt, der Miner zahlt nur eine Geldstrafe"], 1, "Ein Block ist nur gültig, wenn jede einzelne Zahlung gültig ist. Betrug kostet den Miner seinen ganzen Lohn."]];
+const QUIZ = [[Lern.t("Zwei Zahlungen: 600 vB mit 7.200 sat und 110 vB mit 3.850 sat. Welche ist für den Miner pro Platz wertvoller?", "Two payments: 600 vB with 7,200 sat and 110 vB with 3,850 sat. Which is more valuable per space for the miner?"), [Lern.t("Die große, sie zahlt mehr", "The big one, it pays more"), Lern.t("Die kleine: 35 sat/vB statt 12 sat/vB", "The small one: 35 sat/vB instead of 12 sat/vB"), Lern.t("Beide gleich", "Both the same")], 1, Lern.t("Platz im Block ist knapp. Darum zählt die Gebühr pro vByte, nicht die Gesamtgebühr.", "Space in the block is scarce. That's why the fee per vbyte counts, not the total fee.")],
+  [Lern.t("Deine Zahlung hängt wegen zu niedriger Gebühr fest. Was kann helfen?", "Your payment is stuck because of a too-low fee. What can help?"), [Lern.t("Eine Folgezahlung mit hoher Gebühr, die sie mitzieht (CPFP)", "A follow-up payment with a high fee that pulls it along (CPFP)"), Lern.t("Die gleiche Zahlung einfach nochmal senden", "Simply sending the same payment again"), Lern.t("Nichts, die Zahlung ist für immer verloren", "Nothing, the payment is lost forever")], 0, Lern.t("Miner schauen auf das Paket aus Eltern und Kind. Zahlt das Kind genug, lohnt sich beides zusammen.", "Miners look at the package of parent and child. If the child pays enough, both together are worth it.")],
+  [Lern.t("Ein Miner packt eine Zahlung mit gefälschter Unterschrift in seinen Block. Was passiert?", "A miner packs a payment with a forged signature into his block. What happens?"), [Lern.t("Nur diese eine Zahlung wird aus dem Block gestrichen", "Only that one payment is removed from the block"), Lern.t("Alle Nodes lehnen den ganzen Block ab, der Miner bekommt nichts", "All nodes reject the whole block; the miner gets nothing"), Lern.t("Der Block gilt, der Miner zahlt nur eine Geldstrafe", "The block counts; the miner only pays a fine")], 1, Lern.t("Ein Block ist nur gültig, wenn jede einzelne Zahlung gültig ist. Betrug kostet den Miner seinen ganzen Lohn.", "A block is only valid if every single payment is valid. Fraud costs the miner his entire pay.")]];
 Lern.quiz($("quiz"), "blockbau", QUIZ, "../"); Lern.visit("blockbau"); Lern.renderNext("blockbau", "../");
 })();
 </script>

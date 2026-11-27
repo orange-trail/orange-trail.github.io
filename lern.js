@@ -20,6 +20,8 @@ const Lern = (() => {
   // Englische Texte: gemeinsame in i18n-en.js (wird im Kopf jeder Seite nur bei Englisch geladen), seitenbezogene in <script type="application/json" id="i18n">
   const LANG = (() => { try { return localStorage.getItem("bv-lang") === "en" ? "en" : "de"; } catch(e){ return "de"; } })(), EN = LANG === "en", X = (EN && window.BV_EN) || {};
   const t = (de, en) => EN && en != null ? en : de;
+  // Beträge auf Englisch: „1.234 $“ / „5 Mio. €“ → „$1,234“ / „€5 million“ (Zahl selbst schon englisch formatiert)
+  const cur = v => !EN ? v : String(v).replace(/([−+-]?)([\d.,]+)\s?(Mio\.|Mrd\.|Bio\.|million|billion|trillion)?\s?([$€])/g, (m, sg, n, u, c) => sg + c + n + (u ? " " + ({"Mio.": "million", "Mrd.": "billion", "Bio.": "trillion"}[u] || u) : ""));
   const setLang = l => { try { localStorage.setItem("bv-lang", l); } catch(e){} location.reload(); };
   document.documentElement.lang = LANG;
   if (EN){
@@ -32,8 +34,8 @@ const Lern = (() => {
       const n = document.createElement("p"); n.className = "enonly"; n.innerHTML = "🇩🇪 This world is only available in <b>German</b> so far. The English version is coming soon."; tp.after(n); });
     // Texte, die Skripte später erzeugen: feste Sätze (phr) und Muster mit Zahlen (re) übersetzen
     const RE = (X.re || []).map(([p, r]) => [new RegExp("^" + p + "$"), r]), P = X.phr || {};
-    const tr = v => { const k = v.trim(); if (!k || !/[a-zäöüß]/i.test(k)) return v; if (P[k] != null) return v.replace(k, P[k]);
-      for (const [re, r] of RE) if (re.test(k)) return v.replace(k, k.replace(re, r)); return v; };
+    const tr = v => { const k = v.trim().replace(/\u00a0/g, " "); if (!k || !/[a-zäöüß]/i.test(k)) return v; const w = x => v.match(/^\s*/)[0] + x + v.match(/\s*$/)[0]; if (P[k] != null) return w(P[k]);
+      for (const [re, r] of RE) if (re.test(k)) return w(k.replace(re, r)); return v; };
     const walk = n => { if (n.nodeType === 3){ const v = tr(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; return; }
       if (n.nodeType !== 1 || n.tagName === "SCRIPT" || n.tagName === "STYLE") return;
       ["title", "aria-label", "placeholder"].forEach(a => { const v = n.getAttribute(a); if (v){ const w = tr(v); if (w !== v) n.setAttribute(a, w); } });
@@ -721,7 +723,7 @@ const Lern = (() => {
       if (!b) return;
       tcount("words"); titles();
       const [t, , d, w] = GLOSSAR[+b.dataset.g], p = document.createElement("div"), r = b.getBoundingClientRect();
-      p.className = "glpop"; p.innerHTML = `<b>📖 ${t}</b><span>${d}</span>${w && w !== here && (() => { const ids = PATH.map(x => x[0]), hi = ids.indexOf(here), wi = ids.indexOf(w); return hi < 0 || wi < 0 || wi < hi; })() ? `<a href="${BASE}${w}/">Mehr dazu →</a>` : ""}<a href="${BASE}lexikon/" class="all">Alle Begriffe</a>`;
+      p.className = "glpop"; p.innerHTML = `<b>📖 ${t}</b><span>${d}</span>${w && w !== here && (() => { const ids = PATH.map(x => x[0]), hi = ids.indexOf(here), wi = ids.indexOf(w); return hi < 0 || wi < 0 || wi < hi; })() ? `<a href="${BASE}${w}/">${EN ? "More →" : "Mehr dazu →"}</a>` : ""}<a href="${BASE}lexikon/" class="all">${EN ? "All terms" : "Alle Begriffe"}</a>`;
       document.body.appendChild(p);
       const x = Math.min(Math.max(8, r.left + scrollX - 20), document.documentElement.clientWidth - p.offsetWidth - 8);
       p.style.left = x + "px"; p.style.top = (r.bottom + scrollY + 8) + "px";
@@ -924,12 +926,12 @@ const Lern = (() => {
       l.setAttribute("pathLength", 1); l.style.strokeDasharray = 1; l.animate([{strokeDashoffset: 1}, {strokeDashoffset: 0}], {duration: 1100, easing: "cubic-bezier(.4,0,.2,1)"})
         .onfinish = () => { l.style.strokeDasharray = ""; l.removeAttribute("pathLength"); };
     });
-    const RX = /\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:,\d+)?/;
+    const G = EN ? "," : ".", DS = EN ? "." : ",", RX = EN ? /\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?/ : /\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:,\d+)?/;   // Tausender-/Dezimalzeichen je Sprache
     card.querySelectorAll(".kv b, .kv strong").forEach(el => {
       const tn = [...el.childNodes].find(n => n.nodeType === 3 && RX.test(n.nodeValue)); if (!tn) return;
-      const orig = tn.nodeValue, m = orig.match(RX), raw = m[0], grp = raw.includes("."), dec = (raw.split(",")[1] || "").length, val = parseFloat(raw.replace(/\./g, "").replace(",", "."));
+      const orig = tn.nodeValue, m = orig.match(RX), raw = m[0], grp = raw.includes(G), dec = (raw.split(DS)[1] || "").length, val = parseFloat(raw.split(G).join("").replace(DS, "."));
       if (!(val >= 2) || (!grp && !dec && val >= 1900 && val < 2200)) return;   // Jahreszahlen und Kleinkram nicht zählen
-      const fmt = v => v.toLocaleString("de-DE", {minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: grp});
+      const fmt = v => v.toLocaleString(EN ? "en-US" : "de-DE", {minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: grp});
       const t0 = performance.now(), D = 900; let mine = orig; el.classList.add("cu");
       const step = t => { if (tn.nodeValue !== mine || !tn.isConnected){ el.classList.remove("cu"); return; }   // Seite hat den Wert inzwischen selbst geändert
         const k = Math.min(1, (t - t0) / D), e = 1 - Math.pow(1 - k, 3);
@@ -974,7 +976,7 @@ const Lern = (() => {
   }
 
   init();
-  return {LANG, EN, t, setLang, DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, seen, bossName, bossArt, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
+  return {LANG, EN, t, cur, setLang, DATA, DSTAND, height, heightF, PRICE: {USD: 64800, EUR: 58800}, api, sfx, review, repDue, shareCard, calm, calmToggle, PRO, proOf, TITLES, syncExport, syncImport, TITLES_LIST, titles, finalCard, GLOSSAR, nextStep, PATH, CHAPTERS, ART, art, BOSSES, boss, bossWon, bossCard, seen, bossName, bossArt, CARD, daily, streak, say, GK, chapterOf, LEVELS, level, count, load, done, visit, quiz, renderNext, nextAfter, sha256, confetti, toast};
 })();
 // Offline-Betrieb und „Zum Startbildschirm hinzufügen“: Service Worker der ganzen Seite anmelden
 try { const me = document.currentScript && document.currentScript.src; if (me && "serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href))

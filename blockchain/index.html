@@ -54,51 +54,52 @@
 @media (max-width:560px){ .toy{grid-template-columns:1fr} .hash{grid-template-columns:1fr} .blk{width:190px} .bt b{font-size:15px} }
 @keyframes p-pop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Block</span>chain</h1>
-    <p class="lead">Eine Kette aus Blöcken, in der jeder Block den Fingerabdruck seines Vorgängers trägt. Ändert jemand etwas Altes, bricht alles danach. Probier es selbst aus.</p>
+    <h1 data-i="k3"><span class="btc">Block</span>chain</h1>
+    <p data-i="k4" class="lead">Eine Kette aus Blöcken, in der jeder Block den Fingerabdruck seines Vorgängers trägt. Ändert jemand etwas Altes, bricht alles danach. Probier es selbst aus.</p>
   </div>
 
   <!-- 1 · Die echte Kette -->
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">So hängen Bitcoin-Blöcke zusammen <span class="mode" id="mode">Verbinde …</span></h2>
+    <h2 data-i="k5" id="h1s">So hängen Bitcoin-Blöcke zusammen <span class="mode" id="mode">Verbinde …</span></h2>
     <div class="chain" id="chain"></div>
-    <p class="hint">Jeder Block nennt den <b>Fingerabdruck (Hash)</b> seines Vorgängers, <span style="color:var(--bull);font-weight:800">grün</span> markiert. Die vielen <span style="color:var(--gold);font-weight:800">Nullen</span> am Anfang sind der Beweis für die Rechenarbeit der Miner.</p>
+    <p data-i="k6" class="hint">Jeder Block nennt den <b>Fingerabdruck (Hash)</b> seines Vorgängers, <span style="color:var(--bull);font-weight:800">grün</span> markiert. Die vielen <span style="color:var(--gold);font-weight:800">Nullen</span> am Anfang sind der Beweis für die Rechenarbeit der Miner.</p>
   </section>
 
   <!-- 2 · Manipulier mich -->
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Fälsch einen Block!</h2>
-    <p class="muted" style="margin:0">Ändere die Überweisung in Block 2, zum Beispiel auf „Ben → Cem: <b>100</b> BTC“. Ein Block ist nur gültig, wenn sein Hash mit <b style="color:var(--gold)">000</b> beginnt und er auf den Vorgänger passt. (Stark vereinfacht: Bei Bitcoin legt ein Zielwert die Schwierigkeit fest, das entspricht heute rund 19 Nullen.)</p>
+    <h2 data-i="k7" id="h2s">Fälsch einen Block!</h2>
+    <p data-i="k8" class="muted" style="margin:0">Ändere die Überweisung in Block 2, zum Beispiel auf „Ben → Cem: <b>100</b> BTC“. Ein Block ist nur gültig, wenn sein Hash mit <b style="color:var(--gold)">000</b> beginnt und er auf den Vorgänger passt. (Stark vereinfacht: Bei Bitcoin legt ein Zielwert die Schwierigkeit fest, das entspricht heute rund 19 Nullen.)</p>
     <div class="toy" id="toy"></div>
-    <p class="hint" id="toyHint">Alle Blöcke sind gültig.</p>
+    <p data-i="k9" class="hint" id="toyHint">Alle Blöcke sind gültig.</p>
   </section>
 
 
   <!-- 4 · Merksätze und Quiz -->
   <section class="card" aria-labelledby="h4s">
-    <h2 id="h4s">Das solltest du dir merken</h2>
+    <h2 data-i="k10" id="h4s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Kette aus Blöcken</b><span>Jeder Block enthält Transaktionen und den <b>Hash des vorherigen Blocks</b>. So hängen alle zusammen, zurück bis zum ersten Block 2009.</span></div>
-      <div><b>Hash</b><span>Ein Fingerabdruck aus Daten. Gleiche Daten ergeben immer denselben Hash, <b>die kleinste Änderung</b> einen völlig anderen.</span></div>
-      <div><b>Proof of Work</b><span>Ein gültiger Block braucht einen Hash mit vielen Nullen. Den findet man nur durch <b>Milliarden Versuche</b>. Das ist die Arbeit der Miner.</span></div>
-      <div><b>Warum fälschungssicher?</b><span>Wer einen alten Block ändert, muss ihn und <b>alle danach</b> neu minen und dabei schneller sein als alle Miner der Welt zusammen.</span></div>
+      <div><b data-i="k11">Kette aus Blöcken</b><span data-i="k12">Jeder Block enthält Transaktionen und den <b>Hash des vorherigen Blocks</b>. So hängen alle zusammen, zurück bis zum ersten Block 2009.</span></div>
+      <div><b data-i="k13">Hash</b><span data-i="k14">Ein Fingerabdruck aus Daten. Gleiche Daten ergeben immer denselben Hash, <b>die kleinste Änderung</b> einen völlig anderen.</span></div>
+      <div><b data-i="k15">Proof of Work</b><span data-i="k16">Ein gültiger Block braucht einen Hash mit vielen Nullen. Den findet man nur durch <b>Milliarden Versuche</b>. Das ist die Arbeit der Miner.</span></div>
+      <div><b data-i="k17">Warum fälschungssicher?</b><span data-i="k18">Wer einen alten Block ändert, muss ihn und <b>alle danach</b> neu minen und dabei schneller sein als alle Miner der Welt zusammen.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k19">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b>Vertiefen:</b> <a href="../merkle/">Merkle-Baum</a> <span class="muted">(wie tausende Zahlungen in einen Hash passen)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Die Kette oben ist ein Beispiel; echte Blöcke z. B. auf <a href="https://mempool.space">mempool.space</a>. Die Übungskette rechnet echtes SHA-256 direkt in deinem Browser, mit viel leichterer Schwierigkeit (3 Nullen statt rund 19 bei Bitcoin).</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k26" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b data-i="k20">Vertiefen:</b> <a data-i="k21" href="../merkle/">Merkle-Baum</a> <span data-i="k22" class="muted">(wie tausende Zahlungen in einen Hash passen)</span></p></section>
+  <section data-i="k27" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k23">Quellen</summary><p data-i="k24">Die Kette oben ist ein Beispiel; echte Blöcke z. B. auf <a href="https://mempool.space">mempool.space</a>. Die Übungskette rechnet echtes SHA-256 direkt in deinem Browser, mit viel leichterer Schwierigkeit (3 Nullen statt rund 19 bei Bitcoin).</p></details>
+  <p data-i="k25" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Block<\/span>chain", "k4": "A chain of blocks in which every block carries the fingerprint of its predecessor. If someone changes something old, everything after it breaks. Try it yourself.", "k5": "How Bitcoin blocks are linked <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k6": "Every block names the <b>fingerprint (hash)<\/b> of its predecessor, marked <span style=\"color:var(--bull);font-weight:800\">green<\/span>. The many <span style=\"color:var(--gold);font-weight:800\">zeros<\/span> at the start are proof of the miners' computing work.", "k7": "Forge a block!", "k8": "Change the transfer in block 2, for example to “Ben → Cem: <b>100<\/b> BTC”. A block is only valid if its hash starts with <b style=\"color:var(--gold)\">000<\/b> and it fits its predecessor. (Highly simplified: in Bitcoin a target value sets the difficulty, which today corresponds to about 19 zeros.)", "k9": "All blocks are valid.", "k10": "Remember this", "k11": "A chain of blocks", "k12": "Every block contains transactions and the <b>hash of the previous block<\/b>. That's how they're all linked, back to the first block in 2009.", "k13": "Hash", "k14": "A fingerprint of data. The same data always gives the same hash, <b>the smallest change<\/b> a completely different one.", "k15": "Proof of work", "k16": "A valid block needs a hash with many zeros. You only find it through <b>billions of attempts<\/b>. That's the miners' work.", "k17": "Why forgery-proof?", "k18": "Anyone who changes an old block has to re-mine it and <b>all blocks after it<\/b>, faster than all the miners in the world combined.", "k19": "Test yourself: 3 questions", "k20": "Go deeper:", "k21": "Merkle tree", "k22": "(how thousands of payments fit into one hash)", "k23": "Sources", "k24": "The chain above is an example; real blocks e.g. on <a href=\"https://mempool.space\">mempool.space<\/a>. The practice chain calculates real SHA-256 right in your browser, with a much easier difficulty (3 zeros instead of about 19 in Bitcoin).", "k25": "Entertainment and learning, not investment advice.", "k26@aria-label": "Related", "k27@aria-label": "Next", "_title": "Blockchain · Bitcoin Voyage", "_desc": "Lernwelt: Was ist eine Blockchain und warum kann man nichts nachträglich ändern? Mit einer Beispiel-Kette und einer Kette zum Selbst-Manipulieren."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    BLOCKCHAIN – Lernwelt von Bitcoin Voyage
@@ -108,7 +109,7 @@
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
-const fmt = n => Math.round(n).toLocaleString("de-DE");
+const fmt = n => Math.round(n).toLocaleString(Lern.EN ? "en-US" : "de-DE");
 
 const sha256 = Lern.sha256;   // gemeinsamer SHA-256 aus lern.js
 // Hash mit hervorgehobenen führenden Nullen
@@ -122,10 +123,13 @@ function chainHTML(bl, live){
     const prevHtml = i ? `${prev.slice(0, 6)}…<u>${tail(prev)}</u>` : `${prev.slice(0, 6)}…${tail(prev)}`;
     const own = `${zeros(b.id.slice(0, 22))}…<u>${tail(b.id)}</u>`, pool = b.extras && b.extras.pool && b.extras.pool.name;
     return (i ? `<div class="link" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h36" stroke="#34d982" stroke-width="3" stroke-dasharray="4 4"/><rect x="8" y="5" width="14" height="14" rx="7" fill="none" stroke="#f7931a" stroke-width="3"/><rect x="18" y="5" width="14" height="14" rx="7" fill="none" stroke="#ffc94d" stroke-width="3"/></svg></div>` : "")
-      + `<div class="blk ${last ? "new" : ""}"><div class="bt"><b>Block ${fmt(b.height)}</b>${last ? `<em>${live ? "NEU" : "DEMO"}</em>` : ""}</div>
+      + Lern.t(`<div class="blk ${last ? "new" : ""}"><div class="bt"><b>Block ${fmt(b.height)}</b>${last ? `<em>${live ? "NEU" : "DEMO"}</em>` : ""}</div>
       <div class="r"><span>vor</span><b>${ago} Min</b></div><div class="r"><span>Zahlungen</span><b>${fmt(b.tx_count)}</b></div>${pool ? `<div class="r"><span>Miner</span><b>${pool}</b></div>` : ""}
       <div class="fill" title="So voll ist der Block"><i style="width:${full}%"></i><span>${full} % voll</span></div>
-      <div class="h">Vorgänger: ${prevHtml}</div><div class="h">Hash: ${own}</div></div>`;
+      <div class="h">Vorgänger: ${prevHtml}</div><div class="h">Hash: ${own}</div></div>`, `<div class="blk ${last ? "new" : ""}"><div class="bt"><b>Block ${fmt(b.height)}</b>${last ? `<em>${live ? "NEW" : "DEMO"}</em>` : ""}</div>
+      <div class="r"><span>ago</span><b>${ago} min</b></div><div class="r"><span>Payments</span><b>${fmt(b.tx_count)}</b></div>${pool ? `<div class="r"><span>Miner</span><b>${pool}</b></div>` : ""}
+      <div class="fill" title="How full the block is"><i style="width:${full}%"></i><span>${full} % full</span></div>
+      <div class="h">Previous: ${prevHtml}</div><div class="h">Hash: ${own}</div></div>`);
   }).join("");
 }
 async function loadChain(){
@@ -134,7 +138,7 @@ async function loadChain(){
   catch(e){ live = false;   // Beispiel-Kette, damit man das Prinzip trotzdem sieht
     const H = h => "00000000000000000002" + sha256("blk" + h).slice(0, 44); const gap = [11, 4, 17, 8, 13, 6]; let t = Date.now()/1000 - 60*gap.slice(1).reduce((a, b) => a + b, 0) - 180;   // neuester Block vor 3 Min.
     bl = Array.from({length: 6}, (_, i) => { const h = Math.round(Lern.height()/1000)*1000 - 5 + i; t += i ? 60*gap[i] : 0; return {height: h, id: H(h), previousblockhash: H(h - 1), timestamp: t, tx_count: 2800 + (i * 937) % 1900, weight: 3.6e6 + (i * 71e3) % 4e5}; }); }
-  $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : "Beispielwerte";
+  $("mode").className = "mode " + (live ? "live" : "demo"); $("mode").textContent = live ? "Live" : Lern.t("Beispielwerte", "Example values");
   $("chain").innerHTML = chainHTML(bl, live);
   const c = $("chain"); c.scrollLeft = c.scrollWidth;
 }
@@ -142,7 +146,7 @@ async function loadChain(){
 // ---------- 2 · Übungskette ----------
 const DIFF = "000";
 const toy = [
-  {data: "Anna → Ben: 2 BTC"}, {data: "Ben → Cem: 1 BTC"}, {data: "Cem → Dana: 0,5 BTC"}, {data: "Dana → Emil: 0,2 BTC"},
+  {data: Lern.t("Anna → Ben: 2 BTC", "Anna → Ben: 2 BTC")}, {data: Lern.t("Ben → Cem: 1 BTC", "Ben → Cem: 1 BTC")}, {data: Lern.t("Cem → Dana: 0,5 BTC", "Cem → Dana: 0.5 BTC")}, {data: Lern.t("Dana → Emil: 0,2 BTC", "Dana → Emil: 0.2 BTC")},
 ].map((b, i) => Object.assign(b, {nr: i + 1, nonce: 0, prev: "", hash: ""}));
 const blockHash = b => sha256(b.nr + "|" + b.prev + "|" + b.data + "|" + b.nonce);
 function relink(){
@@ -164,29 +168,32 @@ function renderToy(){
   toy.forEach(b => {
     const el = $("tb" + b.nr);
     el.classList.toggle("bad", !b.valid);
-    el.querySelector("em").textContent = b.valid ? "✓ gültig" : "✗ ungültig";
-    el.querySelector(".pv").innerHTML = `Vorgänger: ${b.prev.slice(0, 10)}…`;
+    el.querySelector("em").textContent = b.valid ? Lern.t("✓ gültig", "✓ valid") : Lern.t("✗ ungültig", "✗ invalid");
+    el.querySelector(".pv").innerHTML = Lern.t(`Vorgänger: ${b.prev.slice(0, 10)}…`, `Previous: ${b.prev.slice(0, 10)}…`);
     const hx = el.querySelector(".hx"); hx.innerHTML = "Hash: " + zeros(b.hash.slice(0, 22)) + "…"; hx.classList.toggle("bad", !b.hash.startsWith(DIFF));
     el.querySelector(".nc").textContent = "Nonce: " + fmt(b.nonce);
   });
-  $("toyHint").innerHTML = !bad ? (totalTries ? `<b>Geschafft!</b> Die Kette ist wieder gültig. Du hast dafür <b>${fmt(totalTries)} Versuche</b> gebraucht, das echte Netzwerk schafft über <b>eine Trilliarde pro Sekunde</b>, und jeder echte Block braucht viel mehr Nullen.` : "Alle Blöcke sind gültig.")
-    : `<b style="color:var(--bear)">Ab Block ${bad} ist die Kette kaputt.</b> Dein geänderter Block hat einen neuen Hash, darum passen alle Blöcke danach nicht mehr. Drück bei jedem roten Block auf „Neu minen“, um die Fälschung zu reparieren.`;
+  $("toyHint").innerHTML = !bad ? (totalTries ? Lern.t(`<b>Geschafft!</b> Die Kette ist wieder gültig. Du hast dafür <b>${fmt(totalTries)} Versuche</b> gebraucht, das echte Netzwerk schafft über <b>eine Trilliarde pro Sekunde</b>, und jeder echte Block braucht viel mehr Nullen.`, `<b>Done!</b> The chain is valid again. It took you <b>${fmt(totalTries)} attempts</b>; the real network manages more than <b>a sextillion per second</b>, and every real block needs many more zeros.`) : Lern.t("Alle Blöcke sind gültig.", "All blocks are valid."))
+    : Lern.t(`<b style="color:var(--bear)">Ab Block ${bad} ist die Kette kaputt.</b> Dein geänderter Block hat einen neuen Hash, darum passen alle Blöcke danach nicht mehr. Drück bei jedem roten Block auf „Neu minen“, um die Fälschung zu reparieren.`, `<b style="color:var(--bear)">From block ${bad} on, the chain is broken.</b> Your changed block has a new hash, so none of the blocks after it fit anymore. Press “Re-mine” on every red block to repair the forgery.`);
 }
 // Minen in Schritten, damit die Seite flüssig bleibt und man die Versuche hochzählen sieht
 function mine(b, btn){
   btn.disabled = true; b.nonce = 0; b.prev = b.nr > 1 ? toy[b.nr - 2].hash : "0".repeat(64);
   const tr = $("tb" + b.nr).querySelector(".tries");
   const step = () => {
-    for (let i = 0; i < 1500; i++){ b.hash = blockHash(b); totalTries++; if (b.hash.startsWith(DIFF)){ btn.disabled = false; tr.textContent = `gefunden nach ${fmt(b.nonce + 1)} Versuchen`; renderToy(); return; } b.nonce++; }
-    tr.textContent = `${fmt(b.nonce)} Versuche …`; $("tb" + b.nr).querySelector(".nc").textContent = "Nonce: " + fmt(b.nonce);
+    for (let i = 0; i < 1500; i++){ b.hash = blockHash(b); totalTries++; if (b.hash.startsWith(DIFF)){ btn.disabled = false; tr.textContent = Lern.t(`gefunden nach ${fmt(b.nonce + 1)} Versuchen`, `found after ${fmt(b.nonce + 1)} attempts`); renderToy(); return; } b.nonce++; }
+    tr.textContent = Lern.t(`${fmt(b.nonce)} Versuche …`, `${fmt(b.nonce)} attempts …`); $("tb" + b.nr).querySelector(".nc").textContent = "Nonce: " + fmt(b.nonce);
     requestAnimationFrame(step);
   };
   step();
 }
-$("toy").innerHTML = toy.map(b => `<div class="tb" id="tb${b.nr}"><h3>Block ${b.nr} <em></em></h3>
+$("toy").innerHTML = toy.map(b => Lern.t(`<div class="tb" id="tb${b.nr}"><h3>Block ${b.nr} <em></em></h3>
   <label for="d${b.nr}">Überweisung</label><input id="d${b.nr}" value="${b.data}">
   <label>Beweis</label><div class="hx"></div><div class="hx pv"></div><div class="hx nc"></div>
-  <button class="btn" type="button" id="m${b.nr}">⛏ Neu minen</button><span class="tries"></span></div>`).join("");
+  <button class="btn" type="button" id="m${b.nr}">⛏ Neu minen</button><span class="tries"></span></div>`, `<div class="tb" id="tb${b.nr}"><h3>Block ${b.nr} <em></em></h3>
+  <label for="d${b.nr}">Transfer</label><input id="d${b.nr}" value="${b.data}">
+  <label>Proof</label><div class="hx"></div><div class="hx pv"></div><div class="hx nc"></div>
+  <button class="btn" type="button" id="m${b.nr}">⛏ Re-mine</button><span class="tries"></span></div>`)).join("");
 toy.forEach(b => {
   $("d" + b.nr).addEventListener("input", e => { b.data = e.target.value; $("tb" + b.nr).querySelector(".tries").textContent = ""; renderToy(); });
   $("m" + b.nr).addEventListener("click", e => mine(b, e.target));
@@ -195,9 +202,9 @@ toy.forEach(b => {
 
 // ---------- Quiz ----------
 const QUIZ = [
-  ["Was steht in jedem Bitcoin-Block, das ihn mit der Kette verbindet?", ["Der Name des Miners", "Der Hash des vorherigen Blocks", "Das Datum der Halving-Uhr"], 1, "Jeder Block enthält den Fingerabdruck (Hash) seines Vorgängers. Ändert sich der Vorgänger, passt der Verweis nicht mehr."],
-  ["Du änderst in einem Text nur einen einzigen Buchstaben. Was passiert mit dem SHA-256-Hash?", ["Er ändert sich an einer Stelle", "Er bleibt gleich", "Er sieht komplett anders aus"], 2, "Das ist die wichtigste Eigenschaft einer Hash-Funktion: Die kleinste Änderung ergibt einen völlig anderen Fingerabdruck."],
-  ["Warum kann man einen alten Bitcoin-Block praktisch nicht fälschen?", ["Weil jeder alte Block mit einem geheimen Passwort verschlüsselt und gesperrt ist", "Weil man ihn und alle folgenden Blöcke neu minen und schneller als alle Miner sein müsste", "Weil eine Behörde alle alten Blöcke sicher aufbewahrt und jede Änderung sofort meldet"], 1, "Jede Fälschung verlangt das Neu-Minen der ganzen Kette ab diesem Block, gegen die Rechenleistung des gesamten Netzwerks. Das ist nicht zu schaffen."],
+  [Lern.t("Was steht in jedem Bitcoin-Block, das ihn mit der Kette verbindet?", "What does every Bitcoin block contain that links it to the chain?"), [Lern.t("Der Name des Miners", "The miner's name"), Lern.t("Der Hash des vorherigen Blocks", "The hash of the previous block"), Lern.t("Das Datum der Halving-Uhr", "The date of the halving clock")], 1, Lern.t("Jeder Block enthält den Fingerabdruck (Hash) seines Vorgängers. Ändert sich der Vorgänger, passt der Verweis nicht mehr.", "Every block contains the fingerprint (hash) of its predecessor. If the predecessor changes, the reference no longer fits.")],
+  [Lern.t("Du änderst in einem Text nur einen einzigen Buchstaben. Was passiert mit dem SHA-256-Hash?", "You change just a single letter in a text. What happens to the SHA-256 hash?"), [Lern.t("Er ändert sich an einer Stelle", "It changes in one place"), Lern.t("Er bleibt gleich", "It stays the same"), Lern.t("Er sieht komplett anders aus", "It looks completely different")], 2, Lern.t("Das ist die wichtigste Eigenschaft einer Hash-Funktion: Die kleinste Änderung ergibt einen völlig anderen Fingerabdruck.", "That's the most important property of a hash function: the smallest change gives a completely different fingerprint.")],
+  [Lern.t("Warum kann man einen alten Bitcoin-Block praktisch nicht fälschen?", "Why is it practically impossible to forge an old Bitcoin block?"), [Lern.t("Weil jeder alte Block mit einem geheimen Passwort verschlüsselt und gesperrt ist", "Because every old block is encrypted and locked with a secret password"), Lern.t("Weil man ihn und alle folgenden Blöcke neu minen und schneller als alle Miner sein müsste", "Because you'd have to re-mine it and all following blocks, faster than all miners"), Lern.t("Weil eine Behörde alle alten Blöcke sicher aufbewahrt und jede Änderung sofort meldet", "Because an authority safely stores all old blocks and reports every change at once")], 1, Lern.t("Jede Fälschung verlangt das Neu-Minen der ganzen Kette ab diesem Block, gegen die Rechenleistung des gesamten Netzwerks. Das ist nicht zu schaffen.", "Every forgery requires re-mining the whole chain from that block on, against the computing power of the entire network. That can't be done.")],
 ];
 Lern.quiz($("quiz"), "blockchain", QUIZ, "../"); Lern.visit("blockchain"); Lern.renderNext("blockchain", "../");
 

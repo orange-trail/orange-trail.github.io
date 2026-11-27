@@ -61,85 +61,86 @@
 .score{margin:10px 0 0;font-weight:800;color:var(--gold)}
 @media (max-width:640px){ .words{grid-template-columns:repeat(3,minmax(0,1fr))} .ask{grid-template-columns:1fr 1fr} .sort{grid-template-columns:1fr} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Seed</span>-Trainer</h1>
-    <p class="lead">Wer seine Bitcoin selbst verwahrt, bekommt 12 oder 24 Wörter, den <b>Seed</b>. Mit diesen Wörtern stellst du deine <b>Wallet und alle Schlüssel</b> jederzeit wieder her. Wer sie hat, kann über deine Bitcoin verfügen. Hier übst du den Umgang damit.</p>
+    <h1 data-i="k3"><span class="btc">Seed</span>-Trainer</h1>
+    <p data-i="k4" class="lead">Wer seine Bitcoin selbst verwahrt, bekommt 12 oder 24 Wörter, den <b>Seed</b>. Mit diesen Wörtern stellst du deine <b>Wallet und alle Schlüssel</b> jederzeit wieder her. Wer sie hat, kann über deine Bitcoin verfügen. Hier übst du den Umgang damit.</p>
   </div>
 
-  <section class="card warn"><b>Wichtig:</b> Hier gibt es nur <b>Übungswörter</b>, die nicht zu echten Wallets passen. Gib deinen echten Seed <b>niemals</b> auf einer Webseite ein, auch nicht hier. Niemand Seriöses fragt jemals danach.</section>
+  <section data-i="k5" class="card warn"><b>Wichtig:</b> Hier gibt es nur <b>Übungswörter</b>, die nicht zu echten Wallets passen. Gib deinen echten Seed <b>niemals</b> auf einer Webseite ein, auch nicht hier. Niemand Seriöses fragt jemals danach.</section>
 
   <!-- 1 · Merken und prüfen -->
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Aufschreiben und prüfen</h2>
-    <p class="bxh">So läuft es bei einer echten Wallet:</p><div class="learn bx"><div><b>1 · Anzeigen</b><span>Die Wallet zeigt dir die Wörter einmal.</span></div><div><b>2 · Abschreiben</b><span><b>Alle</b> Wörter, in richtiger Reihenfolge, mit Nummer.</span></div><div><b>3 · Prüfen</b><span>Die Wallet fragt <b>alle Wörter</b> ab, damit dein Backup sicher stimmt.</span></div></div>
+    <h2 data-i="k6" id="h1s">1 · Aufschreiben und prüfen</h2>
+    <p data-i="k7" class="bxh">So läuft es bei einer echten Wallet:</p><div class="learn bx"><div><b data-i="k8">1 · Anzeigen</b><span data-i="k9">Die Wallet zeigt dir die Wörter einmal.</span></div><div><b data-i="k10">2 · Abschreiben</b><span data-i="k11"><b>Alle</b> Wörter, in richtiger Reihenfolge, mit Nummer.</span></div><div><b data-i="k12">3 · Prüfen</b><span data-i="k13">Die Wallet fragt <b>alle Wörter</b> ab, damit dein Backup sicher stimmt.</span></div></div>
     <div class="words" id="words" aria-live="polite"></div>
-    <div class="row"><button class="btn ghost" id="eye" type="button">👁 Wörter anzeigen</button><button class="btn" id="done" type="button">Hab ich aufgeschrieben</button><button class="btn ghost" id="newW" type="button">Neue Wörter</button></div>
-    <p class="cheer">💪 <b>Ja, das ist ein bisschen Arbeit.</b> 12 Wörter abschreiben und prüfen dauert ein paar Minuten. Aber du machst es <b>nur einmal</b>, und es schützt dein Erspartes für Jahrzehnte. Hier übst du es in Ruhe.</p>
+    <div class="row"><button data-i="k14" class="btn ghost" id="eye" type="button">👁 Wörter anzeigen</button><button data-i="k15" class="btn" id="done" type="button">Hab ich aufgeschrieben</button><button data-i="k16" class="btn ghost" id="newW" type="button">Neue Wörter</button></div>
+    <p data-i="k17" class="cheer">💪 <b>Ja, das ist ein bisschen Arbeit.</b> 12 Wörter abschreiben und prüfen dauert ein paar Minuten. Aber du machst es <b>nur einmal</b>, und es schützt dein Erspartes für Jahrzehnte. Hier übst du es in Ruhe.</p>
     <div id="check" hidden>
       <div class="ask" id="ask"></div>
-      <div class="row"><button class="btn" id="test" type="button">Prüfen</button><button class="btn ghost" id="peek" type="button">Wörter nochmal zeigen</button></div>
+      <div class="row"><button data-i="k18" class="btn" id="test" type="button">Prüfen</button><button data-i="k19" class="btn ghost" id="peek" type="button">Wörter nochmal zeigen</button></div>
       <p class="msg" id="msg"></p>
     </div>
   </section>
 
   <!-- 2 · Sicher oder unsicher? -->
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Dein Backup-Plan: Was, wenn etwas passiert?</h2>
-    <div class="idea">Tippe an, was du machen würdest. Darunter siehst du sofort, ob dein Plan <b>fünf Notfälle</b> übersteht.</div>
+    <h2 data-i="k20" id="h2s">2 · Dein Backup-Plan: Was, wenn etwas passiert?</h2>
+    <div data-i="k21" class="idea">Tippe an, was du machen würdest. Darunter siehst du sofort, ob dein Plan <b>fünf Notfälle</b> übersteht.</div>
     <div class="opts2" id="opts"></div>
     <div class="score"><b class="num" id="pts">0/5</b><div class="bar"><i id="bar"></i></div></div>
     <ul class="sc" id="sc"></ul>
-    <p class="bxh">Der Brief an deine Erben</p>
-    <p class="muted" style="margin:4px 0 0">Deine Familie muss wissen, <b>dass</b> es Bitcoin gibt und <b>wie</b> sie herankommt. Ein Brief, sicher verwahrt, sollte enthalten:</p>
+    <p data-i="k22" class="bxh">Der Brief an deine Erben</p>
+    <p data-i="k23" class="muted" style="margin:4px 0 0">Deine Familie muss wissen, <b>dass</b> es Bitcoin gibt und <b>wie</b> sie herankommt. Ein Brief, sicher verwahrt, sollte enthalten:</p>
     <div class="letter">
-      <div>✅ Dass du Bitcoin besitzt und ungefähr wie viel</div>
-      <div>✅ Welche Wallet du nutzt und wo das Gerät liegt</div>
-      <div>✅ Wo die Seed-Wörter liegen (der Ort, nicht die Wörter selbst)</div>
-      <div>✅ Eine Vertrauensperson, die sich mit Bitcoin auskennt</div>
-      <div>✅ Eine Warnung: Seed niemals in ein Handy tippen oder jemandem online geben</div>
-      <div class="no">❌ Nicht ins Testament schreiben: Das Nachlassgericht eröffnet es, und alle Beteiligten können es lesen</div>
+      <div data-i="k24">✅ Dass du Bitcoin besitzt und ungefähr wie viel</div>
+      <div data-i="k25">✅ Welche Wallet du nutzt und wo das Gerät liegt</div>
+      <div data-i="k26">✅ Wo die Seed-Wörter liegen (der Ort, nicht die Wörter selbst)</div>
+      <div data-i="k27">✅ Eine Vertrauensperson, die sich mit Bitcoin auskennt</div>
+      <div data-i="k28">✅ Eine Warnung: Seed niemals in ein Handy tippen oder jemandem online geben</div>
+      <div data-i="k29" class="no">❌ Nicht ins Testament schreiben: Das Nachlassgericht eröffnet es, und alle Beteiligten können es lesen</div>
     </div>
 
-    <p class="bxh"><b>Nicht verwechseln:</b></p><div class="learn bx"><div><b>Seed-Wörter</b><span>12 oder 24 Wörter. Stellen deine Wallet <b>wieder her</b>.</span></div><div><b>App-Passwort / PIN</b><span>Sperrt nur die App auf deinem Gerät.</span></div><div><b>Passphrase (optional)</b><span>Oft „25. Wort“ genannt. Ergibt eine <b>ganz andere Wallet</b>. Vergessen? Dann helfen auch die richtigen Wörter nicht.</span></div></div>
+    <p class="bxh"><b data-i="k30">Nicht verwechseln:</b></p><div class="learn bx"><div><b data-i="k31">Seed-Wörter</b><span data-i="k32">12 oder 24 Wörter. Stellen deine Wallet <b>wieder her</b>.</span></div><div><b data-i="k33">App-Passwort / PIN</b><span data-i="k34">Sperrt nur die App auf deinem Gerät.</span></div><div><b data-i="k35">Passphrase (optional)</b><span data-i="k36">Oft „25. Wort“ genannt. Ergibt eine <b>ganz andere Wallet</b>. Vergessen? Dann helfen auch die richtigen Wörter nicht.</span></div></div>
   </section>
 
   <!-- 3 · Merksätze und Quiz -->
   <section class="card" aria-labelledby="hAs">
-    <h2 id="hAs">3 · Vom Seed zu deinen Adressen</h2>
-    <p class="muted" style="margin:0">Klingt kompliziert, funktioniert aber wie ein <b>Rezept</b>: gleiche Zutaten, immer das gleiche Ergebnis. Tippe dich durch die 5 Schritte.</p>
-    <div class="sx" id="sx" role="tablist" aria-label="Schritte"></div>
+    <h2 data-i="k37" id="hAs">3 · Vom Seed zu deinen Adressen</h2>
+    <p data-i="k38" class="muted" style="margin:0">Klingt kompliziert, funktioniert aber wie ein <b>Rezept</b>: gleiche Zutaten, immer das gleiche Ergebnis. Tippe dich durch die 5 Schritte.</p>
+    <div data-i="k64" class="sx" id="sx" role="tablist" aria-label="Schritte"></div>
     <div class="sxb" id="sxb" aria-live="polite"></div>
-    <div class="row" style="margin-top:10px"><button class="btn ghost" id="sxP" type="button">← Zurück</button><button class="btn" id="sxN" type="button">Weiter →</button></div>
-    <p class="note">➡️ <b>Jeder Pfeil geht nur vorwärts.</b> Aus der Adresse kommt niemand an deinen Schlüssel und aus dem Schlüssel niemand an deine Wörter. Aber aus den Wörtern kann jede Wallet <b>alles</b> jederzeit neu berechnen.</p>
-    <p class="qlbl" style="margin:16px 0 0;font-weight:800">Probier's: ein Seed, viele Adressen</p>
-    <div class="row" style="margin-top:8px"><button class="btn" id="nextAddr" type="button">➕ Nächste Adresse ableiten</button><span class="muted" style="font-size:13px">Neue Adresse, gleicher Seed</span></div>
+    <div class="row" style="margin-top:10px"><button data-i="k39" class="btn ghost" id="sxP" type="button">← Zurück</button><button data-i="k40" class="btn" id="sxN" type="button">Weiter →</button></div>
+    <p data-i="k41" class="note">➡️ <b>Jeder Pfeil geht nur vorwärts.</b> Aus der Adresse kommt niemand an deinen Schlüssel und aus dem Schlüssel niemand an deine Wörter. Aber aus den Wörtern kann jede Wallet <b>alles</b> jederzeit neu berechnen.</p>
+    <p data-i="k42" class="qlbl" style="margin:16px 0 0;font-weight:800">Probier's: ein Seed, viele Adressen</p>
+    <div class="row" style="margin-top:8px"><button data-i="k43" class="btn" id="nextAddr" type="button">➕ Nächste Adresse ableiten</button><span data-i="k44" class="muted" style="font-size:13px">Neue Adresse, gleicher Seed</span></div>
     <ol class="addrs" id="addrs"></ol>
-    <p class="muted" style="font-size:13px;margin:8px 0 0">Vereinfachte Rechnung zum Zeigen. Echte Wallets nutzen dafür die Standards BIP39 und BIP32, das Prinzip ist dasselbe: <b>Seed weg = alle Adressen weg, Seed da = alles wiederherstellbar.</b></p>
+    <p data-i="k45" class="muted" style="font-size:13px;margin:8px 0 0">Vereinfachte Rechnung zum Zeigen. Echte Wallets nutzen dafür die Standards BIP39 und BIP32, das Prinzip ist dasselbe: <b>Seed weg = alle Adressen weg, Seed da = alles wiederherstellbar.</b></p>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Das solltest du dir merken</h2>
+    <h2 data-i="k46" id="h3s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Seed = Schlüssel</b><span>Die Wörter stellen deine <b>privaten Schlüssel</b> wieder her. Die Bitcoin selbst liegen nicht in den Wörtern, sie sind auf der Blockchain verzeichnet. Wer die Wörter hat, hat trotzdem die volle Kontrolle.</span></div>
-      <div><b>Nur offline</b><span>Auf <b>Papier oder Metall</b>, nie als Foto, Cloud-Notiz oder Nachricht. Alles Digitale kann gehackt werden.</span></div>
-      <div><b>Niemals verraten</b><span>Support, Börsen, Freunde: <b>Niemand</b> braucht deinen Seed. Wer danach fragt, will dich bestehlen.</span></div>
-      <div><b>Backup planen</b><span>Lieber an <b>zwei sicheren Orten</b>. Und überleg, wie deine Familie im Notfall drankommt.</span></div>
+      <div><b data-i="k47">Seed = Schlüssel</b><span data-i="k48">Die Wörter stellen deine <b>privaten Schlüssel</b> wieder her. Die Bitcoin selbst liegen nicht in den Wörtern, sie sind auf der Blockchain verzeichnet. Wer die Wörter hat, hat trotzdem die volle Kontrolle.</span></div>
+      <div><b data-i="k49">Nur offline</b><span data-i="k50">Auf <b>Papier oder Metall</b>, nie als Foto, Cloud-Notiz oder Nachricht. Alles Digitale kann gehackt werden.</span></div>
+      <div><b data-i="k51">Niemals verraten</b><span data-i="k52">Support, Börsen, Freunde: <b>Niemand</b> braucht deinen Seed. Wer danach fragt, will dich bestehlen.</span></div>
+      <div><b data-i="k53">Backup planen</b><span data-i="k54">Lieber an <b>zwei sicheren Orten</b>. Und überleg, wie deine Familie im Notfall drankommt.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k55">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b>Vertiefen:</b> <a href="../ableitung/">Seed-Fabrik</a> <span class="muted">(was die Wallet aus deinen Wörtern genau berechnet)</span> · <a href="../entropie/">Würfel-Seed</a> <span class="muted">(wie sicher 12 Wörter wirklich sind)</span></p></section>
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <p class="foot">Lernen und Unterhaltung, keine Anlage- oder Sicherheitsberatung. Die Übungswörter stammen nicht aus der echten Bitcoin-Wortliste.</p>
+  <section data-i="k65" class="card xref" aria-label="Passend dazu"><p class="note" style="margin:0">🔬 <b data-i="k56">Vertiefen:</b> <a data-i="k57" href="../ableitung/">Seed-Fabrik</a> <span data-i="k58" class="muted">(was die Wallet aus deinen Wörtern genau berechnet)</span> · <a data-i="k59" href="../entropie/">Würfel-Seed</a> <span data-i="k60" class="muted">(wie sicher 12 Wörter wirklich sind)</span></p></section>
+  <section data-i="k66" class="card next" id="next" aria-label="Weiter"></section>
+  <p data-i="k61" class="foot">Lernen und Unterhaltung, keine Anlage- oder Sicherheitsberatung. Die Übungswörter stammen nicht aus der echten Bitcoin-Wortliste.</p>
 </div>
 
-<details class="foot"><summary>Quellen</summary><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP 39: Seed-Wörter (12, 15, 18, 21 oder 24 Wörter, optionale Passphrase)</a>; <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP 32: Ableitung der Schlüssel</a>. Alle Wörter auf dieser Seite sind Übungsdaten.</p></details>
-<script src="../lern.js?v=126"></script>
+<details class="foot"><summary data-i="k62">Quellen</summary><p data-i="k63"><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP 39: Seed-Wörter (12, 15, 18, 21 oder 24 Wörter, optionale Passphrase)</a>; <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP 32: Ableitung der Schlüssel</a>. Alle Wörter auf dieser Seite sind Übungsdaten.</p></details>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Seed<\/span> Trainer", "k4": "If you hold your bitcoin yourself, you get 12 or 24 words, the <b>seed<\/b>. With these words you can restore your <b>wallet and all keys<\/b> at any time. Whoever has them can control your bitcoin. Here you practise handling them.", "k5": "<b>Important:<\/b> there are only <b>practice words<\/b> here that don't match real wallets. <b>Never<\/b> enter your real seed on a website, not even here. Nobody legitimate will ever ask for it.", "k6": "1 · Write down and check", "k7": "This is how it works with a real wallet:", "k8": "1 · Show", "k9": "The wallet shows you the words once.", "k10": "2 · Copy", "k11": "<b>All<\/b> words, in the right order, with numbers.", "k12": "3 · Check", "k13": "The wallet asks for <b>all words<\/b> so that your backup is definitely correct.", "k14": "👁 Show words", "k15": "I've written them down", "k16": "New words", "k17": "💪 <b>Yes, it's a bit of work.<\/b> Copying and checking 12 words takes a few minutes. But you do it <b>only once<\/b>, and it protects your savings for decades. Here you can practise in peace.", "k18": "Check", "k19": "Show words again", "k20": "2 · Your backup plan: what if something happens?", "k21": "Tap what you would do. Below you'll immediately see whether your plan survives <b>five emergencies<\/b>.", "k22": "The letter to your heirs", "k23": "Your family needs to know <b>that<\/b> there are bitcoin and <b>how<\/b> to get to them. A letter, kept safe, should contain:", "k24": "✅ That you own bitcoin, and roughly how much", "k25": "✅ Which wallet you use and where the device is", "k26": "✅ Where the seed words are (the place, not the words themselves)", "k27": "✅ A trusted person who knows about Bitcoin", "k28": "✅ A warning: never type the seed into a phone or give it to anyone online", "k29": "❌ Don't put it in your will: the probate court opens it, and everyone involved can read it", "k30": "Don't confuse:", "k31": "Seed words", "k32": "12 or 24 words. They <b>restore<\/b> your wallet.", "k33": "App password / PIN", "k34": "Only locks the app on your device.", "k35": "Passphrase (optional)", "k36": "Often called the “25th word”. Gives a <b>completely different wallet<\/b>. Forgotten? Then even the right words won't help.", "k37": "3 · From the seed to your addresses", "k38": "Sounds complicated, but works like a <b>recipe<\/b>: same ingredients, always the same result. Tap through the 5 steps.", "k39": "← Back", "k40": "Next →", "k41": "➡️ <b>Every arrow only goes forwards.<\/b> Nobody gets from the address to your key, or from the key to your words. But from the words any wallet can recalculate <b>everything<\/b> at any time.", "k42": "Try it: one seed, many addresses", "k43": "➕ Derive the next address", "k44": "New address, same seed", "k45": "Simplified calculation for demonstration. Real wallets use the standards BIP39 and BIP32; the principle is the same: <b>seed gone = all addresses gone, seed there = everything recoverable.<\/b>", "k46": "Remember this", "k47": "Seed = keys", "k48": "The words restore your <b>private keys<\/b>. The bitcoin themselves aren't in the words; they're recorded on the blockchain. Still, whoever has the words has full control.", "k49": "Offline only", "k50": "On <b>paper or metal<\/b>, never as a photo, cloud note or message. Anything digital can be hacked.", "k51": "Never reveal it", "k52": "Support, exchanges, friends: <b>nobody<\/b> needs your seed. Anyone who asks for it wants to rob you.", "k53": "Plan a backup", "k54": "Preferably in <b>two safe places<\/b>. And think about how your family gets to it in an emergency.", "k55": "Test yourself: 3 questions", "k56": "Go deeper:", "k57": "Seed Factory", "k58": "(what exactly the wallet calculates from your words)", "k59": "Dice Seed", "k60": "(how secure 12 words really are)", "k61": "Entertainment and learning, not investment or security advice. The practice words are not from the real Bitcoin word list.", "k62": "Sources", "k63": "<a href=\"https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki\">BIP 39: seed words (12, 15, 18, 21 or 24 words, optional passphrase)<\/a>; <a href=\"https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki\">BIP 32: key derivation<\/a>. All words on this page are practice data.", "k64@aria-label": "Steps", "k65@aria-label": "Related", "k66@aria-label": "Next", "_title": "Seed Trainer · Bitcoin Voyage", "_desc": "Lernwelt: Bitcoin sicher selbst verwahren. 12 oder 24 Wörter aufschreiben, prüfen, Backup-Plan und Brief für die Erben, nur mit Übungswörtern."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    SEED-TRAINER – Lernwelt von Bitcoin Voyage
@@ -147,7 +148,7 @@
    ===================================================================== */
 (() => {
 const $ = id => document.getElementById(id);
-const POOL = ("Apfel Anker Ampel Banane Berg Blitz Brücke Burg Dach Delfin Drache Eiche Eimer Esel Fackel Feder Fenster Fisch Flöte Frosch Gabel Garten Geige Gurke Hafen Hammer Hase Himmel Honig Hut Igel Insel Jacke Kaktus Kamel Kerze Kiste Koffer Krone Kuchen Lampe Leiter Löwe Mantel Mond Möwe Nebel Nuss Ofen Orgel Palme Pinsel Pirat Pilz Quelle Rabe Rakete Regen Ring Rose Säge Schaf Schiff Sonne Spiegel Stern Tiger Tisch Tomate Tulpe Turm Uhr Vogel Vulkan Wagen Wald Welle Wolke Zebra Zelt Zwerg").split(" ");
+const POOL = (Lern.t("Apfel Anker Ampel Banane Berg Blitz Brücke Burg Dach Delfin Drache Eiche Eimer Esel Fackel Feder Fenster Fisch Flöte Frosch Gabel Garten Geige Gurke Hafen Hammer Hase Himmel Honig Hut Igel Insel Jacke Kaktus Kamel Kerze Kiste Koffer Krone Kuchen Lampe Leiter Löwe Mantel Mond Möwe Nebel Nuss Ofen Orgel Palme Pinsel Pirat Pilz Quelle Rabe Rakete Regen Ring Rose Säge Schaf Schiff Sonne Spiegel Stern Tiger Tisch Tomate Tulpe Turm Uhr Vogel Vulkan Wagen Wald Welle Wolke Zebra Zelt Zwerg", "apple anchor arrow banana mountain lightning bridge castle roof dolphin dragon oak bucket donkey torch feather window fish flute frog fork garden violin cucumber harbour hammer rabbit sky honey hat hedgehog island jacket cactus camel candle crate suitcase crown cake lamp ladder lion coat moon seagull fog nut oven organ palm brush pirate mushroom spring raven rocket rain ring rose saw sheep ship sun mirror star tiger table tomato tulip tower clock bird volcano wagon forest wave cloud zebra tent dwarf")).split(" ");
 let words = [], askIdx = [];
 const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--){ const j = crypto.getRandomValues(new Uint32Array(1))[0] % (i + 1); [b[i], b[j]] = [b[j], b[i]]; } return b; };
 function newWords(){
@@ -157,14 +158,14 @@ function newWords(){
   $("check").hidden = true; $("done").hidden = false; $("eye").hidden = false; $("msg").textContent = "";
 }
 // Wörter ein-/ausblenden (Knopf oder Tippen auf die Wörter)
-function eyeTxt(){ const h = $("words").classList.contains("hide"); $("eye").textContent = h ? "👁 Wörter anzeigen" : "🙈 Verbergen"; $("peek").textContent = h ? "Wörter nochmal zeigen" : "Wörter verbergen"; }
+function eyeTxt(){ const h = $("words").classList.contains("hide"); $("eye").textContent = h ? Lern.t("👁 Wörter anzeigen", "👁 Show words") : Lern.t("🙈 Verbergen", "🙈 Hide"); $("peek").textContent = h ? Lern.t("Wörter nochmal zeigen", "Show words again") : Lern.t("Wörter verbergen", "Hide words"); }
 const eye = () => { $("words").classList.toggle("hide"); eyeTxt(); };
 $("eye").addEventListener("click", eye); $("words").addEventListener("click", eye);
 $("newW").addEventListener("click", newWords);
 $("done").addEventListener("click", () => {
   $("words").classList.add("hide"); eyeTxt(); $("done").hidden = true; $("eye").hidden = true; $("check").hidden = false;
   askIdx = [...Array(12).keys()];   // echte Wallets fragen meist alle Wörter ab
-  $("ask").innerHTML = askIdx.map(i => `<div><label for="a${i}">Wort Nr. ${i + 1}</label><input id="a${i}" autocomplete="off" autocapitalize="off" spellcheck="false"></div>`).join("");
+  $("ask").innerHTML = askIdx.map(i => Lern.t(`<div><label for="a${i}">Wort Nr. ${i + 1}</label><input id="a${i}" autocomplete="off" autocapitalize="off" spellcheck="false"></div>`, `<div><label for="a${i}">Word no. ${i + 1}</label><input id="a${i}" autocomplete="off" autocapitalize="off" spellcheck="false"></div>`)).join("");
   $("msg").textContent = ""; $("msg").className = "msg";
 });
 $("peek").addEventListener("click", eye);
@@ -172,35 +173,35 @@ $("test").addEventListener("click", () => {
   let right = 0;
   askIdx.forEach(i => { const el = $("a" + i), ok = el.value.trim().toLowerCase() === words[i].toLowerCase(); el.className = ok ? "ok" : "no"; if (ok) right++; });
   const m = $("msg");
-  if (right === askIdx.length){ m.className = "msg ok"; m.textContent = "Perfekt, alle 12 richtig! Genau so prüft eine echte Wallet dein Backup. Geschafft: Das musst du bei einer echten Wallet nur ein einziges Mal machen."; Lern.confetti && Lern.confetti(); }
-  else { m.className = "msg no"; m.textContent = `${right} von ${askIdx.length} richtig. Bei echten Wörtern wäre das gefährlich: Ein falsches Wort, und die Wiederherstellung scheitert. Schau nochmal nach und verbessere die roten Felder.`; }
+  if (right === askIdx.length){ m.className = "msg ok"; m.textContent = Lern.t("Perfekt, alle 12 richtig! Genau so prüft eine echte Wallet dein Backup. Geschafft: Das musst du bei einer echten Wallet nur ein einziges Mal machen.", "Perfect, all 12 correct! That's exactly how a real wallet checks your backup. Done: with a real wallet you only have to do this once."); Lern.confetti && Lern.confetti(); }
+  else { m.className = "msg no"; m.textContent = Lern.t(`${right} von ${askIdx.length} richtig. Bei echten Wörtern wäre das gefährlich: Ein falsches Wort, und die Wiederherstellung scheitert. Schau nochmal nach und verbessere die roten Felder.`, `${right} of ${askIdx.length} correct. With real words that would be dangerous: one wrong word and the recovery fails. Check again and correct the red fields.`); }
 });
 
 { // Backup-Plan
 // Bausteine: [Schlüssel, Symbol, Titel, Hinweis]
 const O = [
-  ["paper", "📝", "Seed auf Papier", "zu Hause aufbewahrt"],
-  ["metal", "🔩", "Seed in Metall", "übersteht Feuer und Wasser"],
-  ["second", "🏠", "Zweite Kopie woanders", "z. B. bei Familie oder im Schließfach"],
-  ["pass", "🔑", "Zusätzliche Passphrase", "ein 25. Wort, getrennt vom Seed"],
-  ["letter", "✉️", "Brief für die Erben", "wo was liegt und wie es geht"],
-  ["cloud", "☁️", "Foto vom Seed in der Cloud", "praktisch, oder?"],
+  ["paper", "📝", Lern.t("Seed auf Papier", "Seed on paper"), Lern.t("zu Hause aufbewahrt", "kept at home")],
+  ["metal", "🔩", Lern.t("Seed in Metall", "Seed in metal"), Lern.t("übersteht Feuer und Wasser", "survives fire and water")],
+  ["second", "🏠", Lern.t("Zweite Kopie woanders", "Second copy elsewhere"), Lern.t("z. B. bei Familie oder im Schließfach", "e.g. with family or in a safe deposit box")],
+  ["pass", "🔑", Lern.t("Zusätzliche Passphrase", "Extra passphrase"), Lern.t("ein 25. Wort, getrennt vom Seed", "a 25th word, kept separately from the seed")],
+  ["letter", "✉️", Lern.t("Brief für die Erben", "Letter for the heirs"), Lern.t("wo was liegt und wie es geht", "what is where and how it works")],
+  ["cloud", "☁️", Lern.t("Foto vom Seed in der Cloud", "Photo of the seed in the cloud"), Lern.t("praktisch, oder?", "practical, isn't it?")],
 ];
 let on = new Set(["paper"]);
 // Notfälle: Titel und Prüfung -> [überstanden?, Grund]
 const S = [
-  ["📵 Wallet geht kaputt", p => (p.paper || p.metal || p.second || p.cloud) ? [1, "Mit den Seed-Wörtern stellst du alles auf einem neuen Gerät wieder her."] : [0, "Ohne aufgeschriebene Seed-Wörter sind die Bitcoin für immer weg."]],
-  ["🔥 Feuer zu Hause", p => p.metal ? [1, "Das Metall übersteht den Brand."] : p.second ? [1, "Die zweite Kopie an einem anderen Ort rettet dich."] : p.cloud ? [1, "Das Cloud-Foto überlebt. Aber es ist ein großes Risiko, siehe unten."] : [0, (p.paper ? "Der Papier-Zettel verbrennt mit dem Gerät." : "Es gibt kein Backup.") + " Alles weg."]],
-  ["🦹 Einbrecher findet den Seed", p => !(p.paper || p.metal) ? [1, "Zu Hause liegt kein Seed, also nichts zu finden."] : p.pass ? [1, "Ohne die Passphrase nützen ihm die Wörter nichts."] : [0, "Mit den Wörtern räumt er deine Wallet in Minuten leer."]],
-  ["☁️ Dein Cloud-Konto wird gehackt", p => !p.cloud ? [1, "Kein Seed online, also nichts zu holen."] : p.pass ? [0, "Die Passphrase bremst den Hacker noch, aber er hat schon die Hälfte. Seed gehört nie online."] : [0, "Hacker suchen gezielt nach Seed-Fotos. Alles weg."]],
-  ["🕯 Dir passiert etwas", p => !p.letter ? [0, "Deine Familie weiß nicht, dass es Bitcoin gibt oder was die Wörter bedeuten."] : !(p.paper || p.metal || p.second || p.cloud) ? [0, "Der Brief nützt nichts, es gibt keine Seed-Wörter zu finden."] : [1, "Dein Brief erklärt, wo alles liegt" + (p.pass ? " und wo die Passphrase steht." : ".")]],
+  [Lern.t("📵 Wallet geht kaputt", "📵 Wallet breaks"), p => (p.paper || p.metal || p.second || p.cloud) ? [1, Lern.t("Mit den Seed-Wörtern stellst du alles auf einem neuen Gerät wieder her.", "With the seed words you restore everything on a new device.")] : [0, Lern.t("Ohne aufgeschriebene Seed-Wörter sind die Bitcoin für immer weg.", "Without written-down seed words, the bitcoin are gone forever.")]],
+  [Lern.t("🔥 Feuer zu Hause", "🔥 Fire at home"), p => p.metal ? [1, Lern.t("Das Metall übersteht den Brand.", "The metal survives the fire.")] : p.second ? [1, Lern.t("Die zweite Kopie an einem anderen Ort rettet dich.", "The second copy in another place saves you.")] : p.cloud ? [1, Lern.t("Das Cloud-Foto überlebt. Aber es ist ein großes Risiko, siehe unten.", "The cloud photo survives. But it's a big risk, see below.")] : [0, (p.paper ? Lern.t("Der Papier-Zettel verbrennt mit dem Gerät.", "The paper note burns along with the device.") : Lern.t("Es gibt kein Backup.", "There's no backup.")) + Lern.t(" Alles weg.", " Everything gone.")]],
+  [Lern.t("🦹 Einbrecher findet den Seed", "🦹 A burglar finds the seed"), p => !(p.paper || p.metal) ? [1, Lern.t("Zu Hause liegt kein Seed, also nichts zu finden.", "There's no seed at home, so nothing to find.")] : p.pass ? [1, Lern.t("Ohne die Passphrase nützen ihm die Wörter nichts.", "Without the passphrase the words are useless to him.")] : [0, Lern.t("Mit den Wörtern räumt er deine Wallet in Minuten leer.", "With the words he empties your wallet in minutes.")]],
+  [Lern.t("☁️ Dein Cloud-Konto wird gehackt", "☁️ Your cloud account gets hacked"), p => !p.cloud ? [1, Lern.t("Kein Seed online, also nichts zu holen.", "No seed online, so nothing to take.")] : p.pass ? [0, Lern.t("Die Passphrase bremst den Hacker noch, aber er hat schon die Hälfte. Seed gehört nie online.", "The passphrase still slows the hacker down, but he already has half. A seed never belongs online.")] : [0, Lern.t("Hacker suchen gezielt nach Seed-Fotos. Alles weg.", "Hackers specifically search for seed photos. Everything gone.")]],
+  [Lern.t("🕯 Dir passiert etwas", "🕯 Something happens to you"), p => !p.letter ? [0, Lern.t("Deine Familie weiß nicht, dass es Bitcoin gibt oder was die Wörter bedeuten.", "Your family doesn't know there are bitcoin or what the words mean.")] : !(p.paper || p.metal || p.second || p.cloud) ? [0, Lern.t("Der Brief nützt nichts, es gibt keine Seed-Wörter zu finden.", "The letter is useless; there are no seed words to find.")] : [1, Lern.t("Dein Brief erklärt, wo alles liegt", "Your letter explains where everything is") + (p.pass ? Lern.t(" und wo die Passphrase steht.", " and where the passphrase is.") : ".")]],
 ];
 function draw(){
   $("opts").innerHTML = O.map(([k, ic, t, h]) => `<button class="opt" type="button" data-k="${k}" aria-pressed="${on.has(k)}"><span class="ic">${ic}</span><span>${t}<small>${h}</small></span></button>`).join("");
   const p = Object.fromEntries(O.map(o => [o[0], on.has(o[0])])), res = S.map(([t, f]) => [t, ...f(p)]), n = res.filter(r => r[1]).length;
   $("pts").textContent = n + "/5"; $("bar").style.width = n*20 + "%"; $("bar").style.background = n === 5 ? "var(--bull)" : n >= 3 ? "var(--gold)" : "var(--bear)";
   $("sc").innerHTML = res.map(([t, ok, why]) => `<li class="${ok ? "y" : "n"}"><span class="r">${ok ? "✓" : "✗"}</span><div><b>${t}</b><span>${why}</span></div></li>`).join("")
-    + (n === 5 ? `<li class="y"><span class="r">★</span><div><b>Starker Plan!</b><span>Dein Plan übersteht alle fünf Notfälle.</span></div></li>` : "");
+    + (n === 5 ? Lern.t(`<li class="y"><span class="r">★</span><div><b>Starker Plan!</b><span>Dein Plan übersteht alle fünf Notfälle.</span></div></li>`, `<li class="y"><span class="r">★</span><div><b>Strong plan!</b><span>Your plan survives all five emergencies.</span></div></li>`) : "");
 }
 $("opts").onclick = e => { const b = e.target.closest(".opt"); if (!b) return; const k = b.dataset.k; on.has(k) ? on.delete(k) : on.add(k); draw(); };
 draw();
@@ -212,35 +213,35 @@ draw();
   const H = Lern.sha256, addr = h => "bc1q" + h.slice(0, 30);
   let n = 0, master = "", ws = "", st = 0;
   const S = () => { const p1 = H(master + 0), pub = "02" + H("pub" + p1).slice(0, 62); return [
-    ["📝", "Deine Wörter", "Die Wörter sind eigentlich <b>eine riesige Zufallszahl</b>, nur in Wörtern aufgeschrieben. So kannst du sie leicht und ohne Tippfehler abschreiben.", "🧾", "Wie die Zutatenliste eines Rezepts.", ws.split(" ").slice(0, 6).join(" ") + " …"],
-    ["🌱", "Hauptschlüssel", "Die Wallet steckt die Wörter in einen <b>Mixer</b> (eine Hash-Funktion). Heraus kommt der <b>Hauptschlüssel</b>. Gleiche Wörter ergeben immer genau denselben.", "🌰", "Wie ein Samen: Aus demselben Samen wächst immer derselbe Baum.", master.slice(0, 32) + "…"],
-    ["🔑", "Private Schlüssel", "Aus dem Hauptschlüssel wachsen <b>durchnummerierte Äste</b>: Schlüssel Nr. 1, Nr. 2, Nr. 3 … Mit ihnen <b>unterschreibst</b> du Zahlungen. Sie bleiben geheim.", "🌳", "Jede Wallet zählt gleich, darum findet sie alle Äste wieder.", "Nr. 1: " + p1.slice(0, 24) + "…<br>Nr. 2: " + H(master + 1).slice(0, 24) + "…"],
-    ["🔓", "Öffentlicher Schlüssel", "Aus jedem privaten Schlüssel wird ein <b>öffentlicher</b> berechnet. Damit kann jeder prüfen, dass deine Unterschrift echt ist. Zurückrechnen geht nicht.", "🔒", "Wie ein offenes Vorhängeschloss: Verteilen ist okay, den Schlüssel dazu hast nur du.", pub.slice(0, 34) + "…"],
-    ["📮", "Adresse", "Der öffentliche Schlüssel wird <b>gekürzt</b> und bekommt einen <b>Tippfehler-Schutz</b>. Fertig ist die Adresse, die du anderen gibst.", "📬", "Wie ein Briefkasten: Jeder kann etwas einwerfen, öffnen kannst nur du.", addr(H(H(master + 0)))]]; };
+    ["📝", Lern.t("Deine Wörter", "Your words"), Lern.t("Die Wörter sind eigentlich <b>eine riesige Zufallszahl</b>, nur in Wörtern aufgeschrieben. So kannst du sie leicht und ohne Tippfehler abschreiben.", "The words are really <b>one huge random number</b>, just written in words. That way you can copy them easily and without typos."), "🧾", Lern.t("Wie die Zutatenliste eines Rezepts.", "Like the ingredient list of a recipe."), ws.split(" ").slice(0, 6).join(" ") + " …"],
+    ["🌱", Lern.t("Hauptschlüssel", "Master key"), Lern.t("Die Wallet steckt die Wörter in einen <b>Mixer</b> (eine Hash-Funktion). Heraus kommt der <b>Hauptschlüssel</b>. Gleiche Wörter ergeben immer genau denselben.", "The wallet puts the words into a <b>mixer</b> (a hash function). Out comes the <b>master key</b>. The same words always give exactly the same one."), "🌰", Lern.t("Wie ein Samen: Aus demselben Samen wächst immer derselbe Baum.", "Like a seed: the same seed always grows the same tree."), master.slice(0, 32) + "…"],
+    ["🔑", Lern.t("Private Schlüssel", "Private keys"), Lern.t("Aus dem Hauptschlüssel wachsen <b>durchnummerierte Äste</b>: Schlüssel Nr. 1, Nr. 2, Nr. 3 … Mit ihnen <b>unterschreibst</b> du Zahlungen. Sie bleiben geheim.", "<b>Numbered branches</b> grow from the master key: key no. 1, no. 2, no. 3 … You <b>sign</b> payments with them. They stay secret."), "🌳", Lern.t("Jede Wallet zählt gleich, darum findet sie alle Äste wieder.", "Every wallet counts the same way, which is why it finds all branches again."), "Nr. 1: " + p1.slice(0, 24) + "…<br>Nr. 2: " + H(master + 1).slice(0, 24) + "…"],
+    ["🔓", Lern.t("Öffentlicher Schlüssel", "Public key"), Lern.t("Aus jedem privaten Schlüssel wird ein <b>öffentlicher</b> berechnet. Damit kann jeder prüfen, dass deine Unterschrift echt ist. Zurückrechnen geht nicht.", "A <b>public</b> key is calculated from every private key. With it anyone can check that your signature is genuine. You can't calculate backwards."), "🔒", Lern.t("Wie ein offenes Vorhängeschloss: Verteilen ist okay, den Schlüssel dazu hast nur du.", "Like an open padlock: handing it out is fine, only you have the key to it."), pub.slice(0, 34) + "…"],
+    ["📮", Lern.t("Adresse", "Address"), Lern.t("Der öffentliche Schlüssel wird <b>gekürzt</b> und bekommt einen <b>Tippfehler-Schutz</b>. Fertig ist die Adresse, die du anderen gibst.", "The public key is <b>shortened</b> and gets <b>typo protection</b>. Done: that's the address you give to others."), "📬", Lern.t("Wie ein Briefkasten: Jeder kann etwas einwerfen, öffnen kannst nur du.", "Like a letterbox: anyone can drop something in, only you can open it."), addr(H(H(master + 0)))]]; };
   const show = () => { const L = S();
     $("sx").innerHTML = L.map((x, i) => `<button type="button" role="tab" data-s="${i}" aria-selected="${i === st}" class="${i < st ? "done" : ""}" aria-label="Schritt ${i + 1}: ${x[1]}">${x[0]}</button>`).join(`<i></i>`);
     [...$("sx").querySelectorAll("i")].forEach((e, i) => e.classList.toggle("on", i < st));
-    const x = L[st]; $("sxb").innerHTML = `<small>Schritt ${st + 1} von 5</small><b class="t">${x[0]} ${x[1]}</b><p>${x[2]}</p><div class="eg"><span>${x[3]}</span>${x[4]}</div><code>${x[5]}</code>`;
+    const x = L[st]; $("sxb").innerHTML = Lern.t(`<small>Schritt ${st + 1} von 5</small><b class="t">${x[0]} ${x[1]}</b><p>${x[2]}</p><div class="eg"><span>${x[3]}</span>${x[4]}</div><code>${x[5]}</code>`, `<small>Step ${st + 1} of 5</small><b class="t">${x[0]} ${x[1]}</b><p>${x[2]}</p><div class="eg"><span>${x[3]}</span>${x[4]}</div><code>${x[5]}</code>`);
     $("sxb").style.animation = "none"; void $("sxb").offsetWidth; $("sxb").style.animation = "";
-    $("sxP").disabled = !st; $("sxN").textContent = st === 4 ? "↺ Nochmal" : "Weiter →"; };
+    $("sxP").disabled = !st; $("sxN").textContent = st === 4 ? Lern.t("↺ Nochmal", "↺ Again") : Lern.t("Weiter →", "Next →"); };
   $("sx").onclick = e => { const b = e.target.closest("[data-s]"); if (b){ st = +b.dataset.s; show(); } };
   $("sxP").onclick = () => { if (st){ st--; show(); } };
   $("sxN").onclick = () => { st = st === 4 ? 0 : st + 1; show(); };
   const build = () => {
-    ws = (words && words.length ? words : ["Übungswörter"]).join(" ");
+    ws = (words && words.length ? words : [Lern.t("Übungswörter", "Practice words")]).join(" ");
     master = H("seed:" + ws); n = 0; $("addrs").innerHTML = ""; show();
     add();
   };
-  const add = () => { const a = addr(H(H(master + n))); $("addrs").insertAdjacentHTML("beforeend", `<li>Adresse <b>#${n + 1}</b>: ${a.slice(0, 22)}…</li>`); n++; };
+  const add = () => { const a = addr(H(H(master + n))); $("addrs").insertAdjacentHTML("beforeend", Lern.t(`<li>Adresse <b>#${n + 1}</b>: ${a.slice(0, 22)}…</li>`, `<li>Address <b>#${n + 1}</b>: ${a.slice(0, 22)}…</li>`)); n++; };
   $("nextAddr").onclick = add;
   new MutationObserver(build).observe($("words"), {childList: true});   // neue Übungswörter = neue Adressen
   build();
 }
 
 const QUIZ = [
-  ["Ein Mitarbeiter deiner Börse schreibt dir und braucht deine 12 Wörter, um dein Konto zu „retten“. Was tust du?", ["Ich gebe sie ihm, er will ja helfen", "Nichts verraten, das ist Betrug", "Ich schicke nur die Hälfte"], 1, "Niemand Seriöses fragt nach dem Seed. Wer ihn hat, kann sofort alles abziehen, auch mit der Hälfte der Wörter wird es gefährlich."],
-  ["Deine Hardware-Wallet ist kaputt. Wie kommst du an deine Bitcoin?", ["Gar nicht mehr, die Bitcoin sind verloren", "Mit den 12 bzw. 24 Wörtern in einer neuen Wallet", "Nur über den Kundendienst des Herstellers"], 1, "Die Bitcoin liegen nicht im Gerät, sondern in der Blockchain. Mit dem Seed stellst du alles in jeder kompatiblen Wallet wieder her."],
-  ["Welche Aufbewahrung ist am sichersten?", ["Als Foto in der Cloud, damit es nie verloren geht", "Im Passwort-Manager des Browsers, schön verschlüsselt", "Offline auf Papier oder Metall, an sicheren Orten"], 2, "Offline-Backups kann niemand aus der Ferne stehlen. Metall schützt zusätzlich vor Feuer und Wasser."],
+  [Lern.t("Ein Mitarbeiter deiner Börse schreibt dir und braucht deine 12 Wörter, um dein Konto zu „retten“. Was tust du?", "An employee of your exchange writes to you and needs your 12 words to “rescue” your account. What do you do?"), [Lern.t("Ich gebe sie ihm, er will ja helfen", "I give them to him, he wants to help"), Lern.t("Nichts verraten, das ist Betrug", "Reveal nothing, it's a scam"), Lern.t("Ich schicke nur die Hälfte", "I only send half")], 1, Lern.t("Niemand Seriöses fragt nach dem Seed. Wer ihn hat, kann sofort alles abziehen, auch mit der Hälfte der Wörter wird es gefährlich.", "Nobody legitimate asks for the seed. Whoever has it can withdraw everything immediately; even half of the words makes it dangerous.")],
+  [Lern.t("Deine Hardware-Wallet ist kaputt. Wie kommst du an deine Bitcoin?", "Your hardware wallet is broken. How do you get to your bitcoin?"), [Lern.t("Gar nicht mehr, die Bitcoin sind verloren", "Not at all anymore, the bitcoin are lost"), Lern.t("Mit den 12 bzw. 24 Wörtern in einer neuen Wallet", "With the 12 or 24 words in a new wallet"), Lern.t("Nur über den Kundendienst des Herstellers", "Only via the manufacturer's customer service")], 1, Lern.t("Die Bitcoin liegen nicht im Gerät, sondern in der Blockchain. Mit dem Seed stellst du alles in jeder kompatiblen Wallet wieder her.", "The bitcoin aren't in the device but on the blockchain. With the seed you restore everything in any compatible wallet.")],
+  [Lern.t("Welche Aufbewahrung ist am sichersten?", "Which storage is safest?"), [Lern.t("Als Foto in der Cloud, damit es nie verloren geht", "As a photo in the cloud, so it never gets lost"), Lern.t("Im Passwort-Manager des Browsers, schön verschlüsselt", "In the browser's password manager, nicely encrypted"), Lern.t("Offline auf Papier oder Metall, an sicheren Orten", "Offline on paper or metal, in safe places")], 2, Lern.t("Offline-Backups kann niemand aus der Ferne stehlen. Metall schützt zusätzlich vor Feuer und Wasser.", "Nobody can steal offline backups remotely. Metal additionally protects against fire and water.")],
 ];
 Lern.quiz($("quiz"), "seed", QUIZ, "../"); Lern.visit("seed"); Lern.renderNext("seed", "../");
 newWords();

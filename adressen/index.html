@@ -43,67 +43,68 @@
 .abc{font:700 16px var(--f-code);letter-spacing:3px;word-break:break-all;line-height:1.7;margin-top:8px} .abc s{color:var(--bear)}
 @media (max-width:720px){ .zoo{grid-template-columns:1fr 1fr} .pipe div{grid-template-columns:1fr;gap:2px} .pipe div em{text-align:left} }
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1>Willkommen im <span class="btc">Adress-Zoo</span></h1>
-    <p class="lead">Bitcoin-Adressen sehen je nach Alter ganz unterschiedlich aus. Alle funktionieren noch, aber neuere sind <b>günstiger</b> und <b>sicherer gegen Tippfehler</b>. Hier lernst du jede Art kennen und baust selbst eine Adresse zusammen.</p>
+    <h1 data-i="k3">Willkommen im <span class="btc">Adress-Zoo</span></h1>
+    <p data-i="k4" class="lead">Bitcoin-Adressen sehen je nach Alter ganz unterschiedlich aus. Alle funktionieren noch, aber neuere sind <b>günstiger</b> und <b>sicherer gegen Tippfehler</b>. Hier lernst du jede Art kennen und baust selbst eine Adresse zusammen.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">1 · Die vier Arten</h2>
+    <h2 data-i="k5" id="h1s">1 · Die vier Arten</h2>
     <div class="zoo">
-      <div><b>1…</b><em>Legacy (P2PKH), 2009</em>Die Ur-Adresse. Funktioniert überall, aber am teuersten.<i style="width:100%"></i><small class="muted">148 vByte pro Eingang</small></div>
-      <div><b>3…</b><em>Script (P2SH), 2012</em>Für Mehrfach-Unterschriften und als Verpackung für SegWit.<i style="width:61%"></i><small class="muted">91 vByte</small></div>
-      <div><b>bc1q…</b><em>SegWit (Bech32), 2017</em>Günstiger und mit starker Tippfehler-Erkennung.<i style="width:46%"></i><small class="muted">68 vByte</small></div>
-      <div><b>bc1p…</b><em>Taproot (Bech32m), 2021</em>Am günstigsten, mit Schnorr, und Gruppen sehen aus wie Einzelne.<i style="width:39%"></i><small class="muted">57,5 vByte</small></div>
+      <div data-i="k6"><b>1…</b><em>Legacy (P2PKH), 2009</em>Die Ur-Adresse. Funktioniert überall, aber am teuersten.<i style="width:100%"></i><small class="muted">148 vByte pro Eingang</small></div>
+      <div data-i="k7"><b>3…</b><em>Script (P2SH), 2012</em>Für Mehrfach-Unterschriften und als Verpackung für SegWit.<i style="width:61%"></i><small class="muted">91 vByte</small></div>
+      <div data-i="k8"><b>bc1q…</b><em>SegWit (Bech32), 2017</em>Günstiger und mit starker Tippfehler-Erkennung.<i style="width:46%"></i><small class="muted">68 vByte</small></div>
+      <div data-i="k9"><b>bc1p…</b><em>Taproot (Bech32m), 2021</em>Am günstigsten, mit Schnorr, und Gruppen sehen aus wie Einzelne.<i style="width:39%"></i><small class="muted">57,5 vByte</small></div>
     </div>
-    <p class="note">Der rote Balken zeigt, wie viel Platz das Ausgeben kostet. Weniger Platz = <b>weniger Gebühr</b>. Alle Arten können sich gegenseitig Geld schicken.</p>
+    <p data-i="k10" class="note">Der rote Balken zeigt, wie viel Platz das Ausgeben kostet. Weniger Platz = <b>weniger Gebühr</b>. Alle Arten können sich gegenseitig Geld schicken.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">2 · Der Adress-Detektor</h2>
-    <p class="muted" style="margin:0">Füg eine Adresse ein oder nimm ein Beispiel. Dann bau einen Tippfehler ein und sieh, wie die <b>Prüfsumme</b> ihn erwischt. Die Beispiele sind bekannte Test-Adressen aus den Bitcoin-Standards. Ihr Schlüssel ist öffentlich, also <b>niemals Geld hinschicken</b>.</p>
-    <input id="ad" class="inp nogl" spellcheck="false" autocomplete="off" aria-label="Bitcoin-Adresse">
+    <h2 data-i="k11" id="h2s">2 · Der Adress-Detektor</h2>
+    <p data-i="k12" class="muted" style="margin:0">Füg eine Adresse ein oder nimm ein Beispiel. Dann bau einen Tippfehler ein und sieh, wie die <b>Prüfsumme</b> ihn erwischt. Die Beispiele sind bekannte Test-Adressen aus den Bitcoin-Standards. Ihr Schlüssel ist öffentlich, also <b>niemals Geld hinschicken</b>.</p>
+    <input data-i="k36" id="ad" class="inp nogl" spellcheck="false" autocomplete="off" aria-label="Bitcoin-Adresse">
     <div class="seg" id="ex"></div>
-    <div class="row" style="display:flex;gap:8px;margin-top:8px"><button class="btn" type="button" id="typo">😬 Tippfehler einbauen</button></div>
+    <div class="row" style="display:flex;gap:8px;margin-top:8px"><button data-i="k13" class="btn" type="button" id="typo">😬 Tippfehler einbauen</button></div>
     <div class="det" id="det"></div>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">3 · Bau dir eine Adresse: die Bausteine</h2>
-    <p class="muted" style="margin:0">Aus einem öffentlichen Schlüssel wird so eine Adresse. Jede Zeile ist echt gerechnet.</p>
-    <button class="btn" type="button" id="bNew" style="margin-top:10px">🎲 Neuer Schlüssel</button>
+    <h2 data-i="k14" id="h3s">3 · Bau dir eine Adresse: die Bausteine</h2>
+    <p data-i="k15" class="muted" style="margin:0">Aus einem öffentlichen Schlüssel wird so eine Adresse. Jede Zeile ist echt gerechnet.</p>
+    <button data-i="k16" class="btn" type="button" id="bNew" style="margin-top:10px">🎲 Neuer Schlüssel</button>
     <div class="pipe nogl" id="pipe"></div>
-    <h3 style="margin:16px 0 4px">Base58: 58 Zeichen ohne Verwechsler</h3>
-    <div class="abc nogl">123456789ABCDEFGH<s>I</s>JKLMN<s>O</s>PQRSTUVWXYZabcdefghijk<s>l</s>mnopqrstuvwxyz <s>0</s></div>
-    <p class="note">Weg sind <b>0, O, I und l</b>, weil man sie leicht verwechselt. Die Prüfsumme am Ende (4 Byte) verpasst einen Fehler nur mit Wahrscheinlichkeit <b>1 zu 4,3 Milliarden</b>.</p>
-    <h3 style="margin:16px 0 4px">Bech32: nur Kleinbuchstaben und Ziffern</h3>
-    <div class="abc nogl">qpzry9x8gf2tvdw0s3jn54khce6mua7l</div>
-    <p class="note">32 Zeichen ohne <b>1, b, i, o</b>. Die 6 Zeichen Prüfsumme sind so gebaut, dass bis zu <b>4 Tippfehler garantiert</b> auffallen. Oft lässt sich sogar sagen, <b>wo</b> der Fehler steckt.</p>
+    <h3 data-i="k17" style="margin:16px 0 4px">Base58: 58 Zeichen ohne Verwechsler</h3>
+    <div data-i="k18" class="abc nogl">123456789ABCDEFGH<s>I</s>JKLMN<s>O</s>PQRSTUVWXYZabcdefghijk<s>l</s>mnopqrstuvwxyz <s>0</s></div>
+    <p data-i="k19" class="note">Weg sind <b>0, O, I und l</b>, weil man sie leicht verwechselt. Die Prüfsumme am Ende (4 Byte) verpasst einen Fehler nur mit Wahrscheinlichkeit <b>1 zu 4,3 Milliarden</b>.</p>
+    <h3 data-i="k20" style="margin:16px 0 4px">Bech32: nur Kleinbuchstaben und Ziffern</h3>
+    <div data-i="k21" class="abc nogl">qpzry9x8gf2tvdw0s3jn54khce6mua7l</div>
+    <p data-i="k22" class="note">32 Zeichen ohne <b>1, b, i, o</b>. Die 6 Zeichen Prüfsumme sind so gebaut, dass bis zu <b>4 Tippfehler garantiert</b> auffallen. Oft lässt sich sogar sagen, <b>wo</b> der Fehler steckt.</p>
   </section>
 
   <section class="card" aria-labelledby="hMs">
-    <h2 id="hMs">Das solltest du dir merken</h2>
+    <h2 data-i="k23" id="hMs">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Vier Adressarten</b><span><b>1…</b> Legacy, <b>3…</b> Script, <b>bc1q…</b> SegWit, <b>bc1p…</b> Taproot. Alle können untereinander senden.</span></div>
-      <div><b>Neuer = günstiger</b><span>bc1-Adressen brauchen weniger Platz im Block und kosten darum <b>weniger Gebühr</b>.</span></div>
-      <div><b>Prüfsumme</b><span>Jede Adresse enthält eine Prüfsumme. Ein Tippfehler macht die Adresse <b>ungültig</b>, statt Geld ins Nichts zu schicken.</span></div>
-      <div><b>Die Bausteine</b><span>Schlüssel → <b>SHA-256</b> → <b>RIPEMD-160</b> → Prüfsumme → <b>Base58</b> oder <b>Bech32</b>.</span></div>
+      <div><b data-i="k24">Vier Adressarten</b><span data-i="k25"><b>1…</b> Legacy, <b>3…</b> Script, <b>bc1q…</b> SegWit, <b>bc1p…</b> Taproot. Alle können untereinander senden.</span></div>
+      <div><b data-i="k26">Neuer = günstiger</b><span data-i="k27">bc1-Adressen brauchen weniger Platz im Block und kosten darum <b>weniger Gebühr</b>.</span></div>
+      <div><b data-i="k28">Prüfsumme</b><span data-i="k29">Jede Adresse enthält eine Prüfsumme. Ein Tippfehler macht die Adresse <b>ungültig</b>, statt Geld ins Nichts zu schicken.</span></div>
+      <div><b data-i="k30">Die Bausteine</b><span data-i="k31">Schlüssel → <b>SHA-256</b> → <b>RIPEMD-160</b> → Prüfsumme → <b>Base58</b> oder <b>Bech32</b>.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k32">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki">BIP173 (Bech32)</a> · <a href="https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki">BIP350 (Bech32m)</a> · <a href="https://en.bitcoin.it/wiki/Base58Check_encoding">Bitcoin Wiki: Base58Check</a> · Beispiel-Adressen: offizielle Testvektoren aus BIP44/49/84/86.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k37" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k33">Quellen</summary><p data-i="k34"><a href="https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki">BIP173 (Bech32)</a> · <a href="https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki">BIP350 (Bech32m)</a> · <a href="https://en.bitcoin.it/wiki/Base58Check_encoding">Bitcoin Wiki: Base58Check</a> · Beispiel-Adressen: offizielle Testvektoren aus BIP44/49/84/86.</p></details>
+  <p data-i="k35" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
 <script src="../bitlib.js?v=24"></script>
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "Welcome to the <span class=\"btc\">address zoo<\/span>", "k4": "Bitcoin addresses look very different depending on their age. They all still work, but newer ones are <b>cheaper<\/b> and <b>safer against typos<\/b>. Here you get to know every kind and build an address yourself.", "k5": "1 · The four kinds", "k6": "<b>1…<\/b><em>Legacy (P2PKH), 2009<\/em>The original address. Works everywhere, but is the most expensive.<i style=\"width:100%\"><\/i><small class=\"muted\">148 vbytes per input<\/small>", "k7": "<b>3…<\/b><em>Script (P2SH), 2012<\/em>For multi-signatures and as a wrapper for SegWit.<i style=\"width:61%\"><\/i><small class=\"muted\">91 vbytes<\/small>", "k8": "<b>bc1q…<\/b><em>SegWit (Bech32), 2017<\/em>Cheaper and with strong typo detection.<i style=\"width:46%\"><\/i><small class=\"muted\">68 vbytes<\/small>", "k9": "<b>bc1p…<\/b><em>Taproot (Bech32m), 2021<\/em>The cheapest, with Schnorr, and groups look like individuals.<i style=\"width:39%\"><\/i><small class=\"muted\">57.5 vbytes<\/small>", "k10": "The red bar shows how much space spending costs. Less space = <b>lower fee<\/b>. All kinds can send money to each other.", "k11": "2 · The address detector", "k12": "Paste an address or take an example. Then add a typo and watch the <b>checksum<\/b> catch it. The examples are well-known test addresses from the Bitcoin standards. Their key is public, so <b>never send money there<\/b>.", "k13": "😬 Add a typo", "k14": "3 · Build an address: the building blocks", "k15": "This is how a public key becomes an address. Every line is really calculated.", "k16": "🎲 New key", "k17": "Base58: 58 characters without look-alikes", "k18": "123456789ABCDEFGH<s>I<\/s>JKLMN<s>O<\/s>PQRSTUVWXYZabcdefghijk<s>l<\/s>mnopqrstuvwxyz <s>0<\/s>", "k19": "<b>0, O, I and l<\/b> are gone, because they're easily confused. The checksum at the end (4 bytes) misses an error with a probability of only <b>1 in 4.3 billion<\/b>.", "k20": "Bech32: only lowercase letters and digits", "k21": "qpzry9x8gf2tvdw0s3jn54khce6mua7l", "k22": "32 characters without <b>1, b, i, o<\/b>. The 6-character checksum is built so that up to <b>4 typos are guaranteed<\/b> to be caught. Often it can even tell <b>where<\/b> the error is.", "k23": "Remember this", "k24": "Four address types", "k25": "<b>1…<\/b> legacy, <b>3…<\/b> script, <b>bc1q…<\/b> SegWit, <b>bc1p…<\/b> Taproot. All can send to each other.", "k26": "Newer = cheaper", "k27": "bc1 addresses need less space in the block and therefore cost <b>lower fees<\/b>.", "k28": "Checksum", "k29": "Every address contains a checksum. A typo makes the address <b>invalid<\/b> instead of sending money into the void.", "k30": "The building blocks", "k31": "Key → <b>SHA-256<\/b> → <b>RIPEMD-160<\/b> → checksum → <b>Base58<\/b> or <b>Bech32<\/b>.", "k32": "Test yourself: 3 questions", "k33": "Sources", "k34": "<a href=\"https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki\">BIP173 (Bech32)<\/a> · <a href=\"https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki\">BIP350 (Bech32m)<\/a> · <a href=\"https://en.bitcoin.it/wiki/Base58Check_encoding\">Bitcoin Wiki: Base58Check<\/a> · Example addresses: official test vectors from BIP44/49/84/86.", "k35": "Entertainment and learning, not investment advice.", "k36@aria-label": "Bitcoin address", "k37@aria-label": "Next", "_title": "Address Zoo · Bitcoin Voyage", "_desc": "Profi-Vertiefung: Adressformate 1…, 3…, bc1q…, bc1p…, ihre Bausteine RIPEMD-160, Base58 und Bech32, und warum Tippfehler per Prüfsumme auffallen."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    ADRESS-ZOO – Lernwelt von Bitcoin Voyage
@@ -120,14 +121,14 @@ function detect(){
   if (!a){ $("det").innerHTML = ""; return; }
   if (/^bc1/i.test(a)){
     const d = Bit.segwitDecode(a);
-    if (d.ok) r = `<div class="res ok"><strong>✓ Gültige ${d.ver === 0 ? (d.prog.length === 20 ? "SegWit-Adresse (bc1q…, P2WPKH)" : "SegWit-Script-Adresse (P2WSH)") : d.ver === 1 ? "Taproot-Adresse (bc1p…)" : "SegWit-Adresse Version " + d.ver}</strong>Kodierung: <b>${d.ver ? "Bech32m" : "Bech32"}</b> · Inhalt: <b>${d.prog.length} Byte</b> ${d.ver === 1 ? "(direkt der Taproot-Schlüssel)" : "(Fingerabdruck des Schlüssels)"}<div class="hx nogl">${Bit.hex(d.prog)}</div></div>`;
+    if (d.ok) r = Lern.t(`<div class="res ok"><strong>✓ Gültige ${d.ver === 0 ? (d.prog.length === 20 ? "SegWit-Adresse (bc1q…, P2WPKH)" : "SegWit-Script-Adresse (P2WSH)") : d.ver === 1 ? "Taproot-Adresse (bc1p…)" : "SegWit-Adresse Version " + d.ver}</strong>Kodierung: <b>${d.ver ? "Bech32m" : "Bech32"}</b> · Inhalt: <b>${d.prog.length} Byte</b> ${d.ver === 1 ? "(direkt der Taproot-Schlüssel)" : "(Fingerabdruck des Schlüssels)"}<div class="hx nogl">${Bit.hex(d.prog)}</div></div>`, `<div class="res ok"><strong>✓ Valid ${d.ver === 0 ? (d.prog.length === 20 ? "SegWit address (bc1q…, P2WPKH)" : "SegWit script address (P2WSH)") : d.ver === 1 ? "Taproot address (bc1p…)" : "SegWit address version " + d.ver}</strong>Encoding: <b>${d.ver ? "Bech32m" : "Bech32"}</b> · Content: <b>${d.prog.length} bytes</b> ${d.ver === 1 ? "(the Taproot key directly)" : "(fingerprint of the key)"}<div class="hx nogl">${Bit.hex(d.prog)}</div></div>`);
     else { const f = d.err === "Prüfsumme passt nicht" ? Bit.segwitFix(a) : null;
-      r = `<div class="res bad"><strong>✗ Ungültig: ${d.err}</strong>${f ? `Bech32 kann sogar sagen, wo: Zeichen Nr. <b>${f.i + 1}</b> müsste <b>„${f.c}“</b> sein.<div class="chars nogl">${chars(a, f.i)}</div>Korrigiert: <div class="chars nogl">${chars(f.fixed, -1, f.i)}</div>` : "Eine Wallet würde diese Adresse ablehnen. Kein Geld geht verloren."}</div>`; }
+      r = Lern.t(`<div class="res bad"><strong>✗ Ungültig: ${d.err}</strong>${f ? `Bech32 kann sogar sagen, wo: Zeichen Nr. <b>${f.i + 1}</b> müsste <b>„${f.c}“</b> sein.<div class="chars nogl">${chars(a, f.i)}</div>Korrigiert: <div class="chars nogl">${chars(f.fixed, -1, f.i)}</div>` : "Eine Wallet würde diese Adresse ablehnen. Kein Geld geht verloren."}</div>`, `<div class="res bad"><strong>✗ Invalid: ${({"Trennzeichen „1“ fehlt": "separator “1” missing", "zu kurz": "too short", "Prüfsumme passt nicht": "checksum doesn't match", "ungültige Daten": "invalid data"})[d.err] || d.err}</strong>${f ? `Bech32 can even say where: character no. <b>${f.i + 1}</b> should be <b>“${f.c}”</b>.<div class="chars nogl">${chars(a, f.i)}</div>Corrected: <div class="chars nogl">${chars(f.fixed, -1, f.i)}</div>` : "A wallet would reject this address. No money is lost."}</div>`); }
   } else if (/^[13]/.test(a)){
     const d = Bit.b58decode(a);
-    if (d.ok) r = `<div class="res ok"><strong>✓ Gültige ${a[0] === "1" ? "Legacy-Adresse (P2PKH)" : "Script-Adresse (P2SH)"}</strong>Kodierung: <b>Base58Check</b> · Versions-Byte <b>${d.body[0]}</b> · 20 Byte Fingerabdruck + Prüfsumme <b>${d.sum}</b></div>`;
-    else r = `<div class="res bad"><strong>✗ Ungültig: ${d.bad ? `das Zeichen „${d.bad}“ gibt es in Base58 nicht` : "Prüfsumme passt nicht"}</strong>${d.want ? `In der Adresse steht <b>${d.sum}</b>, berechnet wäre <b>${d.want}</b>. ` : ""}Base58 erkennt den Fehler, kann aber nicht sagen, wo er steckt.${typoAt >= 0 ? `<div class="chars nogl">${chars(a, typoAt)}</div>` : ""}</div>`;
-  } else r = `<div class="res warn"><strong>Das sieht nicht nach einer Bitcoin-Adresse aus.</strong>Bitcoin-Adressen beginnen mit 1, 3 oder bc1.</div>`;
+    if (d.ok) r = Lern.t(`<div class="res ok"><strong>✓ Gültige ${a[0] === "1" ? "Legacy-Adresse (P2PKH)" : "Script-Adresse (P2SH)"}</strong>Kodierung: <b>Base58Check</b> · Versions-Byte <b>${d.body[0]}</b> · 20 Byte Fingerabdruck + Prüfsumme <b>${d.sum}</b></div>`, `<div class="res ok"><strong>✓ Valid ${a[0] === "1" ? "legacy address (P2PKH)" : "script address (P2SH)"}</strong>Encoding: <b>Base58Check</b> · version byte <b>${d.body[0]}</b> · 20-byte fingerprint + checksum <b>${d.sum}</b></div>`);
+    else r = Lern.t(`<div class="res bad"><strong>✗ Ungültig: ${d.bad ? `das Zeichen „${d.bad}“ gibt es in Base58 nicht` : "Prüfsumme passt nicht"}</strong>${d.want ? `In der Adresse steht <b>${d.sum}</b>, berechnet wäre <b>${d.want}</b>. ` : ""}Base58 erkennt den Fehler, kann aber nicht sagen, wo er steckt.${typoAt >= 0 ? `<div class="chars nogl">${chars(a, typoAt)}</div>` : ""}</div>`, `<div class="res bad"><strong>✗ Invalid: ${d.bad ? `the character “${d.bad}” doesn't exist in Base58` : "checksum doesn't match"}</strong>${d.want ? `The address says <b>${d.sum}</b>; calculated would be <b>${d.want}</b>. ` : ""}Base58 detects the error, but can't say where it is.${typoAt >= 0 ? `<div class="chars nogl">${chars(a, typoAt)}</div>` : ""}</div>`);
+  } else r = Lern.t(`<div class="res warn"><strong>Das sieht nicht nach einer Bitcoin-Adresse aus.</strong>Bitcoin-Adressen beginnen mit 1, 3 oder bc1.</div>`, `<div class="res warn"><strong>That doesn't look like a Bitcoin address.</strong>Bitcoin addresses start with 1, 3 or bc1.</div>`);
   $("det").innerHTML = r;
 }
 $("ad").addEventListener("input", () => { typoAt = -1; detect(); });
@@ -142,14 +143,14 @@ $("ad").value = EX[2][1]; detect();
 function build(){
   const k = Bit.mod(Bit.big(Bit.rand(32)), Bit.N), pub = Bit.pubC(Bit.mul(k)), s = Bit.sha256(pub), h = Bit.ripemd160(s);
   const v = Bit.cat(new Uint8Array([0]), h), cs = Bit.sha256d(v).slice(0, 4);
-  const R = [["Öffentlicher Schlüssel", Bit.hex(pub), "33 B"], ["→ SHA-256", Bit.hex(s), "32 B"], ["→ RIPEMD-160", Bit.hex(h), "20 B"],
-    ["Version 00 davor", "<b style='color:var(--gold)'>00</b>" + Bit.hex(h), "21 B"], ["Prüfsumme: 2× SHA-256, erste 4 Byte", Bit.hex(cs), "4 B"],
-    ["→ Base58 = alte Adresse", Bit.p2pkh(pub), "", "out"], ["oder → Bech32 = neue Adresse", Bit.p2wpkh(pub), "", "out"]];
+  const R = [[Lern.t("Öffentlicher Schlüssel", "Public key"), Bit.hex(pub), "33 B"], ["→ SHA-256", Bit.hex(s), "32 B"], ["→ RIPEMD-160", Bit.hex(h), "20 B"],
+    [Lern.t("Version 00 davor", "Version 00 in front"), "<b style='color:var(--gold)'>00</b>" + Bit.hex(h), "21 B"], [Lern.t("Prüfsumme: 2× SHA-256, erste 4 Byte", "Checksum: 2× SHA-256, first 4 bytes"), Bit.hex(cs), "4 B"],
+    [Lern.t("→ Base58 = alte Adresse", "→ Base58 = old address"), Bit.p2pkh(pub), "", "out"], [Lern.t("oder → Bech32 = neue Adresse", "or → Bech32 = new address"), Bit.p2wpkh(pub), "", "out"]];
   $("pipe").innerHTML = R.map(([t, v, n, c]) => `<div class="${c || ""}"><span>${t}</span><span class="hx">${v}</span><em>${n}</em></div>`).join("");
 }
 $("bNew").onclick = build; build();
 
-const QUIZ = [["Welche Adresse ist die modernste?", ["1…", "3…", "bc1q…", "bc1p…"], 3, "bc1p… sind Taproot-Adressen von 2021. Sie nutzen Schnorr-Signaturen und sind am günstigsten."], ["Was passiert bei einem Tippfehler in einer Adresse?", ["Das Geld geht an eine fremde Person", "Die Prüfsumme passt nicht, die Wallet lehnt die Adresse ab", "Bitcoin korrigiert ihn automatisch beim Senden", "Nichts, Tippfehler sind egal"], 1, "Die eingebaute Prüfsumme macht die Adresse ungültig. Die Wallet verweigert das Senden."], ["Warum fehlen in Base58 die Zeichen 0, O, I und l?", ["Aus Versehen", "Weil man sie leicht verwechselt", "Weil sie Unglück bringen", "Weil sie zu breit sind"], 1, "Diese Zeichen sehen sich zu ähnlich. Ohne sie passieren beim Abschreiben weniger Fehler."]];
+const QUIZ = [[Lern.t("Welche Adresse ist die modernste?", "Which address is the most modern?"), ["1…", "3…", "bc1q…", "bc1p…"], 3, Lern.t("bc1p… sind Taproot-Adressen von 2021. Sie nutzen Schnorr-Signaturen und sind am günstigsten.", "bc1p… are Taproot addresses from 2021. They use Schnorr signatures and are the cheapest.")], [Lern.t("Was passiert bei einem Tippfehler in einer Adresse?", "What happens with a typo in an address?"), [Lern.t("Das Geld geht an eine fremde Person", "The money goes to a stranger"), Lern.t("Die Prüfsumme passt nicht, die Wallet lehnt die Adresse ab", "The checksum doesn't match; the wallet rejects the address"), Lern.t("Bitcoin korrigiert ihn automatisch beim Senden", "Bitcoin corrects it automatically when sending"), Lern.t("Nichts, Tippfehler sind egal", "Nothing, typos don't matter")], 1, Lern.t("Die eingebaute Prüfsumme macht die Adresse ungültig. Die Wallet verweigert das Senden.", "The built-in checksum makes the address invalid. The wallet refuses to send.")], [Lern.t("Warum fehlen in Base58 die Zeichen 0, O, I und l?", "Why are the characters 0, O, I and l missing in Base58?"), [Lern.t("Aus Versehen", "By accident"), Lern.t("Weil man sie leicht verwechselt", "Because they're easily confused"), Lern.t("Weil sie Unglück bringen", "Because they bring bad luck"), Lern.t("Weil sie zu breit sind", "Because they're too wide")], 1, Lern.t("Diese Zeichen sehen sich zu ähnlich. Ohne sie passieren beim Abschreiben weniger Fehler.", "These characters look too similar. Without them, fewer mistakes happen when copying.")]];
 Lern.quiz($("quiz"), "adressen", QUIZ, "../"); Lern.visit("adressen"); Lern.renderNext("adressen", "../");
 })();
 </script>

@@ -70,67 +70,67 @@
 .nring span{display:block;font-size:26px} .nring b{display:block;font:900 14px var(--f-display)} .nring small{font-size:12px;color:var(--muted)}
 .nring .bad{border-color:#b26bff;background:rgba(178,107,255,.12)} .nring .rej{border-color:rgba(255,92,115,.6)} .nring .rej small{color:#ff9aa8;font-weight:800} .nring .off{opacity:.45;filter:grayscale(.7);transform:scale(.94)}
 </style>
-<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=3"><\/script>')}catch(e){}</script>
+<style>html{background:#0b0f2a;color-scheme:dark}</style><script>document.documentElement.classList.add("boot");try{if(localStorage.getItem("bv-lang")==="en")document.write('<script src="/i18n-en.js?v=4"><\/script>')}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="back" href="../">← Voyage</a><a class="back" href="../lexikon/">📖 Lexikon</a></div>
+  <div class="top"><a data-i="k1" class="back" href="../">← Voyage</a><a data-i="k2" class="back" href="../lexikon/">📖 Lexikon</a></div>
   <div>
-    <h1><span class="btc">Node</span>-Wache</h1>
-    <p class="lead">Tausende Computer auf der ganzen Welt prüfen jeden Block nach denselben Regeln. Das sind die Nodes. Sie gehorchen niemandem, nur den Regeln.</p>
+    <h1 data-i="k3"><span class="btc">Node</span>-Wache</h1>
+    <p data-i="k4" class="lead">Tausende Computer auf der ganzen Welt prüfen jeden Block nach denselben Regeln. Das sind die Nodes. Sie gehorchen niemandem, nur den Regeln.</p>
   </div>
 
   <section class="card" aria-labelledby="h1s">
-    <h2 id="h1s">Zwei Nodes, eine Wahrheit <span class="mode" id="mode">Verbinde …</span></h2>
-    <p class="muted" style="margin:0">Zwei voneinander unabhängige Betreiber, jeder mit eigener Node. Sehen sie denselben neuesten Block?</p>
+    <h2 data-i="k5" id="h1s">Zwei Nodes, eine Wahrheit <span class="mode" id="mode">Verbinde …</span></h2>
+    <p data-i="k6" class="muted" style="margin:0">Zwei voneinander unabhängige Betreiber, jeder mit eigener Node. Sehen sie denselben neuesten Block?</p>
     <div class="src">
-      <div><small>mempool.space</small><b class="num" id="aH">–</b><code id="aX">–</code></div>
-      <div><small>blockstream.info</small><b class="num" id="bH">–</b><code id="bX">–</code></div>
+      <div><small data-i="k7">mempool.space</small><b class="num" id="aH">–</b><code id="aX">–</code></div>
+      <div><small data-i="k8">blockstream.info</small><b class="num" id="bH">–</b><code id="bX">–</code></div>
     </div>
     <p class="verdict" id="vd"></p>
   </section>
 
   <section class="card" aria-labelledby="hW">
-    <h2 id="hW">Dein Block geht um die Welt</h2>
-    <p class="muted" style="margin:0">Tippe auf eine Node: Dort findet ein Miner einen Block. Jede Node <b>prüft</b> ihn und reicht ihn an ihre Nachbarn weiter. Achte darauf, wie schnell er um die Erde läuft.</p>
+    <h2 data-i="k9" id="hW">Dein Block geht um die Welt</h2>
+    <p data-i="k10" class="muted" style="margin:0">Tippe auf eine Node: Dort findet ein Miner einen Block. Jede Node <b>prüft</b> ihn und reicht ihn an ihre Nachbarn weiter. Achte darauf, wie schnell er um die Erde läuft.</p>
     <div class="wmap" id="wmap"></div>
-    <div class="wstat"><div><small>Nodes mit dem Block</small><b class="num" id="wN">0 von 0</b></div><div><small>Echte Zeit (ca.)</small><b class="num g" id="wT">–</b></div></div>
-    <div class="row" style="margin-top:10px;gap:8px;flex-wrap:wrap"><button class="btn" id="wGo" type="button">⛏ Block finden</button><button class="btn ghost" id="wBad" type="button">🦹 Gefälschten Block senden</button></div>
-    <p class="note" id="wMsg" style="margin:10px 0 0">In echt erreicht ein neuer Block die meisten der rund 20.000 erreichbaren Nodes in <b>wenigen Sekunden</b>.</p>
+    <div class="wstat"><div><small data-i="k11">Nodes mit dem Block</small><b data-i="k12" class="num" id="wN">0 von 0</b></div><div><small data-i="k13">Echte Zeit (ca.)</small><b class="num g" id="wT">–</b></div></div>
+    <div class="row" style="margin-top:10px;gap:8px;flex-wrap:wrap"><button data-i="k14" class="btn" id="wGo" type="button">⛏ Block finden</button><button data-i="k15" class="btn ghost" id="wBad" type="button">🦹 Gefälschten Block senden</button></div>
+    <p data-i="k16" class="note" id="wMsg" style="margin:10px 0 0">In echt erreicht ein neuer Block die meisten der rund 20.000 erreichbaren Nodes in <b>wenigen Sekunden</b>.</p>
   </section>
 
   <section class="card" aria-labelledby="h2s">
-    <h2 id="h2s">Können Miner schummeln?</h2>
-    <p class="muted" style="margin:0">Wähle einen Block. Die Punkte darunter sind Nodes, jede prüft ihn selbst.</p>
+    <h2 data-i="k17" id="h2s">Können Miner schummeln?</h2>
+    <p data-i="k18" class="muted" style="margin:0">Wähle einen Block. Die Punkte darunter sind Nodes, jede prüft ihn selbst.</p>
     <div class="picks" id="picks"></div>
-    <div class="row" id="mpRow"><label for="mp">Wie viele Miner schummeln mit? <span style="color:var(--gold)">orange</span> = Schummler</label><input id="mp" type="range" min="0" max="100" step="5" value="90"><b id="mpV" class="num">90 %</b></div>
+    <div class="row" id="mpRow"><label data-i="k19" for="mp">Wie viele Miner schummeln mit? <span style="color:var(--gold)">orange</span> = Schummler</label><input id="mp" type="range" min="0" max="100" step="5" value="90"><b id="mpV" class="num">90 %</b></div>
     <div class="miners" id="miners" aria-hidden="true"></div>
     <div class="blk" id="blk"></div>
     <div class="nodes" id="nodes" aria-hidden="true"></div>
-    <div class="bars"><div><small>Miner dafür</small><i><u id="bM"></u></i><b class="num" id="vM">–</b></div><div><small>Nodes nehmen an</small><i><u id="bN"></u></i><b class="num" id="vN">–</b></div></div>
+    <div class="bars"><div><small data-i="k20">Miner dafür</small><i><u id="bM"></u></i><b class="num" id="vM">–</b></div><div><small data-i="k21">Nodes nehmen an</small><i><u id="bN"></u></i><b class="num" id="vN">–</b></div></div>
     <p class="res" data-hold id="res" aria-live="polite"></p>
     <div class="cons" id="cons"  data-hold></div>
-    <details class="foot" style="margin-top:10px"><summary>Und was können Miner doch?</summary><p>Mit mehr als der Hälfte der Rechenleistung (51 %-Angriff) könnten Miner <b>Transaktionen blockieren</b> oder eine eigene, frische Zahlung zurückdrehen. Das wäre extrem teuer. <b>Regeln ändern</b>, also mehr Coins erzeugen oder fremde Coins nehmen, können sie trotzdem nicht.</p>
-    <div class="ntypes"><div><b>🗄️ Full Node</b><span>Lädt und prüft die ganze Blockchain.</span></div><div><b>✂️ Pruned Node</b><span>Prüft auch alles, löscht aber alte Blöcke.</span></div><div><b>📱 Light-Client</b><span>Prüft nur Teile, vertraut anderen Nodes.</span></div></div>
-    <p class="note">Merke: <b>Miner schlagen Blöcke vor, Nodes prüfen die Regeln.</b></p></details>
+    <details class="foot" style="margin-top:10px"><summary data-i="k22">Und was können Miner doch?</summary><p data-i="k23">Mit mehr als der Hälfte der Rechenleistung (51 %-Angriff) könnten Miner <b>Transaktionen blockieren</b> oder eine eigene, frische Zahlung zurückdrehen. Das wäre extrem teuer. <b>Regeln ändern</b>, also mehr Coins erzeugen oder fremde Coins nehmen, können sie trotzdem nicht.</p>
+    <div class="ntypes"><div><b data-i="k24">🗄️ Full Node</b><span data-i="k25">Lädt und prüft die ganze Blockchain.</span></div><div><b data-i="k26">✂️ Pruned Node</b><span data-i="k27">Prüft auch alles, löscht aber alte Blöcke.</span></div><div><b data-i="k28">📱 Light-Client</b><span data-i="k29">Prüft nur Teile, vertraut anderen Nodes.</span></div></div>
+    <p data-i="k30" class="note">Merke: <b>Miner schlagen Blöcke vor, Nodes prüfen die Regeln.</b></p></details>
   </section>
 
 <section class="card" aria-labelledby="hNs">
-    <h2 id="hNs">Und können Nodes schummeln?</h2>
-    <p class="muted" style="margin:0">Eine Node ist nur ein Computer mit der Bitcoin-Software. Was passiert, wenn jemand seine Node so verändert, dass sie lügt?</p>
+    <h2 data-i="k31" id="hNs">Und können Nodes schummeln?</h2>
+    <p data-i="k32" class="muted" style="margin:0">Eine Node ist nur ein Computer mit der Bitcoin-Software. Was passiert, wenn jemand seine Node so verändert, dass sie lügt?</p>
     <div class="nring" id="nring" aria-live="polite"></div>
-    <div class="row"><button class="btn" type="button" id="nCheat">😈 Node 1 schreibt sich 1.000 BTC gut</button><button class="btn ghost" type="button" id="nReset">↺ Neu</button></div>
-    <p class="note" id="nN">Sechs Nodes, jede mit ihrer eigenen Kopie der Blockchain. Tipp auf den Knopf.</p>
+    <div class="row"><button data-i="k33" class="btn" type="button" id="nCheat">😈 Node 1 schreibt sich 1.000 BTC gut</button><button data-i="k34" class="btn ghost" type="button" id="nReset">↺ Neu</button></div>
+    <p data-i="k35" class="note" id="nN">Sechs Nodes, jede mit ihrer eigenen Kopie der Blockchain. Tipp auf den Knopf.</p>
   </section>
 
 <section class="card" aria-labelledby="hFs">
-    <h2 id="hFs">Und wie ändern sich die Regeln?</h2>
-    <p class="muted" style="margin:0">Es gibt <b>keine Abstimmung</b>: Jeder entscheidet selbst, welche Software er laufen lässt. Durchsetzen kann sich eine Änderung nur, wenn Nutzer, Firmen, Börsen und Miner sie <b>breit annehmen</b>. Entwickler schreiben Vorschläge und Code, entscheiden aber nicht allein. <b>Soft Fork</b>: Regeln werden strenger, alte Nodes bleiben kompatibel. <b>Hard Fork</b>: Regeln werden lockerer, alte Nodes lehnen ab, die Kette kann sich <b>spalten</b>.</p>
+    <h2 data-i="k36" id="hFs">Und wie ändern sich die Regeln?</h2>
+    <p data-i="k37" class="muted" style="margin:0">Es gibt <b>keine Abstimmung</b>: Jeder entscheidet selbst, welche Software er laufen lässt. Durchsetzen kann sich eine Änderung nur, wenn Nutzer, Firmen, Börsen und Miner sie <b>breit annehmen</b>. Entwickler schreiben Vorschläge und Code, entscheiden aber nicht allein. <b>Soft Fork</b>: Regeln werden strenger, alte Nodes bleiben kompatibel. <b>Hard Fork</b>: Regeln werden lockerer, alte Nodes lehnen ab, die Kette kann sich <b>spalten</b>.</p>
     <div class="fseg" id="fType">
-      <button class="btn ghost" data-t="soft" type="button" aria-pressed="true">🟢 Soft Fork<small>z. B. „Neue Adress-Art, alte Regeln bleiben gültig“</small></button>
-      <button class="btn ghost" data-t="hard" type="button" aria-pressed="false">🔴 Hard Fork<small>z. B. „Blöcke dürfen 8-mal größer sein“</small></button>
+      <button data-i="k38" class="btn ghost" data-t="soft" type="button" aria-pressed="true">🟢 Soft Fork<small>z. B. „Neue Adress-Art, alte Regeln bleiben gültig“</small></button>
+      <button data-i="k39" class="btn ghost" data-t="hard" type="button" aria-pressed="false">🔴 Hard Fork<small>z. B. „Blöcke dürfen 8-mal größer sein“</small></button>
     </div>
-    <div class="row" style="margin-top:12px"><label for="fUp">So viele Nodes und Miner machen mit</label><input id="fUp" type="range" min="0" max="100" step="5" value="60"><b id="fUpV" class="num">60 %</b></div>
+    <div class="row" style="margin-top:12px"><label data-i="k40" for="fUp">So viele Nodes und Miner machen mit</label><input id="fUp" type="range" min="0" max="100" step="5" value="60"><b id="fUpV" class="num">60 %</b></div>
     <div class="fdots" id="fDots" aria-hidden="true"></div>
     <div class="fchains" data-hold id="fChains"></div>
     <div class="fres" data-hold id="fRes" aria-live="polite"></div>
@@ -138,32 +138,33 @@
   </section>
 
   <section class="card" aria-labelledby="hDs">
-    <h2 id="hDs">Wer entwickelt Bitcoin eigentlich?</h2>
+    <h2 data-i="k41" id="hDs">Wer entwickelt Bitcoin eigentlich?</h2>
     <div class="dev">
-      <div><b>👩‍💻 Open Source</b>Der Code ist <b>öffentlich</b>. Jeder kann ihn lesen, prüfen und Verbesserungen vorschlagen. Die bekannteste Software heißt <b>Bitcoin Core</b>, gepflegt von Freiwilligen und gesponserten Entwicklern weltweit.</div>
-      <div><b>📝 Vorschläge (BIPs)</b>Größere Änderungen werden als <b>Bitcoin Improvement Proposal</b> aufgeschrieben und oft jahrelang öffentlich diskutiert und getestet.</div>
-      <div><b>🗳️ Die Nodes entscheiden</b>Entwickler können nichts erzwingen. Erst wenn <b>Nutzer ihre Node aktualisieren</b> und Miner mitziehen, wird eine Änderung zur Regel. Deshalb ist Bitcoin bewusst langsam.</div>
+      <div data-i="k42"><b>👩‍💻 Open Source</b>Der Code ist <b>öffentlich</b>. Jeder kann ihn lesen, prüfen und Verbesserungen vorschlagen. Die bekannteste Software heißt <b>Bitcoin Core</b>, gepflegt von Freiwilligen und gesponserten Entwicklern weltweit.</div>
+      <div data-i="k43"><b>📝 Vorschläge (BIPs)</b>Größere Änderungen werden als <b>Bitcoin Improvement Proposal</b> aufgeschrieben und oft jahrelang öffentlich diskutiert und getestet.</div>
+      <div data-i="k44"><b>🗳️ Die Nodes entscheiden</b>Entwickler können nichts erzwingen. Erst wenn <b>Nutzer ihre Node aktualisieren</b> und Miner mitziehen, wird eine Änderung zur Regel. Deshalb ist Bitcoin bewusst langsam.</div>
     </div>
   </section>
 
   <section class="card" aria-labelledby="h3s">
-    <h2 id="h3s">Das solltest du dir merken</h2>
+    <h2 data-i="k45" id="h3s">Das solltest du dir merken</h2>
     <div class="learn">
-      <div><b>Jeder kann prüfen</b><span>Eine Node läuft auf einem <b>einfachen Computer</b> und lädt die ganze Kette selbst. Vertrauen ist nicht nötig.</span></div>
-      <div><b>Miner schlagen vor</b><span>Miner bauen Blöcke, aber <b>Nodes entscheiden</b>, ob sie gültig sind. Ungültige Blöcke werden einfach ignoriert.</span></div>
-      <div><b>Kein Chef</b><span>Es gibt keine Firma und keinen Server, den man abschalten kann. Regeln ändern sich nur, wenn Nutzer, Firmen und Miner die neue Software <b>breit und freiwillig</b> übernehmen.</span></div>
-      <div><b>Full, Pruned, Light</b><span>Full und Pruned Nodes <b>prüfen alles selbst</b>. Light-Clients sparen Platz, vertrauen dafür aber fremden Servern.</span></div>
+      <div><b data-i="k46">Jeder kann prüfen</b><span data-i="k47">Eine Node läuft auf einem <b>einfachen Computer</b> und lädt die ganze Kette selbst. Vertrauen ist nicht nötig.</span></div>
+      <div><b data-i="k48">Miner schlagen vor</b><span data-i="k49">Miner bauen Blöcke, aber <b>Nodes entscheiden</b>, ob sie gültig sind. Ungültige Blöcke werden einfach ignoriert.</span></div>
+      <div><b data-i="k50">Kein Chef</b><span data-i="k51">Es gibt keine Firma und keinen Server, den man abschalten kann. Regeln ändern sich nur, wenn Nutzer, Firmen und Miner die neue Software <b>breit und freiwillig</b> übernehmen.</span></div>
+      <div><b data-i="k52">Full, Pruned, Light</b><span data-i="k53">Full und Pruned Nodes <b>prüfen alles selbst</b>. Light-Clients sparen Platz, vertrauen dafür aber fremden Servern.</span></div>
     </div>
-    <details class="qz"><summary>Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
+    <details class="qz"><summary data-i="k54">Teste dich: 3 Fragen</summary><div id="quiz"></div></details>
   </section>
 
   
-  <section class="card next" id="next" aria-label="Weiter"></section>
-  <details class="foot"><summary>Quellen</summary><p>Blockhöhe nach den Bitcoin-Regeln geschätzt; echte Nodes zeigen z. B. <a href="https://mempool.space">mempool.space</a> und <a href="https://blockstream.info">blockstream.info</a>. Die Abstimmung ist eine vereinfachte Simulation: Echte Nodes prüfen Hunderte Regeln, etwa Belohnung, Signaturen, Blockgröße und doppelte Ausgaben.</p></details>
-  <p class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
+  <section data-i="k58" class="card next" id="next" aria-label="Weiter"></section>
+  <details class="foot"><summary data-i="k55">Quellen</summary><p data-i="k56">Blockhöhe nach den Bitcoin-Regeln geschätzt; echte Nodes zeigen z. B. <a href="https://mempool.space">mempool.space</a> und <a href="https://blockstream.info">blockstream.info</a>. Die Abstimmung ist eine vereinfachte Simulation: Echte Nodes prüfen Hunderte Regeln, etwa Belohnung, Signaturen, Blockgröße und doppelte Ausgaben.</p></details>
+  <p data-i="k57" class="foot">Lernen und Unterhaltung, keine Anlageberatung.</p>
 </div>
 
-<script src="../lern.js?v=126"></script>
+<script type="application/json" id="i18n">{"k1": "← Voyage", "k2": "📖 Glossary", "k3": "<span class=\"btc\">Node<\/span> Watch", "k4": "Thousands of computers all over the world check every block by the same rules. These are the nodes. They obey nobody, only the rules.", "k5": "Two nodes, one truth <span class=\"mode\" id=\"mode\">Connecting …<\/span>", "k6": "Two independent operators, each with their own node. Do they see the same latest block?", "k7": "mempool.space", "k8": "blockstream.info", "k9": "Your block travels the world", "k10": "Tap a node: a miner finds a block there. Every node <b>checks<\/b> it and passes it on to its neighbours. Watch how fast it goes around the globe.", "k11": "Nodes with the block", "k12": "0 of 0", "k13": "Real time (approx.)", "k14": "⛏ Find a block", "k15": "🦹 Send a forged block", "k16": "In reality, a new block reaches most of the roughly 20,000 reachable nodes within <b>a few seconds<\/b>.", "k17": "Can miners cheat?", "k18": "Choose a block. The dots below are nodes; each one checks it itself.", "k19": "How many miners join the cheating? <span style=\"color:var(--gold)\">orange<\/span> = cheaters", "k20": "Miners in favour", "k21": "Nodes accept", "k22": "And what can miners do after all?", "k23": "With more than half of the computing power (51% attack), miners could <b>block transactions<\/b> or reverse a recent payment of their own. That would be extremely expensive. But they still can't <b>change the rules<\/b>, i.e. create more coins or take other people's coins.", "k24": "🗄️ Full node", "k25": "Downloads and checks the whole blockchain.", "k26": "✂️ Pruned node", "k27": "Also checks everything, but deletes old blocks.", "k28": "📱 Light client", "k29": "Checks only parts and trusts other nodes.", "k30": "Remember: <b>miners propose blocks, nodes check the rules.<\/b>", "k31": "And can nodes cheat?", "k32": "A node is just a computer running the Bitcoin software. What happens if someone modifies their node so it lies?", "k33": "😈 Node 1 credits itself 1,000 BTC", "k34": "↺ Reset", "k35": "Six nodes, each with its own copy of the blockchain. Tap the button.", "k36": "And how do the rules change?", "k37": "There's <b>no vote<\/b>: everyone decides for themselves which software to run. A change can only win if users, companies, exchanges and miners <b>broadly adopt<\/b> it. Developers write proposals and code, but don't decide alone. <b>Soft fork<\/b>: rules get stricter, old nodes stay compatible. <b>Hard fork<\/b>: rules get looser, old nodes reject, the chain can <b>split<\/b>.", "k38": "🟢 Soft fork<small>e.g. “new address type, old rules stay valid”<\/small>", "k39": "🔴 Hard fork<small>e.g. “blocks may be 8 times bigger”<\/small>", "k40": "This many nodes and miners go along", "k41": "Who actually develops Bitcoin?", "k42": "<b>👩‍💻 Open source<\/b>The code is <b>public<\/b>. Anyone can read it, check it and suggest improvements. The best-known software is called <b>Bitcoin Core<\/b>, maintained by volunteers and sponsored developers worldwide.", "k43": "<b>📝 Proposals (BIPs)<\/b>Bigger changes are written up as a <b>Bitcoin Improvement Proposal<\/b> and often discussed and tested in public for years.", "k44": "<b>🗳️ The nodes decide<\/b>Developers can't force anything. Only when <b>users update their node<\/b> and miners follow does a change become a rule. That's why Bitcoin is deliberately slow.", "k45": "Remember this", "k46": "Anyone can check", "k47": "A node runs on a <b>simple computer<\/b> and downloads the whole chain itself. No trust needed.", "k48": "Miners propose", "k49": "Miners build blocks, but <b>nodes decide<\/b> whether they're valid. Invalid blocks are simply ignored.", "k50": "No boss", "k51": "There's no company and no server that can be switched off. Rules only change when users, companies and miners adopt the new software <b>broadly and voluntarily<\/b>.", "k52": "Full, pruned, light", "k53": "Full and pruned nodes <b>check everything themselves<\/b>. Light clients save space, but trust third-party servers in return.", "k54": "Test yourself: 3 questions", "k55": "Sources", "k56": "Block height estimated by the Bitcoin rules; real nodes are shown e.g. by <a href=\"https://mempool.space\">mempool.space<\/a> and <a href=\"https://blockstream.info\">blockstream.info<\/a>. The vote is a simplified simulation: real nodes check hundreds of rules, such as reward, signatures, block size and double spends.", "k57": "Entertainment and learning, not investment advice.", "k58@aria-label": "Next", "_title": "Node Watch · Bitcoin Voyage", "_desc": "Lernwelt: Was Nodes sind, warum niemand die Regeln von Bitcoin allein ändern kann und warum Dezentralität zählt."}</script>
+<script src="../lern.js?v=127"></script>
 <script>
 /* =====================================================================
    NODE-WACHE – Lernwelt von Bitcoin Voyage
@@ -181,20 +182,20 @@ async function tip(base){
 }
 async function compare(){
   // Mit eigener Bitcoin Voyage-Node: unsere Node gegen die erwartete Höhe nach Uhrzeit; sonst zwei öffentliche Explorer
-  if (Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Bitcoin Voyage-Node"; sm[1].previousElementSibling.textContent = "Erwartet nach Uhrzeit"; }
+  if (Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = Lern.t("Bitcoin Voyage-Node", "Bitcoin Voyage node"); sm[1].previousElementSibling.textContent = Lern.t("Erwartet nach Uhrzeit", "Expected by clock time"); }
   // Ohne eigene Quelle: Beispiel mit der geschätzten aktuellen Blockhöhe (kein fremder Dienst)
   const est = Math.round(Lern.height()/1000)*1000, ex = {h: est, x: "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054"};
-  if (!Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = "Node A (Beispiel)"; sm[1].previousElementSibling.textContent = "Node B (Beispiel)"; }
+  if (!Lern.DATA){ const sm = document.querySelectorAll("#aH, #bH"); sm[0].previousElementSibling.textContent = Lern.t("Node A (Beispiel)", "Node A (example)"); sm[1].previousElementSibling.textContent = Lern.t("Node B (Beispiel)", "Node B (example)"); }
   const [a, b] = Lern.DATA ? [await tip(Lern.api("")).catch(() => null), null] : [ex, ex];
-  if (Lern.DATA){ const e = Lern.height(); $("bH").textContent = "ca. Block " + e.toLocaleString("de-DE"); $("bX").textContent = "10 Min. je Block"; }
-  const put = (r, H, X) => { if (r){ $(H).textContent = "Block " + r.h.toLocaleString("de-DE"); $(X).textContent = "Hash …" + r.x.slice(-8); } };
+  if (Lern.DATA){ const e = Lern.height(); $("bH").textContent = Lern.t("ca. Block ", "approx. block ") + e.toLocaleString(Lern.EN ? "en-US" : "de-DE"); $("bX").textContent = Lern.t("10 Min. je Block", "10 min per block"); }
+  const put = (r, H, X) => { if (r){ $(H).textContent = "Block " + r.h.toLocaleString(Lern.EN ? "en-US" : "de-DE"); $(X).textContent = "Hash …" + r.x.slice(-8); } };
   put(a, "aH", "aX"); put(b, "bH", "bX"); if (!a){ $("aH").textContent = "nicht erreichbar"; $("aX").textContent = ""; } if (!b && !Lern.DATA){ $("bH").textContent = "nicht erreichbar"; $("bX").textContent = ""; }
-  const ok = Lern.DATA && (a || b); $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : "Beispielwerte";
+  const ok = Lern.DATA && (a || b); $("mode").className = "mode " + (ok ? "live" : "demo"); $("mode").textContent = ok ? "Live" : Lern.t("Beispielwerte", "Example values");
   const vd = $("vd");
-  if (a && b && a.x === b.x){ vd.className = "verdict ok"; vd.textContent = "✓ Beide sehen exakt denselben Block, ohne sich abzusprechen."; }
-  else if (a && b){ vd.className = "verdict"; vd.textContent = `Gerade unterschiedlich (${Math.abs(a.h - b.h)} Block Abstand): Ein neuer Block verbreitet sich noch. In Sekunden sind sich wieder alle einig.`; }
-  else if (Lern.DATA && a){ vd.className = "verdict ok"; vd.textContent = "✓ Unsere eigene Node hat diesen Block selbst geprüft, ohne irgendwem zu vertrauen."; }
-  else vd.textContent = ok ? "Nur eine Quelle erreichbar." : "";
+  if (a && b && a.x === b.x){ vd.className = "verdict ok"; vd.textContent = Lern.t("✓ Beide sehen exakt denselben Block, ohne sich abzusprechen.", "✓ Both see exactly the same block without talking to each other."); }
+  else if (a && b){ vd.className = "verdict"; vd.textContent = Lern.t(`Gerade unterschiedlich (${Math.abs(a.h - b.h)} Block Abstand): Ein neuer Block verbreitet sich noch. In Sekunden sind sich wieder alle einig.`, `Different right now (${Math.abs(a.h - b.h)} block apart): a new block is still spreading. In seconds everyone agrees again.`); }
+  else if (Lern.DATA && a){ vd.className = "verdict ok"; vd.textContent = Lern.t("✓ Unsere eigene Node hat diesen Block selbst geprüft, ohne irgendwem zu vertrauen.", "✓ Our own node checked this block itself, without trusting anyone."); }
+  else vd.textContent = ok ? Lern.t("Nur eine Quelle erreichbar.", "Only one source reachable.") : "";
 }
 compare(); setInterval(compare, 60000);
 
@@ -202,19 +203,19 @@ compare(); setInterval(compare, 60000);
 {
   const draw = st => { $("nring").innerHTML = Array.from({length: 6}, (_, i) => {
       const bad = i === 0 && st, cls = bad ? (st >= 2 ? "bad off" : "bad") : st >= 2 ? "rej" : "";
-      return `<div class="${cls}"><span>${bad ? "😈" : "🖥️"}</span><b>Node ${i + 1}</b><small>${bad ? (st >= 2 ? "allein" : "+1.000 BTC?") : st >= 2 ? "✗ abgelehnt" : st ? "prüft …" : "✓ gleiche Kette"}</small></div>`; }).join(""); };
+      return Lern.t(`<div class="${cls}"><span>${bad ? "😈" : "🖥️"}</span><b>Node ${i + 1}</b><small>${bad ? (st >= 2 ? "allein" : "+1.000 BTC?") : st >= 2 ? "✗ abgelehnt" : st ? "prüft …" : "✓ gleiche Kette"}</small></div>`, `<div class="${cls}"><span>${bad ? "😈" : "🖥️"}</span><b>Node ${i + 1}</b><small>${bad ? (st >= 2 ? "alone" : "+1,000 BTC?") : st >= 2 ? "✗ rejected" : st ? "checking …" : "✓ same chain"}</small></div>`); }).join(""); };
   let t = 0; draw(0);
-  $("nCheat").onclick = () => { clearTimeout(t); draw(1); $("nN").innerHTML = "Node 1 schickt einen Block, in dem sie sich <b>1.000 BTC aus dem Nichts</b> gutschreibt. Alle anderen Nodes prüfen ihn …";
-    t = setTimeout(() => { draw(2); $("nN").innerHTML = "<b>Abgelehnt!</b> Jede Node prüft selbst nach denselben Regeln: Geld aus dem Nichts ist verboten. Die schummelnde Node wird ignoriert und rechnet ab jetzt <b>allein</b> auf einer Kette, die niemand anerkennt. Ihre „1.000 BTC“ sind wertlos. Darum gilt: Je mehr Menschen selbst eine Node betreiben, desto sicherer ist Bitcoin."; }, 1800); };
-  $("nReset").onclick = () => { clearTimeout(t); draw(0); $("nN").textContent = "Sechs Nodes, jede mit ihrer eigenen Kopie der Blockchain. Tipp auf den Knopf."; };
+  $("nCheat").onclick = () => { clearTimeout(t); draw(1); $("nN").innerHTML = Lern.t("Node 1 schickt einen Block, in dem sie sich <b>1.000 BTC aus dem Nichts</b> gutschreibt. Alle anderen Nodes prüfen ihn …", "Node 1 sends a block in which it credits itself <b>1,000 BTC out of nothing</b>. All other nodes check it …");
+    t = setTimeout(() => { draw(2); $("nN").innerHTML = Lern.t("<b>Abgelehnt!</b> Jede Node prüft selbst nach denselben Regeln: Geld aus dem Nichts ist verboten. Die schummelnde Node wird ignoriert und rechnet ab jetzt <b>allein</b> auf einer Kette, die niemand anerkennt. Ihre „1.000 BTC“ sind wertlos. Darum gilt: Je mehr Menschen selbst eine Node betreiben, desto sicherer ist Bitcoin.", "<b>Rejected!</b> Every node checks for itself by the same rules: money out of nothing is forbidden. The cheating node is ignored and from now on computes <b>alone</b> on a chain nobody recognises. Its “1,000 BTC” are worthless. That's why: the more people run a node themselves, the more secure Bitcoin is."); }, 1800); };
+  $("nReset").onclick = () => { clearTimeout(t); draw(0); $("nN").textContent = Lern.t("Sechs Nodes, jede mit ihrer eigenen Kopie der Blockchain. Tipp auf den Knopf.", "Six nodes, each with its own copy of the blockchain. Tap the button."); };
 }
 // ---------- 2) Können Miner schummeln? ----------
 // [Knopf, was im Block steht, gültig?, Erklärung]
 const CASES = [
-  ["✅ Ehrlicher Block", "Belohnung und Gebühren genau nach Regel", true, "Alles korrekt: Jede Node nimmt den Block an."],
-  ["💰 100 BTC Belohnung", "Miner schreibt sich 100 BTC gut (erlaubt: 3,125 + Gebühren)", false, "Jede Node rechnet die Belohnung nach. Zu viel? Block weg."],
-  ["🔓 Fremde Coins", "Miner nimmt Coins von dir, ohne deine Signatur", false, "Ohne deinen Schlüssel kann niemand deine Coins bewegen. Block weg."],
-  ["🖨 22 Mio. Bitcoin", "Neue Regel: mehr als 21 Mio. Bitcoin", false, "Die Grenze steht in jeder Node. Mehr Coins? Block weg."],
+  [Lern.t("✅ Ehrlicher Block", "✅ Honest block"), Lern.t("Belohnung und Gebühren genau nach Regel", "Reward and fees exactly by the rules"), true, Lern.t("Alles korrekt: Jede Node nimmt den Block an.", "All correct: every node accepts the block.")],
+  [Lern.t("💰 100 BTC Belohnung", "💰 100 BTC reward"), Lern.t("Miner schreibt sich 100 BTC gut (erlaubt: 3,125 + Gebühren)", "Miner credits itself 100 BTC (allowed: 3.125 + fees)"), false, Lern.t("Jede Node rechnet die Belohnung nach. Zu viel? Block weg.", "Every node recalculates the reward. Too much? Block gone.")],
+  [Lern.t("🔓 Fremde Coins", "🔓 Other people's coins"), Lern.t("Miner nimmt Coins von dir, ohne deine Signatur", "Miner takes coins from you without your signature"), false, Lern.t("Ohne deinen Schlüssel kann niemand deine Coins bewegen. Block weg.", "Without your key nobody can move your coins. Block gone.")],
+  [Lern.t("🖨 22 Mio. Bitcoin", "🖨 22 million bitcoin"), Lern.t("Neue Regel: mehr als 21 Mio. Bitcoin", "New rule: more than 21 million bitcoin"), false, Lern.t("Die Grenze steht in jeder Node. Mehr Coins? Block weg.", "The limit is in every node. More coins? Block gone.")],
 ];
 const N = 20, nodes = $("nodes"); let pick = 1, timer = 0;
 for (let i = 0; i < 10; i++){ const m = document.createElement("span"); m.textContent = "⛏"; $("miners").appendChild(m); }
@@ -235,8 +236,8 @@ function run(){
     dots[i].className = ok ? "y" : "n"; dots[i].textContent = ok ? "✓" : "✗";
     if (++i >= N){ clearInterval(timer);
       $("bN").style.width = ok ? "100%" : "0"; $("vN").textContent = ok ? "100 %" : "0 %";
-      $("res").innerHTML = ok ? `<b class="ok">Angenommen.</b> ${c[3]}`
-        : `<b class="bad">Abgelehnt, egal wie viele Miner ihn wollen.</b> ${c[3]} Die Miner haben umsonst Strom verbraucht. <span class="muted">Merke: Nodes stimmen nicht ab, sie prüfen.</span>`;
+      $("res").innerHTML = ok ? Lern.t(`<b class="ok">Angenommen.</b> ${c[3]}`, `<b class="ok">Accepted.</b> ${c[3]}`)
+        : Lern.t(`<b class="bad">Abgelehnt, egal wie viele Miner ihn wollen.</b> ${c[3]} Die Miner haben umsonst Strom verbraucht. <span class="muted">Merke: Nodes stimmen nicht ab, sie prüfen.</span>`, `<b class="bad">Rejected, no matter how many miners want it.</b> ${c[3]} The miners wasted electricity for nothing. <span class="muted">Remember: nodes don't vote, they check.</span>`);
     }
   }, 50);
 }
@@ -247,8 +248,8 @@ function miners(){
   $("mpV").textContent = mp + " %"; $("bM").style.width = (ok ? 100 : mp) + "%"; $("vM").textContent = (ok ? 100 : mp) + " %";
   if (ok){ $("cons").innerHTML = ""; return; }
   const t = honest > 0 ? 10*100/honest : Infinity, lost = 144*mp/100*3.125;
-  $("cons").innerHTML = `<div><small>Gültige Blöcke kommen jetzt alle</small><b class="num">${isFinite(t) ? Math.round(t).toLocaleString("de-DE") + " Min." : "gar nicht"}</b></div><div><small>Schummler verlieren pro Tag ca.</small><b class="num bad">${Math.round(lost).toLocaleString("de-DE")} BTC</b></div>`
-    + `<p class="muted" style="grid-column:1/-1;margin:0;font-size:13px">${honest > 0 ? `Nur die ${honest} % ehrlichen Miner bauen weiter an der echten Kette. Sie wird langsamer, bis sich die Schwierigkeit anpasst, aber sie bleibt gültig.` : "Ohne ehrliche Miner steht die echte Kette still. Die Schummel-Kette nimmt trotzdem keine Node an, also verdienen die Miner nichts, bis sie aufgeben."}</p>`;
+  $("cons").innerHTML = Lern.t(`<div><small>Gültige Blöcke kommen jetzt alle</small><b class="num">${isFinite(t) ? Math.round(t).toLocaleString(Lern.EN ? "en-US" : "de-DE") + " Min." : "gar nicht"}</b></div><div><small>Schummler verlieren pro Tag ca.</small><b class="num bad">${Math.round(lost).toLocaleString(Lern.EN ? "en-US" : "de-DE")} BTC</b></div>`, `<div><small>Valid blocks now come every</small><b class="num">${isFinite(t) ? Math.round(t).toLocaleString(Lern.EN ? "en-US" : "de-DE") + " min" : "never"}</b></div><div><small>Cheaters lose per day approx.</small><b class="num bad">${Math.round(lost).toLocaleString(Lern.EN ? "en-US" : "de-DE")} BTC</b></div>`)
+    + `<p class="muted" style="grid-column:1/-1;margin:0;font-size:13px">${honest > 0 ? Lern.t(`Nur die ${honest} % ehrlichen Miner bauen weiter an der echten Kette. Sie wird langsamer, bis sich die Schwierigkeit anpasst, aber sie bleibt gültig.`, `Only the ${honest} % honest miners keep building on the real chain. It gets slower until the difficulty adjusts, but it stays valid.`) : Lern.t("Ohne ehrliche Miner steht die echte Kette still. Die Schummel-Kette nimmt trotzdem keine Node an, also verdienen die Miner nichts, bis sie aufgeben.", "Without honest miners the real chain stands still. Still, no node accepts the cheat chain, so the miners earn nothing until they give up.")}</p>`;
 }
 $("mp").addEventListener("input", miners);
 run();
@@ -262,17 +263,17 @@ run();
     const up = +$("fUp").value, old = 100 - up, base = ["o", "o", "o"], nN = ["n", "n", "n"], nO = ["o", "o", "o"];
     $("fUpV").textContent = up + " %"; [...$("fDots").children].forEach((d, i) => d.className = i < Math.round(up/5) ? "u" : "");
     let h, c, t;
-    if (up === 0){ h = chain("Alle", base.concat(nO)); c = ""; t = "<strong>Nichts passiert</strong>Niemand nutzt die neuen Regeln."; }
-    else if (type === "soft" && up >= 50){ h = chain("Alle zusammen", base.concat(nN)); c = "ok"; t = `<strong>✓ Eine Kette, kein Streit</strong>Die neuen Blöcke sind strenger, sehen für die ${old} % alten Nodes aber trotzdem gültig aus.${up < 90 ? " In echt wartet man trotzdem auf etwa 90 % Zustimmung." : ""}`; }
-    else if (type === "soft"){ h = chain("Neue Regeln", base.concat(["n", "x", "n"])) + chain("Alte Mehrheit", base.concat(nO)); c = "warn"; t = `<strong>⚠️ Riskant</strong>Nur ${up} % machen mit. Die alte Mehrheit baut weiter Blöcke, die die neuen Regeln brechen. Darum startet man erst bei breiter Zustimmung.`; }
-    else if (up === 100){ h = chain("Alle", base.concat(nN)); c = "ok"; t = "<strong>✓ Alle haben gewechselt</strong>Nur wenn wirklich jede Node mitmacht, bleibt es eine Kette. Bei Bitcoin fast unmöglich."; }
-    else { h = chain(`Neu (${up} %)`, base.concat(nN)) + chain(`Alt (${old} %)`, base.concat(nO)); c = "bad"; t = "<strong>✗ Spaltung: zwei Coins</strong>Die alten Nodes lehnen die größeren Blöcke ab. Ab Block 4 gibt es zwei Ketten mit gemeinsamer Vergangenheit, wer Bitcoin hatte, hat jetzt beide Coins. So entstand 2017 Bitcoin Cash."; }
+    if (up === 0){ h = chain(Lern.t("Alle", "All"), base.concat(nO)); c = ""; t = Lern.t("<strong>Nichts passiert</strong>Niemand nutzt die neuen Regeln.", "<strong>Nothing happens</strong>Nobody uses the new rules."); }
+    else if (type === "soft" && up >= 50){ h = chain(Lern.t("Alle zusammen", "All together"), base.concat(nN)); c = "ok"; t = Lern.t(`<strong>✓ Eine Kette, kein Streit</strong>Die neuen Blöcke sind strenger, sehen für die ${old} % alten Nodes aber trotzdem gültig aus.${up < 90 ? " In echt wartet man trotzdem auf etwa 90 % Zustimmung." : ""}`, `<strong>✓ One chain, no dispute</strong>The new blocks are stricter, but still look valid to the ${old} % old nodes.${up < 90 ? " In reality people still wait for about 90 % approval." : ""}`); }
+    else if (type === "soft"){ h = chain(Lern.t("Neue Regeln", "New rules"), base.concat(["n", "x", "n"])) + chain(Lern.t("Alte Mehrheit", "Old majority"), base.concat(nO)); c = "warn"; t = Lern.t(`<strong>⚠️ Riskant</strong>Nur ${up} % machen mit. Die alte Mehrheit baut weiter Blöcke, die die neuen Regeln brechen. Darum startet man erst bei breiter Zustimmung.`, `<strong>⚠️ Risky</strong>Only ${up} % go along. The old majority keeps building blocks that break the new rules. That's why changes only start with broad approval.`); }
+    else if (up === 100){ h = chain(Lern.t("Alle", "All"), base.concat(nN)); c = "ok"; t = Lern.t("<strong>✓ Alle haben gewechselt</strong>Nur wenn wirklich jede Node mitmacht, bleibt es eine Kette. Bei Bitcoin fast unmöglich.", "<strong>✓ Everyone switched</strong>Only if really every node goes along does it stay one chain. Almost impossible with Bitcoin."); }
+    else { h = chain(Lern.t(`Neu (${up} %)`, `New (${up} %)`), base.concat(nN)) + chain(Lern.t(`Alt (${old} %)`, `Old (${old} %)`), base.concat(nO)); c = "bad"; t = Lern.t("<strong>✗ Spaltung: zwei Coins</strong>Die alten Nodes lehnen die größeren Blöcke ab. Ab Block 4 gibt es zwei Ketten mit gemeinsamer Vergangenheit, wer Bitcoin hatte, hat jetzt beide Coins. So entstand 2017 Bitcoin Cash.", "<strong>✗ Split: two coins</strong>The old nodes reject the bigger blocks. From block 4 on there are two chains with a shared past; whoever had bitcoin now has both coins. That's how Bitcoin Cash came about in 2017."); }
     $("fChains").innerHTML = h; $("fRes").className = "fres " + c; $("fRes").innerHTML = t;
   };
   $("fType").onclick = e => { const b = e.target.closest("button"); if (!b) return; type = b.dataset.t; [...$("fType").children].forEach(x => x.setAttribute("aria-pressed", x === b)); run(); };
   $("fUp").addEventListener("input", run); run();
-  const EV = [["2017", 478558, "Bitcoin Cash spaltet sich ab", "Hard Fork"], ["2017", 481824, "SegWit wird aktiv", "Soft Fork"], ["2021", 709632, "Taproot wird aktiv", "Soft Fork"]];
-  const tl = h => { $("fTl").innerHTML = EV.map(([y, blk, t, k]) => `<li><b>${y}: ${t}</b> (${k}), Block ${blk.toLocaleString("de-DE")}${h ? `, <em>vor ${(h - blk).toLocaleString("de-DE")} Blöcken</em>` : ""}</li>`).join(""); };
+  const EV = [["2017", 478558, Lern.t("Bitcoin Cash spaltet sich ab", "Bitcoin Cash splits off"), "Hard Fork"], ["2017", 481824, Lern.t("SegWit wird aktiv", "SegWit activates"), "Soft Fork"], ["2021", 709632, Lern.t("Taproot wird aktiv", "Taproot activates"), "Soft Fork"]];
+  const tl = h => { $("fTl").innerHTML = EV.map(([y, blk, t, k]) => `<li><b>${y}: ${t}</b> (${k}), Block ${blk.toLocaleString(Lern.EN ? "en-US" : "de-DE")}${h ? Lern.t(`, <em>vor ${(h - blk).toLocaleString(Lern.EN ? "en-US" : "de-DE")} Blöcken</em>`, `, <em>${(h - blk).toLocaleString(Lern.EN ? "en-US" : "de-DE")} blocks ago</em>`) : ""}</li>`).join(""); };
   tl(0); fetch(Lern.api("blocks/tip/height")).then(r => r.text()).then(t => { if (+t > 709632) tl(+t); }).catch(() => tl(Lern.height()));
 }
 
@@ -292,9 +293,9 @@ run();
   const nb = N.map(() => []); [...E.values()].forEach(([a, b]) => { nb[a].push(b); nb[b].push(a); });
   W.innerHTML = `<svg viewBox="30 20 900 420" role="img" aria-label="Weltkarte mit Nodes">${LAND.map(p => `<path class="land" d="${p}"/>`).join("")}<g id="wL">${[...E.values()].map(([a, b]) => `<line class="ln" data-k="${a}-${b}" x1="${N[a][0]}" y1="${N[a][1]}" x2="${N[b][0]}" y2="${N[b][1]}"/>`).join("")}</g><g id="wR"></g><g>${N.map(([x, y], i) => `<circle class="nd" data-i="${i}" cx="${x}" cy="${y}" r="13"/>`).join("")}</g></svg>`;
   const C = [...W.querySelectorAll(".nd")], Ls = new Map([...W.querySelectorAll(".ln")].map(l => [l.dataset.k, l]));
-  $("wN").textContent = `0 von ${N.length}`;
+  $("wN").textContent = Lern.t(`0 von ${N.length}`, `0 of ${N.length}`);
   let timers = [], t0 = 0, raf = 0, got = 0;
-  const reset = () => { timers.forEach(clearTimeout); timers = []; cancelAnimationFrame(raf); got = 0; C.forEach(c => c.setAttribute("class", "nd")); Ls.forEach(l => { l.setAttribute("class", "ln"); l.style.cssText = ""; }); $("wR").innerHTML = ""; $("wN").textContent = `0 von ${N.length}`; $("wT").textContent = "–"; };
+  const reset = () => { timers.forEach(clearTimeout); timers = []; cancelAnimationFrame(raf); got = 0; C.forEach(c => c.setAttribute("class", "nd")); Ls.forEach(l => { l.setAttribute("class", "ln"); l.style.cssText = ""; }); $("wR").innerHTML = ""; $("wN").textContent = Lern.t(`0 von ${N.length}`, `0 of ${N.length}`); $("wT").textContent = "–"; };
   const ring = (i, bad) => { $("wR").insertAdjacentHTML("beforeend", `<circle class="rg${bad ? " bad" : ""}" cx="${N[i][0]}" cy="${N[i][1]}" r="14"/>`); const r = $("wR").lastElementChild; setTimeout(() => r.remove(), 950); };
   const SLOW = matchMedia("(prefers-reduced-motion: reduce)").matches ? .15 : 1, PX = 4.2*SLOW, HOP = 260*SLOW;   // ms pro Pixel Weg, ms Prüfzeit je Node
   function run(src, bad){
@@ -302,18 +303,18 @@ run();
     // kürzeste Ankunftszeiten (Dijkstra); bei Fälschung lehnen die Nachbarn ab und geben nichts weiter
     while (Q.length){ Q.sort((a, b) => T[a] - T[b]); const u = Q.shift(); if (done.has(u)) continue; done.add(u); if (bad && u !== src) continue;
       nb[u].forEach(v => { const t = T[u] + HOP + d(u, v)*PX*(0.85 + Math.random()*.3); if (t < T[v]){ T[v] = t; Q.push(v); } }); }
-    C[src].setAttribute("class", "nd src"); ring(src, false); got = bad ? 0 : 1; $("wN").textContent = `${got} von ${N.length}`; Lern.sfx("click");
+    C[src].setAttribute("class", "nd src"); ring(src, false); got = bad ? 0 : 1; $("wN").textContent = Lern.t(`${got} von ${N.length}`, `${got} of ${N.length}`); Lern.sfx("click");
     N.forEach((_, v) => { if (v === src || !isFinite(T[v])) return;
       const from = nb[v].filter(u => (u === src || !bad) && isFinite(T[u]) && T[u] < T[v]).sort((a, b) => T[a] - T[b])[0], k = from < v ? from + "-" + v : v + "-" + from, l = Ls.get(k);
       const start = T[v] - d(from, v)*PX;
       timers.push(setTimeout(() => { if (!l) return; l.style.setProperty("--l", Math.ceil(d(from, v))); l.style.setProperty("--d", Math.max(60, T[v] - start - HOP) + "ms");
         if (from > v){ l.setAttribute("x1", N[from][0]); l.setAttribute("y1", N[from][1]); l.setAttribute("x2", N[v][0]); l.setAttribute("y2", N[v][1]); }
         l.setAttribute("class", "ln " + (bad ? "bad" : "hot")); }, Math.max(0, start - HOP)));
-      timers.push(setTimeout(() => { C[v].setAttribute("class", "nd " + (bad ? "rej" : "got")); ring(v, bad); if (!bad){ got++; $("wN").textContent = `${got} von ${N.length}`; } }, T[v]));
+      timers.push(setTimeout(() => { C[v].setAttribute("class", "nd " + (bad ? "rej" : "got")); ring(v, bad); if (!bad){ got++; $("wN").textContent = Lern.t(`${got} von ${N.length}`, `${got} of ${N.length}`); } }, T[v]));
     });
     const end = Math.max(...T.filter(isFinite));
-    const tick = () => { const e = performance.now() - t0; $("wT").textContent = (Math.min(e, end)/end*(bad ? .3 : 2.2)).toLocaleString("de-DE", {minimumFractionDigits: 1, maximumFractionDigits: 1}) + " Sek."; if (e < end) raf = requestAnimationFrame(tick); else fin(); };
-    const fin = () => { $("wMsg").innerHTML = bad ? "🛡️ <b>Abgelehnt!</b> Die direkten Nachbarn prüfen den Block, finden den Fehler und geben ihn <b>nicht weiter</b>. Eine Fälschung kommt nicht weit." : "✓ <b>Alle haben ihn!</b> Jede Node hat den Block selbst geprüft, bevor sie ihn weitergab. In echt dauert das nur wenige Sekunden."; Lern.sfx(bad ? "no" : "ok"); };
+    const tick = () => { const e = performance.now() - t0; $("wT").textContent = (Math.min(e, end)/end*(bad ? .3 : 2.2)).toLocaleString(Lern.EN ? "en-US" : "de-DE", {minimumFractionDigits: 1, maximumFractionDigits: 1}) + Lern.t(" Sek.", " sec"); if (e < end) raf = requestAnimationFrame(tick); else fin(); };
+    const fin = () => { $("wMsg").innerHTML = bad ? Lern.t("🛡️ <b>Abgelehnt!</b> Die direkten Nachbarn prüfen den Block, finden den Fehler und geben ihn <b>nicht weiter</b>. Eine Fälschung kommt nicht weit.", "🛡️ <b>Rejected!</b> The direct neighbours check the block, find the error and <b>don't pass it on</b>. A forgery doesn't get far.") : Lern.t("✓ <b>Alle haben ihn!</b> Jede Node hat den Block selbst geprüft, bevor sie ihn weitergab. In echt dauert das nur wenige Sekunden.", "✓ <b>Everyone has it!</b> Every node checked the block itself before passing it on. In reality this takes only a few seconds."); Lern.sfx(bad ? "no" : "ok"); };
     raf = requestAnimationFrame(tick);
   }
   W.addEventListener("click", e => { const c = e.target.closest(".nd"); if (c) run(+c.dataset.i, false); });
@@ -322,9 +323,9 @@ run();
 })();
 
 const QUIZ = [
-  ["Wer entscheidet, ob ein Block gültig ist?", ["Der größte Miner im Netzwerk", "Jede Node selbst, nach den Regeln", "Eine Bitcoin-Stiftung"], 1, "Jede Node prüft jeden Block eigenständig. Ungültige Blöcke werden ignoriert, egal von wem sie kommen."],
-  ["90 % der Miner wollen 22 Millionen Bitcoin. Was passiert?", ["Es gibt dann 22 Millionen", "Die Nodes lehnen ihre Blöcke ab", "Bitcoin wird abgeschaltet"], 1, "Die Nodes halten an den Regeln fest. Die Miner würden wertlose Blöcke bauen, die niemand annimmt."],
-  ["Warum ist es gut, dass jeder eine Node betreiben kann?", ["Man muss niemandem vertrauen", "Man bekommt Bitcoin dafür", "Es macht Überweisungen schneller"], 0, "Mit eigener Node prüfst du selbst, statt einer Firma zu glauben. Bezahlt wird man dafür nicht."],
+  [Lern.t("Wer entscheidet, ob ein Block gültig ist?", "Who decides whether a block is valid?"), [Lern.t("Der größte Miner im Netzwerk", "The biggest miner in the network"), Lern.t("Jede Node selbst, nach den Regeln", "Every node itself, by the rules"), Lern.t("Eine Bitcoin-Stiftung", "A Bitcoin foundation")], 1, Lern.t("Jede Node prüft jeden Block eigenständig. Ungültige Blöcke werden ignoriert, egal von wem sie kommen.", "Every node checks every block independently. Invalid blocks are ignored, no matter who they come from.")],
+  [Lern.t("90 % der Miner wollen 22 Millionen Bitcoin. Was passiert?", "90 % of miners want 22 million bitcoin. What happens?"), [Lern.t("Es gibt dann 22 Millionen", "Then there are 22 million"), Lern.t("Die Nodes lehnen ihre Blöcke ab", "The nodes reject their blocks"), Lern.t("Bitcoin wird abgeschaltet", "Bitcoin is switched off")], 1, Lern.t("Die Nodes halten an den Regeln fest. Die Miner würden wertlose Blöcke bauen, die niemand annimmt.", "The nodes stick to the rules. The miners would build worthless blocks that nobody accepts.")],
+  [Lern.t("Warum ist es gut, dass jeder eine Node betreiben kann?", "Why is it good that anyone can run a node?"), [Lern.t("Man muss niemandem vertrauen", "You don't have to trust anyone"), Lern.t("Man bekommt Bitcoin dafür", "You get bitcoin for it"), Lern.t("Es macht Überweisungen schneller", "It makes transfers faster")], 0, Lern.t("Mit eigener Node prüfst du selbst, statt einer Firma zu glauben. Bezahlt wird man dafür nicht.", "With your own node you check for yourself instead of believing a company. You don't get paid for it.")],
 ];
 Lern.quiz($("quiz"), "nodes", QUIZ, "../"); Lern.visit("nodes"); Lern.renderNext("nodes", "../");
 })();
