@@ -1098,7 +1098,7 @@ addEventListener("DOMContentLoaded", () => {
     const kurz = el.dataset.spende === "kurz";
     el.classList.add("card", "spende");
     el.innerHTML = `<h2>${kurz ? "⚡ Hat dir die Reise gefallen?" : "⚡ Unterstütze Bitcoin Voyage"}</h2>
-<p>${kurz ? "Bitcoin Voyage ist kostenlos und ohne Werbung. Wenn du magst, schick Planki ein paar Sats." : "Bitcoin Voyage ist kostenlos, ohne Werbung und ohne Tracking. Wenn dir die Lernwelt hilft, kannst du sie freiwillig mit ein paar Sats per Lightning unterstützen. Jeder Betrag hilft."}</p>
+<p>${kurz ? "Bitcoin Voyage ist kostenlos und ohne Werbebanner. Wenn du magst, schick Planki ein paar Sats." : "Bitcoin Voyage ist kostenlos, ohne Werbebanner und ohne Tracking. Wenn dir die Lernwelt hilft, kannst du sie freiwillig mit ein paar Sats per Lightning unterstützen. Jeder Betrag hilft."}</p>
 <div class="spbox"><a class="spqr" href="lightning:${LNURL}" aria-label="In Lightning-Wallet öffnen">${svg}</a>
 <div class="spinfo">${ADDR ? `<code>${ADDR}</code>` : ""}<div class="row sprow"><button class="btn" type="button">${ADDR ? "Adresse kopieren" : "Code kopieren"}</button><a class="btn ghost" href="lightning:${LNURL}">Wallet öffnen</a></div>
 <p class="spfx" aria-live="polite"></p><p class="muted">Code mit einer Lightning-Wallet scannen. Lightning wartet nicht auf den Bus: Die Sats kommen in Sekunden an.</p></div></div>`;
