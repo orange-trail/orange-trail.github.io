@@ -234,7 +234,7 @@ html.noscroll{overflow:hidden}
   <p class="foot">Unterhaltung und Lernen, keine Anlageberatung. Keine Cookies, kein Tracking. <a href="#" id="guideOn" style="color:inherit">Planki ausblenden</a> · <a href="#" id="introOn" style="color:inherit">Kurzfilm ansehen</a> · <a href="#" id="calmOn" style="color:inherit">Weniger Bewegung</a><br><a href="ueber/" style="color:inherit">Über Bitcoin Voyage</a> · <a href="datenschutz/" style="color:inherit">Datenschutz</a> · <a href="impressum/" style="color:inherit">Impressum</a> · <a href="ueber/#spenden" style="color:inherit">⚡ Unterstützen</a> · <a href="#" id="rstOn" style="color:inherit">Fortschritt zurücksetzen</a></p>
   <div class="card" id="rstBox" hidden><h2 style="margin:0 0 4px">🗑️ Fortschritt zurücksetzen?</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Alle geschafften Level, Sterne, Bosse, Titel, die Serie und die Wiederholungsfragen werden auf diesem Gerät gelöscht. Auch Einstellungen wie Ton werden zurückgesetzt, die Seite startet wie beim ersten Besuch. Tipp: Vorher unter „Fortschritt mitnehmen“ einen Code sichern.</p><div class="acts" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="button" id="rstYes" style="background:linear-gradient(180deg,#ff7a8c,#e0405a);color:#fff">Ja, alles löschen</button><button class="btn ghost" type="button" id="rstNo">Abbrechen</button></div></div>
 </div>
-<script src="lern.js?v=122"></script>
+<script src="lern.js?v=123"></script>
 <script>
 // Lernpfad: Fortschritt aus dem eigenen Browser, Häkchen an den Karten, Empfehlung als Nächstes
 (() => {
@@ -346,7 +346,7 @@ html.noscroll{overflow:hidden}
     const first = Lern.TITLES[Lern.PATH[0][0] || Lern.PATH[0]], ev = ["plankton", "fish", "dolphin", "whale"];
     const end = go => { try { localStorage.setItem("satsland-intro", "1"); } catch(e){} o.remove(); if (go){ const pc = document.querySelector(".card.path"); if (pc){ pc.scrollIntoView({behavior: "smooth", block: "start"}); pc.classList.add("hl"); setTimeout(() => pc.classList.remove("hl"), 2600); } } };
     o.innerHTML = `<div class="ibox iwel"><button type="button" class="isk">Später</button>
-      <div class="iev">${ev.map((a, k) => `<span style="--d:${k * .18}s">${Lern.art(a)}</span>${k < 3 ? '<i style="--d:' + (k * .18 + .09) + 's">›</i>' : ""}`).join("")}</div>
+      <div class="iev">${ev.map((a, k) => `<span style="--d:${k * .18}s">${Lern.art("pk_" + a)}</span>${k < 3 ? '<i style="--d:' + (k * .18 + .09) + 's">›</i>' : ""}`).join("")}</div>
       <h2>Bitcoin verstehen.<br><span>Level für Level.</span></h2>
       <p>Mit jedem Level wächst dein Rang: Du startest als <b>Plankton</b> und wirst zum <b>Buckelwal</b>. Hier wächst du durch Wissen, nicht durch Geld. ${Lern.PATH.length} kurze Level in 6 Welten, jede Welt endet mit einem Boss.</p>
       <ol class="istep"><li><b>🎛️</b>Ausprobieren</li><li><b>💡</b>Verstehen</li><li><b>✅</b>Quizfragen</li></ol>
